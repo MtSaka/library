@@ -10,6 +10,13 @@
 #define rall(n) n.rbegin(),n.rend()
 #define rep(i, s, n) for (ll i = s; i < (ll)(n); i++)
 #define pb push_back
+#define eb emplace_back
+#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)
+#define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)
+#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)
+#define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)
+#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)
+#define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)
 using namespace std;
 using vl=vector<ll>;
 using vi=vector<int>;
@@ -49,6 +56,24 @@ template<typename T>
 istream &operator>>(istream&is,vector<T>&v) {
   for(T &in:v)is>>in;
   return is;
+}
+void scan(){}
+template<class Head,class... Tail>
+void scan(Head&head,Tail&... tail) {
+    cin>>head;
+    scan(tail...);
+}
+template<class T>
+void print(const T &t) { cout << t << '\n'; }
+template<class Head, class... Tail>
+void print(const Head &head, const Tail &... tail) {
+    cout << head << ' ';
+    print(tail...);
+}
+template<class... T>
+void fin(const T &... a) {
+    print(a...);
+    exit(0);
 }
 template<typename T1,typename T2>
 inline bool chmax(T1&a,T2 b){return a<b&&(a=b,true);}
