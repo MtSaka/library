@@ -1,7 +1,7 @@
 //GIVE ME AC!!!!!!!!!!!!!!!!!
-#pragma GCC target("avx")
-#pragma GCC optimize("O3")
-#pragma GCC optimize("unroll-loops")
+//#pragma GCC target("avx")
+//#pragma GCC optimize("O3")
+//#pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
 #define ll long long
 #define ld long double
