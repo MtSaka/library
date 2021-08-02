@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 template<class S,S (*op)(S,S),S (*e)()>
 struct segtree{
   private:
@@ -9,7 +7,7 @@ struct segtree{
   public:
   segtree():segtree(0){};
   explicit segtree(int n):segtree(vector<S>(n,e())){}
-  explicit segtree(const vector<S>&v):_n(v.size()){
+  explicit segtree(const vector<S>&v):_n(int(v.size())){
     while((1<<idx)<_n)idx++;
     size=1<<idx;
     seq=vector<S>(2*size,e());
@@ -28,10 +26,13 @@ struct segtree{
     r+=size;
     while(l<r){
       if(l&1)sml=op(sml,seq[l++]);
-      if(r&1)smr=op(smr,seq[--r]);
+      if(r&1)smr=op(seq[--r],smr);
       l>>=1;
       r>>=1;
     }
     return op(sml,smr);
+  }
+  S all_query()const{
+    return seq[1];
   }
 };
