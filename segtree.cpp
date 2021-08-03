@@ -19,7 +19,7 @@ struct segtree{
     seq[p]=x;
     for(int i=1;i<=idx;i++)update(p>>i);
   }
-  S get(int p)const{return seq[p+size];}
+  S operator[](int p){return seq[p+size];}
   S query(int l,int r)const{
     S sml=e(),smr=e();
     l+=size;
