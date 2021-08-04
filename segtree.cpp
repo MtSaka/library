@@ -6,8 +6,8 @@ struct segtree{
   void update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}
   public:
   segtree():segtree(0){};
-  explicit segtree(int n):segtree(vector<S>(n,e())){}
-  explicit segtree(const vector<S>&v):_n(int(v.size())){
+  segtree(int n):segtree(vector<S>(n,e())){}
+  segtree(const vector<S>&v):_n(int(v.size())){
     while((1<<idx)<_n)idx++;
     size=1<<idx;
     seq=vector<S>(2*size,e());
