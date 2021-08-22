@@ -11,6 +11,8 @@
 #define rep(i, s, n) for (ll i = s; i < (ll)(n); i++)
 #define pb push_back
 #define eb emplace_back
+#define max_(a) *max_element(all(a))
+#define min_(a) *min_element(all(a))
 #define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)
 #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)
 #define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)
@@ -28,10 +30,9 @@ using vvc=vector<vc>;
 using vd=vector<double>;
 using vp=vector<P>;
 using vb=vector<bool>;
-using P=pair<ll,ll>;
 const int dx[8]={1,0,-1,0,1,-1,-1,1};
 const int dy[8]={0,1,0,-1,1,1,-1,-1};
-const ll inf =1e18;
+const ll inf=2e18;
 const ll MOD=1000000007;
 const ll mod=998244353;
 const double pi=acos(-1);
@@ -60,20 +61,26 @@ istream &operator>>(istream&is,vector<T>&v) {
 void scan(){}
 template<class Head,class... Tail>
 void scan(Head&head,Tail&... tail) {
-    cin>>head;
-    scan(tail...);
+  cin>>head;
+  scan(tail...);
 }
 template<class T>
 void print(const T &t) { cout << t << '\n'; }
 template<class Head, class... Tail>
 void print(const Head &head, const Tail &... tail) {
-    cout << head << ' ';
-    print(tail...);
+  cout << head << ' ';
+  print(tail...);
 }
 template<class... T>
 void fin(const T &... a) {
-    print(a...);
-    exit(0);
+  print(a...);
+  exit(0);
+}
+template<typename T>
+ll sum_(vector<T>&v){
+  ll res=0;
+  for(auto &e:v)res+=e;
+  return res;
 }
 template<typename T1,typename T2>
 inline bool chmax(T1&a,T2 b){return a<b&&(a=b,true);}
