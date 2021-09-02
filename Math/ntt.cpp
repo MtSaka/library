@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include<../../code/library/Math/modint.cpp>
+#include"../../code/library/Math/modint.cpp"
 using namespace std;
 template<long long m>
 struct NTT{
@@ -10,9 +10,7 @@ struct NTT{
   NTT(){
     while(g.pow((m-1)>>1)==1)g+=1;
     long long now=m-1;
-    while(!(now&1)){
-      now>>=1,limit++;
-    }
+    while(!(now&1))now>>=1,limit++;
     root.resize(limit+1,1),inv_root.resize(limit+1,1);
     root[limit]=g.pow(now);
     inv_root[limit]/=root[limit];
@@ -33,7 +31,7 @@ struct NTT{
     dft(x,inv);
     dft(y,inv);
     int e=__builtin_ffsll(sz)-1;
-    mint n=1,z=(t==1?root[e],inv_root[e]);
+    mint n=1,z=(inv==1?root[e]:inv_root[e]);
     for(int i=0;i<sz;i++){
       a[i]=x[i%(sz/2)]+n*y[i%(sz/2)];
       n*=z;
@@ -43,9 +41,9 @@ struct NTT{
     int cnt=0,sz=1,mxsiz=a.size()+b.size()-1;
     while(sz<mxsiz)sz<<=1,cnt++;
     a.resize(sz),b.resize(sz);
-    dft(a,1,cnt,limit),dft(b,1,cnt,limit);
+    dft(a,1),dft(b,1);
     for(int i=0;i<sz;i++)a[i]*=b[i];
-    dft(a,-1,cnt,limit);
+    dft(a,-1);
     for(int i=0;i<sz;i++)a[i]/=sz;
     a.resize(mxsiz);
     return a;
