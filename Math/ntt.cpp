@@ -38,8 +38,8 @@ struct NTT{
     }
   }
   vector<mint>multiply(vector<mint>a,vector<mint>b){
-    int cnt=0,sz=1,mxsiz=a.size()+b.size()-1;
-    while(sz<mxsiz)sz<<=1,cnt++;
+    int sz=1,mxsiz=a.size()+b.size()-1;
+    while(sz<mxsiz)sz<<=1;
     a.resize(sz),b.resize(sz);
     dft(a,1),dft(b,1);
     for(int i=0;i<sz;i++)a[i]*=b[i];
@@ -47,5 +47,16 @@ struct NTT{
     for(int i=0;i<sz;i++)a[i]/=sz;
     a.resize(mxsiz);
     return a;
+  }
+  template<typename T,std::enable_if_t<is_integral<T>::value>* = nullptr>
+  vector<T>multiply(const vector<T>&a,const vector<T>&b){
+    using mint=modint<m>;
+    vector<mint>a2(a.size()),b2(b.size());
+    for(int i=0;i<a.size();i++)a2[i]=a[i];
+    for(int i=0;i<b.size();i++)b2[i]=b[i];
+    vector<mint>c2=multiply(a2,b2);
+    vector<T>c(c2.size());
+    for(int i=0;i<c.size();i++)c[i]=c2[i].x;
+    return c;
   }
 };
