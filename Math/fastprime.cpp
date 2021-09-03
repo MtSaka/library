@@ -1,9 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 namespace fastprime{
-  using i128=__uint128_t;
   long long inner_modmul(long long x,long long y,long long p){
-    return i128(x)*y%p;
+    unsigned long long q=(long double)(x)*y/p;
+    long long res=(long long)(x*y-p*q)%p;
+    return res<0?res+p:res;
   }
   long long inner_modpow(long long n,long long m,long long p){
     long long res=1;
