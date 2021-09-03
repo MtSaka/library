@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include"../../code/library/Math/ntt.cpp>"
+#include"../../code/library/Math/ntt.cpp"
 #include"../../code/library/Math/modulo.cpp"
 using namespace std;
 vector<long long>mod_ntt(const vector<long long>&a,const vector<long long&>b,const long long&m){
