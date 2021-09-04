@@ -6,7 +6,7 @@ vector<vector<long long>>warshall_floyd(vector<vector<long long>>g){
   for(int k=0;k<n;k++){
     for(int i=0;i<n;i++){
       for(int j=0;j<n;j++){
-        if(g[i][j]!=inf&&g[k][j]!=inf){
+        if(g[k][j]!=inf){
           g[i][j]=min(g[i][j],g[i][k]+g[k][j]);
         }
       }
