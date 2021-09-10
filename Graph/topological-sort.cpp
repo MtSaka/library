@@ -17,7 +17,7 @@ vector<int>t_sort(vector<vector<int>>g){
     ans.push_back(v);
     for(int w:g[v]){
       deg[w]--;
-      if(deg[w]==0)q.push(0);
+      if(deg[w]==0)q.push(w);
     }
   }
   return ans;
