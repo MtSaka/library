@@ -11,7 +11,7 @@ struct BIT{
     }
     bit=vector<T>(N+1,0);
   }
-  void add(int t,T x){
+  void add(int i,T x){
     i++;
     while(i<=N){
       bit[i]+=x;
@@ -26,5 +26,5 @@ struct BIT{
   T query(int l,int r){
     return sum(r)-sum(l);
   }
-  T all(){return bit[0];}
+  T all_query(){return bit[0];}
 };
