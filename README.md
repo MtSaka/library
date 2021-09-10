@@ -16,3 +16,7 @@ void add(int i,T x)
 T sum(int i)
 ```
 区間[0,i)の和を求めます。計算量はO(logN)です。
+```C++
+T query(int l,int r)
+```
+区間[l,r)の和を求めます。計算量はO(logN)です。
