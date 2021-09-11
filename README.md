@@ -1,8 +1,8 @@
 # C++ Library
 
 競プロで使うライブラリ。説明は少しずつ追加します。<br>
-#Data Structure
-##Binary Indexed Tree
+# Data Structure
+## Binary Indexed Tree
 Binary Indexed Tree (Fenwick Tree)です。1点更新・区間和のクエリを処理します。
 ```C++
 BIT(long long N)
