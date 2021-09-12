@@ -77,3 +77,34 @@ S query(int l,int r)
 S all_query()
 ```
 全要素に対する総積を求めます。
+## Weighed Union Find
+重み付きUnion Find(DSU)を扱います。
+```C++
+weighed_dsu(int n,T s=0)
+```
+要素数nの配列を用意します。
+初期値はsです.
+```C++
+int root(int x)
+```
+頂点xの根を求めます。
+```C++
+T weight(int x)
+```
+頂点xの重みを求めます。
+```C++
+bool same(int x,int y)
+```
+頂点xと頂点yが同じ集合に属しているか判定します。
+```C++
+int size(int x)
+```
+頂点xが属する集合の大きさを求めます。
+```C++
+void mege(int x,int y,T w)
+```
+頂点xの重み-頂点yの重み=wとなるように重みを変化させ、頂点xの属する集合と頂点の属する集合を合併させます。
+```C++
+T dist(int x,int y)
+```
+頂点yの重み-頂点xの重みを求めます。
