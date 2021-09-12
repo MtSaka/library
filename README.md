@@ -16,10 +16,12 @@ void add(int i,T x)
 T sum(int i)
 ```
 区間[0,i)の和を求めます。
+
 ```C++
 T query(int l,int r)
 ```
 区間[l,r)の和を求めます。
+
 ## Union Find
 Union Find(DSU)です。素集合データ構造です。
 ```C++
@@ -35,7 +37,7 @@ bool same(int x,int y)
 ```
 頂点xと頂点yが同じ集合か判定します。
 ```C++
-int size(int x(
+int size(int x)
 ```
 頂点xが属する集合の頂点数を求めます。
 ```C++
@@ -48,3 +50,30 @@ BITを使って転倒数を求めます。
 long long inversion(vector<T>&a)
 ```
 配列aの転倒数を求めます。
+## Segment Tree
+セグメント木です。結合律が成り立ち、単位元が存在する演算に対して要素の1点更新・区間総積のクエリを処理します。
+```C++
+segtree<S,S (*op)(S<S),S (*e)()>(int n)
+```
+長さnの配列を用意してすべての要素を単位元にします。
+```C++
+segtree<S,S (*op)(S<S),S (*e)()>(vector<S>&v)
+```
+vと同じ内容の長さnの配列を用意します。
+```C++
+void set(int p,S x)
+```
+要素a_pをxに更新します。
+```C++
+S operator[](int p)
+```
+要素a_pの値を求めます。
+```C++
+S query(int l,int r)
+```
+区間[l,r)の総積を求めます
+
+```C++
+S all_query()
+```
+全要素に対する総積を求めます。
