@@ -32,7 +32,7 @@ struct segtree{
     }
     return op(sml,smr);
   }
-  S all()const{
+  S all_query()const{
     return seq[1];
   }
 };
