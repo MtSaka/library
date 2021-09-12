@@ -101,7 +101,7 @@ int size(int x)
 ```
 頂点xが属する集合の大きさを求めます。
 ```C++
-void mege(int x,int y,T w)
+void merge(int x,int y,T w)
 ```
 頂点xの重み-頂点yの重み=wとなるように重みを変化させ、頂点xの属する集合と頂点の属する集合を合併させます。
 ```C++
