@@ -53,11 +53,11 @@ long long inversion(vector<T>&a)
 ## Segment Tree
 セグメント木です。結合律が成り立ち、単位元が存在する演算に対して要素の1点更新・区間総積のクエリを処理します。
 ```C++
-segtree<S,S (*op)(S<S),S (*e)()>(int n)
+segtree<S,S (*op)(S,S),S (*e)()>(int n)
 ```
 長さnの配列を用意してすべての要素を単位元にします。
 ```C++
-segtree<S,S (*op)(S<S),S (*e)()>(vector<S>&v)
+segtree<S,S (*op)(S,S),S (*e)()>(vector<S>&v)
 ```
 vと同じ内容の長さnの配列を用意します。
 ```C++
