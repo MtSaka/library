@@ -7,16 +7,44 @@ Binary Indexed Tree (Fenwick Tree)です。1点更新・区間和のクエリを
 ```C++
 BIT(long long N)
 ```
-要素数Nで初期化します。計算量はO(N)です。
+要素数Nで初期化します。
 ```C++
 void add(int i,T x)
 ```
-要素iにxを足します。計算量はO(logN)です。
+要素iにxを足します。
 ```C++
 T sum(int i)
 ```
-区間[0,i)の和を求めます。計算量はO(logN)です。
+区間[0,i)の和を求めます。
 ```C++
 T query(int l,int r)
 ```
-区間[l,r)の和を求めます。計算量はO(logN)です。
+区間[l,r)の和を求めます。
+## Union Find
+Union Find(DSU)です。素集合データ構造です。
+```C++
+dsu(int N)
+```
+要素数Nのdsuを作ります。
+```C++
+int root(int x)
+```
+頂点xの根を求めます。
+```C++
+bool same(int x,int y)
+```
+頂点xと頂点yが同じ集合か判定します。
+```C++
+int size(int x(
+```
+頂点xが属する集合の頂点数を求めます。
+```C++
+void merge(int x,int y)
+```
+頂点xの属する集合と頂点yの属する集合を合併します。
+## Invesion Number
+BITを使って転倒数を求めます。
+```C++
+long long inversion(vector<T>&a)
+```
+配列aの転倒数を求めます。
