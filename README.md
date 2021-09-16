@@ -108,3 +108,28 @@ void merge(int x,int y,T w)
 T dist(int x,int y)
 ```
 頂点yの重み-頂点xの重みを求めます。
+# Dynamic Programming
+## Count Subsequence
+文字列の部分列(連続とは限らない)の個数を求めます。
+```C++
+long long subcount(string s)
+```
+## Longest Common Subsequence
+動的計画法を利用して、最長共通部分列を求めます。
+```C++
+template<typename T>
+int lcsl(vector<T>a,vector<T>b)
+```
+最長共通部分列の長さを求めます。
+```C++
+template<typename T>
+vector<T>lcs(vector<T>a,vector<T>b)
+```
+最長共通部分列を求めます。
+## Longest Increasing Subsequence
+動的計画法を利用して、最長増加部分列を求めます。
+```C++
+template<typename T>
+int lis(vector<T>&a)
+```
+配列aの最長増加部分列の長さを求めます。
