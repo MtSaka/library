@@ -11,6 +11,7 @@
 #define rep(i, s, n) for (ll i = s; i < (ll)(n); i++)
 #define pb push_back
 #define eb emplace_back
+#define MtSaka ios::sync_with_stdio(0);cin.tie(0);cout<<floatset();
 #define max_(a) *max_element(all(a))
 #define min_(a) *min_element(all(a))
 #define sum_(a) accumulate(all(a),0LL)
