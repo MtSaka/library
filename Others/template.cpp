@@ -38,45 +38,22 @@ const ll MOD=1000000007;
 const ll mod=998244353;
 const double pi=acos(-1);
 template<typename T1,typename T2 >
-ostream &operator<<(ostream&os,const pair<T1,T2>&p) {
-  os<<p.first<<" "<<p.second;
-  return os;
-}
+ostream &operator<<(ostream&os,const pair<T1,T2>&p){os<<p.first<<" "<<p.second;return os;}
 template<typename T1,typename T2>
-istream &operator>>(istream&is,pair<T1,T2>&p) {
-  is>>p.first>>p.second;
-  return is;
-}
+istream &operator>>(istream&is,pair<T1,T2>&p){is>>p.first>>p.second;return is;}
 template<typename T>
-ostream &operator<<(ostream&os,const vector<T>&v) {
-  for(int i=0;i<(int)v.size();i++) {
-    os<<v[i]<<(i+1!=v.size()?" ":"");
-  }
-  return os;
-}
+ostream &operator<<(ostream&os,const vector<T>&v){for(int i=0;i<(int)v.size();i++){os<<v[i]<<(i+1!=v.size()?" ":"");}return os;}
 template<typename T>
-istream &operator>>(istream&is,vector<T>&v) {
-  for(T &in:v)is>>in;
-  return is;
-}
+istream &operator>>(istream&is,vector<T>&v){for(T &in:v){is>>in;}return is;}
 void scan(){}
 template<class Head,class... Tail>
-void scan(Head&head,Tail&... tail) {
-  cin>>head;
-  scan(tail...);
-}
+void scan(Head&head,Tail&... tail){cin>>head;scan(tail...);}
 template<class T>
-void print(const T &t) { cout << t << '\n'; }
+void print(const T &t){cout<<t<<'\n';}
 template<class Head, class... Tail>
-void print(const Head &head, const Tail &... tail) {
-  cout << head << ' ';
-  print(tail...);
-}
+void print(const Head &head, const Tail &... tail){cout<<head<<' ';print(tail...);}
 template<class... T>
-void fin(const T &... a) {
-  print(a...);
-  exit(0);
-}
+void fin(const T &... a){print(a...);exit(0);}
 template<typename T>
 T sum_(vector<T>a){return accumulate(all(a),T(0));}
 template<typename T1,typename T2>
