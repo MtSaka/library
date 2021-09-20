@@ -14,7 +14,6 @@
 #define MtSaka ios::sync_with_stdio(0);cin.tie(0);cout<<floatset();
 #define max_(a) *max_element(all(a))
 #define min_(a) *min_element(all(a))
-#define sum_(a) accumulate(all(a),0LL)
 #define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)
 #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)
 #define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)
@@ -78,6 +77,8 @@ void fin(const T &... a) {
   print(a...);
   exit(0);
 }
+template<typename T>
+T sum_(vector<T>a){return accumulate(all(a),T(0));}
 template<typename T1,typename T2>
 inline bool chmax(T1&a,T2 b){return a<b&&(a=b,true);}
 template<typename T1,typename T2>
