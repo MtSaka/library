@@ -3,24 +3,9 @@
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
-#define ll long long
-#define ld long double
-#define floatset() fixed<<setprecision(15)
-#define all(n) n.begin(),n.end()
-#define rall(n) n.rbegin(),n.rend()
-#define rep(i, s, n) for (ll i = s; i < (ll)(n); i++)
-#define pb push_back
-#define eb emplace_back
-#define MtSaka ios::sync_with_stdio(0);cin.tie(0);cout<<floatset();
-#define max_(a) *max_element(all(a))
-#define min_(a) *min_element(all(a))
-#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)
-#define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)
-#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)
-#define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)
-#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)
-#define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)
 using namespace std;
+using ll=long long;
+using ld=long double;
 using vl=vector<ll>;
 using vi=vector<int>;
 using vs=vector<string>;
@@ -31,6 +16,33 @@ using vvc=vector<vc>;
 using vd=vector<double>;
 using vp=vector<P>;
 using vb=vector<bool>;
+#define overload4(_1,_2,_3,_4,name,...) name
+#define overload3(_1,_2,_3,name,...) name
+#define rep1(a) for(decltype(a) i=0;i<a;i++)
+#define rep2(i,a) for(decltype(a) i=0;i<a;i++)
+#define rep3(i,a,b) for(decltype(a) i=a;i<b;i++)
+#define rep4(i,a,b,c) for(decltype(a) i=a;i<b;i+=c)
+#define rep(...) overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)
+#define rrep1(n) for(decltype(n) i=n;i--;)
+#define rrep2(i,n) for(decltype(n) i=n;i--;)
+#define rrep3(i,a,b) for(decltype(b) i=b;i-->(a);)
+#define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)
+#define all1(i) begin(i),end(i)
+#define all2(i,a) begin(i),begin(i)+a
+#define all3(i,a,b) begin(i)+a,begin(i)+b
+#define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)
+#define rall(n) (n).rbegin(),(n).rend()
+#define pb push_back
+#define eb emplace_back
+#define MtSaka ios::sync_with_stdio(0);cin.tie(0);cout<<fixed<<setprecision(12)
+#define max_(a) *max_element(all(a))
+#define min_(a) *min_element(all(a))
+#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)
+#define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)
+#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)
+#define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)
+#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)
+#define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)
 const int dx[8]={1,0,-1,0,1,-1,-1,1};
 const int dy[8]={0,1,0,-1,1,1,-1,-1};
 const ll inf=2e18;
