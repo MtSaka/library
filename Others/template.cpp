@@ -72,3 +72,8 @@ template<typename T1,typename T2>
 inline bool chmax(T1&a,T2 b){return a<b&&(a=b,true);}
 template<typename T1,typename T2>
 inline bool chmin(T1&a,T2 b){return a>b&&(a=b,true);}
+template <typename Element,typename Head,typename ...Args>
+auto vec(Element init,Head arg,Args ...args) {
+  if constexpr(sizeof...(Args)==0)return vector(arg, init);
+  else return vector(arg,vec(init,args...));
+}
