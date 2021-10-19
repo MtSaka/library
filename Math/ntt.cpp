@@ -21,20 +21,17 @@ struct NTT{
   }
   void dft(vector<mint>&a,int inv){
     int sz=a.size();
-    vector<mint>ret(sz);
-    if(sz==1)return ;
-    vector<mint>x(sz/2),y(sz/2);
-    for(int i=0;i<sz/2;i++){
-      x[i]=a[i*2];
-      y[i]=a[i*2+1];
-    }
-    dft(x,inv);
-    dft(y,inv);
-    int e=__builtin_ffsll(sz)-1;
-    mint n=1,z=(inv==1?root[e]:inv_root[e]);
-    for(int i=0;i<sz;i++){
-      a[i]=x[i%(sz/2)]+n*y[i%(sz/2)];
-      n*=z;
+    if(sz==1)return;
+    int mask=sz-1;
+    vector<mint>b(sz);
+    for(int i=sz>>1;i>=1;i>>=1){
+      int e=__builtin_ffsll(sz/i)-1;
+      mint w=1,z=(inv==1?root[e]:inv_root[e]);
+      for(int j=0;j<sz;j+=i){
+        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];
+        w*=z;
+      }
+      swap(a,b);
     }
   }
   vector<mint>multiply(vector<mint>a,vector<mint>b){

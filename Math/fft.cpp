@@ -4,18 +4,16 @@ struct FFT{
   void dft(vector<complex<double>>&a,double inv){
     int sz=a.size();
     if(sz==1)return;
-    vector<complex<double>>x,y;
-    for(int i=0;i<sz/2;i++){
-      x.push_back(a[2*i]);
-      y.push_back(a[2*i+1]);
+    int mask=sz-1;
+    vector<complex<double>>b(sz);
+    for(int i=sz>>1;i>=1;i>>=1){
+      complex<double>z=polar(1.0,2*pi*i*inv/sz),w=1;
+      for(int j=0;j<sz;j+=i){
+        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];
+        w*=z;
+      }
+      swap(a,b);
     }
-    dft(x,inv);
-    dft(y,inv);
-    complex<double>z=polar(1.0,inv*2.0*acos(-1)/(double)sz);
-    vector<complex<double>>n(sz);
-    n[0]=1;
-    for(int i=1;i<sz;i++)n[i]=n[i-1]*z;
-    for(int i=0;i<sz/2;i++)a[i]=x[i]+n[i]*y[i],a[i+sz/2]=x[i]+n[i+sz/2]*y[i];
   }
   template<typename T>
   vector<double>multiply(vector<T>a,vector<T>b){
@@ -29,7 +27,7 @@ struct FFT{
     for(int i=0;i<sz;i++)ma[i]*=mb[i];
     dft(ma,-1);
     vector<double>res(a.size()+b.size()-1);
-    for(int i=0;i<a.size()+b.size()-1;i++)res[i]=((ma[i].real())/(double)sz);
+    for(int i=0;i<res.size();i++)res[i]=(ma[i].real())/(double)sz;
     return res;
   }
 };
