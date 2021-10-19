@@ -1,7 +1,7 @@
 //GIVE ME AC!!!!!!!!!!!!!!!!!
-//#pragma GCC target("avx")
-//#pragma GCC optimize("O3")
-//#pragma GCC optimize("unroll-loops")
+#pragma GCC target("avx")
+#pragma GCC optimize("O3")
+#pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
 using ll=long long;
@@ -23,9 +23,9 @@ using vb=vector<bool>;
 #define rep3(i,a,b) for(decltype(a) i=a;i<b;i++)
 #define rep4(i,a,b,c) for(decltype(a) i=a;i<b;i+=c)
 #define rep(...) overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)
-#define rrep1(n) for(decltype(n) i=n;i--;)
-#define rrep2(i,n) for(decltype(n) i=n;i--;)
-#define rrep3(i,a,b) for(decltype(b) i=b;i-->(a);)
+#define rrep1(a) for(decltype(a) i=(n)-1;i>=0;i--)
+#define rrep2(i,a) for(decltype(a) i=(n)-1;i>=0;i--)
+#define rrep3(i,a,b) for(decltype(a) i=(b)-1;i>=(a);i--)
 #define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)
 #define all1(i) begin(i),end(i)
 #define all2(i,a) begin(i),begin(i)+a
@@ -72,8 +72,3 @@ template<typename T1,typename T2>
 inline bool chmax(T1&a,T2 b){return a<b&&(a=b,true);}
 template<typename T1,typename T2>
 inline bool chmin(T1&a,T2 b){return a>b&&(a=b,true);}
-template <typename Element,typename Head,typename ...Args>
-auto vec(Element init,Head arg,Args ...args) {
-  if constexpr(sizeof...(Args)==0)return vector(arg, init);
-  else return vector(arg,vec(init,args...));
-}
