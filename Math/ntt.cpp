@@ -7,8 +7,16 @@ struct NTT{
   mint g=2;
   int limit=0;
   vector<mint>root,inv_root;
+  mint primitive_root(long long mo){
+    if(mo==167772161)return mint(3);
+    if(mo==469762049)return mint(3);
+    if(mo==754974721)return mint(11);
+    if(mo==998244353)return mint(3);
+    if(mo==1224736769)return mint(3);
+    return mint(0);
+  }
   NTT(){
-    while(g.pow((m-1)>>1)==1)g+=1;
+    g=primitive_root(m);
     long long now=m-1;
     while(!(now&1))now>>=1,limit++;
     root.resize(limit+1,1),inv_root.resize(limit+1,1);
@@ -41,7 +49,8 @@ struct NTT{
     dft(a,1),dft(b,1);
     for(int i=0;i<sz;i++)a[i]*=b[i];
     dft(a,-1);
-    for(int i=0;i<sz;i++)a[i]/=sz;
+    mint iz=mint(sz).inv();
+    for(int i=0;i<mxsiz;i++)a[i]*=iz;
     a.resize(mxsiz);
     return a;
   }
@@ -51,7 +60,7 @@ struct NTT{
     vector<mint>a2(a.size()),b2(b.size());
     for(int i=0;i<a.size();i++)a2[i]=a[i];
     for(int i=0;i<b.size();i++)b2[i]=b[i];
-    vector<mint>c2=multiply(a2,b2);
+    auto c2=multiply(move(a2),move(b2));
     vector<T>c(c2.size());
     for(int i=0;i<c.size();i++)c[i]=c2[i].x;
     return c;
