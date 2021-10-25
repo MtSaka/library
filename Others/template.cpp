@@ -1,7 +1,7 @@
 //GIVE ME AC!!!!!!!!!!!!!!!!!
-#pragma GCC target("avx")
-#pragma GCC optimize("O3")
-#pragma GCC optimize("unroll-loops")
+//#pragma GCC target("avx")
+//#pragma GCC optimize("O3")
+//#pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
 using ll=long long;
@@ -18,14 +18,14 @@ using vp=vector<P>;
 using vb=vector<bool>;
 #define overload4(_1,_2,_3,_4,name,...) name
 #define overload3(_1,_2,_3,name,...) name
-#define rep1(a) for(decltype(a) i=0;i<a;i++)
-#define rep2(i,a) for(decltype(a) i=0;i<a;i++)
-#define rep3(i,a,b) for(decltype(a) i=a;i<b;i++)
-#define rep4(i,a,b,c) for(decltype(a) i=a;i<b;i+=c)
+#define rep1(a) for(__typeof(a) i=0;i<a;i++)
+#define rep2(i,a) for(__typeof(a) i=0;i<a;i++)
+#define rep3(i,a,b) for(__typeof(a) i=a;i<b;i++)
+#define rep4(i,a,b,c) for(__typeof(a) i=a;i<b;i+=c)
 #define rep(...) overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)
-#define rrep1(a) for(decltype(a) i=(n)-1;i>=0;i--)
-#define rrep2(i,a) for(decltype(a) i=(n)-1;i>=0;i--)
-#define rrep3(i,a,b) for(decltype(a) i=(b)-1;i>=(a);i--)
+#define rrep1(a) for(__typeof(a) i=(a)-1;i>=0;i--)
+#define rrep2(i,a) for(__typeof(a) i=(a)-1;i>=0;i--)
+#define rrep3(i,a,b) for(__typeof(a) i=(b)-1;i>=(a);i--)
 #define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)
 #define all1(i) begin(i),end(i)
 #define all2(i,a) begin(i),begin(i)+a
