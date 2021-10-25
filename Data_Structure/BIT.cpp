@@ -26,5 +26,4 @@ struct BIT{
   T query(int l,int r){
     return sum(r)-sum(l);
   }
-  T all_query(){return bit[0];}
 };
