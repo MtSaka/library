@@ -6,7 +6,7 @@ struct combination{
   using mint=modint<m>;
   vector<mint>dat,idat;
   long long mx;
-  combination(long long mx_-300000):dat(mx_+1,1),idat(mx_+1,1),mx(mx_){
+  combination(long long mx_=300000):dat(mx_+1,1),idat(mx_+1,1),mx(mx_){
     for(long long i=1;i<=mx;i++)dat[i]=dat[i-1]*mint(i);
     idat[mx]/=dat[mx];
     for(long long i=mx;i>0;i--)idat[i-1]=idat[i]*mint(i);
