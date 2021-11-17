@@ -48,7 +48,7 @@ data:
     - icon: ':warning:'
       path: Graph/detect-cycle.cpp
       title: Graph/detect-cycle.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Graph/dijkstra.cpp
       title: Graph/dijkstra.cpp
     - icon: ':heavy_check_mark:'
@@ -129,5 +129,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-a.test.cpp
       title: test/verify/aoj-grl-2-a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-shortest-path.test.cpp
+      title: test/verify/yosupo-shortest-path.test.cpp
 layout: toppage
 ---

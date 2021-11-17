@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/verify/aoj-grl-2-a.test.cpp
     title: test/verify/aoj-grl-2-a.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-shortest-path.test.cpp
+    title: test/verify/yosupo-shortest-path.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -321,6 +324,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/aoj-grl-2-a.test.cpp
+  - test/verify/yosupo-shortest-path.test.cpp
 documentation_of: template/template.cpp
 layout: document
 redirect_from:
