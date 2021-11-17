@@ -123,6 +123,11 @@ data:
     - icon: ':warning:'
       path: template/template.cpp
       title: template/template.cpp
-  verificationCategories: []
+  verificationCategories:
+  - name: test/verify
+    pages:
+    - icon: ':x:'
+      path: test/verify/aoj-grl-2-a.test.cpp
+      title: test/verify/aoj-grl-2-a.test.cpp
 layout: toppage
 ---

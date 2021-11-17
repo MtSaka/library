@@ -3,38 +3,37 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
-  attributes:
-    links: []
+  _verificationStatusIcon: ':x:'
+  attributes: {}
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../Data_Structure/dsu.cpp:\
     \ line -1: no such header\n"
-  code: "#include\"../../Data_Structure/dsu.cpp\"\ntemplate<typename T>\nstruct mst{\n\
-    \  T cost;\n  vector<tuple<T,T,T>>edges;\n};\ntemplate<typename T>\nmst<T> kruskal(vector<tuple<T,T,T>>edges,int\
-    \ v){\n  sort(edges.begin(),edges.end(),[](const tuple<T,T,T>&a,const tuple<T,T,T>&b){\n\
-    \    return get<2>(a)<get<2>(b);\n  });\n  dsu d(v);\n  T total=0;\n  vector<tuple<T,T,T>>es;\n\
-    \  for(auto &e:edges){\n    if(!d.same(get<0>(e),get<1>(e))){\n      d.merge(get<0>(e),get<1>(e));\n\
-    \      es.emplace_back(e);\n      total+=get<2>(e);\n    }\n  }\n  return {total,es};\n\
-    }"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
+    \n#include \"../../template/template.cpp\"\n#include \"../../Graph/kruskal.cpp\"\
+    \nint main(){\n  INT(v,e);\n  vector<tuple<int,int,int>>edges;\n  for(int i =\
+    \ 0; i < e; i++){\n    INT(a,b,c);\n    edges.emplace_back(a,b,c);\n  }\n  mst<int>ans\
+    \ = kruskal(edges,v);\n  cout<<ans.cost<<endl;\n}"
   dependsOn: []
-  isVerificationFile: false
-  path: Graph/kruskal.cpp
+  isVerificationFile: true
+  path: test/verify/aoj-grl-2-a.test.cpp
   requiredBy: []
   timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: Graph/kruskal.cpp
+documentation_of: test/verify/aoj-grl-2-a.test.cpp
 layout: document
 redirect_from:
-- /library/Graph/kruskal.cpp
-- /library/Graph/kruskal.cpp.html
-title: Graph/kruskal.cpp
+- /verify/test/verify/aoj-grl-2-a.test.cpp
+- /verify/test/verify/aoj-grl-2-a.test.cpp.html
+title: test/verify/aoj-grl-2-a.test.cpp
 ---
