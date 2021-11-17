@@ -1,5 +1,4 @@
 #include"../../Data_Structure/dsu.cpp"
-using namespace std;
 template<typename T>
 struct mst{
   T cost;

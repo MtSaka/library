@@ -1,5 +1,4 @@
 #include"ntt.cpp"
-using namespace std;
 vector<long long>mod_convolution(vector<long long>a,vector<long long>b,long long m){
   NTT<167772161>ntt1;
   NTT<469762049>ntt2;
