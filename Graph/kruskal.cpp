@@ -1,4 +1,4 @@
-#include"../../Data_Structure/dsu.cpp"
+#include"../Data_Structure/dsu.cpp"
 template<typename T>
 struct mst{
   T cost;
