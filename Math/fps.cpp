@@ -1,6 +1,4 @@
-#include<bits/stdc++.h>
-#include"../../code/library/Math/ntt.cpp"
-using namespace std;
+#include"ntt.cpp"
 template<long long m>
 struct FPS{
   using mint=modint<m>;

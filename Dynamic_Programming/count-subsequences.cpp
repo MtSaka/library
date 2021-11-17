@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 long long subcount(string s){
   int n=s.size();
   vector<vector<int>>next(n+1,vector<int>(26,0));

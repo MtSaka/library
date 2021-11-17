@@ -1,5 +1,4 @@
-#include<bits/stdc++.h>
-#include<../../code/library/Data_Structure/dsu.cpp>
+#include"../../Data_Structure/dsu.cpp"
 using namespace std;
 template<typename T>
 struct mst{

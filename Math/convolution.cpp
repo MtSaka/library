@@ -1,6 +1,4 @@
-#include<bits/stdc++.h>
-#include"../../code/library/Math/ntt.cpp"
-using namespace std;
+#include"ntt.cpp"
 vector<long long>convolution(const vector<long long>&a,const vector<long long>&b){
   int n=a.size(),m=b.size();
   if(!n||!m)return {};

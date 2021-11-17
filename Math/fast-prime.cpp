@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 namespace fastprime{
   using i128=__uint128_t;
   long long inner_modmul(long long x,long long y,long long p){

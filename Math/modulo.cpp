@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 long long modpow(long long a,long long n,long long m){
   long long ans=1;
   while(n>0){

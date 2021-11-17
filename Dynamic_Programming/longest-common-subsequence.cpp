@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 template<typename T>
 int lcsl(vector<T>a,vector<T>b){
   vector<vecto<int>>dp(a.size()+1,vector<int>(b.size()+1,0));

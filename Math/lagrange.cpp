@@ -1,6 +1,4 @@
-#include<bits/stdc++.h>
-#include"../../code/library/Math/com.cpp"
-using namespace std;
+#include"com.cpp"
 template<long long m>
 modint<m> lagrange_polynominal(vector<modint<m>>&y,long long t){
   using mint=modint<m>;

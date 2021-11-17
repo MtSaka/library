@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 struct dsu{
   vector<int>sz,par;
   dsu(){}

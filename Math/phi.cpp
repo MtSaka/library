@@ -1,4 +1,3 @@
-#include<bits/stdc++.h>
 long long phi(long long n){
   long long ans=n;
   for(long long i=2;i*i<=n;i++){

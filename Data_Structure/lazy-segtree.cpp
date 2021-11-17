@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 template<class S,S (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>
 struct lazy_segtree{
   private:

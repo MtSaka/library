@@ -1,6 +1,4 @@
-#include<bits/stdc++.h>
-#include"../../library/Geometry/point.cpp"
-using namespace std;
+#include"point.cpp"
 struct line{
   point a;
   point b;

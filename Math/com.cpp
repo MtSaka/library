@@ -1,6 +1,4 @@
-#include<bits/stdc++.h>
-#include"../../code/library/Math/modint.cpp"
-using namespace std;
+#include"modint.cpp"
 template<long long m>
 struct combination{
   using mint=modint<m>;

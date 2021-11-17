@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-const long long inf=2e18;
 using P=pair<long long,long long>;
 struct Edge {
   long long to;
@@ -9,7 +6,7 @@ struct Edge {
 using Graph=vector<vector<Edge>>;
 vector<long long>dijkstra(Graph g,int s){
   int n=g.size();
-  vector<long long>d(n,inf);
+  vector<long long>d(n,2e18);
   d[s]=0;
   priority_queue<P,vector<P>,greater<P>>q;
   q.push({0,s});
@@ -30,7 +27,7 @@ vector<long long>dijkstra(Graph g,int s){
 }
 pair<long long,vector<long long>>dijkstra_path(Graph g,int s, int t){
   int n=g.size();
-  vector<long long>d(n,inf);
+  vector<long long>d(n,2e18);
   d[s]=0;
   vector<long long>prev(n);
   priority_queue<P,vector<P>,greater<P>>q;
@@ -49,7 +46,7 @@ pair<long long,vector<long long>>dijkstra_path(Graph g,int s, int t){
       }
     }
   }
-  if(d[t]==inf)return {-1,vector<long long>()};
+  if(d[t]==2e18)return {-1,vector<long long>()};
   else{
     vector<long long>path;
     path.push_back(t);

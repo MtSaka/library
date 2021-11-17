@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 struct FFT{
   void dft(vector<complex<double>>&a,double inv){
     int sz=a.size();

@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 bool detect_cylce(vector<vector<int>>g){
   int n=g.size();
   vector<int>deg(n,0);

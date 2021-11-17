@@ -1,6 +1,4 @@
-#include<bits/stdc++.h>
-#include"../../library/Data_Structure/BIT.cpp"
-using namespace std;
+#include"BIT.cpp"
 template<typename T>
 long long inversion(vector<T>&a){
   int n=a.size();

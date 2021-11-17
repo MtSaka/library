@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 bool is_prime(long long N){
   if(N<2)return 0;
   if(N==2)return 1;

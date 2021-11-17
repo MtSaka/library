@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 template<typename T>
 struct weighed_dsu{
   vector<int>sz,par;

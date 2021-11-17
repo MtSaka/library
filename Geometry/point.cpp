@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 double eps=0.0000000001;
 int sign(double x){
   if(x>eps)return 1;

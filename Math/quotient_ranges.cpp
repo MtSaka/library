@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 template<typename T>
 vector<pair<T,pair<T,T>>>quotient_ranges(T n){
   vector<pair<T,pair<T,T>>>ans;

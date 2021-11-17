@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 template<long long m>
 struct modint{
   long long x;

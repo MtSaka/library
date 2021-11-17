@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 struct LCA{
   int lg=0;
   vector<int>dep;

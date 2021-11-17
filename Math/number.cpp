@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 long long digsum(long long n){
   long long ans=0;
   while(n){

@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 template<typename S,typename T=S>
 struct ReRooting{
   struct Edge{
