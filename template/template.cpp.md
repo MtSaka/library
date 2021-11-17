@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: '#line 1 "Others/template.cpp"
+  bundledCode: '#line 1 "template/template.cpp"
 
     //GIVE ME AC!!!!!!!!!!!!!!!!!
 
@@ -312,15 +312,15 @@ data:
     inline bool chmin(T1&a,T2 b){return a>b&&(a=b,true);}'
   dependsOn: []
   isVerificationFile: false
-  path: Others/template.cpp
+  path: template/template.cpp
   requiredBy: []
-  timestamp: '2021-10-25 14:09:57+01:00'
+  timestamp: '2021-11-17 20:52:48+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Others/template.cpp
+documentation_of: template/template.cpp
 layout: document
 redirect_from:
-- /library/Others/template.cpp
-- /library/Others/template.cpp.html
-title: Others/template.cpp
+- /library/template/template.cpp
+- /library/template/template.cpp.html
+title: template/template.cpp
 ---

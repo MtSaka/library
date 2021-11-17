@@ -8,9 +8,8 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"Math/fft.cpp\"\n#include<bits/stdc++.h>\nusing namespace\
-    \ std;\nstruct FFT{\n  void dft(vector<complex<double>>&a,double inv){\n    int\
-    \ sz=a.size();\n    if(sz==1)return;\n    int mask=sz-1;\n    vector<complex<double>>b(sz);\n\
+  bundledCode: "#line 1 \"Math/fft.cpp\"\nstruct FFT{\n  void dft(vector<complex<double>>&a,double\
+    \ inv){\n    int sz=a.size();\n    if(sz==1)return;\n    int mask=sz-1;\n    vector<complex<double>>b(sz);\n\
     \    for(int i=sz>>1;i>=1;i>>=1){\n      complex<double>z=polar(1.0,2*pi*i*inv/sz),w=1;\n\
     \      for(int j=0;j<sz;j+=i){\n        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
     \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  template<typename T>\n\
@@ -20,8 +19,8 @@ data:
     \    for(int i=0;i<sz;i++)ma[i]*=mb[i];\n    dft(ma,-1);\n    vector<double>res(a.size()+b.size()-1);\n\
     \    for(int i=0;i<res.size();i++)res[i]=(ma[i].real())/(double)sz;\n    return\
     \ res;\n  }\n};\n"
-  code: "#include<bits/stdc++.h>\nusing namespace std;\nstruct FFT{\n  void dft(vector<complex<double>>&a,double\
-    \ inv){\n    int sz=a.size();\n    if(sz==1)return;\n    int mask=sz-1;\n    vector<complex<double>>b(sz);\n\
+  code: "struct FFT{\n  void dft(vector<complex<double>>&a,double inv){\n    int sz=a.size();\n\
+    \    if(sz==1)return;\n    int mask=sz-1;\n    vector<complex<double>>b(sz);\n\
     \    for(int i=sz>>1;i>=1;i>>=1){\n      complex<double>z=polar(1.0,2*pi*i*inv/sz),w=1;\n\
     \      for(int j=0;j<sz;j+=i){\n        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
     \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  template<typename T>\n\
@@ -35,7 +34,7 @@ data:
   isVerificationFile: false
   path: Math/fft.cpp
   requiredBy: []
-  timestamp: '2021-10-19 21:26:27+01:00'
+  timestamp: '2021-11-17 20:52:48+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/fft.cpp

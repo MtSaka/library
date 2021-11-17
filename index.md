@@ -116,11 +116,13 @@ data:
   - name: Others
     pages:
     - icon: ':warning:'
-      path: Others/template.cpp
-      title: Others/template.cpp
-    - icon: ':warning:'
       path: Others/timer.cpp
       title: Others/timer.cpp
+  - name: template
+    pages:
+    - icon: ':warning:'
+      path: template/template.cpp
+      title: template/template.cpp
   verificationCategories: []
 layout: toppage
 ---

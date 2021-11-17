@@ -9,19 +9,17 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"Dynamic_Programming/longest-increasing-subsequence.cpp\"\
-    \n#include<bits/stdc++.h>\nusing namespace std;\nconst long long inf=2e18;\ntemplate<typename\
-    \ T>\nint lis(vector<T>&a){\n  int n=a.size();\n  vector<long long>dp(n,inf);\n\
-    \  for(int i=0;i<n;i++)*lower_bound(dp.begin(),dp.end(),a[i])=a[i];\n  return\
-    \ lower_bound(dp.begin(),dp.end(),inf)-dp.begin();\n}\n"
-  code: "#include<bits/stdc++.h>\nusing namespace std;\nconst long long inf=2e18;\n\
-    template<typename T>\nint lis(vector<T>&a){\n  int n=a.size();\n  vector<long\
-    \ long>dp(n,inf);\n  for(int i=0;i<n;i++)*lower_bound(dp.begin(),dp.end(),a[i])=a[i];\n\
+    \ntemplate<typename T>\nint lis(vector<T>&a){\n  int n=a.size();\n  vector<long\
+    \ long>dp(n,2e18);\n  for(int i=0;i<n;i++)*lower_bound(dp.begin(),dp.end(),a[i])=a[i];\n\
+    \  return lower_bound(dp.begin(),dp.end(),inf)-dp.begin();\n}\n"
+  code: "template<typename T>\nint lis(vector<T>&a){\n  int n=a.size();\n  vector<long\
+    \ long>dp(n,2e18);\n  for(int i=0;i<n;i++)*lower_bound(dp.begin(),dp.end(),a[i])=a[i];\n\
     \  return lower_bound(dp.begin(),dp.end(),inf)-dp.begin();\n}"
   dependsOn: []
   isVerificationFile: false
   path: Dynamic_Programming/longest-increasing-subsequence.cpp
   requiredBy: []
-  timestamp: '2021-08-31 20:08:40+01:00'
+  timestamp: '2021-11-17 20:52:48+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Dynamic_Programming/longest-increasing-subsequence.cpp

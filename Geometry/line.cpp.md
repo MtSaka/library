@@ -11,8 +11,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"Geometry/line.cpp\"\n#include<bits/stdc++.h>\n#line 2 \"\
-    Geometry/point.cpp\"\nusing namespace std;\ndouble eps=0.0000000001;\nint sign(double\
+  bundledCode: "#line 1 \"Geometry/point.cpp\"\ndouble eps=0.0000000001;\nint sign(double\
     \ x){\n  if(x>eps)return 1;\n  if(x<-eps)return -1;\n  return 0;\n}\nbool equals(double\
     \ x,double y){\n  return abs(x-y)<eps;\n}\nstruct point{\n  double x;\n  double\
     \ y;\n  point(){\n    x=0,y=0;\n  }\n  point(double X,double Y){\n    x=X,y=Y;\n\
@@ -38,9 +37,9 @@ data:
     \  return abs(p-q);\n}\ndouble arg(point p){\n  return atan2(p.y,p.x);\n}\ndouble\
     \ dot(point p,point q){\n  return p.x*q.y+p.y*q.x;\n}\ndouble cross(point p,point\
     \ q){\n  return p.x*q.y-p.y*q.x;\n}\ndouble angle(point a,point b,point c){\n\
-    \  a-=b;\n  c-=b;\n  return acos(dot(a,c)/(abs(a)*abs(c)));\n}\n#line 3 \"Geometry/line.cpp\"\
-    \nusing namespace std;\nstruct line{\n  point a;\n  point b;\n  line(){}\n  line(point\
-    \ p){b=p;}\n  line(point p,point q){a=p,b=q;}\n  line(double A,double B){a=point(0,B),b=point(1,A+B);}\n\
+    \  a-=b;\n  c-=b;\n  return acos(dot(a,c)/(abs(a)*abs(c)));\n}\n#line 2 \"Geometry/line.cpp\"\
+    \nstruct line{\n  point a;\n  point b;\n  line(){}\n  line(point p){b=p;}\n  line(point\
+    \ p,point q){a=p,b=q;}\n  line(double A,double B){a=point(0,B),b=point(1,A+B);}\n\
     \  line(double A,double B,double C){\n    if(sign(B)==0){\n      a=point(-C/A,0);\n\
     \      b=point(-C/A,1);\n    }\n    else{\n      a=point(0,-C/B);\n      b=point(1,-(A+C)/B);\n\
     \    }\n  }\n  line operator+(point p){\n    return line(a+p,b+p);\n  }\n  line\
@@ -53,27 +52,27 @@ data:
     point vec(line l){\n  return l.b-l.a;\n}\npoint unit(line l){\n  return vec(l)/abs(vec(l));\n\
     }\npoint part(line l,double a,double b){\n  return (l.a*b+l.b*a)/(a+b);\n}\nbool\
     \ is_parallel(line a,line b){\n  return sign(cross(vec(a),vec(b)))==0;\n}\n"
-  code: "#include<bits/stdc++.h>\n#include\"../../library/Geometry/point.cpp\"\nusing\
-    \ namespace std;\nstruct line{\n  point a;\n  point b;\n  line(){}\n  line(point\
-    \ p){b=p;}\n  line(point p,point q){a=p,b=q;}\n  line(double A,double B){a=point(0,B),b=point(1,A+B);}\n\
-    \  line(double A,double B,double C){\n    if(sign(B)==0){\n      a=point(-C/A,0);\n\
-    \      b=point(-C/A,1);\n    }\n    else{\n      a=point(0,-C/B);\n      b=point(1,-(A+C)/B);\n\
-    \    }\n  }\n  line operator+(point p){\n    return line(a+p,b+p);\n  }\n  line\
-    \ operator-(point p){\n    return line(a-p,b-p);\n  }\n  line &operator+=(point\
-    \ p){\n    a+=p;\n    b+=p;\n    return *this;\n  }\n  line &operator-=(point\
-    \ p){\n    a-=p;\n    b-=p;\n    return *this;\n  }\n  bool operator==(line l){\n\
-    \    return sign(cross(b-a,l.a-a))==0&&sign(cross(b-a,l.b-a));\n  }\n};\nistream&operator>>(istream\
-    \ &is,line &l){\n  point a,b;\n  is>>a>>b;\n  l=line(a,b);\n  return is;\n}\n\
-    ostream&operator<<(ostream&os,line l){\n  os<<l.a<<' '<<l.b;\n  return os;\n}\n\
-    point vec(line l){\n  return l.b-l.a;\n}\npoint unit(line l){\n  return vec(l)/abs(vec(l));\n\
-    }\npoint part(line l,double a,double b){\n  return (l.a*b+l.b*a)/(a+b);\n}\nbool\
-    \ is_parallel(line a,line b){\n  return sign(cross(vec(a),vec(b)))==0;\n}\n"
+  code: "#include\"point.cpp\"\nstruct line{\n  point a;\n  point b;\n  line(){}\n\
+    \  line(point p){b=p;}\n  line(point p,point q){a=p,b=q;}\n  line(double A,double\
+    \ B){a=point(0,B),b=point(1,A+B);}\n  line(double A,double B,double C){\n    if(sign(B)==0){\n\
+    \      a=point(-C/A,0);\n      b=point(-C/A,1);\n    }\n    else{\n      a=point(0,-C/B);\n\
+    \      b=point(1,-(A+C)/B);\n    }\n  }\n  line operator+(point p){\n    return\
+    \ line(a+p,b+p);\n  }\n  line operator-(point p){\n    return line(a-p,b-p);\n\
+    \  }\n  line &operator+=(point p){\n    a+=p;\n    b+=p;\n    return *this;\n\
+    \  }\n  line &operator-=(point p){\n    a-=p;\n    b-=p;\n    return *this;\n\
+    \  }\n  bool operator==(line l){\n    return sign(cross(b-a,l.a-a))==0&&sign(cross(b-a,l.b-a));\n\
+    \  }\n};\nistream&operator>>(istream &is,line &l){\n  point a,b;\n  is>>a>>b;\n\
+    \  l=line(a,b);\n  return is;\n}\nostream&operator<<(ostream&os,line l){\n  os<<l.a<<'\
+    \ '<<l.b;\n  return os;\n}\npoint vec(line l){\n  return l.b-l.a;\n}\npoint unit(line\
+    \ l){\n  return vec(l)/abs(vec(l));\n}\npoint part(line l,double a,double b){\n\
+    \  return (l.a*b+l.b*a)/(a+b);\n}\nbool is_parallel(line a,line b){\n  return\
+    \ sign(cross(vec(a),vec(b)))==0;\n}\n"
   dependsOn:
   - Geometry/point.cpp
   isVerificationFile: false
   path: Geometry/line.cpp
   requiredBy: []
-  timestamp: '2021-08-24 09:53:17+01:00'
+  timestamp: '2021-11-17 20:52:48+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Geometry/line.cpp
