@@ -6,7 +6,7 @@ data:
     - icon: ':warning:'
       path: Data_Structure/BIT.cpp
       title: Data_Structure/BIT.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/dsu.cpp
       title: Data_Structure/dsu.cpp
     - icon: ':warning:'
@@ -51,7 +51,7 @@ data:
     - icon: ':warning:'
       path: Graph/dijkstra.cpp
       title: Graph/dijkstra.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Graph/kruskal.cpp
       title: Graph/kruskal.cpp
     - icon: ':warning:'
@@ -120,13 +120,13 @@ data:
       title: Others/timer.cpp
   - name: template
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   verificationCategories:
   - name: test/verify
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-a.test.cpp
       title: test/verify/aoj-grl-2-a.test.cpp
 layout: toppage
