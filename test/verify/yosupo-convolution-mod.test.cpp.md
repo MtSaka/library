@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/ntt.cpp
     title: Math/ntt.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

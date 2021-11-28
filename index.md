@@ -54,7 +54,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/kruskal.cpp
       title: Graph/kruskal.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Graph/lowest-common-ancestor.cpp
       title: Graph/lowest-common-ancestor.cpp
     - icon: ':warning:'
@@ -120,7 +120,7 @@ data:
       title: Others/timer.cpp
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   verificationCategories:
@@ -138,7 +138,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-a.test.cpp
       title: test/verify/aoj-grl-2-a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-5-c.test.cpp
       title: test/verify/aoj-grl-5-c.test.cpp
     - icon: ':heavy_check_mark:'

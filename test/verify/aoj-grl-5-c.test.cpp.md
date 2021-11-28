@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/lowest-common-ancestor.cpp
     title: Graph/lowest-common-ancestor.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
@@ -69,24 +69,23 @@ data:
     \        v=table[i][v];\n      }\n    }\n    return table[0][u];\n  }\n};\n#line\
     \ 4 \"test/verify/aoj-grl-5-c.test.cpp\"\nint main(){\n  INT(n);\n  vector<vector<int>>g(n);\n\
     \  rep(i,n){\n    INT(k);\n    rep(j,k){\n      INT(a);\n      g[i].push_back(a);\n\
-    \      g[a].push_back(i);\n    }\n  }\n  LCA lca(g);\n  INT(q);\n  if(n==1){\n\
-    \    while(q--)print(0);\n    return 0;\n  }\n  while(q--){\n    INT(a,b);\n \
-    \   print(lca.query(a,b));\n  }\n}\n"
+    \    }\n  }\n  INT(q);\n  if(n==1){\n    while(q--)print(0);\n    return 0;\n\
+    \  }\n  LCA lca(g);\n  while(q--){\n    INT(a,b);\n    print(lca.query(a,b));\n\
+    \  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
     \n#include\"../../template/template.cpp\"\n#include\"../../Graph/lowest-common-ancestor.cpp\"\
     \nint main(){\n  INT(n);\n  vector<vector<int>>g(n);\n  rep(i,n){\n    INT(k);\n\
-    \    rep(j,k){\n      INT(a);\n      g[i].push_back(a);\n      g[a].push_back(i);\n\
-    \    }\n  }\n  LCA lca(g);\n  INT(q);\n  if(n==1){\n    while(q--)print(0);\n\
-    \    return 0;\n  }\n  while(q--){\n    INT(a,b);\n    print(lca.query(a,b));\n\
-    \  }\n}"
+    \    rep(j,k){\n      INT(a);\n      g[i].push_back(a);\n    }\n  }\n  INT(q);\n\
+    \  if(n==1){\n    while(q--)print(0);\n    return 0;\n  }\n  LCA lca(g);\n  while(q--){\n\
+    \    INT(a,b);\n    print(lca.query(a,b));\n  }\n}"
   dependsOn:
   - template/template.cpp
   - Graph/lowest-common-ancestor.cpp
   isVerificationFile: true
   path: test/verify/aoj-grl-5-c.test.cpp
   requiredBy: []
-  timestamp: '2021-11-28 23:02:45+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-11-28 23:05:26+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-5-c.test.cpp
 layout: document
