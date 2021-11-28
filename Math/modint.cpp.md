@@ -67,12 +67,12 @@ data:
   isVerificationFile: false
   path: Math/modint.cpp
   requiredBy:
-  - Math/lagrange.cpp
   - Math/com.cpp
   - Math/ntt.cpp
-  - Math/fps.cpp
-  - Math/mod-ntt.cpp
+  - Math/lagrange.cpp
   - Math/convolution.cpp
+  - Math/mod-ntt.cpp
+  - Math/fps.cpp
   timestamp: '2021-11-17 20:52:48+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
