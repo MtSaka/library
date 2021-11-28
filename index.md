@@ -29,7 +29,7 @@ data:
     - icon: ':warning:'
       path: Dynamic_Programming/longest-common-subsequence.cpp
       title: Dynamic_Programming/longest-common-subsequence.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Dynamic_Programming/longest-increasing-subsequence.cpp
       title: Dynamic_Programming/longest-increasing-subsequence.cpp
   - name: Geometry
@@ -63,7 +63,7 @@ data:
     - icon: ':warning:'
       path: Graph/topological-sort.cpp
       title: Graph/topological-sort.cpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/warshall-floyd.cpp
       title: Graph/warshall-floyd.cpp
   - name: Math
@@ -120,12 +120,21 @@ data:
       title: Others/timer.cpp
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   verificationCategories:
   - name: test/verify
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-dpl-1-d.test.cpp
+      title: test/verify/aoj-dpl-1-d.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/aoj-grl-1-a.test.cpp
+      title: test/verify/aoj-grl-1-a.test.cpp
+    - icon: ':x:'
+      path: test/verify/aoj-grl-1-c.test.cpp
+      title: test/verify/aoj-grl-1-c.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-a.test.cpp
       title: test/verify/aoj-grl-2-a.test.cpp

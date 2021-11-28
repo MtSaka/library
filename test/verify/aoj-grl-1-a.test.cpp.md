@@ -2,11 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Data_Structure/dsu.cpp
-    title: Data_Structure/dsu.cpp
-  - icon: ':heavy_check_mark:'
-    path: Graph/kruskal.cpp
-    title: Graph/kruskal.cpp
+    path: Graph/dijkstra.cpp
+    title: Graph/dijkstra.cpp
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
@@ -17,10 +14,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
-  bundledCode: "#line 1 \"test/verify/aoj-grl-2-a.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
+  bundledCode: "#line 1 \"test/verify/aoj-grl-1-a.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
     \n#line 1 \"template/template.cpp\"\n//GIVE ME AC!!!!!!!!!!!!!!!!!\n//#pragma\
     \ GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC optimize(\"\
     unroll-loops\")\n#include<bits/stdc++.h>\nusing namespace std;\nusing ll=long\
@@ -57,42 +54,46 @@ data:
     \ fin(const T &... a){print(a...);exit(0);}\ntemplate<typename T>\nT sum_(vector<T>a){return\
     \ accumulate(all(a),T(0));}\ntemplate<typename T1,typename T2>\ninline bool chmax(T1&a,T2\
     \ b){return a<b&&(a=b,true);}\ntemplate<typename T1,typename T2>\ninline bool\
-    \ chmin(T1&a,T2 b){return a>b&&(a=b,true);}\n#line 1 \"Data_Structure/dsu.cpp\"\
-    \nstruct dsu{\n  vector<int>sz,par;\n  dsu(){}\n  dsu(int n){\n    sz.resize(n,1);\n\
-    \    par.resize(n,0);\n    for(int i=0;i<n;i++)par[i]=i;\n  }\n  int root(int\
-    \ x){\n    if(x==par[x])return x;\n    return par[x]=root(par[x]);\n  }\n  bool\
-    \ same(int x,int y){return root(x)==root(y);}\n  int size(int x){return sz[root(x)];}\n\
-    \  void merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return ;\n\
-    \    if(sz[x]>sz[y]){\n      par[y]=x;\n      sz[x]+=sz[y];\n    }\n    else{\n\
-    \      par[x]=y;\n      sz[y]+=sz[x];\n    }\n  }\n};\n#line 2 \"Graph/kruskal.cpp\"\
-    \ntemplate<typename T>\nstruct mst{\n  T cost;\n  vector<tuple<T,T,T>>edges;\n\
-    };\ntemplate<typename T>\nmst<T> kruskal(vector<tuple<T,T,T>>edges,int v){\n \
-    \ sort(edges.begin(),edges.end(),[](const tuple<T,T,T>&a,const tuple<T,T,T>&b){\n\
-    \    return get<2>(a)<get<2>(b);\n  });\n  dsu d(v);\n  T total=0;\n  vector<tuple<T,T,T>>es;\n\
-    \  for(auto &e:edges){\n    if(!d.same(get<0>(e),get<1>(e))){\n      d.merge(get<0>(e),get<1>(e));\n\
-    \      es.emplace_back(e);\n      total+=get<2>(e);\n    }\n  }\n  return {total,es};\n\
-    }\n#line 4 \"test/verify/aoj-grl-2-a.test.cpp\"\nint main(){\n  INT(v,e);\n  vector<tuple<int,int,int>>edges;\n\
-    \  for(int i = 0; i < e; i++){\n    INT(a,b,c);\n    edges.emplace_back(a,b,c);\n\
-    \  }\n  mst<int>ans = kruskal(edges,v);\n  cout<<ans.cost<<endl;\n}\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
-    \n#include \"../../template/template.cpp\"\n#include \"../../Graph/kruskal.cpp\"\
-    \nint main(){\n  INT(v,e);\n  vector<tuple<int,int,int>>edges;\n  for(int i =\
-    \ 0; i < e; i++){\n    INT(a,b,c);\n    edges.emplace_back(a,b,c);\n  }\n  mst<int>ans\
-    \ = kruskal(edges,v);\n  cout<<ans.cost<<endl;\n}"
+    \ chmin(T1&a,T2 b){return a>b&&(a=b,true);}\n#line 1 \"Graph/dijkstra.cpp\"\n\
+    using P=pair<long long,long long>;\nstruct Edge {\n  long long to;\n  long long\
+    \ cost;\n};\nusing Graph=vector<vector<Edge>>;\nvector<long long>dijkstra(Graph\
+    \ g,int s){\n  int n=g.size();\n  vector<long long>d(n,2e18);\n  d[s]=0;\n  priority_queue<P,vector<P>,greater<P>>q;\n\
+    \  q.push({0,s});\n  while(!q.empty()){\n    auto [c,v]=q.top();\n    q.pop();\n\
+    \    if(d[v]>=c){\n      for(auto p:g[v]){\n        int w=p.to;\n        if(d[w]>d[v]+p.cost){\n\
+    \          d[w]=d[v]+p.cost;\n          q.push({d[w],w});\n        }\n      }\n\
+    \    }\n  }\n  return d;\n}\npair<long long,vector<long long>>dijkstra_path(Graph\
+    \ g,int s, int t){\n  int n=g.size();\n  vector<long long>d(n,2e18);\n  d[s]=0;\n\
+    \  vector<long long>prev(n);\n  priority_queue<P,vector<P>,greater<P>>q;\n  q.push({0,s});\n\
+    \  while(!q.empty()){\n    auto [c,v]=q.top();\n    q.pop();\n    if(d[v]>=c){\n\
+    \      for(auto p:g[v]){\n        int w=p.to;\n        if(d[w]>d[v]+p.cost){\n\
+    \          d[w]=d[v]+p.cost;\n          q.push({d[w],w});\n          prev[w]=v;\n\
+    \        }\n      }\n    }\n  }\n  if(d[t]==2e18)return {-1,vector<long long>()};\n\
+    \  else{\n    vector<long long>path;\n    path.push_back(t);\n    while(path.back()!=s){\n\
+    \      path.push_back(prev[path.back()]);\n    }\n    reverse(path.begin(),path.end());\n\
+    \    return {d[t],path};\n  }\n}\n#line 4 \"test/verify/aoj-grl-1-a.test.cpp\"\
+    \nint main(){\n  INT(v,e,r);\n  Graph g(v);\n  for(int i=0;i<e;i++){\n    INT(a,b,c);\n\
+    \    Edge d;\n    d.to=b;\n    d.cost=c;\n    g[a].push_back(d);\n  }\n  vector<long\
+    \ long>dists=dijkstra(g,r);\n  for(long long dist:dists){\n    if(dist==inf)print(\"\
+    INF\");\n    else print(dist);\n  }\n}\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
+    \n#include\"../../template/template.cpp\"\n#include\"../../Graph/dijkstra.cpp\"\
+    \nint main(){\n  INT(v,e,r);\n  Graph g(v);\n  for(int i=0;i<e;i++){\n    INT(a,b,c);\n\
+    \    Edge d;\n    d.to=b;\n    d.cost=c;\n    g[a].push_back(d);\n  }\n  vector<long\
+    \ long>dists=dijkstra(g,r);\n  for(long long dist:dists){\n    if(dist==inf)print(\"\
+    INF\");\n    else print(dist);\n  }\n}"
   dependsOn:
   - template/template.cpp
-  - Graph/kruskal.cpp
-  - Data_Structure/dsu.cpp
+  - Graph/dijkstra.cpp
   isVerificationFile: true
-  path: test/verify/aoj-grl-2-a.test.cpp
+  path: test/verify/aoj-grl-1-a.test.cpp
   requiredBy: []
-  timestamp: '2021-11-17 21:04:48+00:00'
+  timestamp: '2021-11-28 22:21:46+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/verify/aoj-grl-2-a.test.cpp
+documentation_of: test/verify/aoj-grl-1-a.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/aoj-grl-2-a.test.cpp
-- /verify/test/verify/aoj-grl-2-a.test.cpp.html
-title: test/verify/aoj-grl-2-a.test.cpp
+- /verify/test/verify/aoj-grl-1-a.test.cpp
+- /verify/test/verify/aoj-grl-1-a.test.cpp.html
+title: test/verify/aoj-grl-1-a.test.cpp
 ---

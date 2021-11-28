@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-grl-1-a.test.cpp
+    title: test/verify/aoj-grl-1-a.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-shortest-path.test.cpp
     title: test/verify/yosupo-shortest-path.test.cpp
   _isVerificationFailed: false
@@ -51,6 +54,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo-shortest-path.test.cpp
+  - test/verify/aoj-grl-1-a.test.cpp
 documentation_of: Graph/dijkstra.cpp
 layout: document
 redirect_from:

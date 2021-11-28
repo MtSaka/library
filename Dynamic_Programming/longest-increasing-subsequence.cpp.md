@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/aoj-dpl-1-d.test.cpp
+    title: test/verify/aoj-dpl-1-d.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Dynamic_Programming/longest-increasing-subsequence.cpp\"\
@@ -20,8 +23,9 @@ data:
   path: Dynamic_Programming/longest-increasing-subsequence.cpp
   requiredBy: []
   timestamp: '2021-11-17 20:52:48+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/verify/aoj-dpl-1-d.test.cpp
 documentation_of: Dynamic_Programming/longest-increasing-subsequence.cpp
 layout: document
 redirect_from:
