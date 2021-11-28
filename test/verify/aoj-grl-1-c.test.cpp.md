@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/warshall-floyd.cpp
     title: Graph/warshall-floyd.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C
@@ -63,22 +63,22 @@ data:
     \ long>(v,inf));\n  rep(i,e){\n    INT(x,y,z);\n    dist[x][y]=z;\n  }\n  rep(i,v)dist[i][i]=0;\n\
     \  dist=warshall_floyd(dist);\n  rep(i,v)if(dist[i][i]<0)fin(\"NEGATIVE CYCLE\"\
     );\n  rep(i,v)rep(j,v){\n    if(j>0)cout<<' ';\n    if(dist[i][j]==inf)cout<<\"\
-    INF\";\n    else cout<<dist[i][j];\n    if(j==v-1)cout<<endl;\n  }\n"
+    INF\";\n    else cout<<dist[i][j];\n    if(j==v-1)cout<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C\"\
     \n#include\"../../template/template.cpp\"\n#include\"../../Graph/warshall-floyd.cpp\"\
     \nint main(){\n  int v,e;\n  cin>>v>>e;\n  vector<vector<long long>>dist(v,vector<long\
     \ long>(v,inf));\n  rep(i,e){\n    INT(x,y,z);\n    dist[x][y]=z;\n  }\n  rep(i,v)dist[i][i]=0;\n\
     \  dist=warshall_floyd(dist);\n  rep(i,v)if(dist[i][i]<0)fin(\"NEGATIVE CYCLE\"\
     );\n  rep(i,v)rep(j,v){\n    if(j>0)cout<<' ';\n    if(dist[i][j]==inf)cout<<\"\
-    INF\";\n    else cout<<dist[i][j];\n    if(j==v-1)cout<<endl;\n  }"
+    INF\";\n    else cout<<dist[i][j];\n    if(j==v-1)cout<<endl;\n  }\n}"
   dependsOn:
   - template/template.cpp
   - Graph/warshall-floyd.cpp
   isVerificationFile: true
   path: test/verify/aoj-grl-1-c.test.cpp
   requiredBy: []
-  timestamp: '2021-11-28 22:32:58+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-11-28 22:40:06+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-grl-1-c.test.cpp
 layout: document

@@ -54,7 +54,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/kruskal.cpp
       title: Graph/kruskal.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Graph/lowest-common-ancestor.cpp
       title: Graph/lowest-common-ancestor.cpp
     - icon: ':warning:'
@@ -63,7 +63,7 @@ data:
     - icon: ':warning:'
       path: Graph/topological-sort.cpp
       title: Graph/topological-sort.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/warshall-floyd.cpp
       title: Graph/warshall-floyd.cpp
   - name: Math
@@ -120,7 +120,7 @@ data:
       title: Others/timer.cpp
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.cpp
       title: template/template.cpp
   verificationCategories:
@@ -132,12 +132,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-1-a.test.cpp
       title: test/verify/aoj-grl-1-a.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-1-c.test.cpp
       title: test/verify/aoj-grl-1-c.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-a.test.cpp
       title: test/verify/aoj-grl-2-a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-lca-3.test.cpp
+      title: test/verify/yosupo-lca-3.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-shortest-path.test.cpp
       title: test/verify/yosupo-shortest-path.test.cpp

@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Graph/dijkstra.cpp
-    title: Graph/dijkstra.cpp
+    path: Graph/lowest-common-ancestor.cpp
+    title: Graph/lowest-common-ancestor.cpp
   - icon: ':heavy_check_mark:'
     path: template/template.cpp
     title: template/template.cpp
@@ -14,14 +14,14 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/shortest_path
+    PROBLEM: https://judge.yosupo.jp/problem/lca
     links:
-    - https://judge.yosupo.jp/problem/shortest_path
-  bundledCode: "#line 1 \"test/verify/yosupo-shortest-path.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/shortest_path\"\n#line 1 \"template/template.cpp\"\
-    \n//GIVE ME AC!!!!!!!!!!!!!!!!!\n//#pragma GCC target(\"avx\")\n//#pragma GCC\
-    \ optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
-    using namespace std;\nusing ll=long long;\nusing ld=long double;\nusing vl=vector<ll>;\n\
+    - https://judge.yosupo.jp/problem/lca
+  bundledCode: "#line 1 \"test/verify/yosupo-lca-3.test.cpp\"\n#define PROBLEM \"\
+    https://judge.yosupo.jp/problem/lca\"\n#line 1 \"template/template.cpp\"\n//GIVE\
+    \ ME AC!!!!!!!!!!!!!!!!!\n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"\
+    O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\nusing\
+    \ namespace std;\nusing ll=long long;\nusing ld=long double;\nusing vl=vector<ll>;\n\
     using vi=vector<int>;\nusing vs=vector<string>;\nusing vc=vector<char>;\nusing\
     \ vvl=vector<vl>;\nusing P=pair<ll,ll>;\nusing vvc=vector<vc>;\nusing vd=vector<double>;\n\
     using vp=vector<P>;\nusing vb=vector<bool>;\n#define overload4(_1,_2,_3,_4,name,...)\
@@ -55,46 +55,41 @@ data:
     \ fin(const T &... a){print(a...);exit(0);}\ntemplate<typename T>\nT sum_(vector<T>a){return\
     \ accumulate(all(a),T(0));}\ntemplate<typename T1,typename T2>\ninline bool chmax(T1&a,T2\
     \ b){return a<b&&(a=b,true);}\ntemplate<typename T1,typename T2>\ninline bool\
-    \ chmin(T1&a,T2 b){return a>b&&(a=b,true);}\n#line 1 \"Graph/dijkstra.cpp\"\n\
-    using P=pair<long long,long long>;\nstruct Edge {\n  long long to;\n  long long\
-    \ cost;\n};\nusing Graph=vector<vector<Edge>>;\nvector<long long>dijkstra(Graph\
-    \ g,int s){\n  int n=g.size();\n  vector<long long>d(n,2e18);\n  d[s]=0;\n  priority_queue<P,vector<P>,greater<P>>q;\n\
-    \  q.push({0,s});\n  while(!q.empty()){\n    auto [c,v]=q.top();\n    q.pop();\n\
-    \    if(d[v]>=c){\n      for(auto p:g[v]){\n        int w=p.to;\n        if(d[w]>d[v]+p.cost){\n\
-    \          d[w]=d[v]+p.cost;\n          q.push({d[w],w});\n        }\n      }\n\
-    \    }\n  }\n  return d;\n}\npair<long long,vector<long long>>dijkstra_path(Graph\
-    \ g,int s, int t){\n  int n=g.size();\n  vector<long long>d(n,2e18);\n  d[s]=0;\n\
-    \  vector<long long>prev(n);\n  priority_queue<P,vector<P>,greater<P>>q;\n  q.push({0,s});\n\
-    \  while(!q.empty()){\n    auto [c,v]=q.top();\n    q.pop();\n    if(d[v]>=c){\n\
-    \      for(auto p:g[v]){\n        int w=p.to;\n        if(d[w]>d[v]+p.cost){\n\
-    \          d[w]=d[v]+p.cost;\n          q.push({d[w],w});\n          prev[w]=v;\n\
-    \        }\n      }\n    }\n  }\n  if(d[t]==2e18)return {-1,vector<long long>()};\n\
-    \  else{\n    vector<long long>path;\n    path.push_back(t);\n    while(path.back()!=s){\n\
-    \      path.push_back(prev[path.back()]);\n    }\n    reverse(path.begin(),path.end());\n\
-    \    return {d[t],path};\n  }\n}\n#line 4 \"test/verify/yosupo-shortest-path.test.cpp\"\
-    \nint main(){\n  INT(n,m,s,t);\n  Graph g(n);\n  for(int i=0;i<m;i++){\n    INT(a,b,c);\n\
-    \    Edge e;\n    e.to=b,e.cost=c;\n    g[a].push_back(e);\n  }\n  auto ans=dijkstra_path(g,s,t);\n\
-    \  if(ans.first==-1)fin(-1);\n  print(ans.first,ans.second.size()-1);\n  rep(i,ans.second.size()-1){\n\
-    \    print(ans.second[i],ans.second[i+1]);\n  }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n#include\
-    \ \"../../template/template.cpp\"\n#include \"../../Graph/dijkstra.cpp\"\nint\
-    \ main(){\n  INT(n,m,s,t);\n  Graph g(n);\n  for(int i=0;i<m;i++){\n    INT(a,b,c);\n\
-    \    Edge e;\n    e.to=b,e.cost=c;\n    g[a].push_back(e);\n  }\n  auto ans=dijkstra_path(g,s,t);\n\
-    \  if(ans.first==-1)fin(-1);\n  print(ans.first,ans.second.size()-1);\n  rep(i,ans.second.size()-1){\n\
-    \    print(ans.second[i],ans.second[i+1]);\n  }\n}"
+    \ chmin(T1&a,T2 b){return a>b&&(a=b,true);}\n#line 1 \"Graph/lowest-common-ancestor.cpp\"\
+    \nstruct LCA{\n  int lg=0;\n  vector<int>dep;\n  const vector<vector<int>>&g;\n\
+    \  vector<vector<int>>table;\n  LCA(const vector<vector<int>>&g):g(g),dep(g.size()){\n\
+    \    while((1<<lg)<g.size())lg++;\n    table.assign(lg,vector<int>(g.size(),-1));\n\
+    \    build();\n  }\n  void dfs(int idx,int par,int d){\n    table[0][idx]=par;\n\
+    \    dep[idx]=d;\n    for(auto &to:g[idx]){\n      if(to!=par)dfs(to,idx,d+1);\n\
+    \    }\n  }\n  void build(){\n    dfs(0,-1,0);\n    for(int k=0;k+1<lg;k++){\n\
+    \      for(int i=0;i<table[k].size();i++){\n        if(table[k][i]==-1)table[k+1][i]=-1;\n\
+    \        else table[k+1][i]=table[k][table[k][i]];\n      }\n    }\n  }\n  int\
+    \ query(int u,int v){\n    if(dep[u]>dep[v])swap(u,v);\n    for(int i=lg-1;i>=0;i--){\n\
+    \      if(((dep[v]-dep[u])>>i)&1)v=table[i][v];\n    }\n    if(u==v)return u;\n\
+    \    for(int i=lg-1;i>=0;i--){\n      if(table[i][u]!=table[i][v]){\n        u=table[i][u];\n\
+    \        v=table[i][v];\n      }\n    }\n    return table[0][u];\n  }\n};\n#line\
+    \ 4 \"test/verify/yosupo-lca-3.test.cpp\"\nint main(){\n  MtSaka;\n  INT(n,q);\n\
+    \  vector<vector<int>>g(n);\n  rep(i,1,n){\n    INT(a);\n    g[i].push_back(a);\n\
+    \    g[a].push_back(i);\n  }\n  LCA lca(g);\n  while(q--){\n    INT(u,v);\n  \
+    \  print(lca.query(u,v));\n  }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include\"../../template/template.cpp\"\
+    \n#include\"../../Graph/lowest-common-ancestor.cpp\"\nint main(){\n  MtSaka;\n\
+    \  INT(n,q);\n  vector<vector<int>>g(n);\n  rep(i,1,n){\n    INT(a);\n    g[i].push_back(a);\n\
+    \    g[a].push_back(i);\n  }\n  LCA lca(g);\n  while(q--){\n    INT(u,v);\n  \
+    \  print(lca.query(u,v));\n  }\n}"
   dependsOn:
   - template/template.cpp
-  - Graph/dijkstra.cpp
+  - Graph/lowest-common-ancestor.cpp
   isVerificationFile: true
-  path: test/verify/yosupo-shortest-path.test.cpp
+  path: test/verify/yosupo-lca-3.test.cpp
   requiredBy: []
-  timestamp: '2021-11-17 21:25:38+00:00'
+  timestamp: '2021-11-28 22:40:06+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/verify/yosupo-shortest-path.test.cpp
+documentation_of: test/verify/yosupo-lca-3.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/yosupo-shortest-path.test.cpp
-- /verify/test/verify/yosupo-shortest-path.test.cpp.html
-title: test/verify/yosupo-shortest-path.test.cpp
+- /verify/test/verify/yosupo-lca-3.test.cpp
+- /verify/test/verify/yosupo-lca-3.test.cpp.html
+title: test/verify/yosupo-lca-3.test.cpp
 ---
