@@ -9,6 +9,7 @@ int main(){
     INT(x,y,z);
     dist[x][y]=z;
   }
+  rep(i,v)dist[i][i]=0;
   dist=warshall_floyd(dist);
   rep(i,v)if(dist[i][i]<0)fin("NEGATIVE CYCLE");
   rep(i,v)rep(j,v){
@@ -17,4 +18,3 @@ int main(){
     else cout<<dist[i][j];
     if(j==v-1)cout<<endl;
   }
-}
