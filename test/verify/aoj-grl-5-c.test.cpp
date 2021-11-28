@@ -9,15 +9,14 @@ int main(){
     rep(j,k){
       INT(a);
       g[i].push_back(a);
-      g[a].push_back(i);
     }
   }
-  LCA lca(g);
   INT(q);
   if(n==1){
     while(q--)print(0);
     return 0;
   }
+  LCA lca(g);
   while(q--){
     INT(a,b);
     print(lca.query(a,b));
