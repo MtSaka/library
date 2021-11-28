@@ -54,7 +54,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/kruskal.cpp
       title: Graph/kruskal.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Graph/lowest-common-ancestor.cpp
       title: Graph/lowest-common-ancestor.cpp
     - icon: ':warning:'
@@ -92,13 +92,13 @@ data:
     - icon: ':warning:'
       path: Math/mod-ntt.cpp
       title: Math/mod-ntt.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Math/modint.cpp
       title: Math/modint.cpp
     - icon: ':warning:'
       path: Math/modulo.cpp
       title: Math/modulo.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Math/ntt.cpp
       title: Math/ntt.cpp
     - icon: ':warning:'
@@ -120,7 +120,7 @@ data:
       title: Others/timer.cpp
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.cpp
       title: template/template.cpp
   verificationCategories:
@@ -138,6 +138,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/verify/aoj-grl-2-a.test.cpp
       title: test/verify/aoj-grl-2-a.test.cpp
+    - icon: ':x:'
+      path: test/verify/aoj-grl-5-c.test.cpp
+      title: test/verify/aoj-grl-5-c.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo-convolution-mod.test.cpp
+      title: test/verify/yosupo-convolution-mod.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-lca-3.test.cpp
       title: test/verify/yosupo-lca-3.test.cpp

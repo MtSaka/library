@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.cpp
     title: Math/modint.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: Math/ntt.cpp
     title: Math/ntt.cpp
   _extendedRequiredBy: []

@@ -4,7 +4,7 @@ data:
   - icon: ':warning:'
     path: Math/com.cpp
     title: Math/com.cpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.cpp
     title: Math/modint.cpp
   _extendedRequiredBy: []

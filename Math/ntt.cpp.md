@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.cpp
     title: Math/modint.cpp
   _extendedRequiredBy:
@@ -14,10 +14,13 @@ data:
   - icon: ':warning:'
     path: Math/mod-ntt.cpp
     title: Math/mod-ntt.cpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/verify/yosupo-convolution-mod.test.cpp
+    title: test/verify/yosupo-convolution-mod.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Math/modint.cpp\"\ntemplate<long long m>\nstruct modint{\n\
@@ -93,8 +96,9 @@ data:
   - Math/mod-ntt.cpp
   - Math/fps.cpp
   timestamp: '2021-11-17 20:52:48+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/verify/yosupo-convolution-mod.test.cpp
 documentation_of: Math/ntt.cpp
 layout: document
 redirect_from:

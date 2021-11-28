@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Dynamic_Programming/longest-increasing-subsequence.cpp
     title: Dynamic_Programming/longest-increasing-subsequence.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []

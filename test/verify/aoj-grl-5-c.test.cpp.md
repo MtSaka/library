@@ -1,26 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Data_Structure/dsu.cpp
-    title: Data_Structure/dsu.cpp
-  - icon: ':heavy_check_mark:'
-    path: Graph/kruskal.cpp
-    title: Graph/kruskal.cpp
+  - icon: ':question:'
+    path: Graph/lowest-common-ancestor.cpp
+    title: Graph/lowest-common-ancestor.cpp
   - icon: ':question:'
     path: template/template.cpp
     title: template/template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
-  bundledCode: "#line 1 \"test/verify/aoj-grl-2-a.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
+  bundledCode: "#line 1 \"test/verify/aoj-grl-5-c.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
     \n#line 1 \"template/template.cpp\"\n//GIVE ME AC!!!!!!!!!!!!!!!!!\n//#pragma\
     \ GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC optimize(\"\
     unroll-loops\")\n#include<bits/stdc++.h>\nusing namespace std;\nusing ll=long\
@@ -57,42 +54,42 @@ data:
     \ fin(const T &... a){print(a...);exit(0);}\ntemplate<typename T>\nT sum_(vector<T>a){return\
     \ accumulate(all(a),T(0));}\ntemplate<typename T1,typename T2>\ninline bool chmax(T1&a,T2\
     \ b){return a<b&&(a=b,true);}\ntemplate<typename T1,typename T2>\ninline bool\
-    \ chmin(T1&a,T2 b){return a>b&&(a=b,true);}\n#line 1 \"Data_Structure/dsu.cpp\"\
-    \nstruct dsu{\n  vector<int>sz,par;\n  dsu(){}\n  dsu(int n){\n    sz.resize(n,1);\n\
-    \    par.resize(n,0);\n    for(int i=0;i<n;i++)par[i]=i;\n  }\n  int root(int\
-    \ x){\n    if(x==par[x])return x;\n    return par[x]=root(par[x]);\n  }\n  bool\
-    \ same(int x,int y){return root(x)==root(y);}\n  int size(int x){return sz[root(x)];}\n\
-    \  void merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return ;\n\
-    \    if(sz[x]>sz[y]){\n      par[y]=x;\n      sz[x]+=sz[y];\n    }\n    else{\n\
-    \      par[x]=y;\n      sz[y]+=sz[x];\n    }\n  }\n};\n#line 2 \"Graph/kruskal.cpp\"\
-    \ntemplate<typename T>\nstruct mst{\n  T cost;\n  vector<tuple<T,T,T>>edges;\n\
-    };\ntemplate<typename T>\nmst<T> kruskal(vector<tuple<T,T,T>>edges,int v){\n \
-    \ sort(edges.begin(),edges.end(),[](const tuple<T,T,T>&a,const tuple<T,T,T>&b){\n\
-    \    return get<2>(a)<get<2>(b);\n  });\n  dsu d(v);\n  T total=0;\n  vector<tuple<T,T,T>>es;\n\
-    \  for(auto &e:edges){\n    if(!d.same(get<0>(e),get<1>(e))){\n      d.merge(get<0>(e),get<1>(e));\n\
-    \      es.emplace_back(e);\n      total+=get<2>(e);\n    }\n  }\n  return {total,es};\n\
-    }\n#line 4 \"test/verify/aoj-grl-2-a.test.cpp\"\nint main(){\n  INT(v,e);\n  vector<tuple<int,int,int>>edges;\n\
-    \  for(int i = 0; i < e; i++){\n    INT(a,b,c);\n    edges.emplace_back(a,b,c);\n\
-    \  }\n  mst<int>ans = kruskal(edges,v);\n  cout<<ans.cost<<endl;\n}\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
-    \n#include \"../../template/template.cpp\"\n#include \"../../Graph/kruskal.cpp\"\
-    \nint main(){\n  INT(v,e);\n  vector<tuple<int,int,int>>edges;\n  for(int i =\
-    \ 0; i < e; i++){\n    INT(a,b,c);\n    edges.emplace_back(a,b,c);\n  }\n  mst<int>ans\
-    \ = kruskal(edges,v);\n  cout<<ans.cost<<endl;\n}"
+    \ chmin(T1&a,T2 b){return a>b&&(a=b,true);}\n#line 1 \"Graph/lowest-common-ancestor.cpp\"\
+    \nstruct LCA{\n  int lg=0;\n  vector<int>dep;\n  const vector<vector<int>>&g;\n\
+    \  vector<vector<int>>table;\n  LCA(const vector<vector<int>>&g):g(g),dep(g.size()){\n\
+    \    while((1<<lg)<g.size())lg++;\n    table.assign(lg,vector<int>(g.size(),-1));\n\
+    \    build();\n  }\n  void dfs(int idx,int par,int d){\n    table[0][idx]=par;\n\
+    \    dep[idx]=d;\n    for(auto &to:g[idx]){\n      if(to!=par)dfs(to,idx,d+1);\n\
+    \    }\n  }\n  void build(){\n    dfs(0,-1,0);\n    for(int k=0;k+1<lg;k++){\n\
+    \      for(int i=0;i<table[k].size();i++){\n        if(table[k][i]==-1)table[k+1][i]=-1;\n\
+    \        else table[k+1][i]=table[k][table[k][i]];\n      }\n    }\n  }\n  int\
+    \ query(int u,int v){\n    if(dep[u]>dep[v])swap(u,v);\n    for(int i=lg-1;i>=0;i--){\n\
+    \      if(((dep[v]-dep[u])>>i)&1)v=table[i][v];\n    }\n    if(u==v)return u;\n\
+    \    for(int i=lg-1;i>=0;i--){\n      if(table[i][u]!=table[i][v]){\n        u=table[i][u];\n\
+    \        v=table[i][v];\n      }\n    }\n    return table[0][u];\n  }\n};\n#line\
+    \ 4 \"test/verify/aoj-grl-5-c.test.cpp\"\nint main(){\n  INT(n);\n  vector<vector<int>>g(n);\n\
+    \  rep(i,n){\n    INT(k);\n    rep(j,k){\n      INT(a);\n      g[i].push_back(a);\n\
+    \      g[a].push_back(i);\n    }\n  }\n  LCA lca(g);\n  INT(q);\n  while(q--){\n\
+    \    INT(a,b);\n    print(lca.query(a,b));\n  }\n}\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
+    \n#include\"../../template/template.cpp\"\n#include\"../../Graph/lowest-common-ancestor.cpp\"\
+    \nint main(){\n  INT(n);\n  vector<vector<int>>g(n);\n  rep(i,n){\n    INT(k);\n\
+    \    rep(j,k){\n      INT(a);\n      g[i].push_back(a);\n      g[a].push_back(i);\n\
+    \    }\n  }\n  LCA lca(g);\n  INT(q);\n  while(q--){\n    INT(a,b);\n    print(lca.query(a,b));\n\
+    \  }\n}"
   dependsOn:
   - template/template.cpp
-  - Graph/kruskal.cpp
-  - Data_Structure/dsu.cpp
+  - Graph/lowest-common-ancestor.cpp
   isVerificationFile: true
-  path: test/verify/aoj-grl-2-a.test.cpp
+  path: test/verify/aoj-grl-5-c.test.cpp
   requiredBy: []
-  timestamp: '2021-11-17 21:04:48+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-11-28 22:58:56+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/verify/aoj-grl-2-a.test.cpp
+documentation_of: test/verify/aoj-grl-5-c.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/aoj-grl-2-a.test.cpp
-- /verify/test/verify/aoj-grl-2-a.test.cpp.html
-title: test/verify/aoj-grl-2-a.test.cpp
+- /verify/test/verify/aoj-grl-5-c.test.cpp
+- /verify/test/verify/aoj-grl-5-c.test.cpp.html
+title: test/verify/aoj-grl-5-c.test.cpp
 ---
