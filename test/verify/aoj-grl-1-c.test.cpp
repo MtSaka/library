@@ -18,3 +18,4 @@ int main(){
     else cout<<dist[i][j];
     if(j==v-1)cout<<endl;
   }
+}
