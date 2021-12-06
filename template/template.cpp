@@ -2,6 +2,7 @@
 //#pragma GCC target("avx")
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("unroll-loops")
+#pragma once
 #include<bits/stdc++.h>
 using namespace std;
 using ll=long long;
