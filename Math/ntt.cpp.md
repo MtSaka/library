@@ -92,8 +92,8 @@ data:
   isVerificationFile: false
   path: Math/ntt.cpp
   requiredBy:
-  - Math/convolution.cpp
   - Math/mod-ntt.cpp
+  - Math/convolution.cpp
   - Math/fps.cpp
   timestamp: '2021-11-17 20:52:48+00:00'
   verificationStatus: LIBRARY_ALL_AC

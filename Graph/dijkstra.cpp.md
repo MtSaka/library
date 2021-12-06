@@ -53,8 +53,8 @@ data:
   timestamp: '2021-11-17 20:52:48+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-shortest-path.test.cpp
   - test/verify/aoj-grl-1-a.test.cpp
+  - test/verify/yosupo-shortest-path.test.cpp
 documentation_of: Graph/dijkstra.cpp
 layout: document
 redirect_from:
