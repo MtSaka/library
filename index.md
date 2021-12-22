@@ -46,8 +46,8 @@ data:
       path: Graph/bellman_ford.cpp
       title: Graph/bellman_ford.cpp
     - icon: ':warning:'
-      path: Graph/detect-cycle.cpp
-      title: Graph/detect-cycle.cpp
+      path: Graph/detect_cycle.cpp
+      title: Graph/detect_cycle.cpp
     - icon: ':warning:'
       path: Graph/dijkstra.cpp
       title: Graph/dijkstra.cpp

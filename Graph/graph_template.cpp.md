@@ -5,6 +5,12 @@ data:
   - icon: ':warning:'
     path: Graph/bellman_ford.cpp
     title: Graph/bellman_ford.cpp
+  - icon: ':warning:'
+    path: Graph/detect_cycle.cpp
+    title: Graph/detect_cycle.cpp
+  - icon: ':warning:'
+    path: Graph/dijkstra.cpp
+    title: Graph/dijkstra.cpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
@@ -42,7 +48,9 @@ data:
   isVerificationFile: false
   path: Graph/graph_template.cpp
   requiredBy:
+  - Graph/dijkstra.cpp
   - Graph/bellman_ford.cpp
+  - Graph/detect_cycle.cpp
   timestamp: '2021-12-22 23:27:34+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
