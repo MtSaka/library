@@ -51,6 +51,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/dijkstra.cpp
       title: Graph/dijkstra.cpp
+    - icon: ':warning:'
+      path: Graph/graph_template.cpp
+      title: Graph/graph_template.cpp
     - icon: ':heavy_check_mark:'
       path: Graph/kruskal.cpp
       title: Graph/kruskal.cpp
