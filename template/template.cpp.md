@@ -32,10 +32,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.1/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.1/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.1/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ template/template.cpp: line 5: #pragma once found in a non-first line\n"
@@ -197,14 +197,14 @@ data:
   timestamp: '2021-12-06 20:10:12+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-lca-3.test.cpp
-  - test/verify/aoj-grl-1-a.test.cpp
-  - test/verify/aoj-dpl-1-d.test.cpp
   - test/verify/yosupo-shortest-path.test.cpp
-  - test/verify/aoj-grl-1-c.test.cpp
   - test/verify/yosupo-convolution-mod.test.cpp
+  - test/verify/aoj-grl-1-c.test.cpp
   - test/verify/aoj-grl-2-a.test.cpp
+  - test/verify/aoj-dpl-1-d.test.cpp
   - test/verify/aoj-grl-5-c.test.cpp
+  - test/verify/aoj-grl-1-a.test.cpp
+  - test/verify/yosupo-lca-3.test.cpp
 documentation_of: template/template.cpp
 layout: document
 redirect_from:

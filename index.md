@@ -84,6 +84,9 @@ data:
       path: Math/fps.cpp
       title: Math/fps.cpp
     - icon: ':warning:'
+      path: Math/fraction.cpp
+      title: Math/fraction.cpp
+    - icon: ':warning:'
       path: Math/lagrange.cpp
       title: Math/lagrange.cpp
     - icon: ':warning:'

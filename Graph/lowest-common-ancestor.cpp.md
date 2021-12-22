@@ -46,8 +46,8 @@ data:
   timestamp: '2021-11-17 20:52:48+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-lca-3.test.cpp
   - test/verify/aoj-grl-5-c.test.cpp
+  - test/verify/yosupo-lca-3.test.cpp
 documentation_of: Graph/lowest-common-ancestor.cpp
 layout: document
 redirect_from:
