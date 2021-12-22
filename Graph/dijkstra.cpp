@@ -1,59 +1,50 @@
-using P=pair<long long,long long>;
-struct Edge {
-  long long to;
-  long long cost;
-};
-using Graph=vector<vector<Edge>>;
-vector<long long>dijkstra(Graph g,int s){
+#include"graph_template.cpp"
+template<typename T>
+vector<T>dijkstra(Graph<T>&g,int s){
   int n=g.size();
-  vector<long long>d(n,2e18);
+  T MAX=numeric_limits<T>::max()/2;
+  vector<T>d(n,MAX);
   d[s]=0;
-  priority_queue<P,vector<P>,greater<P>>q;
-  q.push({0,s});
+  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;
+  q.emplace(0,s);
   while(!q.empty()){
-    auto [c,v]=q.top();
-    q.pop();
-    if(d[v]>=c){
-      for(auto p:g[v]){
-        int w=p.to;
-        if(d[w]>d[v]+p.cost){
-          d[w]=d[v]+p.cost;
-          q.push({d[w],w});
-        }
+    auto [d_u,u]=q.top();q.pop();
+    if(d[u]<d_u)continue;
+    for(auto &e:g[u]){
+      if(d[e]>d[u]+e.cost){
+        d[e]=d[u]+e.cost;
+        q.emplace(d[e],e);
       }
     }
   }
   return d;
 }
-pair<long long,vector<long long>>dijkstra_path(Graph g,int s, int t){
+template<typename T>
+pair<T,vector<int>>dijkstra_path(Graph<T>&g,int s,int t){
   int n=g.size();
-  vector<long long>d(n,2e18);
+  T MAX=numeric_limits<T>::max()/2;
+  vector<T>d(n,MAX);
   d[s]=0;
-  vector<long long>prev(n);
-  priority_queue<P,vector<P>,greater<P>>q;
-  q.push({0,s});
+  vector<int>prev(n);
+  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;
+  q.emplace(0,s);
   while(!q.empty()){
-    auto [c,v]=q.top();
-    q.pop();
-    if(d[v]>=c){
-      for(auto p:g[v]){
-        int w=p.to;
-        if(d[w]>d[v]+p.cost){
-          d[w]=d[v]+p.cost;
-          q.push({d[w],w});
-          prev[w]=v;
-        }
+    auto [d_u,u]=q.top();q.pop();
+    if(d[u]<d_u)continue;
+    for(auto &e:g[u]){
+      if(d[e]>d[u]+e.cost){
+        d[e]=d[u]+e.cost;
+        prev[e]=u;
+        q.emplace(d[e],e);
       }
     }
   }
-  if(d[t]==2e18)return {-1,vector<long long>()};
-  else{
-    vector<long long>path;
-    path.push_back(t);
-    while(path.back()!=s){
-      path.push_back(prev[path.back()]);
-    }
-    reverse(path.begin(),path.end());
-    return {d[t],path};
+  if(d[t]==MAX)return {-1,{}};
+  vector<int>path;
+  path.emplace_back(t);
+  while(path.back()!=s){
+    path.emplace_back(prev[path.back()]);
   }
+  reverse(path.begin(),path.end());
+  return {d[t],path};
 }
