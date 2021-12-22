@@ -2,16 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: Graph/kruskal.cpp
     title: Graph/kruskal.cpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-grl-2-a.test.cpp
-    title: test/verify/aoj-grl-2-a.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Data_Structure/dsu.cpp\"\nstruct dsu{\n  vector<int>sz,par;\n\
@@ -34,9 +31,8 @@ data:
   requiredBy:
   - Graph/kruskal.cpp
   timestamp: '2021-11-17 20:52:48+00:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/verify/aoj-grl-2-a.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: Data_Structure/dsu.cpp
 layout: document
 redirect_from:

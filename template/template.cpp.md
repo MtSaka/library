@@ -7,26 +7,8 @@ data:
     path: test/verify/aoj-dpl-1-d.test.cpp
     title: test/verify/aoj-dpl-1-d.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-grl-1-a.test.cpp
-    title: test/verify/aoj-grl-1-a.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-grl-1-c.test.cpp
-    title: test/verify/aoj-grl-1-c.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-grl-2-a.test.cpp
-    title: test/verify/aoj-grl-2-a.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-grl-5-c.test.cpp
-    title: test/verify/aoj-grl-5-c.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo-convolution-mod.test.cpp
     title: test/verify/yosupo-convolution-mod.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-lca-3.test.cpp
-    title: test/verify/yosupo-lca-3.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-shortest-path.test.cpp
-    title: test/verify/yosupo-shortest-path.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -197,14 +179,8 @@ data:
   timestamp: '2021-12-06 20:10:12+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-shortest-path.test.cpp
   - test/verify/yosupo-convolution-mod.test.cpp
-  - test/verify/aoj-grl-1-c.test.cpp
-  - test/verify/aoj-grl-2-a.test.cpp
   - test/verify/aoj-dpl-1-d.test.cpp
-  - test/verify/aoj-grl-5-c.test.cpp
-  - test/verify/aoj-grl-1-a.test.cpp
-  - test/verify/yosupo-lca-3.test.cpp
 documentation_of: template/template.cpp
 layout: document
 redirect_from:

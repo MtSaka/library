@@ -6,7 +6,7 @@ data:
     - icon: ':warning:'
       path: Data_Structure/BIT.cpp
       title: Data_Structure/BIT.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: Data_Structure/dsu.cpp
       title: Data_Structure/dsu.cpp
     - icon: ':warning:'
@@ -43,21 +43,21 @@ data:
   - name: Graph
     pages:
     - icon: ':warning:'
-      path: Graph/bellman-ford.cpp
-      title: Graph/bellman-ford.cpp
+      path: Graph/bellman_ford.cpp
+      title: Graph/bellman_ford.cpp
     - icon: ':warning:'
       path: Graph/detect-cycle.cpp
       title: Graph/detect-cycle.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: Graph/dijkstra.cpp
       title: Graph/dijkstra.cpp
     - icon: ':warning:'
       path: Graph/graph_template.cpp
       title: Graph/graph_template.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: Graph/kruskal.cpp
       title: Graph/kruskal.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: Graph/lowest-common-ancestor.cpp
       title: Graph/lowest-common-ancestor.cpp
     - icon: ':warning:'
@@ -66,7 +66,7 @@ data:
     - icon: ':warning:'
       path: Graph/topological-sort.cpp
       title: Graph/topological-sort.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: Graph/warshall-floyd.cpp
       title: Graph/warshall-floyd.cpp
   - name: Math
@@ -136,26 +136,8 @@ data:
       path: test/verify/aoj-dpl-1-d.test.cpp
       title: test/verify/aoj-dpl-1-d.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/verify/aoj-grl-1-a.test.cpp
-      title: test/verify/aoj-grl-1-a.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/verify/aoj-grl-1-c.test.cpp
-      title: test/verify/aoj-grl-1-c.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/verify/aoj-grl-2-a.test.cpp
-      title: test/verify/aoj-grl-2-a.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/verify/aoj-grl-5-c.test.cpp
-      title: test/verify/aoj-grl-5-c.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo-convolution-mod.test.cpp
       title: test/verify/yosupo-convolution-mod.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/verify/yosupo-lca-3.test.cpp
-      title: test/verify/yosupo-lca-3.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/verify/yosupo-shortest-path.test.cpp
-      title: test/verify/yosupo-shortest-path.test.cpp
 layout: toppage
 ---
 [![MtSaka](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2FMtSaka)](https://atcoder.jp/users/MtSaka)

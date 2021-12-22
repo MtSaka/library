@@ -2,16 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-grl-1-a.test.cpp
-    title: test/verify/aoj-grl-1-a.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-shortest-path.test.cpp
-    title: test/verify/yosupo-shortest-path.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Graph/dijkstra.cpp\"\nusing P=pair<long long,long long>;\n\
@@ -51,10 +45,8 @@ data:
   path: Graph/dijkstra.cpp
   requiredBy: []
   timestamp: '2021-11-17 20:52:48+00:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/verify/yosupo-shortest-path.test.cpp
-  - test/verify/aoj-grl-1-a.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: Graph/dijkstra.cpp
 layout: document
 redirect_from:

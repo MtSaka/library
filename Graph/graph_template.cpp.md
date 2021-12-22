@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: Graph/bellman_ford.cpp
+    title: Graph/bellman_ford.cpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
@@ -38,7 +41,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Graph/graph_template.cpp
-  requiredBy: []
+  requiredBy:
+  - Graph/bellman_ford.cpp
   timestamp: '2021-12-22 23:27:34+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
