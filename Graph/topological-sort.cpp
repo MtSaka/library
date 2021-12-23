@@ -1,9 +1,11 @@
-vector<int>t_sort(vector<vector<int>>g){
+#include"graph_template.cpp"
+template<typename T>
+vector<int>t_sort(const Graph<T>&g){
   int n=g.size();
   vector<int>deg(n,0);
   for(int i=0;i<n;i++){
-    for(int j:g[i]){
-      deg[j]++;
+    for(auto &e:g[i]){
+      deg[e]++;
     }
   }
   queue<int>q;
