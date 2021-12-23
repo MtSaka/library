@@ -1,11 +1,16 @@
 #include"../Data_Structure/dsu.cpp"
+#include"graph_template.cpp"
 template<typename T>
 struct mst{
   T cost;
   vector<tuple<T,T,T>>edges;
 };
 template<typename T>
-mst<T> kruskal(vector<tuple<T,T,T>>edges,int v){
+mst<T>kruskal(const Graph<T>&g,int v){
+  vector<tuple<T,T,T>>edges;
+  for(int i=0;i<g.size();i++){
+    for(auto &e:g[i])if(e<i)edges.emplace_back(e,i,e.cost);
+  }
   sort(edges.begin(),edges.end(),[](const tuple<T,T,T>&a,const tuple<T,T,T>&b){
     return get<2>(a)<get<2>(b);
   });

@@ -1,6 +1,6 @@
 #include"graph_template.cpp"
 template<typename T>
-vector<T>dijkstra(Graph<T>&g,int s){
+vector<T>dijkstra(const Graph<T>&g,int s){
   int n=g.size();
   T MAX=numeric_limits<T>::max()/2;
   vector<T>d(n,MAX);
@@ -20,7 +20,7 @@ vector<T>dijkstra(Graph<T>&g,int s){
   return d;
 }
 template<typename T>
-pair<T,vector<int>>dijkstra_path(Graph<T>&g,int s,int t){
+pair<T,vector<int>>dijkstra_path(const Graph<T>&g,int s,int t){
   int n=g.size();
   T MAX=numeric_limits<T>::max()/2;
   vector<T>d(n,MAX);

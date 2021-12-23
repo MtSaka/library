@@ -1,6 +1,6 @@
 #include"graph_template.cpp"
 template<typename T>
-vector<T>bellman_ford(Graph<T>&g,int s){
+vector<T>bellman_ford(const Graph<T>&g,int s){
   int n=g.size();
   T MAX=numerical_limits<T>::max()/2;
   vector<T>d(n,MAX);
@@ -18,7 +18,7 @@ vector<T>bellman_ford(Graph<T>&g,int s){
   return d;
 }
 template<typename T>
-bool negative_cycle(Graph<T>&g){
+bool negative_cycle(const Graph<T>&g){
   int n=g.size();
   T MAX=numerical_limits<T>::max()/2;
   vector<T>d(n,MAX);

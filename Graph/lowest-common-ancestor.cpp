@@ -1,9 +1,17 @@
+#include"graph_template.cpp"
+template<typename T>
 struct LCA{
   int lg=0;
   vector<int>dep;
-  const vector<vector<int>>&g;
+  const Graph<T>&g;
   vector<vector<int>>table;
-  LCA(const vector<vector<int>>&g):g(g),dep(g.size()){
+  LCA(int n):g(n),dep(n){
+    g.read(n-1);
+    while((1<<lg)<n)lg++;
+    table.assign(lg,vector<int>(n,-1));
+    build();
+  }
+  LCA(const Graph<T>&g):g(g),dep(g.size()){
     while((1<<lg)<g.size())lg++;
     table.assign(lg,vector<int>(g.size(),-1));
     build();
@@ -11,8 +19,8 @@ struct LCA{
   void dfs(int idx,int par,int d){
     table[0][idx]=par;
     dep[idx]=d;
-    for(auto &to:g[idx]){
-      if(to!=par)dfs(to,idx,d+1);
+    for(auto &e:g[idx]){
+      if(e!=par)dfs(e,idx,d+1);
     }
   }
   void build(){
