@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':warning:'
     path: Geometry/line.hpp
-    title: Geometry/line.hpp
+    title: "Line(\u76F4\u7DDA)"
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp

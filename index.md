@@ -38,7 +38,7 @@ data:
     pages:
     - icon: ':warning:'
       path: Geometry/line.hpp
-      title: Geometry/line.hpp
+      title: "Line(\u76F4\u7DDA)"
     - icon: ':warning:'
       path: Geometry/point.hpp
       title: "Point(\u70B9)"
@@ -115,7 +115,7 @@ data:
       title: modint
     - icon: ':heavy_check_mark:'
       path: Math/ntt.hpp
-      title: Math/ntt.hpp
+      title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
     - icon: ':warning:'
       path: Math/phi.hpp
       title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
@@ -130,12 +130,12 @@ data:
     pages:
     - icon: ':warning:'
       path: Others/timer.hpp
-      title: Others/timer.hpp
+      title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: template
     pages:
     - icon: ':heavy_check_mark:'
       path: template/template.hpp
-      title: template/template.hpp
+      title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
   - name: test/aoj/DPL
     pages:

@@ -6,7 +6,7 @@ data:
     title: modint
   - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
-    title: Math/ntt.hpp
+    title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -17,8 +17,8 @@ data:
       )"
     links: []
   bundledCode: "#line 1 \"Math/mod-ntt.hpp\"\n/**\n * @brief Arbitrary Mod Convolution(\u4EFB\
-    \u610Fmod\u7573\u307F\u8FBC\u307F)\n*/\n#line 1 \"Math/ntt.hpp\"\n/**\n * Number\
-    \ Theoretic Transform(\u6570\u8AD6\u5909\u63DB)\n*/\n#line 1 \"Math/modint.hpp\"\
+    \u610Fmod\u7573\u307F\u8FBC\u307F)\n*/\n#line 1 \"Math/ntt.hpp\"\n/**\n * @brief\
+    \ Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)\n*/\n#line 1 \"Math/modint.hpp\"\
     \n/**\n * @brief modint\n*/\ntemplate<long long m>\nstruct modint{\n  long long\
     \ x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint\
     \ inv()const{long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n     \
@@ -82,7 +82,7 @@ data:
   isVerificationFile: false
   path: Math/mod-ntt.hpp
   requiredBy: []
-  timestamp: '2021-12-23 11:34:36+00:00'
+  timestamp: '2021-12-23 11:59:41+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/mod-ntt.hpp

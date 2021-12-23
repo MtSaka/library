@@ -10,9 +10,10 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
+    document_title: "Line(\u76F4\u7DDA)"
     links: []
-  bundledCode: "#line 1 \"Geometry/line.hpp\"\n/**\n * Line(\u76F4\u7DDA)\n*/\n#line\
-    \ 1 \"Geometry/point.hpp\"\n/**\n * @brief Point(\u70B9)\n*/\ndouble eps=0.0000000001;\n\
+  bundledCode: "#line 1 \"Geometry/line.hpp\"\n/**\n * @brief Line(\u76F4\u7DDA)\n\
+    */\n#line 1 \"Geometry/point.hpp\"\n/**\n * @brief Point(\u70B9)\n*/\ndouble eps=0.0000000001;\n\
     int sign(double x){\n  if(x>eps)return 1;\n  if(x<-eps)return -1;\n  return 0;\n\
     }\nbool equals(double x,double y){\n  return abs(x-y)<eps;\n}\nstruct point{\n\
     \  double x;\n  double y;\n  point(){\n    x=0,y=0;\n  }\n  point(double X,double\
@@ -54,10 +55,10 @@ data:
     \ l){\n  return vec(l)/abs(vec(l));\n}\npoint part(line l,double a,double b){\n\
     \  return (l.a*b+l.b*a)/(a+b);\n}\nbool is_parallel(line a,line b){\n  return\
     \ sign(cross(vec(a),vec(b)))==0;\n}\n"
-  code: "/**\n * Line(\u76F4\u7DDA)\n*/\n#include\"point.hpp\"\nstruct line{\n  point\
-    \ a;\n  point b;\n  line(){}\n  line(point p){b=p;}\n  line(point p,point q){a=p,b=q;}\n\
-    \  line(double A,double B){a=point(0,B),b=point(1,A+B);}\n  line(double A,double\
-    \ B,double C){\n    if(sign(B)==0){\n      a=point(-C/A,0);\n      b=point(-C/A,1);\n\
+  code: "/**\n * @brief Line(\u76F4\u7DDA)\n*/\n#include\"point.hpp\"\nstruct line{\n\
+    \  point a;\n  point b;\n  line(){}\n  line(point p){b=p;}\n  line(point p,point\
+    \ q){a=p,b=q;}\n  line(double A,double B){a=point(0,B),b=point(1,A+B);}\n  line(double\
+    \ A,double B,double C){\n    if(sign(B)==0){\n      a=point(-C/A,0);\n      b=point(-C/A,1);\n\
     \    }\n    else{\n      a=point(0,-C/B);\n      b=point(1,-(A+C)/B);\n    }\n\
     \  }\n  line operator+(point p){\n    return line(a+p,b+p);\n  }\n  line operator-(point\
     \ p){\n    return line(a-p,b-p);\n  }\n  line &operator+=(point p){\n    a+=p;\n\
@@ -74,7 +75,7 @@ data:
   isVerificationFile: false
   path: Geometry/line.hpp
   requiredBy: []
-  timestamp: '2021-12-23 11:45:08+00:00'
+  timestamp: '2021-12-23 11:59:41+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Geometry/line.hpp
@@ -82,5 +83,5 @@ layout: document
 redirect_from:
 - /library/Geometry/line.hpp
 - /library/Geometry/line.hpp.html
-title: Geometry/line.hpp
+title: "Line(\u76F4\u7DDA)"
 ---
