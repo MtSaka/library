@@ -24,9 +24,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yosupo/range_affine_range_sum.test.cpp
+    title: test/yosupo/range_affine_range_sum.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: modint
     links: []
@@ -79,9 +82,10 @@ data:
   - Math/combinatorics.hpp
   - Math/lagrange.hpp
   timestamp: '2021-12-23 11:34:36+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/convolution_mod.test.cpp
+  - test/yosupo/range_affine_range_sum.test.cpp
 documentation_of: Math/modint.hpp
 layout: document
 redirect_from:

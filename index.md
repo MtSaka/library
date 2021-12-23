@@ -12,7 +12,7 @@ data:
     - icon: ':warning:'
       path: Data_Structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Data_Structure/lazy_segtree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':warning:'
@@ -122,7 +122,7 @@ data:
     - icon: ':warning:'
       path: Math/mod_ntt.hpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/modint.hpp
       title: modint
     - icon: ':heavy_check_mark:'
@@ -149,7 +149,7 @@ data:
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -158,11 +158,22 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL/DPL_1_D.test.cpp
       title: test/aoj/DPL/DPL_1_D.test.cpp
+  - name: test/aoj/DSL
+    pages:
+    - icon: ':x:'
+      path: test/aoj/DSL/DSL_2_A.test.cpp
+      title: test/aoj/DSL/DSL_2_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/DSL/DSL_2_B.test.cpp
+      title: test/aoj/DSL/DSL_2_B.test.cpp
   - name: test/yosupo
     pages:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod.test.cpp
       title: test/yosupo/convolution_mod.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/range_affine_range_sum.test.cpp
+      title: test/yosupo/range_affine_range_sum.test.cpp
 layout: toppage
 ---
 [![MtSaka](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2FMtSaka)](https://atcoder.jp/users/MtSaka)
