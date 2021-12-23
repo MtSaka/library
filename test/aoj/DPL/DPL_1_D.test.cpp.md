@@ -27,22 +27,22 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ template/template.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D\"\
-    \n#include\"../../template/template.hpp\"\n#include\"../../Dynamic_Programming/longest-increasing-subsequence.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Dynamic_Programming/longest-increasing-subsequence.hpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  print(lis(a));\n\
     }"
   dependsOn:
   - template/template.hpp
   - Dynamic_Programming/longest-increasing-subsequence.hpp
   isVerificationFile: true
-  path: test/verify/aoj-dpl-1-d.test.cpp
+  path: test/aoj/DPL/DPL_1_D.test.cpp
   requiredBy: []
-  timestamp: '2021-12-23 11:07:04+00:00'
+  timestamp: '2021-12-23 11:34:36+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/verify/aoj-dpl-1-d.test.cpp
+documentation_of: test/aoj/DPL/DPL_1_D.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/aoj-dpl-1-d.test.cpp
-- /verify/test/verify/aoj-dpl-1-d.test.cpp.html
-title: test/verify/aoj-dpl-1-d.test.cpp
+- /verify/test/aoj/DPL/DPL_1_D.test.cpp
+- /verify/test/aoj/DPL/DPL_1_D.test.cpp.html
+title: test/aoj/DPL/DPL_1_D.test.cpp
 ---

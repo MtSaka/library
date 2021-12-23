@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/yosupo/convolution_modtest.cpp
+    title: test/yosupo/convolution_modtest.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/aoj-dpl-1-d.test.cpp
-    title: test/verify/aoj-dpl-1-d.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo-convolution-mod.test.cpp
-    title: test/verify/yosupo-convolution-mod.test.cpp
+    path: test/aoj/DPL/DPL_1_D.test.cpp
+    title: test/aoj/DPL/DPL_1_D.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -175,12 +175,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: template/template.hpp
-  requiredBy: []
+  requiredBy:
+  - test/yosupo/convolution_modtest.cpp
   timestamp: '2021-12-23 11:07:04+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo-convolution-mod.test.cpp
-  - test/verify/aoj-dpl-1-d.test.cpp
+  - test/aoj/DPL/DPL_1_D.test.cpp
 documentation_of: template/template.hpp
 layout: document
 redirect_from:

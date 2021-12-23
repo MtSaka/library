@@ -81,53 +81,49 @@ data:
   - name: Math
     pages:
     - icon: ':warning:'
-      path: Math/com.hpp
-      title: Math/com.hpp
+      path: Math/combinatorics.hpp
+      title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
     - icon: ':warning:'
       path: Math/convolution.hpp
-      title: Math/convolution.hpp
+      title: "Convolution(\u7573\u307F\u8FBC\u307F)"
     - icon: ':warning:'
       path: Math/fast-prime.hpp
-      title: Math/fast-prime.hpp
+      title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
     - icon: ':warning:'
       path: Math/fft.hpp
-      title: Math/fft.hpp
+      title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB\
+        )"
     - icon: ':warning:'
       path: Math/fps.hpp
-      title: Math/fps.hpp
+      title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':warning:'
       path: Math/fraction.hpp
-      title: Math/fraction.hpp
+      title: "Fraction(\u6709\u7406\u6570\u578B)"
     - icon: ':warning:'
       path: Math/lagrange.hpp
-      title: Math/lagrange.hpp
+      title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
     - icon: ':warning:'
       path: Math/matrix.hpp
-      title: Math/matrix.hpp
+      title: "Matrix(\u884C\u5217)"
     - icon: ':warning:'
       path: Math/mod-ntt.hpp
-      title: Math/mod-ntt.hpp
-    - icon: ':heavy_check_mark:'
-      path: Math/modint.hpp
-      title: Math/modint.hpp
+      title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
     - icon: ':warning:'
-      path: Math/modulo.hpp
-      title: Math/modulo.hpp
-    - icon: ':heavy_check_mark:'
+      path: Math/modint.hpp
+      title: modint
+    - icon: ':warning:'
       path: Math/ntt.hpp
       title: Math/ntt.hpp
     - icon: ':warning:'
-      path: Math/number.hpp
-      title: Math/number.hpp
-    - icon: ':warning:'
       path: Math/phi.hpp
-      title: Math/phi.hpp
+      title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
+        )"
     - icon: ':warning:'
       path: Math/prime.hpp
       title: Math/prime.hpp
     - icon: ':warning:'
       path: Math/quotient_ranges.hpp
-      title: Math/quotient_ranges.hpp
+      title: "Quotient Ranges(\u5546\u5217\u6319)"
   - name: Others
     pages:
     - icon: ':warning:'
@@ -138,15 +134,17 @@ data:
     - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: template/template.hpp
+  - name: test/yosupo
+    pages:
+    - icon: ':warning:'
+      path: test/yosupo/convolution_modtest.cpp
+      title: test/yosupo/convolution_modtest.cpp
   verificationCategories:
-  - name: test/verify
+  - name: test/aoj/DPL
     pages:
     - icon: ':heavy_check_mark:'
-      path: test/verify/aoj-dpl-1-d.test.cpp
-      title: test/verify/aoj-dpl-1-d.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/verify/yosupo-convolution-mod.test.cpp
-      title: test/verify/yosupo-convolution-mod.test.cpp
+      path: test/aoj/DPL/DPL_1_D.test.cpp
+      title: test/aoj/DPL/DPL_1_D.test.cpp
 layout: toppage
 ---
 [![MtSaka](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2FMtSaka)](https://atcoder.jp/users/MtSaka)

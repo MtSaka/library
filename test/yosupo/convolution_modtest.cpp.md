@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: Math/modint.hpp
-    title: Math/modint.hpp
-  - icon: ':heavy_check_mark:'
+    title: modint
+  - icon: ':warning:'
     path: Math/ntt.hpp
     title: Math/ntt.hpp
   - icon: ':heavy_check_mark:'
@@ -14,10 +14,8 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/convolution_mod
     links:
     - https://judge.yosupo.jp/problem/convolution_mod
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.1/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -37,16 +35,16 @@ data:
   - template/template.hpp
   - Math/ntt.hpp
   - Math/modint.hpp
-  isVerificationFile: true
-  path: test/verify/yosupo-convolution-mod.test.cpp
+  isVerificationFile: false
+  path: test/yosupo/convolution_modtest.cpp
   requiredBy: []
-  timestamp: '2021-12-23 11:07:04+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-12-23 11:34:36+00:00'
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/verify/yosupo-convolution-mod.test.cpp
+documentation_of: test/yosupo/convolution_modtest.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/yosupo-convolution-mod.test.cpp
-- /verify/test/verify/yosupo-convolution-mod.test.cpp.html
-title: test/verify/yosupo-convolution-mod.test.cpp
+- /library/test/yosupo/convolution_modtest.cpp
+- /library/test/yosupo/convolution_modtest.cpp.html
+title: test/yosupo/convolution_modtest.cpp
 ---

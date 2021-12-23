@@ -7,8 +7,11 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
+    document_title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\
+      \u89E3)"
     links: []
-  bundledCode: "#line 1 \"Math/fast-prime.hpp\"\nnamespace fastprime{\n  using i128=__uint128_t;\n\
+  bundledCode: "#line 1 \"Math/fast-prime.hpp\"\n/**\n * @brief Fast Prime Factorization(\u9AD8\
+    \u901F\u7D20\u56E0\u6570\u5206\u89E3)\n*/\nnamespace fastprime{\n  using i128=__uint128_t;\n\
     \  long long inner_modmul(long long x,long long y,long long p){\n    return i128(x)*y%p;\n\
     \  }\n  long long inner_modpow(long long n,long long m,long long p){\n    long\
     \ long res=1;\n    while(m){\n      if(m&1)res=inner_modmul(res,n,p);\n      n=inner_modmul(n,n,p);\n\
@@ -35,7 +38,8 @@ data:
     \    return l;\n  }\n  vector<long long>factorize(long long n,bool sorted=true){\n\
     \    vector<long long>res=factorize_sub(n);\n    if(sorted)sort(res.begin(),res.end());\n\
     \    return res;\n  }\n};\n"
-  code: "namespace fastprime{\n  using i128=__uint128_t;\n  long long inner_modmul(long\
+  code: "/**\n * @brief Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\
+    \u89E3)\n*/\nnamespace fastprime{\n  using i128=__uint128_t;\n  long long inner_modmul(long\
     \ long x,long long y,long long p){\n    return i128(x)*y%p;\n  }\n  long long\
     \ inner_modpow(long long n,long long m,long long p){\n    long long res=1;\n \
     \   while(m){\n      if(m&1)res=inner_modmul(res,n,p);\n      n=inner_modmul(n,n,p);\n\
@@ -66,7 +70,7 @@ data:
   isVerificationFile: false
   path: Math/fast-prime.hpp
   requiredBy: []
-  timestamp: '2021-12-23 11:07:04+00:00'
+  timestamp: '2021-12-23 11:34:36+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/fast-prime.hpp
@@ -74,5 +78,5 @@ layout: document
 redirect_from:
 - /library/Math/fast-prime.hpp
 - /library/Math/fast-prime.hpp.html
-title: Math/fast-prime.hpp
+title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
 ---

@@ -7,8 +7,11 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
+    document_title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\
+      \u63DB)"
     links: []
-  bundledCode: "#line 1 \"Math/fft.hpp\"\nstruct FFT{\n  void dft(vector<complex<double>>&a,double\
+  bundledCode: "#line 1 \"Math/fft.hpp\"\n/**\n * @brief Fast Fourier Transform(\u9AD8\
+    \u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB)\n*/\nstruct FFT{\n  void dft(vector<complex<double>>&a,double\
     \ inv){\n    int sz=a.size();\n    if(sz==1)return;\n    int mask=sz-1;\n    vector<complex<double>>b(sz);\n\
     \    for(int i=sz>>1;i>=1;i>>=1){\n      complex<double>z=polar(1.0,2*pi*i*inv/sz),w=1;\n\
     \      for(int j=0;j<sz;j+=i){\n        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
@@ -19,8 +22,9 @@ data:
     \    for(int i=0;i<sz;i++)ma[i]*=mb[i];\n    dft(ma,-1);\n    vector<double>res(a.size()+b.size()-1);\n\
     \    for(int i=0;i<res.size();i++)res[i]=(ma[i].real())/(double)sz;\n    return\
     \ res;\n  }\n};\n"
-  code: "struct FFT{\n  void dft(vector<complex<double>>&a,double inv){\n    int sz=a.size();\n\
-    \    if(sz==1)return;\n    int mask=sz-1;\n    vector<complex<double>>b(sz);\n\
+  code: "/**\n * @brief Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\
+    \u5909\u63DB)\n*/\nstruct FFT{\n  void dft(vector<complex<double>>&a,double inv){\n\
+    \    int sz=a.size();\n    if(sz==1)return;\n    int mask=sz-1;\n    vector<complex<double>>b(sz);\n\
     \    for(int i=sz>>1;i>=1;i>>=1){\n      complex<double>z=polar(1.0,2*pi*i*inv/sz),w=1;\n\
     \      for(int j=0;j<sz;j+=i){\n        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
     \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  template<typename T>\n\
@@ -34,7 +38,7 @@ data:
   isVerificationFile: false
   path: Math/fft.hpp
   requiredBy: []
-  timestamp: '2021-12-23 11:07:04+00:00'
+  timestamp: '2021-12-23 11:34:36+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/fft.hpp
@@ -42,5 +46,5 @@ layout: document
 redirect_from:
 - /library/Math/fft.hpp
 - /library/Math/fft.hpp.html
-title: Math/fft.hpp
+title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB)"
 ---
