@@ -10,7 +10,7 @@ data:
     document_title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\
       \u5217)"
     links: []
-  bundledCode: "#line 1 \"Dynamic_Programming/longest-common-subsequence.hpp\"\n/**\n\
+  bundledCode: "#line 1 \"Dynamic_Programming/longest_common-subsequence.hpp\"\n/**\n\
     \ * @brief Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217\
     )\n*/\ntemplate<typename T>\nint lcsl(const vector<T>&a,const vector<T>&b){\n\
     \  vector<vecto<int>>dp(a.size()+1,vector<int>(b.size()+1,0));\n  for(int i=0;i<a.size();i++){\n\
@@ -37,15 +37,15 @@ data:
     \  }\n  reverse(ans.begin(),ans.end());\n  return ans;\n}"
   dependsOn: []
   isVerificationFile: false
-  path: Dynamic_Programming/longest-common-subsequence.hpp
+  path: Dynamic_Programming/longest_common-subsequence.hpp
   requiredBy: []
-  timestamp: '2021-12-23 11:45:08+00:00'
+  timestamp: '2021-12-23 23:12:39+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Dynamic_Programming/longest-common-subsequence.hpp
+documentation_of: Dynamic_Programming/longest_common-subsequence.hpp
 layout: document
 redirect_from:
-- /library/Dynamic_Programming/longest-common-subsequence.hpp
-- /library/Dynamic_Programming/longest-common-subsequence.hpp.html
+- /library/Dynamic_Programming/longest_common-subsequence.hpp
+- /library/Dynamic_Programming/longest_common-subsequence.hpp.html
 title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)"
 ---

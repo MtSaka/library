@@ -12,7 +12,7 @@ data:
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':warning:'
-    path: Math/mod-ntt.hpp
+    path: Math/mod_ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -95,9 +95,9 @@ data:
   isVerificationFile: false
   path: Math/ntt.hpp
   requiredBy:
+  - Math/mod_ntt.hpp
   - Math/convolution.hpp
   - Math/fps.hpp
-  - Math/mod-ntt.hpp
   timestamp: '2021-12-23 11:59:41+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

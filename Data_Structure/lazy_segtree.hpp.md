@@ -10,7 +10,7 @@ data:
     document_title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
       )"
     links: []
-  bundledCode: "#line 1 \"Data_Structure/lazy-segtree.hpp\"\n/**\n * @brief Lazy Segment\
+  bundledCode: "#line 1 \"Data_Structure/lazy_segtree.hpp\"\n/**\n * @brief Lazy Segment\
     \ Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\ntemplate<class S,S\
     \ (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>\n\
     struct lazy_segtree{\n  private:\n  int _n,size,idx=0;\n  vector<S>seq;\n  vector<F>lazy;\n\
@@ -65,15 +65,15 @@ data:
     \    }\n  }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: Data_Structure/lazy-segtree.hpp
+  path: Data_Structure/lazy_segtree.hpp
   requiredBy: []
-  timestamp: '2021-12-23 11:45:08+00:00'
+  timestamp: '2021-12-23 23:12:39+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Data_Structure/lazy-segtree.hpp
+documentation_of: Data_Structure/lazy_segtree.hpp
 layout: document
 redirect_from:
-- /library/Data_Structure/lazy-segtree.hpp
-- /library/Data_Structure/lazy-segtree.hpp.html
+- /library/Data_Structure/lazy_segtree.hpp
+- /library/Data_Structure/lazy_segtree.hpp.html
 title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
 ---

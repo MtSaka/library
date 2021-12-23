@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Dynamic_Programming/longest-increasing-subsequence.hpp
+    path: Dynamic_Programming/longest_increasing_subsequence.hpp
     title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
       )"
   - icon: ':heavy_check_mark:'
@@ -28,16 +28,16 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ template/template.hpp: line 8: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Dynamic_Programming/longest-increasing-subsequence.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Dynamic_Programming/longest_increasing_subsequence.hpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  print(lis(a));\n\
     }"
   dependsOn:
   - template/template.hpp
-  - Dynamic_Programming/longest-increasing-subsequence.hpp
+  - Dynamic_Programming/longest_increasing_subsequence.hpp
   isVerificationFile: true
   path: test/aoj/DPL/DPL_1_D.test.cpp
   requiredBy: []
-  timestamp: '2021-12-23 11:59:41+00:00'
+  timestamp: '2021-12-23 23:12:39+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL/DPL_1_D.test.cpp

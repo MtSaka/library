@@ -9,7 +9,7 @@ data:
   attributes:
     document_title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
     links: []
-  bundledCode: "#line 1 \"Dynamic_Programming/count-subsequences.hpp\"\n/**\n * @brief\
+  bundledCode: "#line 1 \"Dynamic_Programming/count_subsequences.hpp\"\n/**\n * @brief\
     \ Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)\n*/\nlong long subcount(const\
     \ string&s){\n  int n=s.size();\n  vector<vector<int>>next(n+1,vector<int>(26,0));\n\
     \  for(int i=n-1;i>=0;i--){\n    for(int j=0;j<26;j++)next[i][j]=next[i+1][j];\n\
@@ -24,15 +24,15 @@ data:
     \  long long ans=0;\n  for(int i=0;i<=n;i++)ans+=dp[i];\n  return ans;\n}"
   dependsOn: []
   isVerificationFile: false
-  path: Dynamic_Programming/count-subsequences.hpp
+  path: Dynamic_Programming/count_subsequences.hpp
   requiredBy: []
-  timestamp: '2021-12-23 11:45:08+00:00'
+  timestamp: '2021-12-23 23:12:39+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Dynamic_Programming/count-subsequences.hpp
+documentation_of: Dynamic_Programming/count_subsequences.hpp
 layout: document
 redirect_from:
-- /library/Dynamic_Programming/count-subsequences.hpp
-- /library/Dynamic_Programming/count-subsequences.hpp.html
+- /library/Dynamic_Programming/count_subsequences.hpp
+- /library/Dynamic_Programming/count_subsequences.hpp.html
 title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
 ---

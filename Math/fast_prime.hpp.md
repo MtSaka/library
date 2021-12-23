@@ -10,7 +10,7 @@ data:
     document_title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\
       \u89E3)"
     links: []
-  bundledCode: "#line 1 \"Math/fast-prime.hpp\"\n/**\n * @brief Fast Prime Factorization(\u9AD8\
+  bundledCode: "#line 1 \"Math/fast_prime.hpp\"\n/**\n * @brief Fast Prime Factorization(\u9AD8\
     \u901F\u7D20\u56E0\u6570\u5206\u89E3)\n*/\nnamespace fastprime{\n  using i128=__uint128_t;\n\
     \  long long inner_modmul(long long x,long long y,long long p){\n    return i128(x)*y%p;\n\
     \  }\n  long long inner_modpow(long long n,long long m,long long p){\n    long\
@@ -68,15 +68,15 @@ data:
     \    return res;\n  }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: Math/fast-prime.hpp
+  path: Math/fast_prime.hpp
   requiredBy: []
-  timestamp: '2021-12-23 11:34:36+00:00'
+  timestamp: '2021-12-23 23:12:39+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Math/fast-prime.hpp
+documentation_of: Math/fast_prime.hpp
 layout: document
 redirect_from:
-- /library/Math/fast-prime.hpp
-- /library/Math/fast-prime.hpp.html
+- /library/Math/fast_prime.hpp
+- /library/Math/fast_prime.hpp.html
 title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
 ---

@@ -9,7 +9,7 @@ data:
   attributes:
     document_title: "Weighed Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
     links: []
-  bundledCode: "#line 1 \"Data_Structure/weighed-dsu.hpp\"\n/**\n * @brief Weighed\
+  bundledCode: "#line 1 \"Data_Structure/weighed_dsu.hpp\"\n/**\n * @brief Weighed\
     \ Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)\n*/ \ntemplate<typename\
     \ T>\nstruct weighed_dsu{\n  vector<int>sz,par;\n  vector<T>diff;\n  weighed_dsu(){}\n\
     \  weighed_dsu(int n,T s=0){\n    sz.resize(n,1);\n    par.resize(n,0);\n    diff.resize(n,s);\n\
@@ -34,15 +34,15 @@ data:
     \    return weight(y)-weight(x);\n  }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: Data_Structure/weighed-dsu.hpp
+  path: Data_Structure/weighed_dsu.hpp
   requiredBy: []
-  timestamp: '2021-12-23 11:45:08+00:00'
+  timestamp: '2021-12-23 23:12:39+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Data_Structure/weighed-dsu.hpp
+documentation_of: Data_Structure/weighed_dsu.hpp
 layout: document
 redirect_from:
-- /library/Data_Structure/weighed-dsu.hpp
-- /library/Data_Structure/weighed-dsu.hpp.html
+- /library/Data_Structure/weighed_dsu.hpp
+- /library/Data_Structure/weighed_dsu.hpp.html
 title: "Weighed Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
 ---

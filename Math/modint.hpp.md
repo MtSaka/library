@@ -15,7 +15,7 @@ data:
     path: Math/lagrange.hpp
     title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':warning:'
-    path: Math/mod-ntt.hpp
+    path: Math/mod_ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
@@ -72,12 +72,12 @@ data:
   isVerificationFile: false
   path: Math/modint.hpp
   requiredBy:
+  - Math/mod_ntt.hpp
   - Math/convolution.hpp
   - Math/fps.hpp
   - Math/ntt.hpp
   - Math/combinatorics.hpp
   - Math/lagrange.hpp
-  - Math/mod-ntt.hpp
   timestamp: '2021-12-23 11:34:36+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

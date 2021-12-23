@@ -16,7 +16,7 @@ data:
     document_title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
       )"
     links: []
-  bundledCode: "#line 1 \"Math/mod-ntt.hpp\"\n/**\n * @brief Arbitrary Mod Convolution(\u4EFB\
+  bundledCode: "#line 1 \"Math/mod_ntt.hpp\"\n/**\n * @brief Arbitrary Mod Convolution(\u4EFB\
     \u610Fmod\u7573\u307F\u8FBC\u307F)\n*/\n#line 1 \"Math/ntt.hpp\"\n/**\n * @brief\
     \ Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)\n*/\n#line 1 \"Math/modint.hpp\"\
     \n/**\n * @brief modint\n*/\ntemplate<long long m>\nstruct modint{\n  long long\
@@ -59,7 +59,7 @@ data:
     \ mint=modint<m>;\n    vector<mint>a2(a.size()),b2(b.size());\n    for(int i=0;i<a.size();i++)a2[i]=a[i];\n\
     \    for(int i=0;i<b.size();i++)b2[i]=b[i];\n    auto c2=multiply(move(a2),move(b2));\n\
     \    vector<T>c(c2.size());\n    for(int i=0;i<c.size();i++)c[i]=c2[i].x;\n  \
-    \  return c;\n  }\n};\n#line 5 \"Math/mod-ntt.hpp\"\nvector<long long>mod_convolution(vector<long\
+    \  return c;\n  }\n};\n#line 5 \"Math/mod_ntt.hpp\"\nvector<long long>mod_convolution(vector<long\
     \ long>a,vector<long long>b,long long m){\n  NTT<167772161>ntt1;\n  NTT<469762049>ntt2;\n\
     \  NTT<1224736769>ntt3;\n  auto x=ntt1.multiply(a,b);\n  auto y=ntt2.multiply(a,b);\n\
     \  auto z=ntt3.multiply(a,b);\n  long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889LL%m;\n\
@@ -80,15 +80,15 @@ data:
   - Math/ntt.hpp
   - Math/modint.hpp
   isVerificationFile: false
-  path: Math/mod-ntt.hpp
+  path: Math/mod_ntt.hpp
   requiredBy: []
-  timestamp: '2021-12-23 11:59:41+00:00'
+  timestamp: '2021-12-23 23:12:39+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Math/mod-ntt.hpp
+documentation_of: Math/mod_ntt.hpp
 layout: document
 redirect_from:
-- /library/Math/mod-ntt.hpp
-- /library/Math/mod-ntt.hpp.html
+- /library/Math/mod_ntt.hpp
+- /library/Math/mod_ntt.hpp.html
 title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
 ---

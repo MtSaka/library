@@ -13,25 +13,25 @@ data:
       path: Data_Structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
     - icon: ':warning:'
-      path: Data_Structure/lazy-segtree.hpp
+      path: Data_Structure/lazy_segtree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':warning:'
       path: Data_Structure/segtree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':warning:'
-      path: Data_Structure/weighed-dsu.hpp
+      path: Data_Structure/weighed_dsu.hpp
       title: "Weighed Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
   - name: Dynamic_Programming
     pages:
     - icon: ':warning:'
-      path: Dynamic_Programming/count-subsequences.hpp
+      path: Dynamic_Programming/count_subsequences.hpp
       title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
     - icon: ':warning:'
-      path: Dynamic_Programming/longest-common-subsequence.hpp
+      path: Dynamic_Programming/longest_common-subsequence.hpp
       title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217\
         )"
     - icon: ':heavy_check_mark:'
-      path: Dynamic_Programming/longest-increasing-subsequence.hpp
+      path: Dynamic_Programming/longest_increasing_subsequence.hpp
       title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
         )"
   - name: Geometry
@@ -89,7 +89,16 @@ data:
       path: Math/convolution.hpp
       title: "Convolution(\u7573\u307F\u8FBC\u307F)"
     - icon: ':warning:'
-      path: Math/fast-prime.hpp
+      path: Math/factor.hpp
+      title: "Factor Enumeration(\u7D04\u6570\u5217\u6319)"
+    - icon: ':warning:'
+      path: Math/factor_cnt.hpp
+      title: "Factor Count(\u7D04\u6570\u500B\u6570)"
+    - icon: ':warning:'
+      path: Math/factorize.hpp
+      title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
+    - icon: ':warning:'
+      path: Math/fast_prime.hpp
       title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
     - icon: ':warning:'
       path: Math/fft.hpp
@@ -102,13 +111,16 @@ data:
       path: Math/fraction.hpp
       title: "Fraction(\u6709\u7406\u6570\u578B)"
     - icon: ':warning:'
+      path: Math/is_prime.hpp
+      title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
+    - icon: ':warning:'
       path: Math/lagrange.hpp
       title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
     - icon: ':warning:'
       path: Math/matrix.hpp
       title: "Matrix(\u884C\u5217)"
     - icon: ':warning:'
-      path: Math/mod-ntt.hpp
+      path: Math/mod_ntt.hpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
     - icon: ':heavy_check_mark:'
       path: Math/modint.hpp
@@ -121,11 +133,15 @@ data:
       title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
         )"
     - icon: ':warning:'
-      path: Math/prime.hpp
-      title: Math/prime.hpp
+      path: Math/prime_sieve.hpp
+      title: "Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
     - icon: ':warning:'
       path: Math/quotient_ranges.hpp
       title: "Quotient Ranges(\u5546\u5217\u6319)"
+    - icon: ':warning:'
+      path: Math/range_prime_sieve.hpp
+      title: "Range Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u533A\
+        \u9593\u7BE9)"
   - name: Others
     pages:
     - icon: ':warning:'
