@@ -25,23 +25,23 @@ data:
     \    int a,b;\n    T c;\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n      a+=padding;\n\
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\n#line 2 \"Graph/detect_cycle.cpp\"\
-    \ntemplate<typename T>\nbool detect_cycle(Graph<T>&g){\n  int n=g.size();\n  vector<int>deg(n,0);\n\
-    \  for(int i=0;i<n;i++)for(auto &e:g[i])deg[e]++;\n  queue<int>q;\n  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n\
+    \ntemplate<typename T>\nbool detect_cycle(const Graph<T>&g){\n  int n=g.size();\n\
+    \  vector<int>deg(n,0);\n  for(int i=0;i<n;i++)for(auto &e:g[i])deg[e]++;\n  queue<int>q;\n\
+    \  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n  while(!q.empty()){\n    int\
+    \ u=q.front();q.pop();\n    for(auto &e:g[u]){\n      deg[e]--;\n      if(deg[e]==0)q.push(e);\n\
+    \    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return true;\n}\n"
+  code: "#include\"graph_template.cpp\"\ntemplate<typename T>\nbool detect_cycle(const\
+    \ Graph<T>&g){\n  int n=g.size();\n  vector<int>deg(n,0);\n  for(int i=0;i<n;i++)for(auto\
+    \ &e:g[i])deg[e]++;\n  queue<int>q;\n  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n\
     \  while(!q.empty()){\n    int u=q.front();q.pop();\n    for(auto &e:g[u]){\n\
     \      deg[e]--;\n      if(deg[e]==0)q.push(e);\n    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return\
-    \ true;\n}\n"
-  code: "#include\"graph_template.cpp\"\ntemplate<typename T>\nbool detect_cycle(Graph<T>&g){\n\
-    \  int n=g.size();\n  vector<int>deg(n,0);\n  for(int i=0;i<n;i++)for(auto &e:g[i])deg[e]++;\n\
-    \  queue<int>q;\n  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n  while(!q.empty()){\n\
-    \    int u=q.front();q.pop();\n    for(auto &e:g[u]){\n      deg[e]--;\n     \
-    \ if(deg[e]==0)q.push(e);\n    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return\
     \ true;\n}"
   dependsOn:
   - Graph/graph_template.cpp
   isVerificationFile: false
   path: Graph/detect_cycle.cpp
   requiredBy: []
-  timestamp: '2021-12-22 23:57:22+00:00'
+  timestamp: '2021-12-23 00:09:23+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Graph/detect_cycle.cpp

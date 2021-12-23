@@ -25,32 +25,33 @@ data:
     \    int a,b;\n    T c;\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n      a+=padding;\n\
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\n#line 2 \"Graph/bellman_ford.cpp\"\
-    \ntemplate<typename T>\nvector<T>bellman_ford(Graph<T>&g,int s){\n  int n=g.size();\n\
-    \  T MAX=numerical_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n  d[s]=0;\n  while(true){\n\
-    \    bool update=false;\n    for(int i=0;i<n;i++){\n      for(auto &e:g[i])if(d[e]>d[i]+e.cost&&d[i]!=MAX){\n\
+    \ntemplate<typename T>\nvector<T>bellman_ford(const Graph<T>&g,int s){\n  int\
+    \ n=g.size();\n  T MAX=numerical_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n \
+    \ d[s]=0;\n  while(true){\n    bool update=false;\n    for(int i=0;i<n;i++){\n\
+    \      for(auto &e:g[i])if(d[e]>d[i]+e.cost&&d[i]!=MAX){\n        d[e]=d[i]+e.cost;\n\
+    \        update=true;\n      }\n    }\n    if(!update)break;\n  }\n  return d;\n\
+    }\ntemplate<typename T>\nbool negative_cycle(const Graph<T>&g){\n  int n=g.size();\n\
+    \  T MAX=numerical_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n  for(int i=0;i<n;i++){\n\
+    \    bool update=false;\n    for(int j=0;j<n;j++){\n      for(auto &e:g[j])if(d[e]>d[j]+e.cost&&d[j]!=MAX){\n\
+    \        d[e]=d[j]+e.cost;\n        update=true;\n        if(i==n-1)return true;\n\
+    \      }\n    }\n    if(!update)break;\n  }\n  return false;\n}\n"
+  code: "#include\"graph_template.cpp\"\ntemplate<typename T>\nvector<T>bellman_ford(const\
+    \ Graph<T>&g,int s){\n  int n=g.size();\n  T MAX=numerical_limits<T>::max()/2;\n\
+    \  vector<T>d(n,MAX);\n  d[s]=0;\n  while(true){\n    bool update=false;\n   \
+    \ for(int i=0;i<n;i++){\n      for(auto &e:g[i])if(d[e]>d[i]+e.cost&&d[i]!=MAX){\n\
     \        d[e]=d[i]+e.cost;\n        update=true;\n      }\n    }\n    if(!update)break;\n\
-    \  }\n  return d;\n}\ntemplate<typename T>\nbool negative_cycle(Graph<T>&g){\n\
+    \  }\n  return d;\n}\ntemplate<typename T>\nbool negative_cycle(const Graph<T>&g){\n\
     \  int n=g.size();\n  T MAX=numerical_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
     \  for(int i=0;i<n;i++){\n    bool update=false;\n    for(int j=0;j<n;j++){\n\
     \      for(auto &e:g[j])if(d[e]>d[j]+e.cost&&d[j]!=MAX){\n        d[e]=d[j]+e.cost;\n\
     \        update=true;\n        if(i==n-1)return true;\n      }\n    }\n    if(!update)break;\n\
-    \  }\n  return false;\n}\n"
-  code: "#include\"graph_template.cpp\"\ntemplate<typename T>\nvector<T>bellman_ford(Graph<T>&g,int\
-    \ s){\n  int n=g.size();\n  T MAX=numerical_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
-    \  d[s]=0;\n  while(true){\n    bool update=false;\n    for(int i=0;i<n;i++){\n\
-    \      for(auto &e:g[i])if(d[e]>d[i]+e.cost&&d[i]!=MAX){\n        d[e]=d[i]+e.cost;\n\
-    \        update=true;\n      }\n    }\n    if(!update)break;\n  }\n  return d;\n\
-    }\ntemplate<typename T>\nbool negative_cycle(Graph<T>&g){\n  int n=g.size();\n\
-    \  T MAX=numerical_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n  for(int i=0;i<n;i++){\n\
-    \    bool update=false;\n    for(int j=0;j<n;j++){\n      for(auto &e:g[j])if(d[e]>d[j]+e.cost&&d[j]!=MAX){\n\
-    \        d[e]=d[j]+e.cost;\n        update=true;\n        if(i==n-1)return true;\n\
-    \      }\n    }\n    if(!update)break;\n  }\n  return false;\n}"
+    \  }\n  return false;\n}"
   dependsOn:
   - Graph/graph_template.cpp
   isVerificationFile: false
   path: Graph/bellman_ford.cpp
   requiredBy: []
-  timestamp: '2021-12-22 23:45:27+00:00'
+  timestamp: '2021-12-23 00:09:23+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Graph/bellman_ford.cpp

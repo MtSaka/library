@@ -25,29 +25,29 @@ data:
     \    int a,b;\n    T c;\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n      a+=padding;\n\
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\n#line 2 \"Graph/dijkstra.cpp\"\n\
-    template<typename T>\nvector<T>dijkstra(Graph<T>&g,int s){\n  int n=g.size();\n\
+    template<typename T>\nvector<T>dijkstra(const Graph<T>&g,int s){\n  int n=g.size();\n\
     \  T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n  d[s]=0;\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
     \  q.emplace(0,s);\n  while(!q.empty()){\n    auto [d_u,u]=q.top();q.pop();\n\
     \    if(d[u]<d_u)continue;\n    for(auto &e:g[u]){\n      if(d[e]>d[u]+e.cost){\n\
     \        d[e]=d[u]+e.cost;\n        q.emplace(d[e],e);\n      }\n    }\n  }\n\
-    \  return d;\n}\ntemplate<typename T>\npair<T,vector<int>>dijkstra_path(Graph<T>&g,int\
-    \ s,int t){\n  int n=g.size();\n  T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
-    \  d[s]=0;\n  vector<int>prev(n);\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
+    \  return d;\n}\ntemplate<typename T>\npair<T,vector<int>>dijkstra_path(const\
+    \ Graph<T>&g,int s,int t){\n  int n=g.size();\n  T MAX=numeric_limits<T>::max()/2;\n\
+    \  vector<T>d(n,MAX);\n  d[s]=0;\n  vector<int>prev(n);\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
     \  q.emplace(0,s);\n  while(!q.empty()){\n    auto [d_u,u]=q.top();q.pop();\n\
     \    if(d[u]<d_u)continue;\n    for(auto &e:g[u]){\n      if(d[e]>d[u]+e.cost){\n\
     \        d[e]=d[u]+e.cost;\n        prev[e]=u;\n        q.emplace(d[e],e);\n \
     \     }\n    }\n  }\n  if(d[t]==MAX)return {-1,{}};\n  vector<int>path;\n  path.emplace_back(t);\n\
     \  while(path.back()!=s){\n    path.emplace_back(prev[path.back()]);\n  }\n  reverse(path.begin(),path.end());\n\
     \  return {d[t],path};\n}\n"
-  code: "#include\"graph_template.cpp\"\ntemplate<typename T>\nvector<T>dijkstra(Graph<T>&g,int\
-    \ s){\n  int n=g.size();\n  T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
-    \  d[s]=0;\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
+  code: "#include\"graph_template.cpp\"\ntemplate<typename T>\nvector<T>dijkstra(const\
+    \ Graph<T>&g,int s){\n  int n=g.size();\n  T MAX=numeric_limits<T>::max()/2;\n\
+    \  vector<T>d(n,MAX);\n  d[s]=0;\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
     \  q.emplace(0,s);\n  while(!q.empty()){\n    auto [d_u,u]=q.top();q.pop();\n\
     \    if(d[u]<d_u)continue;\n    for(auto &e:g[u]){\n      if(d[e]>d[u]+e.cost){\n\
     \        d[e]=d[u]+e.cost;\n        q.emplace(d[e],e);\n      }\n    }\n  }\n\
-    \  return d;\n}\ntemplate<typename T>\npair<T,vector<int>>dijkstra_path(Graph<T>&g,int\
-    \ s,int t){\n  int n=g.size();\n  T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
-    \  d[s]=0;\n  vector<int>prev(n);\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
+    \  return d;\n}\ntemplate<typename T>\npair<T,vector<int>>dijkstra_path(const\
+    \ Graph<T>&g,int s,int t){\n  int n=g.size();\n  T MAX=numeric_limits<T>::max()/2;\n\
+    \  vector<T>d(n,MAX);\n  d[s]=0;\n  vector<int>prev(n);\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
     \  q.emplace(0,s);\n  while(!q.empty()){\n    auto [d_u,u]=q.top();q.pop();\n\
     \    if(d[u]<d_u)continue;\n    for(auto &e:g[u]){\n      if(d[e]>d[u]+e.cost){\n\
     \        d[e]=d[u]+e.cost;\n        prev[e]=u;\n        q.emplace(d[e],e);\n \
@@ -59,7 +59,7 @@ data:
   isVerificationFile: false
   path: Graph/dijkstra.cpp
   requiredBy: []
-  timestamp: '2021-12-22 23:57:22+00:00'
+  timestamp: '2021-12-23 00:09:23+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Graph/dijkstra.cpp

@@ -11,6 +11,12 @@ data:
   - icon: ':warning:'
     path: Graph/dijkstra.cpp
     title: Graph/dijkstra.cpp
+  - icon: ':warning:'
+    path: Graph/kruskal.cpp
+    title: Graph/kruskal.cpp
+  - icon: ':warning:'
+    path: Graph/lowest-common-ancestor.cpp
+    title: Graph/lowest-common-ancestor.cpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
@@ -48,7 +54,9 @@ data:
   isVerificationFile: false
   path: Graph/graph_template.cpp
   requiredBy:
+  - Graph/lowest-common-ancestor.cpp
   - Graph/dijkstra.cpp
+  - Graph/kruskal.cpp
   - Graph/bellman_ford.cpp
   - Graph/detect_cycle.cpp
   timestamp: '2021-12-22 23:27:34+00:00'
