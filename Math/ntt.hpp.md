@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
   _extendedRequiredBy:
@@ -14,13 +14,13 @@ data:
   - icon: ':warning:'
     path: Math/mod-ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':warning:'
-    path: test/yosupo/convolution_modtest.cpp
-    title: test/yosupo/convolution_modtest.cpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/convolution_mod.test.cpp
+    title: test/yosupo/convolution_mod.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Math/ntt.hpp\"\n/**\n * Number Theoretic Transform(\u6570\
@@ -94,13 +94,13 @@ data:
   isVerificationFile: false
   path: Math/ntt.hpp
   requiredBy:
-  - test/yosupo/convolution_modtest.cpp
   - Math/convolution.hpp
   - Math/fps.hpp
   - Math/mod-ntt.hpp
   timestamp: '2021-12-23 11:34:36+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/convolution_mod.test.cpp
 documentation_of: Math/ntt.hpp
 layout: document
 redirect_from:

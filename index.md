@@ -110,10 +110,10 @@ data:
     - icon: ':warning:'
       path: Math/mod-ntt.hpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Math/modint.hpp
       title: modint
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Math/ntt.hpp
       title: Math/ntt.hpp
     - icon: ':warning:'
@@ -136,17 +136,17 @@ data:
     - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: template/template.hpp
-  - name: test/yosupo
-    pages:
-    - icon: ':warning:'
-      path: test/yosupo/convolution_modtest.cpp
-      title: test/yosupo/convolution_modtest.cpp
   verificationCategories:
   - name: test/aoj/DPL
     pages:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DPL/DPL_1_D.test.cpp
       title: test/aoj/DPL/DPL_1_D.test.cpp
+  - name: test/yosupo
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/convolution_mod.test.cpp
+      title: test/yosupo/convolution_mod.test.cpp
 layout: toppage
 ---
 [![MtSaka](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2FMtSaka)](https://atcoder.jp/users/MtSaka)
