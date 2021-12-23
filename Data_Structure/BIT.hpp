@@ -1,3 +1,6 @@
+/**
+ * @brief Binary Indexed Tree(BIT)
+*/
 template<typename T>
 struct BIT{
   long long N;

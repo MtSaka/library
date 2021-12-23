@@ -1,3 +1,6 @@
+/**
+ * Line(直線)
+*/
 #include"point.hpp"
 struct line{
   point a;

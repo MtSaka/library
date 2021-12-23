@@ -1,5 +1,8 @@
+/**
+ * @brief Longest Common Subsequence(最長共通部分列)
+*/
 template<typename T>
-int lcsl(vector<T>a,vector<T>b){
+int lcsl(const vector<T>&a,const vector<T>&b){
   vector<vecto<int>>dp(a.size()+1,vector<int>(b.size()+1,0));
   for(int i=0;i<a.size();i++){
     for(int j=0;j<b.size();j++){
@@ -10,7 +13,7 @@ int lcsl(vector<T>a,vector<T>b){
   return dp[a.size()][b.size()];
 }
 template<typename T>
-vector<T>lcs(vector<T>a,vector<T>b){
+vector<T>lcs(const vector<T>&a,const vector<T>&b){
   vector<vecto<int>>dp(a.size()+1,vector<int>(b.size()+1,0));
   for(int i=0;i<a.size();i++){
     for(int j=0;j<b.size();j++){

@@ -1,3 +1,6 @@
+/**
+ * @brief Inversion Number(転倒数)
+*/
 #include"BIT.hpp"
 template<typename T>
 long long inversion(vector<T>&a){

@@ -1,3 +1,6 @@
+/**
+ * @brief Weighed Disjoint Set Union(重み付きUnion Find)
+*/ 
 template<typename T>
 struct weighed_dsu{
   vector<int>sz,par;

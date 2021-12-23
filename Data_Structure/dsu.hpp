@@ -1,3 +1,6 @@
+/**
+ * @brief Disjoint Set Union(Union Find)
+*/
 struct dsu{
   vector<int>sz,par;
   dsu(){}

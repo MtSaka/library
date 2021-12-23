@@ -1,3 +1,6 @@
+/**
+ * @brief Point(点)
+*/
 double eps=0.0000000001;
 int sign(double x){
   if(x>eps)return 1;
