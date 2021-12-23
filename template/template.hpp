@@ -1,3 +1,6 @@
+/**
+ * @brief Template(テンプレート)
+*/
 //GIVE ME AC!!!!!!!!!!!!!!!!!
 //#pragma GCC target("avx")
 //#pragma GCC optimize("O3")

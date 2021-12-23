@@ -1,5 +1,5 @@
 /**
- * Number Theoretic Transform(数論変換)
+ * @brief Number Theoretic Transform(数論変換)
 */
 #include"modint.hpp"
 template<long long m>
