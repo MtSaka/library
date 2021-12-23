@@ -1,4 +1,7 @@
-#include"graph_template.cpp"
+/**
+ * @brief Cycle Detection(閉路検出)
+*/
+#include"graph_template.hpp"
 template<typename T>
 bool detect_cycle(const Graph<T>&g){
   int n=g.size();

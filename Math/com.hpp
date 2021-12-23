@@ -1,4 +1,4 @@
-#include"modint.cpp"
+#include"modint.hpp"
 template<long long m>
 struct combination{
   using mint=modint<m>;

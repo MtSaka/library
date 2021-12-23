@@ -1,4 +1,4 @@
-#include"ntt.cpp"
+#include"ntt.hpp"
 template<long long m>
 struct FPS{
   using mint=modint<m>;

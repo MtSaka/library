@@ -1,4 +1,7 @@
-#include"graph_template.cpp"
+/**
+ * @brief Topological Sort(トポロジカルソート)
+*/
+#include"graph_template.hpp"
 template<typename T>
 vector<int>t_sort(const Graph<T>&g){
   int n=g.size();

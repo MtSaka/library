@@ -1,4 +1,4 @@
-#include"com.cpp"
+#include"com.hpp"
 template<long long m>
 modint<m> lagrange_polynominal(vector<modint<m>>&y,long long t){
   using mint=modint<m>;

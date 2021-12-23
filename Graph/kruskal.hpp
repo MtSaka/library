@@ -1,5 +1,8 @@
-#include"../Data_Structure/dsu.cpp"
-#include"graph_template.cpp"
+/**
+ * @brief Kruskal(最小全域木)
+*/
+#include"../Data_Structure/dsu.hpp"
+#include"graph_template.hpp"
 template<typename T>
 struct mst{
   T cost;

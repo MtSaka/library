@@ -1,3 +1,6 @@
+/**
+ * @brief ReRooting(全方位木DP)
+*/
 template<typename S,typename T=S>
 struct ReRooting{
   struct Edge{

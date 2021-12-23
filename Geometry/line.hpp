@@ -1,4 +1,4 @@
-#include"point.cpp"
+#include"point.hpp"
 struct line{
   point a;
   point b;

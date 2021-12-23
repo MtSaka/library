@@ -1,4 +1,7 @@
-#include"graph_template.cpp"
+/**
+ * @brief Warshall Floyd(全点対間最短路)
+*/
+#include"graph_template.hpp"
 template<typename T>
 vector<vector<T>>warshall_floyd(const Graph<T>&g){
   int n=g.size();

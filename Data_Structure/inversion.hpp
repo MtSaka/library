@@ -1,4 +1,4 @@
-#include"BIT.cpp"
+#include"BIT.hpp"
 template<typename T>
 long long inversion(vector<T>&a){
   int n=a.size();

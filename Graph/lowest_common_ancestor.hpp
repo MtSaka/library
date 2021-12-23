@@ -1,4 +1,7 @@
-#include"graph_template.cpp"
+/**
+ * @brief Lowest Common Ancestor(最小共通祖先)
+*/
+#include"graph_template.hpp"
 template<typename T>
 struct LCA{
   int lg=0;
