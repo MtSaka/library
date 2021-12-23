@@ -5,33 +5,35 @@ data:
     pages:
     - icon: ':warning:'
       path: Data_Structure/BIT.hpp
-      title: Data_Structure/BIT.hpp
+      title: Binary Indexed Tree(BIT)
     - icon: ':warning:'
       path: Data_Structure/dsu.hpp
-      title: Data_Structure/dsu.hpp
+      title: Disjoint Set Union(Union Find)
     - icon: ':warning:'
       path: Data_Structure/inversion.hpp
-      title: Data_Structure/inversion.hpp
+      title: "Inversion Number(\u8EE2\u5012\u6570)"
     - icon: ':warning:'
       path: Data_Structure/lazy-segtree.hpp
-      title: Data_Structure/lazy-segtree.hpp
+      title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':warning:'
       path: Data_Structure/segtree.hpp
-      title: Data_Structure/segtree.hpp
+      title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':warning:'
       path: Data_Structure/weighed-dsu.hpp
-      title: Data_Structure/weighed-dsu.hpp
+      title: "Weighed Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
   - name: Dynamic_Programming
     pages:
     - icon: ':warning:'
       path: Dynamic_Programming/count-subsequences.hpp
-      title: Dynamic_Programming/count-subsequences.hpp
+      title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
     - icon: ':warning:'
       path: Dynamic_Programming/longest-common-subsequence.hpp
-      title: Dynamic_Programming/longest-common-subsequence.hpp
+      title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217\
+        )"
     - icon: ':heavy_check_mark:'
       path: Dynamic_Programming/longest-increasing-subsequence.hpp
-      title: Dynamic_Programming/longest-increasing-subsequence.hpp
+      title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
+        )"
   - name: Geometry
     pages:
     - icon: ':warning:'
@@ -39,7 +41,7 @@ data:
       title: Geometry/line.hpp
     - icon: ':warning:'
       path: Geometry/point.hpp
-      title: Geometry/point.hpp
+      title: "Point(\u70B9)"
   - name: Graph
     pages:
     - icon: ':warning:'
