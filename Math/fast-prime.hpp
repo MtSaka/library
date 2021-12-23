@@ -1,3 +1,6 @@
+/**
+ * @brief Fast Prime Factorization(高速素因数分解)
+*/
 namespace fastprime{
   using i128=__uint128_t;
   long long inner_modmul(long long x,long long y,long long p){

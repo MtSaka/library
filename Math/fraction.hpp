@@ -1,3 +1,6 @@
+/**
+ * @brief Fraction(有理数型)
+*/
 struct fraction{
   static long long gcd(long long a,long long b){return b?gcd(b,a%b):a;}
   long long num,den;

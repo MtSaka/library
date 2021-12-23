@@ -1,3 +1,6 @@
+/**
+ * @brief modint
+*/
 template<long long m>
 struct modint{
   long long x;

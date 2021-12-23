@@ -1,3 +1,6 @@
+/**
+ * @brief Fast Fourier Transform(高速フーリエ変換)
+*/
 struct FFT{
   void dft(vector<complex<double>>&a,double inv){
     int sz=a.size();

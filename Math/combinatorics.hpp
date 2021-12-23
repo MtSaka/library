@@ -1,3 +1,6 @@
+/**
+ * @brief Combinatorics(組み合わせ)
+*/
 #include"modint.hpp"
 template<long long m>
 struct combination{

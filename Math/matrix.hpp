@@ -1,3 +1,6 @@
+/**
+ * @brief Matrix(行列)
+*/
 template<class T>
 struct Matrix {
   vector<vector<T>>A;

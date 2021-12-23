@@ -1,3 +1,6 @@
+/**
+ * @brief Formal Power Series(形式的冪級数)
+*/
 #include"ntt.hpp"
 template<long long m>
 struct FPS{

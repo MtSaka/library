@@ -1,3 +1,6 @@
+/**
+ * @brief Quotient Ranges(商列挙)
+*/
 template<typename T>
 vector<pair<T,pair<T,T>>>quotient_ranges(T n){
   vector<pair<T,pair<T,T>>>ans;
