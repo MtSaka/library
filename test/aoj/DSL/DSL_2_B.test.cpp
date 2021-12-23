@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
-#include"../../template/template.hpp"
-#include"../../Data_Structure/BIT.hpp"
+#include"../../../template/template.hpp"
+#include"../../../Data_Structure/BIT.hpp"
 int main(){
   INT(n,q);
   BIT<int>bit(n);

@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A"
-#include"../../template/template.hpp"
-#include"../../Data_Structure/segtree.hpp"
+#include"../../../template/template.hpp"
+#include"../../../Data_Structure/BIT.hpp"
 int op(int a,int b){return min(a,b);}
 int e(){return INT_MAX;}
 int main(){
