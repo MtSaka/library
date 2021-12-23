@@ -4,131 +4,140 @@ data:
   - name: Data_Structure
     pages:
     - icon: ':warning:'
-      path: Data_Structure/BIT.cpp
-      title: Data_Structure/BIT.cpp
+      path: Data_Structure/BIT.hpp
+      title: Data_Structure/BIT.hpp
     - icon: ':warning:'
-      path: Data_Structure/dsu.cpp
-      title: Data_Structure/dsu.cpp
+      path: Data_Structure/dsu.hpp
+      title: Data_Structure/dsu.hpp
     - icon: ':warning:'
-      path: Data_Structure/inversion.cpp
-      title: Data_Structure/inversion.cpp
+      path: Data_Structure/inversion.hpp
+      title: Data_Structure/inversion.hpp
     - icon: ':warning:'
-      path: Data_Structure/lazy-segtree.cpp
-      title: Data_Structure/lazy-segtree.cpp
+      path: Data_Structure/lazy-segtree.hpp
+      title: Data_Structure/lazy-segtree.hpp
     - icon: ':warning:'
-      path: Data_Structure/segtree.cpp
-      title: Data_Structure/segtree.cpp
+      path: Data_Structure/segtree.hpp
+      title: Data_Structure/segtree.hpp
     - icon: ':warning:'
-      path: Data_Structure/weighed-dsu.cpp
-      title: Data_Structure/weighed-dsu.cpp
+      path: Data_Structure/weighed-dsu.hpp
+      title: Data_Structure/weighed-dsu.hpp
   - name: Dynamic_Programming
     pages:
     - icon: ':warning:'
-      path: Dynamic_Programming/count-subsequences.cpp
-      title: Dynamic_Programming/count-subsequences.cpp
+      path: Dynamic_Programming/count-subsequences.hpp
+      title: Dynamic_Programming/count-subsequences.hpp
     - icon: ':warning:'
-      path: Dynamic_Programming/longest-common-subsequence.cpp
-      title: Dynamic_Programming/longest-common-subsequence.cpp
+      path: Dynamic_Programming/longest-common-subsequence.hpp
+      title: Dynamic_Programming/longest-common-subsequence.hpp
     - icon: ':heavy_check_mark:'
-      path: Dynamic_Programming/longest-increasing-subsequence.cpp
-      title: Dynamic_Programming/longest-increasing-subsequence.cpp
+      path: Dynamic_Programming/longest-increasing-subsequence.hpp
+      title: Dynamic_Programming/longest-increasing-subsequence.hpp
   - name: Geometry
     pages:
     - icon: ':warning:'
-      path: Geometry/line.cpp
-      title: Geometry/line.cpp
+      path: Geometry/line.hpp
+      title: Geometry/line.hpp
     - icon: ':warning:'
-      path: Geometry/point.cpp
-      title: Geometry/point.cpp
+      path: Geometry/point.hpp
+      title: Geometry/point.hpp
   - name: Graph
     pages:
     - icon: ':warning:'
-      path: Graph/bellman_ford.cpp
-      title: Graph/bellman_ford.cpp
+      path: Graph/bellman_ford.hpp
+      title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     - icon: ':warning:'
-      path: Graph/detect_cycle.cpp
-      title: Graph/detect_cycle.cpp
+      path: Graph/detect_cycle.hpp
+      title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
     - icon: ':warning:'
-      path: Graph/dijkstra.cpp
-      title: Graph/dijkstra.cpp
+      path: Graph/dijkstra.hpp
+      title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     - icon: ':warning:'
-      path: Graph/graph_template.cpp
-      title: Graph/graph_template.cpp
+      path: Graph/dijkstra_path.hpp
+      title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
+        \u77ED\u8DEF)"
     - icon: ':warning:'
-      path: Graph/kruskal.cpp
-      title: Graph/kruskal.cpp
+      path: Graph/graph_template.hpp
+      title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
+        )"
     - icon: ':warning:'
-      path: Graph/lowest-common-ancestor.cpp
-      title: Graph/lowest-common-ancestor.cpp
+      path: Graph/kruskal.hpp
+      title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
     - icon: ':warning:'
-      path: Graph/rerooting.cpp
-      title: Graph/rerooting.cpp
+      path: Graph/lowest_common_ancestor.hpp
+      title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':warning:'
-      path: Graph/topological-sort.cpp
-      title: Graph/topological-sort.cpp
+      path: Graph/negative_cycle.hpp
+      title: "Negative Cycle Detection(\u8CA0\u9589\u8DEF\u691C\u51FA)"
     - icon: ':warning:'
-      path: Graph/warshall-floyd.cpp
-      title: Graph/warshall-floyd.cpp
+      path: Graph/rerooting.hpp
+      title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
+    - icon: ':warning:'
+      path: Graph/topological_sort.hpp
+      title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
+        )"
+    - icon: ':warning:'
+      path: Graph/warshall_floyd.hpp
+      title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - name: Math
     pages:
     - icon: ':warning:'
-      path: Math/com.cpp
-      title: Math/com.cpp
+      path: Math/com.hpp
+      title: Math/com.hpp
     - icon: ':warning:'
-      path: Math/convolution.cpp
-      title: Math/convolution.cpp
+      path: Math/convolution.hpp
+      title: Math/convolution.hpp
     - icon: ':warning:'
-      path: Math/fast-prime.cpp
-      title: Math/fast-prime.cpp
+      path: Math/fast-prime.hpp
+      title: Math/fast-prime.hpp
     - icon: ':warning:'
-      path: Math/fft.cpp
-      title: Math/fft.cpp
+      path: Math/fft.hpp
+      title: Math/fft.hpp
     - icon: ':warning:'
-      path: Math/fps.cpp
-      title: Math/fps.cpp
+      path: Math/fps.hpp
+      title: Math/fps.hpp
     - icon: ':warning:'
-      path: Math/fraction.cpp
-      title: Math/fraction.cpp
+      path: Math/fraction.hpp
+      title: Math/fraction.hpp
     - icon: ':warning:'
-      path: Math/lagrange.cpp
-      title: Math/lagrange.cpp
+      path: Math/lagrange.hpp
+      title: Math/lagrange.hpp
     - icon: ':warning:'
-      path: Math/matrix.cpp
-      title: Math/matrix.cpp
+      path: Math/matrix.hpp
+      title: Math/matrix.hpp
     - icon: ':warning:'
-      path: Math/mod-ntt.cpp
-      title: Math/mod-ntt.cpp
+      path: Math/mod-ntt.hpp
+      title: Math/mod-ntt.hpp
     - icon: ':heavy_check_mark:'
-      path: Math/modint.cpp
-      title: Math/modint.cpp
+      path: Math/modint.hpp
+      title: Math/modint.hpp
     - icon: ':warning:'
-      path: Math/modulo.cpp
-      title: Math/modulo.cpp
+      path: Math/modulo.hpp
+      title: Math/modulo.hpp
     - icon: ':heavy_check_mark:'
-      path: Math/ntt.cpp
-      title: Math/ntt.cpp
+      path: Math/ntt.hpp
+      title: Math/ntt.hpp
     - icon: ':warning:'
-      path: Math/number.cpp
-      title: Math/number.cpp
+      path: Math/number.hpp
+      title: Math/number.hpp
     - icon: ':warning:'
-      path: Math/phi.cpp
-      title: Math/phi.cpp
+      path: Math/phi.hpp
+      title: Math/phi.hpp
     - icon: ':warning:'
-      path: Math/prime.cpp
-      title: Math/prime.cpp
+      path: Math/prime.hpp
+      title: Math/prime.hpp
     - icon: ':warning:'
-      path: Math/quotient_ranges.cpp
-      title: Math/quotient_ranges.cpp
+      path: Math/quotient_ranges.hpp
+      title: Math/quotient_ranges.hpp
   - name: Others
     pages:
     - icon: ':warning:'
-      path: Others/timer.cpp
-      title: Others/timer.cpp
+      path: Others/timer.hpp
+      title: Others/timer.hpp
   - name: template
     pages:
     - icon: ':heavy_check_mark:'
-      path: template/template.cpp
-      title: template/template.cpp
+      path: template/template.hpp
+      title: template/template.hpp
   verificationCategories:
   - name: test/verify
     pages:

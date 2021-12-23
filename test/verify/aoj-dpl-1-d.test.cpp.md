@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Dynamic_Programming/longest-increasing-subsequence.cpp
-    title: Dynamic_Programming/longest-increasing-subsequence.cpp
+    path: Dynamic_Programming/longest-increasing-subsequence.hpp
+    title: Dynamic_Programming/longest-increasing-subsequence.hpp
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
+    path: template/template.hpp
+    title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -25,18 +25,18 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.10.1/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ template/template.cpp: line 5: #pragma once found in a non-first line\n"
+    \ template/template.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D\"\
-    \n#include\"../../template/template.cpp\"\n#include\"../../Dynamic_Programming/longest-increasing-subsequence.cpp\"\
+    \n#include\"../../template/template.hpp\"\n#include\"../../Dynamic_Programming/longest-increasing-subsequence.hpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  print(lis(a));\n\
     }"
   dependsOn:
-  - template/template.cpp
-  - Dynamic_Programming/longest-increasing-subsequence.cpp
+  - template/template.hpp
+  - Dynamic_Programming/longest-increasing-subsequence.hpp
   isVerificationFile: true
   path: test/verify/aoj-dpl-1-d.test.cpp
   requiredBy: []
-  timestamp: '2021-12-06 20:10:12+00:00'
+  timestamp: '2021-12-23 11:07:04+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/aoj-dpl-1-d.test.cpp

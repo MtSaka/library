@@ -2,14 +2,14 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Math/modint.cpp
-    title: Math/modint.cpp
+    path: Math/modint.hpp
+    title: Math/modint.hpp
   - icon: ':heavy_check_mark:'
-    path: Math/ntt.cpp
-    title: Math/ntt.cpp
+    path: Math/ntt.hpp
+    title: Math/ntt.hpp
   - icon: ':heavy_check_mark:'
-    path: template/template.cpp
-    title: template/template.cpp
+    path: template/template.hpp
+    title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -28,19 +28,19 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.10.1/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ template/template.cpp: line 5: #pragma once found in a non-first line\n"
+    \ template/template.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod\"\n#include\"\
-    ../../template/template.cpp\"\n#include\"../../Math/ntt.cpp\"\nint main(){\n \
+    ../../template/template.hpp\"\n#include\"../../Math/ntt.hpp\"\nint main(){\n \
     \ INT(n,m);\n  vector<modint<mod>>a(n),b(m);\n  scan(a,b);\n  NTT<mod>ntt;\n \
     \ print(ntt.multiply(a,b));\n}"
   dependsOn:
-  - template/template.cpp
-  - Math/ntt.cpp
-  - Math/modint.cpp
+  - template/template.hpp
+  - Math/ntt.hpp
+  - Math/modint.hpp
   isVerificationFile: true
   path: test/verify/yosupo-convolution-mod.test.cpp
   requiredBy: []
-  timestamp: '2021-12-06 20:10:12+00:00'
+  timestamp: '2021-12-23 11:07:04+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo-convolution-mod.test.cpp
