@@ -5,10 +5,16 @@ data:
   - icon: ':warning:'
     path: Data_Structure/inversion.hpp
     title: "Inversion Number(\u8EE2\u5012\u6570)"
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_A.test.cpp
+    title: test/aoj/DSL/DSL_2_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_B.test.cpp
+    title: test/aoj/DSL/DSL_2_B.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: Binary Indexed Tree(BIT)
     links: []
@@ -31,8 +37,10 @@ data:
   requiredBy:
   - Data_Structure/inversion.hpp
   timestamp: '2021-12-23 11:45:08+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - test/aoj/DSL/DSL_2_B.test.cpp
+  - test/aoj/DSL/DSL_2_A.test.cpp
 documentation_of: Data_Structure/BIT.hpp
 layout: document
 redirect_from:
