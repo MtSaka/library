@@ -27,12 +27,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -86,7 +86,7 @@ data:
   path: template/template.hpp
   requiredBy: []
   timestamp: '2021-12-23 11:59:41+00:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
