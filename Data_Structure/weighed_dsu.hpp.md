@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_1_B.test.cpp
+    title: test/aoj/DSL/DSL_1_B.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Weighed Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
     links: []
@@ -37,8 +40,9 @@ data:
   path: Data_Structure/weighed_dsu.hpp
   requiredBy: []
   timestamp: '2021-12-23 23:12:39+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/DSL/DSL_1_B.test.cpp
 documentation_of: Data_Structure/weighed_dsu.hpp
 layout: document
 redirect_from:

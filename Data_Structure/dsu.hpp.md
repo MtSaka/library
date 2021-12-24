@@ -5,10 +5,13 @@ data:
   - icon: ':warning:'
     path: Graph/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_1_A.test.cpp
+    title: test/aoj/DSL/DSL_1_A.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Disjoint Set Union(Union Find)
     links: []
@@ -33,8 +36,9 @@ data:
   requiredBy:
   - Graph/kruskal.hpp
   timestamp: '2021-12-23 11:45:08+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/DSL/DSL_1_A.test.cpp
 documentation_of: Data_Structure/dsu.hpp
 layout: document
 redirect_from:

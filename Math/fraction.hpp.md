@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yukicoder/1236.test.cpp
+    title: test/yukicoder/1236.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Fraction(\u6709\u7406\u6570\u578B)"
     links: []
@@ -58,8 +61,9 @@ data:
   path: Math/fraction.hpp
   requiredBy: []
   timestamp: '2021-12-23 11:34:36+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yukicoder/1236.test.cpp
 documentation_of: Math/fraction.hpp
 layout: document
 redirect_from:

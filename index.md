@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/BIT.hpp
       title: Binary Indexed Tree(BIT)
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/dsu.hpp
       title: Disjoint Set Union(Union Find)
     - icon: ':warning:'
@@ -18,7 +18,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/segtree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/weighed_dsu.hpp
       title: "Weighed Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
   - name: Dynamic_Programming
@@ -107,7 +107,7 @@ data:
     - icon: ':warning:'
       path: Math/fps.hpp
       title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Math/fraction.hpp
       title: "Fraction(\u6709\u7406\u6570\u578B)"
     - icon: ':warning:'
@@ -128,7 +128,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/ntt.hpp
       title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Math/phi.hpp
       title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
         )"
@@ -149,7 +149,7 @@ data:
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -161,11 +161,22 @@ data:
   - name: test/aoj/DSL
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL/DSL_1_A.test.cpp
+      title: test/aoj/DSL/DSL_1_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL/DSL_1_B.test.cpp
+      title: test/aoj/DSL/DSL_1_B.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_A.test.cpp
       title: test/aoj/DSL/DSL_2_A.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_B.test.cpp
       title: test/aoj/DSL/DSL_2_B.test.cpp
+  - name: test/aoj/NTL
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/NTL/NTL_1_D.test.cpp
+      title: test/aoj/NTL/NTL_1_D.test.cpp
   - name: test/yosupo
     pages:
     - icon: ':heavy_check_mark:'
@@ -174,6 +185,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/range_affine_range_sum.test.cpp
       title: test/yosupo/range_affine_range_sum.test.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':x:'
+      path: test/yukicoder/1236.test.cpp
+      title: test/yukicoder/1236.test.cpp
 layout: toppage
 ---
 [![MtSaka](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2FMtSaka)](https://atcoder.jp/users/MtSaka)

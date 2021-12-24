@@ -7,20 +7,32 @@ data:
     path: test/aoj/DPL/DPL_1_D.test.cpp
     title: test/aoj/DPL/DPL_1_D.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_1_A.test.cpp
+    title: test/aoj/DSL/DSL_1_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_1_B.test.cpp
+    title: test/aoj/DSL/DSL_1_B.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/NTL/NTL_1_D.test.cpp
+    title: test/aoj/NTL/NTL_1_D.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yukicoder/1236.test.cpp
+    title: test/yukicoder/1236.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -74,11 +86,15 @@ data:
   path: template/template.hpp
   requiredBy: []
   timestamp: '2021-12-23 11:59:41+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
+  - test/aoj/DSL/DSL_1_B.test.cpp
+  - test/aoj/DSL/DSL_1_A.test.cpp
+  - test/aoj/NTL/NTL_1_D.test.cpp
   - test/aoj/DPL/DPL_1_D.test.cpp
+  - test/yukicoder/1236.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
 documentation_of: template/template.hpp
