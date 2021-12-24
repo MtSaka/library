@@ -1,4 +1,6 @@
 {
 "test/aoj/DPL/DPL_1_D.test.cpp": "2021-12-23 23:12:39 +0000",
-"test/yosupo/convolution_mod.test.cpp": "2021-12-23 11:59:41 +0000"
+"test/aoj/DSL/DSL_2_B.test.cpp": "2021-12-23 23:55:13 +0000",
+"test/yosupo/convolution_mod.test.cpp": "2021-12-23 11:59:41 +0000",
+"test/yosupo/range_affine_range_sum.test.cpp": "2021-12-23 23:59:21 +0000"
 }
