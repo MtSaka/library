@@ -8,7 +8,7 @@ int main(){
   segtree<int,op,e>s(n);
   while(q--){
     INT(t,x,y);
-    if(t==0)s.update(x,y);
+    if(t==0)s.set(x,y);
     else cout<<s.query(x,y+1)<<endl;
   }
 }
