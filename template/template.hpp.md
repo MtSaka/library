@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
+    title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DPL/DPL_1_D.test.cpp
     title: test/aoj/DPL/DPL_1_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -93,6 +96,7 @@ data:
   - test/aoj/DSL/DSL_1_B.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp
   - test/aoj/NTL/NTL_1_D.test.cpp
+  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - test/aoj/DPL/DPL_1_D.test.cpp
   - test/yukicoder/1236.test.cpp
   - test/yosupo/convolution_mod.test.cpp

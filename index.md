@@ -9,7 +9,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/dsu.hpp
       title: Disjoint Set Union(Union Find)
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
     - icon: ':heavy_check_mark:'
@@ -153,6 +153,11 @@ data:
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
+  - name: test/aoj/ALDS1
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
+      title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - name: test/aoj/DPL
     pages:
     - icon: ':heavy_check_mark:'

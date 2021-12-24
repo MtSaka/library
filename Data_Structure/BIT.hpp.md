@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/inversion.hpp
     title: "Inversion Number(\u8EE2\u5012\u6570)"
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
+    title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
@@ -37,6 +40,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL/DSL_2_B.test.cpp
+  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
 documentation_of: Data_Structure/BIT.hpp
 layout: document
 redirect_from:
