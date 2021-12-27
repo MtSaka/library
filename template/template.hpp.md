@@ -34,6 +34,9 @@ data:
     path: test/aoj/NTL/NTL_1_B.test.cpp
     title: test/aoj/NTL/NTL_1_B.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/NTL/NTL_1_C.test.cpp
+    title: test/aoj/NTL/NTL_1_C.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/NTL/NTL_1_D.test.cpp
     title: test/aoj/NTL/NTL_1_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -114,6 +117,7 @@ data:
   - test/aoj/DSL/DSL_1_B.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp
   - test/aoj/NTL/NTL_1_B.test.cpp
+  - test/aoj/NTL/NTL_1_C.test.cpp
   - test/aoj/NTL/NTL_1_A.test.cpp
   - test/aoj/NTL/NTL_1_D.test.cpp
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp

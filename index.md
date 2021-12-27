@@ -200,6 +200,9 @@ data:
       path: test/aoj/NTL/NTL_1_B.test.cpp
       title: test/aoj/NTL/NTL_1_B.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/aoj/NTL/NTL_1_C.test.cpp
+      title: test/aoj/NTL/NTL_1_C.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_D.test.cpp
       title: test/aoj/NTL/NTL_1_D.test.cpp
   - name: test/yosupo
