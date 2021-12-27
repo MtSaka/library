@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -73,8 +73,8 @@ data:
     \  FPS &operator=(const FPS &other){\n    val=other.val;\n    return *this;\n\
     \  }\n  FPS &operator=(FPS &&other){\n    val=move(other.val);\n    return *this;\n\
     \  }\n  FPS inv(int mx=-1)const{\n    if(mx==-1)mx=size();\n    FPS g(1);\n  \
-    \  g[0]=val[0].inv();\n    int now=1;\n    while(now<mx){\n      now<<=1;\n  \
-    \    FPS t=(*this);\n      t.resize(now);\n      t*=-g;\n      t[0]+=2,g*=t;\n\
+    \  g[0]=mint(1)/val[0];\n    int now=1;\n    while(now<mx){\n      now<<=1;\n\
+    \      FPS t=(*this);\n      t.resize(now);\n      t*=-g;\n      t[0]+=2,g*=t;\n\
     \      g.resize(now);\n    }\n    g.resize(mx);\n    return g;\n  }\n  FPS operator+(const\
     \ FPS&r)const{return FPS(*this)+=r;}\n  FPS operator-(const FPS&r)const{return\
     \ FPS(*this)-=r;}\n  FPS operator*(const FPS&r)const{return FPS(*this)*=r;}\n\
@@ -91,12 +91,12 @@ data:
     \    val.resize(sz);\n    (*this)*=r.inv(sz);\n    val.resize(sz);\n    reverse(val.begin(),val.end());\n\
     \    return (*this);\n  }\n  FPS operator%=(FPS r){\n    if(val.size()<r.size())return\
     \ (*this);\n    (*this)-=(*this)/r*r;\n    val.resize(r.size()-1);\n    shrink();\n\
-    \    return (*this);\n  }\n  FPS diff()const{\n    int n=size();\n    FPS ret(max(0,n-1));\n\
-    \    for(int i=1;i<n;i++)ret[i-1]=val[i]*mint(i);\n    return ret;\n  }\n  FPS\
-    \ integral()const{\n    int n=size();\n    FPS ret(n+1);\n    for(int i=0;i<n;i++)ret[i+1]=val[i]/mint(i+1);\n\
-    \    return ret;\n  }\n  FPS log(int mx=-1)const{\n    if(mx==-1)mx=size();\n\
-    \    FPS res=diff()*inv(mx);\n    res.resize(mx-1);\n    return res.integral();\n\
-    \  }\n};\n"
+    \    val.clear();\n    return (*this);\n  }\n  FPS diff()const{\n    int n=size();\n\
+    \    FPS ret(max(0,n-1));\n    for(int i=1;i<n;i++)ret[i-1]=val[i]*mint(i);\n\
+    \    return ret;\n  }\n  FPS integral()const{\n    int n=size();\n    FPS ret(n+1);\n\
+    \    for(int i=0;i<n;i++)ret[i+1]=val[i]/mint(i+1);\n    return ret;\n  }\n  FPS\
+    \ log(int mx=-1)const{\n    int n=size();\n    if(mx==-1)mx=n;\n    FPS res=diff()*inv(mx);\n\
+    \    res.resize(mx-1);\n    return res.integral();\n  }\n};\n"
   code: "/**\n * @brief Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
     */\n#include\"ntt.hpp\"\ntemplate<long long m>\nstruct FPS{\n  using mint=modint<m>;\n\
     \  vector<mint>val;\n  NTT<m>ntt;\n  FPS(){}\n  FPS(int sz):val(sz){}\n  FPS(const\
@@ -107,8 +107,8 @@ data:
     \  FPS &operator=(const FPS &other){\n    val=other.val;\n    return *this;\n\
     \  }\n  FPS &operator=(FPS &&other){\n    val=move(other.val);\n    return *this;\n\
     \  }\n  FPS inv(int mx=-1)const{\n    if(mx==-1)mx=size();\n    FPS g(1);\n  \
-    \  g[0]=val[0].inv();\n    int now=1;\n    while(now<mx){\n      now<<=1;\n  \
-    \    FPS t=(*this);\n      t.resize(now);\n      t*=-g;\n      t[0]+=2,g*=t;\n\
+    \  g[0]=mint(1)/val[0];\n    int now=1;\n    while(now<mx){\n      now<<=1;\n\
+    \      FPS t=(*this);\n      t.resize(now);\n      t*=-g;\n      t[0]+=2,g*=t;\n\
     \      g.resize(now);\n    }\n    g.resize(mx);\n    return g;\n  }\n  FPS operator+(const\
     \ FPS&r)const{return FPS(*this)+=r;}\n  FPS operator-(const FPS&r)const{return\
     \ FPS(*this)-=r;}\n  FPS operator*(const FPS&r)const{return FPS(*this)*=r;}\n\
@@ -125,20 +125,20 @@ data:
     \    val.resize(sz);\n    (*this)*=r.inv(sz);\n    val.resize(sz);\n    reverse(val.begin(),val.end());\n\
     \    return (*this);\n  }\n  FPS operator%=(FPS r){\n    if(val.size()<r.size())return\
     \ (*this);\n    (*this)-=(*this)/r*r;\n    val.resize(r.size()-1);\n    shrink();\n\
-    \    return (*this);\n  }\n  FPS diff()const{\n    int n=size();\n    FPS ret(max(0,n-1));\n\
-    \    for(int i=1;i<n;i++)ret[i-1]=val[i]*mint(i);\n    return ret;\n  }\n  FPS\
-    \ integral()const{\n    int n=size();\n    FPS ret(n+1);\n    for(int i=0;i<n;i++)ret[i+1]=val[i]/mint(i+1);\n\
-    \    return ret;\n  }\n  FPS log(int mx=-1)const{\n    if(mx==-1)mx=size();\n\
-    \    FPS res=diff()*inv(mx);\n    res.resize(mx-1);\n    return res.integral();\n\
-    \  }\n};"
+    \    val.clear();\n    return (*this);\n  }\n  FPS diff()const{\n    int n=size();\n\
+    \    FPS ret(max(0,n-1));\n    for(int i=1;i<n;i++)ret[i-1]=val[i]*mint(i);\n\
+    \    return ret;\n  }\n  FPS integral()const{\n    int n=size();\n    FPS ret(n+1);\n\
+    \    for(int i=0;i<n;i++)ret[i+1]=val[i]/mint(i+1);\n    return ret;\n  }\n  FPS\
+    \ log(int mx=-1)const{\n    int n=size();\n    if(mx==-1)mx=n;\n    FPS res=diff()*inv(mx);\n\
+    \    res.resize(mx-1);\n    return res.integral();\n  }\n};"
   dependsOn:
   - Math/ntt.hpp
   - Math/modint.hpp
   isVerificationFile: false
   path: Math/fps.hpp
   requiredBy: []
-  timestamp: '2021-12-23 11:59:41+00:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-12-27 14:16:47+00:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp

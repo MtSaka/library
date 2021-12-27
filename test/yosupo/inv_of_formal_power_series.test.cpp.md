@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/inv_of_formal_power_series
@@ -35,7 +35,7 @@ data:
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/inv_of_formal_power_series\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps.hpp\"\nint\
     \ main(){\n  int n;\n  cin>>n;\n  vector<modint<mod>>a(n);\n  cin>>a;\n  FPS<mod>fps(a);\n\
-    \  fps.inv(n);\n  print(fps.val);\n}"
+    \  print(fps.inv().val);\n}"
   dependsOn:
   - template/template.hpp
   - Math/fps.hpp
@@ -44,8 +44,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/inv_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2021-12-27 13:07:04+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-12-27 14:16:47+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/inv_of_formal_power_series.test.cpp
 layout: document
