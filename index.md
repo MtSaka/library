@@ -219,6 +219,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/range_affine_range_sum.test.cpp
       title: test/yosupo/range_affine_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/unionfind.test.cpp
+      title: test/yosupo/unionfind.test.cpp
   - name: test/yukicoder
     pages:
     - icon: ':heavy_check_mark:'

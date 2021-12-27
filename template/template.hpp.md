@@ -52,6 +52,9 @@ data:
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/unionfind.test.cpp
+    title: test/yosupo/unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
   _isVerificationFailed: false
@@ -125,6 +128,7 @@ data:
   - test/aoj/DPL/DPL_1_D.test.cpp
   - test/aoj/ITP1/ITP1_3_D.test.cpp
   - test/yukicoder/1236.test.cpp
+  - test/yosupo/unionfind.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
