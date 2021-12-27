@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/lowest_common_ancestor.hpp
     title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/lca
@@ -31,7 +31,7 @@ data:
     \ template/template.hpp: line 8: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include\"../../template/template.hpp\"\
     \n#include\"../../Graph/lowest_common_ancestor.hpp\"\nint main(){\n  int n,q;\n\
-    \  cin>>n>>q;\n  Graph<int>g(n);\n  for(int i=0;i<n-1;i++){\n    int u;\n    cin>>u;\n\
+    \  cin>>n>>q;\n  Graph<int>g(n);\n  for(int i=1;i<n;i++){\n    int u;\n    cin>>u;\n\
     \    g.add_edge(u,i);\n  }\n  LCA<int>lca(g);\n  while(q--){\n    int u,v;\n \
     \   cin>>u>>v;\n    cout<<lca.query(u,v)<<endl;\n  }\n}"
   dependsOn:
@@ -41,8 +41,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/lca.test.cpp
   requiredBy: []
-  timestamp: '2021-12-27 15:21:37+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-12-27 22:31:37+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lca.test.cpp
 layout: document

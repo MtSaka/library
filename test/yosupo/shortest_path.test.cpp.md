@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
-    path: Graph/dijkstra.hpp
-    title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':x:'
     path: Graph/dijkstra_path.hpp
     title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
       \u77ED\u8DEF)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':question:'
@@ -43,12 +40,11 @@ data:
   dependsOn:
   - template/template.hpp
   - Graph/dijkstra_path.hpp
-  - Graph/dijkstra.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
   path: test/yosupo/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2021-12-27 15:21:37+00:00'
+  timestamp: '2021-12-27 22:31:37+00:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/shortest_path.test.cpp
