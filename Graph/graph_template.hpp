@@ -12,7 +12,7 @@ struct Edge{
 };
 template<typename T=int>
 struct Graph{
-  vector<vector<Edge>>g;
+  vector<vector<Edge<T>>>g;
   int es;
   Graph(){}
   explicit Graph(int n):g(n),es(0){}
