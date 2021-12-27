@@ -104,7 +104,7 @@ data:
       path: Math/fft.hpp
       title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB\
         )"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Math/fps.hpp
       title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
@@ -122,7 +122,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/mod_ntt.hpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/modint.hpp
       title: modint
     - icon: ':warning:'
@@ -131,7 +131,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/modpow.hpp
       title: "Mod Pow(\u3079\u304D\u4E57)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/ntt.hpp
       title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
     - icon: ':heavy_check_mark:'
@@ -155,7 +155,7 @@ data:
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -216,6 +216,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/factorize.test.cpp
       title: test/yosupo/factorize.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/inv_of_formal_power_series.test.cpp
+      title: test/yosupo/inv_of_formal_power_series.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/log_of_formal_power_series.test.cpp
+      title: test/yosupo/log_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/range_affine_range_sum.test.cpp
       title: test/yosupo/range_affine_range_sum.test.cpp
