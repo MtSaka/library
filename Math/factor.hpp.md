@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/ITP1/ITP1_3_D.test.cpp
+    title: test/aoj/ITP1/ITP1_3_D.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Factor Enumeration(\u7D04\u6570\u5217\u6319)"
     links: []
@@ -23,8 +26,9 @@ data:
   path: Math/factor.hpp
   requiredBy: []
   timestamp: '2021-12-23 23:12:39+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/ITP1/ITP1_3_D.test.cpp
 documentation_of: Math/factor.hpp
 layout: document
 redirect_from:

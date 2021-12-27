@@ -88,16 +88,16 @@ data:
     - icon: ':warning:'
       path: Math/convolution.hpp
       title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Math/factor.hpp
       title: "Factor Enumeration(\u7D04\u6570\u5217\u6319)"
     - icon: ':warning:'
       path: Math/factor_cnt.hpp
       title: "Factor Count(\u7D04\u6570\u500B\u6570)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Math/factorize.hpp
       title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Math/fast_prime.hpp
       title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
     - icon: ':warning:'
@@ -110,7 +110,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/fraction.hpp
       title: "Fraction(\u6709\u7406\u6570\u578B)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Math/is_prime.hpp
       title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
     - icon: ':warning:'
@@ -119,13 +119,16 @@ data:
     - icon: ':warning:'
       path: Math/matrix.hpp
       title: "Matrix(\u884C\u5217)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Math/mod_ntt.hpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/modint.hpp
       title: modint
     - icon: ':heavy_check_mark:'
+      path: Math/modpow.hpp
+      title: "Mod Pow(\u3079\u304D\u4E57)"
+    - icon: ':question:'
       path: Math/ntt.hpp
       title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
     - icon: ':heavy_check_mark:'
@@ -149,12 +152,15 @@ data:
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
   - name: test/aoj/ALDS1
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1/ALDS1_1_C.test.cpp
+      title: test/aoj/ALDS1/ALDS1_1_C.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
       title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
@@ -177,8 +183,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_B.test.cpp
       title: test/aoj/DSL/DSL_2_B.test.cpp
+  - name: test/aoj/ITP1
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ITP1/ITP1_3_D.test.cpp
+      title: test/aoj/ITP1/ITP1_3_D.test.cpp
   - name: test/aoj/NTL
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/NTL/NTL_1_A.test.cpp
+      title: test/aoj/NTL/NTL_1_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/NTL/NTL_1_B.test.cpp
+      title: test/aoj/NTL/NTL_1_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_D.test.cpp
       title: test/aoj/NTL/NTL_1_D.test.cpp
@@ -187,6 +204,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod.test.cpp
       title: test/yosupo/convolution_mod.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/convolution_mod_1000000007.test.cpp
+      title: test/yosupo/convolution_mod_1000000007.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/factorize.test.cpp
+      title: test/yosupo/factorize.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/range_affine_range_sum.test.cpp
       title: test/yosupo/range_affine_range_sum.test.cpp

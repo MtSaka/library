@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/NTL/NTL_1_A.test.cpp
+    title: test/aoj/NTL/NTL_1_A.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
     links: []
@@ -25,8 +28,9 @@ data:
   path: Math/factorize.hpp
   requiredBy: []
   timestamp: '2021-12-23 23:12:39+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/NTL/NTL_1_A.test.cpp
 documentation_of: Math/factorize.hpp
 layout: document
 redirect_from:

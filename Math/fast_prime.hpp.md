@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/factorize.test.cpp
+    title: test/yosupo/factorize.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\
       \u89E3)"
@@ -71,8 +74,9 @@ data:
   path: Math/fast_prime.hpp
   requiredBy: []
   timestamp: '2021-12-23 23:12:39+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/factorize.test.cpp
 documentation_of: Math/fast_prime.hpp
 layout: document
 redirect_from:

@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/aoj/ALDS1/ALDS1_1_C.test.cpp
+    title: test/aoj/ALDS1/ALDS1_1_C.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
     title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -22,20 +25,35 @@ data:
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/ITP1/ITP1_3_D.test.cpp
+    title: test/aoj/ITP1/ITP1_3_D.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/NTL/NTL_1_A.test.cpp
+    title: test/aoj/NTL/NTL_1_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/NTL/NTL_1_B.test.cpp
+    title: test/aoj/NTL/NTL_1_B.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/NTL/NTL_1_D.test.cpp
     title: test/aoj/NTL/NTL_1_D.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/convolution_mod_1000000007.test.cpp
+    title: test/yosupo/convolution_mod_1000000007.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/factorize.test.cpp
+    title: test/yosupo/factorize.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -89,18 +107,24 @@ data:
   path: template/template.hpp
   requiredBy: []
   timestamp: '2021-12-23 11:59:41+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
   - test/aoj/DSL/DSL_1_B.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp
+  - test/aoj/NTL/NTL_1_B.test.cpp
+  - test/aoj/NTL/NTL_1_A.test.cpp
   - test/aoj/NTL/NTL_1_D.test.cpp
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
+  - test/aoj/ALDS1/ALDS1_1_C.test.cpp
   - test/aoj/DPL/DPL_1_D.test.cpp
+  - test/aoj/ITP1/ITP1_3_D.test.cpp
   - test/yukicoder/1236.test.cpp
+  - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
+  - test/yosupo/factorize.test.cpp
 documentation_of: template/template.hpp
 layout: document
 redirect_from:
