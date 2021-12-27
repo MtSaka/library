@@ -2,7 +2,7 @@
  * @brief Dijkstra With Path(経路付き単一始点最短路)
 */
 #include"graph_template.hpp"
-template<typename T>
+template<typename T=int>
 pair<T,vector<int>>dijkstra_path(const Graph<T>&g,int s,int t){
   int n=g.size();
   T MAX=numeric_limits<T>::max()/2;
