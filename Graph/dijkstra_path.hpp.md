@@ -27,7 +27,7 @@ data:
     template<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n  int idx;\n\
     \  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
     \  operator int()const{return to;}\n};\ntemplate<typename T=int>\nstruct Graph{\n\
-    \  vector<vector<Edge>>g;\n  int es;\n  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n\
+    \  vector<vector<Edge<T>>>g;\n  int es;\n  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n\
     \  size_t size()const{return g.size();}\n  size_t edge_size()const{return es;}\n\
     \  void add_directed_edge(int from,int to,T cost=1){\n    g[from].emplace_back(from,to,cost,es++);\n\
     \  }\n  void add_edge(int from,int to,T cost=1){\n    g[from].emplace_back(from,to,cost,es);\n\
@@ -58,7 +58,7 @@ data:
   isVerificationFile: false
   path: Graph/dijkstra_path.hpp
   requiredBy: []
-  timestamp: '2021-12-27 15:18:17+00:00'
+  timestamp: '2021-12-27 15:21:37+00:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/shortest_path.test.cpp
