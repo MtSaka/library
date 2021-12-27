@@ -5,7 +5,7 @@ int main(){
   int n,q;
   cin>>n>>q;
   Graph<int>g(n);
-  for(int i=0;i<n-1;i++){
+  for(int i=1;i<n;i++){
     int u;
     cin>>u;
     g.add_edge(u,i);
