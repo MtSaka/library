@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
       )"
@@ -65,7 +65,7 @@ data:
     \  return c;\n  }\n};\n#line 5 \"Math/mod_ntt.hpp\"\nvector<long long>mod_convolution(vector<long\
     \ long>a,vector<long long>b,long long m){\n  NTT<167772161>ntt1;\n  NTT<469762049>ntt2;\n\
     \  NTT<1224736769>ntt3;\n  auto x=ntt1.multiply(a,b);\n  auto y=ntt2.multiply(a,b);\n\
-    \  auto z=ntt3.multiply(a,b);\n  long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889LL%m;\n\
+    \  auto z=ntt3.multiply(a,b);\n  const long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889%m;\n\
     \  vector<long long>res(x.size());\n  for(int i=0;i<x.size();i++){\n    long long\
     \ v1=(y[i]-x[i])*m1_inv_m2%m2;\n    if(v1<0)v1+=m2;\n    long long v2=(z[i]-(x[i]+m1*v1)%m3)*m12_inv_m3%m3;\n\
     \    if(v2<0)v2+=m3;\n    long long c=(x[i]+m1*v1+m12_mod*v2)%m;\n    if(c<0)c+=m;\n\
@@ -74,7 +74,7 @@ data:
     \u307F)\n*/\n#include\"ntt.hpp\"\nvector<long long>mod_convolution(vector<long\
     \ long>a,vector<long long>b,long long m){\n  NTT<167772161>ntt1;\n  NTT<469762049>ntt2;\n\
     \  NTT<1224736769>ntt3;\n  auto x=ntt1.multiply(a,b);\n  auto y=ntt2.multiply(a,b);\n\
-    \  auto z=ntt3.multiply(a,b);\n  long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889LL%m;\n\
+    \  auto z=ntt3.multiply(a,b);\n  const long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889%m;\n\
     \  vector<long long>res(x.size());\n  for(int i=0;i<x.size();i++){\n    long long\
     \ v1=(y[i]-x[i])*m1_inv_m2%m2;\n    if(v1<0)v1+=m2;\n    long long v2=(z[i]-(x[i]+m1*v1)%m3)*m12_inv_m3%m3;\n\
     \    if(v2<0)v2+=m3;\n    long long c=(x[i]+m1*v1+m12_mod*v2)%m;\n    if(c<0)c+=m;\n\
@@ -85,8 +85,8 @@ data:
   isVerificationFile: false
   path: Math/mod_ntt.hpp
   requiredBy: []
-  timestamp: '2021-12-23 23:12:39+00:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-12-27 00:30:26+00:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/convolution_mod_1000000007.test.cpp
 documentation_of: Math/mod_ntt.hpp
