@@ -8,17 +8,17 @@ data:
   - icon: ':warning:'
     path: Graph/detect_cycle.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Graph/dijkstra.hpp
     title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Graph/dijkstra_path.hpp
     title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
       \u77ED\u8DEF)"
   - icon: ':warning:'
     path: Graph/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Graph/lowest_common_ancestor.hpp
     title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':warning:'
@@ -31,10 +31,16 @@ data:
   - icon: ':warning:'
     path: Graph/warshall_floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yosupo/lca.test.cpp
+    title: test/yosupo/lca.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/shortest_path.test.cpp
+    title: test/yosupo/shortest_path.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
       \u30C8)"
@@ -82,8 +88,10 @@ data:
   - Graph/kruskal.hpp
   - Graph/negative_cycle.hpp
   timestamp: '2021-12-23 11:07:04+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yosupo/lca.test.cpp
+  - test/yosupo/shortest_path.test.cpp
 documentation_of: Graph/graph_template.hpp
 layout: document
 redirect_from:

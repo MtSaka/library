@@ -50,21 +50,21 @@ data:
     - icon: ':warning:'
       path: Graph/detect_cycle.hpp
       title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/dijkstra.hpp
       title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/dijkstra_path.hpp
       title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
         \u77ED\u8DEF)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/graph_template.hpp
       title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
         )"
     - icon: ':warning:'
       path: Graph/kruskal.hpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/lowest_common_ancestor.hpp
       title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':warning:'
@@ -155,7 +155,7 @@ data:
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -219,12 +219,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/inv_of_formal_power_series.test.cpp
       title: test/yosupo/inv_of_formal_power_series.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/lca.test.cpp
+      title: test/yosupo/lca.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/log_of_formal_power_series.test.cpp
       title: test/yosupo/log_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/range_affine_range_sum.test.cpp
       title: test/yosupo/range_affine_range_sum.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/shortest_path.test.cpp
+      title: test/yosupo/shortest_path.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/unionfind.test.cpp
       title: test/yosupo/unionfind.test.cpp

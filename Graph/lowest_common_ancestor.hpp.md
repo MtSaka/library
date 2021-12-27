@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yosupo/lca.test.cpp
+    title: test/yosupo/lca.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     links: []
@@ -63,8 +66,9 @@ data:
   path: Graph/lowest_common_ancestor.hpp
   requiredBy: []
   timestamp: '2021-12-23 11:07:04+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yosupo/lca.test.cpp
 documentation_of: Graph/lowest_common_ancestor.hpp
 layout: document
 redirect_from:
