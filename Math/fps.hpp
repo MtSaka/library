@@ -28,7 +28,7 @@ struct FPS{
   FPS inv(int mx=-1)const{
     if(mx==-1)mx=size();
     FPS g(1);
-    g[0]=val[0].inv();
+    g[0]=mint(1)/val[0];
     int now=1;
     while(now<mx){
       now<<=1;
@@ -84,6 +84,7 @@ struct FPS{
     (*this)-=(*this)/r*r;
     val.resize(r.size()-1);
     shrink();
+    val.clear();
     return (*this);
   }
   FPS diff()const{
@@ -99,7 +100,8 @@ struct FPS{
     return ret;
   }
   FPS log(int mx=-1)const{
-    if(mx==-1)mx=size();
+    int n=size();
+    if(mx==-1)mx=n;
     FPS res=diff()*inv(mx);
     res.resize(mx-1);
     return res.integral();

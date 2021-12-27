@@ -7,6 +7,5 @@ int main(){
   vector<modint<mod>>a(n);
   cin>>a;
   FPS<mod>fps(a);
-  fps.inv(n);
-  print(fps.val);
+  print(fps.inv().val);
 }
