@@ -158,11 +158,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - name: test/yosupo
-    pages:
-    - icon: ':warning:'
-      path: test/yosupo/point_add_range_sum.test1.cpp
-      title: test/yosupo/point_add_range_sum.test1.cpp
   verificationCategories:
   - name: test/aoj/ALDS1
     pages:
@@ -236,6 +231,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_product.test.cpp
       title: test/yosupo/matrix_product.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/point_add_range_sum1.test.cpp
+      title: test/yosupo/point_add_range_sum1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum2.test.cpp
       title: test/yosupo/point_add_range_sum2.test.cpp

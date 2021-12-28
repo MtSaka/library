@@ -11,8 +11,10 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
     links:
     - https://judge.yosupo.jp/problem/point_add_range_sum
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.1/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -33,16 +35,16 @@ data:
   dependsOn:
   - template/template.hpp
   - Data_Structure/segtree.hpp
-  isVerificationFile: false
-  path: test/yosupo/point_add_range_sum.test1.cpp
+  isVerificationFile: true
+  path: test/yosupo/point_add_range_sum1.test.cpp
   requiredBy: []
-  timestamp: '2021-12-28 01:45:05+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2021-12-28 18:10:17+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/point_add_range_sum.test1.cpp
+documentation_of: test/yosupo/point_add_range_sum1.test.cpp
 layout: document
 redirect_from:
-- /library/test/yosupo/point_add_range_sum.test1.cpp
-- /library/test/yosupo/point_add_range_sum.test1.cpp.html
-title: test/yosupo/point_add_range_sum.test1.cpp
+- /verify/test/yosupo/point_add_range_sum1.test.cpp
+- /verify/test/yosupo/point_add_range_sum1.test.cpp.html
+title: test/yosupo/point_add_range_sum1.test.cpp
 ---

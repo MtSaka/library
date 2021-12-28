@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/yosupo/point_add_range_sum.test1.cpp
-    title: test/yosupo/point_add_range_sum.test1.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_1_C.test.cpp
@@ -66,6 +63,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix_product.test.cpp
     title: test/yosupo/matrix_product.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_add_range_sum1.test.cpp
+    title: test/yosupo/point_add_range_sum1.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum2.test.cpp
     title: test/yosupo/point_add_range_sum2.test.cpp
@@ -138,8 +138,7 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: template/template.hpp
-  requiredBy:
-  - test/yosupo/point_add_range_sum.test1.cpp
+  requiredBy: []
   timestamp: '2021-12-23 11:59:41+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -168,6 +167,7 @@ data:
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
+  - test/yosupo/point_add_range_sum1.test.cpp
   - test/yosupo/factorize.test.cpp
 documentation_of: template/template.hpp
 layout: document
