@@ -84,7 +84,6 @@ struct FPS{
     (*this)-=(*this)/r*r;
     val.resize(r.size()-1);
     shrink();
-    val.clear();
     return (*this);
   }
   FPS diff()const{
