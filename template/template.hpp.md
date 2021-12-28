@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/yosupo/point_add_range_sum.test1.cpp
+    title: test/yosupo/point_add_range_sum.test1.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_1_C.test.cpp
@@ -45,6 +48,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/division_of_polynomials.test.cpp
+    title: test/yosupo/division_of_polynomials.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/factorize.test.cpp
     title: test/yosupo/factorize.test.cpp
@@ -58,6 +64,12 @@ data:
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_add_range_sum2.test.cpp
+    title: test/yosupo/point_add_range_sum2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_set_range_composite.test.cpp
+    title: test/yosupo/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -69,9 +81,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -123,9 +135,10 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: template/template.hpp
-  requiredBy: []
+  requiredBy:
+  - test/yosupo/point_add_range_sum.test1.cpp
   timestamp: '2021-12-23 11:59:41+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
@@ -143,8 +156,11 @@ data:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/unionfind.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/lca.test.cpp
+  - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/shortest_path.test.cpp
+  - test/yosupo/point_add_range_sum2.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp

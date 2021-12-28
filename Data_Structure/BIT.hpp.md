@@ -12,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_add_range_sum2.test.cpp
+    title: test/yosupo/point_add_range_sum2.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -41,6 +44,7 @@ data:
   verifiedWith:
   - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
+  - test/yosupo/point_add_range_sum2.test.cpp
 documentation_of: Data_Structure/BIT.hpp
 layout: document
 redirect_from:

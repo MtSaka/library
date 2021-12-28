@@ -1,11 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/yosupo/point_add_range_sum.test1.cpp
+    title: test/yosupo/point_add_range_sum.test1.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_set_range_composite.test.cpp
+    title: test/yosupo/point_set_range_composite.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -39,11 +45,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Data_Structure/segtree.hpp
-  requiredBy: []
+  requiredBy:
+  - test/yosupo/point_add_range_sum.test1.cpp
   timestamp: '2021-12-23 11:45:08+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL/DSL_2_A.test.cpp
+  - test/yosupo/point_set_range_composite.test.cpp
 documentation_of: Data_Structure/segtree.hpp
 layout: document
 redirect_from:
