@@ -57,14 +57,14 @@ data:
       path: Graph/dijkstra_path.hpp
       title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
         \u77ED\u8DEF)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Graph/graph_template.hpp
       title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
         )"
     - icon: ':heavy_check_mark:'
       path: Graph/kruskal.hpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Graph/lowest_common_ancestor.hpp
       title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':warning:'
@@ -152,7 +152,7 @@ data:
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -206,6 +206,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_4_B.test.cpp
       title: test/aoj/GRL/GRL_4_B.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL/GRL_5_C.test.cpp
+      title: test/aoj/GRL/GRL_5_C.test.cpp
   - name: test/aoj/ITP1
     pages:
     - icon: ':heavy_check_mark:'
@@ -278,4 +281,5 @@ layout: toppage
 ---
 [![MtSaka](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2FMtSaka)](https://atcoder.jp/users/MtSaka)
 [![MtSaka](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fcodeforces%2Fjson%2FMtSaka)](https://codeforces.com/profile/MtSaka) <br>
-バグってたらごめんなさい
+MtSakaのライブラリです。<br>
+バグってたらごめんなさい。その場合には気軽に私の[Twitter](https://twitter.com/mt_saka)のDMに連絡するか、GitHubのRepositoryにてIssueを立ててくれるとありがたいです。<br>
