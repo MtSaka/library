@@ -33,23 +33,23 @@ data:
     \      else add_edge(a,b,c);\n    }\n  }\n};\n#line 5 \"Graph/warshall_floyd.hpp\"\
     \ntemplate<typename T>\nvector<vector<T>>warshall_floyd(const Graph<T>&g){\n \
     \ int n=g.size();\n  T MAX=numeric_limits<T>::max()/2;\n  vector<vector<T>>d(n,vector<T>(n,MAX));\n\
-    \  for(int i=0;i<n;i++)for(auto &e:g[i])d[i][e]=e.cost;\n  for(int k=0;k<n;k++){\n\
-    \    for(int i=0;i<n;i++){\n      for(int j=0;j<n;j++){\n        if(d[i][k]!=MAX&d[k][j]!=MAX){\n\
-    \          d[i][j]=min(d[i][j],d[i][k]+d[k][j]);\n        }\n      }\n    }\n\
-    \  }\n  return d;\n}\n"
+    \  for(int i=0;i<n;i++){\n    d[i][i]=0;\n    for(auto &e:g[i])d[i][e]=e.cost;\n\
+    \  }\n  for(int k=0;k<n;k++){\n    for(int i=0;i<n;i++){\n      for(int j=0;j<n;j++){\n\
+    \        if(d[i][k]!=MAX&d[k][j]!=MAX){\n          d[i][j]=min(d[i][j],d[i][k]+d[k][j]);\n\
+    \        }\n      }\n    }\n  }\n  return d;\n}\n"
   code: "/**\n * @brief Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF\
     )\n*/\n#include\"graph_template.hpp\"\ntemplate<typename T>\nvector<vector<T>>warshall_floyd(const\
     \ Graph<T>&g){\n  int n=g.size();\n  T MAX=numeric_limits<T>::max()/2;\n  vector<vector<T>>d(n,vector<T>(n,MAX));\n\
-    \  for(int i=0;i<n;i++)for(auto &e:g[i])d[i][e]=e.cost;\n  for(int k=0;k<n;k++){\n\
-    \    for(int i=0;i<n;i++){\n      for(int j=0;j<n;j++){\n        if(d[i][k]!=MAX&d[k][j]!=MAX){\n\
-    \          d[i][j]=min(d[i][j],d[i][k]+d[k][j]);\n        }\n      }\n    }\n\
-    \  }\n  return d;\n}"
+    \  for(int i=0;i<n;i++){\n    d[i][i]=0;\n    for(auto &e:g[i])d[i][e]=e.cost;\n\
+    \  }\n  for(int k=0;k<n;k++){\n    for(int i=0;i<n;i++){\n      for(int j=0;j<n;j++){\n\
+    \        if(d[i][k]!=MAX&d[k][j]!=MAX){\n          d[i][j]=min(d[i][j],d[i][k]+d[k][j]);\n\
+    \        }\n      }\n    }\n  }\n  return d;\n}"
   dependsOn:
   - Graph/graph_template.hpp
   isVerificationFile: false
   path: Graph/warshall_floyd.hpp
   requiredBy: []
-  timestamp: '2021-12-29 18:50:25+00:00'
+  timestamp: '2021-12-29 21:36:42+00:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/GRL/GRL_1_C.test.cpp

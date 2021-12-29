@@ -67,9 +67,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/lowest_common_ancestor.hpp
       title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-    - icon: ':x:'
-      path: Graph/negative_cycle.hpp
-      title: "Negative Cycle Detection(\u8CA0\u9589\u8DEF\u691C\u51FA)"
     - icon: ':warning:'
       path: Graph/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"

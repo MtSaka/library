@@ -21,9 +21,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/lowest_common_ancestor.hpp
     title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':x:'
-    path: Graph/negative_cycle.hpp
-    title: "Negative Cycle Detection(\u8CA0\u9589\u8DEF\u691C\u51FA)"
   - icon: ':warning:'
     path: Graph/topological_sort.hpp
     title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
@@ -95,7 +92,6 @@ data:
   - Graph/warshall_floyd.hpp
   - Graph/topological_sort.hpp
   - Graph/kruskal.hpp
-  - Graph/negative_cycle.hpp
   timestamp: '2021-12-27 15:21:37+00:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
