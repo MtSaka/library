@@ -2,13 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Graph/bellman_ford.hpp
     title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
   - icon: ':warning:'
     path: Graph/detect_cycle.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Graph/dijkstra.hpp
     title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
   - icon: ':heavy_check_mark:'
@@ -21,26 +21,35 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/lowest_common_ancestor.hpp
     title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Graph/negative_cycle.hpp
     title: "Negative Cycle Detection(\u8CA0\u9589\u8DEF\u691C\u51FA)"
   - icon: ':warning:'
     path: Graph/topological_sort.hpp
     title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
       )"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Graph/warshall_floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_1_A.test.cpp
+    title: test/aoj/GRL/GRL_1_A.test.cpp
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_1_B.test.cpp
+    title: test/aoj/GRL/GRL_1_B.test.cpp
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_1_C.test.cpp
+    title: test/aoj/GRL/GRL_1_C.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/lca.test.cpp
     title: test/yosupo/lca.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
       \u30C8)"
@@ -88,8 +97,11 @@ data:
   - Graph/kruskal.hpp
   - Graph/negative_cycle.hpp
   timestamp: '2021-12-27 15:21:37+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/aoj/GRL/GRL_1_C.test.cpp
+  - test/aoj/GRL/GRL_1_A.test.cpp
+  - test/aoj/GRL/GRL_1_B.test.cpp
   - test/yosupo/lca.test.cpp
   - test/yosupo/shortest_path.test.cpp
 documentation_of: Graph/graph_template.hpp

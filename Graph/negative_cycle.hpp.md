@@ -1,14 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_1_B.test.cpp
+    title: test/aoj/GRL/GRL_1_B.test.cpp
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_1_C.test.cpp
+    title: test/aoj/GRL/GRL_1_C.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Negative Cycle Detection(\u8CA0\u9589\u8DEF\u691C\u51FA)"
     links: []
@@ -46,8 +52,10 @@ data:
   path: Graph/negative_cycle.hpp
   requiredBy: []
   timestamp: '2021-12-27 15:21:37+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/aoj/GRL/GRL_1_C.test.cpp
+  - test/aoj/GRL/GRL_1_B.test.cpp
 documentation_of: Graph/negative_cycle.hpp
 layout: document
 redirect_from:

@@ -3,6 +3,9 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
+    title: test/aoj/ALDS1/ALDS1_10_C.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_1_C.test.cpp
     title: test/aoj/ALDS1/ALDS1_1_C.test.cpp
@@ -24,6 +27,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_1_A.test.cpp
+    title: test/aoj/GRL/GRL_1_A.test.cpp
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_1_B.test.cpp
+    title: test/aoj/GRL/GRL_1_B.test.cpp
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_1_C.test.cpp
+    title: test/aoj/GRL/GRL_1_C.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/ITP1/ITP1_3_D.test.cpp
     title: test/aoj/ITP1/ITP1_3_D.test.cpp
@@ -84,9 +96,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -140,7 +152,7 @@ data:
   path: template/template.hpp
   requiredBy: []
   timestamp: '2021-12-23 11:59:41+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
@@ -151,8 +163,12 @@ data:
   - test/aoj/NTL/NTL_1_A.test.cpp
   - test/aoj/NTL/NTL_1_D.test.cpp
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
+  - test/aoj/ALDS1/ALDS1_10_C.test.cpp
   - test/aoj/ALDS1/ALDS1_1_C.test.cpp
   - test/aoj/DPL/DPL_1_D.test.cpp
+  - test/aoj/GRL/GRL_1_C.test.cpp
+  - test/aoj/GRL/GRL_1_A.test.cpp
+  - test/aoj/GRL/GRL_1_B.test.cpp
   - test/aoj/ITP1/ITP1_3_D.test.cpp
   - test/yukicoder/1236.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp

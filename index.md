@@ -26,7 +26,7 @@ data:
     - icon: ':warning:'
       path: Dynamic_Programming/count_subsequences.hpp
       title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Dynamic_Programming/longest_common-subsequence.hpp
       title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217\
         )"
@@ -44,20 +44,20 @@ data:
       title: "Point(\u70B9)"
   - name: Graph
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/bellman_ford.hpp
       title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     - icon: ':warning:'
       path: Graph/detect_cycle.hpp
       title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/dijkstra.hpp
       title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     - icon: ':heavy_check_mark:'
       path: Graph/dijkstra_path.hpp
       title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
         \u77ED\u8DEF)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Graph/graph_template.hpp
       title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
         )"
@@ -67,7 +67,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/lowest_common_ancestor.hpp
       title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/negative_cycle.hpp
       title: "Negative Cycle Detection(\u8CA0\u9589\u8DEF\u691C\u51FA)"
     - icon: ':warning:'
@@ -77,7 +77,7 @@ data:
       path: Graph/topological_sort.hpp
       title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
         )"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/warshall_floyd.hpp
       title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - name: Math
@@ -155,12 +155,15 @@ data:
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
   - name: test/aoj/ALDS1
     pages:
+    - icon: ':x:'
+      path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
+      title: test/aoj/ALDS1/ALDS1_10_C.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_1_C.test.cpp
       title: test/aoj/ALDS1/ALDS1_1_C.test.cpp
@@ -186,6 +189,17 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_B.test.cpp
       title: test/aoj/DSL/DSL_2_B.test.cpp
+  - name: test/aoj/GRL
+    pages:
+    - icon: ':x:'
+      path: test/aoj/GRL/GRL_1_A.test.cpp
+      title: test/aoj/GRL/GRL_1_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL/GRL_1_B.test.cpp
+      title: test/aoj/GRL/GRL_1_B.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL/GRL_1_C.test.cpp
+      title: test/aoj/GRL/GRL_1_C.test.cpp
   - name: test/aoj/ITP1
     pages:
     - icon: ':heavy_check_mark:'
