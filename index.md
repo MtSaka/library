@@ -50,7 +50,7 @@ data:
     - icon: ':warning:'
       path: Graph/detect_cycle.hpp
       title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/dijkstra.hpp
       title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     - icon: ':heavy_check_mark:'
@@ -191,7 +191,7 @@ data:
       title: test/aoj/DSL/DSL_2_B.test.cpp
   - name: test/aoj/GRL
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_1_A.test.cpp
       title: test/aoj/GRL/GRL_1_A.test.cpp
     - icon: ':x:'

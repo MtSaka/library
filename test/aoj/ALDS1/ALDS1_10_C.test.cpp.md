@@ -29,7 +29,7 @@ data:
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Dynamic_Programming/longest_common-subsequence.hpp\"\
     \nint main(){\n  int q;\n  cin>>q;\n  while(q--){\n    string s,t;\n    cin>>s>>t;\n\
-    \    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n    cout<<lcs(a,b)<<endl;\n\
+    \    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n    cout<<lcsl(a,b)<<endl;\n\
     \  }\n}"
   dependsOn:
   - template/template.hpp
@@ -37,7 +37,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
   requiredBy: []
-  timestamp: '2021-12-29 18:21:52+00:00'
+  timestamp: '2021-12-29 18:45:57+00:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_10_C.test.cpp
