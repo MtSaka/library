@@ -2,8 +2,8 @@
 #include"../../../template/template.hpp"
 #include"../../../Graph/warshall_floyd.hpp"
 int main(){
-  int v,e,r;
-  cin>>v>>e>>r;
+  int v,e;
+  cin>>v>>e;
   Graph<long long>g(v);
   g.read(e,0,true,true);
   auto d=warshall_floyd(g);
