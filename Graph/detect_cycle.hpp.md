@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL/GRL_4_A.test.cpp
+    title: test/aoj/GRL/GRL_4_A.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
     links: []
@@ -32,22 +35,24 @@ data:
     \  vector<int>deg(n,0);\n  for(int i=0;i<n;i++)for(auto &e:g[i])deg[e]++;\n  queue<int>q;\n\
     \  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n  while(!q.empty()){\n    int\
     \ u=q.front();q.pop();\n    for(auto &e:g[u]){\n      deg[e]--;\n      if(deg[e]==0)q.push(e);\n\
-    \    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return true;\n}\n"
+    \    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return true;\n  return false;\n\
+    }\n"
   code: "/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\u51FA)\n*/\n#include\"\
     graph_template.hpp\"\ntemplate<typename T>\nbool detect_cycle(const Graph<T>&g){\n\
     \  int n=g.size();\n  vector<int>deg(n,0);\n  for(int i=0;i<n;i++)for(auto &e:g[i])deg[e]++;\n\
     \  queue<int>q;\n  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n  while(!q.empty()){\n\
     \    int u=q.front();q.pop();\n    for(auto &e:g[u]){\n      deg[e]--;\n     \
     \ if(deg[e]==0)q.push(e);\n    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return\
-    \ true;\n}"
+    \ true;\n  return false;\n}"
   dependsOn:
   - Graph/graph_template.hpp
   isVerificationFile: false
   path: Graph/detect_cycle.hpp
   requiredBy: []
-  timestamp: '2021-12-27 15:21:37+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2021-12-29 22:20:24+00:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/GRL/GRL_4_A.test.cpp
 documentation_of: Graph/detect_cycle.hpp
 layout: document
 redirect_from:

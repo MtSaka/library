@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_4_B.test.cpp
+    title: test/aoj/GRL/GRL_4_B.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\
       \u30C8)"
@@ -34,23 +37,24 @@ data:
     \  vector<int>deg(n,0);\n  for(int i=0;i<n;i++){\n    for(auto &e:g[i]){\n   \
     \   deg[e]++;\n    }\n  }\n  queue<int>q;\n  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n\
     \  vector<int>ans;\n  while(!q.empty()){\n    int v=q.front();\n    q.pop();\n\
-    \    ans.push_back(v);\n    for(int w:g[v]){\n      deg[w]--;\n      if(deg[w]==0)q.push(w);\n\
+    \    ans.push_back(v);\n    for(auto &w:g[v]){\n      deg[w]--;\n      if(deg[w]==0)q.push(w);\n\
     \    }\n  }\n  return ans;\n}\n"
   code: "/**\n * @brief Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\
     \u30FC\u30C8)\n*/\n#include\"graph_template.hpp\"\ntemplate<typename T>\nvector<int>t_sort(const\
     \ Graph<T>&g){\n  int n=g.size();\n  vector<int>deg(n,0);\n  for(int i=0;i<n;i++){\n\
     \    for(auto &e:g[i]){\n      deg[e]++;\n    }\n  }\n  queue<int>q;\n  for(int\
     \ i=0;i<n;i++)if(deg[i]==0)q.push(i);\n  vector<int>ans;\n  while(!q.empty()){\n\
-    \    int v=q.front();\n    q.pop();\n    ans.push_back(v);\n    for(int w:g[v]){\n\
+    \    int v=q.front();\n    q.pop();\n    ans.push_back(v);\n    for(auto &w:g[v]){\n\
     \      deg[w]--;\n      if(deg[w]==0)q.push(w);\n    }\n  }\n  return ans;\n}"
   dependsOn:
   - Graph/graph_template.hpp
   isVerificationFile: false
   path: Graph/topological_sort.hpp
   requiredBy: []
-  timestamp: '2021-12-27 15:21:37+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2021-12-29 22:20:24+00:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/aoj/GRL/GRL_4_B.test.cpp
 documentation_of: Graph/topological_sort.hpp
 layout: document
 redirect_from:
