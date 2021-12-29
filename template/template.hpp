@@ -1,11 +1,7 @@
-/**
- * @brief Template(テンプレート)
-*/
-//GIVE ME AC!!!!!!!!!!!!!!!!!
+#pragma once
 //#pragma GCC target("avx")
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("unroll-loops")
-#pragma once
 #include<bits/stdc++.h>
 using namespace std;
 using ll=long long;
@@ -76,3 +72,6 @@ template<typename T1,typename T2>
 inline bool chmax(T1&a,T2 b){return a<b&&(a=b,true);}
 template<typename T1,typename T2>
 inline bool chmin(T1&a,T2 b){return a>b&&(a=b,true);}
+/**
+ * @brief Template(テンプレート)
+*/

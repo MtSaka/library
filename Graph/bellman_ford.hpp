@@ -20,14 +20,14 @@ vector<T>bellman_ford(const Graph<T>&g,int s){
     }
     if(!changed)return d;
   }
-  for(int i=0;i<n;i++)for(auto &e:g[i])if(d[i]!=MAX&&d[e]>d[i]+e.cost)return d[e]=-MAX;
+  for(int i=0;i<n;i++)for(auto &e:g[i])if(d[i]!=MAX&&d[e]>d[i]+e.cost)d[e]=-MAX;
   for(int i=0;i<n-1;i++){
     bool changed=false;
     for(int j=0;j<n;j++){
       if(d[j]!=-MAX)continue;
       for(auto &e:g[j]){
         if(d[e]!=-MAX){
-          d[e]=d[j]
+          d[e]=d[j];
           changed=true;
         }
       }
