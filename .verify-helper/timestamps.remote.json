@@ -19,6 +19,7 @@
 "test/yosupo/lca.test.cpp": "2021-12-27 22:31:37 +0000",
 "test/yosupo/log_of_formal_power_series.test.cpp": "2021-12-28 02:04:29 +0000",
 "test/yosupo/matrix_product.test.cpp": "2021-12-28 02:04:29 +0000",
+"test/yosupo/point_add_range_sum1.test.cpp": "2021-12-28 18:10:17 +0000",
 "test/yosupo/point_add_range_sum2.test.cpp": "2021-12-28 01:45:05 +0000",
 "test/yosupo/point_set_range_composite.test.cpp": "2021-12-28 01:45:05 +0000",
 "test/yosupo/range_affine_range_sum.test.cpp": "2021-12-23 23:59:21 +0000",
