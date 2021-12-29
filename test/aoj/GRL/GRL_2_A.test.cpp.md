@@ -2,11 +2,14 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Graph/dijkstra.hpp
-    title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
+    path: Data_Structure/dsu.hpp
+    title: Disjoint Set Union(Union Find)
   - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  - icon: ':heavy_check_mark:'
+    path: Graph/kruskal.hpp
+    title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
@@ -17,10 +20,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
     links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
-  bundledCode: "#line 1 \"test/aoj/GRL/GRL_1_A.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
+  bundledCode: "#line 1 \"test/aoj/GRL/GRL_2_A.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
     \n#line 2 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
     \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
     using namespace std;\nusing ll=long long;\nusing ld=long double;\nusing vl=vector<ll>;\n\
@@ -58,8 +61,15 @@ data:
     \ accumulate(all(a),T(0));}\ntemplate<typename T1,typename T2>\ninline bool chmax(T1&a,T2\
     \ b){return a<b&&(a=b,true);}\ntemplate<typename T1,typename T2>\ninline bool\
     \ chmin(T1&a,T2 b){return a>b&&(a=b,true);}\n/**\n * @brief Template(\u30C6\u30F3\
-    \u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"Graph/dijkstra.hpp\"\n/**\n * @brief\
-    \ Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n*/\n#line 1 \"Graph/graph_template.hpp\"\
+    \u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"Graph/kruskal.hpp\"\n/**\n * @brief Kruskal(\u6700\
+    \u5C0F\u5168\u57DF\u6728)\n*/\n#line 1 \"Data_Structure/dsu.hpp\"\n/**\n * @brief\
+    \ Disjoint Set Union(Union Find)\n*/\nstruct dsu{\n  vector<int>sz,par;\n  dsu(){}\n\
+    \  dsu(int n){\n    sz.resize(n,1);\n    par.resize(n,0);\n    for(int i=0;i<n;i++)par[i]=i;\n\
+    \  }\n  int root(int x){\n    if(x==par[x])return x;\n    return par[x]=root(par[x]);\n\
+    \  }\n  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
+    \ sz[root(x)];}\n  void merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return\
+    \ ;\n    if(sz[x]>sz[y]){\n      par[y]=x;\n      sz[x]+=sz[y];\n    }\n    else{\n\
+    \      par[x]=y;\n      sz[y]+=sz[x];\n    }\n  }\n};\n#line 1 \"Graph/graph_template.hpp\"\
     \n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
     \u30C8)\n*/\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n\
     \  int idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
@@ -73,35 +83,36 @@ data:
     \ g[idx];}\n  void read(int m,int padding=-1,bool weighed=false,bool direct=false){\n\
     \    int a,b;\n    T c;\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n      a+=padding;\n\
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
-    \      else add_edge(a,b,c);\n    }\n  }\n};\n#line 5 \"Graph/dijkstra.hpp\"\n\
-    template<typename T>\nvector<T>dijkstra(const Graph<T>&g,int s){\n  int n=g.size();\n\
-    \  T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n  d[s]=0;\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
-    \  q.emplace(0,s);\n  while(!q.empty()){\n    auto [d_u,u]=q.top();q.pop();\n\
-    \    if(d[u]<d_u)continue;\n    for(auto &e:g[u]){\n      if(d[e]>d[u]+e.cost){\n\
-    \        d[e]=d[u]+e.cost;\n        q.emplace(d[e],e);\n      }\n    }\n  }\n\
-    \  return d;\n}\n#line 4 \"test/aoj/GRL/GRL_1_A.test.cpp\"\nint main(){\n  int\
-    \ v,e,r;\n  cin>>v>>e>>r;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n\
-    \  auto d=dijkstra(g,r);\n  for(auto i:d)cout<<(i==numeric_limits<long long>::max()/2?\"\
-    INF\":to_string(i))<<endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/dijkstra.hpp\"\
-    \nint main(){\n  int v,e,r;\n  cin>>v>>e>>r;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n\
-    \  auto d=dijkstra(g,r);\n  for(auto i:d)cout<<(i==numeric_limits<long long>::max()/2?\"\
-    INF\":to_string(i))<<endl;\n}"
+    \      else add_edge(a,b,c);\n    }\n  }\n};\n#line 6 \"Graph/kruskal.hpp\"\n\
+    template<typename T>\nstruct mst{\n  T cost;\n  vector<tuple<T,T,T>>edges;\n};\n\
+    template<typename T>\nmst<T>kruskal(const Graph<T>&g,int v){\n  vector<tuple<T,T,T>>edges;\n\
+    \  for(int i=0;i<g.size();i++){\n    for(auto &e:g[i])if(e<i)edges.emplace_back(e,i,e.cost);\n\
+    \  }\n  sort(edges.begin(),edges.end(),[](const tuple<T,T,T>&a,const tuple<T,T,T>&b){\n\
+    \    return get<2>(a)<get<2>(b);\n  });\n  dsu d(v);\n  T total=0;\n  vector<tuple<T,T,T>>es;\n\
+    \  for(auto &e:edges){\n    if(!d.same(get<0>(e),get<1>(e))){\n      d.merge(get<0>(e),get<1>(e));\n\
+    \      es.emplace_back(e);\n      total+=get<2>(e);\n    }\n  }\n  return {total,es};\n\
+    }\n#line 4 \"test/aoj/GRL/GRL_2_A.test.cpp\"\nint main(){\n  int v,e;\n  cin>>v>>e;\n\
+    \  Graph<long long>g(v);\n  g.read(e,0,true);\n  auto ans=kruskal(g,v);\n  cout<<ans.cost<<endl;\n\
+    }\n"
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/kruskal.hpp\"\
+    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<long long>g(v);\n  g.read(e,0,true);\n\
+    \  auto ans=kruskal(g,v);\n  cout<<ans.cost<<endl;\n}"
   dependsOn:
   - template/template.hpp
-  - Graph/dijkstra.hpp
+  - Graph/kruskal.hpp
+  - Data_Structure/dsu.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
-  path: test/aoj/GRL/GRL_1_A.test.cpp
+  path: test/aoj/GRL/GRL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2021-12-29 21:42:40+00:00'
+  timestamp: '2021-12-29 22:07:11+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/GRL/GRL_1_A.test.cpp
+documentation_of: test/aoj/GRL/GRL_2_A.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL/GRL_1_A.test.cpp
-- /verify/test/aoj/GRL/GRL_1_A.test.cpp.html
-title: test/aoj/GRL/GRL_1_A.test.cpp
+- /verify/test/aoj/GRL/GRL_2_A.test.cpp
+- /verify/test/aoj/GRL/GRL_2_A.test.cpp.html
+title: test/aoj/GRL/GRL_2_A.test.cpp
 ---
