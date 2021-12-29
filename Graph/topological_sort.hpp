@@ -18,7 +18,7 @@ vector<int>t_sort(const Graph<T>&g){
     int v=q.front();
     q.pop();
     ans.push_back(v);
-    for(int w:g[v]){
+    for(auto &w:g[v]){
       deg[w]--;
       if(deg[w]==0)q.push(w);
     }

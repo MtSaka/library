@@ -17,4 +17,5 @@ bool detect_cycle(const Graph<T>&g){
     }
   }
   for(int i=0;i<n;i++)if(deg[i]!=0)return true;
+  return false;
 }
