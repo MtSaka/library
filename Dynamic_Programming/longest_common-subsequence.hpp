@@ -22,7 +22,7 @@ vector<T>lcs(const vector<T>&a,const vector<T>&b){
     }
   }
   vector<T>ans;
-  int i=a.size();,j=b.size();
+  int i=a.size(),j=b.size();
   while(dp[i][j]){
     if(dp[i-1][j]==dp[i][j])i--;
     else if(dp[i][j-1]==dp[i][j])j--;

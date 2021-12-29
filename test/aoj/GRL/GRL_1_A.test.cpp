@@ -7,5 +7,5 @@ int main(){
   Graph<long long>g(v);
   g.read(e,0,true,true);
   auto d=dijkstra(g,r);
-  for(auto i:d)cout<<i<<endl;
+  for(auto i:d)cout<<(i==numeric_limits<long long>::max()/2?"INF":to_string(i))<<endl;
 }

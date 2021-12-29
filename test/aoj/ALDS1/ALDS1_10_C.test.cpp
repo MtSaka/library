@@ -8,6 +8,6 @@ int main(){
     string s,t;
     cin>>s>>t;
     vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());
-    cout<<lcs(a,b)<<endl;
+    cout<<lcsl(a,b)<<endl;
   }
 }
