@@ -11,7 +11,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/dijkstra.hpp
     title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Graph/dijkstra_path.hpp
     title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
       \u77ED\u8DEF)"
@@ -25,7 +25,7 @@ data:
     path: Graph/topological_sort.hpp
     title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
       )"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/warshall_floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   _extendedVerifiedWith:
@@ -35,13 +35,13 @@ data:
   - icon: ':x:'
     path: test/aoj/GRL/GRL_1_B.test.cpp
     title: test/aoj/GRL/GRL_1_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_C.test.cpp
     title: test/aoj/GRL/GRL_1_C.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/lca.test.cpp
     title: test/yosupo/lca.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
   _isVerificationFailed: true
