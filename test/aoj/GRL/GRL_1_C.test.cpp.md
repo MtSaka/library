@@ -27,13 +27,11 @@ data:
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.1/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.1/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.1/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ template/template.hpp: line 8: #pragma once found in a non-first line\n"
+    \ test/aoj/GRL/GRL_1_C.test.cpp: line 2: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/warshall_floyd.hpp\"\
+    \n#pragma once\n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/warshall_floyd.hpp\"\
     \n#include\"../../../Graph/negative_cycle.hpp\"\nint main(){\n  int v,e,r;\n \
     \ cin>>v>>e>>r;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n  if(negative_cycle(g)){\n\
     \    cout<<\"NEGATIVE CYCLE\"<<endl;\n    return 0;\n  }\n  auto d=warshall_floyd(g);\n\
@@ -47,7 +45,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2021-12-29 18:50:25+00:00'
+  timestamp: '2021-12-29 18:54:43+00:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_1_C.test.cpp
