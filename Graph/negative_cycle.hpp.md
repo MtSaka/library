@@ -35,13 +35,13 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\n#line 5 \"Graph/negative_cycle.hpp\"\
     \ntemplate<typename T>\nbool negative_cycle(const Graph<T>&g){\n  int n=g.size();\n\
-    \  T MAX=numerical_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n  for(int i=0;i<n;i++){\n\
+    \  T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n  for(int i=0;i<n;i++){\n\
     \    bool update=false;\n    for(int j=0;j<n;j++){\n      for(auto &e:g[j])if(d[e]>d[j]+e.cost&&d[j]!=MAX){\n\
     \        d[e]=d[j]+e.cost;\n        update=true;\n        if(i==n-1)return true;\n\
     \      }\n    }\n    if(!update)break;\n  }\n  return false;\n}\n"
   code: "/**\n * @brief Negative Cycle Detection(\u8CA0\u9589\u8DEF\u691C\u51FA)\n\
     */\n#include\"graph_template.hpp\"\ntemplate<typename T>\nbool negative_cycle(const\
-    \ Graph<T>&g){\n  int n=g.size();\n  T MAX=numerical_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
+    \ Graph<T>&g){\n  int n=g.size();\n  T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
     \  for(int i=0;i<n;i++){\n    bool update=false;\n    for(int j=0;j<n;j++){\n\
     \      for(auto &e:g[j])if(d[e]>d[j]+e.cost&&d[j]!=MAX){\n        d[e]=d[j]+e.cost;\n\
     \        update=true;\n        if(i==n-1)return true;\n      }\n    }\n    if(!update)break;\n\
@@ -51,7 +51,7 @@ data:
   isVerificationFile: false
   path: Graph/negative_cycle.hpp
   requiredBy: []
-  timestamp: '2021-12-27 15:21:37+00:00'
+  timestamp: '2021-12-29 18:50:25+00:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/GRL/GRL_1_C.test.cpp

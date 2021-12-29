@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Dynamic_Programming/longest_common-subsequence.hpp
     title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)"
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_C
@@ -37,8 +37,8 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
   requiredBy: []
-  timestamp: '2021-12-29 18:45:57+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-12-29 18:50:25+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_10_C.test.cpp
 layout: document

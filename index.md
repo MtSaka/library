@@ -26,7 +26,7 @@ data:
     - icon: ':warning:'
       path: Dynamic_Programming/count_subsequences.hpp
       title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Dynamic_Programming/longest_common-subsequence.hpp
       title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217\
         )"
@@ -161,7 +161,7 @@ data:
   verificationCategories:
   - name: test/aoj/ALDS1
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
       title: test/aoj/ALDS1/ALDS1_10_C.test.cpp
     - icon: ':heavy_check_mark:'
