@@ -16,6 +16,10 @@ int main(){
   }
   int q;
   cin>>q;
+  if(n==1){
+    while(q--)cout<<0<<endl;
+    return 0;
+  }
   LCA<int>lca(g);
   while(q--){
     int a,b;
