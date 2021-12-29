@@ -1,6 +1,7 @@
 /**
  * @brief Negative Cycle Detection(負閉路検出)
 */
+#pragma once
 #include"graph_template.hpp"
 template<typename T>
 bool negative_cycle(const Graph<T>&g){
