@@ -45,7 +45,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2021-12-29 18:54:43+00:00'
+  timestamp: '2021-12-29 20:16:34+00:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_1_B.test.cpp
