@@ -5,7 +5,7 @@
 template<typename T>
 vector<T>bellman_ford(const Graph<T>&g,int s){
   int n=g.size();
-  T MAX=numerical_limits<T>::max()/2;
+  T MAX=numeric_limits<T>::max()/2;
   vector<T>d(n,MAX);
   d[s]=0;
   while(true){

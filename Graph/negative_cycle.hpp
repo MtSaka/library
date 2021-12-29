@@ -5,7 +5,7 @@
 template<typename T>
 bool negative_cycle(const Graph<T>&g){
   int n=g.size();
-  T MAX=numerical_limits<T>::max()/2;
+  T MAX=numeric_limits<T>::max()/2;
   vector<T>d(n,MAX);
   for(int i=0;i<n;i++){
     bool update=false;
