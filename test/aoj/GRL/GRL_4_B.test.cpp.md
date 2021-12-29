@@ -83,13 +83,11 @@ data:
     \    ans.push_back(v);\n    for(auto &w:g[v]){\n      deg[w]--;\n      if(deg[w]==0)q.push(w);\n\
     \    }\n  }\n  return ans;\n}\n#line 4 \"test/aoj/GRL/GRL_4_B.test.cpp\"\nint\
     \ main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<int>g(v);\n  g.read(e,0,false,true);\n\
-    \  vector<int>order=t_sort(g);\n  cout<<order.size()<<endl;\n  for(auto &i:order)cout<<i<<\"\
-    \ \";\n  cout<<endl;\n}\n"
+    \  vector<int>order=t_sort(g);\n  for(auto &i:order)cout<<i<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_B\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/topological_sort.hpp\"\
     \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<int>g(v);\n  g.read(e,0,false,true);\n\
-    \  vector<int>order=t_sort(g);\n  cout<<order.size()<<endl;\n  for(auto &i:order)cout<<i<<\"\
-    \ \";\n  cout<<endl;\n}"
+    \  vector<int>order=t_sort(g);\n  for(auto &i:order)cout<<i<<endl;\n}"
   dependsOn:
   - template/template.hpp
   - Graph/topological_sort.hpp
@@ -97,7 +95,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_4_B.test.cpp
   requiredBy: []
-  timestamp: '2021-12-29 22:20:24+00:00'
+  timestamp: '2021-12-29 22:22:53+00:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_4_B.test.cpp
