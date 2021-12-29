@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/topological_sort.hpp
     title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
       )"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_B
@@ -76,18 +76,19 @@ data:
     \    int a,b;\n    T c;\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n      a+=padding;\n\
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\n#line 5 \"Graph/topological_sort.hpp\"\
-    \ntemplate<typename T>\nvector<int>t_sort(const Graph<T>&g){\n  int n=g.size();\n\
-    \  vector<int>deg(n,0);\n  for(int i=0;i<n;i++){\n    for(auto &e:g[i]){\n   \
-    \   deg[e]++;\n    }\n  }\n  queue<int>q;\n  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n\
-    \  vector<int>ans;\n  while(!q.empty()){\n    int v=q.front();\n    q.pop();\n\
-    \    ans.push_back(v);\n    for(auto &w:g[v]){\n      deg[w]--;\n      if(deg[w]==0)q.push(w);\n\
-    \    }\n  }\n  return ans;\n}\n#line 4 \"test/aoj/GRL/GRL_4_B.test.cpp\"\nint\
-    \ main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<int>g(v);\n  g.read(e,0,false,true);\n\
-    \  vector<int>order=t_sort(g);\n  for(auto &i:order)cout<<i<<endl;\n}\n"
+    \ntemplate<typename T>\nstruct topological_sort{\n  int n;\n  const Graph<T>&g;\n\
+    \  vector<int>order;\n  vector<bool>seen;\n  void dfs(int v){\n    seen[v]=true;\n\
+    \    for(auto &e:g[v])if(!seen[e])dfs(e);\n    order.push_back(v);\n  }\n  void\
+    \ init(){\n    n=g.size();\n    seen.assign(n,false);\n    order.reserve(n);\n\
+    \    for(int i=0;i<n;i++)if(!seen[i])dfs(i);\n    reverse(order.begin(),order.end());\n\
+    \  }\n  topological_sort(const Graph<T>&g):g(g){init();}\n  const vector<int>&get()const&{return\
+    \ order;}\n  vector<int>get()&&{return move(order);}\n};\n#line 4 \"test/aoj/GRL/GRL_4_B.test.cpp\"\
+    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<int>g(v);\n  g.read(e,0,false,true);\n\
+    \  for(auto i:topological_sort<int>(g).get())cout<<i<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_B\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/topological_sort.hpp\"\
     \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<int>g(v);\n  g.read(e,0,false,true);\n\
-    \  vector<int>order=t_sort(g);\n  for(auto &i:order)cout<<i<<endl;\n}"
+    \  for(auto i:topological_sort<int>(g).get())cout<<i<<endl;\n}"
   dependsOn:
   - template/template.hpp
   - Graph/topological_sort.hpp
@@ -95,8 +96,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_4_B.test.cpp
   requiredBy: []
-  timestamp: '2021-12-29 22:22:53+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-12-29 22:33:46+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_4_B.test.cpp
 layout: document
