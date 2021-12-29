@@ -1,4 +1,5 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C"
+#pragma once
 #include"../../../template/template.hpp"
 #include"../../../Graph/warshall_floyd.hpp"
 #include"../../../Graph/negative_cycle.hpp"
