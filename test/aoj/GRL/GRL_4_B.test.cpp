@@ -7,7 +7,5 @@ int main(){
   Graph<int>g(v);
   g.read(e,0,false,true);
   vector<int>order=t_sort(g);
-  cout<<order.size()<<endl;
-  for(auto &i:order)cout<<i<<" ";
-  cout<<endl;
+  for(auto &i:order)cout<<i<<endl;
 }
