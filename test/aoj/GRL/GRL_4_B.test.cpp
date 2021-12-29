@@ -6,6 +6,5 @@ int main(){
   cin>>v>>e;
   Graph<int>g(v);
   g.read(e,0,false,true);
-  vector<int>order=t_sort(g);
-  for(auto &i:order)cout<<i<<endl;
+  for(auto i:topological_sort<int>(g).get())cout<<i<<endl;
 }

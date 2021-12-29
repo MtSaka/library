@@ -3,25 +3,24 @@
 */
 #include"graph_template.hpp"
 template<typename T>
-vector<int>t_sort(const Graph<T>&g){
-  int n=g.size();
-  vector<int>deg(n,0);
-  for(int i=0;i<n;i++){
-    for(auto &e:g[i]){
-      deg[e]++;
-    }
+struct topological_sort{
+  int n;
+  const Graph<T>&g;
+  vector<int>order;
+  vector<bool>seen;
+  void dfs(int v){
+    seen[v]=true;
+    for(auto &e:g[v])if(!seen[e])dfs(e);
+    order.push_back(v);
   }
-  queue<int>q;
-  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);
-  vector<int>ans;
-  while(!q.empty()){
-    int v=q.front();
-    q.pop();
-    ans.push_back(v);
-    for(auto &w:g[v]){
-      deg[w]--;
-      if(deg[w]==0)q.push(w);
-    }
+  void init(){
+    n=g.size();
+    seen.assign(n,false);
+    order.reserve(n);
+    for(int i=0;i<n;i++)if(!seen[i])dfs(i);
+    reverse(order.begin(),order.end());
   }
-  return ans;
-}
+  topological_sort(const Graph<T>&g):g(g){init();}
+  const vector<int>&get()const&{return order;}
+  vector<int>get()&&{return move(order);}
+};
