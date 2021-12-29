@@ -7,7 +7,10 @@ vector<vector<T>>warshall_floyd(const Graph<T>&g){
   int n=g.size();
   T MAX=numeric_limits<T>::max()/2;
   vector<vector<T>>d(n,vector<T>(n,MAX));
-  for(int i=0;i<n;i++)for(auto &e:g[i])d[i][e]=e.cost;
+  for(int i=0;i<n;i++){
+    d[i][i]=0;
+    for(auto &e:g[i])d[i][e]=e.cost;
+  }
   for(int k=0;k<n;k++){
     for(int i=0;i<n;i++){
       for(int j=0;j<n;j++){
