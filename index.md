@@ -67,7 +67,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/lowest_common_ancestor.hpp
       title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Graph/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
     - icon: ':heavy_check_mark:'
@@ -206,6 +206,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_4_B.test.cpp
       title: test/aoj/GRL/GRL_4_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL/GRL_5_B.test.cpp
+      title: test/aoj/GRL/GRL_5_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_C.test.cpp
       title: test/aoj/GRL/GRL_5_C.test.cpp

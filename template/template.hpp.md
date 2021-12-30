@@ -46,6 +46,9 @@ data:
     path: test/aoj/GRL/GRL_4_B.test.cpp
     title: test/aoj/GRL/GRL_4_B.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL/GRL_5_B.test.cpp
+    title: test/aoj/GRL/GRL_5_B.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C.test.cpp
     title: test/aoj/GRL/GRL_5_C.test.cpp
   - icon: ':heavy_check_mark:'
@@ -215,6 +218,7 @@ data:
   - test/aoj/GRL/GRL_4_A.test.cpp
   - test/aoj/GRL/GRL_2_A.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
+  - test/aoj/GRL/GRL_5_B.test.cpp
   - test/aoj/ITP1/ITP1_3_D.test.cpp
   - test/yukicoder/1236.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
