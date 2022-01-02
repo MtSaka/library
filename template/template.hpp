@@ -25,6 +25,7 @@
 #define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)
 #define pb push_back
 #define eb emplace_back
+#define END(...) print(__VA_ARGS__);return;
 using namespace std;
 using ll=long long;
 using ull=unsigned long long;
@@ -34,12 +35,12 @@ using vi=vector<int>;
 using vs=vector<string>;
 using vc=vector<char>;
 using vvl=vector<vl>;
-using P=pair<ll,ll>;
+using pi=pair<int,int>;
+using pl=pair<ll,ll>;
 using vvc=vector<vc>;
 using vd=vector<double>;
-using vp=vector<P>;
+using vp=vector<pl>;
 using vb=vector<bool>;
-#define MtSaka ios::sync_with_stdio(0);cin.tie(0);cout<<fixed<<setprecision(12)
 const int dx[8]={1,0,-1,0,1,-1,-1,1};
 const int dy[8]={0,1,0,-1,1,1,-1,-1};
 const ll MOD=1000000007;
@@ -87,6 +88,46 @@ inline int popcnt(ull x){
   x=(x&0x0000ffff0000ffff)+((x>>16)&0x0000ffff0000ffff);
   return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);
 }
+void dump(const char&t){cerr<<t;}
+void dump(const string&t){cerr<<t;}
+void dump(const bool&t){cerr<<(t?"true":"false");}
+template<typename T>
+void dump(const T&t,enable_if_t<is_integral<T>::value>* =nullptr){
+  string tmp;
+  if(t==infinity<T>::value||t==infinity<T>::MAX)tmp="inf";
+  if(t==infinity<T>::mvalue||t==infinity<T>::MIN)tmp="-inf";
+  if(tmp.empty())tmp=to_string(t);
+  cerr<<tmp;
+}
+template <typename T>
+void dump(const T&t,enable_if_t<!is_void<typename T::iterator>::value>* =nullptr){
+  cerr<<"{";
+  for(auto it=t.begin();it!=t.end();){
+    dump(*it);
+    cerr<<(++it==t.end()?"":", ");
+  }
+  cerr<<"}";
+}
+template<typename T,typename U>
+void dump(const pair<T,U>&t){
+  cerr<<"(";
+  dump(t.first);
+  cerr<<",";
+  dump(t.second);
+  cerr<<")";
+}
+void trace(){cerr<<endl;}
+template<typename Head,typename... Tail>
+void trace(Head&&head,Tail&&... tail){
+  dump(head);
+  if(sizeof...(tail))cerr<<",";
+  trace(forward<Tail>(tail)...);
+}
+#ifdef ONLINE_JUDGE
+#define debug(...) cerr<<#__VA_ARGS__<<"=";trace(__VA_ARGS__);
+#else
+#define debug(...) cerr<<#__VA_ARGS__<<"=";trace(__VA_ARGS__);
+#endif
 struct IOSetup{
   IOSetup(){
     cin.tie(0);
