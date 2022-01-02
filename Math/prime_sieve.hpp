@@ -18,11 +18,12 @@ struct prime_sieve{
     }
     for(T i=2;i<=n;i++)if(mpf[i]==i)primes.push_back(i);
   }
-  vector<T>factorize(T n){
-    vector<T>res;
+  vector<pair<T,int>>factorize(T n){
+    vector<pair<T,int>>res;
     T now=n;
     while(now!=1){
-      res.push_back(mpf[now]);
+      if(res.back().first==mpf[now])res.back().second++;
+      else res.emplace_back(mpf[now],1);
       now/=mpf[now];
     }
     return res;

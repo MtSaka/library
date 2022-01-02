@@ -5,7 +5,7 @@ template<typename T>
 struct range_prime_sieve{
   T l,r,m;
   vector<T>small;
-  vector<vector<T>>large;
+  vector<vector<pair<T,int>>>large;
   vector<T>mul;
   range_prime_sieve(T l,T r):l(l),r(r),m(sqrt(r)+1){
     large.resize(r-l);
@@ -19,15 +19,16 @@ struct range_prime_sieve{
         for(T j=(l+i-1)/i*i;j<r;j+=i){
           while(mul[j-l]%i==0){
             mul[j-l]/=i;
-            large[j-l].push_back(i);
+            if(large[j-l].back().first==i)large[j-l].back().second++;
+            else large[j-l].emplace_back(i,1);
           }
         }
       }
     }
   }
-  vector<T>factor(T n){
-    vector<T>res=large[n-l];
-    if(mul[n-l]!=1)res.push_back(mul[n-l]);
+  vector<pair<T,int>>factor(T n){
+    vector<pair<T,int>>res=large[n-l];
+    if(mul[n-l]!=1)res.emplace_back(mul[n-l],1);
     return res;
   }
 };
