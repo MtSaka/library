@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Fraction(\u6709\u7406\u6570\u578B)"
     links: []
@@ -61,7 +61,7 @@ data:
   path: Math/fraction.hpp
   requiredBy: []
   timestamp: '2021-12-24 23:43:49+00:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1236.test.cpp
 documentation_of: Math/fraction.hpp
