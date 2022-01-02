@@ -24,5 +24,13 @@
 "test/yosupo/division_of_polynomials.test.cpp": "2022-01-02 20:26:45 +0000",
 "test/yosupo/factorize.test.cpp": "2022-01-02 20:26:45 +0000",
 "test/yosupo/inv_of_formal_power_series.test.cpp": "2022-01-02 20:26:45 +0000",
-"test/yosupo/lca.test.cpp": "2022-01-02 20:26:45 +0000"
+"test/yosupo/lca.test.cpp": "2022-01-02 20:26:45 +0000",
+"test/yosupo/log_of_formal_power_series.test.cpp": "2022-01-02 20:26:45 +0000",
+"test/yosupo/matrix_product.test.cpp": "2022-01-02 20:26:45 +0000",
+"test/yosupo/point_add_range_sum1.test.cpp": "2022-01-02 20:26:45 +0000",
+"test/yosupo/point_add_range_sum2.test.cpp": "2022-01-02 20:26:45 +0000",
+"test/yosupo/point_set_range_composite.test.cpp": "2022-01-02 20:26:45 +0000",
+"test/yosupo/shortest_path.test.cpp": "2022-01-02 20:26:45 +0000",
+"test/yosupo/unionfind.test.cpp": "2022-01-02 20:26:45 +0000",
+"test/yukicoder/1236.test.cpp": "2022-01-02 20:26:45 +0000"
 }
