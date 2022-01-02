@@ -1,18 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Dynamic_Programming/longest_increasing_subsequence.hpp
     title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
       )"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D
@@ -81,7 +81,7 @@ data:
     \ Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217)\n*/\ntemplate<typename\
     \ T>\nint lis(const vector<T>&a){\n  int n=a.size();\n  vector<long long>dp(n,2e18);\n\
     \  for(int i=0;i<n;i++)*lower_bound(dp.begin(),dp.end(),a[i])=a[i];\n  return\
-    \ lower_bound(dp.begin(),dp.end(),inf)-dp.begin();\n}\n#line 4 \"test/aoj/DPL/DPL_1_D.test.cpp\"\
+    \ lower_bound(dp.begin(),dp.end(),2e18)-dp.begin();\n}\n#line 4 \"test/aoj/DPL/DPL_1_D.test.cpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  print(lis(a));\n\
     }\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D\"\
@@ -94,8 +94,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL/DPL_1_D.test.cpp
   requiredBy: []
-  timestamp: '2022-01-02 21:23:34+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-01-02 21:50:45+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL/DPL_1_D.test.cpp
 layout: document

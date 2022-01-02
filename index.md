@@ -30,7 +30,7 @@ data:
       path: Dynamic_Programming/longest_common-subsequence.hpp
       title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217\
         )"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Dynamic_Programming/longest_increasing_subsequence.hpp
       title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
         )"
@@ -152,7 +152,7 @@ data:
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -169,7 +169,7 @@ data:
       title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - name: test/aoj/DPL
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DPL/DPL_1_D.test.cpp
       title: test/aoj/DPL/DPL_1_D.test.cpp
   - name: test/aoj/DSL
