@@ -36,16 +36,15 @@ data:
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)\n#define pb push_back\n#define\
-    \ eb emplace_back\nusing namespace std;\nusing ll=long long;\nusing ull=unsigned\
-    \ long long;\nusing ld=long double;\nusing vl=vector<ll>;\nusing vi=vector<int>;\n\
-    using vs=vector<string>;\nusing vc=vector<char>;\nusing vvl=vector<vl>;\nusing\
-    \ P=pair<ll,ll>;\nusing vvc=vector<vc>;\nusing vd=vector<double>;\nusing vp=vector<P>;\n\
-    using vb=vector<bool>;\n#define MtSaka ios::sync_with_stdio(0);cin.tie(0);cout<<fixed<<setprecision(12)\n\
-    const int dx[8]={1,0,-1,0,1,-1,-1,1};\nconst int dy[8]={0,1,0,-1,1,1,-1,-1};\n\
-    const ll MOD=1000000007;\nconst ll mod=998244353;\nconst ld EPS=1e-8;\nconst ld\
-    \ PI=3.1415926535897932384626;\ntemplate<typename T1,typename T2 >\nostream &operator<<(ostream&os,const\
-    \ pair<T1,T2>&p){os<<p.first<<\" \"<<p.second;return os;}\ntemplate<typename T1,typename\
-    \ T2>\nistream &operator>>(istream&is,pair<T1,T2>&p){is>>p.first>>p.second;return\
+    \ eb emplace_back\n#define END(...) print(__VA_ARGS__);return;\nusing namespace\
+    \ std;\nusing ll=long long;\nusing ull=unsigned long long;\nusing ld=long double;\n\
+    using vl=vector<ll>;\nusing vi=vector<int>;\nusing vs=vector<string>;\nusing vc=vector<char>;\n\
+    using vvl=vector<vl>;\nusing pi=pair<int,int>;\nusing pl=pair<ll,ll>;\nusing vvc=vector<vc>;\n\
+    using vd=vector<double>;\nusing vp=vector<pl>;\nusing vb=vector<bool>;\nconst\
+    \ int dx[8]={1,0,-1,0,1,-1,-1,1};\nconst int dy[8]={0,1,0,-1,1,1,-1,-1};\nconst\
+    \ ll MOD=1000000007;\nconst ll mod=998244353;\nconst ld EPS=1e-8;\nconst ld PI=3.1415926535897932384626;\n\
+    template<typename T1,typename T2 >\nostream &operator<<(ostream&os,const pair<T1,T2>&p){os<<p.first<<\"\
+    \ \"<<p.second;return os;}\ntemplate<typename T1,typename T2>\nistream &operator>>(istream&is,pair<T1,T2>&p){is>>p.first>>p.second;return\
     \ is;}\ntemplate<typename T>\nostream &operator<<(ostream&os,const vector<T>&v){for(int\
     \ i=0;i<(int)v.size();i++){os<<v[i]<<(i+1!=v.size()?\" \":\"\");}return os;}\n\
     template<typename T>\nistream &operator>>(istream&is,vector<T>&v){for(T &in:v){is>>in;}return\
@@ -63,24 +62,37 @@ data:
     \  return popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
     \  x=(x&0x3333333333333333)+((x>>2)&0x3333333333333333);\n  x=(x&0x0f0f0f0f0f0f0f0f)+((x>>4)&0x0f0f0f0f0f0f0f0f);\n\
     \  x=(x&0x00ff00ff00ff00ff)+((x>>8)&0x00ff00ff00ff00ff);\n  x=(x&0x0000ffff0000ffff)+((x>>16)&0x0000ffff0000ffff);\n\
-    \  return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);\n}\nstruct IOSetup{\n\
-    \  IOSetup(){\n    cin.tie(0);\n    ios::sync_with_stdio(0);\n    cout<<fixed<<setprecision(12);\n\
-    \    cerr<<fixed<<setprecision(12);\n  }\n};\n/**\n * @brief Template(\u30C6\u30F3\
-    \u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"Data_Structure/inversion.hpp\"\n/**\n\
-    \ * @brief Inversion Number(\u8EE2\u5012\u6570)\n*/\n#line 1 \"Data_Structure/BIT.hpp\"\
-    \n/**\n * @brief Binary Indexed Tree(BIT)\n*/\ntemplate<typename T>\nstruct BIT{\n\
-    \  long long N;\n  vector<T>bit;\n  BIT(long long n){\n    N=1;\n    while(N<n){\n\
-    \      N*=2;\n    }\n    bit=vector<T>(N+1,0);\n  }\n  void add(int i,T x){\n\
-    \    i++;\n    while(i<=N){\n      bit[i]+=x;\n      i+=i&-i;    \n    }\n  }\n\
-    \  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n    return\
-    \ ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n};\n#line\
-    \ 5 \"Data_Structure/inversion.hpp\"\ntemplate<typename T>\nlong long inversion(vector<T>&a){\n\
-    \  int n=a.size();\n  vector<T>b=a;\n  sort(b.begin(),b.end());\n  map<long long,long\
-    \ long>mp;\n  for(int i=0;i<n;i++)mp[b[i]]=i+1;\n  for(int i=0;i<n;i++)a[i]=mp[a[i]];\n\
-    \  long long ans=0;\n  BIT<long long>c(n);\n  for(int i=0;i<n;i++){\n    ans+=i-c.sum(a[i]);\n\
-    \    c.add(a[i],1);\n  }\n  return ans;\n}\n#line 4 \"test/aoj/ALDS1/ALDS1_5_D.test.cpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n\
-    }\n"
+    \  return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);\n}\nvoid dump(const\
+    \ char&t){cerr<<t;}\nvoid dump(const string&t){cerr<<t;}\nvoid dump(const bool&t){cerr<<(t?\"\
+    true\":\"false\");}\ntemplate<typename T>\nvoid dump(const T&t,enable_if_t<is_integral<T>::value>*\
+    \ =nullptr){\n  string tmp;\n  if(t==infinity<T>::value||t==infinity<T>::MAX)tmp=\"\
+    inf\";\n  if(t==infinity<T>::mvalue||t==infinity<T>::MIN)tmp=\"-inf\";\n  if(tmp.empty())tmp=to_string(t);\n\
+    \  cerr<<tmp;\n}\ntemplate <typename T>\nvoid dump(const T&t,enable_if_t<!is_void<typename\
+    \ T::iterator>::value>* =nullptr){\n  cerr<<\"{\";\n  for(auto it=t.begin();it!=t.end();){\n\
+    \    dump(*it);\n    cerr<<(++it==t.end()?\"\":\", \");\n  }\n  cerr<<\"}\";\n\
+    }\ntemplate<typename T,typename U>\nvoid dump(const pair<T,U>&t){\n  cerr<<\"\
+    (\";\n  dump(t.first);\n  cerr<<\",\";\n  dump(t.second);\n  cerr<<\")\";\n}\n\
+    void trace(){cerr<<endl;}\ntemplate<typename Head,typename... Tail>\nvoid trace(Head&&head,Tail&&...\
+    \ tail){\n  dump(head);\n  if(sizeof...(tail))cerr<<\",\";\n  trace(forward<Tail>(tail)...);\n\
+    }\n#ifdef ONLINE_JUDGE\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n\
+    #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
+    struct IOSetup{\n  IOSetup(){\n    cin.tie(0);\n    ios::sync_with_stdio(0);\n\
+    \    cout<<fixed<<setprecision(12);\n    cerr<<fixed<<setprecision(12);\n  }\n\
+    };\n/**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1\
+    \ \"Data_Structure/inversion.hpp\"\n/**\n * @brief Inversion Number(\u8EE2\u5012\
+    \u6570)\n*/\n#line 1 \"Data_Structure/BIT.hpp\"\n/**\n * @brief Binary Indexed\
+    \ Tree(BIT)\n*/\ntemplate<typename T>\nstruct BIT{\n  long long N;\n  vector<T>bit;\n\
+    \  BIT(long long n){\n    N=1;\n    while(N<n){\n      N*=2;\n    }\n    bit=vector<T>(N+1,0);\n\
+    \  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n      bit[i]+=x;\n \
+    \     i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n\
+    \    return ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n\
+    };\n#line 5 \"Data_Structure/inversion.hpp\"\ntemplate<typename T>\nlong long\
+    \ inversion(vector<T>&a){\n  int n=a.size();\n  vector<T>b=a;\n  sort(b.begin(),b.end());\n\
+    \  map<long long,long long>mp;\n  for(int i=0;i<n;i++)mp[b[i]]=i+1;\n  for(int\
+    \ i=0;i<n;i++)a[i]=mp[a[i]];\n  long long ans=0;\n  BIT<long long>c(n);\n  for(int\
+    \ i=0;i<n;i++){\n    ans+=i-c.sum(a[i]);\n    c.add(a[i],1);\n  }\n  return ans;\n\
+    }\n#line 4 \"test/aoj/ALDS1/ALDS1_5_D.test.cpp\"\nint main(){\n  int n;\n  cin>>n;\n\
+    \  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Data_Structure/inversion.hpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n\
@@ -92,7 +104,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   requiredBy: []
-  timestamp: '2022-01-02 19:03:04+00:00'
+  timestamp: '2022-01-02 20:26:45+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_5_D.test.cpp

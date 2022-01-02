@@ -20,16 +20,14 @@ data:
     links: []
   bundledCode: "#line 1 \"Graph/kruskal.hpp\"\n/**\n * @brief Kruskal(\u6700\u5C0F\
     \u5168\u57DF\u6728)\n*/\n#line 1 \"Data_Structure/dsu.hpp\"\n/**\n * @brief Disjoint\
-    \ Set Union(Union Find)\n*/\nstruct dsu{\n  vector<int>sz,par;\n  dsu(){}\n  dsu(int\
-    \ n){\n    sz.resize(n,1);\n    par.resize(n,0);\n    for(int i=0;i<n;i++)par[i]=i;\n\
-    \  }\n  int root(int x){\n    if(x==par[x])return x;\n    return par[x]=root(par[x]);\n\
-    \  }\n  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
-    \ sz[root(x)];}\n  void merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return\
-    \ ;\n    if(sz[x]>sz[y]){\n      par[y]=x;\n      sz[x]+=sz[y];\n    }\n    else{\n\
-    \      par[x]=y;\n      sz[y]+=sz[x];\n    }\n  }\n};\n#line 1 \"Graph/graph_template.hpp\"\
-    \n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
-    \u30C8)\n*/\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n\
-    \  int idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
+    \ Set Union(Union Find)\n*/\nstruct dsu{\n  vector<int>p;\n  dsu(int n):p(n,-1){}\n\
+    \  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n  bool same(int x,int y){return\
+    \ root(x)==root(y);}\n  int size(int x){return -p[root(x)];}\n  void merge(int\
+    \ x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return;\n    if(p[x]>p[y])swap(x,y);\n\
+    \    p[x]+=p[y];p[y]=x;\n  }\n};\n#line 1 \"Graph/graph_template.hpp\"\n/**\n\
+    \ * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
+    )\n*/\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n  int\
+    \ idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
     \  operator int()const{return to;}\n};\ntemplate<typename T=int>\nstruct Graph{\n\
     \  vector<vector<Edge<T>>>g;\n  int es;\n  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n\
     \  size_t size()const{return g.size();}\n  size_t edge_size()const{return es;}\n\
@@ -65,7 +63,7 @@ data:
   isVerificationFile: false
   path: Graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2021-12-27 15:21:37+00:00'
+  timestamp: '2022-01-02 20:26:45+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_2_A.test.cpp
