@@ -1,5 +1,4 @@
 # C++ Library
 MITLicenseですが、競技プログラミングのためにこのライブラリの一部をジャッジサーバなどに送信するとき、著作権表示および許諾表示を省略することができます<br>
-
 競プロで使うライブラリ。説明は少しずつ追加します。<br>
-[こちら](https://mtsaka.github.io/library)に説明などを掲載する予定です。
+[こちら](https://mtsaka.github.io/library)に説明などを掲載する予定です。<br>
