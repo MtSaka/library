@@ -3,6 +3,8 @@
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
+#define overload4(a,b,c,d,e,...) e
+#define overload3(a,b,c,d,...) d
 #define rep1(a) for(ll i=0;i<(ll)(a);i++)
 #define rep2(i,a) for(ll i=0;i<(ll)(a);i++)
 #define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)
