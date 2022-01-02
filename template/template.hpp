@@ -3,8 +3,31 @@
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
+#define rep1(a) for(ll i=0;i<(ll)(a);i++)
+#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)
+#define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)
+#define rep4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))
+#define rep(...) overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)
+#define rrep1(a) for(ll i=(ll)(a)-1;i>=0;i--)
+#define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)
+#define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)
+#define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)
+#define all1(i) begin(i),end(i)
+#define all2(i,a) begin(i),begin(i)+a
+#define all3(i,a,b) begin(i)+a,begin(i)+b
+#define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)
+#define rall(n) (n).rbegin(),(n).rend()
+#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)
+#define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)
+#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)
+#define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)
+#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)
+#define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)
+#define pb push_back
+#define eb emplace_back
 using namespace std;
 using ll=long long;
+using ull=unsigned long long;
 using ld=long double;
 using vl=vector<ll>;
 using vi=vector<int>;
@@ -16,39 +39,13 @@ using vvc=vector<vc>;
 using vd=vector<double>;
 using vp=vector<P>;
 using vb=vector<bool>;
-#define overload4(_1,_2,_3,_4,name,...) name
-#define overload3(_1,_2,_3,name,...) name
-#define rep1(a) for(__typeof(a) i=0;i<a;i++)
-#define rep2(i,a) for(__typeof(a) i=0;i<a;i++)
-#define rep3(i,a,b) for(__typeof(a) i=a;i<b;i++)
-#define rep4(i,a,b,c) for(__typeof(a) i=a;i<b;i+=c)
-#define rep(...) overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)
-#define rrep1(a) for(__typeof(a) i=(a)-1;i>=0;i--)
-#define rrep2(i,a) for(__typeof(a) i=(a)-1;i>=0;i--)
-#define rrep3(i,a,b) for(__typeof(a) i=(b)-1;i>=(a);i--)
-#define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)
-#define all1(i) begin(i),end(i)
-#define all2(i,a) begin(i),begin(i)+a
-#define all3(i,a,b) begin(i)+a,begin(i)+b
-#define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)
-#define rall(n) (n).rbegin(),(n).rend()
-#define pb push_back
-#define eb emplace_back
 #define MtSaka ios::sync_with_stdio(0);cin.tie(0);cout<<fixed<<setprecision(12)
-#define max_(a) *max_element(all(a))
-#define min_(a) *min_element(all(a))
-#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)
-#define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)
-#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)
-#define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)
-#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)
-#define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)
 const int dx[8]={1,0,-1,0,1,-1,-1,1};
 const int dy[8]={0,1,0,-1,1,1,-1,-1};
-const ll inf=2e18;
 const ll MOD=1000000007;
 const ll mod=998244353;
-const double pi=acos(-1);
+const ld EPS=1e-8;
+const ld PI=3.1415926535897932384626;
 template<typename T1,typename T2 >
 ostream &operator<<(ostream&os,const pair<T1,T2>&p){os<<p.first<<" "<<p.second;return os;}
 template<typename T1,typename T2>
@@ -66,12 +63,38 @@ template<class Head, class... Tail>
 void print(const Head &head, const Tail &... tail){cout<<head<<' ';print(tail...);}
 template<class... T>
 void fin(const T &... a){print(a...);exit(0);}
-template<typename T>
-T sum_(vector<T>a){return accumulate(all(a),T(0));}
 template<typename T1,typename T2>
 inline bool chmax(T1&a,T2 b){return a<b&&(a=b,true);}
 template<typename T1,typename T2>
 inline bool chmin(T1&a,T2 b){return a>b&&(a=b,true);}
+template<typename T>
+class infinity{
+  public:
+  static const T MAX=numeric_limits<T>::max();
+  static const T MIN=numeric_limits<T>::min();
+  static const T value=numeric_limits<T>::max()/2;
+  static const T mvalue=numeric_limits<T>::min()/2;
+};
+template<typename T>const T inf=infinity<T>::value;
+inline int popcnt(ull x){
+#if __cplusplus>=202002L
+  return popcount(x);
+#endif
+  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);
+  x=(x&0x3333333333333333)+((x>>2)&0x3333333333333333);
+  x=(x&0x0f0f0f0f0f0f0f0f)+((x>>4)&0x0f0f0f0f0f0f0f0f);
+  x=(x&0x00ff00ff00ff00ff)+((x>>8)&0x00ff00ff00ff00ff);
+  x=(x&0x0000ffff0000ffff)+((x>>16)&0x0000ffff0000ffff);
+  return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);
+}
+struct IOSetup{
+  IOSetup(){
+    cin.tie(0);
+    ios::sync_with_stdio(0);
+    cout<<fixed<<setprecision(12);
+    cerr<<fixed<<setprecision(12);
+  }
+};
 /**
  * @brief Template(テンプレート)
 */
