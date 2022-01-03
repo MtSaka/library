@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/is_prime.hpp
     title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -33,7 +33,7 @@ data:
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)\n#define pb push_back\n#define\
-    \ eb emplace_back\n#define END(...) print(__VA_ARGS__);return;\nusing namespace\
+    \ eb emplace_back\n#define END(...) {print(__VA_ARGS__);return;}\nusing namespace\
     \ std;\nusing ll=long long;\nusing ull=unsigned long long;\nusing ld=long double;\n\
     using vl=vector<ll>;\nusing vi=vector<int>;\nusing vs=vector<string>;\nusing vc=vector<char>;\n\
     using vvl=vector<vl>;\nusing pi=pair<int,int>;\nusing pl=pair<ll,ll>;\nusing vvc=vector<vc>;\n\
@@ -71,13 +71,12 @@ data:
     (\";\n  dump(t.first);\n  cerr<<\",\";\n  dump(t.second);\n  cerr<<\")\";\n}\n\
     void trace(){cerr<<endl;}\ntemplate<typename Head,typename... Tail>\nvoid trace(Head&&head,Tail&&...\
     \ tail){\n  dump(head);\n  if(sizeof...(tail))cerr<<\",\";\n  trace(forward<Tail>(tail)...);\n\
-    }\n#ifdef ONLINE_JUDGE\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n\
-    #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
-    struct IOSetup{\n  IOSetup(){\n    cin.tie(0);\n    ios::sync_with_stdio(0);\n\
-    \    cout<<fixed<<setprecision(12);\n    cerr<<fixed<<setprecision(12);\n  }\n\
-    };\n/**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1\
-    \ \"Math/is_prime.hpp\"\n/**\n * @brief Prime Determination(\u7D20\u6570\u5224\
-    \u5B9A)\n*/\nbool is_prime(long long N){\n  if(N<2)return 0;\n  if(N==2)return\
+    }\n#ifdef ONLINE_JUDGE\n#define debug(...)\n#else\n#define debug(...) cerr<<#__VA_ARGS__<<\"\
+    =\";trace(__VA_ARGS__);\n#endif\nstruct IOSetup{\n  IOSetup(){\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(0);\n    cout<<fixed<<setprecision(12);\n    cerr<<fixed<<setprecision(12);\n\
+    \  }\n};\n/**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n\
+    #line 1 \"Math/is_prime.hpp\"\n/**\n * @brief Prime Determination(\u7D20\u6570\
+    \u5224\u5B9A)\n*/\nbool is_prime(long long N){\n  if(N<2)return 0;\n  if(N==2)return\
     \ 1;\n  if(N%2==0)return 0;\n  for(long long i=3;i*i<=N;i+=2){\n    if(N%i==0)return\
     \ 0;\n  }\n  return 1;\n}\n#line 4 \"test/aoj/ALDS1/ALDS1_1_C.test.cpp\"\nint\
     \ main(){\n  int q;\n  cin>>q;\n  int ans=0;\n  while(q--){\n    int x;\n    cin>>x;\n\
@@ -92,7 +91,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_1_C.test.cpp
   requiredBy: []
-  timestamp: '2022-01-02 21:23:34+00:00'
+  timestamp: '2022-01-03 16:20:11+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_1_C.test.cpp

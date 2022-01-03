@@ -5,7 +5,7 @@ data:
     path: Math/phi.hpp
     title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -34,7 +34,7 @@ data:
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)\n#define pb push_back\n#define\
-    \ eb emplace_back\n#define END(...) print(__VA_ARGS__);return;\nusing namespace\
+    \ eb emplace_back\n#define END(...) {print(__VA_ARGS__);return;}\nusing namespace\
     \ std;\nusing ll=long long;\nusing ull=unsigned long long;\nusing ld=long double;\n\
     using vl=vector<ll>;\nusing vi=vector<int>;\nusing vs=vector<string>;\nusing vc=vector<char>;\n\
     using vvl=vector<vl>;\nusing pi=pair<int,int>;\nusing pl=pair<ll,ll>;\nusing vvc=vector<vc>;\n\
@@ -72,15 +72,14 @@ data:
     (\";\n  dump(t.first);\n  cerr<<\",\";\n  dump(t.second);\n  cerr<<\")\";\n}\n\
     void trace(){cerr<<endl;}\ntemplate<typename Head,typename... Tail>\nvoid trace(Head&&head,Tail&&...\
     \ tail){\n  dump(head);\n  if(sizeof...(tail))cerr<<\",\";\n  trace(forward<Tail>(tail)...);\n\
-    }\n#ifdef ONLINE_JUDGE\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n\
-    #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
-    struct IOSetup{\n  IOSetup(){\n    cin.tie(0);\n    ios::sync_with_stdio(0);\n\
-    \    cout<<fixed<<setprecision(12);\n    cerr<<fixed<<setprecision(12);\n  }\n\
-    };\n/**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1\
-    \ \"Math/phi.hpp\"\n/**\n * @brief Euler's Totient Function(\u30AA\u30A4\u30E9\
-    \u30FC\u306E\u03C6\u95A2\u6570)\n*/\nlong long phi(long long n){\n  long long\
-    \ ans=n;\n  for(long long i=2;i*i<=n;i++){\n    if(n%i==0){\n      ans/=i;\n \
-    \     ans*=i-1;\n      while(n%i==0)n/=i;\n    }\n  }\n  if(n>1){\n    ans/=n;\n\
+    }\n#ifdef ONLINE_JUDGE\n#define debug(...)\n#else\n#define debug(...) cerr<<#__VA_ARGS__<<\"\
+    =\";trace(__VA_ARGS__);\n#endif\nstruct IOSetup{\n  IOSetup(){\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(0);\n    cout<<fixed<<setprecision(12);\n    cerr<<fixed<<setprecision(12);\n\
+    \  }\n};\n/**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n\
+    #line 1 \"Math/phi.hpp\"\n/**\n * @brief Euler's Totient Function(\u30AA\u30A4\
+    \u30E9\u30FC\u306E\u03C6\u95A2\u6570)\n*/\nlong long phi(long long n){\n  long\
+    \ long ans=n;\n  for(long long i=2;i*i<=n;i++){\n    if(n%i==0){\n      ans/=i;\n\
+    \      ans*=i-1;\n      while(n%i==0)n/=i;\n    }\n  }\n  if(n>1){\n    ans/=n;\n\
     \    ans*=(n-1);\n  }\n  return ans;\n}\n#line 4 \"test/aoj/NTL/NTL_1_D.test.cpp\"\
     \nint main(){\n  INT(n);\n  cout<<phi(n)<<endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_D\"\
@@ -92,7 +91,7 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL/NTL_1_D.test.cpp
   requiredBy: []
-  timestamp: '2022-01-02 21:23:34+00:00'
+  timestamp: '2022-01-03 16:20:11+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL/NTL_1_D.test.cpp

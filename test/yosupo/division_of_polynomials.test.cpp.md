@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -39,7 +39,7 @@ data:
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)\n#define pb push_back\n#define\
-    \ eb emplace_back\n#define END(...) print(__VA_ARGS__);return;\nusing namespace\
+    \ eb emplace_back\n#define END(...) {print(__VA_ARGS__);return;}\nusing namespace\
     \ std;\nusing ll=long long;\nusing ull=unsigned long long;\nusing ld=long double;\n\
     using vl=vector<ll>;\nusing vi=vector<int>;\nusing vs=vector<string>;\nusing vc=vector<char>;\n\
     using vvl=vector<vl>;\nusing pi=pair<int,int>;\nusing pl=pair<ll,ll>;\nusing vvc=vector<vc>;\n\
@@ -77,44 +77,44 @@ data:
     (\";\n  dump(t.first);\n  cerr<<\",\";\n  dump(t.second);\n  cerr<<\")\";\n}\n\
     void trace(){cerr<<endl;}\ntemplate<typename Head,typename... Tail>\nvoid trace(Head&&head,Tail&&...\
     \ tail){\n  dump(head);\n  if(sizeof...(tail))cerr<<\",\";\n  trace(forward<Tail>(tail)...);\n\
-    }\n#ifdef ONLINE_JUDGE\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n\
-    #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
-    struct IOSetup{\n  IOSetup(){\n    cin.tie(0);\n    ios::sync_with_stdio(0);\n\
-    \    cout<<fixed<<setprecision(12);\n    cerr<<fixed<<setprecision(12);\n  }\n\
-    };\n/**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1\
-    \ \"Math/fps.hpp\"\n/**\n * @brief Formal Power Series(\u5F62\u5F0F\u7684\u51AA\
-    \u7D1A\u6570)\n*/\n#line 1 \"Math/ntt.hpp\"\n/**\n * @brief Number Theoretic Transform(\u6570\
-    \u8AD6\u5909\u63DB)\n*/\n#line 1 \"Math/modint.hpp\"\n/**\n * @brief modint\n\
-    */\ntemplate<long long m>\nstruct modint{\n  long long x;\n  modint():x(0){}\n\
-    \  modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint inv()const{long long\
-    \ a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n   \
-    \   swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n  modint &operator+=(const\
-    \ modint&p) {if((x+=p.x)>=m)x-=m;return *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return\
-    \ *this;}\n  modint &operator*=(const modint&p) {x=x*p.x%m;return *this;}\n  modint\
-    \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint operator-()const{return\
-    \ modint(-x); }\n  modint operator+(const modint&p)const{return modint(*this)+=p;\
-    \ }\n  modint operator-(const modint&p)const{return modint(*this)-=p; }\n  modint\
-    \ operator*(const modint&p)const{return modint(*this)*=p; }\n  modint operator/(const\
-    \ modint&p)const{return modint(*this)/=p; }\n  bool operator==(const modint&p)const{return\
-    \ x==p.x;}\n  bool operator!=(const modint&p)const{return x!=p.x;}\n  modint pow(long\
-    \ long n) const {\n    modint ret(1),mul(x);\n    while(n){\n      if(n&1)ret*=mul;\n\
-    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  friend ostream\
-    \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
-    \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
-    \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n#line 5 \"Math/ntt.hpp\"\ntemplate<long long m>\nstruct NTT{\n  using\
-    \ mint=modint<m>;\n  mint g=2;\n  int limit=0;\n  vector<mint>root,inv_root;\n\
-    \  mint primitive_root(long long mo){\n    if(mo==167772161)return mint(3);\n\
-    \    if(mo==469762049)return mint(3);\n    if(mo==754974721)return mint(11);\n\
-    \    if(mo==998244353)return mint(3);\n    if(mo==1224736769)return mint(3);\n\
-    \    return mint(0);\n  }\n  NTT(){\n    g=primitive_root(m);\n    long long now=m-1;\n\
-    \    while(!(now&1))now>>=1,limit++;\n    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
-    \    root[limit]=g.pow(now);\n    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n\
-    \      root[i]=root[i+1]*root[i+1];\n      inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
-    \    }\n  }\n  void dft(vector<mint>&a,int inv){\n    int sz=a.size();\n    if(sz==1)return;\n\
-    \    int mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n\
-    \      int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
-    \      for(int j=0;j<sz;j+=i){\n        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
+    }\n#ifdef ONLINE_JUDGE\n#define debug(...)\n#else\n#define debug(...) cerr<<#__VA_ARGS__<<\"\
+    =\";trace(__VA_ARGS__);\n#endif\nstruct IOSetup{\n  IOSetup(){\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(0);\n    cout<<fixed<<setprecision(12);\n    cerr<<fixed<<setprecision(12);\n\
+    \  }\n};\n/**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n\
+    #line 1 \"Math/fps.hpp\"\n/**\n * @brief Formal Power Series(\u5F62\u5F0F\u7684\
+    \u51AA\u7D1A\u6570)\n*/\n#line 1 \"Math/ntt.hpp\"\n/**\n * @brief Number Theoretic\
+    \ Transform(\u6570\u8AD6\u5909\u63DB)\n*/\n#line 1 \"Math/modint.hpp\"\n/**\n\
+    \ * @brief modint\n*/\ntemplate<long long m>\nstruct modint{\n  long long x;\n\
+    \  modint():x(0){}\n  modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint\
+    \ inv()const{long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n     \
+    \ swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n\
+    \  modint &operator+=(const modint&p) {if((x+=p.x)>=m)x-=m;return *this;}\n  modint\
+    \ &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n  modint &operator*=(const\
+    \ modint&p) {x=x*p.x%m;return *this;}\n  modint &operator/=(const modint&p){*this*=p.inv();return\
+    \ *this;}\n  modint operator-()const{return modint(-x); }\n  modint operator+(const\
+    \ modint&p)const{return modint(*this)+=p; }\n  modint operator-(const modint&p)const{return\
+    \ modint(*this)-=p; }\n  modint operator*(const modint&p)const{return modint(*this)*=p;\
+    \ }\n  modint operator/(const modint&p)const{return modint(*this)/=p; }\n  bool\
+    \ operator==(const modint&p)const{return x==p.x;}\n  bool operator!=(const modint&p)const{return\
+    \ x!=p.x;}\n  modint pow(long long n) const {\n    modint ret(1),mul(x);\n   \
+    \ while(n){\n      if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n  \
+    \  return ret;\n  }\n  friend ostream &operator<<(ostream &os,const modint&p)\
+    \ {\n    return os<<p.x;\n  }\n  friend istream &operator>>(istream &is, modint\
+    \ &a) {\n    long long t;\n    is>>t;\n    a=modint<m>(t);\n    return (is);\n\
+    \  }\n  static long long get_mod(){return m;}\n};\n#line 5 \"Math/ntt.hpp\"\n\
+    template<long long m>\nstruct NTT{\n  using mint=modint<m>;\n  mint g=2;\n  int\
+    \ limit=0;\n  vector<mint>root,inv_root;\n  mint primitive_root(long long mo){\n\
+    \    if(mo==167772161)return mint(3);\n    if(mo==469762049)return mint(3);\n\
+    \    if(mo==754974721)return mint(11);\n    if(mo==998244353)return mint(3);\n\
+    \    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n  NTT(){\n \
+    \   g=primitive_root(m);\n    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n\
+    \    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n    root[limit]=g.pow(now);\n\
+    \    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n      root[i]=root[i+1]*root[i+1];\n\
+    \      inv_root[i]=inv_root[i+1]*inv_root[i+1];\n    }\n  }\n  void dft(vector<mint>&a,int\
+    \ inv){\n    int sz=a.size();\n    if(sz==1)return;\n    int mask=sz-1;\n    vector<mint>b(sz);\n\
+    \    for(int i=sz>>1;i>=1;i>>=1){\n      int e=__builtin_ffsll(sz/i)-1;\n    \
+    \  mint w=1,z=(inv==1?root[e]:inv_root[e]);\n      for(int j=0;j<sz;j+=i){\n \
+    \       for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
     \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
     \    int sz=1,mxsiz=a.size()+b.size()-1;\n    while(sz<mxsiz)sz<<=1;\n    a.resize(sz),b.resize(sz);\n\
     \    dft(a,1),dft(b,1);\n    for(int i=0;i<sz;i++)a[i]*=b[i];\n    dft(a,-1);\n\
@@ -173,7 +173,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/division_of_polynomials.test.cpp
   requiredBy: []
-  timestamp: '2022-01-02 21:23:34+00:00'
+  timestamp: '2022-01-03 16:20:11+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/division_of_polynomials.test.cpp

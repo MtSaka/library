@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Data_Structure/segtree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_range_composite
@@ -36,7 +36,7 @@ data:
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)\n#define pb push_back\n#define\
-    \ eb emplace_back\n#define END(...) print(__VA_ARGS__);return;\nusing namespace\
+    \ eb emplace_back\n#define END(...) {print(__VA_ARGS__);return;}\nusing namespace\
     \ std;\nusing ll=long long;\nusing ull=unsigned long long;\nusing ld=long double;\n\
     using vl=vector<ll>;\nusing vi=vector<int>;\nusing vs=vector<string>;\nusing vc=vector<char>;\n\
     using vvl=vector<vl>;\nusing pi=pair<int,int>;\nusing pl=pair<ll,ll>;\nusing vvc=vector<vc>;\n\
@@ -74,22 +74,21 @@ data:
     (\";\n  dump(t.first);\n  cerr<<\",\";\n  dump(t.second);\n  cerr<<\")\";\n}\n\
     void trace(){cerr<<endl;}\ntemplate<typename Head,typename... Tail>\nvoid trace(Head&&head,Tail&&...\
     \ tail){\n  dump(head);\n  if(sizeof...(tail))cerr<<\",\";\n  trace(forward<Tail>(tail)...);\n\
-    }\n#ifdef ONLINE_JUDGE\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n\
-    #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
-    struct IOSetup{\n  IOSetup(){\n    cin.tie(0);\n    ios::sync_with_stdio(0);\n\
-    \    cout<<fixed<<setprecision(12);\n    cerr<<fixed<<setprecision(12);\n  }\n\
-    };\n/**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1\
-    \ \"Data_Structure/segtree.hpp\"\n/**\n * @brief Segment Tree(\u30BB\u30B0\u30E1\
-    \u30F3\u30C8\u6728)\n*/\ntemplate<class S,S (*op)(S,S),S (*e)()>\nstruct segtree{\n\
-    \  private:\n  int _n,size,idx=0;\n  vector<S>seq;\n  void update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n\
-    \  public:\n  segtree():segtree(0){};\n  segtree(int n):segtree(vector<S>(n,e())){}\n\
-    \  segtree(const vector<S>&v):_n(int(v.size())){\n    while((1<<idx)<_n)idx++;\n\
-    \    size=1<<idx;\n    seq=vector<S>(2*size,e());\n    for(int i=0;i<_n;i++)seq[size+i]=v[i];\n\
-    \    for(int i=size-1;i>=1;i--)update(i);\n  }\n  void set(int p,S x){\n    p+=size;\n\
-    \    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n  }\n  S operator[](int\
-    \ p){return seq[p+size];}\n  S query(int l,int r)const{\n    S sml=e(),smr=e();\n\
-    \    l+=size,r+=size;\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n \
-    \     if(r&1)smr=op(seq[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n\
+    }\n#ifdef ONLINE_JUDGE\n#define debug(...)\n#else\n#define debug(...) cerr<<#__VA_ARGS__<<\"\
+    =\";trace(__VA_ARGS__);\n#endif\nstruct IOSetup{\n  IOSetup(){\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(0);\n    cout<<fixed<<setprecision(12);\n    cerr<<fixed<<setprecision(12);\n\
+    \  }\n};\n/**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n\
+    #line 1 \"Data_Structure/segtree.hpp\"\n/**\n * @brief Segment Tree(\u30BB\u30B0\
+    \u30E1\u30F3\u30C8\u6728)\n*/\ntemplate<class S,S (*op)(S,S),S (*e)()>\nstruct\
+    \ segtree{\n  private:\n  int _n,size,idx=0;\n  vector<S>seq;\n  void update(int\
+    \ k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n  public:\n  segtree():segtree(0){};\n\
+    \  segtree(int n):segtree(vector<S>(n,e())){}\n  segtree(const vector<S>&v):_n(int(v.size())){\n\
+    \    while((1<<idx)<_n)idx++;\n    size=1<<idx;\n    seq=vector<S>(2*size,e());\n\
+    \    for(int i=0;i<_n;i++)seq[size+i]=v[i];\n    for(int i=size-1;i>=1;i--)update(i);\n\
+    \  }\n  void set(int p,S x){\n    p+=size;\n    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n\
+    \  }\n  S operator[](int p){return seq[p+size];}\n  S query(int l,int r)const{\n\
+    \    S sml=e(),smr=e();\n    l+=size,r+=size;\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n\
+    \      if(r&1)smr=op(seq[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n\
     \  }\n  S all_query()const{\n    return seq[1];\n  }\n};\n#line 1 \"Math/modint.hpp\"\
     \n/**\n * @brief modint\n*/\ntemplate<long long m>\nstruct modint{\n  long long\
     \ x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint\
@@ -131,8 +130,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-01-02 21:23:34+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-03 16:20:11+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/point_set_range_composite.test.cpp
 layout: document
