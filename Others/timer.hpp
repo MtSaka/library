@@ -1,6 +1,3 @@
-/**
- * @brief Timer(タイマー)
-*/
 class Timer{
   chrono::high_resolution_clock::time_point start,end;
   double limit;
@@ -14,3 +11,6 @@ class Timer{
   void set_limit(double l){limit=l;}
   void set_start(){start=chrono::high_resolution_clock::now();}
 };
+/**
+ * @brief Timer(タイマー)
+*/
