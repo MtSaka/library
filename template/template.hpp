@@ -27,7 +27,7 @@
 #define LD(...) ld __VA_ARGS__;scan(__VA_ARGS__)
 #define pb push_back
 #define eb emplace_back
-#define END(...) print(__VA_ARGS__);return;
+#define END(...) {print(__VA_ARGS__);return;}
 using namespace std;
 using ll=long long;
 using ull=unsigned long long;
@@ -126,7 +126,7 @@ void trace(Head&&head,Tail&&... tail){
   trace(forward<Tail>(tail)...);
 }
 #ifdef ONLINE_JUDGE
-#define debug(...) cerr<<#__VA_ARGS__<<"=";trace(__VA_ARGS__);
+#define debug(...)
 #else
 #define debug(...) cerr<<#__VA_ARGS__<<"=";trace(__VA_ARGS__);
 #endif
