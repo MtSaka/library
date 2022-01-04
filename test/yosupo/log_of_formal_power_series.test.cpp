@@ -4,8 +4,7 @@
 int main(){
   int n;
   cin>>n;
-  vector<modint<mod>>a(n);
-  cin>>a;
-  FPS<mod>fps(a);
-  print(fps.log().val);
+  FPS<mod>fps(n);
+  cin>>fps;
+  print(fps.log());
 }

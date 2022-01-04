@@ -4,11 +4,10 @@
 int main(){
   int n,m;
   cin>>n>>m;
-  vector<modint<mod>>a(n),b(m);
-  cin>>a>>b;
-  FPS<mod>f(a),g(b);
+  FPS<mod>f(n),g(m);
+  cin>>f>>g;
   FPS<mod>q=f/g,r=f%g;
   cout<<q.size()<<" "<<r.size()<<endl;
-  cout<<q.val<<endl;
-  cout<<r.val<<endl;
+  cout<<q<<endl;
+  cout<<r<<endl;
 }
