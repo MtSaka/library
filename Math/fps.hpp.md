@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':x:'
+  - icon: ':question:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   _extendedRequiredBy: []
@@ -12,15 +12,15 @@ data:
   - icon: ':x:'
     path: test/yosupo/division_of_polynomials.test.cpp
     title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -45,15 +45,16 @@ data:
     \ {\n    return os<<p.x;\n  }\n  friend istream &operator>>(istream &is, modint\
     \ &a) {\n    long long t;\n    is>>t;\n    a=modint<m>(t);\n    return (is);\n\
     \  }\n  static long long get_mod(){return m;}\n};\n#line 5 \"Math/ntt.hpp\"\n\
-    template<long long m>\nstruct NTT{\n  using mint=modint<m>;\n  static mint g;\n\
-    \  static int limit;\n  static vector<mint>root,inv_root;\n  static mint primitive_root(long\
-    \ long mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
-    \ mint(3);\n    if(mo==754974721)return mint(11);\n    if(mo==998244353)return\
-    \ mint(3);\n    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n\
-    \  static void init(){\n    if(root.empty()){\n      g=primitive_root(m);\n  \
-    \    long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
-    \      root[limit]=g.pow(now);\n      inv_root[limit]/=root[limit];\n      for(int\
-    \ i=limit-1;i>=0;i--){\n        root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
+    template<long long m>\nstruct NTT{\n  using mint=modint<m>;\n  static modint<m>\
+    \ g;\n  static int limit;\n  static vector<modint<m>>root,inv_root;\n  static\
+    \ mint primitive_root(long long mo){\n    if(mo==167772161)return mint(3);\n \
+    \   if(mo==469762049)return mint(3);\n    if(mo==754974721)return mint(11);\n\
+    \    if(mo==998244353)return mint(3);\n    if(mo==1224736769)return mint(3);\n\
+    \    return mint(0);\n  }\n  static void init(){\n    if(root.empty()){\n    \
+    \  g=primitive_root(m);\n      long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n\
+    \      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n      root[limit]=g.pow(now);\n\
+    \      inv_root[limit]/=root[limit];\n      for(int i=limit-1;i>=0;i--){\n   \
+    \     root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
     \      }\n    }\n  }\n  NTT()=default;\n  static void dft(vector<mint>&a,int inv){\n\
     \    init();\n    int sz=a.size();\n    if(sz==1)return;\n    int mask=sz-1;\n\
     \    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n      int e=__builtin_ffsll(sz/i)-1;\n\
@@ -68,7 +69,10 @@ data:
     \    using mint=modint<m>;\n    vector<mint>a2(a.size()),b2(b.size());\n    for(int\
     \ i=0;i<a.size();i++)a2[i]=a[i];\n    for(int i=0;i<b.size();i++)b2[i]=b[i];\n\
     \    auto c2=multiply(move(a2),move(b2));\n    vector<T>c(c2.size());\n    for(int\
-    \ i=0;i<c.size();i++)c[i]=c2[i].x;\n    return c;\n  }\n};\n#line 5 \"Math/fps.hpp\"\
+    \ i=0;i<c.size();i++)c[i]=c2[i].x;\n    return c;\n  }\n};\ntemplate<long long\
+    \ m>\nint NTT<m>::limit=0;\ntemplate<long long m>\nvector<modint<m>>NTT<m>::root=vector<modint<m>>();\n\
+    template<long long m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\n\
+    template<long long m>\nmodint<m>NTT<m>::g=modint<m>();\n#line 5 \"Math/fps.hpp\"\
     \ntemplate<long long Mod>\nstruct FPS:vector<modint<Mod>>{\n  using mint=modint<Mod>;\n\
     \  using vector<mint>::vector;\n  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}\n\
     \  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
@@ -171,8 +175,8 @@ data:
   isVerificationFile: false
   path: Math/fps.hpp
   requiredBy: []
-  timestamp: '2022-01-04 22:03:30+00:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-01-04 22:26:44+00:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
