@@ -5,9 +5,9 @@
 template<long long m>
 struct NTT{
   using mint=modint<m>;
-  static mint g;
+  static modint<m> g;
   static int limit;
-  static vector<mint>root,inv_root;
+  static vector<modint<m>>root,inv_root;
   static mint primitive_root(long long mo){
     if(mo==167772161)return mint(3);
     if(mo==469762049)return mint(3);
@@ -71,3 +71,11 @@ struct NTT{
     return c;
   }
 };
+template<long long m>
+int NTT<m>::limit=0;
+template<long long m>
+vector<modint<m>>NTT<m>::root=vector<modint<m>>();
+template<long long m>
+vector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();
+template<long long m>
+modint<m>NTT<m>::g=modint<m>();
