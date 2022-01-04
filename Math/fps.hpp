@@ -7,7 +7,6 @@ struct FPS:vector<modint<Mod>>{
   using mint=modint<Mod>;
   using vector<mint>::vector;
   using vector<mint>::operator=;
-  NTT<Mod>ntt;
   void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}
   FPS inv(int d=-1)const{
     const int n=(*this).size();
@@ -17,13 +16,13 @@ struct FPS:vector<modint<Mod>>{
       FPS f((*this).begin(),(*this).begin()+min(n,2*m));
       FPS g(res);
       f.resize(2*m),g.resize(2*m);
-      ntt.dft(f,1),ntt.dft(g,1);
+      NTT<Mod>::dft(f,1),NTT<Mod>::dft(g,1);
       for(int i=0;i<2*m;i++)f[i]*=g[i];
-      ntt.dft(f,-1);
+      NTT<Mod>::dft(f,-1);
       f.erase(f.begin(),f.begin()+m);
-      f.resize(2*m);ntt.dft(f,1);
+      f.resize(2*m);NTT<Mod>::dft(f,1);
       for(int i=0;i<2*m;i++)f[i]*=g[i];
-      ntt.dft(f,-1);
+      NTT<Mod>::dft(f,-1);
       mint iz=mint(2*m).inv();iz*=-iz;
       for(int i=0;i<m;i++)f[i]*=iz;
       res.insert(res.end(),f.begin(),f.begin()+m);
@@ -86,7 +85,7 @@ struct FPS:vector<modint<Mod>>{
     return *this;
   }
   FPS &operator*=(const FPS&r){
-    (*this)=ntt.multiply((*this),r);
+    (*this)=NTT<Mod>::multiply((*this),r);
     return *this;
   }
   FPS &operator/=(const FPS&r){
