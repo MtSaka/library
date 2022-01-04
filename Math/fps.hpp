@@ -112,7 +112,7 @@ struct FPS:vector<modint<Mod>>{
     return (*this);
   }
   pair<FPS,FPS>div_mod(const FPS&r){
-    FPS p=*this/r,q=*this-p*r
+    FPS p=*this/r,q=*this-p*r;
     q.shrink();
     return {p,q};
   }

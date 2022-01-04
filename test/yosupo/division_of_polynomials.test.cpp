@@ -6,7 +6,7 @@ int main(){
   cin>>n>>m;
   FPS<mod>f(n),g(m);
   cin>>f>>g;
-  FPS<mod>q=f/g,r=f%g;
+  auto [q,r]=f.div_mod(g);
   cout<<q.size()<<" "<<r.size()<<endl;
   cout<<q<<endl;
   cout<<r<<endl;
