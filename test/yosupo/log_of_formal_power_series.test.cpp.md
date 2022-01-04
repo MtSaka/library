@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/log_of_formal_power_series
@@ -161,23 +161,25 @@ data:
     \ int&d){\n    (*this).insert((*this).begin(),d,mint(0));\n    return *this;\n\
     \  }\n  FPS &operator>>=(const int&d){\n    (*this).erase((*this).begin(),(*this).begin()+d);\n\
     \    return *this;\n  }\n  FPS &operator*=(const FPS&r){\n    (*this)=NTT<Mod>::multiply((*this),r);\n\
-    \    return *this;\n  }\n  FPS &operator/=(const FPS&r){\n    int n=(*this).size(),m=r.size();\n\
+    \    return *this;\n  }\n  FPS &operator/=(FPS r){\n    int n=(*this).size(),m=r.size();\n\
     \    if(n<m){\n      (*this).clear();\n      return *this;\n    }\n    int sz=n-m+1;\n\
     \    reverse((*this).begin(),(*this).end());\n    reverse(r.begin(),r.end());\n\
     \    (*this).resize(sz);\n    (*this)*=r.inv(sz);\n    (*this).resize(sz);\n \
     \   reverse((*this).begin(),(*this).end());\n    return (*this);\n  }\n  FPS &operator%=(FPS\
     \ r){\n    const int n=(*this).size(),m=r.size();\n    if(n<m)return (*this);\n\
     \    (*this)-=(*this)/r*r;\n    (*this).resize(m-1);\n    shrink();\n    return\
-    \ (*this);\n  }\n  mint operator()(const mint&x)const{\n    mint ret(0),w(1);\n\
-    \    for(auto &e:*this){\n      ret+=e*w;\n      w*=x;\n    }\n    return ret;\n\
-    \  }\n  FPS diff()const{\n    const int n=(*this).size();\n    FPS ret(max(0,n-1));\n\
-    \    for(int i=1;i<n;i++)ret[i-1]=(*this)[i]*mint(i);\n    return ret;\n  }\n\
-    \  FPS integral()const{\n    const int n=(*this).size();\n    FPS ret(n+1);\n\
-    \    for(int i=0;i<n;i++)ret[i+1]=(*this)[i]/mint(i+1);\n    return ret;\n  }\n\
-    \  FPS log(int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
-    \    FPS res=diff()*inv(d);\n    res.resize(d-1);\n    return res.integral();\n\
-    \  }\n};\n#line 4 \"test/yosupo/log_of_formal_power_series.test.cpp\"\nint main(){\n\
-    \  int n;\n  cin>>n;\n  FPS<mod>fps(n);\n  cin>>fps;\n  print(fps.log());\n}\n"
+    \ (*this);\n  }\n  pair<FPS,FPS>div_mod(const FPS&r){\n    FPS p=*this/r,q=*this-p*r\n\
+    \    q.shrink();\n    return {p,q};\n  }\n  mint operator()(const mint&x)const{\n\
+    \    mint ret(0),w(1);\n    for(auto &e:*this){\n      ret+=e*w;\n      w*=x;\n\
+    \    }\n    return ret;\n  }\n  FPS diff()const{\n    const int n=(*this).size();\n\
+    \    FPS ret(max(0,n-1));\n    for(int i=1;i<n;i++)ret[i-1]=(*this)[i]*mint(i);\n\
+    \    return ret;\n  }\n  FPS integral()const{\n    const int n=(*this).size();\n\
+    \    FPS ret(n+1);\n    for(int i=0;i<n;i++)ret[i+1]=(*this)[i]/mint(i+1);\n \
+    \   return ret;\n  }\n  FPS log(int d=-1)const{\n    const int n=(*this).size();\n\
+    \    if(d==-1)d=n;\n    FPS res=diff()*inv(d);\n    res.resize(d-1);\n    return\
+    \ res.integral();\n  }\n};\n#line 4 \"test/yosupo/log_of_formal_power_series.test.cpp\"\
+    \nint main(){\n  int n;\n  cin>>n;\n  FPS<mod>fps(n);\n  cin>>fps;\n  print(fps.log());\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps.hpp\"\nint\
     \ main(){\n  int n;\n  cin>>n;\n  FPS<mod>fps(n);\n  cin>>fps;\n  print(fps.log());\n\
@@ -190,8 +192,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/log_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-01-04 22:26:44+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-04 22:55:46+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/log_of_formal_power_series.test.cpp
 layout: document
