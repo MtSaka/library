@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/division_of_polynomials
@@ -125,46 +125,61 @@ data:
     \    for(int i=0;i<b.size();i++)b2[i]=b[i];\n    auto c2=multiply(move(a2),move(b2));\n\
     \    vector<T>c(c2.size());\n    for(int i=0;i<c.size();i++)c[i]=c2[i].x;\n  \
     \  return c;\n  }\n};\n#line 5 \"Math/fps.hpp\"\ntemplate<long long m>\nstruct\
-    \ FPS{\n  using mint=modint<m>;\n  vector<mint>val;\n  NTT<m>ntt;\n  FPS(){}\n\
-    \  FPS(int sz):val(sz){}\n  FPS(const vector<mint>&a):val(a){}\n  FPS(vector<mint>&&a):val(move(a)){}\n\
-    \  FPS(const FPS &other):val(other.val){}\n  FPS(FPS &&other):val(move(other.val)){}\n\
-    \  mint &operator[](int i){return val[i];}\n  size_t size()const{return val.size();}\n\
-    \  void resize(const int sz){val.resize(sz);}\n  void shrink(){while(!val.empty()&&val.back()==mint(0))val.pop_back();}\n\
-    \  FPS &operator=(const FPS &other){\n    val=other.val;\n    return *this;\n\
-    \  }\n  FPS &operator=(FPS &&other){\n    val=move(other.val);\n    return *this;\n\
-    \  }\n  FPS inv(int mx=-1)const{\n    if(mx==-1)mx=size();\n    FPS g(1);\n  \
-    \  g[0]=mint(1)/val[0];\n    int now=1;\n    while(now<mx){\n      now<<=1;\n\
-    \      FPS t=(*this);\n      t.resize(now);\n      t*=-g;\n      t[0]+=2,g*=t;\n\
-    \      g.resize(now);\n    }\n    g.resize(mx);\n    return g;\n  }\n  FPS operator+(const\
-    \ FPS&r)const{return FPS(*this)+=r;}\n  FPS operator-(const FPS&r)const{return\
-    \ FPS(*this)-=r;}\n  FPS operator*(const FPS&r)const{return FPS(*this)*=r;}\n\
+    \ FPS:vector<modint<m>>{\n  using mint=modint<m>;\n  using vector<mint>::vector;\n\
+    \  using vector<mint>::operator=;\n  NTT<m>ntt;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))val.pop_back();}\n\
+    \  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
+    \    FPS res{(*this)[0].inv()};\n    for(int m=1;m<d;m<<=1){\n      FPS f((*this).begin(),(*this).begin()+min(n,2*m));\n\
+    \      FPS g(res);\n      f.resize(2*m),g.resize(2*m);\n      ntt.dft(f,1),ntt.dft(g,1);\n\
+    \      for(int i=0;i<2*m;i++)f[i]*=g[i];\n      ntt.dft(f,-1);\n      f.erase(f.begin(),f.begin()+m);\n\
+    \      f.resize(2*m);ntt.dft(f,1);\n      for(int i=0;i<2*m;i++)f[i]*=g[i];\n\
+    \      ntt.dft(f,-1);\n      mint iz=mint(2*m).inv();iz*=-iz;\n      for(int i=0;i<m;i++)f[i]*=iz;\n\
+    \      res.insert(res.end(),f.begin(),f.begin()+m);\n    }\n    res.resize(d);\n\
+    \    return res;\n  }\n  FPS operator+(const mint&r)const{return FPS(*this)+=r;}\n\
+    \  FPS operator-(const mint&r)const{return FPS(*this)-=r;}\n  FPS operator*(const\
+    \ mint&r)const{return FPS(*this)*=r;}\n  FPS operator/(const mint&r)const{return\
+    \ FPS(*this)/=r;}\n  FPS operator+(const FPS&r)const{return FPS(*this)+=r;}\n\
+    \  FPS operator-(const FPS&r)const{return FPS(*this)-=r;}\n  FPS operator<<(const\
+    \ int&d)const{return FPS(*this)<<=d;}\n  FPS operator>>(const int&d)const{return\
+    \ FPS(*this)>>=d;}\n  FPS operator*(const FPS&r)const{return FPS(*this)*=r;}\n\
     \  FPS operator/(const FPS&r)const{return FPS(*this)/=r;}\n  FPS operator%(const\
-    \ FPS&r)const{return FPS(*this)%=r;}\n  FPS operator-()const{\n    FPS ret(val);\n\
-    \    for(int i=0;i<val.size();i++)ret[i]=-ret[i];\n    return ret;\n  }\n  FPS\
-    \ operator+=(FPS r){\n    if(r.size()>val.size())val.resize(r.size());\n    for(int\
-    \ i=0;i<r.size();i++)val[i]+=r[i];\n    return *this;\n  }\n  FPS operator-=(FPS\
-    \ r){\n    if(r.size()>val.size())val.resize(r.size());\n    for(int i=0;i<r.size();i++)val[i]-=r[i];\n\
-    \    return *this;\n  }\n  FPS operator*=(FPS r){\n    val=ntt.multiply(val,r.val);\n\
-    \    return *this;\n  }\n  FPS operator/=(FPS r){\n    if(val.size()<r.size()){\n\
-    \      val.clear();\n      return *this;\n    }\n    int sz=val.size()-r.size()+1;\n\
-    \    reverse(val.begin(),val.end());\n    reverse(r.val.begin(),r.val.end());\n\
-    \    val.resize(sz);\n    (*this)*=r.inv(sz);\n    val.resize(sz);\n    reverse(val.begin(),val.end());\n\
-    \    return (*this);\n  }\n  FPS operator%=(FPS r){\n    if(val.size()<r.size())return\
-    \ (*this);\n    (*this)-=(*this)/r*r;\n    val.resize(r.size()-1);\n    shrink();\n\
-    \    return (*this);\n  }\n  FPS diff()const{\n    int n=size();\n    FPS ret(max(0,n-1));\n\
+    \ FPS&r)const{return FPS(*this)%=r;}\n  FPS operator-()const{\n    FPS ret(*this);\n\
+    \    for(auto &i:ret)i=-i;\n    return ret;\n  }\n  FPS &operator+=(const mint&r){\n\
+    \    if((*this).empty())(*this).resize(1);\n    (*this)[0]+=r;\n    return *this;\n\
+    \  }\n  FPS &operator-=(const mint&r){\n    if((*this).empty())(*this).resize(1);\n\
+    \    (*this)[0]-=r;\n    return *this;\n  }\n  FPS &operator*=(const mint&r){\n\
+    \    for(auto &i:*this)i*=r;\n    return *this;\n  }\n  FPS &operator/=(const\
+    \ mint&r){\n    (*this)*=r.inv();\n    return *this;\n  }\n  FPS &operator+=(const\
+    \ FPS&r){\n    const int n=(*this).size(),m=r.size();\n    (*this).resize(max(n,m));\n\
+    \    for(int i=0;i<m;i++)(*this)[i]+=r[i];\n    return *this;\n  }\n  FPS &operator-=(const\
+    \ FPS&r){\n    const int n=(*this).size(),m=r.size();\n    (*this).resize(max(n,m));\n\
+    \    for(int i=0;i<m;i++)val[i]-=r[i];\n    return *this;\n  }\n  FPS &operator<<=(const\
+    \ int&d){\n    (*this).insert((*this).begin(),d,mint(0));\n    return *this;\n\
+    \  }\n  FPS &operator>>=(const int&d){\n    (*this).erase((*this).begin(),(*this).begin()+d);\n\
+    \    return *this;\n  }\n  FPS &operator*=(const FPS&r){\n    (*this)=ntt.multiply((*this),r);\n\
+    \    return *this;\n  }\n  FPS &operator/=(const FPS&r){\n    int n=(*this).size(),m=r.size();\n\
+    \    if(n<m){\n      (*this).clear();\n      return *this;\n    }\n    int sz=n-m+1;\n\
+    \    reverse((*this).begin(),(*this).end());\n    reverse(r.begin(),r.end());\n\
+    \    (*this).resize(sz);\n    (*this)*=r.inv(sz);\n    (*this).resize(sz);\n \
+    \   reverse(val.begin(),val.end());\n    return (*this);\n  }\n  FPS &operator%=(FPS\
+    \ r){\n    const int n=(*this).size(),m=r.size();\n    if(n<m)return (*this);\n\
+    \    (*this)-=(*this)/r*r;\n    (*this).resize(m-1);\n    shrink();\n    return\
+    \ (*this);\n  }\n  mint operator()(const mint&x)const{\n    mint ret(0),w(1);\n\
+    \    for(auto &e:*this){\n      ret+=e*w;\n      w*=x;\n    }\n    return ret;\n\
+    \  }\n  FPS diff()const{\n    const int n=(*this).size();\n    FPS ret(max(0,n-1));\n\
     \    for(int i=1;i<n;i++)ret[i-1]=val[i]*mint(i);\n    return ret;\n  }\n  FPS\
-    \ integral()const{\n    int n=size();\n    FPS ret(n+1);\n    for(int i=0;i<n;i++)ret[i+1]=val[i]/mint(i+1);\n\
-    \    return ret;\n  }\n  FPS log(int mx=-1)const{\n    int n=size();\n    if(mx==-1)mx=n;\n\
-    \    FPS res=diff()*inv(mx);\n    res.resize(mx-1);\n    return res.integral();\n\
-    \  }\n};\n#line 4 \"test/yosupo/division_of_polynomials.test.cpp\"\nint main(){\n\
-    \  int n,m;\n  cin>>n>>m;\n  vector<modint<mod>>a(n),b(m);\n  cin>>a>>b;\n  FPS<mod>f(a),g(b);\n\
-    \  FPS<mod>q=f/g,r=f%g;\n  cout<<q.size()<<\" \"<<r.size()<<endl;\n  cout<<q.val<<endl;\n\
-    \  cout<<r.val<<endl;\n}\n"
+    \ integral()const{\n    const int n=(*this).size();\n    FPS ret(n+1);\n    for(int\
+    \ i=0;i<n;i++)ret[i+1]=val[i]/mint(i+1);\n    return ret;\n  }\n  FPS log(int\
+    \ mx=-1)const{\n    const int n=(*this).size();\n    if(mx==-1)mx=n;\n    FPS\
+    \ res=diff()*inv(mx);\n    res.resize(mx-1);\n    return res.integral();\n  }\n\
+    };\n#line 4 \"test/yosupo/division_of_polynomials.test.cpp\"\nint main(){\n  int\
+    \ n,m;\n  cin>>n>>m;\n  FPS<mod>f(n),g(m);\n  cin>>f>>g;\n  FPS<mod>q=f/g,r=f%g;\n\
+    \  cout<<q.size()<<\" \"<<r.size()<<endl;\n  cout<<q<<endl;\n  cout<<r<<endl;\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/division_of_polynomials\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps.hpp\"\nint\
-    \ main(){\n  int n,m;\n  cin>>n>>m;\n  vector<modint<mod>>a(n),b(m);\n  cin>>a>>b;\n\
-    \  FPS<mod>f(a),g(b);\n  FPS<mod>q=f/g,r=f%g;\n  cout<<q.size()<<\" \"<<r.size()<<endl;\n\
-    \  cout<<q.val<<endl;\n  cout<<r.val<<endl;\n}"
+    \ main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n),g(m);\n  cin>>f>>g;\n  FPS<mod>q=f/g,r=f%g;\n\
+    \  cout<<q.size()<<\" \"<<r.size()<<endl;\n  cout<<q<<endl;\n  cout<<r<<endl;\n\
+    }"
   dependsOn:
   - template/template.hpp
   - Math/fps.hpp
@@ -173,8 +188,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/division_of_polynomials.test.cpp
   requiredBy: []
-  timestamp: '2022-01-03 16:20:11+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-04 21:07:45+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/division_of_polynomials.test.cpp
 layout: document
