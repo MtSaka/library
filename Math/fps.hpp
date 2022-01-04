@@ -4,7 +4,7 @@
 #include"ntt.hpp"
 template<long long Mod>
 struct FPS:vector<modint<Mod>>{
-  using mint=modint<m>;
+  using mint=modint<Mod>;
   using vector<mint>::vector;
   using vector<mint>::operator=;
   NTT<m>ntt;
