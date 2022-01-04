@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/mod_ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':x:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/convolution_mod_1000000007
@@ -102,32 +102,34 @@ data:
     \ {\n    return os<<p.x;\n  }\n  friend istream &operator>>(istream &is, modint\
     \ &a) {\n    long long t;\n    is>>t;\n    a=modint<m>(t);\n    return (is);\n\
     \  }\n  static long long get_mod(){return m;}\n};\n#line 5 \"Math/ntt.hpp\"\n\
-    template<long long m>\nstruct NTT{\n  using mint=modint<m>;\n  mint g=2;\n  int\
-    \ limit=0;\n  vector<mint>root,inv_root;\n  mint primitive_root(long long mo){\n\
-    \    if(mo==167772161)return mint(3);\n    if(mo==469762049)return mint(3);\n\
-    \    if(mo==754974721)return mint(11);\n    if(mo==998244353)return mint(3);\n\
-    \    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n  NTT(){\n \
-    \   g=primitive_root(m);\n    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n\
-    \    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n    root[limit]=g.pow(now);\n\
-    \    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n      root[i]=root[i+1]*root[i+1];\n\
-    \      inv_root[i]=inv_root[i+1]*inv_root[i+1];\n    }\n  }\n  void dft(vector<mint>&a,int\
-    \ inv)const{\n    int sz=a.size();\n    if(sz==1)return;\n    int mask=sz-1;\n\
+    template<long long m>\nstruct NTT{\n  using mint=modint<m>;\n  static mint g;\n\
+    \  static int limit;\n  static vector<mint>root,inv_root;\n  static mint primitive_root(long\
+    \ long mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
+    \ mint(3);\n    if(mo==754974721)return mint(11);\n    if(mo==998244353)return\
+    \ mint(3);\n    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n\
+    \  static void init(){\n    if(root.empty()){\n      g=primitive_root(m);\n  \
+    \    long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
+    \      root[limit]=g.pow(now);\n      inv_root[limit]/=root[limit];\n      for(int\
+    \ i=limit-1;i>=0;i--){\n        root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
+    \      }\n    }\n  }\n  NTT()=default;\n  static void dft(vector<mint>&a,int inv){\n\
+    \    init();\n    int sz=a.size();\n    if(sz==1)return;\n    int mask=sz-1;\n\
     \    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n      int e=__builtin_ffsll(sz/i)-1;\n\
     \      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n      for(int j=0;j<sz;j+=i){\n\
     \        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
-    \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
+    \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  static vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
     \    int sz=1,mxsiz=a.size()+b.size()-1;\n    while(sz<mxsiz)sz<<=1;\n    a.resize(sz),b.resize(sz);\n\
     \    dft(a,1),dft(b,1);\n    for(int i=0;i<sz;i++)a[i]*=b[i];\n    dft(a,-1);\n\
     \    mint iz=mint(sz).inv();\n    for(int i=0;i<mxsiz;i++)a[i]*=iz;\n    a.resize(mxsiz);\n\
     \    return a;\n  }\n  template<typename T,std::enable_if_t<is_integral<T>::value>*\
-    \ = nullptr>\n  vector<T>multiply(const vector<T>&a,const vector<T>&b){\n    using\
-    \ mint=modint<m>;\n    vector<mint>a2(a.size()),b2(b.size());\n    for(int i=0;i<a.size();i++)a2[i]=a[i];\n\
-    \    for(int i=0;i<b.size();i++)b2[i]=b[i];\n    auto c2=multiply(move(a2),move(b2));\n\
-    \    vector<T>c(c2.size());\n    for(int i=0;i<c.size();i++)c[i]=c2[i].x;\n  \
-    \  return c;\n  }\n};\n#line 5 \"Math/mod_ntt.hpp\"\nvector<long long>mod_convolution(vector<long\
-    \ long>a,vector<long long>b,long long m){\n  NTT<167772161>ntt1;\n  NTT<469762049>ntt2;\n\
-    \  NTT<1224736769>ntt3;\n  auto x=ntt1.multiply(a,b);\n  auto y=ntt2.multiply(a,b);\n\
-    \  auto z=ntt3.multiply(a,b);\n  const long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889%m;\n\
+    \ = nullptr>\n  static vector<T>multiply(const vector<T>&a,const vector<T>&b){\n\
+    \    using mint=modint<m>;\n    vector<mint>a2(a.size()),b2(b.size());\n    for(int\
+    \ i=0;i<a.size();i++)a2[i]=a[i];\n    for(int i=0;i<b.size();i++)b2[i]=b[i];\n\
+    \    auto c2=multiply(move(a2),move(b2));\n    vector<T>c(c2.size());\n    for(int\
+    \ i=0;i<c.size();i++)c[i]=c2[i].x;\n    return c;\n  }\n};\n#line 5 \"Math/mod_ntt.hpp\"\
+    \nvector<long long>mod_convolution(vector<long long>a,vector<long long>b,long\
+    \ long m){\n  NTT<167772161>ntt1;\n  NTT<469762049>ntt2;\n  NTT<1224736769>ntt3;\n\
+    \  auto x=ntt1.multiply(a,b);\n  auto y=ntt2.multiply(a,b);\n  auto z=ntt3.multiply(a,b);\n\
+    \  const long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889%m;\n\
     \  vector<long long>res(x.size());\n  for(int i=0;i<x.size();i++){\n    long long\
     \ v1=(y[i]-x[i])*m1_inv_m2%m2;\n    if(v1<0)v1+=m2;\n    long long v2=(z[i]-(x[i]+m1*v1)%m3)*m12_inv_m3%m3;\n\
     \    if(v2<0)v2+=m3;\n    long long c=(x[i]+m1*v1+m12_mod*v2)%m;\n    if(c<0)c+=m;\n\
@@ -146,8 +148,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/convolution_mod_1000000007.test.cpp
   requiredBy: []
-  timestamp: '2022-01-04 21:38:48+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-04 22:03:30+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/convolution_mod_1000000007.test.cpp
 layout: document

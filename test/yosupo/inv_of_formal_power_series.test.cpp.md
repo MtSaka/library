@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':x:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/inv_of_formal_power_series
@@ -102,50 +102,51 @@ data:
     \ {\n    return os<<p.x;\n  }\n  friend istream &operator>>(istream &is, modint\
     \ &a) {\n    long long t;\n    is>>t;\n    a=modint<m>(t);\n    return (is);\n\
     \  }\n  static long long get_mod(){return m;}\n};\n#line 5 \"Math/ntt.hpp\"\n\
-    template<long long m>\nstruct NTT{\n  using mint=modint<m>;\n  mint g=2;\n  int\
-    \ limit=0;\n  vector<mint>root,inv_root;\n  mint primitive_root(long long mo){\n\
-    \    if(mo==167772161)return mint(3);\n    if(mo==469762049)return mint(3);\n\
-    \    if(mo==754974721)return mint(11);\n    if(mo==998244353)return mint(3);\n\
-    \    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n  NTT(){\n \
-    \   g=primitive_root(m);\n    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n\
-    \    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n    root[limit]=g.pow(now);\n\
-    \    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n      root[i]=root[i+1]*root[i+1];\n\
-    \      inv_root[i]=inv_root[i+1]*inv_root[i+1];\n    }\n  }\n  void dft(vector<mint>&a,int\
-    \ inv)const{\n    int sz=a.size();\n    if(sz==1)return;\n    int mask=sz-1;\n\
+    template<long long m>\nstruct NTT{\n  using mint=modint<m>;\n  static mint g;\n\
+    \  static int limit;\n  static vector<mint>root,inv_root;\n  static mint primitive_root(long\
+    \ long mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
+    \ mint(3);\n    if(mo==754974721)return mint(11);\n    if(mo==998244353)return\
+    \ mint(3);\n    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n\
+    \  static void init(){\n    if(root.empty()){\n      g=primitive_root(m);\n  \
+    \    long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
+    \      root[limit]=g.pow(now);\n      inv_root[limit]/=root[limit];\n      for(int\
+    \ i=limit-1;i>=0;i--){\n        root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
+    \      }\n    }\n  }\n  NTT()=default;\n  static void dft(vector<mint>&a,int inv){\n\
+    \    init();\n    int sz=a.size();\n    if(sz==1)return;\n    int mask=sz-1;\n\
     \    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n      int e=__builtin_ffsll(sz/i)-1;\n\
     \      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n      for(int j=0;j<sz;j+=i){\n\
     \        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
-    \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
+    \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  static vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
     \    int sz=1,mxsiz=a.size()+b.size()-1;\n    while(sz<mxsiz)sz<<=1;\n    a.resize(sz),b.resize(sz);\n\
     \    dft(a,1),dft(b,1);\n    for(int i=0;i<sz;i++)a[i]*=b[i];\n    dft(a,-1);\n\
     \    mint iz=mint(sz).inv();\n    for(int i=0;i<mxsiz;i++)a[i]*=iz;\n    a.resize(mxsiz);\n\
     \    return a;\n  }\n  template<typename T,std::enable_if_t<is_integral<T>::value>*\
-    \ = nullptr>\n  vector<T>multiply(const vector<T>&a,const vector<T>&b){\n    using\
-    \ mint=modint<m>;\n    vector<mint>a2(a.size()),b2(b.size());\n    for(int i=0;i<a.size();i++)a2[i]=a[i];\n\
-    \    for(int i=0;i<b.size();i++)b2[i]=b[i];\n    auto c2=multiply(move(a2),move(b2));\n\
-    \    vector<T>c(c2.size());\n    for(int i=0;i<c.size();i++)c[i]=c2[i].x;\n  \
-    \  return c;\n  }\n};\n#line 5 \"Math/fps.hpp\"\ntemplate<long long Mod>\nstruct\
-    \ FPS:vector<modint<Mod>>{\n  using mint=modint<Mod>;\n  using vector<mint>::vector;\n\
-    \  using vector<mint>::operator=;\n  NTT<Mod>ntt;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}\n\
+    \ = nullptr>\n  static vector<T>multiply(const vector<T>&a,const vector<T>&b){\n\
+    \    using mint=modint<m>;\n    vector<mint>a2(a.size()),b2(b.size());\n    for(int\
+    \ i=0;i<a.size();i++)a2[i]=a[i];\n    for(int i=0;i<b.size();i++)b2[i]=b[i];\n\
+    \    auto c2=multiply(move(a2),move(b2));\n    vector<T>c(c2.size());\n    for(int\
+    \ i=0;i<c.size();i++)c[i]=c2[i].x;\n    return c;\n  }\n};\n#line 5 \"Math/fps.hpp\"\
+    \ntemplate<long long Mod>\nstruct FPS:vector<modint<Mod>>{\n  using mint=modint<Mod>;\n\
+    \  using vector<mint>::vector;\n  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}\n\
     \  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
     \    FPS res{(*this)[0].inv()};\n    for(int m=1;m<d;m<<=1){\n      FPS f((*this).begin(),(*this).begin()+min(n,2*m));\n\
-    \      FPS g(res);\n      f.resize(2*m),g.resize(2*m);\n      ntt.dft(f,1),ntt.dft(g,1);\n\
-    \      for(int i=0;i<2*m;i++)f[i]*=g[i];\n      ntt.dft(f,-1);\n      f.erase(f.begin(),f.begin()+m);\n\
-    \      f.resize(2*m);ntt.dft(f,1);\n      for(int i=0;i<2*m;i++)f[i]*=g[i];\n\
-    \      ntt.dft(f,-1);\n      mint iz=mint(2*m).inv();iz*=-iz;\n      for(int i=0;i<m;i++)f[i]*=iz;\n\
-    \      res.insert(res.end(),f.begin(),f.begin()+m);\n    }\n    res.resize(d);\n\
-    \    return res;\n  }\n  FPS operator+(const mint&r)const{return FPS(*this)+=r;}\n\
-    \  FPS operator-(const mint&r)const{return FPS(*this)-=r;}\n  FPS operator*(const\
-    \ mint&r)const{return FPS(*this)*=r;}\n  FPS operator/(const mint&r)const{return\
-    \ FPS(*this)/=r;}\n  FPS operator+(const FPS&r)const{return FPS(*this)+=r;}\n\
-    \  FPS operator-(const FPS&r)const{return FPS(*this)-=r;}\n  FPS operator<<(const\
-    \ int&d)const{return FPS(*this)<<=d;}\n  FPS operator>>(const int&d)const{return\
-    \ FPS(*this)>>=d;}\n  FPS operator*(const FPS&r)const{return FPS(*this)*=r;}\n\
-    \  FPS operator/(const FPS&r)const{return FPS(*this)/=r;}\n  FPS operator%(const\
-    \ FPS&r)const{return FPS(*this)%=r;}\n  FPS operator-()const{\n    FPS ret(*this);\n\
-    \    for(auto &i:ret)i=-i;\n    return ret;\n  }\n  FPS &operator+=(const mint&r){\n\
-    \    if((*this).empty())(*this).resize(1);\n    (*this)[0]+=r;\n    return *this;\n\
-    \  }\n  FPS &operator-=(const mint&r){\n    if((*this).empty())(*this).resize(1);\n\
+    \      FPS g(res);\n      f.resize(2*m),g.resize(2*m);\n      NTT<Mod>::dft(f,1),NTT<Mod>::dft(g,1);\n\
+    \      for(int i=0;i<2*m;i++)f[i]*=g[i];\n      NTT<Mod>::dft(f,-1);\n      f.erase(f.begin(),f.begin()+m);\n\
+    \      f.resize(2*m);NTT<Mod>::dft(f,1);\n      for(int i=0;i<2*m;i++)f[i]*=g[i];\n\
+    \      NTT<Mod>::dft(f,-1);\n      mint iz=mint(2*m).inv();iz*=-iz;\n      for(int\
+    \ i=0;i<m;i++)f[i]*=iz;\n      res.insert(res.end(),f.begin(),f.begin()+m);\n\
+    \    }\n    res.resize(d);\n    return res;\n  }\n  FPS operator+(const mint&r)const{return\
+    \ FPS(*this)+=r;}\n  FPS operator-(const mint&r)const{return FPS(*this)-=r;}\n\
+    \  FPS operator*(const mint&r)const{return FPS(*this)*=r;}\n  FPS operator/(const\
+    \ mint&r)const{return FPS(*this)/=r;}\n  FPS operator+(const FPS&r)const{return\
+    \ FPS(*this)+=r;}\n  FPS operator-(const FPS&r)const{return FPS(*this)-=r;}\n\
+    \  FPS operator<<(const int&d)const{return FPS(*this)<<=d;}\n  FPS operator>>(const\
+    \ int&d)const{return FPS(*this)>>=d;}\n  FPS operator*(const FPS&r)const{return\
+    \ FPS(*this)*=r;}\n  FPS operator/(const FPS&r)const{return FPS(*this)/=r;}\n\
+    \  FPS operator%(const FPS&r)const{return FPS(*this)%=r;}\n  FPS operator-()const{\n\
+    \    FPS ret(*this);\n    for(auto &i:ret)i=-i;\n    return ret;\n  }\n  FPS &operator+=(const\
+    \ mint&r){\n    if((*this).empty())(*this).resize(1);\n    (*this)[0]+=r;\n  \
+    \  return *this;\n  }\n  FPS &operator-=(const mint&r){\n    if((*this).empty())(*this).resize(1);\n\
     \    (*this)[0]-=r;\n    return *this;\n  }\n  FPS &operator*=(const mint&r){\n\
     \    for(auto &i:*this)i*=r;\n    return *this;\n  }\n  FPS &operator/=(const\
     \ mint&r){\n    (*this)*=r.inv();\n    return *this;\n  }\n  FPS &operator+=(const\
@@ -155,7 +156,7 @@ data:
     \    for(int i=0;i<m;i++)(*this)[i]-=r[i];\n    return *this;\n  }\n  FPS &operator<<=(const\
     \ int&d){\n    (*this).insert((*this).begin(),d,mint(0));\n    return *this;\n\
     \  }\n  FPS &operator>>=(const int&d){\n    (*this).erase((*this).begin(),(*this).begin()+d);\n\
-    \    return *this;\n  }\n  FPS &operator*=(const FPS&r){\n    (*this)=ntt.multiply((*this),r);\n\
+    \    return *this;\n  }\n  FPS &operator*=(const FPS&r){\n    (*this)=NTT<Mod>::multiply((*this),r);\n\
     \    return *this;\n  }\n  FPS &operator/=(const FPS&r){\n    int n=(*this).size(),m=r.size();\n\
     \    if(n<m){\n      (*this).clear();\n      return *this;\n    }\n    int sz=n-m+1;\n\
     \    reverse((*this).begin(),(*this).end());\n    reverse(r.begin(),r.end());\n\
@@ -185,8 +186,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/inv_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-01-04 21:38:48+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-04 22:03:30+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/inv_of_formal_power_series.test.cpp
 layout: document
