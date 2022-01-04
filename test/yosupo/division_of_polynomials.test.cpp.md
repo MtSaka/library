@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/division_of_polynomials
@@ -168,7 +168,7 @@ data:
     \   reverse((*this).begin(),(*this).end());\n    return (*this);\n  }\n  FPS &operator%=(FPS\
     \ r){\n    const int n=(*this).size(),m=r.size();\n    if(n<m)return (*this);\n\
     \    (*this)-=(*this)/r*r;\n    (*this).resize(m-1);\n    shrink();\n    return\
-    \ (*this);\n  }\n  pair<FPS,FPS>div_mod(const FPS&r){\n    FPS p=*this/r,q=*this-p*r\n\
+    \ (*this);\n  }\n  pair<FPS,FPS>div_mod(const FPS&r){\n    FPS p=*this/r,q=*this-p*r;\n\
     \    q.shrink();\n    return {p,q};\n  }\n  mint operator()(const mint&x)const{\n\
     \    mint ret(0),w(1);\n    for(auto &e:*this){\n      ret+=e*w;\n      w*=x;\n\
     \    }\n    return ret;\n  }\n  FPS diff()const{\n    const int n=(*this).size();\n\
@@ -179,13 +179,13 @@ data:
     \    if(d==-1)d=n;\n    FPS res=diff()*inv(d);\n    res.resize(d-1);\n    return\
     \ res.integral();\n  }\n};\n#line 4 \"test/yosupo/division_of_polynomials.test.cpp\"\
     \nint main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n),g(m);\n  cin>>f>>g;\n\
-    \  FPS<mod>q=f/g,r=f%g;\n  cout<<q.size()<<\" \"<<r.size()<<endl;\n  cout<<q<<endl;\n\
+    \  auto [q,r]=f.div_mod(g);\n  cout<<q.size()<<\" \"<<r.size()<<endl;\n  cout<<q<<endl;\n\
     \  cout<<r<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/division_of_polynomials\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps.hpp\"\nint\
-    \ main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n),g(m);\n  cin>>f>>g;\n  FPS<mod>q=f/g,r=f%g;\n\
-    \  cout<<q.size()<<\" \"<<r.size()<<endl;\n  cout<<q<<endl;\n  cout<<r<<endl;\n\
-    }"
+    \ main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n),g(m);\n  cin>>f>>g;\n  auto\
+    \ [q,r]=f.div_mod(g);\n  cout<<q.size()<<\" \"<<r.size()<<endl;\n  cout<<q<<endl;\n\
+    \  cout<<r<<endl;\n}"
   dependsOn:
   - template/template.hpp
   - Math/fps.hpp
@@ -194,8 +194,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/division_of_polynomials.test.cpp
   requiredBy: []
-  timestamp: '2022-01-04 22:55:46+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-01-04 22:57:27+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/division_of_polynomials.test.cpp
 layout: document
