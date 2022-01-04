@@ -68,7 +68,7 @@ data:
     \    for(int i=0;i<b.size();i++)b2[i]=b[i];\n    auto c2=multiply(move(a2),move(b2));\n\
     \    vector<T>c(c2.size());\n    for(int i=0;i<c.size();i++)c[i]=c2[i].x;\n  \
     \  return c;\n  }\n};\n#line 5 \"Math/fps.hpp\"\ntemplate<long long Mod>\nstruct\
-    \ FPS:vector<modint<Mod>>{\n  using mint=modint<m>;\n  using vector<mint>::vector;\n\
+    \ FPS:vector<modint<Mod>>{\n  using mint=modint<Mod>;\n  using vector<mint>::vector;\n\
     \  using vector<mint>::operator=;\n  NTT<m>ntt;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))val.pop_back();}\n\
     \  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
     \    FPS res{(*this)[0].inv()};\n    for(int m=1;m<d;m<<=1){\n      FPS f((*this).begin(),(*this).begin()+min(n,2*m));\n\
@@ -116,7 +116,7 @@ data:
     \    res.resize(d-1);\n    return res.integral();\n  }\n};\n"
   code: "/**\n * @brief Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
     */\n#include\"ntt.hpp\"\ntemplate<long long Mod>\nstruct FPS:vector<modint<Mod>>{\n\
-    \  using mint=modint<m>;\n  using vector<mint>::vector;\n  using vector<mint>::operator=;\n\
+    \  using mint=modint<Mod>;\n  using vector<mint>::vector;\n  using vector<mint>::operator=;\n\
     \  NTT<m>ntt;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))val.pop_back();}\n\
     \  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
     \    FPS res{(*this)[0].inv()};\n    for(int m=1;m<d;m<<=1){\n      FPS f((*this).begin(),(*this).begin()+min(n,2*m));\n\
@@ -168,7 +168,7 @@ data:
   isVerificationFile: false
   path: Math/fps.hpp
   requiredBy: []
-  timestamp: '2022-01-04 21:11:28+00:00'
+  timestamp: '2022-01-04 21:13:24+00:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/inv_of_formal_power_series.test.cpp
