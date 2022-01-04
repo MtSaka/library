@@ -88,7 +88,7 @@ struct FPS:vector<modint<Mod>>{
     (*this)=NTT<Mod>::multiply((*this),r);
     return *this;
   }
-  FPS &operator/=(const FPS&r){
+  FPS &operator/=(FPS r){
     int n=(*this).size(),m=r.size();
     if(n<m){
       (*this).clear();
@@ -110,6 +110,11 @@ struct FPS:vector<modint<Mod>>{
     (*this).resize(m-1);
     shrink();
     return (*this);
+  }
+  pair<FPS,FPS>div_mod(const FPS&r){
+    FPS p=*this/r,q=*this-p*r
+    q.shrink();
+    return {p,q};
   }
   mint operator()(const mint&x)const{
     mint ret(0),w(1);
