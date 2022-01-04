@@ -2,8 +2,8 @@
  * @brief Formal Power Series(形式的冪級数)
 */
 #include"ntt.hpp"
-template<long long m>
-struct FPS:vector<modint<m>>{
+template<long long Mod>
+struct FPS:vector<modint<Mod>>{
   using mint=modint<m>;
   using vector<mint>::vector;
   using vector<mint>::operator=;
@@ -132,11 +132,11 @@ struct FPS:vector<modint<m>>{
     for(int i=0;i<n;i++)ret[i+1]=val[i]/mint(i+1);
     return ret;
   }
-  FPS log(int mx=-1)const{
+  FPS log(int d=-1)const{
     const int n=(*this).size();
-    if(mx==-1)mx=n;
-    FPS res=diff()*inv(mx);
-    res.resize(mx-1);
+    if(d==-1)d=n;
+    FPS res=diff()*inv(d);
+    res.resize(d-1);
     return res.integral();
   }
 };
