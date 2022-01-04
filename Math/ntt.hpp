@@ -28,7 +28,7 @@ struct NTT{
       inv_root[i]=inv_root[i+1]*inv_root[i+1];
     }
   }
-  void dft(vector<mint>&a,int inv){
+  void dft(vector<mint>&a,int inv)const{
     int sz=a.size();
     if(sz==1)return;
     int mask=sz-1;
