@@ -124,8 +124,8 @@ data:
     \ mint=modint<m>;\n    vector<mint>a2(a.size()),b2(b.size());\n    for(int i=0;i<a.size();i++)a2[i]=a[i];\n\
     \    for(int i=0;i<b.size();i++)b2[i]=b[i];\n    auto c2=multiply(move(a2),move(b2));\n\
     \    vector<T>c(c2.size());\n    for(int i=0;i<c.size();i++)c[i]=c2[i].x;\n  \
-    \  return c;\n  }\n};\n#line 5 \"Math/fps.hpp\"\ntemplate<long long m>\nstruct\
-    \ FPS:vector<modint<m>>{\n  using mint=modint<m>;\n  using vector<mint>::vector;\n\
+    \  return c;\n  }\n};\n#line 5 \"Math/fps.hpp\"\ntemplate<long long Mod>\nstruct\
+    \ FPS:vector<modint<Mod>>{\n  using mint=modint<m>;\n  using vector<mint>::vector;\n\
     \  using vector<mint>::operator=;\n  NTT<m>ntt;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))val.pop_back();}\n\
     \  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
     \    FPS res{(*this)[0].inv()};\n    for(int m=1;m<d;m<<=1){\n      FPS f((*this).begin(),(*this).begin()+min(n,2*m));\n\
@@ -169,10 +169,10 @@ data:
     \    for(int i=1;i<n;i++)ret[i-1]=val[i]*mint(i);\n    return ret;\n  }\n  FPS\
     \ integral()const{\n    const int n=(*this).size();\n    FPS ret(n+1);\n    for(int\
     \ i=0;i<n;i++)ret[i+1]=val[i]/mint(i+1);\n    return ret;\n  }\n  FPS log(int\
-    \ mx=-1)const{\n    const int n=(*this).size();\n    if(mx==-1)mx=n;\n    FPS\
-    \ res=diff()*inv(mx);\n    res.resize(mx-1);\n    return res.integral();\n  }\n\
-    };\n#line 4 \"test/yosupo/inv_of_formal_power_series.test.cpp\"\nint main(){\n\
-    \  int n;\n  cin>>n;\n  FPS<mod>fps(n);\n  cin>>fps;\n  print(fps.inv());\n}\n"
+    \ d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n    FPS res=diff()*inv(d);\n\
+    \    res.resize(d-1);\n    return res.integral();\n  }\n};\n#line 4 \"test/yosupo/inv_of_formal_power_series.test.cpp\"\
+    \nint main(){\n  int n;\n  cin>>n;\n  FPS<mod>fps(n);\n  cin>>fps;\n  print(fps.inv());\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/inv_of_formal_power_series\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps.hpp\"\nint\
     \ main(){\n  int n;\n  cin>>n;\n  FPS<mod>fps(n);\n  cin>>fps;\n  print(fps.inv());\n\
@@ -185,7 +185,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/inv_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-01-04 21:07:45+00:00'
+  timestamp: '2022-01-04 21:11:28+00:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/inv_of_formal_power_series.test.cpp
