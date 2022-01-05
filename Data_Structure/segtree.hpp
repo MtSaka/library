@@ -23,14 +23,14 @@ struct segtree{
   }
   S operator[](int p){return seq[p+size];}
   S query(int l,int r){
-    S ret=e();
+    S sml=e(),smr=e();
     l+=size,r+=size;
     while(l<r){
-      if(l&1)ret=op(ret,seq[l++]);
-      if(r&1)ret=op(seq[--r],ret);
+      if(l&1)sml=op(sml,seq[l++]);
+      if(r&1)smr=op(seq[--r],smr);
       l>>=1,r>>=1;
     }
-    return ret;
+    return op(sml,smr);
   }
   S all_query()const{return seq[1];}
 };
