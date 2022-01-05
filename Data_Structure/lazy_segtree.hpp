@@ -40,18 +40,18 @@ struct lazy_segtree{
   }
   S query(int l,int r){
     if(l==r)return e();
-    S ret=e();
+    S sml=e(),smr=e();
     l+=size,r+=size;
     for(int i=idx;i>=1;i--){
       if(((l>>i)<<i)!=l)eval(l>>i);
       if(((r>>i)<<i)!=r)eval(r>>i);
     }
     while(l<r){
-      if(l&1)ret=op(ret,seq[l++]);
-      if(r&1)ret=op(seq[--r],ret);
+      if(l&1)sml=op(sml,seq[l++]);
+      if(r&1)smr=op(seq[--r],smr);
       l>>=1,r>>=1;
     }
-    return ret;
+    return op(sml,smr);
   }
   S all_query()const{return seq[1];}
   void apply(int p,F f){
