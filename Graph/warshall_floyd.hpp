@@ -4,8 +4,8 @@
 #include"graph_template.hpp"
 template<typename T>
 vector<vector<T>>warshall_floyd(const Graph<T>&g){
-  int n=g.size();
-  T MAX=numeric_limits<T>::max()/2;
+  const int n=g.size();
+  const T MAX=numeric_limits<T>::max()/2;
   vector<vector<T>>d(n,vector<T>(n,MAX));
   for(int i=0;i<n;i++){
     d[i][i]=0;

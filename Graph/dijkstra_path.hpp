@@ -4,8 +4,8 @@
 #include"graph_template.hpp"
 template<typename T=int>
 pair<T,vector<int>>dijkstra_path(const Graph<T>&g,int s,int t){
-  int n=g.size();
-  T MAX=numeric_limits<T>::max()/2;
+  const int n=g.size();
+  const T MAX=numeric_limits<T>::max()/2;
   vector<T>d(n,MAX);
   d[s]=0;
   vector<int>prev(n);
@@ -25,9 +25,7 @@ pair<T,vector<int>>dijkstra_path(const Graph<T>&g,int s,int t){
   if(d[t]==MAX)return {-1,{}};
   vector<int>path;
   path.emplace_back(t);
-  while(path.back()!=s){
-    path.emplace_back(prev[path.back()]);
-  }
+  while(path.back()!=s)path.emplace_back(prev[path.back()]);
   reverse(path.begin(),path.end());
   return {d[t],path};
 }

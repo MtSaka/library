@@ -4,8 +4,8 @@
 #include"graph_template.hpp"
 template<typename T>
 vector<T>dijkstra(const Graph<T>&g,int s){
-  int n=g.size();
-  T MAX=numeric_limits<T>::max()/2;
+  const int n=g.size();
+  const T MAX=numeric_limits<T>::max()/2;
   vector<T>d(n,MAX);
   d[s]=0;
   priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;

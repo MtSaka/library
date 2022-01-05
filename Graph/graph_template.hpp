@@ -9,6 +9,7 @@ struct Edge{
   Edge(){}
   Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}
   operator int()const{return to;}
+  bool operator<(const Edge&e)const{return cost<e.cost;}
 };
 template<typename T=int>
 struct Graph{
@@ -41,3 +42,5 @@ struct Graph{
     }
   }
 };
+template<typename T=int>
+using Edges=vector<Edge<T>>;
