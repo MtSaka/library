@@ -6,11 +6,9 @@ vector<long long>factor(long long N){
   for(long long i=1;i*i<=N;i++){
     if(N%i==0){
       ans.push_back(i);
-      if(i*i!=N){
-        ans.push_back(N/i);
-      }
+      if(i*i!=N)ans.push_back(N/i);
     }
   }
-  sort(ans.rbegin(),ans.rend());
+  sort(ans.begin(),ans.end());
   return ans;
 }

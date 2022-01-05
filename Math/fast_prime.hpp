@@ -3,10 +3,10 @@
 */
 namespace fastprime{
   using i128=__uint128_t;
-  long long inner_modmul(long long x,long long y,long long p){
+  long long inner_modmul(const long long&x,const long long&y,const long long&p){
     return i128(x)*y%p;
   }
-  long long inner_modpow(long long n,long long m,long long p){
+  long long inner_modpow(long long n,long long m,const long long&p){
     long long res=1;
     while(m){
       if(m&1)res=inner_modmul(res,n,p);
@@ -15,7 +15,7 @@ namespace fastprime{
     }
     return res;
   }
-  bool miller_rabin(long long n,vector<long long>p){
+  bool miller_rabin(const long long&n,const vector<long long>&p){
     long long s=__builtin_ctzll(n-1),d=n>>s;
     for(long long a:p){
       if(n<=a)break;
@@ -28,13 +28,13 @@ namespace fastprime{
     }
     return true;
   }
-  bool is_prime(long long n){
+  bool is_prime(const long long&n){
     if(n<=2)return n==2;
     if(!(n&1))return false;
     if(n<=4759123141)return miller_rabin(n,{2,7,61});
     return miller_rabin(n,{2,325,9375,28178,450775,9780504,1795265022});
   }
-  long long factor(long long n){
+  long long factor(const long long&n){
     if(!(n&1))return 2;
     else if(is_prime(n))return n;
     int c=2;
@@ -72,7 +72,7 @@ namespace fastprime{
       c++;
     }
   }
-  vector<long long>factorize_sub(long long n){
+  vector<long long>factorize_sub(const long long&n){
     if(n==1)return {};
     long long p=factor(n);
     if(p==n)return {p};
@@ -81,7 +81,7 @@ namespace fastprime{
     l.insert(l.end(),r.begin(),r.end());
     return l;
   }
-  vector<long long>factorize(long long n,bool sorted=true){
+  vector<long long>factorize(const long long&n,const bool&sorted=true){
     vector<long long>res=factorize_sub(n);
     if(sorted)sort(res.begin(),res.end());
     return res;

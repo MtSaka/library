@@ -8,7 +8,7 @@ struct NTT{
   static modint<m> g;
   static int limit;
   static vector<modint<m>>root,inv_root;
-  static mint primitive_root(long long mo){
+  static mint primitive_root(const long long&mo)const{
     if(mo==167772161)return mint(3);
     if(mo==469762049)return mint(3);
     if(mo==754974721)return mint(11);
@@ -30,12 +30,12 @@ struct NTT{
       }
     }
   }
-  NTT()=default;
-  static void dft(vector<mint>&a,int inv){
+  NTT(){};
+  static void dft(vector<mint>&a,int&inv){
     init();
-    int sz=a.size();
+    const int sz=a.size();
     if(sz==1)return;
-    int mask=sz-1;
+    const int mask=sz-1;
     vector<mint>b(sz);
     for(int i=sz>>1;i>=1;i>>=1){
       int e=__builtin_ffsll(sz/i)-1;
@@ -48,7 +48,8 @@ struct NTT{
     }
   }
   static vector<mint>multiply(vector<mint>a,vector<mint>b){
-    int sz=1,mxsiz=a.size()+b.size()-1;
+    int sz=1;
+    const int mxsiz=a.size()+b.size()-1;
     while(sz<mxsiz)sz<<=1;
     a.resize(sz),b.resize(sz);
     dft(a,1),dft(b,1);
@@ -65,7 +66,7 @@ struct NTT{
     vector<mint>a2(a.size()),b2(b.size());
     for(int i=0;i<a.size();i++)a2[i]=a[i];
     for(int i=0;i<b.size();i++)b2[i]=b[i];
-    auto c2=multiply(move(a2),move(b2));
+    auto c2=multiply(a2,b2);
     vector<T>c(c2.size());
     for(int i=0;i<c.size();i++)c[i]=c2[i].x;
     return c;

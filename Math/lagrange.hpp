@@ -3,9 +3,9 @@
 */
 #include"combinatorics.hpp"
 template<long long m>
-modint<m> lagrange_polynominal(vector<modint<m>>&y,long long t){
+modint<m> lagrange_polynominal(const vector<modint<m>>&y,const long long&t){
   using mint=modint<m>;
-  long long n=y.size()-1;
+  const int n=y.size()-1;
   combination<m>c(n);
   if(t<=n)return y[t];
   mint ret;
