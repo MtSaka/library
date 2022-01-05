@@ -49,10 +49,10 @@ const ll MOD=1000000007;
 const ll mod=998244353;
 const ld EPS=1e-8;
 const ld PI=3.1415926535897932384626;
-template<typename T1,typename T2 >
-ostream &operator<<(ostream&os,const pair<T1,T2>&p){os<<p.first<<" "<<p.second;return os;}
-template<typename T1,typename T2>
-istream &operator>>(istream&is,pair<T1,T2>&p){is>>p.first>>p.second;return is;}
+template<typename T,typename U>
+ostream &operator<<(ostream&os,const pair<T,U>&p){os<<p.first<<" "<<p.second;return os;}
+template<typename T,typename U>
+istream &operator>>(istream&is,pair<T,U>&p){is>>p.first>>p.second;return is;}
 template<typename T>
 ostream &operator<<(ostream&os,const vector<T>&v){for(int i=0;i<(int)v.size();i++){os<<v[i]<<(i+1!=v.size()?" ":"");}return os;}
 template<typename T>
@@ -66,10 +66,10 @@ template<class Head, class... Tail>
 void print(const Head &head, const Tail &... tail){cout<<head<<' ';print(tail...);}
 template<class... T>
 void fin(const T &... a){print(a...);exit(0);}
-template<typename T1,typename T2>
-inline bool chmax(T1&a,T2 b){return a<b&&(a=b,true);}
-template<typename T1,typename T2>
-inline bool chmin(T1&a,T2 b){return a>b&&(a=b,true);}
+template<typename T,typename U>
+inline bool chmax(T&a,U b){return a<b&&(a=b,true);}
+template<typename T,typename U>
+inline bool chmin(T&a,U b){return a>b&&(a=b,true);}
 template<typename T>
 class infinity{
   public:
@@ -78,66 +78,37 @@ class infinity{
   static const T value=numeric_limits<T>::max()/2;
   static const T mvalue=numeric_limits<T>::min()/2;
 };
+#if __cplusplus <= 201402L
+template<class T>const T infinity<T>::value;
+template<class T>const T infinity<T>::mvalue;
+template<class T>const T infinity<T>::max;
+template<class T>const T infinity<T>::min;
+#endif
 template<typename T>const T inf=infinity<T>::value;
 inline int popcnt(ull x){
 #if __cplusplus>=202002L
-  return popcount(x);
+return popcount(x);
 #endif
-  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);
-  x=(x&0x3333333333333333)+((x>>2)&0x3333333333333333);
-  x=(x&0x0f0f0f0f0f0f0f0f)+((x>>4)&0x0f0f0f0f0f0f0f0f);
-  x=(x&0x00ff00ff00ff00ff)+((x>>8)&0x00ff00ff00ff00ff);
-  x=(x&0x0000ffff0000ffff)+((x>>16)&0x0000ffff0000ffff);
-  return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);
+x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);x=(x&0x3333333333333333)+((x>>2)&0x3333333333333333);x=(x&0x0f0f0f0f0f0f0f0f)+((x>>4)&0x0f0f0f0f0f0f0f0f);x=(x&0x00ff00ff00ff00ff)+((x>>8)&0x00ff00ff00ff00ff);x=(x&0x0000ffff0000ffff)+((x>>16)&0x0000ffff0000ffff);return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);
 }
 void dump(const char&t){cerr<<t;}
 void dump(const string&t){cerr<<t;}
 void dump(const bool&t){cerr<<(t?"true":"false");}
 template<typename T>
-void dump(const T&t,enable_if_t<is_integral<T>::value>* =nullptr){
-  string tmp;
-  if(t==infinity<T>::value||t==infinity<T>::MAX)tmp="inf";
-  if(t==infinity<T>::mvalue||t==infinity<T>::MIN)tmp="-inf";
-  if(tmp.empty())tmp=to_string(t);
-  cerr<<tmp;
-}
+void dump(const T&t,enable_if_t<is_integral<T>::value>* =nullptr){string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp="inf";if(t==infinity<T>::mvalue||t==infinity<T>::MIN)tmp="-inf";if(tmp.empty())tmp=to_string(t);cerr<<tmp;}
 template <typename T>
-void dump(const T&t,enable_if_t<!is_void<typename T::iterator>::value>* =nullptr){
-  cerr<<"{";
-  for(auto it=t.begin();it!=t.end();){
-    dump(*it);
-    cerr<<(++it==t.end()?"":", ");
-  }
-  cerr<<"}";
-}
+void dump(const T&t,enable_if_t<!is_void<typename T::iterator>::value>* =nullptr){cerr<<"{";for(auto it=t.begin();it!=t.end();){dump(*it);cerr<<(++it==t.end()?"":",");}cerr<<"}";}
 template<typename T,typename U>
-void dump(const pair<T,U>&t){
-  cerr<<"(";
-  dump(t.first);
-  cerr<<",";
-  dump(t.second);
-  cerr<<")";
-}
+void dump(const pair<T,U>&t){cerr<<"(";dump(t.first);cerr<<",";dump(t.second);cerr<<")";}
 void trace(){cerr<<endl;}
 template<typename Head,typename... Tail>
-void trace(Head&&head,Tail&&... tail){
-  dump(head);
-  if(sizeof...(tail))cerr<<",";
-  trace(forward<Tail>(tail)...);
-}
+void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))cerr<<",";trace(forward<Tail>(tail)...);}
 #ifdef ONLINE_JUDGE
 #define debug(...)
 #else
 #define debug(...) cerr<<#__VA_ARGS__<<"=";trace(__VA_ARGS__);
 #endif
-struct IOSetup{
-  IOSetup(){
-    cin.tie(0);
-    ios::sync_with_stdio(0);
-    cout<<fixed<<setprecision(12);
-    cerr<<fixed<<setprecision(12);
-  }
-};
+struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};
 /**
  * @brief Template(テンプレート)
 */
