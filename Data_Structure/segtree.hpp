@@ -22,7 +22,7 @@ struct segtree{
     for(int i=1;i<=idx;i++)update(p>>i);
   }
   S operator[](int p){return seq[p+size];}
-  S query(int l,int r)const{
+  S query(int l,int r){
     S ret=e();
     l+=size,r+=size;
     while(l<r){

@@ -4,8 +4,8 @@
 int main(){
   int v,e;
   cin>>v>>e;
-  Graph<long long>g(v);
-  g.read(e,0,true);
-  auto ans=kruskal(g,v);
+  Edges<long long>edges(e);
+  for(auto &i:edges)cin>>i.from>>i.to>>i.cost;
+  auto ans=kruskal(edges,v);
   cout<<ans.cost<<endl;
 }
