@@ -1,7 +1,7 @@
 /**
  * @brief Fast Fourier Transform(高速フーリエ変換)
 */
-void dft(vector<complex<double>>&a,double&inv){
+void dft(vector<complex<double>>&a,double inv){
   const int sz=a.size();
   if(sz==1)return;
   const int mask=sz-1;

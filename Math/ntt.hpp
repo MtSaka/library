@@ -8,7 +8,7 @@ struct NTT{
   static modint<m> g;
   static int limit;
   static vector<modint<m>>root,inv_root;
-  static mint primitive_root(const long long&mo)const{
+  static mint primitive_root(const long long&mo){
     if(mo==167772161)return mint(3);
     if(mo==469762049)return mint(3);
     if(mo==754974721)return mint(11);
@@ -31,7 +31,7 @@ struct NTT{
     }
   }
   NTT(){};
-  static void dft(vector<mint>&a,int&inv){
+  static void dft(vector<mint>&a,int inv){
     init();
     const int sz=a.size();
     if(sz==1)return;
