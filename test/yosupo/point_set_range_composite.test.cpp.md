@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/segtree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_range_composite
@@ -89,24 +89,26 @@ data:
     \     if(r&1)smr=op(seq[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n\
     \  }\n  S all_query()const{\n    return seq[1];\n  }\n};\n#line 1 \"Math/modint.hpp\"\
     \n/**\n * @brief modint\n*/\ntemplate<long long m>\nstruct modint{\n  long long\
-    \ x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint\
-    \ inv()const{long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n     \
-    \ swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n\
-    \  modint &operator+=(const modint&p) {if((x+=p.x)>=m)x-=m;return *this;}\n  modint\
-    \ &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n  modint &operator*=(const\
-    \ modint&p) {x=x*p.x%m;return *this;}\n  modint &operator/=(const modint&p){*this*=p.inv();return\
-    \ *this;}\n  modint operator-()const{return modint(-x); }\n  modint operator+(const\
-    \ modint&p)const{return modint(*this)+=p; }\n  modint operator-(const modint&p)const{return\
-    \ modint(*this)-=p; }\n  modint operator*(const modint&p)const{return modint(*this)*=p;\
-    \ }\n  modint operator/(const modint&p)const{return modint(*this)/=p; }\n  bool\
-    \ operator==(const modint&p)const{return x==p.x;}\n  bool operator!=(const modint&p)const{return\
-    \ x!=p.x;}\n  modint pow(long long n) const {\n    modint ret(1),mul(x);\n   \
-    \ while(n){\n      if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n  \
-    \  return ret;\n  }\n  friend ostream &operator<<(ostream &os,const modint&p)\
-    \ {\n    return os<<p.x;\n  }\n  friend istream &operator>>(istream &is, modint\
-    \ &a) {\n    long long t;\n    is>>t;\n    a=modint<m>(t);\n    return (is);\n\
-    \  }\n  static long long get_mod(){return m;}\n};\n#line 5 \"test/yosupo/point_set_range_composite.test.cpp\"\
-    \nusing mint=modint<mod>;\nusing S=pair<mint,mint>;\nS op(S a,S b){return S{a.first*b.first,a.second*b.first+b.second};}\n\
+    \ x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n      y%=m;\n \
+    \     if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n    else x=y%m;\n\
+    \  }\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n\
+    \      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return\
+    \ modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
+    \ *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n\
+    \  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
+    \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint operator-()const{return\
+    \ modint(-x); }\n  modint operator+(const modint&p)const{return modint(*this)+=p;\
+    \ }\n  modint operator-(const modint&p)const{return modint(*this)-=p; }\n  modint\
+    \ operator*(const modint&p)const{return modint(*this)*=p; }\n  modint operator/(const\
+    \ modint&p)const{return modint(*this)/=p; }\n  bool operator==(const modint&p)const{return\
+    \ x==p.x;}\n  bool operator!=(const modint&p)const{return x!=p.x;}\n  modint pow(long\
+    \ long n)const{\n    modint ret(1),mul(x);\n    while(n){\n      if(n&1)ret*=mul;\n\
+    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  friend ostream\
+    \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
+    \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
+    \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
+    \ m;}\n};\n#line 5 \"test/yosupo/point_set_range_composite.test.cpp\"\nusing mint=modint<mod>;\n\
+    using S=pair<mint,mint>;\nS op(S a,S b){return S{a.first*b.first,a.second*b.first+b.second};}\n\
     S e(){return S{mint(1),mint(0)};}\nint main(){\n  int n,q;\n  cin>>n>>q;\n  vector<S>a(n);\n\
     \  cin>>a;\n  segtree<S,op,e>s(a);\n  while(q--){\n    int t;\n    cin>>t;\n \
     \   if(t){\n      int l,r,x;\n      cin>>l>>r>>x;\n      auto [n,m]=s.query(l,r);\n\
@@ -128,8 +130,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-01-05 15:55:32+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-01-05 16:38:42+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_set_range_composite.test.cpp
 layout: document

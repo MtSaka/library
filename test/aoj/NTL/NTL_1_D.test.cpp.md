@@ -76,10 +76,10 @@ data:
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
     Math/phi.hpp\"\n/**\n * @brief Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\
     \u306E\u03C6\u95A2\u6570)\n*/\nlong long phi(long long n){\n  long long ans=n;\n\
-    \  for(long long i=2;i*i<=n;i++){\n    if(n%i==0){\n      ans/=i;\n      ans*=i-1;\n\
-    \      while(n%i==0)n/=i;\n    }\n  }\n  if(n>1){\n    ans/=n;\n    ans*=(n-1);\n\
-    \  }\n  return ans;\n}\n#line 4 \"test/aoj/NTL/NTL_1_D.test.cpp\"\nint main(){\n\
-    \  INT(n);\n  cout<<phi(n)<<endl;\n}\n"
+    \  for(long long i=2;i*i<=n;i++){\n    if(n%i==0){\n      ans/=i;ans*=i-1;\n \
+    \     while(n%i==0)n/=i;\n    }\n  }\n  if(n>1)ans/=n,ans*=(n-1);\n  return ans;\n\
+    }\n#line 4 \"test/aoj/NTL/NTL_1_D.test.cpp\"\nint main(){\n  INT(n);\n  cout<<phi(n)<<endl;\n\
+    }\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_D\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/phi.hpp\"\
     \nint main(){\n  INT(n);\n  cout<<phi(n)<<endl;\n}"
@@ -89,7 +89,7 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL/NTL_1_D.test.cpp
   requiredBy: []
-  timestamp: '2022-01-05 15:55:32+00:00'
+  timestamp: '2022-01-05 16:38:42+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL/NTL_1_D.test.cpp

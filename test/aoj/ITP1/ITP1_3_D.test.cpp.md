@@ -75,11 +75,10 @@ data:
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
     Math/factor.hpp\"\n/**\n * @brief Factor Enumeration(\u7D04\u6570\u5217\u6319\
     )\n*/\nvector<long long>factor(long long N){\n  vector<long long>ans;\n  for(long\
-    \ long i=1;i*i<=N;i++){\n    if(N%i==0){\n      ans.push_back(i);\n      if(i*i!=N){\n\
-    \        ans.push_back(N/i);\n      }\n    }\n  }\n  sort(ans.rbegin(),ans.rend());\n\
-    \  return ans;\n}\n#line 4 \"test/aoj/ITP1/ITP1_3_D.test.cpp\"\nint main(){\n\
-    \  int a,b,c;\n  cin>>a>>b>>c;\n  int ans=0;\n  for(auto &x:factor(c)){\n    ans+=(a<=x&&x<=b);\n\
-    \  }\n  print(ans);\n}\n"
+    \ long i=1;i*i<=N;i++){\n    if(N%i==0){\n      ans.push_back(i);\n      if(i*i!=N)ans.push_back(N/i);\n\
+    \    }\n  }\n  sort(ans.begin(),ans.end());\n  return ans;\n}\n#line 4 \"test/aoj/ITP1/ITP1_3_D.test.cpp\"\
+    \nint main(){\n  int a,b,c;\n  cin>>a>>b>>c;\n  int ans=0;\n  for(auto &x:factor(c)){\n\
+    \    ans+=(a<=x&&x<=b);\n  }\n  print(ans);\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_3_D\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/factor.hpp\"\
     \nint main(){\n  int a,b,c;\n  cin>>a>>b>>c;\n  int ans=0;\n  for(auto &x:factor(c)){\n\
@@ -90,7 +89,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ITP1/ITP1_3_D.test.cpp
   requiredBy: []
-  timestamp: '2022-01-05 15:55:32+00:00'
+  timestamp: '2022-01-05 16:38:42+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ITP1/ITP1_3_D.test.cpp
