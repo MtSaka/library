@@ -3,19 +3,19 @@ data:
   libraryCategories:
   - name: Data_Structure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Data_Structure/BIT.hpp
       title: Binary Indexed Tree(BIT)
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Data_Structure/dsu.hpp
       title: Disjoint Set Union(Union Find)
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Data_Structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
     - icon: ':heavy_check_mark:'
       path: Data_Structure/lazy_segtree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Data_Structure/segtree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
@@ -57,11 +57,11 @@ data:
       path: Graph/dijkstra_path.hpp
       title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
         \u77ED\u8DEF)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Graph/graph_template.hpp
       title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
         )"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Graph/kruskal.hpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
     - icon: ':heavy_check_mark:'
@@ -119,7 +119,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/mod_ntt.hpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/modint.hpp
       title: modint
     - icon: ':warning:'
@@ -152,7 +152,7 @@ data:
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -164,7 +164,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_1_C.test.cpp
       title: test/aoj/ALDS1/ALDS1_1_C.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
       title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - name: test/aoj/DPL
@@ -183,7 +183,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_A.test.cpp
       title: test/aoj/DSL/DSL_2_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL/DSL_2_B.test.cpp
       title: test/aoj/DSL/DSL_2_B.test.cpp
   - name: test/aoj/GRL
@@ -197,7 +197,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_1_C.test.cpp
       title: test/aoj/GRL/GRL_1_C.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_2_A.test.cpp
       title: test/aoj/GRL/GRL_2_A.test.cpp
     - icon: ':heavy_check_mark:'
@@ -260,10 +260,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum1.test.cpp
       title: test/yosupo/point_add_range_sum1.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/point_add_range_sum2.test.cpp
       title: test/yosupo/point_add_range_sum2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp
     - icon: ':heavy_check_mark:'

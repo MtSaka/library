@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Data_Structure/BIT.hpp
     title: Binary Indexed Tree(BIT)
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B
@@ -75,11 +75,11 @@ data:
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
     Data_Structure/BIT.hpp\"\n/**\n * @brief Binary Indexed Tree(BIT)\n*/\ntemplate<typename\
     \ T>\nstruct BIT{\n  long long N;\n  vector<T>bit;\n  BIT(long long n){\n    N=1;\n\
-    \    while(N<n){\n      N*=2;\n    }\n    bit=vector<T>(N+1,0);\n  }\n  void add(int\
-    \ i,T x){\n    i++;\n    while(i<=N){\n      bit[i]+=x;\n      i+=i&-i;    \n\
-    \    }\n  }\n  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n\
-    \    return ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n\
-    };\n#line 4 \"test/aoj/DSL/DSL_2_B.test.cpp\"\nint main(){\n  INT(n,q);\n  BIT<int>bit(n);\n\
+    \    while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n  }\n  void add(int i,T&){\n\
+    \    i++;\n    while(i<=N){\n      bit[i]+=x;\n      i+=i&-i;    \n    }\n  }\n\
+    \  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n    return\
+    \ ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n};\n#line\
+    \ 4 \"test/aoj/DSL/DSL_2_B.test.cpp\"\nint main(){\n  INT(n,q);\n  BIT<int>bit(n);\n\
     \  while(q--){\n    INT(t,x,y);\n    if(t)print(bit.query(x-1,y));\n    else bit.add(x-1,y);\n\
     \  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B\"\
@@ -92,8 +92,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_B.test.cpp
   requiredBy: []
-  timestamp: '2022-01-05 15:55:32+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-05 17:03:50+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_B.test.cpp
 layout: document

@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Data_Structure/weighed_dsu.hpp
     title: "Weighed Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -75,7 +75,7 @@ data:
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
     Data_Structure/weighed_dsu.hpp\"\n/**\n * @brief Weighed Disjoint Set Union(\u91CD\
     \u307F\u4ED8\u304DUnion Find)\n*/ \ntemplate<typename T>\nstruct weighed_dsu{\n\
-    \  vector<int>p;\n  vector<T>diff;\n  weighed_dsu(){}\n  weighed_dsu(int n,T s=0):p(n,-1),diff(n,s){}\n\
+    \  vector<int>p;vector<T>diff;\n  weighed_dsu(){}\n  weighed_dsu(int n,T s=0):p(n,-1),diff(n,s){}\n\
     \  int root(int x){\n    if(p[x]<0)return x;\n    int r=root(p[x]);\n    diff[x]+=diff[p[x]];\n\
     \    return p[x]=r;\n  }\n  T weight(int x){\n    root(x);\n    return diff[x];\n\
     \  }\n  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
@@ -99,7 +99,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2022-01-05 15:55:32+00:00'
+  timestamp: '2022-01-05 17:03:58+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_1_B.test.cpp
