@@ -102,13 +102,13 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n#line 6 \"Graph/kruskal.hpp\"\ntemplate<typename T>\n\
-    struct mst{\n  T cost;\n  Edges<T>edges;\n};\ntemplate<typename T>\nmst<T>kruskal(const\
-    \ Edges<T>&edges,int v){\n  sort(edges.begin(),edges.end());\n  dsu d(v);\n  T\
-    \ total=0;\n  Edges<T>es;\n  for(auto &e:edges){\n    if(!d.same(e.to,e.from)){\n\
-    \      d.merge(e.to,e.from);\n      es.emplace_back(e);\n      total+=e.cost;\n\
-    \    }\n  }\n  return {total,es};\n}\n#line 4 \"test/aoj/GRL/GRL_2_A.test.cpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<long long>g(v);\n  g.read(e,0,true);\n\
-    \  auto ans=kruskal(g,v);\n  cout<<ans.cost<<endl;\n}\n"
+    struct mst{\n  T cost;\n  Edges<T>edges;\n};\ntemplate<typename T>\nmst<T>kruskal(Edges<T>&edges,int\
+    \ v){\n  sort(edges.begin(),edges.end());\n  dsu d(v);\n  T total=0;\n  Edges<T>es;\n\
+    \  for(auto &e:edges){\n    if(!d.same(e.to,e.from)){\n      d.merge(e.to,e.from);\n\
+    \      es.emplace_back(e);\n      total+=e.cost;\n    }\n  }\n  return {total,es};\n\
+    }\n#line 4 \"test/aoj/GRL/GRL_2_A.test.cpp\"\nint main(){\n  int v,e;\n  cin>>v>>e;\n\
+    \  Graph<long long>g(v);\n  g.read(e,0,true);\n  auto ans=kruskal(g,v);\n  cout<<ans.cost<<endl;\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/kruskal.hpp\"\
     \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<long long>g(v);\n  g.read(e,0,true);\n\
@@ -121,7 +121,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2022-01-05 17:03:50+00:00'
+  timestamp: '2022-01-05 17:21:33+00:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_2_A.test.cpp

@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/BIT.hpp
     title: Binary Indexed Tree(BIT)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/inversion.hpp
     title: "Inversion Number(\u8EE2\u5012\u6570)"
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D
@@ -80,7 +80,7 @@ data:
     )\n*/\n#line 1 \"Data_Structure/BIT.hpp\"\n/**\n * @brief Binary Indexed Tree(BIT)\n\
     */\ntemplate<typename T>\nstruct BIT{\n  long long N;\n  vector<T>bit;\n  BIT(long\
     \ long n){\n    N=1;\n    while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n  }\n \
-    \ void add(int i,T&){\n    i++;\n    while(i<=N){\n      bit[i]+=x;\n      i+=i&-i;\
+    \ void add(int i,T x){\n    i++;\n    while(i<=N){\n      bit[i]+=x;\n      i+=i&-i;\
     \    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n\
     \    return ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n\
     };\n#line 5 \"Data_Structure/inversion.hpp\"\ntemplate<typename T>\nlong long\
@@ -101,8 +101,8 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   requiredBy: []
-  timestamp: '2022-01-05 17:03:50+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-01-05 17:21:33+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_5_D.test.cpp
 layout: document

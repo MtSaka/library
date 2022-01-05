@@ -41,14 +41,14 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n#line 6 \"Graph/kruskal.hpp\"\ntemplate<typename T>\n\
-    struct mst{\n  T cost;\n  Edges<T>edges;\n};\ntemplate<typename T>\nmst<T>kruskal(const\
-    \ Edges<T>&edges,int v){\n  sort(edges.begin(),edges.end());\n  dsu d(v);\n  T\
-    \ total=0;\n  Edges<T>es;\n  for(auto &e:edges){\n    if(!d.same(e.to,e.from)){\n\
-    \      d.merge(e.to,e.from);\n      es.emplace_back(e);\n      total+=e.cost;\n\
-    \    }\n  }\n  return {total,es};\n}\n"
+    struct mst{\n  T cost;\n  Edges<T>edges;\n};\ntemplate<typename T>\nmst<T>kruskal(Edges<T>&edges,int\
+    \ v){\n  sort(edges.begin(),edges.end());\n  dsu d(v);\n  T total=0;\n  Edges<T>es;\n\
+    \  for(auto &e:edges){\n    if(!d.same(e.to,e.from)){\n      d.merge(e.to,e.from);\n\
+    \      es.emplace_back(e);\n      total+=e.cost;\n    }\n  }\n  return {total,es};\n\
+    }\n"
   code: "/**\n * @brief Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)\n*/\n#include\"../Data_Structure/dsu.hpp\"\
     \n#include\"graph_template.hpp\"\ntemplate<typename T>\nstruct mst{\n  T cost;\n\
-    \  Edges<T>edges;\n};\ntemplate<typename T>\nmst<T>kruskal(const Edges<T>&edges,int\
+    \  Edges<T>edges;\n};\ntemplate<typename T>\nmst<T>kruskal(Edges<T>&edges,int\
     \ v){\n  sort(edges.begin(),edges.end());\n  dsu d(v);\n  T total=0;\n  Edges<T>es;\n\
     \  for(auto &e:edges){\n    if(!d.same(e.to,e.from)){\n      d.merge(e.to,e.from);\n\
     \      es.emplace_back(e);\n      total+=e.cost;\n    }\n  }\n  return {total,es};\n\
@@ -59,7 +59,7 @@ data:
   isVerificationFile: false
   path: Graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2022-01-05 17:03:50+00:00'
+  timestamp: '2022-01-05 17:21:33+00:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/GRL/GRL_2_A.test.cpp
