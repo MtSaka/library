@@ -3,8 +3,7 @@
 */ 
 template<typename T>
 struct weighed_dsu{
-  vector<int>p;
-  vector<T>diff;
+  vector<int>p;vector<T>diff;
   weighed_dsu(){}
   weighed_dsu(int n,T s=0):p(n,-1),diff(n,s){}
   int root(int x){
