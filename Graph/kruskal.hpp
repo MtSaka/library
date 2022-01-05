@@ -9,7 +9,7 @@ struct mst{
   Edges<T>edges;
 };
 template<typename T>
-mst<T>kruskal(const Edges<T>&edges,int v){
+mst<T>kruskal(Edges<T>&edges,int v){
   sort(edges.begin(),edges.end());
   dsu d(v);
   T total=0;

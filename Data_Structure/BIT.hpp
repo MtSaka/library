@@ -10,7 +10,7 @@ struct BIT{
     while(N<n)N<<=1;
     bit=vector<T>(N+1,0);
   }
-  void add(int i,T&){
+  void add(int i,T x){
     i++;
     while(i<=N){
       bit[i]+=x;
