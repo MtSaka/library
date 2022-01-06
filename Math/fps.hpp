@@ -150,65 +150,16 @@ struct FPS:vector<modint<Mod>>{
   FPS exp(int d=-1)const{
     const int n=(*this).size();
     if(d==-1)d=n;
-    NTT<Mod>ntt;
-    vector<mint>inv;
-    inv.reserve(d+1);
-    inv.push_back(mint(0));
-    inv.push_back(mint(1));
-    auto integral_inplace=[&](FPS&F)->void{
-      const int n=F.size();
-      while(inv.size()<=n){
-        int i=inv.size();
-        inv.push_back(((-inv[Mod%i])*mint(Mod/i)));
-      }
-      F.insert(F.begin(),mint(0));
-      for(int i=1;i<=n;i++)F[i]*=inv[i];
-    };
-    auto diff_inplace=[](FPS&F)->void{
-      if(F.empty())return;
-      F.erase(F.begin());
-      mint c=1,one=1;
-      for(int i=0;i<(int)F.size();i++)F[i]*=c,c+=one;
-    };
-    FPS b{1,1<n?(*this)[1]:0},c{1},z1,z2{1,1};
+    FPS f=(*this);
+    f+=mint(1);
+    FPS res{1,1<n?(*this)[1]:0};
     for(int m=2;m<d;m<<=1){
-      auto y=b;
-      y.resize(2*m);
-      ntt.dft(y,1);
-      z1=z2;
-      FPS z(m);
-      for(int i=0;i<m;i++)z[i]=y[i]*z1[i];
-      ntt.dft(z,-1);
-      fill(z.begin(),z.begin()+m/2,mint(0));
-      ntt.dft(z,1);
-      for(int i=0 ;i<m;i++)z[i]*=-z1[i];
-      ntt.dft(z,-1);
-      c.insert(c.end(),z.begin()+m/2,z.end());
-      z2=c;
-      z2.resize(2*m);
-      ntt.dft(z2,1);
-      FPS x((*this).begin(),(*this).begin()+min(n,m));
-      diff_inplace(x);
-      x.push_back(mint(0));
-      ntt.dft(x,1);
-      for(int i=0;i<m;i++)x[i]*=y[i];
-      ntt.dft(x,-1);
-      x-=b.diff();
-      x.resize(2*m);
-      for(int i=0;i<m-1;i++)x[m+i]=x[i],x[i]=mint(0);
-      ntt.dft(x,1);
-      for(int i=0;i<2*m;i++)x[i]*=z2[i];
-      ntt.dft(x,-1);
-      x.pop_back();
-      integral_inplace(x);
-      for(int i=m;i<min(n,2*m);i++)x[i]+=(*this)[i];
-      fill(x.begin(),x.begin()+m,mint(0));
-      ntt.dft(x,1);
-      for(int i=0;i<2*m;i++)x[i]*=y[i];
-      ntt.dft(x,-1);
-      b.insert(b.end(),x.begin()+m,x.end());
+      FPS t=f;
+      t.resize(2*m);
+      res=res*(t-res.log(2*m));
+      res.resize(2*m);
     }
-    b.resize(d);
-    return b;
+    res.resize(d);
+    return res;
   }
 };
