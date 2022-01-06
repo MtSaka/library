@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -180,11 +180,15 @@ data:
     \ res.integral();\n  }\n  FPS exp(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS f=(*this);\n    f+=mint(1);\n    FPS res{1,1<n?(*this)[1]:0};\n\
     \    for(int m=2;m<d;m<<=1){\n      FPS t=f;\n      t.resize(2*m);\n      res=res*(t-res.log(2*m));\n\
-    \      res.resize(2*m);\n    }\n    res.resize(d);\n    return res;\n  }\n};\n\
-    #line 4 \"test/yosupo/division_of_polynomials.test.cpp\"\nint main(){\n  int n,m;\n\
-    \  cin>>n>>m;\n  FPS<mod>f(n),g(m);\n  cin>>f>>g;\n  auto [q,r]=f.div_mod(g);\n\
-    \  cout<<q.size()<<\" \"<<r.size()<<endl;\n  cout<<q<<endl;\n  cout<<r<<endl;\n\
-    }\n"
+    \      res.resize(2*m);\n    }\n    res.resize(d);\n    return res;\n  }\n  FPS\
+    \ pow(long long k,int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
+    \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
+    \        if(i*k>d)return FPS(d);\n        FPS ret=(((*this*rev)>>i).log()*k).exp()*((*this)[i].pow(k));\n\
+    \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
+    \  }\n    }\n    return (*this);\n  }\n};\n#line 4 \"test/yosupo/division_of_polynomials.test.cpp\"\
+    \nint main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n),g(m);\n  cin>>f>>g;\n\
+    \  auto [q,r]=f.div_mod(g);\n  cout<<q.size()<<\" \"<<r.size()<<endl;\n  cout<<q<<endl;\n\
+    \  cout<<r<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/division_of_polynomials\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps.hpp\"\nint\
     \ main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n),g(m);\n  cin>>f>>g;\n  auto\
@@ -198,7 +202,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/division_of_polynomials.test.cpp
   requiredBy: []
-  timestamp: '2022-01-06 18:47:39+00:00'
+  timestamp: '2022-01-06 18:57:27+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/division_of_polynomials.test.cpp

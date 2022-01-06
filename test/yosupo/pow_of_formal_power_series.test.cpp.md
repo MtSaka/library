@@ -15,16 +15,16 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/log_of_formal_power_series
+    PROBLEM: https://judge.yosupo.jp/problem/pow_of_formal_power_series
     links:
-    - https://judge.yosupo.jp/problem/log_of_formal_power_series
-  bundledCode: "#line 1 \"test/yosupo/log_of_formal_power_series.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\n#line\
+    - https://judge.yosupo.jp/problem/pow_of_formal_power_series
+  bundledCode: "#line 1 \"test/yosupo/pow_of_formal_power_series.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\n#line\
     \ 2 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"\
     O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define\
     \ overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define rep1(a)\
@@ -185,12 +185,12 @@ data:
     \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
     \        if(i*k>d)return FPS(d);\n        FPS ret=(((*this*rev)>>i).log()*k).exp()*((*this)[i].pow(k));\n\
     \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
-    \  }\n    }\n    return (*this);\n  }\n};\n#line 4 \"test/yosupo/log_of_formal_power_series.test.cpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  FPS<mod>fps(n);\n  cin>>fps;\n  print(fps.log());\n\
+    \  }\n    }\n    return (*this);\n  }\n};\n#line 4 \"test/yosupo/pow_of_formal_power_series.test.cpp\"\
+    \nint main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n);\n  cin>>f;\n  cout<<f.pow(n)<<endl;\n\
     }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps.hpp\"\nint\
-    \ main(){\n  int n;\n  cin>>n;\n  FPS<mod>fps(n);\n  cin>>fps;\n  print(fps.log());\n\
+    \ main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n);\n  cin>>f;\n  cout<<f.pow(n)<<endl;\n\
     }"
   dependsOn:
   - template/template.hpp
@@ -198,15 +198,15 @@ data:
   - Math/ntt.hpp
   - Math/modint.hpp
   isVerificationFile: true
-  path: test/yosupo/log_of_formal_power_series.test.cpp
+  path: test/yosupo/pow_of_formal_power_series.test.cpp
   requiredBy: []
   timestamp: '2022-01-06 18:57:27+00:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/yosupo/log_of_formal_power_series.test.cpp
+documentation_of: test/yosupo/pow_of_formal_power_series.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/log_of_formal_power_series.test.cpp
-- /verify/test/yosupo/log_of_formal_power_series.test.cpp.html
-title: test/yosupo/log_of_formal_power_series.test.cpp
+- /verify/test/yosupo/pow_of_formal_power_series.test.cpp
+- /verify/test/yosupo/pow_of_formal_power_series.test.cpp.html
+title: test/yosupo/pow_of_formal_power_series.test.cpp
 ---

@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   _extendedRequiredBy: []
@@ -21,9 +21,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yosupo/pow_of_formal_power_series.test.cpp
+    title: test/yosupo/pow_of_formal_power_series.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -129,7 +132,12 @@ data:
     \ res.integral();\n  }\n  FPS exp(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS f=(*this);\n    f+=mint(1);\n    FPS res{1,1<n?(*this)[1]:0};\n\
     \    for(int m=2;m<d;m<<=1){\n      FPS t=f;\n      t.resize(2*m);\n      res=res*(t-res.log(2*m));\n\
-    \      res.resize(2*m);\n    }\n    res.resize(d);\n    return res;\n  }\n};\n"
+    \      res.resize(2*m);\n    }\n    res.resize(d);\n    return res;\n  }\n  FPS\
+    \ pow(long long k,int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
+    \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
+    \        if(i*k>d)return FPS(d);\n        FPS ret=(((*this*rev)>>i).log()*k).exp()*((*this)[i].pow(k));\n\
+    \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
+    \  }\n    }\n    return (*this);\n  }\n};\n"
   code: "/**\n * @brief Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
     */\n#include\"ntt.hpp\"\ntemplate<long long Mod>\nstruct FPS:vector<modint<Mod>>{\n\
     \  using mint=modint<Mod>;\n  using vector<mint>::vector;\n  using vector<mint>::operator=;\n\
@@ -184,19 +192,25 @@ data:
     \ res.integral();\n  }\n  FPS exp(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS f=(*this);\n    f+=mint(1);\n    FPS res{1,1<n?(*this)[1]:0};\n\
     \    for(int m=2;m<d;m<<=1){\n      FPS t=f;\n      t.resize(2*m);\n      res=res*(t-res.log(2*m));\n\
-    \      res.resize(2*m);\n    }\n    res.resize(d);\n    return res;\n  }\n};"
+    \      res.resize(2*m);\n    }\n    res.resize(d);\n    return res;\n  }\n  FPS\
+    \ pow(long long k,int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
+    \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
+    \        if(i*k>d)return FPS(d);\n        FPS ret=(((*this*rev)>>i).log()*k).exp()*((*this)[i].pow(k));\n\
+    \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
+    \  }\n    }\n    return (*this);\n  }\n};"
   dependsOn:
   - Math/ntt.hpp
   - Math/modint.hpp
   isVerificationFile: false
   path: Math/fps.hpp
   requiredBy: []
-  timestamp: '2022-01-06 18:47:39+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-01-06 18:57:27+00:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
 documentation_of: Math/fps.hpp
 layout: document
