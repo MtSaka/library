@@ -75,6 +75,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/division_of_polynomials.test.cpp
     title: test/yosupo/division_of_polynomials.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/exp_of_formal_power_series.test.cpp
+    title: test/yosupo/exp_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/factorize.test.cpp
     title: test/yosupo/factorize.test.cpp
@@ -111,9 +114,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -231,7 +234,7 @@ data:
   path: template/template.hpp
   requiredBy: []
   timestamp: '2022-01-05 15:55:32+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
@@ -264,6 +267,7 @@ data:
   - test/yosupo/matrix_product.test.cpp
   - test/yosupo/shortest_path.test.cpp
   - test/yosupo/point_add_range_sum2.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
