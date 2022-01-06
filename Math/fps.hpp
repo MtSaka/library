@@ -167,7 +167,7 @@ struct FPS:vector<modint<Mod>>{
     auto diff_inplace=[&](FPS&F)->void{
       if(F.empty())return;
       F.erase(F.begin());
-      T c=1,one=1;
+      mint c=1,one=1;
       for(int i=1;i<F.size();i++)F[i]*=c,c+=one;
     };
     FPS b{1,1<n?(*this)[1]:0},c{1},z1,z2{1,1};
