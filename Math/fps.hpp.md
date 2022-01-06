@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/division_of_polynomials.test.cpp
     title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -129,8 +129,8 @@ data:
     \      const int n=F.size();\n      while(inv.size()<=n){\n        int i=inv.size();\n\
     \        inv.push_back((-inv[Mod%i]*mint(Mod/i)));\n      }\n      F.insert(F.begin(),mint(0));\n\
     \      for(int i=1;i<=n;i++)F[i]*=inv[i];\n    };\n    auto diff_inplace=[&](FPS&F)->void{\n\
-    \      if(F.empty())return;\n      F.erase(F.begin());\n      T c=1,one=1;\n \
-    \     for(int i=1;i<F.size();i++)F[i]*=c,c+=one;\n    };\n    FPS b{1,1<n?(*this)[1]:0},c{1},z1,z2{1,1};\n\
+    \      if(F.empty())return;\n      F.erase(F.begin());\n      mint c=1,one=1;\n\
+    \      for(int i=1;i<F.size();i++)F[i]*=c,c+=one;\n    };\n    FPS b{1,1<n?(*this)[1]:0},c{1},z1,z2{1,1};\n\
     \    for(int m=2;m<d;m<<=1){\n      auto y=b;\n      y.resize(2*m);\n      ntt.dft(y,1);\n\
     \      z1=z2;\n      FPS z(m);\n      for(int i=0;i<m;i++)z[i]=y[i]*z1[i];\n \
     \     ntt.dft(z,-1);\n      fill(z.begin(),z.end()+m/2,mint(0));\n      ntt.dft(z,1);\n\
@@ -201,8 +201,8 @@ data:
     \      const int n=F.size();\n      while(inv.size()<=n){\n        int i=inv.size();\n\
     \        inv.push_back((-inv[Mod%i]*mint(Mod/i)));\n      }\n      F.insert(F.begin(),mint(0));\n\
     \      for(int i=1;i<=n;i++)F[i]*=inv[i];\n    };\n    auto diff_inplace=[&](FPS&F)->void{\n\
-    \      if(F.empty())return;\n      F.erase(F.begin());\n      T c=1,one=1;\n \
-    \     for(int i=1;i<F.size();i++)F[i]*=c,c+=one;\n    };\n    FPS b{1,1<n?(*this)[1]:0},c{1},z1,z2{1,1};\n\
+    \      if(F.empty())return;\n      F.erase(F.begin());\n      mint c=1,one=1;\n\
+    \      for(int i=1;i<F.size();i++)F[i]*=c,c+=one;\n    };\n    FPS b{1,1<n?(*this)[1]:0},c{1},z1,z2{1,1};\n\
     \    for(int m=2;m<d;m<<=1){\n      auto y=b;\n      y.resize(2*m);\n      ntt.dft(y,1);\n\
     \      z1=z2;\n      FPS z(m);\n      for(int i=0;i<m;i++)z[i]=y[i]*z1[i];\n \
     \     ntt.dft(z,-1);\n      fill(z.begin(),z.end()+m/2,mint(0));\n      ntt.dft(z,1);\n\
@@ -222,8 +222,8 @@ data:
   isVerificationFile: false
   path: Math/fps.hpp
   requiredBy: []
-  timestamp: '2022-01-06 16:45:23+00:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-01-06 16:49:09+00:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp

@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/log_of_formal_power_series
@@ -183,8 +183,8 @@ data:
     \      const int n=F.size();\n      while(inv.size()<=n){\n        int i=inv.size();\n\
     \        inv.push_back((-inv[Mod%i]*mint(Mod/i)));\n      }\n      F.insert(F.begin(),mint(0));\n\
     \      for(int i=1;i<=n;i++)F[i]*=inv[i];\n    };\n    auto diff_inplace=[&](FPS&F)->void{\n\
-    \      if(F.empty())return;\n      F.erase(F.begin());\n      T c=1,one=1;\n \
-    \     for(int i=1;i<F.size();i++)F[i]*=c,c+=one;\n    };\n    FPS b{1,1<n?(*this)[1]:0},c{1},z1,z2{1,1};\n\
+    \      if(F.empty())return;\n      F.erase(F.begin());\n      mint c=1,one=1;\n\
+    \      for(int i=1;i<F.size();i++)F[i]*=c,c+=one;\n    };\n    FPS b{1,1<n?(*this)[1]:0},c{1},z1,z2{1,1};\n\
     \    for(int m=2;m<d;m<<=1){\n      auto y=b;\n      y.resize(2*m);\n      ntt.dft(y,1);\n\
     \      z1=z2;\n      FPS z(m);\n      for(int i=0;i<m;i++)z[i]=y[i]*z1[i];\n \
     \     ntt.dft(z,-1);\n      fill(z.begin(),z.end()+m/2,mint(0));\n      ntt.dft(z,1);\n\
@@ -212,8 +212,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/log_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-01-06 16:45:23+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-01-06 16:49:09+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/log_of_formal_power_series.test.cpp
 layout: document
