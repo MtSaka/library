@@ -77,11 +77,11 @@ struct FPS:vector<modint<Mod>>{
     for(int i=0;i<m;i++)(*this)[i]-=r[i];
     return *this;
   }
-  FPS &operator<<=(const int&d){
+  FPS &operator<<=(const long long&d){
     (*this).insert((*this).begin(),d,mint(0));
     return *this;
   }
-  FPS &operator>>=(const int&d){
+  FPS &operator>>=(const long long&d){
     (*this).erase((*this).begin(),(*this).begin()+d);
     return *this;
   }
@@ -168,8 +168,8 @@ struct FPS:vector<modint<Mod>>{
     for(int i=0;i<n;i++){
       if((*this)[i]!=mint()){
         mint rev=(*this)[i].inv();
-        if(i*k>d)return FPS(d);
-        FPS ret=(((*this*rev)>>i).log()*k).exp()*((*this)[i].pow(k));
+        if(i*k>d)return FPS(d,mint(0));
+        FPS ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));
         ret=(ret<<(i*k));
         ret.resize(d);
         return ret;
