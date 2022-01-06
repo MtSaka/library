@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/log_of_formal_power_series
@@ -177,7 +177,27 @@ data:
     \    FPS ret(n+1);\n    for(int i=0;i<n;i++)ret[i+1]=(*this)[i]*inv[i+1];\n  \
     \  return ret;\n  }\n  FPS log(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res=diff()*inv(d);\n    res.resize(d-1);\n    return\
-    \ res.integral();\n  }\n};\n#line 4 \"test/yosupo/log_of_formal_power_series.test.cpp\"\
+    \ res.integral();\n  }\n  FPS exp(int d=-1)const{\n    const int n=(*this).size();\n\
+    \    if(d==-1)d=n;\n    NTT<Mod>ntt;\n    vector<mint>inv;\n    inv.reserve(d+1);\n\
+    \    inv.push_back(mint(0));\n    inv.push_back(mint(1));\n    auto integral_inplace=[&](FPS&F)->void{\n\
+    \      const int n=F.size();\n      while(inv.size()<=n){\n        int i=inv.size();\n\
+    \        inv.push_back((-inv[Mod%i]*mint(Mod/i)));\n      }\n      F.insert(F.begin(),mint(0));\n\
+    \      for(int i=1;i<=n;i++)F[i]*=inv[i];\n    };\n    auto diff_inplace=[&](FPS&F)->void{\n\
+    \      if(F.empty())return;\n      F.erase(F.begin());\n      T c=1,one=1;\n \
+    \     for(int i=1;i<F.size();i++)F[i]*=c,c+=one;\n    };\n    FPS b{1,1<n?(*this)[1]:0},c{1},z1,z2{1,1};\n\
+    \    for(int m=2;m<d;m<<=1){\n      auto y=b;\n      y.resize(2*m);\n      ntt.dft(y,1);\n\
+    \      z1=z2;\n      FPS z(m);\n      for(int i=0;i<m;i++)z[i]=y[i]*z1[i];\n \
+    \     ntt.dft(z,-1);\n      fill(z.begin(),z.end()+m/2,mint(0));\n      ntt.dft(z,1);\n\
+    \      for(int i=0;i<m;i++)z[i]*=-z1[i];\n      ntt.dft(z,-1);\n      c.insert(c.end(),z.begin()+m/2,z.end());\n\
+    \      z2=c;\n      z2.resize(2*m);\n      ntt.dft(z2,1);\n      FPS x((*this).begin(),(*this).begin()+min(n,m));\n\
+    \      x.resize(m);\n      diff_inplace(x);\n      x.push_back(mint(0));\n   \
+    \   ntt.dft(x,1);\n      for(int i=0;i<m;i++)x[i]*=y[i];\n      ntt.dft(x,-1);\n\
+    \      x-=c.diff();\n      x.resize(2*m);\n      for(int i=0;i<m-1;i++)x[m+i]=x[i],x[i]=mint(0);\n\
+    \      ntt.dft(x,1);\n      for(int i=0;i<m;i++)x[i]*=z2[i];\n      ntt.dft(x,-1);\n\
+    \      x.pop_back();\n      integral_inplace(x);\n      for(int i=m;i<min(n,2*m);i++)x[i]+=(*this)[i];\n\
+    \      fill(x.begin(),x.begin()+m,mint(0));\n      ntt.dft(x,1);\n      for(int\
+    \ i=0;i<2*m;i++)x[i]*=y[i];\n      ntt.dft(x,-1);\n      b.insert(b.end(),x.begin()+m,x.end());\n\
+    \    }\n    b.resize(d);\n    return b;\n  }\n};\n#line 4 \"test/yosupo/log_of_formal_power_series.test.cpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  FPS<mod>fps(n);\n  cin>>fps;\n  print(fps.log());\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\
@@ -192,8 +212,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/log_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-01-05 16:51:06+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-06 16:45:23+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/log_of_formal_power_series.test.cpp
 layout: document

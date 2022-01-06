@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/division_of_polynomials.test.cpp
     title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -123,7 +123,27 @@ data:
     \    FPS ret(n+1);\n    for(int i=0;i<n;i++)ret[i+1]=(*this)[i]*inv[i+1];\n  \
     \  return ret;\n  }\n  FPS log(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res=diff()*inv(d);\n    res.resize(d-1);\n    return\
-    \ res.integral();\n  }\n};\n"
+    \ res.integral();\n  }\n  FPS exp(int d=-1)const{\n    const int n=(*this).size();\n\
+    \    if(d==-1)d=n;\n    NTT<Mod>ntt;\n    vector<mint>inv;\n    inv.reserve(d+1);\n\
+    \    inv.push_back(mint(0));\n    inv.push_back(mint(1));\n    auto integral_inplace=[&](FPS&F)->void{\n\
+    \      const int n=F.size();\n      while(inv.size()<=n){\n        int i=inv.size();\n\
+    \        inv.push_back((-inv[Mod%i]*mint(Mod/i)));\n      }\n      F.insert(F.begin(),mint(0));\n\
+    \      for(int i=1;i<=n;i++)F[i]*=inv[i];\n    };\n    auto diff_inplace=[&](FPS&F)->void{\n\
+    \      if(F.empty())return;\n      F.erase(F.begin());\n      T c=1,one=1;\n \
+    \     for(int i=1;i<F.size();i++)F[i]*=c,c+=one;\n    };\n    FPS b{1,1<n?(*this)[1]:0},c{1},z1,z2{1,1};\n\
+    \    for(int m=2;m<d;m<<=1){\n      auto y=b;\n      y.resize(2*m);\n      ntt.dft(y,1);\n\
+    \      z1=z2;\n      FPS z(m);\n      for(int i=0;i<m;i++)z[i]=y[i]*z1[i];\n \
+    \     ntt.dft(z,-1);\n      fill(z.begin(),z.end()+m/2,mint(0));\n      ntt.dft(z,1);\n\
+    \      for(int i=0;i<m;i++)z[i]*=-z1[i];\n      ntt.dft(z,-1);\n      c.insert(c.end(),z.begin()+m/2,z.end());\n\
+    \      z2=c;\n      z2.resize(2*m);\n      ntt.dft(z2,1);\n      FPS x((*this).begin(),(*this).begin()+min(n,m));\n\
+    \      x.resize(m);\n      diff_inplace(x);\n      x.push_back(mint(0));\n   \
+    \   ntt.dft(x,1);\n      for(int i=0;i<m;i++)x[i]*=y[i];\n      ntt.dft(x,-1);\n\
+    \      x-=c.diff();\n      x.resize(2*m);\n      for(int i=0;i<m-1;i++)x[m+i]=x[i],x[i]=mint(0);\n\
+    \      ntt.dft(x,1);\n      for(int i=0;i<m;i++)x[i]*=z2[i];\n      ntt.dft(x,-1);\n\
+    \      x.pop_back();\n      integral_inplace(x);\n      for(int i=m;i<min(n,2*m);i++)x[i]+=(*this)[i];\n\
+    \      fill(x.begin(),x.begin()+m,mint(0));\n      ntt.dft(x,1);\n      for(int\
+    \ i=0;i<2*m;i++)x[i]*=y[i];\n      ntt.dft(x,-1);\n      b.insert(b.end(),x.begin()+m,x.end());\n\
+    \    }\n    b.resize(d);\n    return b;\n  }\n};\n"
   code: "/**\n * @brief Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
     */\n#include\"ntt.hpp\"\ntemplate<long long Mod>\nstruct FPS:vector<modint<Mod>>{\n\
     \  using mint=modint<Mod>;\n  using vector<mint>::vector;\n  using vector<mint>::operator=;\n\
@@ -175,15 +195,35 @@ data:
     \    FPS ret(n+1);\n    for(int i=0;i<n;i++)ret[i+1]=(*this)[i]*inv[i+1];\n  \
     \  return ret;\n  }\n  FPS log(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res=diff()*inv(d);\n    res.resize(d-1);\n    return\
-    \ res.integral();\n  }\n};"
+    \ res.integral();\n  }\n  FPS exp(int d=-1)const{\n    const int n=(*this).size();\n\
+    \    if(d==-1)d=n;\n    NTT<Mod>ntt;\n    vector<mint>inv;\n    inv.reserve(d+1);\n\
+    \    inv.push_back(mint(0));\n    inv.push_back(mint(1));\n    auto integral_inplace=[&](FPS&F)->void{\n\
+    \      const int n=F.size();\n      while(inv.size()<=n){\n        int i=inv.size();\n\
+    \        inv.push_back((-inv[Mod%i]*mint(Mod/i)));\n      }\n      F.insert(F.begin(),mint(0));\n\
+    \      for(int i=1;i<=n;i++)F[i]*=inv[i];\n    };\n    auto diff_inplace=[&](FPS&F)->void{\n\
+    \      if(F.empty())return;\n      F.erase(F.begin());\n      T c=1,one=1;\n \
+    \     for(int i=1;i<F.size();i++)F[i]*=c,c+=one;\n    };\n    FPS b{1,1<n?(*this)[1]:0},c{1},z1,z2{1,1};\n\
+    \    for(int m=2;m<d;m<<=1){\n      auto y=b;\n      y.resize(2*m);\n      ntt.dft(y,1);\n\
+    \      z1=z2;\n      FPS z(m);\n      for(int i=0;i<m;i++)z[i]=y[i]*z1[i];\n \
+    \     ntt.dft(z,-1);\n      fill(z.begin(),z.end()+m/2,mint(0));\n      ntt.dft(z,1);\n\
+    \      for(int i=0;i<m;i++)z[i]*=-z1[i];\n      ntt.dft(z,-1);\n      c.insert(c.end(),z.begin()+m/2,z.end());\n\
+    \      z2=c;\n      z2.resize(2*m);\n      ntt.dft(z2,1);\n      FPS x((*this).begin(),(*this).begin()+min(n,m));\n\
+    \      x.resize(m);\n      diff_inplace(x);\n      x.push_back(mint(0));\n   \
+    \   ntt.dft(x,1);\n      for(int i=0;i<m;i++)x[i]*=y[i];\n      ntt.dft(x,-1);\n\
+    \      x-=c.diff();\n      x.resize(2*m);\n      for(int i=0;i<m-1;i++)x[m+i]=x[i],x[i]=mint(0);\n\
+    \      ntt.dft(x,1);\n      for(int i=0;i<m;i++)x[i]*=z2[i];\n      ntt.dft(x,-1);\n\
+    \      x.pop_back();\n      integral_inplace(x);\n      for(int i=m;i<min(n,2*m);i++)x[i]+=(*this)[i];\n\
+    \      fill(x.begin(),x.begin()+m,mint(0));\n      ntt.dft(x,1);\n      for(int\
+    \ i=0;i<2*m;i++)x[i]*=y[i];\n      ntt.dft(x,-1);\n      b.insert(b.end(),x.begin()+m,x.end());\n\
+    \    }\n    b.resize(d);\n    return b;\n  }\n};"
   dependsOn:
   - Math/ntt.hpp
   - Math/modint.hpp
   isVerificationFile: false
   path: Math/fps.hpp
   requiredBy: []
-  timestamp: '2022-01-05 16:51:06+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-01-06 16:45:23+00:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
