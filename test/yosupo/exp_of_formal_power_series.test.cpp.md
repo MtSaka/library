@@ -157,8 +157,8 @@ data:
     \    for(int i=0;i<m;i++)(*this)[i]+=r[i];\n    return *this;\n  }\n  FPS &operator-=(const\
     \ FPS&r){\n    const int n=(*this).size(),m=r.size();\n    (*this).resize(max(n,m));\n\
     \    for(int i=0;i<m;i++)(*this)[i]-=r[i];\n    return *this;\n  }\n  FPS &operator<<=(const\
-    \ int&d){\n    (*this).insert((*this).begin(),d,mint(0));\n    return *this;\n\
-    \  }\n  FPS &operator>>=(const int&d){\n    (*this).erase((*this).begin(),(*this).begin()+d);\n\
+    \ long long&d){\n    (*this).insert((*this).begin(),d,mint(0));\n    return *this;\n\
+    \  }\n  FPS &operator>>=(const long long&d){\n    (*this).erase((*this).begin(),(*this).begin()+d);\n\
     \    return *this;\n  }\n  FPS &operator*=(const FPS&r){\n    (*this)=NTT<Mod>::multiply((*this),r);\n\
     \    return *this;\n  }\n  FPS &operator/=(FPS r){\n    const int n=(*this).size(),m=r.size();\n\
     \    if(n<m){\n      (*this).clear();\n      return *this;\n    }\n    const int\
@@ -183,7 +183,7 @@ data:
     \      res.resize(2*m);\n    }\n    res.resize(d);\n    return res;\n  }\n  FPS\
     \ pow(long long k,int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
     \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
-    \        if(i*k>d)return FPS(d);\n        FPS ret=(((*this*rev)>>i).log()*k).exp()*((*this)[i].pow(k));\n\
+    \        if(i*k>d)return FPS(d,mint(0));\n        FPS ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));\n\
     \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
     \  }\n    }\n    return (*this);\n  }\n};\n#line 4 \"test/yosupo/exp_of_formal_power_series.test.cpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  FPS<mod>f(n);\n  cin>>f;\n  cout<<f.exp()<<endl;\n\
@@ -200,7 +200,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/exp_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-01-06 18:57:27+00:00'
+  timestamp: '2022-01-06 19:50:58+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/exp_of_formal_power_series.test.cpp
