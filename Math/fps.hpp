@@ -159,16 +159,16 @@ struct FPS:vector<modint<Mod>>{
       const int n=F.size();
       while(inv.size()<=n){
         int i=inv.size();
-        inv.push_back((-inv[Mod%i]*mint(Mod/i)));
+        inv.push_back(((-inv[Mod%i])*mint(Mod/i)));
       }
       F.insert(F.begin(),mint(0));
       for(int i=1;i<=n;i++)F[i]*=inv[i];
     };
-    auto diff_inplace=[&](FPS&F)->void{
+    auto diff_inplace=[](FPS&F)->void{
       if(F.empty())return;
       F.erase(F.begin());
       mint c=1,one=1;
-      for(int i=1;i<F.size();i++)F[i]*=c,c+=one;
+      for(int i=0;i<(int)F.size();i++)F[i]*=c,c+=one;
     };
     FPS b{1,1<n?(*this)[1]:0},c{1},z1,z2{1,1};
     for(int m=2;m<d;m<<=1){
@@ -179,26 +179,25 @@ struct FPS:vector<modint<Mod>>{
       FPS z(m);
       for(int i=0;i<m;i++)z[i]=y[i]*z1[i];
       ntt.dft(z,-1);
-      fill(z.begin(),z.end()+m/2,mint(0));
+      fill(z.begin(),z.begin()+m/2,mint(0));
       ntt.dft(z,1);
-      for(int i=0;i<m;i++)z[i]*=-z1[i];
+      for(int i=0 ;i<m;i++)z[i]*=-z1[i];
       ntt.dft(z,-1);
       c.insert(c.end(),z.begin()+m/2,z.end());
       z2=c;
       z2.resize(2*m);
       ntt.dft(z2,1);
       FPS x((*this).begin(),(*this).begin()+min(n,m));
-      x.resize(m);
       diff_inplace(x);
       x.push_back(mint(0));
       ntt.dft(x,1);
       for(int i=0;i<m;i++)x[i]*=y[i];
       ntt.dft(x,-1);
-      x-=c.diff();
+      x-=b.diff();
       x.resize(2*m);
       for(int i=0;i<m-1;i++)x[m+i]=x[i],x[i]=mint(0);
       ntt.dft(x,1);
-      for(int i=0;i<m;i++)x[i]*=z2[i];
+      for(int i=0;i<2*m;i++)x[i]*=z2[i];
       ntt.dft(x,-1);
       x.pop_back();
       integral_inplace(x);
