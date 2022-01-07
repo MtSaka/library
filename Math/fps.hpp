@@ -150,13 +150,11 @@ struct FPS:vector<modint<Mod>>{
   FPS exp(int d=-1)const{
     const int n=(*this).size();
     if(d==-1)d=n;
-    FPS f=(*this);
-    f+=mint(1);
-    FPS res{1,1<n?(*this)[1]:0};
+    FPS f={mint(1)+(*this)[0],(*this)[1]},res{1,1<n?(*this)[1]:0};
     for(int m=2;m<d;m<<=1){
-      FPS t=f;
-      t.resize(2*m);
-      res=res*(t-res.log(2*m));
+      f.insert(f.end(),(*this).begin()+min(m,n),(*this).begin()+min(n,2*m));
+      if((int)f.size()<2*m)f.resize(2*m);
+      res=res*(f-res.log(2*m));
       res.resize(2*m);
     }
     res.resize(d);
