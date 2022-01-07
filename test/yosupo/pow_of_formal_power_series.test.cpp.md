@@ -178,8 +178,9 @@ data:
     \  return ret;\n  }\n  FPS log(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res=diff()*inv(d);\n    res.resize(d-1);\n    return\
     \ res.integral();\n  }\n  FPS exp(int d=-1)const{\n    const int n=(*this).size();\n\
-    \    if(d==-1)d=n;\n    FPS f=(*this);\n    f+=mint(1);\n    FPS res{1,1<n?(*this)[1]:0};\n\
-    \    for(int m=2;m<d;m<<=1){\n      FPS t=f;\n      t.resize(2*m);\n      res=res*(t-res.log(2*m));\n\
+    \    if(d==-1)d=n;\n    FPS f={mint(1)+(*this)[0],(*this)[1]},res{1,1<n?(*this)[1]:0};\n\
+    \    for(int m=2;m<d;m<<=1){\n      f.insert(f.end(),(*this).begin()+min(m,n),(*this).begin()+min(n,2*m));\n\
+    \      if((int)f.size()<2*m)f.resize(2*m);\n      res=res*(f-res.log(2*m));\n\
     \      res.resize(2*m);\n    }\n    res.resize(d);\n    return res;\n  }\n  FPS\
     \ pow(long long k,int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
     \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
@@ -200,7 +201,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/pow_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-01-07 17:11:15+00:00'
+  timestamp: '2022-01-07 17:25:58+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/pow_of_formal_power_series.test.cpp
