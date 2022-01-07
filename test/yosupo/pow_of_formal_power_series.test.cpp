@@ -6,5 +6,5 @@ int main(){
   cin>>n>>m;
   FPS<mod>f(n);
   cin>>f;
-  cout<<f.pow(n)<<endl;
+  cout<<f.pow(m)<<endl;
 }
