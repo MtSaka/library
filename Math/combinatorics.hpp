@@ -20,4 +20,11 @@ struct combination{
     if(n<0)return mint(0);
     return dat[n];
   }
+  mint hom(long long n,long long k){
+    return com(n+r-1,r);
+  }
+  mint per(long long n,long long k){
+    if(k<0||k>n)return mint(0);
+    return dat[n]*idat[n-k];
+  }
 };
