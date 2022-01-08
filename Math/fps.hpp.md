@@ -138,7 +138,7 @@ data:
     \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
     \        if(i*k>d)return FPS(d,mint(0));\n        FPS ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));\n\
     \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
-    \  }\n    }\n    return (*this);\n  }\n};\n"
+    \  }\n    }\n    return FPS(d,mint(0));\n  }\n};\n"
   code: "/**\n * @brief Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n\
     */\n#include\"ntt.hpp\"\ntemplate<long long Mod>\nstruct FPS:vector<modint<Mod>>{\n\
     \  using mint=modint<Mod>;\n  using vector<mint>::vector;\n  using vector<mint>::operator=;\n\
@@ -199,14 +199,14 @@ data:
     \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
     \        if(i*k>d)return FPS(d,mint(0));\n        FPS ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));\n\
     \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
-    \  }\n    }\n    return (*this);\n  }\n};"
+    \  }\n    }\n    return FPS(d,mint(0));\n  }\n};"
   dependsOn:
   - Math/ntt.hpp
   - Math/modint.hpp
   isVerificationFile: false
   path: Math/fps.hpp
   requiredBy: []
-  timestamp: '2022-01-07 17:25:58+00:00'
+  timestamp: '2022-01-08 23:22:06+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/inv_of_formal_power_series.test.cpp

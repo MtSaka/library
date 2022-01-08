@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -186,7 +186,7 @@ data:
     \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
     \        if(i*k>d)return FPS(d,mint(0));\n        FPS ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));\n\
     \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
-    \  }\n    }\n    return (*this);\n  }\n};\n#line 4 \"test/yosupo/exp_of_formal_power_series.test.cpp\"\
+    \  }\n    }\n    return FPS(d,mint(0));\n  }\n};\n#line 4 \"test/yosupo/exp_of_formal_power_series.test.cpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  FPS<mod>f(n);\n  cin>>f;\n  cout<<f.exp()<<endl;\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/exp_of_formal_power_series\"\
@@ -201,7 +201,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/exp_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-01-08 16:59:19+00:00'
+  timestamp: '2022-01-08 23:22:06+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/exp_of_formal_power_series.test.cpp
