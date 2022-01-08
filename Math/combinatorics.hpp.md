@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
   _extendedRequiredBy:
@@ -41,7 +41,9 @@ data:
     \    idat[mx]/=dat[mx];\n    for(long long i=mx;i>0;i--)idat[i-1]=idat[i]*mint(i);\n\
     \  }\n  mint com(long long n,long long k){\n    if(n<0||k<0||n<k)return mint(0);\n\
     \    return dat[n]*idat[k]*idat[n-k];\n  }\n  mint fac(long long n){\n    if(n<0)return\
-    \ mint(0);\n    return dat[n];\n  }\n};\n"
+    \ mint(0);\n    return dat[n];\n  }\n  mint hom(long long n,long long k){\n  \
+    \  return com(n+r-1,r);\n  }\n  mint per(long long n,long long k){\n    if(k<0||k>n)return\
+    \ mint(0);\n    return dat[n]*idat[n-k];\n  }\n};\n"
   code: "/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n#include\"\
     modint.hpp\"\ntemplate<long long m>\nstruct combination{\n  using mint=modint<m>;\n\
     \  vector<mint>dat,idat;\n  long long mx;\n  combination(long long mx_=300000):dat(mx_+1,1),idat(mx_+1,1),mx(mx_){\n\
@@ -49,6 +51,8 @@ data:
     \    for(long long i=mx;i>0;i--)idat[i-1]=idat[i]*mint(i);\n  }\n  mint com(long\
     \ long n,long long k){\n    if(n<0||k<0||n<k)return mint(0);\n    return dat[n]*idat[k]*idat[n-k];\n\
     \  }\n  mint fac(long long n){\n    if(n<0)return mint(0);\n    return dat[n];\n\
+    \  }\n  mint hom(long long n,long long k){\n    return com(n+r-1,r);\n  }\n  mint\
+    \ per(long long n,long long k){\n    if(k<0||k>n)return mint(0);\n    return dat[n]*idat[n-k];\n\
     \  }\n};"
   dependsOn:
   - Math/modint.hpp
@@ -56,7 +60,7 @@ data:
   path: Math/combinatorics.hpp
   requiredBy:
   - Math/lagrange.hpp
-  timestamp: '2022-01-05 16:38:42+00:00'
+  timestamp: '2022-01-08 23:07:33+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/combinatorics.hpp
