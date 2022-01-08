@@ -81,8 +81,8 @@ class infinity{
 #if __cplusplus <= 201402L
 template<class T>const T infinity<T>::value;
 template<class T>const T infinity<T>::mvalue;
-template<class T>const T infinity<T>::max;
-template<class T>const T infinity<T>::min;
+template<class T>const T infinity<T>::MAX;
+template<class T>const T infinity<T>::MIN;
 #endif
 template<typename T>const T inf=infinity<T>::value;
 inline int popcnt(ull x){
