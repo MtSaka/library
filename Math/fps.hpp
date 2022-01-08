@@ -173,6 +173,6 @@ struct FPS:vector<modint<Mod>>{
         return ret;
       }
     }
-    return (*this);
+    return FPS(d,mint(0));
   }
 };
