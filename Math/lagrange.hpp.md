@@ -44,7 +44,7 @@ data:
     \  }\n  mint com(long long n,long long k){\n    if(n<0||k<0||n<k)return mint(0);\n\
     \    return dat[n]*idat[k]*idat[n-k];\n  }\n  mint fac(long long n){\n    if(n<0)return\
     \ mint(0);\n    return dat[n];\n  }\n  mint hom(long long n,long long k){\n  \
-    \  return com(n+r-1,r);\n  }\n  mint per(long long n,long long k){\n    if(k<0||k>n)return\
+    \  return com(n+k-1,k);\n  }\n  mint per(long long n,long long k){\n    if(k<0||k>n)return\
     \ mint(0);\n    return dat[n]*idat[n-k];\n  }\n};\n#line 5 \"Math/lagrange.hpp\"\
     \ntemplate<long long m>\nmodint<m> lagrange_polynominal(const vector<modint<m>>&y,const\
     \ long long&t){\n  using mint=modint<m>;\n  const int n=y.size()-1;\n  combination<m>c(n);\n\
@@ -66,7 +66,7 @@ data:
   isVerificationFile: false
   path: Math/lagrange.hpp
   requiredBy: []
-  timestamp: '2022-01-08 23:07:33+00:00'
+  timestamp: '2022-01-09 12:58:44+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/lagrange.hpp
