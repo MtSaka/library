@@ -21,7 +21,7 @@ struct combination{
     return dat[n];
   }
   mint hom(long long n,long long k){
-    return com(n+r-1,r);
+    return com(n+k-1,k);
   }
   mint per(long long n,long long k){
     if(k<0||k>n)return mint(0);
