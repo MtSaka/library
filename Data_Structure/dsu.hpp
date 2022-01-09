@@ -9,7 +9,7 @@ struct dsu{
   int size(int x){return -p[root(x)];}
   int merge(int x,int y){
     x=root(x),y=root(y);
-    if(x==y)return;
+    if(x==y)return x;
     if(p[x]>p[y])swap(x,y);
     p[x]+=p[y];p[y]=x;
     return x;
