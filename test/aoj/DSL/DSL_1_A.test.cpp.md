@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/dsu.hpp
     title: Disjoint Set Union(Union Find)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A
@@ -77,8 +77,8 @@ data:
     struct dsu{\n  vector<int>p;\n  dsu(int n):p(n,-1){}\n  int root(int x){return\
     \ p[x]<0?x:p[x]=root(p[x]);}\n  bool same(int x,int y){return root(x)==root(y);}\n\
     \  int size(int x){return -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n\
-    \    if(x==y)return;\n    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n  \
-    \  return x;\n  }\n  vector<vector<int>>groups(){\n    const int n=p.size();\n\
+    \    if(x==y)return x;\n    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n\
+    \    return x;\n  }\n  vector<vector<int>>groups(){\n    const int n=p.size();\n\
     \    vector<int>leader(n),group_size(n);\n    for(int i=0;i<n;i++){\n      leader[i]=root(i);\n\
     \      group_size[leader[i]]++;\n    }\n    vector<vector<int>>result(n);\n  \
     \  for(int i=0;i<n;i++)result[i].reserve(group_size[i]);\n    for(int i=0;i<n;i++)result[leader[i]].push_back(i);\n\
@@ -98,8 +98,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2022-01-09 10:45:42+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-01-09 22:08:51+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_1_A.test.cpp
 layout: document
