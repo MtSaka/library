@@ -1,6 +1,3 @@
-/**
- * @brief Warshall Floyd(全点対間最短路)
-*/
 #include"graph_template.hpp"
 template<typename T>
 vector<vector<T>>warshall_floyd(const Graph<T>&g){
@@ -22,3 +19,6 @@ vector<vector<T>>warshall_floyd(const Graph<T>&g){
   }
   return d;
 }
+/**
+ * @brief Warshall Floyd(全点対間最短路)
+*/

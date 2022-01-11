@@ -1,6 +1,3 @@
-/**
- * @brief Kruskal(最小全域木)
-*/
 #include"../Data_Structure/dsu.hpp"
 #include"graph_template.hpp"
 template<typename T>
@@ -23,3 +20,6 @@ mst<T>kruskal(Edges<T>&edges,int v){
   }
   return {total,es};
 }
+/**
+ * @brief Kruskal(最小全域木)
+*/

@@ -1,6 +1,3 @@
-/**
- * @brief Bellman-Ford(単一始点最短路)
-*/
 #include"graph_template.hpp"
 template<typename T>
 vector<T>bellman_ford(const Graph<T>&g,int s){
@@ -36,3 +33,6 @@ vector<T>bellman_ford(const Graph<T>&g,int s){
   }
   return d;
 }
+/**
+ * @brief Bellman-Ford(単一始点最短路)
+*/

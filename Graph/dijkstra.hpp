@@ -1,6 +1,3 @@
-/**
- * @brief Dijkstra(単一始点最短路)
-*/
 #include"graph_template.hpp"
 template<typename T>
 vector<T>dijkstra(const Graph<T>&g,int s){
@@ -22,3 +19,6 @@ vector<T>dijkstra(const Graph<T>&g,int s){
   }
   return d;
 }
+/**
+ * @brief Dijkstra(単一始点最短路)
+*/

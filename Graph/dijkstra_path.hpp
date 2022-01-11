@@ -1,6 +1,3 @@
-/**
- * @brief Dijkstra With Path(経路付き単一始点最短路)
-*/
 #include"graph_template.hpp"
 template<typename T=int>
 pair<T,vector<int>>dijkstra_path(const Graph<T>&g,int s,int t){
@@ -29,3 +26,6 @@ pair<T,vector<int>>dijkstra_path(const Graph<T>&g,int s,int t){
   reverse(path.begin(),path.end());
   return {d[t],path};
 }
+/**
+ * @brief Dijkstra With Path(経路付き単一始点最短路)
+*/

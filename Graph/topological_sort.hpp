@@ -1,6 +1,3 @@
-/**
- * @brief Topological Sort(トポロジカルソート)
-*/
 #include"graph_template.hpp"
 template<typename T>
 struct topological_sort{
@@ -24,3 +21,6 @@ struct topological_sort{
   const vector<int>&get()const&{return order;}
   vector<int>get()&&{return move(order);}
 };
+/**
+ * @brief Topological Sort(トポロジカルソート)
+*/

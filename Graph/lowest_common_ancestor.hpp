@@ -1,6 +1,3 @@
-/**
- * @brief Lowest Common Ancestor(最小共通祖先)
-*/
 #include"graph_template.hpp"
 template<typename T>
 struct LCA{
@@ -50,3 +47,6 @@ struct LCA{
     return table[0][u];
   }
 };
+/**
+ * @brief Lowest Common Ancestor(最小共通祖先)
+*/

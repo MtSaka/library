@@ -1,6 +1,3 @@
-/**
- * @brief Graph Template(グラフテンプレート)
-*/
 template<typename T=int>
 struct Edge{
   int from,to;
@@ -44,3 +41,6 @@ struct Graph{
 };
 template<typename T=int>
 using Edges=vector<Edge<T>>;
+/**
+ * @brief Graph Template(グラフテンプレート)
+*/

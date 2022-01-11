@@ -1,6 +1,3 @@
-/**
- * @brief Cycle Detection(閉路検出)
-*/
 #include"graph_template.hpp"
 template<typename T>
 bool detect_cycle(const Graph<T>&g){
@@ -19,3 +16,6 @@ bool detect_cycle(const Graph<T>&g){
   for(int i=0;i<n;i++)if(deg[i]!=0)return true;
   return false;
 }
+/**
+ * @brief Cycle Detection(閉路検出)
+*/
