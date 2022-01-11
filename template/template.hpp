@@ -54,7 +54,7 @@ ostream &operator<<(ostream&os,const pair<T,U>&p){os<<p.first<<" "<<p.second;ret
 template<typename T,typename U>
 istream &operator>>(istream&is,pair<T,U>&p){is>>p.first>>p.second;return is;}
 template<typename T>
-ostream &operator<<(ostream&os,const vector<T>&v){for(int i=0;i<(int)v.size();i++){os<<v[i]<<(i+1!=v.size()?" ":"");}return os;}
+ostream &operator<<(ostream&os,const vector<T>&v){for(auto it=v.begin();it!=v.end();){os<<*it<<((++it)!=v.end()?" ":"");}return os;}
 template<typename T>
 istream &operator>>(istream&is,vector<T>&v){for(T &in:v){is>>in;}return is;}
 void scan(){}
