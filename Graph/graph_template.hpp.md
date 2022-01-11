@@ -18,7 +18,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/lowest_common_ancestor.hpp
     title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':heavy_check_mark:'
@@ -50,7 +50,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C.test.cpp
     title: test/aoj/GRL/GRL_5_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca.test.cpp
     title: test/yosupo/lca.test.cpp
   - icon: ':x:'
@@ -63,9 +63,8 @@ data:
     document_title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
       \u30C8)"
     links: []
-  bundledCode: "#line 1 \"Graph/graph_template.hpp\"\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\ntemplate<typename T=int>\n\
-    struct Edge{\n  int from,to;\n  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int\
+  bundledCode: "#line 1 \"Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct\
+    \ Edge{\n  int from,to;\n  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int\
     \ to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n  operator\
     \ int()const{return to;}\n  bool operator<(const Edge&e)const{return cost<e.cost;}\n\
     };\ntemplate<typename T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n  int\
@@ -79,10 +78,10 @@ data:
     \    int a,b;\n    T c;\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n      a+=padding;\n\
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
-    \ Edges=vector<Edge<T>>;\n"
-  code: "/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
-    \u30C8)\n*/\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n\
-    \  int idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
+    \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n"
+  code: "template<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n  int\
+    \ idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
     \  operator int()const{return to;}\n  bool operator<(const Edge&e)const{return\
     \ cost<e.cost;}\n};\ntemplate<typename T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n\
     \  int es;\n  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n  size_t size()const{return\
@@ -95,7 +94,8 @@ data:
     \    int a,b;\n    T c;\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n      a+=padding;\n\
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
-    \ Edges=vector<Edge<T>>;"
+    \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/"
   dependsOn: []
   isVerificationFile: false
   path: Graph/graph_template.hpp
@@ -108,7 +108,7 @@ data:
   - Graph/warshall_floyd.hpp
   - Graph/topological_sort.hpp
   - Graph/kruskal.hpp
-  timestamp: '2022-01-05 17:03:50+00:00'
+  timestamp: '2022-01-11 21:49:44+00:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/GRL/GRL_1_C.test.cpp

@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/lowest_common_ancestor.hpp
     title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':question:'
@@ -76,11 +76,8 @@ data:
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Graph/lowest_common_ancestor.hpp\"\n/**\n * @brief Lowest Common Ancestor(\u6700\
-    \u5C0F\u5171\u901A\u7956\u5148)\n*/\n#line 1 \"Graph/graph_template.hpp\"\n/**\n\
-    \ * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
-    )\n*/\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n  int\
-    \ idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
+    Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n\
+    \  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
     \  operator int()const{return to;}\n  bool operator<(const Edge&e)const{return\
     \ cost<e.cost;}\n};\ntemplate<typename T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n\
     \  int es;\n  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n  size_t size()const{return\
@@ -93,10 +90,12 @@ data:
     \    int a,b;\n    T c;\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n      a+=padding;\n\
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
-    \ Edges=vector<Edge<T>>;\n#line 5 \"Graph/lowest_common_ancestor.hpp\"\ntemplate<typename\
-    \ T>\nstruct LCA{\n  int lg=0;\n  vector<int>dep;\n  const Graph<T>&g;\n  vector<vector<int>>table;\n\
-    \  LCA(int n):g(n),dep(n){\n    g.read(n-1);\n    while((1<<lg)<n)lg++;\n    table.assign(lg,vector<int>(n,-1));\n\
-    \    build();\n  }\n  LCA(const Graph<T>&g):g(g),dep(g.size()){\n    while((1<<lg)<g.size())lg++;\n\
+    \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/lowest_common_ancestor.hpp\"\
+    \ntemplate<typename T>\nstruct LCA{\n  int lg=0;\n  vector<int>dep;\n  const Graph<T>&g;\n\
+    \  vector<vector<int>>table;\n  LCA(int n):g(n),dep(n){\n    g.read(n-1);\n  \
+    \  while((1<<lg)<n)lg++;\n    table.assign(lg,vector<int>(n,-1));\n    build();\n\
+    \  }\n  LCA(const Graph<T>&g):g(g),dep(g.size()){\n    while((1<<lg)<g.size())lg++;\n\
     \    table.assign(lg,vector<int>(g.size(),-1));\n    build();\n  }\n  void dfs(int\
     \ idx,int par,int d){\n    table[0][idx]=par;\n    dep[idx]=d;\n    for(auto &e:g[idx]){\n\
     \      if(e!=par)dfs(e,idx,d+1);\n    }\n  }\n  void build(){\n    dfs(0,-1,0);\n\
@@ -106,8 +105,9 @@ data:
     \    for(int i=lg-1;i>=0;i--){\n      if(((dep[v]-dep[u])>>i)&1)v=table[i][v];\n\
     \    }\n    if(u==v)return u;\n    for(int i=lg-1;i>=0;i--){\n      if(table[i][u]!=table[i][v]){\n\
     \        u=table[i][u];\n        v=table[i][v];\n      }\n    }\n    return table[0][u];\n\
-    \  }\n};\n#line 4 \"test/aoj/GRL/GRL_5_C.test.cpp\"\nint main(){\n  int n;\n \
-    \ cin>>n;\n  Graph<int>g(n);\n  for(int i=0;i<n;i++){\n    int k;\n    cin>>k;\n\
+    \  }\n};\n/**\n * @brief Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\
+    \u5148)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_C.test.cpp\"\nint main(){\n  int n;\n\
+    \  cin>>n;\n  Graph<int>g(n);\n  for(int i=0;i<n;i++){\n    int k;\n    cin>>k;\n\
     \    while(k--){\n      int j;\n      cin>>j;\n      g.add_edge(i,j);\n    }\n\
     \  }\n  int q;\n  cin>>q;\n  if(n==1){\n    while(q--)cout<<0<<endl;\n    return\
     \ 0;\n  }\n  LCA<int>lca(g);\n  while(q--){\n    int a,b;\n    cin>>a>>b;\n  \
@@ -126,7 +126,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_C.test.cpp
   requiredBy: []
-  timestamp: '2022-01-11 21:08:13+00:00'
+  timestamp: '2022-01-11 21:49:44+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_C.test.cpp

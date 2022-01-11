@@ -73,9 +73,8 @@ data:
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Graph/rerooting.hpp\"\n/**\n * @brief ReRooting(\u5168\u65B9\u4F4D\u6728DP)\n\
-    */\ntemplate<typename S,typename T=S>\nstruct ReRooting{\n  struct Edge{\n   \
-    \ int from,to;\n    S cost;\n    T dp,ndp;\n  };\n  using F=function<T(T,T)>;\n\
+    Graph/rerooting.hpp\"\ntemplate<typename S,typename T=S>\nstruct ReRooting{\n\
+    \  struct Edge{\n    int from,to;\n    S cost;\n    T dp,ndp;\n  };\n  using F=function<T(T,T)>;\n\
     \  using G=function<T(T,Edge)>;\n  vector<vector<Edge>> g;\n  const F f;\n  const\
     \ G gg;\n  const T id;\n  vector<T> subdp,dp;\n  void add_edge(int u,int v,const\
     \ S &d) {\n    g[u].emplace_back(Edge{u,v,d,id,id});\n    g[v].emplace_back(Edge{v,u,d,id,id});\n\
@@ -87,12 +86,13 @@ data:
     \      now=f(now,e.dp);\n    }\n    dp[x]=now;\n    now=id;\n    for(int i=(int)g[x].size()-1;i>=0;i--){\n\
     \      auto &e=g[x][i];\n      if(e.to!= p)dfs_all(e.to,x,f(e.ndp,now));\n   \
     \   now=f(now,e.dp);\n    }\n  }\n  vector<T>solve(){\n    dfs_sub(0,-1);\n  \
-    \  dfs_all(0,-1,id);\n    return dp;\n  }\n};\n#line 4 \"test/aoj/GRL/GRL_5_B.test.cpp\"\
-    \nlong long f(long long a,long long b){\n  return max(a,b);\n}\nlong long g(long\
-    \ long a,ReRooting<long long>::Edge b){\n  return a+b.cost;\n}\nint main(){\n\
-    \  int n;\n  cin>>n;\n  ReRooting<long long>r(n,f,g);\n  for(int i=0;i<n-1;i++){\n\
-    \    int s,t;\n    long long w;\n    cin>>s>>t>>w;\n    r.add_edge(s,t,w);\n \
-    \ }\n  auto ans=r.solve();\n  for(auto i:ans)cout<<i<<endl;\n}\n"
+    \  dfs_all(0,-1,id);\n    return dp;\n  }\n};\n/**\n * @brief ReRooting(\u5168\
+    \u65B9\u4F4D\u6728DP)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_B.test.cpp\"\nlong long\
+    \ f(long long a,long long b){\n  return max(a,b);\n}\nlong long g(long long a,ReRooting<long\
+    \ long>::Edge b){\n  return a+b.cost;\n}\nint main(){\n  int n;\n  cin>>n;\n \
+    \ ReRooting<long long>r(n,f,g);\n  for(int i=0;i<n-1;i++){\n    int s,t;\n   \
+    \ long long w;\n    cin>>s>>t>>w;\n    r.add_edge(s,t,w);\n  }\n  auto ans=r.solve();\n\
+    \  for(auto i:ans)cout<<i<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_B\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/rerooting.hpp\"\
     \nlong long f(long long a,long long b){\n  return max(a,b);\n}\nlong long g(long\
@@ -106,7 +106,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_B.test.cpp
   requiredBy: []
-  timestamp: '2022-01-11 21:08:13+00:00'
+  timestamp: '2022-01-11 21:49:44+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_B.test.cpp
