@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5\
       )"
@@ -146,16 +146,16 @@ data:
     \ 4 \"Math/taylor-shift.hpp\"\ntemplate<long long m>\nFPS<m>TaylorShift(FPS<m>f,modint<m>a,combination<m>&c){\n\
     \  const int n=f.size();\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n\
     \  FPS<m>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
-    \  f*=g;\n  f.resize(n);\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n  return f;\n\
-    }\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5\
-    )\n*/\n"
+    \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
+    \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
+    \u79FB\u52D5)\n*/\n"
   code: "#pragma once\n#include\"fps.hpp\"\n#include\"combinatorics.hpp\"\ntemplate<long\
     \ long m>\nFPS<m>TaylorShift(FPS<m>f,modint<m>a,combination<m>&c){\n  const int\
     \ n=f.size();\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n\
     \  FPS<m>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
-    \  f*=g;\n  f.resize(n);\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n  return f;\n\
-    }\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5\
-    )\n*/"
+    \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
+    \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
+    \u79FB\u52D5)\n*/"
   dependsOn:
   - Math/fps.hpp
   - Math/ntt.hpp
@@ -164,8 +164,8 @@ data:
   isVerificationFile: false
   path: Math/taylor-shift.hpp
   requiredBy: []
-  timestamp: '2022-01-11 20:35:27+00:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-01-11 21:00:17+00:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/polynomial_taylor_shift.test.cpp
 documentation_of: Math/taylor-shift.hpp
