@@ -1,6 +1,4 @@
-/**
- * @brief Formal Power Series(形式的冪級数)
-*/
+#pragma once
 #include"ntt.hpp"
 template<long long Mod>
 struct FPS:vector<modint<Mod>>{
@@ -176,3 +174,6 @@ struct FPS:vector<modint<Mod>>{
     return FPS(d,mint(0));
   }
 };
+/**
+ * @brief Formal Power Series(形式的冪級数)
+*/

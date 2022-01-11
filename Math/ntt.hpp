@@ -1,6 +1,4 @@
-/**
- * @brief Number Theoretic Transform(数論変換)
-*/
+#pragma once
 #include"modint.hpp"
 template<long long m>
 struct NTT{
@@ -80,3 +78,6 @@ template<long long m>
 vector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();
 template<long long m>
 modint<m>NTT<m>::g=modint<m>();
+/**
+ * @brief Number Theoretic Transform(数論変換)
+*/

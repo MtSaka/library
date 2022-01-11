@@ -1,6 +1,4 @@
-/**
- * @brief Binary Indexed Tree(BIT)
-*/
+#pragma once
 template<typename T>
 struct BIT{
   long long N;
@@ -26,3 +24,6 @@ struct BIT{
     return sum(r)-sum(l);
   }
 };
+/**
+ * @brief Binary Indexed Tree(BIT)
+*/

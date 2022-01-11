@@ -1,6 +1,4 @@
-/**
- * @brief Inversion Number(転倒数)
-*/
+#pragma once
 #include"BIT.hpp"
 template<typename T>
 long long inversion(vector<T>a){
@@ -18,3 +16,6 @@ long long inversion(vector<T>a){
   }
   return ans;
 }
+/**
+ * @brief Inversion Number(転倒数)
+*/

@@ -1,6 +1,4 @@
-/**
- * @brief modint
-*/
+#pragma once
 template<long long m>
 struct modint{
   long long x;
@@ -54,3 +52,6 @@ struct modint{
   }
   static long long get_mod(){return m;}
 };
+/**
+ * @brief modint
+*/

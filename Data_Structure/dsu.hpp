@@ -1,6 +1,4 @@
-/**
- * @brief Disjoint Set Union(Union Find)
-*/
+#pragma once
 struct dsu{
   vector<int>p;
   dsu(int n):p(n,-1){}
@@ -28,3 +26,6 @@ struct dsu{
     return result;
   }
 };
+/**
+ * @brief Disjoint Set Union(Union Find)
+*/

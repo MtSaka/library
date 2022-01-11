@@ -1,6 +1,4 @@
-/**
- * @brief Segment Tree(セグメント木)
-*/
+#pragma once
 template<class S,S (*op)(S,S),S (*e)()>
 struct segtree{
   private:
@@ -34,3 +32,6 @@ struct segtree{
   }
   S all_query()const{return seq[1];}
 };
+/**
+ * @brief Segment Tree(セグメント木)
+*/

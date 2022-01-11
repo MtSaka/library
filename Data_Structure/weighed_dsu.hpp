@@ -1,6 +1,4 @@
-/**
- * @brief Weighed Disjoint Set Union(重み付きUnion Find)
-*/ 
+#pragma once
 template<typename T>
 struct weighed_dsu{
   vector<int>p;vector<T>diff;
@@ -31,3 +29,6 @@ struct weighed_dsu{
     return weight(y)-weight(x);
   }
 };
+/**
+ * @brief Weighed Disjoint Set Union(重み付きUnion Find)
+*/ 

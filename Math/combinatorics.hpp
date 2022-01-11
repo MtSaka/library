@@ -1,6 +1,4 @@
-/**
- * @brief Combinatorics(組み合わせ)
-*/
+#pragma once
 #include"modint.hpp"
 template<long long m>
 struct combination{
@@ -20,6 +18,10 @@ struct combination{
     if(n<0)return mint(0);
     return dat[n];
   }
+  mint finv(long long n){
+    if(n<0)return mint(0);
+    return idat[n];
+  }
   mint hom(long long n,long long k){
     return com(n+k-1,k);
   }
@@ -28,3 +30,6 @@ struct combination{
     return dat[n]*idat[n-k];
   }
 };
+/**
+ * @brief Combinatorics(組み合わせ)
+*/
