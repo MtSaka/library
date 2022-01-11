@@ -1,6 +1,3 @@
-/**
- * @brief Mod Pow(べき乗)
-*/
 template<typename T,typename S>
 T modpow(T a,S b,T m){
   T ret=1;
@@ -11,3 +8,6 @@ T modpow(T a,S b,T m){
   }
   return ret;
 }
+/**
+ * @brief Mod Pow(べき乗)
+*/

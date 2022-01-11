@@ -1,6 +1,3 @@
-/**
- * @brief Prime Factorization(素因数分解)
-*/
 vector<pair<long long,int>>factorize(long long N){
   vector<pair<long long,int>>ans;
   for(long long i=2;i*i<=N;i++){
@@ -15,3 +12,6 @@ vector<pair<long long,int>>factorize(long long N){
   if(N!=1)ans.push_back({N,1});
   return ans;
 }
+/**
+ * @brief Prime Factorization(素因数分解)
+*/

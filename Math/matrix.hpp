@@ -1,6 +1,3 @@
-/**
- * @brief Matrix(行列)
-*/
 template<class T>
 struct Matrix {
   vector<vector<T>>A;
@@ -48,3 +45,6 @@ struct Matrix {
   Matrix operator*(const Matrix&B)const{return Matrix(*this)*=B;}
   Matrix operator^(const long long&k)const{return Matrix(*this)^=k;}
 };
+/**
+ * @brief Matrix(行列)
+*/

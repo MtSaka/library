@@ -1,6 +1,3 @@
-/**
- * @brief Mod Inv(逆元)
-*/
 template<typename T>
 T modinv(T a,T m){
   T b=m,c=1,d=0,t;
@@ -13,3 +10,6 @@ T modinv(T a,T m){
   if(c<0)c+=m;
   return c;
 }
+/**
+ * @brief Mod Inv(逆元)
+*/

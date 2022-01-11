@@ -1,6 +1,3 @@
-/**
- * @brief Fraction(有理数型)
-*/
 struct fraction{
   static long long gcd(long long a,long long b){return b?gcd(b,a%b):a;}
   long long num,den;
@@ -30,3 +27,6 @@ struct fraction{
   friend ostream& operator<<(ostream& os, const fraction& f){os<<f.num<<"/"<<f.den;return os;}
   friend istream& operator>>(istream& is, fraction& f){is>>f.num>>f.den;return is;}
 };
+/**
+ * @brief Fraction(有理数型)
+*/

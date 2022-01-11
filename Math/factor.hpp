@@ -1,6 +1,3 @@
-/**
- * @brief Factor Enumeration(約数列挙)
-*/
 vector<long long>factor(long long N){
   vector<long long>ans;
   for(long long i=1;i*i<=N;i++){
@@ -12,3 +9,6 @@ vector<long long>factor(long long N){
   sort(ans.begin(),ans.end());
   return ans;
 }
+/**
+ * @brief Factor Enumeration(約数列挙)
+*/

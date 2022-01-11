@@ -1,6 +1,3 @@
-/**
- * @brief Convolution(畳み込み)
-*/
 #include"ntt.hpp"
 vector<long long>convolution(const vector<long long>&a,const vector<long long>&b){
   const int n=a.size(),m=b.size();
@@ -23,3 +20,6 @@ vector<long long>convolution(const vector<long long>&a,const vector<long long>&b
   }
   return c;
 }
+/**
+ * @brief Convolution(畳み込み)
+*/

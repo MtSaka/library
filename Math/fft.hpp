@@ -1,6 +1,3 @@
-/**
- * @brief Fast Fourier Transform(高速フーリエ変換)
-*/
 void dft(vector<complex<double>>&a,double inv){
   const int sz=a.size();
   if(sz==1)return;
@@ -29,3 +26,6 @@ vector<double>multiply(const vector<T>&a,const vector<T>&b){
   for(int i=0;i<res.size();i++)res[i]=(ma[i].real())/(double)sz;
   return res;
 }
+/**
+ * @brief Fast Fourier Transform(高速フーリエ変換)
+*/

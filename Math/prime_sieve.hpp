@@ -1,6 +1,3 @@
-/**
- * @brief Prime Sieve(エラトステネスの篩)
-*/
 template<typename T>
 struct prime_sieve{
   vector<T>mpf;
@@ -29,3 +26,6 @@ struct prime_sieve{
     return res;
   }
 };
+/**
+ * @brief Prime Sieve(エラトステネスの篩)
+*/

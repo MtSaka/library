@@ -1,6 +1,3 @@
-/**
- * @brief Prime Determination(素数判定)
-*/
 bool is_prime(long long N){
   if(N<2)return 0;
   if(N==2)return 1;
@@ -10,3 +7,6 @@ bool is_prime(long long N){
   }
   return 1;
 }
+/**
+ * @brief Prime Determination(素数判定)
+*/

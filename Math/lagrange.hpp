@@ -1,6 +1,3 @@
-/**
- * @brief Lagrange Polynomial(多項式補間)
-*/
 #include"combinatorics.hpp"
 template<long long m>
 modint<m> lagrange_polynominal(const vector<modint<m>>&y,const long long&t){
@@ -19,3 +16,6 @@ modint<m> lagrange_polynominal(const vector<modint<m>>&y,const long long&t){
   }
   return ret;
 }
+/**
+ * @brief Lagrange Polynomial(多項式補間)
+*/

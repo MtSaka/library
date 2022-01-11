@@ -1,6 +1,3 @@
-/**
- * @brief Quotient Ranges(商列挙)
-*/
 template<typename T>
 vector<pair<T,pair<T,T>>>quotient_ranges(T n){
   vector<pair<T,pair<T,T>>>ans;
@@ -13,3 +10,6 @@ vector<pair<T,pair<T,T>>>quotient_ranges(T n){
   }
   return ans;
 }
+/**
+ * @brief Quotient Ranges(商列挙)
+*/

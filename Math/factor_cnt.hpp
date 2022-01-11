@@ -1,6 +1,3 @@
-/**
- * @brief Factor Count(約数個数)
-*/
 long long factor_cnt(long long N){
   long long ans=1;
   for(long long i=2;i*i<=N;i++){
@@ -16,3 +13,6 @@ long long factor_cnt(long long N){
   if(N!=1)ans*=2;
   return ans;
 }
+/**
+ * @brief Factor Count(約数個数)
+*/

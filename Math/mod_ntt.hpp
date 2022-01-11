@@ -1,6 +1,3 @@
-/**
- * @brief Arbitrary Mod Convolution(任意mod畳み込み)
-*/
 #include"ntt.hpp"
 vector<long long>mod_convolution(vector<long long>a,vector<long long>b,long long m){
   const long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889%m;
@@ -19,3 +16,6 @@ vector<long long>mod_convolution(vector<long long>a,vector<long long>b,long long
   }
   return res;
 }
+/**
+ * @brief Arbitrary Mod Convolution(任意mod畳み込み)
+*/

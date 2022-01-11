@@ -1,6 +1,3 @@
-/**
- * @brief Range Prime Sieve(エラトステネスの区間篩)
-*/
 template<typename T>
 struct range_prime_sieve{
   T l,r,m;
@@ -32,3 +29,6 @@ struct range_prime_sieve{
     return res;
   }
 };
+/**
+ * @brief Range Prime Sieve(エラトステネスの区間篩)
+*/
