@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Data_Structure/dsu.hpp
     title: Disjoint Set Union(Union Find)
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -72,18 +72,18 @@ data:
     ,\";trace(forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\n\
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
-    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Data_Structure/dsu.hpp\"\n/**\n * @brief Disjoint Set Union(Union Find)\n*/\n\
-    struct dsu{\n  vector<int>p;\n  dsu(int n):p(n,-1){}\n  int root(int x){return\
-    \ p[x]<0?x:p[x]=root(p[x]);}\n  bool same(int x,int y){return root(x)==root(y);}\n\
-    \  int size(int x){return -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n\
-    \    if(x==y)return x;\n    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n\
-    \    return x;\n  }\n  vector<vector<int>>groups(){\n    const int n=p.size();\n\
-    \    vector<int>leader(n),group_size(n);\n    for(int i=0;i<n;i++){\n      leader[i]=root(i);\n\
-    \      group_size[leader[i]]++;\n    }\n    vector<vector<int>>result(n);\n  \
-    \  for(int i=0;i<n;i++)result[i].reserve(group_size[i]);\n    for(int i=0;i<n;i++)result[leader[i]].push_back(i);\n\
-    \    result.erase(remove_if(result.begin(),result.end(),[](const vector<int>&v){return\
-    \ v.empty();}),result.end());\n    return result;\n  }\n};\n#line 4 \"test/aoj/DSL/DSL_1_A.test.cpp\"\
+    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
+    Data_Structure/dsu.hpp\"\nstruct dsu{\n  vector<int>p;\n  dsu(int n):p(n,-1){}\n\
+    \  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n  bool same(int x,int y){return\
+    \ root(x)==root(y);}\n  int size(int x){return -p[root(x)];}\n  int merge(int\
+    \ x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return x;\n    if(p[x]>p[y])swap(x,y);\n\
+    \    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n  vector<vector<int>>groups(){\n\
+    \    const int n=p.size();\n    vector<int>leader(n),group_size(n);\n    for(int\
+    \ i=0;i<n;i++){\n      leader[i]=root(i);\n      group_size[leader[i]]++;\n  \
+    \  }\n    vector<vector<int>>result(n);\n    for(int i=0;i<n;i++)result[i].reserve(group_size[i]);\n\
+    \    for(int i=0;i<n;i++)result[leader[i]].push_back(i);\n    result.erase(remove_if(result.begin(),result.end(),[](const\
+    \ vector<int>&v){return v.empty();}),result.end());\n    return result;\n  }\n\
+    };\n/**\n * @brief Disjoint Set Union(Union Find)\n*/\n#line 4 \"test/aoj/DSL/DSL_1_A.test.cpp\"\
     \nint main(){\n  int n,q;\n  cin>>n>>q;\n  dsu d(n);\n  while(q--){\n    int t,x,y;\n\
     \    cin>>t>>x>>y;\n    if(t==0)d.merge(x,y);\n    else print(d.same(x,y));\n\
     \  }\n}\n"
@@ -98,7 +98,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2022-01-09 22:08:51+00:00'
+  timestamp: '2022-01-11 20:35:27+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_1_A.test.cpp

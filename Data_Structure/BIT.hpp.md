@@ -21,25 +21,25 @@ data:
   attributes:
     document_title: Binary Indexed Tree(BIT)
     links: []
-  bundledCode: "#line 1 \"Data_Structure/BIT.hpp\"\n/**\n * @brief Binary Indexed\
-    \ Tree(BIT)\n*/\ntemplate<typename T>\nstruct BIT{\n  long long N;\n  vector<T>bit;\n\
+  bundledCode: "#line 2 \"Data_Structure/BIT.hpp\"\ntemplate<typename T>\nstruct BIT{\n\
+    \  long long N;\n  vector<T>bit;\n  BIT(long long n){\n    N=1;\n    while(N<n)N<<=1;\n\
+    \    bit=vector<T>(N+1,0);\n  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n\
+    \      bit[i]+=x;\n      i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n\
+    \    while(i>0)ans+=bit[i],i-=i&-i;\n    return ans;\n  }\n  T query(int l,int\
+    \ r){\n    return sum(r)-sum(l);\n  }\n};\n/**\n * @brief Binary Indexed Tree(BIT)\n\
+    */\n"
+  code: "#pragma once\ntemplate<typename T>\nstruct BIT{\n  long long N;\n  vector<T>bit;\n\
     \  BIT(long long n){\n    N=1;\n    while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n\
     \  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n      bit[i]+=x;\n \
     \     i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n\
     \    return ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n\
-    };\n"
-  code: "/**\n * @brief Binary Indexed Tree(BIT)\n*/\ntemplate<typename T>\nstruct\
-    \ BIT{\n  long long N;\n  vector<T>bit;\n  BIT(long long n){\n    N=1;\n    while(N<n)N<<=1;\n\
-    \    bit=vector<T>(N+1,0);\n  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n\
-    \      bit[i]+=x;\n      i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n\
-    \    while(i>0)ans+=bit[i],i-=i&-i;\n    return ans;\n  }\n  T query(int l,int\
-    \ r){\n    return sum(r)-sum(l);\n  }\n};"
+    };\n/**\n * @brief Binary Indexed Tree(BIT)\n*/"
   dependsOn: []
   isVerificationFile: false
   path: Data_Structure/BIT.hpp
   requiredBy:
   - Data_Structure/inversion.hpp
-  timestamp: '2022-01-05 17:21:33+00:00'
+  timestamp: '2022-01-11 20:35:27+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL/DSL_2_B.test.cpp

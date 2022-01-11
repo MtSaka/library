@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -78,11 +78,8 @@ data:
     ,\";trace(forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\n\
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
-    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Math/fps.hpp\"\n/**\n * @brief Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\
-    \u6570)\n*/\n#line 1 \"Math/ntt.hpp\"\n/**\n * @brief Number Theoretic Transform(\u6570\
-    \u8AD6\u5909\u63DB)\n*/\n#line 1 \"Math/modint.hpp\"\n/**\n * @brief modint\n\
-    */\ntemplate<long long m>\nstruct modint{\n  long long x;\n  modint():x(0){}\n\
+    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
+    Math/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  long long x;\n  modint():x(0){}\n\
     \  modint(long long y){\n    if(y<0){\n      y%=m;\n      if(y==0)x=y;\n     \
     \ else x=m+y;\n    }\n    else if(y<m)x=y;\n    else x=y%m;\n  }\n  modint inv()const{\n\
     \    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n\
@@ -100,16 +97,16 @@ data:
     \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
     \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n#line 5 \"Math/ntt.hpp\"\ntemplate<long long m>\nstruct NTT{\n  using\
-    \ mint=modint<m>;\n  static modint<m> g;\n  static int limit;\n  static vector<modint<m>>root,inv_root;\n\
-    \  static mint primitive_root(const long long&mo){\n    if(mo==167772161)return\
-    \ mint(3);\n    if(mo==469762049)return mint(3);\n    if(mo==754974721)return\
-    \ mint(11);\n    if(mo==998244353)return mint(3);\n    if(mo==1224736769)return\
-    \ mint(3);\n    return mint(0);\n  }\n  static void init(){\n    if(root.empty()){\n\
-    \      g=primitive_root(m);\n      long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n\
-    \      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n      root[limit]=g.pow(now);\n\
-    \      inv_root[limit]/=root[limit];\n      for(int i=limit-1;i>=0;i--){\n   \
-    \     root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
+    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/ntt.hpp\"\ntemplate<long\
+    \ long m>\nstruct NTT{\n  using mint=modint<m>;\n  static modint<m> g;\n  static\
+    \ int limit;\n  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
+    \ long long&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
+    \ mint(3);\n    if(mo==754974721)return mint(11);\n    if(mo==998244353)return\
+    \ mint(3);\n    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n\
+    \  static void init(){\n    if(root.empty()){\n      g=primitive_root(m);\n  \
+    \    long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
+    \      root[limit]=g.pow(now);\n      inv_root[limit]/=root[limit];\n      for(int\
+    \ i=limit-1;i>=0;i--){\n        root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
     \      }\n    }\n  }\n  NTT(){};\n  static void dft(vector<mint>&a,int inv){\n\
     \    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const int\
     \ mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n     \
@@ -127,9 +124,10 @@ data:
     \    return c;\n  }\n};\ntemplate<long long m>\nint NTT<m>::limit=0;\ntemplate<long\
     \ long m>\nvector<modint<m>>NTT<m>::root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\ntemplate<long long\
-    \ m>\nmodint<m>NTT<m>::g=modint<m>();\n#line 5 \"Math/fps.hpp\"\ntemplate<long\
-    \ long Mod>\nstruct FPS:vector<modint<Mod>>{\n  using mint=modint<Mod>;\n  using\
-    \ vector<mint>::vector;\n  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}\n\
+    \ m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic Transform(\u6570\
+    \u8AD6\u5909\u63DB)\n*/\n#line 3 \"Math/fps.hpp\"\ntemplate<long long Mod>\nstruct\
+    \ FPS:vector<modint<Mod>>{\n  using mint=modint<Mod>;\n  using vector<mint>::vector;\n\
+    \  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}\n\
     \  FPS inv(int d=-1)const{\n    NTT<Mod>ntt;\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res{(*this)[0].inv()};\n    for(int m=1;m<d;m<<=1){\n\
     \      FPS f((*this).begin(),(*this).begin()+min(n,2*m));\n      FPS g(res);\n\
@@ -186,7 +184,8 @@ data:
     \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
     \        if(i*k>d)return FPS(d,mint(0));\n        FPS ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));\n\
     \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
-    \  }\n    }\n    return FPS(d,mint(0));\n  }\n};\n#line 4 \"test/yosupo/inv_of_formal_power_series.test.cpp\"\
+    \  }\n    }\n    return FPS(d,mint(0));\n  }\n};\n/**\n * @brief Formal Power\
+    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"test/yosupo/inv_of_formal_power_series.test.cpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  FPS<mod>fps(n);\n  cin>>fps;\n  print(fps.inv());\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/inv_of_formal_power_series\"\
@@ -201,7 +200,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/inv_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-01-08 23:22:06+00:00'
+  timestamp: '2022-01-11 20:35:27+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/inv_of_formal_power_series.test.cpp

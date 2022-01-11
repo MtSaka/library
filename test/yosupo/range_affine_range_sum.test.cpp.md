@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Data_Structure/lazy_segtree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_affine_range_sum
@@ -75,32 +75,30 @@ data:
     ,\";trace(forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\n\
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
-    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Math/modint.hpp\"\n/**\n * @brief modint\n*/\ntemplate<long long m>\nstruct modint{\n\
-    \  long long x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n   \
-    \   y%=m;\n      if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n\
-    \    else x=y%m;\n  }\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n\
-    \    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n \
-    \   }\n    return modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
-    \ *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n\
-    \  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
-    \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint operator-()const{return\
-    \ modint(-x); }\n  modint operator+(const modint&p)const{return modint(*this)+=p;\
-    \ }\n  modint operator-(const modint&p)const{return modint(*this)-=p; }\n  modint\
-    \ operator*(const modint&p)const{return modint(*this)*=p; }\n  modint operator/(const\
-    \ modint&p)const{return modint(*this)/=p; }\n  bool operator==(const modint&p)const{return\
-    \ x==p.x;}\n  bool operator!=(const modint&p)const{return x!=p.x;}\n  modint pow(long\
-    \ long n)const{\n    modint ret(1),mul(x);\n    while(n){\n      if(n&1)ret*=mul;\n\
-    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  friend ostream\
-    \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
-    \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
-    \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n#line 1 \"Data_Structure/lazy_segtree.hpp\"\n/**\n * @brief Lazy Segment\
-    \ Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\ntemplate<class S,S\
-    \ (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>\n\
-    struct lazy_segtree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  vector<F>lazy;\n\
-    \  void update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n  void all_apply(int k,F\
-    \ f){\n    seq[k]=mapping(f,seq[k]);\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
+    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
+    Math/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  long long x;\n  modint():x(0){}\n\
+    \  modint(long long y){\n    if(y<0){\n      y%=m;\n      if(y==0)x=y;\n     \
+    \ else x=m+y;\n    }\n    else if(y<m)x=y;\n    else x=y%m;\n  }\n  modint inv()const{\n\
+    \    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n\
+    \      swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n  modint &operator+=(const\
+    \ modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return\
+    \ *this;}\n  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n\
+    \  modint &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint\
+    \ operator-()const{return modint(-x); }\n  modint operator+(const modint&p)const{return\
+    \ modint(*this)+=p; }\n  modint operator-(const modint&p)const{return modint(*this)-=p;\
+    \ }\n  modint operator*(const modint&p)const{return modint(*this)*=p; }\n  modint\
+    \ operator/(const modint&p)const{return modint(*this)/=p; }\n  bool operator==(const\
+    \ modint&p)const{return x==p.x;}\n  bool operator!=(const modint&p)const{return\
+    \ x!=p.x;}\n  modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n\
+    \      if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
+    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
+    \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
+    \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
+    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 2 \"Data_Structure/lazy_segtree.hpp\"\
+    \ntemplate<class S,S (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F\
+    \ (*id)()>\nstruct lazy_segtree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
+    \  vector<F>lazy;\n  void update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n  void\
+    \ all_apply(int k,F f){\n    seq[k]=mapping(f,seq[k]);\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
     \  }\n  void eval(int k){\n    all_apply(2*k,lazy[k]);\n    all_apply(2*k+1,lazy[k]);\n\
     \    lazy[k]=id();\n  }\n  public:\n  lazy_segtree():lazy_segtree(0){}\n  lazy_segtree(int\
     \ n):lazy_segtree(vector<S>(n,e())){}\n  lazy_segtree(const vector<S>&v):_n(int(v.size())){\n\
@@ -120,15 +118,17 @@ data:
     \      if(((r>>i)<<i)!=r)eval((r-1)>>i);\n    }\n    int l2=l,r2=r;\n    while(l<r){\n\
     \      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n      l>>=1;\n\
     \      r>>=1;\n    }\n    l=l2,r=r2;\n    for(int i=1;i<=idx;i++){\n      if(((l>>i)<<i)!=l)update(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)update((r-1)>>i);\n    }\n  }\n};\n#line 5 \"test/yosupo/range_affine_range_sum.test.cpp\"\
-    \nusing mint=modint<mod>;\nusing Pi=pair<mint,int >;\nusing qi=pair<mint,mint>;\n\
-    Pi op(Pi a,Pi b){return {a.first+b.first,a.second+b.second};}\nPi mapping(qi a,Pi\
-    \ b){return {a.first*b.first+a.second*mint(b.second),b.second};}\nqi composition(qi\
-    \ b,qi a){return {a.first*b.first,a.second*b.first+b.second};}\nPi e(){return\
-    \ Pi(0,0);}\nqi id(){return qi(1,0);}\nint main(){\n  INT(n,q);\n  lazy_segtree<Pi,op,e,qi,mapping,composition,id>s(n);\n\
-    \  rep(i,n){\n    mint a;\n    scan(a);\n    s.set(i,Pi(a,1));\n  }\n  while(q--){\n\
-    \    LL(t);\n    if(t){\n      INT(l,r);\n      print(s.query(l,r).first);\n \
-    \   }\n    else{\n      INT(l,r);\n      mint b,c;\n      scan(b,c);\n      s.apply(l,r,qi(b,c));\n\
+    \      if(((r>>i)<<i)!=r)update((r-1)>>i);\n    }\n  }\n};\n/**\n * @brief Lazy\
+    \ Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 5\
+    \ \"test/yosupo/range_affine_range_sum.test.cpp\"\nusing mint=modint<mod>;\nusing\
+    \ Pi=pair<mint,int >;\nusing qi=pair<mint,mint>;\nPi op(Pi a,Pi b){return {a.first+b.first,a.second+b.second};}\n\
+    Pi mapping(qi a,Pi b){return {a.first*b.first+a.second*mint(b.second),b.second};}\n\
+    qi composition(qi b,qi a){return {a.first*b.first,a.second*b.first+b.second};}\n\
+    Pi e(){return Pi(0,0);}\nqi id(){return qi(1,0);}\nint main(){\n  INT(n,q);\n\
+    \  lazy_segtree<Pi,op,e,qi,mapping,composition,id>s(n);\n  rep(i,n){\n    mint\
+    \ a;\n    scan(a);\n    s.set(i,Pi(a,1));\n  }\n  while(q--){\n    LL(t);\n  \
+    \  if(t){\n      INT(l,r);\n      print(s.query(l,r).first);\n    }\n    else{\n\
+    \      INT(l,r);\n      mint b,c;\n      scan(b,c);\n      s.apply(l,r,qi(b,c));\n\
     \    }\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/modint.hpp\"\n\
@@ -149,8 +149,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-01-08 16:59:19+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-11 20:35:27+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/range_affine_range_sum.test.cpp
 layout: document

@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Data_Structure/inversion.hpp
     title: "Inversion Number(\u8EE2\u5012\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -75,20 +75,20 @@ data:
     ,\";trace(forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\n\
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
-    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Data_Structure/inversion.hpp\"\n/**\n * @brief Inversion Number(\u8EE2\u5012\u6570\
-    )\n*/\n#line 1 \"Data_Structure/BIT.hpp\"\n/**\n * @brief Binary Indexed Tree(BIT)\n\
-    */\ntemplate<typename T>\nstruct BIT{\n  long long N;\n  vector<T>bit;\n  BIT(long\
-    \ long n){\n    N=1;\n    while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n  }\n \
-    \ void add(int i,T x){\n    i++;\n    while(i<=N){\n      bit[i]+=x;\n      i+=i&-i;\
-    \    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n\
+    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
+    Data_Structure/BIT.hpp\"\ntemplate<typename T>\nstruct BIT{\n  long long N;\n\
+    \  vector<T>bit;\n  BIT(long long n){\n    N=1;\n    while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n\
+    \  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n      bit[i]+=x;\n \
+    \     i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n\
     \    return ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n\
-    };\n#line 5 \"Data_Structure/inversion.hpp\"\ntemplate<typename T>\nlong long\
-    \ inversion(vector<T>a){\n  int n=a.size();\n  vector<T>b=a;\n  sort(b.begin(),b.end());\n\
-    \  map<long long,int>mp;\n  for(int i=0;i<n;i++)mp[b[i]]=i+1;\n  for(int i=0;i<n;i++)a[i]=mp[a[i]];\n\
-    \  long long ans=0;\n  BIT<int>c(n);\n  for(int i=0;i<n;i++){\n    ans+=i-c.sum(a[i]);\n\
-    \    c.add(a[i],1);\n  }\n  return ans;\n}\n#line 4 \"test/aoj/ALDS1/ALDS1_5_D.test.cpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n\
+    };\n/**\n * @brief Binary Indexed Tree(BIT)\n*/\n#line 3 \"Data_Structure/inversion.hpp\"\
+    \ntemplate<typename T>\nlong long inversion(vector<T>a){\n  int n=a.size();\n\
+    \  vector<T>b=a;\n  sort(b.begin(),b.end());\n  map<long long,int>mp;\n  for(int\
+    \ i=0;i<n;i++)mp[b[i]]=i+1;\n  for(int i=0;i<n;i++)a[i]=mp[a[i]];\n  long long\
+    \ ans=0;\n  BIT<int>c(n);\n  for(int i=0;i<n;i++){\n    ans+=i-c.sum(a[i]);\n\
+    \    c.add(a[i],1);\n  }\n  return ans;\n}\n/**\n * @brief Inversion Number(\u8EE2\
+    \u5012\u6570)\n*/\n#line 4 \"test/aoj/ALDS1/ALDS1_5_D.test.cpp\"\nint main(){\n\
+    \  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n\
     }\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Data_Structure/inversion.hpp\"\
@@ -101,7 +101,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   requiredBy: []
-  timestamp: '2022-01-08 16:59:19+00:00'
+  timestamp: '2022-01-11 20:35:27+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_5_D.test.cpp

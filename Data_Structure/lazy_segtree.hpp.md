@@ -3,22 +3,21 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
       )"
     links: []
-  bundledCode: "#line 1 \"Data_Structure/lazy_segtree.hpp\"\n/**\n * @brief Lazy Segment\
-    \ Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\ntemplate<class S,S\
-    \ (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>\n\
-    struct lazy_segtree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  vector<F>lazy;\n\
-    \  void update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n  void all_apply(int k,F\
-    \ f){\n    seq[k]=mapping(f,seq[k]);\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
+  bundledCode: "#line 2 \"Data_Structure/lazy_segtree.hpp\"\ntemplate<class S,S (*op)(S,S),S\
+    \ (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>\nstruct lazy_segtree{\n\
+    \  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  vector<F>lazy;\n  void\
+    \ update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n  void all_apply(int k,F f){\n\
+    \    seq[k]=mapping(f,seq[k]);\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
     \  }\n  void eval(int k){\n    all_apply(2*k,lazy[k]);\n    all_apply(2*k+1,lazy[k]);\n\
     \    lazy[k]=id();\n  }\n  public:\n  lazy_segtree():lazy_segtree(0){}\n  lazy_segtree(int\
     \ n):lazy_segtree(vector<S>(n,e())){}\n  lazy_segtree(const vector<S>&v):_n(int(v.size())){\n\
@@ -38,9 +37,9 @@ data:
     \      if(((r>>i)<<i)!=r)eval((r-1)>>i);\n    }\n    int l2=l,r2=r;\n    while(l<r){\n\
     \      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n      l>>=1;\n\
     \      r>>=1;\n    }\n    l=l2,r=r2;\n    for(int i=1;i<=idx;i++){\n      if(((l>>i)<<i)!=l)update(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)update((r-1)>>i);\n    }\n  }\n};\n"
-  code: "/**\n * @brief Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\
-    \u6728)\n*/\ntemplate<class S,S (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F\
+    \      if(((r>>i)<<i)!=r)update((r-1)>>i);\n    }\n  }\n};\n/**\n * @brief Lazy\
+    \ Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n"
+  code: "#pragma once\ntemplate<class S,S (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F\
     \ (*composition)(F,F),F (*id)()>\nstruct lazy_segtree{\n  private:\n  int _n,size=1,idx=0;\n\
     \  vector<S>seq;\n  vector<F>lazy;\n  void update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n\
     \  void all_apply(int k,F f){\n    seq[k]=mapping(f,seq[k]);\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
@@ -63,13 +62,14 @@ data:
     \      if(((r>>i)<<i)!=r)eval((r-1)>>i);\n    }\n    int l2=l,r2=r;\n    while(l<r){\n\
     \      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n      l>>=1;\n\
     \      r>>=1;\n    }\n    l=l2,r=r2;\n    for(int i=1;i<=idx;i++){\n      if(((l>>i)<<i)!=l)update(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)update((r-1)>>i);\n    }\n  }\n};"
+    \      if(((r>>i)<<i)!=r)update((r-1)>>i);\n    }\n  }\n};\n/**\n * @brief Lazy\
+    \ Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/"
   dependsOn: []
   isVerificationFile: false
   path: Data_Structure/lazy_segtree.hpp
   requiredBy: []
-  timestamp: '2022-01-05 17:41:28+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-01-11 20:35:27+00:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/range_affine_range_sum.test.cpp
 documentation_of: Data_Structure/lazy_segtree.hpp

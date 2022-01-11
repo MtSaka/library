@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Data_Structure/dsu.hpp
     title: Disjoint Set Union(Union Find)
   - icon: ':heavy_check_mark:'
@@ -19,24 +19,23 @@ data:
     document_title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
     links: []
   bundledCode: "#line 1 \"Graph/kruskal.hpp\"\n/**\n * @brief Kruskal(\u6700\u5C0F\
-    \u5168\u57DF\u6728)\n*/\n#line 1 \"Data_Structure/dsu.hpp\"\n/**\n * @brief Disjoint\
-    \ Set Union(Union Find)\n*/\nstruct dsu{\n  vector<int>p;\n  dsu(int n):p(n,-1){}\n\
-    \  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n  bool same(int x,int y){return\
-    \ root(x)==root(y);}\n  int size(int x){return -p[root(x)];}\n  int merge(int\
-    \ x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return x;\n    if(p[x]>p[y])swap(x,y);\n\
-    \    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n  vector<vector<int>>groups(){\n\
-    \    const int n=p.size();\n    vector<int>leader(n),group_size(n);\n    for(int\
-    \ i=0;i<n;i++){\n      leader[i]=root(i);\n      group_size[leader[i]]++;\n  \
-    \  }\n    vector<vector<int>>result(n);\n    for(int i=0;i<n;i++)result[i].reserve(group_size[i]);\n\
+    \u5168\u57DF\u6728)\n*/\n#line 2 \"Data_Structure/dsu.hpp\"\nstruct dsu{\n  vector<int>p;\n\
+    \  dsu(int n):p(n,-1){}\n  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n\
+    \  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
+    \ -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return\
+    \ x;\n    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n\
+    \  vector<vector<int>>groups(){\n    const int n=p.size();\n    vector<int>leader(n),group_size(n);\n\
+    \    for(int i=0;i<n;i++){\n      leader[i]=root(i);\n      group_size[leader[i]]++;\n\
+    \    }\n    vector<vector<int>>result(n);\n    for(int i=0;i<n;i++)result[i].reserve(group_size[i]);\n\
     \    for(int i=0;i<n;i++)result[leader[i]].push_back(i);\n    result.erase(remove_if(result.begin(),result.end(),[](const\
     \ vector<int>&v){return v.empty();}),result.end());\n    return result;\n  }\n\
-    };\n#line 1 \"Graph/graph_template.hpp\"\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\ntemplate<typename T=int>\n\
-    struct Edge{\n  int from,to;\n  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int\
-    \ to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n  operator\
-    \ int()const{return to;}\n  bool operator<(const Edge&e)const{return cost<e.cost;}\n\
-    };\ntemplate<typename T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n  int\
-    \ es;\n  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n  size_t size()const{return\
+    };\n/**\n * @brief Disjoint Set Union(Union Find)\n*/\n#line 1 \"Graph/graph_template.hpp\"\
+    \n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
+    \u30C8)\n*/\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n\
+    \  int idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
+    \  operator int()const{return to;}\n  bool operator<(const Edge&e)const{return\
+    \ cost<e.cost;}\n};\ntemplate<typename T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n\
+    \  int es;\n  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n  size_t size()const{return\
     \ g.size();}\n  size_t edge_size()const{return es;}\n  void add_directed_edge(int\
     \ from,int to,T cost=1){\n    g[from].emplace_back(from,to,cost,es++);\n  }\n\
     \  void add_edge(int from,int to,T cost=1){\n    g[from].emplace_back(from,to,cost,es);\n\
@@ -65,7 +64,7 @@ data:
   isVerificationFile: false
   path: Graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2022-01-09 22:08:51+00:00'
+  timestamp: '2022-01-11 20:35:27+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_2_A.test.cpp

@@ -4,13 +4,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/mod_ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -80,16 +80,14 @@ data:
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
     Math/mod_ntt.hpp\"\n/**\n * @brief Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\
-    \u307F\u8FBC\u307F)\n*/\n#line 1 \"Math/ntt.hpp\"\n/**\n * @brief Number Theoretic\
-    \ Transform(\u6570\u8AD6\u5909\u63DB)\n*/\n#line 1 \"Math/modint.hpp\"\n/**\n\
-    \ * @brief modint\n*/\ntemplate<long long m>\nstruct modint{\n  long long x;\n\
-    \  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n      y%=m;\n      if(y==0)x=y;\n\
-    \      else x=m+y;\n    }\n    else if(y<m)x=y;\n    else x=y%m;\n  }\n  modint\
-    \ inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n\
-    \      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n\
-    \  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n\
-    \  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n \
-    \ modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
+    \u307F\u8FBC\u307F)\n*/\n#line 2 \"Math/modint.hpp\"\ntemplate<long long m>\n\
+    struct modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y){\n  \
+    \  if(y<0){\n      y%=m;\n      if(y==0)x=y;\n      else x=m+y;\n    }\n    else\
+    \ if(y<m)x=y;\n    else x=y%m;\n  }\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n\
+    \    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n \
+    \   }\n    return modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
+    \ *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n\
+    \  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
     \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint operator-()const{return\
     \ modint(-x); }\n  modint operator+(const modint&p)const{return modint(*this)+=p;\
     \ }\n  modint operator-(const modint&p)const{return modint(*this)-=p; }\n  modint\
@@ -101,16 +99,16 @@ data:
     \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
     \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
     \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n#line 5 \"Math/ntt.hpp\"\ntemplate<long long m>\nstruct NTT{\n  using\
-    \ mint=modint<m>;\n  static modint<m> g;\n  static int limit;\n  static vector<modint<m>>root,inv_root;\n\
-    \  static mint primitive_root(const long long&mo){\n    if(mo==167772161)return\
-    \ mint(3);\n    if(mo==469762049)return mint(3);\n    if(mo==754974721)return\
-    \ mint(11);\n    if(mo==998244353)return mint(3);\n    if(mo==1224736769)return\
-    \ mint(3);\n    return mint(0);\n  }\n  static void init(){\n    if(root.empty()){\n\
-    \      g=primitive_root(m);\n      long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n\
-    \      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n      root[limit]=g.pow(now);\n\
-    \      inv_root[limit]/=root[limit];\n      for(int i=limit-1;i>=0;i--){\n   \
-    \     root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
+    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/ntt.hpp\"\ntemplate<long\
+    \ long m>\nstruct NTT{\n  using mint=modint<m>;\n  static modint<m> g;\n  static\
+    \ int limit;\n  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
+    \ long long&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
+    \ mint(3);\n    if(mo==754974721)return mint(11);\n    if(mo==998244353)return\
+    \ mint(3);\n    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n\
+    \  static void init(){\n    if(root.empty()){\n      g=primitive_root(m);\n  \
+    \    long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
+    \      root[limit]=g.pow(now);\n      inv_root[limit]/=root[limit];\n      for(int\
+    \ i=limit-1;i>=0;i--){\n        root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
     \      }\n    }\n  }\n  NTT(){};\n  static void dft(vector<mint>&a,int inv){\n\
     \    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const int\
     \ mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n     \
@@ -128,9 +126,9 @@ data:
     \    return c;\n  }\n};\ntemplate<long long m>\nint NTT<m>::limit=0;\ntemplate<long\
     \ long m>\nvector<modint<m>>NTT<m>::root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\ntemplate<long long\
-    \ m>\nmodint<m>NTT<m>::g=modint<m>();\n#line 5 \"Math/mod_ntt.hpp\"\nvector<long\
-    \ long>mod_convolution(vector<long long>a,vector<long long>b,long long m){\n \
-    \ const long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889%m;\n\
+    \ m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic Transform(\u6570\
+    \u8AD6\u5909\u63DB)\n*/\n#line 5 \"Math/mod_ntt.hpp\"\nvector<long long>mod_convolution(vector<long\
+    \ long>a,vector<long long>b,long long m){\n  const long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889%m;\n\
     \  auto x=NTT<m1>::multiply(a,b);\n  auto y=NTT<m2>::multiply(a,b);\n  auto z=NTT<m3>::multiply(a,b);\n\
     \  vector<long long>res(x.size());\n  for(int i=0;i<x.size();i++){\n    long long\
     \ v1=(y[i]-x[i])*m1_inv_m2%m2;\n    if(v1<0)v1+=m2;\n    long long v2=(z[i]-(x[i]+m1*v1)%m3)*m12_inv_m3%m3;\n\
@@ -150,7 +148,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/convolution_mod_1000000007.test.cpp
   requiredBy: []
-  timestamp: '2022-01-08 16:59:19+00:00'
+  timestamp: '2022-01-11 20:35:27+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/convolution_mod_1000000007.test.cpp

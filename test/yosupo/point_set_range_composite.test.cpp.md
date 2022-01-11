@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Data_Structure/segtree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -75,40 +75,39 @@ data:
     ,\";trace(forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\n\
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
-    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Data_Structure/segtree.hpp\"\n/**\n * @brief Segment Tree(\u30BB\u30B0\u30E1\u30F3\
-    \u30C8\u6728)\n*/\ntemplate<class S,S (*op)(S,S),S (*e)()>\nstruct segtree{\n\
-    \  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  void update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n\
-    \  public:\n  segtree():segtree(0){};\n  segtree(int n):segtree(vector<S>(n,e())){}\n\
-    \  segtree(const vector<S>&v):_n(int(v.size())){\n    while(size<_n)size<<=1,idx++;\n\
-    \    seq=vector<S>(2*size,e());\n    for(int i=0;i<_n;i++)seq[size+i]=v[i];\n\
-    \    for(int i=size-1;i>=1;i--)update(i);\n  }\n  void set(int p,S x){\n    p+=size;\n\
-    \    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n  }\n  S operator[](int\
-    \ p){return seq[p+size];}\n  S query(int l,int r){\n    S sml=e(),smr=e();\n \
-    \   l+=size,r+=size;\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n  \
-    \    if(r&1)smr=op(seq[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n\
-    \  }\n  S all_query()const{return seq[1];}\n};\n#line 1 \"Math/modint.hpp\"\n\
-    /**\n * @brief modint\n*/\ntemplate<long long m>\nstruct modint{\n  long long\
-    \ x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n      y%=m;\n \
-    \     if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n    else x=y%m;\n\
-    \  }\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n\
-    \      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return\
-    \ modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
-    \ *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n\
-    \  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
-    \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint operator-()const{return\
-    \ modint(-x); }\n  modint operator+(const modint&p)const{return modint(*this)+=p;\
-    \ }\n  modint operator-(const modint&p)const{return modint(*this)-=p; }\n  modint\
-    \ operator*(const modint&p)const{return modint(*this)*=p; }\n  modint operator/(const\
-    \ modint&p)const{return modint(*this)/=p; }\n  bool operator==(const modint&p)const{return\
-    \ x==p.x;}\n  bool operator!=(const modint&p)const{return x!=p.x;}\n  modint pow(long\
-    \ long n)const{\n    modint ret(1),mul(x);\n    while(n){\n      if(n&1)ret*=mul;\n\
-    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  friend ostream\
-    \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
-    \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
-    \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n#line 5 \"test/yosupo/point_set_range_composite.test.cpp\"\nusing mint=modint<mod>;\n\
-    using S=pair<mint,mint>;\nS op(S a,S b){return S{a.first*b.first,a.second*b.first+b.second};}\n\
+    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
+    Data_Structure/segtree.hpp\"\ntemplate<class S,S (*op)(S,S),S (*e)()>\nstruct\
+    \ segtree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  void update(int\
+    \ k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n  public:\n  segtree():segtree(0){};\n\
+    \  segtree(int n):segtree(vector<S>(n,e())){}\n  segtree(const vector<S>&v):_n(int(v.size())){\n\
+    \    while(size<_n)size<<=1,idx++;\n    seq=vector<S>(2*size,e());\n    for(int\
+    \ i=0;i<_n;i++)seq[size+i]=v[i];\n    for(int i=size-1;i>=1;i--)update(i);\n \
+    \ }\n  void set(int p,S x){\n    p+=size;\n    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n\
+    \  }\n  S operator[](int p){return seq[p+size];}\n  S query(int l,int r){\n  \
+    \  S sml=e(),smr=e();\n    l+=size,r+=size;\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n\
+    \      if(r&1)smr=op(seq[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n\
+    \  }\n  S all_query()const{return seq[1];}\n};\n/**\n * @brief Segment Tree(\u30BB\
+    \u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 2 \"Math/modint.hpp\"\ntemplate<long\
+    \ long m>\nstruct modint{\n  long long x;\n  modint():x(0){}\n  modint(long long\
+    \ y){\n    if(y<0){\n      y%=m;\n      if(y==0)x=y;\n      else x=m+y;\n    }\n\
+    \    else if(y<m)x=y;\n    else x=y%m;\n  }\n  modint inv()const{\n    long long\
+    \ a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n   \
+    \   swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n  modint &operator+=(const\
+    \ modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return\
+    \ *this;}\n  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n\
+    \  modint &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint\
+    \ operator-()const{return modint(-x); }\n  modint operator+(const modint&p)const{return\
+    \ modint(*this)+=p; }\n  modint operator-(const modint&p)const{return modint(*this)-=p;\
+    \ }\n  modint operator*(const modint&p)const{return modint(*this)*=p; }\n  modint\
+    \ operator/(const modint&p)const{return modint(*this)/=p; }\n  bool operator==(const\
+    \ modint&p)const{return x==p.x;}\n  bool operator!=(const modint&p)const{return\
+    \ x!=p.x;}\n  modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n\
+    \      if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
+    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
+    \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
+    \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
+    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 5 \"test/yosupo/point_set_range_composite.test.cpp\"\
+    \nusing mint=modint<mod>;\nusing S=pair<mint,mint>;\nS op(S a,S b){return S{a.first*b.first,a.second*b.first+b.second};}\n\
     S e(){return S{mint(1),mint(0)};}\nint main(){\n  int n,q;\n  cin>>n>>q;\n  vector<S>a(n);\n\
     \  cin>>a;\n  segtree<S,op,e>s(a);\n  while(q--){\n    int t;\n    cin>>t;\n \
     \   if(t){\n      int l,r,x;\n      cin>>l>>r>>x;\n      auto [n,m]=s.query(l,r);\n\
@@ -130,7 +129,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-01-08 16:59:19+00:00'
+  timestamp: '2022-01-11 20:35:27+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_set_range_composite.test.cpp
