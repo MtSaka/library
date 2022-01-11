@@ -10,6 +10,7 @@ FPS<m>TaylorShift(FPS<m>f,modint<m>a,combination<m>&c){
   for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);
   f*=g;
   f.resize(n);
+  reverse(f.begin(),f.end());
   for(int i=0;i<n;i++)f[i]*=c.finv(i);
   return f;
 }
