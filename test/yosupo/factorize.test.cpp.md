@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/fast_prime.hpp
     title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -42,8 +42,8 @@ data:
     \ ll MOD=1000000007;\nconst ll mod=998244353;\nconst ld EPS=1e-8;\nconst ld PI=3.1415926535897932384626;\n\
     template<typename T,typename U>\nostream &operator<<(ostream&os,const pair<T,U>&p){os<<p.first<<\"\
     \ \"<<p.second;return os;}\ntemplate<typename T,typename U>\nistream &operator>>(istream&is,pair<T,U>&p){is>>p.first>>p.second;return\
-    \ is;}\ntemplate<typename T>\nostream &operator<<(ostream&os,const vector<T>&v){for(int\
-    \ i=0;i<(int)v.size();i++){os<<v[i]<<(i+1!=v.size()?\" \":\"\");}return os;}\n\
+    \ is;}\ntemplate<typename T>\nostream &operator<<(ostream&os,const vector<T>&v){for(auto\
+    \ it=v.begin();it!=v.end();){os<<*it<<((++it)!=v.end()?\" \":\"\");}return os;}\n\
     template<typename T>\nistream &operator>>(istream&is,vector<T>&v){for(T &in:v){is>>in;}return\
     \ is;}\nvoid scan(){}\ntemplate<class Head,class... Tail>\nvoid scan(Head&head,Tail&...\
     \ tail){cin>>head;scan(tail...);}\ntemplate<class T>\nvoid print(const T &t){cout<<t<<'\\\
@@ -73,9 +73,8 @@ data:
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Math/fast_prime.hpp\"\n/**\n * @brief Fast Prime Factorization(\u9AD8\u901F\u7D20\
-    \u56E0\u6570\u5206\u89E3)\n*/\nnamespace fastprime{\n  using i128=__uint128_t;\n\
-    \  long long inner_modmul(const long long&x,const long long&y,const long long&p){\n\
+    Math/fast_prime.hpp\"\nnamespace fastprime{\n  using i128=__uint128_t;\n  long\
+    \ long inner_modmul(const long long&x,const long long&y,const long long&p){\n\
     \    return i128(x)*y%p;\n  }\n  long long inner_modpow(long long n,long long\
     \ m,const long long&p){\n    long long res=1;\n    while(m){\n      if(m&1)res=inner_modmul(res,n,p);\n\
     \      n=inner_modmul(n,n,p);\n      m>>=1;\n    }\n    return res;\n  }\n  bool\
@@ -100,9 +99,10 @@ data:
     \    vector<long long>r=factorize_sub(p);\n    l.insert(l.end(),r.begin(),r.end());\n\
     \    return l;\n  }\n  vector<long long>factorize(const long long&n,const bool&sorted=true){\n\
     \    vector<long long>res=factorize_sub(n);\n    if(sorted)sort(res.begin(),res.end());\n\
-    \    return res;\n  }\n};\n#line 4 \"test/yosupo/factorize.test.cpp\"\nint main(){\n\
-    \  int q;\n  cin>>q;\n  while(q--){\n    long long x;\n    cin>>x;\n    auto ret=fastprime::factorize(x);\n\
-    \    print(ret.size(),ret);\n  }\n}\n"
+    \    return res;\n  }\n};\n/**\n * @brief Fast Prime Factorization(\u9AD8\u901F\
+    \u7D20\u56E0\u6570\u5206\u89E3)\n*/\n#line 4 \"test/yosupo/factorize.test.cpp\"\
+    \nint main(){\n  int q;\n  cin>>q;\n  while(q--){\n    long long x;\n    cin>>x;\n\
+    \    auto ret=fastprime::factorize(x);\n    print(ret.size(),ret);\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/factorize\"\n#include\"\
     ../../template/template.hpp\"\n#include\"../../Math/fast_prime.hpp\"\nint main(){\n\
     \  int q;\n  cin>>q;\n  while(q--){\n    long long x;\n    cin>>x;\n    auto ret=fastprime::factorize(x);\n\
@@ -113,7 +113,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/factorize.test.cpp
   requiredBy: []
-  timestamp: '2022-01-08 16:59:19+00:00'
+  timestamp: '2022-01-11 21:13:55+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/factorize.test.cpp

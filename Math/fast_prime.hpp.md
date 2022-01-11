@@ -13,8 +13,7 @@ data:
     document_title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\
       \u89E3)"
     links: []
-  bundledCode: "#line 1 \"Math/fast_prime.hpp\"\n/**\n * @brief Fast Prime Factorization(\u9AD8\
-    \u901F\u7D20\u56E0\u6570\u5206\u89E3)\n*/\nnamespace fastprime{\n  using i128=__uint128_t;\n\
+  bundledCode: "#line 1 \"Math/fast_prime.hpp\"\nnamespace fastprime{\n  using i128=__uint128_t;\n\
     \  long long inner_modmul(const long long&x,const long long&y,const long long&p){\n\
     \    return i128(x)*y%p;\n  }\n  long long inner_modpow(long long n,long long\
     \ m,const long long&p){\n    long long res=1;\n    while(m){\n      if(m&1)res=inner_modmul(res,n,p);\n\
@@ -40,9 +39,9 @@ data:
     \    vector<long long>r=factorize_sub(p);\n    l.insert(l.end(),r.begin(),r.end());\n\
     \    return l;\n  }\n  vector<long long>factorize(const long long&n,const bool&sorted=true){\n\
     \    vector<long long>res=factorize_sub(n);\n    if(sorted)sort(res.begin(),res.end());\n\
-    \    return res;\n  }\n};\n"
-  code: "/**\n * @brief Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\
-    \u89E3)\n*/\nnamespace fastprime{\n  using i128=__uint128_t;\n  long long inner_modmul(const\
+    \    return res;\n  }\n};\n/**\n * @brief Fast Prime Factorization(\u9AD8\u901F\
+    \u7D20\u56E0\u6570\u5206\u89E3)\n*/\n"
+  code: "namespace fastprime{\n  using i128=__uint128_t;\n  long long inner_modmul(const\
     \ long long&x,const long long&y,const long long&p){\n    return i128(x)*y%p;\n\
     \  }\n  long long inner_modpow(long long n,long long m,const long long&p){\n \
     \   long long res=1;\n    while(m){\n      if(m&1)res=inner_modmul(res,n,p);\n\
@@ -68,12 +67,13 @@ data:
     \    vector<long long>r=factorize_sub(p);\n    l.insert(l.end(),r.begin(),r.end());\n\
     \    return l;\n  }\n  vector<long long>factorize(const long long&n,const bool&sorted=true){\n\
     \    vector<long long>res=factorize_sub(n);\n    if(sorted)sort(res.begin(),res.end());\n\
-    \    return res;\n  }\n};"
+    \    return res;\n  }\n};\n/**\n * @brief Fast Prime Factorization(\u9AD8\u901F\
+    \u7D20\u56E0\u6570\u5206\u89E3)\n*/"
   dependsOn: []
   isVerificationFile: false
   path: Math/fast_prime.hpp
   requiredBy: []
-  timestamp: '2022-01-05 16:38:42+00:00'
+  timestamp: '2022-01-11 21:13:55+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/factorize.test.cpp

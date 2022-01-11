@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/is_prime.hpp
     title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -42,8 +42,8 @@ data:
     \ ll MOD=1000000007;\nconst ll mod=998244353;\nconst ld EPS=1e-8;\nconst ld PI=3.1415926535897932384626;\n\
     template<typename T,typename U>\nostream &operator<<(ostream&os,const pair<T,U>&p){os<<p.first<<\"\
     \ \"<<p.second;return os;}\ntemplate<typename T,typename U>\nistream &operator>>(istream&is,pair<T,U>&p){is>>p.first>>p.second;return\
-    \ is;}\ntemplate<typename T>\nostream &operator<<(ostream&os,const vector<T>&v){for(int\
-    \ i=0;i<(int)v.size();i++){os<<v[i]<<(i+1!=v.size()?\" \":\"\");}return os;}\n\
+    \ is;}\ntemplate<typename T>\nostream &operator<<(ostream&os,const vector<T>&v){for(auto\
+    \ it=v.begin();it!=v.end();){os<<*it<<((++it)!=v.end()?\" \":\"\");}return os;}\n\
     template<typename T>\nistream &operator>>(istream&is,vector<T>&v){for(T &in:v){is>>in;}return\
     \ is;}\nvoid scan(){}\ntemplate<class Head,class... Tail>\nvoid scan(Head&head,Tail&...\
     \ tail){cin>>head;scan(tail...);}\ntemplate<class T>\nvoid print(const T &t){cout<<t<<'\\\
@@ -73,12 +73,12 @@ data:
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Math/is_prime.hpp\"\n/**\n * @brief Prime Determination(\u7D20\u6570\u5224\u5B9A\
-    )\n*/\nbool is_prime(long long N){\n  if(N<2)return 0;\n  if(N==2)return 1;\n\
-    \  if(N%2==0)return 0;\n  for(long long i=3;i*i<=N;i+=2){\n    if(N%i==0)return\
-    \ 0;\n  }\n  return 1;\n}\n#line 4 \"test/aoj/ALDS1/ALDS1_1_C.test.cpp\"\nint\
-    \ main(){\n  int q;\n  cin>>q;\n  int ans=0;\n  while(q--){\n    int x;\n    cin>>x;\n\
-    \    ans+=is_prime(x);\n  }\n  print(ans);\n}\n"
+    Math/is_prime.hpp\"\nbool is_prime(long long N){\n  if(N<2)return 0;\n  if(N==2)return\
+    \ 1;\n  if(N%2==0)return 0;\n  for(long long i=3;i*i<=N;i+=2){\n    if(N%i==0)return\
+    \ 0;\n  }\n  return 1;\n}\n/**\n * @brief Prime Determination(\u7D20\u6570\u5224\
+    \u5B9A)\n*/\n#line 4 \"test/aoj/ALDS1/ALDS1_1_C.test.cpp\"\nint main(){\n  int\
+    \ q;\n  cin>>q;\n  int ans=0;\n  while(q--){\n    int x;\n    cin>>x;\n    ans+=is_prime(x);\n\
+    \  }\n  print(ans);\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/is_prime.hpp\"\
     \nint main(){\n  int q;\n  cin>>q;\n  int ans=0;\n  while(q--){\n    int x;\n\
@@ -89,7 +89,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_1_C.test.cpp
   requiredBy: []
-  timestamp: '2022-01-08 16:59:19+00:00'
+  timestamp: '2022-01-11 21:13:55+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_1_C.test.cpp

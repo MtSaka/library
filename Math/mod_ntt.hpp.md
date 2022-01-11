@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   _extendedRequiredBy: []
@@ -19,26 +19,25 @@ data:
     document_title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
       )"
     links: []
-  bundledCode: "#line 1 \"Math/mod_ntt.hpp\"\n/**\n * @brief Arbitrary Mod Convolution(\u4EFB\
-    \u610Fmod\u7573\u307F\u8FBC\u307F)\n*/\n#line 2 \"Math/modint.hpp\"\ntemplate<long\
-    \ long m>\nstruct modint{\n  long long x;\n  modint():x(0){}\n  modint(long long\
-    \ y){\n    if(y<0){\n      y%=m;\n      if(y==0)x=y;\n      else x=m+y;\n    }\n\
-    \    else if(y<m)x=y;\n    else x=y%m;\n  }\n  modint inv()const{\n    long long\
-    \ a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n   \
-    \   swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n  modint &operator+=(const\
-    \ modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return\
-    \ *this;}\n  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n\
-    \  modint &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint\
-    \ operator-()const{return modint(-x); }\n  modint operator+(const modint&p)const{return\
-    \ modint(*this)+=p; }\n  modint operator-(const modint&p)const{return modint(*this)-=p;\
-    \ }\n  modint operator*(const modint&p)const{return modint(*this)*=p; }\n  modint\
-    \ operator/(const modint&p)const{return modint(*this)/=p; }\n  bool operator==(const\
-    \ modint&p)const{return x==p.x;}\n  bool operator!=(const modint&p)const{return\
-    \ x!=p.x;}\n  modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n\
-    \      if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
-    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
-    \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
-    \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
+  bundledCode: "#line 2 \"Math/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n\
+    \  long long x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n   \
+    \   y%=m;\n      if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n\
+    \    else x=y%m;\n  }\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n\
+    \    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n \
+    \   }\n    return modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
+    \ *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n\
+    \  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
+    \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint operator-()const{return\
+    \ modint(-x); }\n  modint operator+(const modint&p)const{return modint(*this)+=p;\
+    \ }\n  modint operator-(const modint&p)const{return modint(*this)-=p; }\n  modint\
+    \ operator*(const modint&p)const{return modint(*this)*=p; }\n  modint operator/(const\
+    \ modint&p)const{return modint(*this)/=p; }\n  bool operator==(const modint&p)const{return\
+    \ x==p.x;}\n  bool operator!=(const modint&p)const{return x!=p.x;}\n  modint pow(long\
+    \ long n)const{\n    modint ret(1),mul(x);\n    while(n){\n      if(n&1)ret*=mul;\n\
+    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  friend ostream\
+    \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
+    \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
+    \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
     \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/ntt.hpp\"\ntemplate<long\
     \ long m>\nstruct NTT{\n  using mint=modint<m>;\n  static modint<m> g;\n  static\
     \ int limit;\n  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
@@ -67,28 +66,29 @@ data:
     \ long m>\nvector<modint<m>>NTT<m>::root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic Transform(\u6570\
-    \u8AD6\u5909\u63DB)\n*/\n#line 5 \"Math/mod_ntt.hpp\"\nvector<long long>mod_convolution(vector<long\
+    \u8AD6\u5909\u63DB)\n*/\n#line 2 \"Math/mod_ntt.hpp\"\nvector<long long>mod_convolution(vector<long\
     \ long>a,vector<long long>b,long long m){\n  const long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889%m;\n\
     \  auto x=NTT<m1>::multiply(a,b);\n  auto y=NTT<m2>::multiply(a,b);\n  auto z=NTT<m3>::multiply(a,b);\n\
     \  vector<long long>res(x.size());\n  for(int i=0;i<x.size();i++){\n    long long\
     \ v1=(y[i]-x[i])*m1_inv_m2%m2;\n    if(v1<0)v1+=m2;\n    long long v2=(z[i]-(x[i]+m1*v1)%m3)*m12_inv_m3%m3;\n\
     \    if(v2<0)v2+=m3;\n    long long c=(x[i]+m1*v1+m12_mod*v2)%m;\n    if(c<0)c+=m;\n\
-    \    res[i]=c;\n  }\n  return res;\n}\n"
-  code: "/**\n * @brief Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\
-    \u307F)\n*/\n#include\"ntt.hpp\"\nvector<long long>mod_convolution(vector<long\
-    \ long>a,vector<long long>b,long long m){\n  const long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889%m;\n\
+    \    res[i]=c;\n  }\n  return res;\n}\n/**\n * @brief Arbitrary Mod Convolution(\u4EFB\
+    \u610Fmod\u7573\u307F\u8FBC\u307F)\n*/\n"
+  code: "#include\"ntt.hpp\"\nvector<long long>mod_convolution(vector<long long>a,vector<long\
+    \ long>b,long long m){\n  const long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874,m12_mod=78812994116517889%m;\n\
     \  auto x=NTT<m1>::multiply(a,b);\n  auto y=NTT<m2>::multiply(a,b);\n  auto z=NTT<m3>::multiply(a,b);\n\
     \  vector<long long>res(x.size());\n  for(int i=0;i<x.size();i++){\n    long long\
     \ v1=(y[i]-x[i])*m1_inv_m2%m2;\n    if(v1<0)v1+=m2;\n    long long v2=(z[i]-(x[i]+m1*v1)%m3)*m12_inv_m3%m3;\n\
     \    if(v2<0)v2+=m3;\n    long long c=(x[i]+m1*v1+m12_mod*v2)%m;\n    if(c<0)c+=m;\n\
-    \    res[i]=c;\n  }\n  return res;\n}"
+    \    res[i]=c;\n  }\n  return res;\n}\n/**\n * @brief Arbitrary Mod Convolution(\u4EFB\
+    \u610Fmod\u7573\u307F\u8FBC\u307F)\n*/"
   dependsOn:
   - Math/ntt.hpp
   - Math/modint.hpp
   isVerificationFile: false
   path: Math/mod_ntt.hpp
   requiredBy: []
-  timestamp: '2022-01-11 20:35:27+00:00'
+  timestamp: '2022-01-11 21:13:55+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/convolution_mod_1000000007.test.cpp

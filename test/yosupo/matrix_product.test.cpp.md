@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/matrix.hpp
     title: "Matrix(\u884C\u5217)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/matrix_product
@@ -45,8 +45,8 @@ data:
     \ ll MOD=1000000007;\nconst ll mod=998244353;\nconst ld EPS=1e-8;\nconst ld PI=3.1415926535897932384626;\n\
     template<typename T,typename U>\nostream &operator<<(ostream&os,const pair<T,U>&p){os<<p.first<<\"\
     \ \"<<p.second;return os;}\ntemplate<typename T,typename U>\nistream &operator>>(istream&is,pair<T,U>&p){is>>p.first>>p.second;return\
-    \ is;}\ntemplate<typename T>\nostream &operator<<(ostream&os,const vector<T>&v){for(int\
-    \ i=0;i<(int)v.size();i++){os<<v[i]<<(i+1!=v.size()?\" \":\"\");}return os;}\n\
+    \ is;}\ntemplate<typename T>\nostream &operator<<(ostream&os,const vector<T>&v){for(auto\
+    \ it=v.begin();it!=v.end();){os<<*it<<((++it)!=v.end()?\" \":\"\");}return os;}\n\
     template<typename T>\nistream &operator>>(istream&is,vector<T>&v){for(T &in:v){is>>in;}return\
     \ is;}\nvoid scan(){}\ntemplate<class Head,class... Tail>\nvoid scan(Head&head,Tail&...\
     \ tail){cin>>head;scan(tail...);}\ntemplate<class T>\nvoid print(const T &t){cout<<t<<'\\\
@@ -76,14 +76,14 @@ data:
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Math/matrix.hpp\"\n/**\n * @brief Matrix(\u884C\u5217)\n*/\ntemplate<class T>\n\
-    struct Matrix {\n  vector<vector<T>>A;\n  Matrix(){}\n  Matrix(size_t n,size_t\
-    \ m):A(n,vector<T>(m,0)){}\n  Matrix(size_t n):A(n,vector<T>(n,0)){};\n  size_t\
-    \ height()const{return (A.size());}\n  size_t width()const{return (A[0].size());}\n\
-    \  inline const vector<T>&operator[](int k)const{return A.at(k);}\n  inline vector<T>&operator[](int\
-    \ k){return A.at(k);}\n  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(int\
-    \ i=0;i<n;i++)mat[i][i]=1;\n    return mat;\n  }\n  Matrix &operator+=(const Matrix&B){\n\
-    \    const size_t n=height(),m=width();\n    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]+=B[i][j];\n\
+    Math/matrix.hpp\"\ntemplate<class T>\nstruct Matrix {\n  vector<vector<T>>A;\n\
+    \  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n  Matrix(size_t\
+    \ n):A(n,vector<T>(n,0)){};\n  size_t height()const{return (A.size());}\n  size_t\
+    \ width()const{return (A[0].size());}\n  inline const vector<T>&operator[](int\
+    \ k)const{return A.at(k);}\n  inline vector<T>&operator[](int k){return A.at(k);}\n\
+    \  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(int i=0;i<n;i++)mat[i][i]=1;\n\
+    \    return mat;\n  }\n  Matrix &operator+=(const Matrix&B){\n    const size_t\
+    \ n=height(),m=width();\n    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]+=B[i][j];\n\
     \    return *this;\n  }\n  Matrix &operator-=(const Matrix&B){\n    const size_t\
     \ n=height(),m=width();\n    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]-=B[i][j];\n\
     \    return *this;\n  }\n  Matrix &operator*=(const Matrix&B) {\n    const size_t\
@@ -95,25 +95,25 @@ data:
     \  }\n  Matrix operator+(const Matrix&B)const{return Matrix(*this)+=B;}\n  Matrix\
     \ operator-(const Matrix&B)const{return Matrix(*this)-=B;}\n  Matrix operator*(const\
     \ Matrix&B)const{return Matrix(*this)*=B;}\n  Matrix operator^(const long long&k)const{return\
-    \ Matrix(*this)^=k;}\n};\n#line 2 \"Math/modint.hpp\"\ntemplate<long long m>\n\
-    struct modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y){\n  \
-    \  if(y<0){\n      y%=m;\n      if(y==0)x=y;\n      else x=m+y;\n    }\n    else\
-    \ if(y<m)x=y;\n    else x=y%m;\n  }\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n\
-    \    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n \
-    \   }\n    return modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
-    \ *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n\
-    \  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
-    \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint operator-()const{return\
-    \ modint(-x); }\n  modint operator+(const modint&p)const{return modint(*this)+=p;\
-    \ }\n  modint operator-(const modint&p)const{return modint(*this)-=p; }\n  modint\
-    \ operator*(const modint&p)const{return modint(*this)*=p; }\n  modint operator/(const\
-    \ modint&p)const{return modint(*this)/=p; }\n  bool operator==(const modint&p)const{return\
-    \ x==p.x;}\n  bool operator!=(const modint&p)const{return x!=p.x;}\n  modint pow(long\
-    \ long n)const{\n    modint ret(1),mul(x);\n    while(n){\n      if(n&1)ret*=mul;\n\
-    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  friend ostream\
-    \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
-    \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
-    \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
+    \ Matrix(*this)^=k;}\n};\n/**\n * @brief Matrix(\u884C\u5217)\n*/\n#line 2 \"\
+    Math/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  long long x;\n  modint():x(0){}\n\
+    \  modint(long long y){\n    if(y<0){\n      y%=m;\n      if(y==0)x=y;\n     \
+    \ else x=m+y;\n    }\n    else if(y<m)x=y;\n    else x=y%m;\n  }\n  modint inv()const{\n\
+    \    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n\
+    \      swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n  modint &operator+=(const\
+    \ modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return\
+    \ *this;}\n  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n\
+    \  modint &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint\
+    \ operator-()const{return modint(-x); }\n  modint operator+(const modint&p)const{return\
+    \ modint(*this)+=p; }\n  modint operator-(const modint&p)const{return modint(*this)-=p;\
+    \ }\n  modint operator*(const modint&p)const{return modint(*this)*=p; }\n  modint\
+    \ operator/(const modint&p)const{return modint(*this)/=p; }\n  bool operator==(const\
+    \ modint&p)const{return x==p.x;}\n  bool operator!=(const modint&p)const{return\
+    \ x!=p.x;}\n  modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n\
+    \      if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
+    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
+    \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
+    \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
     \ m;}\n};\n/**\n * @brief modint\n*/\n#line 5 \"test/yosupo/matrix_product.test.cpp\"\
     \nint main(){\n  int n,m,k;\n  cin>>n>>m>>k;\n  Matrix<modint<mod>>a(n,m),b(m,k);\n\
     \  for(int i=0;i<n;i++){\n    for(int j=0;j<m;j++){\n      cin>>a[i][j];\n   \
@@ -132,8 +132,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2022-01-11 20:35:27+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-11 21:13:55+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/matrix_product.test.cpp
 layout: document

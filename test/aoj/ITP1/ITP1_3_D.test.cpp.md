@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/factor.hpp
     title: "Factor Enumeration(\u7D04\u6570\u5217\u6319)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -42,8 +42,8 @@ data:
     \ ll MOD=1000000007;\nconst ll mod=998244353;\nconst ld EPS=1e-8;\nconst ld PI=3.1415926535897932384626;\n\
     template<typename T,typename U>\nostream &operator<<(ostream&os,const pair<T,U>&p){os<<p.first<<\"\
     \ \"<<p.second;return os;}\ntemplate<typename T,typename U>\nistream &operator>>(istream&is,pair<T,U>&p){is>>p.first>>p.second;return\
-    \ is;}\ntemplate<typename T>\nostream &operator<<(ostream&os,const vector<T>&v){for(int\
-    \ i=0;i<(int)v.size();i++){os<<v[i]<<(i+1!=v.size()?\" \":\"\");}return os;}\n\
+    \ is;}\ntemplate<typename T>\nostream &operator<<(ostream&os,const vector<T>&v){for(auto\
+    \ it=v.begin();it!=v.end();){os<<*it<<((++it)!=v.end()?\" \":\"\");}return os;}\n\
     template<typename T>\nistream &operator>>(istream&is,vector<T>&v){for(T &in:v){is>>in;}return\
     \ is;}\nvoid scan(){}\ntemplate<class Head,class... Tail>\nvoid scan(Head&head,Tail&...\
     \ tail){cin>>head;scan(tail...);}\ntemplate<class T>\nvoid print(const T &t){cout<<t<<'\\\
@@ -73,12 +73,13 @@ data:
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Math/factor.hpp\"\n/**\n * @brief Factor Enumeration(\u7D04\u6570\u5217\u6319\
-    )\n*/\nvector<long long>factor(long long N){\n  vector<long long>ans;\n  for(long\
-    \ long i=1;i*i<=N;i++){\n    if(N%i==0){\n      ans.push_back(i);\n      if(i*i!=N)ans.push_back(N/i);\n\
-    \    }\n  }\n  sort(ans.begin(),ans.end());\n  return ans;\n}\n#line 4 \"test/aoj/ITP1/ITP1_3_D.test.cpp\"\
-    \nint main(){\n  int a,b,c;\n  cin>>a>>b>>c;\n  int ans=0;\n  for(auto &x:factor(c)){\n\
-    \    ans+=(a<=x&&x<=b);\n  }\n  print(ans);\n}\n"
+    Math/factor.hpp\"\nvector<long long>factor(long long N){\n  vector<long long>ans;\n\
+    \  for(long long i=1;i*i<=N;i++){\n    if(N%i==0){\n      ans.push_back(i);\n\
+    \      if(i*i!=N)ans.push_back(N/i);\n    }\n  }\n  sort(ans.begin(),ans.end());\n\
+    \  return ans;\n}\n/**\n * @brief Factor Enumeration(\u7D04\u6570\u5217\u6319\
+    )\n*/\n#line 4 \"test/aoj/ITP1/ITP1_3_D.test.cpp\"\nint main(){\n  int a,b,c;\n\
+    \  cin>>a>>b>>c;\n  int ans=0;\n  for(auto &x:factor(c)){\n    ans+=(a<=x&&x<=b);\n\
+    \  }\n  print(ans);\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_3_D\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/factor.hpp\"\
     \nint main(){\n  int a,b,c;\n  cin>>a>>b>>c;\n  int ans=0;\n  for(auto &x:factor(c)){\n\
@@ -89,7 +90,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ITP1/ITP1_3_D.test.cpp
   requiredBy: []
-  timestamp: '2022-01-08 16:59:19+00:00'
+  timestamp: '2022-01-11 21:13:55+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ITP1/ITP1_3_D.test.cpp
