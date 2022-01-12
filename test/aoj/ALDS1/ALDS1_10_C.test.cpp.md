@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Dynamic_Programming/longest_common-subsequence.hpp
     title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -73,9 +73,8 @@ data:
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Dynamic_Programming/longest_common-subsequence.hpp\"\n/**\n * @brief Longest Common\
-    \ Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)\n*/\ntemplate<typename\
-    \ T>\nint lcsl(const vector<T>&a,const vector<T>&b){\n  vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,0));\n\
+    Dynamic_Programming/longest_common-subsequence.hpp\"\ntemplate<typename T>\nint\
+    \ lcsl(const vector<T>&a,const vector<T>&b){\n  vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,0));\n\
     \  for(int i=0;i<a.size();i++){\n    for(int j=0;j<b.size();j++){\n      if(a[i]==b[j])dp[i+1][j+1]=dp[i][j]+1;\n\
     \      else dp[i+1][j+1]=max(dp[i][j+1],dp[i+1][j]);\n    }\n  }\n  return dp[a.size()][b.size()];\n\
     }\ntemplate<typename T>\nvector<T>lcs(const vector<T>&a,const vector<T>&b){\n\
@@ -84,10 +83,11 @@ data:
     \      else dp[i+1][j+1]=max(dp[i][j+1],dp[i+1][j]);\n    }\n  }\n  vector<T>ans;\n\
     \  int i=a.size(),j=b.size();\n  while(dp[i][j]){\n    if(dp[i-1][j]==dp[i][j])i--;\n\
     \    else if(dp[i][j-1]==dp[i][j])j--;\n    else i--,j--,ans.push_back(a[i]);\n\
-    \  }\n  reverse(ans.begin(),ans.end());\n  return ans;\n}\n#line 4 \"test/aoj/ALDS1/ALDS1_10_C.test.cpp\"\
-    \nint main(){\n  int q;\n  cin>>q;\n  while(q--){\n    string s,t;\n    cin>>s>>t;\n\
-    \    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n    cout<<lcsl(a,b)<<endl;\n\
-    \  }\n}\n"
+    \  }\n  reverse(ans.begin(),ans.end());\n  return ans;\n}\n/**\n * @brief Longest\
+    \ Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)\n*/\n#line 4\
+    \ \"test/aoj/ALDS1/ALDS1_10_C.test.cpp\"\nint main(){\n  int q;\n  cin>>q;\n \
+    \ while(q--){\n    string s,t;\n    cin>>s>>t;\n    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n\
+    \    cout<<lcsl(a,b)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Dynamic_Programming/longest_common-subsequence.hpp\"\
     \nint main(){\n  int q;\n  cin>>q;\n  while(q--){\n    string s,t;\n    cin>>s>>t;\n\
@@ -99,7 +99,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
   requiredBy: []
-  timestamp: '2022-01-11 21:08:13+00:00'
+  timestamp: '2022-01-12 16:26:09+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_10_C.test.cpp

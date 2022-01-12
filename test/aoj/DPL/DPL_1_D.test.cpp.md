@@ -5,7 +5,7 @@ data:
     path: Dynamic_Programming/longest_increasing_subsequence.hpp
     title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
       )"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -74,13 +74,13 @@ data:
     #else\n#define debug(...) cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);\n#endif\n\
     struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Dynamic_Programming/longest_increasing_subsequence.hpp\"\n/**\n * @brief Longest\
-    \ Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217)\n*/\ntemplate<typename\
-    \ T>\nint lis(const vector<T>&a){\n  int n=a.size();\n  vector<long long>dp(n,2e18);\n\
+    Dynamic_Programming/longest_increasing_subsequence.hpp\"\ntemplate<typename T>\n\
+    int lis(const vector<T>&a){\n  int n=a.size();\n  vector<long long>dp(n,2e18);\n\
     \  for(int i=0;i<n;i++)*lower_bound(dp.begin(),dp.end(),a[i])=a[i];\n  return\
-    \ lower_bound(dp.begin(),dp.end(),2e18)-dp.begin();\n}\n#line 4 \"test/aoj/DPL/DPL_1_D.test.cpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  print(lis(a));\n\
-    }\n"
+    \ lower_bound(dp.begin(),dp.end(),2e18)-dp.begin();\n}\n/**\n * @brief Longest\
+    \ Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217)\n*/\n#line\
+    \ 4 \"test/aoj/DPL/DPL_1_D.test.cpp\"\nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n\
+    \  cin>>a;\n  print(lis(a));\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Dynamic_Programming/longest_increasing_subsequence.hpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  print(lis(a));\n\
@@ -91,7 +91,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DPL/DPL_1_D.test.cpp
   requiredBy: []
-  timestamp: '2022-01-11 21:08:13+00:00'
+  timestamp: '2022-01-12 16:26:09+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL/DPL_1_D.test.cpp

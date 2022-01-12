@@ -12,13 +12,12 @@ data:
   attributes:
     document_title: "Line(\u76F4\u7DDA)"
     links: []
-  bundledCode: "#line 1 \"Geometry/line.hpp\"\n/**\n * @brief Line(\u76F4\u7DDA)\n\
-    */\n#line 1 \"Geometry/point.hpp\"\n/**\n * @brief Point(\u70B9)\n*/\ndouble eps=0.0000000001;\n\
-    int sign(double x){\n  if(x>eps)return 1;\n  if(x<-eps)return -1;\n  return 0;\n\
-    }\nbool equals(double x,double y){\n  return abs(x-y)<eps;\n}\nstruct point{\n\
-    \  double x;\n  double y;\n  point(){\n    x=0,y=0;\n  }\n  point(double X,double\
-    \ Y){\n    x=X,y=Y;\n  }\n  point operator-(){\n    return point(-x,-y);\n  }\n\
-    \  point operator+(point p){\n    return point(x+p.x,y+p.y);\n  }\n  point operator-(point\
+  bundledCode: "#line 2 \"Geometry/point.hpp\"\nint sign(double x,double eps=1e-6){\n\
+    \  if(x>eps)return 1;\n  if(x<-eps)return -1;\n  return 0;\n}\nbool equals(double\
+    \ x,double y,double eps=1e-6){\n  return abs(x-y)<eps;\n}\nstruct point{\n  double\
+    \ x;\n  double y;\n  point(){\n    x=0,y=0;\n  }\n  point(double X,double Y){\n\
+    \    x=X,y=Y;\n  }\n  point operator-(){\n    return point(-x,-y);\n  }\n  point\
+    \ operator+(point p){\n    return point(x+p.x,y+p.y);\n  }\n  point operator-(point\
     \ p){\n    return point(x-p.x,y-p.y);\n  }\n  point operator*(double k){\n   \
     \ return point(x*k,y*k);\n  }\n  point operator/(double k){\n    return point(x/k,y/k);\n\
     \  }\n  point &operator+=(point p){\n    x+=p.x;\n    y+=p.y;\n    return *this;\n\
@@ -40,22 +39,7 @@ data:
     \ atan2(p.y,p.x);\n}\ndouble dot(point p,point q){\n  return p.x*q.y+p.y*q.x;\n\
     }\ndouble cross(point p,point q){\n  return p.x*q.y-p.y*q.x;\n}\ndouble angle(point\
     \ a,point b,point c){\n  a-=b;\n  c-=b;\n  return acos(dot(a,c)/(abs(a)*abs(c)));\n\
-    }\n#line 5 \"Geometry/line.hpp\"\nstruct line{\n  point a;\n  point b;\n  line(){}\n\
-    \  line(point p){b=p;}\n  line(point p,point q){a=p,b=q;}\n  line(double A,double\
-    \ B){a=point(0,B),b=point(1,A+B);}\n  line(double A,double B,double C){\n    if(sign(B)==0){\n\
-    \      a=point(-C/A,0);\n      b=point(-C/A,1);\n    }\n    else{\n      a=point(0,-C/B);\n\
-    \      b=point(1,-(A+C)/B);\n    }\n  }\n  line operator+(point p){\n    return\
-    \ line(a+p,b+p);\n  }\n  line operator-(point p){\n    return line(a-p,b-p);\n\
-    \  }\n  line &operator+=(point p){\n    a+=p;\n    b+=p;\n    return *this;\n\
-    \  }\n  line &operator-=(point p){\n    a-=p;\n    b-=p;\n    return *this;\n\
-    \  }\n  bool operator==(line l){\n    return sign(cross(b-a,l.a-a))==0&&sign(cross(b-a,l.b-a));\n\
-    \  }\n};\nistream&operator>>(istream &is,line &l){\n  point a,b;\n  is>>a>>b;\n\
-    \  l=line(a,b);\n  return is;\n}\nostream&operator<<(ostream&os,line l){\n  os<<l.a<<'\
-    \ '<<l.b;\n  return os;\n}\npoint vec(line l){\n  return l.b-l.a;\n}\npoint unit(line\
-    \ l){\n  return vec(l)/abs(vec(l));\n}\npoint part(line l,double a,double b){\n\
-    \  return (l.a*b+l.b*a)/(a+b);\n}\nbool is_parallel(line a,line b){\n  return\
-    \ sign(cross(vec(a),vec(b)))==0;\n}\n"
-  code: "/**\n * @brief Line(\u76F4\u7DDA)\n*/\n#include\"point.hpp\"\nstruct line{\n\
+    }\n/**\n * @brief Point(\u70B9)\n*/\n#line 3 \"Geometry/line.hpp\"\nstruct line{\n\
     \  point a;\n  point b;\n  line(){}\n  line(point p){b=p;}\n  line(point p,point\
     \ q){a=p,b=q;}\n  line(double A,double B){a=point(0,B),b=point(1,A+B);}\n  line(double\
     \ A,double B,double C){\n    if(sign(B)==0){\n      a=point(-C/A,0);\n      b=point(-C/A,1);\n\
@@ -69,13 +53,28 @@ data:
     \ '<<l.b;\n  return os;\n}\npoint vec(line l){\n  return l.b-l.a;\n}\npoint unit(line\
     \ l){\n  return vec(l)/abs(vec(l));\n}\npoint part(line l,double a,double b){\n\
     \  return (l.a*b+l.b*a)/(a+b);\n}\nbool is_parallel(line a,line b){\n  return\
-    \ sign(cross(vec(a),vec(b)))==0;\n}\n"
+    \ sign(cross(vec(a),vec(b)))==0;\n}\n/**\n * @brief Line(\u76F4\u7DDA)\n*/\n"
+  code: "#pragma once\n#include\"point.hpp\"\nstruct line{\n  point a;\n  point b;\n\
+    \  line(){}\n  line(point p){b=p;}\n  line(point p,point q){a=p,b=q;}\n  line(double\
+    \ A,double B){a=point(0,B),b=point(1,A+B);}\n  line(double A,double B,double C){\n\
+    \    if(sign(B)==0){\n      a=point(-C/A,0);\n      b=point(-C/A,1);\n    }\n\
+    \    else{\n      a=point(0,-C/B);\n      b=point(1,-(A+C)/B);\n    }\n  }\n \
+    \ line operator+(point p){\n    return line(a+p,b+p);\n  }\n  line operator-(point\
+    \ p){\n    return line(a-p,b-p);\n  }\n  line &operator+=(point p){\n    a+=p;\n\
+    \    b+=p;\n    return *this;\n  }\n  line &operator-=(point p){\n    a-=p;\n\
+    \    b-=p;\n    return *this;\n  }\n  bool operator==(line l){\n    return sign(cross(b-a,l.a-a))==0&&sign(cross(b-a,l.b-a));\n\
+    \  }\n};\nistream&operator>>(istream &is,line &l){\n  point a,b;\n  is>>a>>b;\n\
+    \  l=line(a,b);\n  return is;\n}\nostream&operator<<(ostream&os,line l){\n  os<<l.a<<'\
+    \ '<<l.b;\n  return os;\n}\npoint vec(line l){\n  return l.b-l.a;\n}\npoint unit(line\
+    \ l){\n  return vec(l)/abs(vec(l));\n}\npoint part(line l,double a,double b){\n\
+    \  return (l.a*b+l.b*a)/(a+b);\n}\nbool is_parallel(line a,line b){\n  return\
+    \ sign(cross(vec(a),vec(b)))==0;\n}\n/**\n * @brief Line(\u76F4\u7DDA)\n*/"
   dependsOn:
   - Geometry/point.hpp
   isVerificationFile: false
   path: Geometry/line.hpp
   requiredBy: []
-  timestamp: '2021-12-23 11:59:41+00:00'
+  timestamp: '2022-01-12 16:26:09+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Geometry/line.hpp
