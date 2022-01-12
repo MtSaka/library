@@ -1,6 +1,3 @@
-/**
- * @brief Longest Common Subsequence(最長共通部分列)
-*/
 template<typename T>
 int lcsl(const vector<T>&a,const vector<T>&b){
   vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,0));
@@ -31,3 +28,6 @@ vector<T>lcs(const vector<T>&a,const vector<T>&b){
   reverse(ans.begin(),ans.end());
   return ans;
 }
+/**
+ * @brief Longest Common Subsequence(最長共通部分列)
+*/

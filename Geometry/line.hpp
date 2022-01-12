@@ -1,6 +1,4 @@
-/**
- * @brief Line(直線)
-*/
+#pragma once
 #include"point.hpp"
 struct line{
   point a;
@@ -61,3 +59,6 @@ point part(line l,double a,double b){
 bool is_parallel(line a,line b){
   return sign(cross(vec(a),vec(b)))==0;
 }
+/**
+ * @brief Line(直線)
+*/

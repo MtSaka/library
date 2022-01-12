@@ -1,6 +1,3 @@
-/**
- * @brief Count Subsequences(部分列の個数)
-*/
 long long subcount(const string&s){
   int n=s.size();
   vector<vector<int>>next(n+1,vector<int>(26,0));
@@ -15,3 +12,6 @@ long long subcount(const string&s){
   for(int i=0;i<=n;i++)ans+=dp[i];
   return ans;
 }
+/**
+ * @brief Count Subsequences(部分列の個数)
+*/

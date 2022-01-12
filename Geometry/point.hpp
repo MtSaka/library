@@ -1,13 +1,10 @@
-/**
- * @brief Point(点)
-*/
-double eps=0.0000000001;
-int sign(double x){
+#pragma once
+int sign(double x,double eps=1e-6){
   if(x>eps)return 1;
   if(x<-eps)return -1;
   return 0;
 }
-bool equals(double x,double y){
+bool equals(double x,double y,double eps=1e-6){
   return abs(x-y)<eps;
 }
 struct point{
@@ -114,3 +111,6 @@ double angle(point a,point b,point c){
   c-=b;
   return acos(dot(a,c)/(abs(a)*abs(c)));
 }
+/**
+ * @brief Point(点)
+*/
