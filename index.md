@@ -120,6 +120,9 @@ data:
       path: Math/mod_ntt.hpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
     - icon: ':heavy_check_mark:'
+      path: Math/mod_sqrt.hpp
+      title: Math/mod_sqrt.hpp
+    - icon: ':heavy_check_mark:'
       path: Math/modint.hpp
       title: modint
     - icon: ':warning:'
@@ -296,6 +299,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/sqrt_mod.test.cpp
+      title: test/yosupo/sqrt_mod.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/unionfind.test.cpp
       title: test/yosupo/unionfind.test.cpp

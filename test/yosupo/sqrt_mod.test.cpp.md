@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: Math/mod_sqrt.hpp
+    title: Math/mod_sqrt.hpp
+  - icon: ':heavy_check_mark:'
     path: Math/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
   - icon: ':heavy_check_mark:'
@@ -14,10 +17,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B
+    PROBLEM: https://judge.yosupo.jp/problem/sqrt_mod
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B
-  bundledCode: "#line 1 \"test/aoj/NTL/NTL_1_B.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B\"\
+    - https://judge.yosupo.jp/problem/sqrt_mod
+  bundledCode: "#line 1 \"test/yosupo/sqrt_mod.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_mod\"\
     \n#line 2 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
     \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
     #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
@@ -75,26 +78,35 @@ data:
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
     Math/modpow.hpp\"\ntemplate<typename T,typename S>\nT modpow(T a,S b,T m){\n \
     \ T ret=1;\n  while(b){\n    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n \
-    \ }\n  return ret;\n}\n/**\n * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line 4\
-    \ \"test/aoj/NTL/NTL_1_B.test.cpp\"\nint main(){\n  long long m,n;\n  cin>>m>>n;\n\
-    \  print(modpow(m,n,(long long)MOD));\n}\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/modpow.hpp\"\
-    \nint main(){\n  long long m,n;\n  cin>>m>>n;\n  print(modpow(m,n,(long long)MOD));\n\
-    }"
+    \ }\n  return ret;\n}\n/**\n * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line 3\
+    \ \"Math/mod_sqrt.hpp\"\ntemplate<typename T,typename S>\nS mod_sqrt(T a,S p){\n\
+    \  a%=p;\n  if(a==0)return 0;\n  if(p==2)return a;\n  if(modpow(a,(p-1)/2,p)!=1)return\
+    \ -1;\n  if((p&3)==3)return modpow(a,(p+1)/4,p);\n  S q=p-1,s=0,z=2;\n  while(!(q&1))q>>=1,s++;\n\
+    \  while(modpow(z,(p-1)/2,p)==1)z++;\n  S m=s,c=modpow(z,q,p),t=modpow(a,q,p),r=modpow(a,(q+1)/2,p);\n\
+    \  while(t!=1){\n    S pow_t=t*t%p,m_update;\n    for(int j=1;j<m;j++){\n    \
+    \  if(pow_t==1){\n        m_update=j;\n        break;\n      }\n      pow_t=pow_t*pow_t%p;\n\
+    \    }\n    S b=modpow(c,S(pow(2,m-m_update-1)),p);\n    m=m_update,c=modpow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
+    \  }\n  return r;\n}\n/**\n * @breif Mod Square Root(\u5E73\u65B9\u5270\u4F59\
+    )\n*/\n#line 4 \"test/yosupo/sqrt_mod.test.cpp\"\nint main(){\n  int t;\n  cin>>t;\n\
+    \  while(t--){\n    LL(y,p);\n    print(mod_sqrt(y,p));\n  }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_mod\"\n#include\"\
+    ../../template/template.hpp\"\n#include\"../../Math/mod_sqrt.hpp\"\nint main(){\n\
+    \  int t;\n  cin>>t;\n  while(t--){\n    LL(y,p);\n    print(mod_sqrt(y,p));\n\
+    \  }\n}"
   dependsOn:
   - template/template.hpp
+  - Math/mod_sqrt.hpp
   - Math/modpow.hpp
   isVerificationFile: true
-  path: test/aoj/NTL/NTL_1_B.test.cpp
+  path: test/yosupo/sqrt_mod.test.cpp
   requiredBy: []
   timestamp: '2022-01-15 23:22:23+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/NTL/NTL_1_B.test.cpp
+documentation_of: test/yosupo/sqrt_mod.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/NTL/NTL_1_B.test.cpp
-- /verify/test/aoj/NTL/NTL_1_B.test.cpp.html
-title: test/aoj/NTL/NTL_1_B.test.cpp
+- /verify/test/yosupo/sqrt_mod.test.cpp
+- /verify/test/yosupo/sqrt_mod.test.cpp.html
+title: test/yosupo/sqrt_mod.test.cpp
 ---

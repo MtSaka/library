@@ -121,6 +121,9 @@ data:
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/sqrt_mod.test.cpp
+    title: test/yosupo/sqrt_mod.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -271,6 +274,7 @@ data:
   - test/aoj/DPL/DPL_1_D.test.cpp
   - test/yosupo/shortest_path.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
+  - test/yosupo/sqrt_mod.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/polynomial_interpolation.test.cpp
