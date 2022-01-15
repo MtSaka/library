@@ -67,8 +67,8 @@ data:
   isVerificationFile: false
   path: Math/combinatorics.hpp
   requiredBy:
-  - Math/taylor-shift.hpp
   - Math/lagrange.hpp
+  - Math/taylor-shift.hpp
   timestamp: '2022-01-11 20:35:27+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

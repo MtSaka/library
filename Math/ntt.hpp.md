@@ -15,6 +15,12 @@ data:
     path: Math/mod_ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':heavy_check_mark:'
+    path: Math/multipoint_evaluation.hpp
+    title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
+  - icon: ':heavy_check_mark:'
+    path: Math/polynomial_interpolation.hpp
+    title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
+  - icon: ':heavy_check_mark:'
     path: Math/taylor-shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   _extendedVerifiedWith:
@@ -36,6 +42,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/multipoint_evaluation.test.cpp
+    title: test/yosupo/multipoint_evaluation.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/polynomial_interpolation.test.cpp
+    title: test/yosupo/polynomial_interpolation.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
@@ -130,21 +142,25 @@ data:
   isVerificationFile: false
   path: Math/ntt.hpp
   requiredBy:
-  - Math/taylor-shift.hpp
-  - Math/mod_ntt.hpp
-  - Math/convolution.hpp
   - Math/fps.hpp
+  - Math/mod_ntt.hpp
+  - Math/taylor-shift.hpp
+  - Math/multipoint_evaluation.hpp
+  - Math/convolution.hpp
+  - Math/polynomial_interpolation.hpp
   timestamp: '2022-01-11 20:35:27+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial_taylor_shift.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial_interpolation.test.cpp
+  - test/yosupo/polynomial_taylor_shift.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/convolution_mod.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
 documentation_of: Math/ntt.hpp
 layout: document
 redirect_from:

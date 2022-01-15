@@ -2,51 +2,24 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: Math/fps.hpp
+    title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
   - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: Math/multipoint_evaluation.hpp
-    title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-  - icon: ':heavy_check_mark:'
-    path: Math/polynomial_interpolation.hpp
-    title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':heavy_check_mark:'
-    path: Math/taylor-shift.hpp
-    title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/division_of_polynomials.test.cpp
-    title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/exp_of_formal_power_series.test.cpp
-    title: test/yosupo/exp_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/inv_of_formal_power_series.test.cpp
-    title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/log_of_formal_power_series.test.cpp
-    title: test/yosupo/log_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/multipoint_evaluation.test.cpp
-    title: test/yosupo/multipoint_evaluation.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial_interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/polynomial_taylor_shift.test.cpp
-    title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/pow_of_formal_power_series.test.cpp
-    title: test/yosupo/pow_of_formal_power_series.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
+    document_title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
     links: []
   bundledCode: "#line 2 \"Math/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n\
     \  long long x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n   \
@@ -155,92 +128,38 @@ data:
     \        if(i*k>d)return FPS(d,mint(0));\n        FPS ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));\n\
     \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
     \  }\n    }\n    return FPS(d,mint(0));\n  }\n};\n/**\n * @brief Formal Power\
-    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n"
-  code: "#pragma once\n#include\"ntt.hpp\"\ntemplate<long long Mod>\nstruct FPS:vector<modint<Mod>>{\n\
-    \  using mint=modint<Mod>;\n  using vector<mint>::vector;\n  using vector<mint>::operator=;\n\
-    \  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}\n\
-    \  FPS inv(int d=-1)const{\n    NTT<Mod>ntt;\n    const int n=(*this).size();\n\
-    \    if(d==-1)d=n;\n    FPS res{(*this)[0].inv()};\n    for(int m=1;m<d;m<<=1){\n\
-    \      FPS f((*this).begin(),(*this).begin()+min(n,2*m));\n      FPS g(res);\n\
-    \      f.resize(2*m),g.resize(2*m);\n      ntt.dft(f,1),ntt.dft(g,1);\n      for(int\
-    \ i=0;i<2*m;i++)f[i]*=g[i];\n      ntt.dft(f,-1);\n      f.erase(f.begin(),f.begin()+m);\n\
-    \      f.resize(2*m);ntt.dft(f,1);\n      for(int i=0;i<2*m;i++)f[i]*=g[i];\n\
-    \      ntt.dft(f,-1);\n      mint iz=mint(2*m).inv();iz*=-iz;\n      for(int i=0;i<m;i++)f[i]*=iz;\n\
-    \      res.insert(res.end(),f.begin(),f.begin()+m);\n    }\n    res.resize(d);\n\
-    \    return res;\n  }\n  FPS operator+(const mint&r)const{return FPS(*this)+=r;}\n\
-    \  FPS operator-(const mint&r)const{return FPS(*this)-=r;}\n  FPS operator*(const\
-    \ mint&r)const{return FPS(*this)*=r;}\n  FPS operator/(const mint&r)const{return\
-    \ FPS(*this)/=r;}\n  FPS operator+(const FPS&r)const{return FPS(*this)+=r;}\n\
-    \  FPS operator-(const FPS&r)const{return FPS(*this)-=r;}\n  FPS operator<<(const\
-    \ int&d)const{return FPS(*this)<<=d;}\n  FPS operator>>(const int&d)const{return\
-    \ FPS(*this)>>=d;}\n  FPS operator*(const FPS&r)const{return FPS(*this)*=r;}\n\
-    \  FPS operator/(const FPS&r)const{return FPS(*this)/=r;}\n  FPS operator%(const\
-    \ FPS&r)const{return FPS(*this)%=r;}\n  FPS operator-()const{\n    FPS ret(*this);\n\
-    \    for(auto &i:ret)i=-i;\n    return ret;\n  }\n  FPS &operator+=(const mint&r){\n\
-    \    if((*this).empty())(*this).resize(1);\n    (*this)[0]+=r;\n    return *this;\n\
-    \  }\n  FPS &operator-=(const mint&r){\n    if((*this).empty())(*this).resize(1);\n\
-    \    (*this)[0]-=r;\n    return *this;\n  }\n  FPS &operator*=(const mint&r){\n\
-    \    for(auto &i:*this)i*=r;\n    return *this;\n  }\n  FPS &operator/=(const\
-    \ mint&r){\n    (*this)*=r.inv();\n    return *this;\n  }\n  FPS &operator+=(const\
-    \ FPS&r){\n    const int n=(*this).size(),m=r.size();\n    (*this).resize(max(n,m));\n\
-    \    for(int i=0;i<m;i++)(*this)[i]+=r[i];\n    return *this;\n  }\n  FPS &operator-=(const\
-    \ FPS&r){\n    const int n=(*this).size(),m=r.size();\n    (*this).resize(max(n,m));\n\
-    \    for(int i=0;i<m;i++)(*this)[i]-=r[i];\n    return *this;\n  }\n  FPS &operator<<=(const\
-    \ long long&d){\n    (*this).insert((*this).begin(),d,mint(0));\n    return *this;\n\
-    \  }\n  FPS &operator>>=(const long long&d){\n    (*this).erase((*this).begin(),(*this).begin()+d);\n\
-    \    return *this;\n  }\n  FPS &operator*=(const FPS&r){\n    (*this)=NTT<Mod>::multiply((*this),r);\n\
-    \    return *this;\n  }\n  FPS &operator/=(FPS r){\n    const int n=(*this).size(),m=r.size();\n\
-    \    if(n<m){\n      (*this).clear();\n      return *this;\n    }\n    const int\
-    \ sz=n-m+1;\n    reverse((*this).begin(),(*this).end());\n    reverse(r.begin(),r.end());\n\
-    \    (*this).resize(sz);\n    (*this)*=r.inv(sz);\n    (*this).resize(sz);\n \
-    \   reverse((*this).begin(),(*this).end());\n    return (*this);\n  }\n  FPS &operator%=(const\
-    \ FPS&r){\n    const int n=(*this).size(),m=r.size();\n    if(n<m)return (*this);\n\
-    \    (*this)-=(*this)/r*r;\n    (*this).resize(m-1);\n    shrink();\n    return\
-    \ (*this);\n  }\n  pair<FPS,FPS>div_mod(const FPS&r){\n    FPS p=*this/r,q=*this-p*r;\n\
-    \    q.shrink();\n    return {p,q};\n  }\n  mint operator()(const mint&x)const{\n\
-    \    mint ret(0),w(1);\n    for(auto &e:*this){\n      ret+=e*w;\n      w*=x;\n\
-    \    }\n    return ret;\n  }\n  FPS diff()const{\n    const int n=(*this).size();\n\
-    \    FPS ret(max(0,n-1));\n    for(int i=1;i<n;i++)ret[i-1]=(*this)[i]*mint(i);\n\
-    \    return ret;\n  }\n  FPS integral()const{\n    const int n=(*this).size();\n\
-    \    vector<mint>inv(n+1);\n    inv[1]=mint(1);\n    for(int i=2;i<=n;i++)inv[i]=-inv[Mod%i]*mint(Mod/i);\n\
-    \    FPS ret(n+1);\n    for(int i=0;i<n;i++)ret[i+1]=(*this)[i]*inv[i+1];\n  \
-    \  return ret;\n  }\n  FPS log(int d=-1)const{\n    const int n=(*this).size();\n\
-    \    if(d==-1)d=n;\n    FPS res=diff()*inv(d);\n    res.resize(d-1);\n    return\
-    \ res.integral();\n  }\n  FPS exp(int d=-1)const{\n    const int n=(*this).size();\n\
-    \    if(d==-1)d=n;\n    FPS f={mint(1)+(*this)[0],(*this)[1]},res{1,1<n?(*this)[1]:0};\n\
-    \    for(int m=2;m<d;m<<=1){\n      f.insert(f.end(),(*this).begin()+min(m,n),(*this).begin()+min(n,2*m));\n\
-    \      if((int)f.size()<2*m)f.resize(2*m);\n      res=res*(f-res.log(2*m));\n\
-    \      res.resize(2*m);\n    }\n    res.resize(d);\n    return res;\n  }\n  FPS\
-    \ pow(long long k,int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
-    \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
-    \        if(i*k>d)return FPS(d,mint(0));\n        FPS ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));\n\
-    \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
-    \  }\n    }\n    return FPS(d,mint(0));\n  }\n};\n/**\n * @brief Formal Power\
-    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/"
+    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 3 \"Math/polynomial_interpolation.hpp\"\
+    \ntemplate<long long Mod>\nFPS<Mod>polynominal_interpolation(const vector<modint<Mod>>&xs,const\
+    \ vector<modint<Mod>>&ys){\n  const int n=xs.size();\n  int sz=1;\n  while(sz<n)sz<<=1;\n\
+    \  vector<FPS<Mod>>mul(sz*2,{1});\n  for(int i=0;i<n;i++)mul[i+sz]={-xs[i],modint<Mod>(1)};\n\
+    \  for(int i=sz;i-->1;)mul[i]=mul[i<<1]*mul[i<<1|1];\n  vector<FPS<Mod>>g(2*sz);\n\
+    \  g[1]=mul[1].diff()%mul[1];\n  for(int i=2;i<sz+n;i++)g[i]=g[i>>1]%mul[i];\n\
+    \  for(int i=0;i<n;i++)g[sz+i]={ys[i]/g[sz+i][0]};\n  for(int i=sz;i-->1;)g[i]=g[i<<1]*mul[i<<1|1]+g[i<<1|1]*mul[i<<1];\n\
+    \  return g[1];\n}\n/**\n * @brief Polynomial Interpolation(\u591A\u9805\u5F0F\
+    \u88DC\u9593)\n*/\n"
+  code: "#pragma once\n#include\"fps.hpp\"\ntemplate<long long Mod>\nFPS<Mod>polynominal_interpolation(const\
+    \ vector<modint<Mod>>&xs,const vector<modint<Mod>>&ys){\n  const int n=xs.size();\n\
+    \  int sz=1;\n  while(sz<n)sz<<=1;\n  vector<FPS<Mod>>mul(sz*2,{1});\n  for(int\
+    \ i=0;i<n;i++)mul[i+sz]={-xs[i],modint<Mod>(1)};\n  for(int i=sz;i-->1;)mul[i]=mul[i<<1]*mul[i<<1|1];\n\
+    \  vector<FPS<Mod>>g(2*sz);\n  g[1]=mul[1].diff()%mul[1];\n  for(int i=2;i<sz+n;i++)g[i]=g[i>>1]%mul[i];\n\
+    \  for(int i=0;i<n;i++)g[sz+i]={ys[i]/g[sz+i][0]};\n  for(int i=sz;i-->1;)g[i]=g[i<<1]*mul[i<<1|1]+g[i<<1|1]*mul[i<<1];\n\
+    \  return g[1];\n}\n/**\n * @brief Polynomial Interpolation(\u591A\u9805\u5F0F\
+    \u88DC\u9593)\n*/"
   dependsOn:
+  - Math/fps.hpp
   - Math/ntt.hpp
   - Math/modint.hpp
   isVerificationFile: false
-  path: Math/fps.hpp
-  requiredBy:
-  - Math/taylor-shift.hpp
-  - Math/multipoint_evaluation.hpp
-  - Math/polynomial_interpolation.hpp
-  timestamp: '2022-01-11 20:35:27+00:00'
+  path: Math/polynomial_interpolation.hpp
+  requiredBy: []
+  timestamp: '2022-01-15 22:00:46+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/polynomial_interpolation.test.cpp
-  - test/yosupo/polynomial_taylor_shift.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-documentation_of: Math/fps.hpp
+documentation_of: Math/polynomial_interpolation.hpp
 layout: document
 redirect_from:
-- /library/Math/fps.hpp
-- /library/Math/fps.hpp.html
-title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
+- /library/Math/polynomial_interpolation.hpp
+- /library/Math/polynomial_interpolation.hpp.html
+title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
 ---
