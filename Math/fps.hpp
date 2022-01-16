@@ -173,6 +173,36 @@ struct FPS:vector<modint<Mod>>{
     }
     return FPS(d,mint(0));
   }
+  FPS sqrt(int d=-1,const function<mint(mint)>&get_sqrt=[](mint){return mint(1);})const{
+    const int n=(*this).size();
+    if(d==-1)d=n;
+    if((*this)[0]==mint(0)){
+      for(int i=1;i<n;i++){
+        if((*this)[i]!=mint(0)){
+          if(i&1)return {};
+          if(d-i/2<=0)break;
+          auto ret=(*this>>i).sqrt(d-i/2,get_sqrt);
+          if(ret.empty())return {};
+          ret=ret<<(i/2);
+          if((int)ret.size()<d)ret.resize(d);
+          return ret;
+        }
+      }
+      return FPS(d);
+    }
+    auto sqr=get_sqrt((*this)[0]);
+    if(sqr*sqr!=(*this)[0])return {};
+    FPS ret{sqr};
+    mint inv2=mint(2).inv();
+    FPS f={(*this)[0]};
+    for(int i=1;i<d;i<<=1){
+      if(i<n)f.insert(f.end(),(*this).begin()+i,(*this).begin()+min(n,i<<1));
+      if((int)f.size()<(i<<1))f.resize(i<<1);
+      ret=(ret+f*ret.inv(i<<1))*inv2;
+    }
+    ret.resize(d);
+    return ret;
+  }
 };
 /**
  * @brief Formal Power Series(形式的冪級数)

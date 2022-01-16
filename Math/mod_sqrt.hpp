@@ -20,7 +20,7 @@ S mod_sqrt(T a,S p){
       }
       pow_t=pow_t*pow_t%p;
     }
-    S b=modpow(c,S(pow(2,m-m_update-1)),p);
+    S b=modpow(c,S(1)<<(m-m_update-1),p);
     m=m_update,c=modpow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;
   }
   return r;
