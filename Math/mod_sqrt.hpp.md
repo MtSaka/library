@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/sqrt_of_formal_power_series.test.cpp
+    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -23,7 +26,7 @@ data:
     \  while(modpow(z,(p-1)/2,p)==1)z++;\n  S m=s,c=modpow(z,q,p),t=modpow(a,q,p),r=modpow(a,(q+1)/2,p);\n\
     \  while(t!=1){\n    S pow_t=t*t%p,m_update;\n    for(int j=1;j<m;j++){\n    \
     \  if(pow_t==1){\n        m_update=j;\n        break;\n      }\n      pow_t=pow_t*pow_t%p;\n\
-    \    }\n    S b=modpow(c,S(pow(2,m-m_update-1)),p);\n    m=m_update,c=modpow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
+    \    }\n    S b=modpow(c,S(1)<<(m-m_update-1),p);\n    m=m_update,c=modpow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
     \  }\n  return r;\n}\n/**\n * @breif Mod Square Root(\u5E73\u65B9\u5270\u4F59\
     )\n*/\n"
   code: "#pragma once\n#include\"modpow.hpp\"\ntemplate<typename T,typename S>\nS\
@@ -32,7 +35,7 @@ data:
     \  while(modpow(z,(p-1)/2,p)==1)z++;\n  S m=s,c=modpow(z,q,p),t=modpow(a,q,p),r=modpow(a,(q+1)/2,p);\n\
     \  while(t!=1){\n    S pow_t=t*t%p,m_update;\n    for(int j=1;j<m;j++){\n    \
     \  if(pow_t==1){\n        m_update=j;\n        break;\n      }\n      pow_t=pow_t*pow_t%p;\n\
-    \    }\n    S b=modpow(c,S(pow(2,m-m_update-1)),p);\n    m=m_update,c=modpow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
+    \    }\n    S b=modpow(c,S(1)<<(m-m_update-1),p);\n    m=m_update,c=modpow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
     \  }\n  return r;\n}\n/**\n * @breif Mod Square Root(\u5E73\u65B9\u5270\u4F59\
     )\n*/"
   dependsOn:
@@ -40,10 +43,11 @@ data:
   isVerificationFile: false
   path: Math/mod_sqrt.hpp
   requiredBy: []
-  timestamp: '2022-01-15 23:22:23+00:00'
+  timestamp: '2022-01-16 19:22:05+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/sqrt_mod.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
 documentation_of: Math/mod_sqrt.hpp
 layout: document
 redirect_from:

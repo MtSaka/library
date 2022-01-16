@@ -12,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/sqrt_of_formal_power_series.test.cpp
+    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -35,6 +38,7 @@ data:
   verifiedWith:
   - test/aoj/NTL/NTL_1_B.test.cpp
   - test/yosupo/sqrt_mod.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
 documentation_of: Math/modpow.hpp
 layout: document
 redirect_from:

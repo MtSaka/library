@@ -187,7 +187,17 @@ data:
     \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
     \        if(i*k>d)return FPS(d,mint(0));\n        FPS ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));\n\
     \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
-    \  }\n    }\n    return FPS(d,mint(0));\n  }\n};\n/**\n * @brief Formal Power\
+    \  }\n    }\n    return FPS(d,mint(0));\n  }\n  FPS sqrt(int d=-1,const function<mint(mint)>&get_sqrt=[](mint){return\
+    \ mint(1);})const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n    if((*this)[0]==mint(0)){\n\
+    \      for(int i=1;i<n;i++){\n        if((*this)[i]!=mint(0)){\n          if(i&1)return\
+    \ {};\n          if(d-i/2<=0)break;\n          auto ret=(*this>>i).sqrt(d-i/2,get_sqrt);\n\
+    \          if(ret.empty())return {};\n          ret=ret<<(i/2);\n          if((int)ret.size()<d)ret.resize(d);\n\
+    \          return ret;\n        }\n      }\n      return FPS(d);\n    }\n    auto\
+    \ sqr=get_sqrt((*this)[0]);\n    if(sqr*sqr!=(*this)[0])return {};\n    FPS ret{sqr};\n\
+    \    mint inv2=mint(2).inv();\n    FPS f={(*this)[0]};\n    for(int i=1;i<d;i<<=1){\n\
+    \      if(i<n)f.insert(f.end(),(*this).begin()+i,(*this).begin()+min(n,i<<1));\n\
+    \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      ret=(ret+f*ret.inv(i<<1))*inv2;\n\
+    \    }\n    ret.resize(d);\n    return ret;\n  }\n};\n/**\n * @brief Formal Power\
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 3 \"Math/multipoint_evaluation.hpp\"\
     \ntemplate<long long Mod>\nvector<modint<Mod>>multipoint_evaluation(const FPS<Mod>&f,const\
     \ vector<modint<Mod>>&xs){\n  const int m=xs.size();\n  int sz=1;\n  while(sz<m)sz<<=1;\n\
@@ -212,7 +222,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/multipoint_evaluation.test.cpp
   requiredBy: []
-  timestamp: '2022-01-15 22:00:46+00:00'
+  timestamp: '2022-01-16 19:22:05+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/multipoint_evaluation.test.cpp

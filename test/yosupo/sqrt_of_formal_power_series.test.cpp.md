@@ -5,8 +5,14 @@ data:
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
+    path: Math/mod_sqrt.hpp
+    title: Math/mod_sqrt.hpp
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
+  - icon: ':heavy_check_mark:'
+    path: Math/modpow.hpp
+    title: "Mod Pow(\u3079\u304D\u4E57)"
   - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
@@ -20,11 +26,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/pow_of_formal_power_series
+    PROBLEM: https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
     links:
-    - https://judge.yosupo.jp/problem/pow_of_formal_power_series
-  bundledCode: "#line 1 \"test/yosupo/pow_of_formal_power_series.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\n#line\
+    - https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
+  bundledCode: "#line 1 \"test/yosupo/sqrt_of_formal_power_series.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\"\n#line\
     \ 2 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"\
     O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define\
     \ overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define rep1(a)\
@@ -195,28 +201,45 @@ data:
     \      if(i<n)f.insert(f.end(),(*this).begin()+i,(*this).begin()+min(n,i<<1));\n\
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      ret=(ret+f*ret.inv(i<<1))*inv2;\n\
     \    }\n    ret.resize(d);\n    return ret;\n  }\n};\n/**\n * @brief Formal Power\
-    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"test/yosupo/pow_of_formal_power_series.test.cpp\"\
-    \nint main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n);\n  cin>>f;\n  cout<<f.pow(m)<<endl;\n\
-    }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\
-    \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps.hpp\"\nint\
-    \ main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n);\n  cin>>f;\n  cout<<f.pow(m)<<endl;\n\
-    }"
+    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 2 \"Math/modpow.hpp\"\
+    \ntemplate<typename T,typename S>\nT modpow(T a,S b,T m){\n  T ret=1;\n  while(b){\n\
+    \    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n  }\n  return ret;\n}\n/**\n\
+    \ * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line 3 \"Math/mod_sqrt.hpp\"\ntemplate<typename\
+    \ T,typename S>\nS mod_sqrt(T a,S p){\n  a%=p;\n  if(a==0)return 0;\n  if(p==2)return\
+    \ a;\n  if(modpow(a,(p-1)/2,p)!=1)return -1;\n  if((p&3)==3)return modpow(a,(p+1)/4,p);\n\
+    \  S q=p-1,s=0,z=2;\n  while(!(q&1))q>>=1,s++;\n  while(modpow(z,(p-1)/2,p)==1)z++;\n\
+    \  S m=s,c=modpow(z,q,p),t=modpow(a,q,p),r=modpow(a,(q+1)/2,p);\n  while(t!=1){\n\
+    \    S pow_t=t*t%p,m_update;\n    for(int j=1;j<m;j++){\n      if(pow_t==1){\n\
+    \        m_update=j;\n        break;\n      }\n      pow_t=pow_t*pow_t%p;\n  \
+    \  }\n    S b=modpow(c,S(1)<<(m-m_update-1),p);\n    m=m_update,c=modpow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
+    \  }\n  return r;\n}\n/**\n * @breif Mod Square Root(\u5E73\u65B9\u5270\u4F59\
+    )\n*/\n#line 5 \"test/yosupo/sqrt_of_formal_power_series.test.cpp\"\nusing mint=modint<mod>;\n\
+    int main(){\n  int n;\n  cin>>n;\n  FPS<mod>f(n);\n  cin>>f;\n  auto get_sqrt=[&](mint\
+    \ x){return mint(mod_sqrt(x.x,x.get_mod()));};\n  f=f.sqrt(-1,get_sqrt);\n  if(f.empty())print(-1);\n\
+    \  else{\n    print(f);\n  }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\"\
+    \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps.hpp\"\n#include\"\
+    ../../Math/mod_sqrt.hpp\"\nusing mint=modint<mod>;\nint main(){\n  int n;\n  cin>>n;\n\
+    \  FPS<mod>f(n);\n  cin>>f;\n  auto get_sqrt=[&](mint x){return mint(mod_sqrt(x.x,x.get_mod()));};\n\
+    \  f=f.sqrt(-1,get_sqrt);\n  if(f.empty())print(-1);\n  else{\n    print(f);\n\
+    \  }\n}"
   dependsOn:
   - template/template.hpp
   - Math/fps.hpp
   - Math/ntt.hpp
   - Math/modint.hpp
+  - Math/mod_sqrt.hpp
+  - Math/modpow.hpp
   isVerificationFile: true
-  path: test/yosupo/pow_of_formal_power_series.test.cpp
+  path: test/yosupo/sqrt_of_formal_power_series.test.cpp
   requiredBy: []
   timestamp: '2022-01-16 19:22:05+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/pow_of_formal_power_series.test.cpp
+documentation_of: test/yosupo/sqrt_of_formal_power_series.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/pow_of_formal_power_series.test.cpp
-- /verify/test/yosupo/pow_of_formal_power_series.test.cpp.html
-title: test/yosupo/pow_of_formal_power_series.test.cpp
+- /verify/test/yosupo/sqrt_of_formal_power_series.test.cpp
+- /verify/test/yosupo/sqrt_of_formal_power_series.test.cpp.html
+title: test/yosupo/sqrt_of_formal_power_series.test.cpp
 ---

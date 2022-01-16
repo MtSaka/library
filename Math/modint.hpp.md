@@ -69,6 +69,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/sqrt_of_formal_power_series.test.cpp
+    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -142,6 +145,7 @@ data:
   - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
 documentation_of: Math/modint.hpp
 layout: document

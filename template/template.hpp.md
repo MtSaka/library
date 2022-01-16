@@ -124,6 +124,9 @@ data:
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/sqrt_of_formal_power_series.test.cpp
+    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -291,6 +294,7 @@ data:
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/factorize.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yukicoder/1236.test.cpp
 documentation_of: template/template.hpp
