@@ -17,7 +17,7 @@
 "test/aoj/GRL/GRL_5_C.test.cpp": "2022-01-11 21:49:44 +0000",
 "test/aoj/ITP1/ITP1_3_D.test.cpp": "2022-01-11 21:13:55 +0000",
 "test/aoj/NTL/NTL_1_A.test.cpp": "2022-01-11 21:13:55 +0000",
-"test/aoj/NTL/NTL_1_B.test.cpp": "2022-01-11 21:13:55 +0000",
+"test/aoj/NTL/NTL_1_B.test.cpp": "2022-01-15 23:22:23 +0000",
 "test/aoj/NTL/NTL_1_C.test.cpp": "2022-01-11 21:08:13 +0000",
 "test/aoj/NTL/NTL_1_D.test.cpp": "2022-01-11 21:13:55 +0000",
 "test/yosupo/convolution_mod.test.cpp": "2022-01-11 21:08:13 +0000",
@@ -38,6 +38,7 @@
 "test/yosupo/pow_of_formal_power_series.test.cpp": "2022-01-11 21:08:13 +0000",
 "test/yosupo/range_affine_range_sum.test.cpp": "2022-01-11 21:08:13 +0000",
 "test/yosupo/shortest_path.test.cpp": "2022-01-11 21:49:44 +0000",
+"test/yosupo/sqrt_mod.test.cpp": "2022-01-15 23:22:23 +0000",
 "test/yosupo/unionfind.test.cpp": "2022-01-11 21:08:13 +0000",
 "test/yukicoder/1236.test.cpp": "2022-01-11 21:13:55 +0000"
 }
