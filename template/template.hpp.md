@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/yosupo/staticrmq.hpp
+    title: test/yosupo/staticrmq.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
@@ -250,7 +253,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: template/template.hpp
-  requiredBy: []
+  requiredBy:
+  - test/yosupo/staticrmq.hpp
   timestamp: '2022-01-11 21:08:13+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

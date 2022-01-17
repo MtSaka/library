@@ -18,6 +18,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/segtree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+    - icon: ':warning:'
+      path: Data_Structure/sparse_table.hpp
+      title: Sparse Table
     - icon: ':heavy_check_mark:'
       path: Data_Structure/weighed_dsu.hpp
       title: "Weighed Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
@@ -167,6 +170,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  - name: test/yosupo
+    pages:
+    - icon: ':warning:'
+      path: test/yosupo/staticrmq.hpp
+      title: test/yosupo/staticrmq.hpp
   verificationCategories:
   - name: test/aoj/ALDS1
     pages:
