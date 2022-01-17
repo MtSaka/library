@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/sparse_table.hpp
     title: Sparse Table
   - icon: ':heavy_check_mark:'
@@ -10,12 +10,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _pathExtension: cpp
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/staticrmq
     links:
     - https://judge.yosupo.jp/problem/staticrmq
-  bundledCode: "#line 1 \"test/yosupo/staticrmq.hpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\
+  bundledCode: "#line 1 \"test/yosupo/staticrmq.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\
     \n#line 2 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
     \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
     #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
@@ -80,8 +82,8 @@ data:
     \  }\n  T query(int l,int r){\n    int a=log_table[r-l];\n    return f(table[a][l],table[a][r-(1<<a)]);\n\
     \  }\n};\ntemplate<typename T,typename F>\nsparse_table<T,F>make_sparse_table(const\
     \ vector<T>&v,const F&f){\n  return sparse_table<T,F>(v,f);\n} \n/**\n * @brief\
-    \ Sparse Table\n*/\n#line 4 \"test/yosupo/staticrmq.hpp\"\nint main(){\n  int\
-    \ n,q;\n  cin>>n>>q;\n  vector<int>a(n);\n  cin>>a;\n  auto st=make_sparse_table(a,[](int\
+    \ Sparse Table\n*/\n#line 4 \"test/yosupo/staticrmq.test.cpp\"\nint main(){\n\
+    \  int n,q;\n  cin>>n>>q;\n  vector<int>a(n);\n  cin>>a;\n  auto st=make_sparse_table(a,[](int\
     \ a,int b){return min(a,b);});\n  while(q--){\n    int l,r;\n    cin>>l>>r;\n\
     \    cout<<st.query(l,r)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include\"\
@@ -92,16 +94,16 @@ data:
   dependsOn:
   - template/template.hpp
   - Data_Structure/sparse_table.hpp
-  isVerificationFile: false
-  path: test/yosupo/staticrmq.hpp
+  isVerificationFile: true
+  path: test/yosupo/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2022-01-17 17:09:11+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2022-01-17 17:23:27+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/staticrmq.hpp
+documentation_of: test/yosupo/staticrmq.test.cpp
 layout: document
 redirect_from:
-- /library/test/yosupo/staticrmq.hpp
-- /library/test/yosupo/staticrmq.hpp.html
-title: test/yosupo/staticrmq.hpp
+- /verify/test/yosupo/staticrmq.test.cpp
+- /verify/test/yosupo/staticrmq.test.cpp.html
+title: test/yosupo/staticrmq.test.cpp
 ---

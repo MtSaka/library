@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/yosupo/staticrmq.hpp
-    title: test/yosupo/staticrmq.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
@@ -130,6 +127,9 @@ data:
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/staticrmq.test.cpp
+    title: test/yosupo/staticrmq.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
   - icon: ':heavy_check_mark:'
@@ -253,8 +253,7 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: template/template.hpp
-  requiredBy:
-  - test/yosupo/staticrmq.hpp
+  requiredBy: []
   timestamp: '2022-01-11 21:08:13+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -283,6 +282,7 @@ data:
   - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/sqrt_mod.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/staticrmq.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/polynomial_interpolation.test.cpp
   - test/yosupo/point_add_range_sum2.test.cpp
