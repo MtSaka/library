@@ -22,6 +22,9 @@ data:
     path: Graph/lowest_common_ancestor.hpp
     title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':heavy_check_mark:'
+    path: Graph/prim.hpp
+    title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
+  - icon: ':heavy_check_mark:'
     path: Graph/topological_sort.hpp
     title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
       )"
@@ -41,6 +44,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_2_A.test.cpp
     title: test/aoj/GRL/GRL_2_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL/GRL_2_A_2.test.cpp
+    title: test/aoj/GRL/GRL_2_A_2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_4_A.test.cpp
     title: test/aoj/GRL/GRL_4_A.test.cpp
@@ -107,11 +113,13 @@ data:
   - Graph/dijkstra_path.hpp
   - Graph/lowest_common_ancestor.hpp
   - Graph/topological_sort.hpp
+  - Graph/prim.hpp
   - Graph/dijkstra.hpp
   timestamp: '2022-01-11 21:49:44+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_4_A.test.cpp
+  - test/aoj/GRL/GRL_2_A_2.test.cpp
   - test/aoj/GRL/GRL_2_A.test.cpp
   - test/aoj/GRL/GRL_1_B.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
