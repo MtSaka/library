@@ -1,4 +1,3 @@
-#pragma once
 //#pragma GCC target("avx")
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("unroll-loops")
@@ -104,9 +103,9 @@ void trace(){cerr<<endl;}
 template<typename Head,typename... Tail>
 void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))cerr<<",";trace(forward<Tail>(tail)...);}
 #ifdef ONLINE_JUDGE
-#define debug(...)
+#define debug(...) (void(0))
 #else
-#define debug(...) cerr<<#__VA_ARGS__<<"=";trace(__VA_ARGS__);
+#define debug(...) do{cerr<<#__VA_ARGS__<<"=";trace(__VA_ARGS__);}while(0)
 #endif
 struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};
 /**
