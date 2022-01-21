@@ -18,7 +18,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_1_A.test.cpp
     title: test/aoj/DSL/DSL_1_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_1_B.test.cpp
     title: test/aoj/DSL/DSL_1_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -138,9 +138,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -258,7 +258,7 @@ data:
   path: template/template.hpp
   requiredBy: []
   timestamp: '2022-01-20 20:34:11+00:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - test/aoj/ALDS1/ALDS1_10_C.test.cpp

@@ -21,8 +21,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/sparse_table.hpp
       title: Sparse Table
-    - icon: ':x:'
-      path: Data_Structure/weighed_dsu.hpp
+    - icon: ':heavy_check_mark:'
+      path: Data_Structure/weighted_dsu.hpp
       title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
   - name: Dynamic_Programming
     pages:
@@ -170,7 +170,7 @@ data:
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -195,7 +195,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_1_A.test.cpp
       title: test/aoj/DSL/DSL_1_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_1_B.test.cpp
       title: test/aoj/DSL/DSL_1_B.test.cpp
     - icon: ':heavy_check_mark:'
