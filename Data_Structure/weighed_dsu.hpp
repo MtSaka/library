@@ -1,9 +1,9 @@
 #pragma once
 template<typename T>
-struct weighed_dsu{
+struct weighted_dsu{
   vector<int>p;vector<T>diff;
-  weighed_dsu(){}
-  weighed_dsu(int n,T s=0):p(n,-1),diff(n,s){}
+  weighted_dsu(){}
+  weighted_dsu(int n,T s=0):p(n,-1),diff(n,s){}
   int root(int x){
     if(p[x]<0)return x;
     int r=root(p[x]);
@@ -30,5 +30,5 @@ struct weighed_dsu{
   }
 };
 /**
- * @brief Weighed Disjoint Set Union(重み付きUnion Find)
+ * @brief Weighted Disjoint Set Union(重み付きUnion Find)
 */ 
