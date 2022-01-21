@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/dsu.hpp
     title: Disjoint Set Union(Union Find)
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/unionfind
@@ -98,7 +98,7 @@ data:
   path: test/yosupo/unionfind.test.cpp
   requiredBy: []
   timestamp: '2022-01-20 20:34:11+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/unionfind.test.cpp
 layout: document

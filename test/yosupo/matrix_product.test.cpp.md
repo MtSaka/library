@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/matrix.hpp
     title: "Matrix(\u884C\u5217)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
   - icon: ':question:'

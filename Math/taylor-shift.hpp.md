@@ -4,13 +4,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   _extendedRequiredBy: []

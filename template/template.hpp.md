@@ -18,7 +18,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_1_A.test.cpp
     title: test/aoj/DSL/DSL_1_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL/DSL_1_B.test.cpp
     title: test/aoj/DSL/DSL_1_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -120,22 +120,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
   _isVerificationFailed: true

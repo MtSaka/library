@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Data_Structure/weighed_dsu.hpp
-    title: "Weighed Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
+    title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
   - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B
@@ -73,15 +73,15 @@ data:
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Data_Structure/weighed_dsu.hpp\"\ntemplate<typename T>\nstruct weighed_dsu{\n\
-    \  vector<int>p;vector<T>diff;\n  weighed_dsu(){}\n  weighed_dsu(int n,T s=0):p(n,-1),diff(n,s){}\n\
+    Data_Structure/weighed_dsu.hpp\"\ntemplate<typename T>\nstruct weighted_dsu{\n\
+    \  vector<int>p;vector<T>diff;\n  weighted_dsu(){}\n  weighted_dsu(int n,T s=0):p(n,-1),diff(n,s){}\n\
     \  int root(int x){\n    if(p[x]<0)return x;\n    int r=root(p[x]);\n    diff[x]+=diff[p[x]];\n\
     \    return p[x]=r;\n  }\n  T weight(int x){\n    root(x);\n    return diff[x];\n\
     \  }\n  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
     \ -p[root(x)];}\n  void merge(int x,int y,T w){\n    w+=weight(x),w-=weight(y);\n\
     \    x=root(x),y=root(y);\n    if(x==y)return ;\n    if(p[x]>p[y])swap(x,y),w=-w;\n\
     \    p[x]+=p[y];\n    p[y]=x;\n    diff[y]=w;\n  }\n  T dist(int x,int y){\n \
-    \   return weight(y)-weight(x);\n  }\n};\n/**\n * @brief Weighed Disjoint Set\
+    \   return weight(y)-weight(x);\n  }\n};\n/**\n * @brief Weighted Disjoint Set\
     \ Union(\u91CD\u307F\u4ED8\u304DUnion Find)\n*/ \n#line 4 \"test/aoj/DSL/DSL_1_B.test.cpp\"\
     \nint main(){\n  int n,m;\n  cin>>n>>m;\n  weighed_dsu<int>tree(n);\n  while(m--){\n\
     \    int a,b,c,d;\n    cin>>a>>b>>c;\n    if(a==0){\n      cin>>d;\n      tree.merge(b,c,d);\n\
@@ -99,8 +99,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2022-01-20 20:34:11+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-21 16:21:24+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_1_B.test.cpp
 layout: document
