@@ -1,3 +1,4 @@
+#pragma once
 #include"graph_template.hpp"
 template<typename T>
 struct Doubling_LCA:Graph<T>{
