@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: Graph/doubling_lowest_common_ancestor.hpp
+    title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':heavy_check_mark:'
-    path: Graph/lowest_common_ancestor.hpp
-    title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
@@ -20,7 +20,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/lca
     links:
     - https://judge.yosupo.jp/problem/lca
-  bundledCode: "#line 1 \"test/yosupo/lca.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\
+  bundledCode: "#line 1 \"test/yosupo/lca1.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\
     \n#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
     \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
     #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
@@ -91,44 +91,45 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/lowest_common_ancestor.hpp\"\
-    \ntemplate<typename T>\nstruct LCA{\n  int lg=0;\n  vector<int>dep;\n  const Graph<T>&g;\n\
-    \  vector<vector<int>>table;\n  LCA(int n):g(n),dep(n){\n    g.read(n-1);\n  \
-    \  while((1<<lg)<n)lg++;\n    table.assign(lg,vector<int>(n,-1));\n    build();\n\
-    \  }\n  LCA(const Graph<T>&g):g(g),dep(g.size()){\n    while((1<<lg)<g.size())lg++;\n\
-    \    table.assign(lg,vector<int>(g.size(),-1));\n    build();\n  }\n  void dfs(int\
-    \ idx,int par,int d){\n    table[0][idx]=par;\n    dep[idx]=d;\n    for(auto &e:g[idx]){\n\
-    \      if(e!=par)dfs(e,idx,d+1);\n    }\n  }\n  void build(){\n    dfs(0,-1,0);\n\
-    \    for(int k=0;k+1<lg;k++){\n      for(int i=0;i<table[k].size();i++){\n   \
-    \     if(table[k][i]==-1)table[k+1][i]=-1;\n        else table[k+1][i]=table[k][table[k][i]];\n\
-    \      }\n    }\n  }\n  int query(int u,int v){\n    if(dep[u]>dep[v])swap(u,v);\n\
-    \    for(int i=lg-1;i>=0;i--){\n      if(((dep[v]-dep[u])>>i)&1)v=table[i][v];\n\
-    \    }\n    if(u==v)return u;\n    for(int i=lg-1;i>=0;i--){\n      if(table[i][u]!=table[i][v]){\n\
-    \        u=table[i][u];\n        v=table[i][v];\n      }\n    }\n    return table[0][u];\n\
-    \  }\n};\n/**\n * @brief Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\
-    \u5148)\n*/\n#line 4 \"test/yosupo/lca.test.cpp\"\nint main(){\n  int n,q;\n \
-    \ cin>>n>>q;\n  Graph<int>g(n);\n  for(int i=1;i<n;i++){\n    int u;\n    cin>>u;\n\
-    \    g.add_edge(u,i);\n  }\n  LCA<int>lca(g);\n  while(q--){\n    int u,v;\n \
-    \   cin>>u>>v;\n    cout<<lca.query(u,v)<<endl;\n  }\n}\n"
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/doubling_lowest_common_ancestor.hpp\"\
+    \ntemplate<typename T>\nstruct Doubling_LCA:Graph<T>{\n  using Graph<T>::g;\n\
+    \  const int lg;\n  vector<int>dep;\n  vector<T>sum;\n  vector<vector<int>>table;\n\
+    \  Doubling_LCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}\n  Doubling_LCA(const\
+    \ Graph<T>&g):Graph<T>(g),lg(32-__builtin_clz(g.size())){}\n  void build(int root=0){\n\
+    \    dep.assign(g.size(),0);\n    sum.assign(g.size(),0);\n    table.assign(lg,vector<int>(g.size(),-1));\n\
+    \    dfs(root,-1,0);\n    for(int k=0;k+1<lg;k++){\n      for(int i=0;i<(int)table[k].size();i++){\n\
+    \        if(table[k][i]==-1)table[k+1][i]=-1;\n        else table[k+1][i]=table[k][table[k][i]];\n\
+    \      }\n    }\n  }\n  int lca(int u,int v){\n    if(dep[u]>dep[v])swap(u,v);\n\
+    \    int k=dep[v]-dep[u];\n    if(dep[v]<k)return -1;\n    for(int i=lg-1;i>=0;i--){\n\
+    \      if((k>>i)&1)v=table[i][v];\n    }\n    if(u==v)return u;\n    for(int i=lg-1;i>=0;i--){\n\
+    \      if(table[i][u]!=table[i][v]){\n        u=table[i][u];\n        v=table[i][v];\n\
+    \      }\n    }\n    return table[0][u];\n  }\n  T dist(int u,int v){return sum[u]+sum[v]-2*sum[lca(u,v)];}\n\
+    \  private:\n  void dfs(int idx,int par,int d){\n    table[0][idx]=par;\n    dep[idx]=d;\n\
+    \    for(auto &e:g[idx])if(e!=par){\n      sum[e]=sum[idx]+e.cost;\n      dfs(e,idx,d+1);\n\
+    \    }\n  }\n};\n/**\n * @brief Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\
+    \u901A\u7956\u5148)\n*/\n#line 4 \"test/yosupo/lca1.test.cpp\"\nint main(){\n\
+    \  int n,q;\n  cin>>n>>q;\n  Doubling_LCA<int>g(n);\n  for(int i=1;i<n;i++){\n\
+    \    int u;\n    cin>>u;\n    g.add_edge(u,i);\n  }\n  g.build();\n  while(q--){\n\
+    \    int u,v;\n    cin>>u>>v;\n    cout<<g.lca(u,v)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include\"../../template/template.hpp\"\
-    \n#include\"../../Graph/lowest_common_ancestor.hpp\"\nint main(){\n  int n,q;\n\
-    \  cin>>n>>q;\n  Graph<int>g(n);\n  for(int i=1;i<n;i++){\n    int u;\n    cin>>u;\n\
-    \    g.add_edge(u,i);\n  }\n  LCA<int>lca(g);\n  while(q--){\n    int u,v;\n \
-    \   cin>>u>>v;\n    cout<<lca.query(u,v)<<endl;\n  }\n}"
+    \n#include\"../../Graph/doubling_lowest_common_ancestor.hpp\"\nint main(){\n \
+    \ int n,q;\n  cin>>n>>q;\n  Doubling_LCA<int>g(n);\n  for(int i=1;i<n;i++){\n\
+    \    int u;\n    cin>>u;\n    g.add_edge(u,i);\n  }\n  g.build();\n  while(q--){\n\
+    \    int u,v;\n    cin>>u>>v;\n    cout<<g.lca(u,v)<<endl;\n  }\n}"
   dependsOn:
   - template/template.hpp
-  - Graph/lowest_common_ancestor.hpp
+  - Graph/doubling_lowest_common_ancestor.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
-  path: test/yosupo/lca.test.cpp
+  path: test/yosupo/lca1.test.cpp
   requiredBy: []
-  timestamp: '2022-01-20 20:34:11+00:00'
+  timestamp: '2022-01-22 21:52:59+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/lca.test.cpp
+documentation_of: test/yosupo/lca1.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/lca.test.cpp
-- /verify/test/yosupo/lca.test.cpp.html
-title: test/yosupo/lca.test.cpp
+- /verify/test/yosupo/lca1.test.cpp
+- /verify/test/yosupo/lca1.test.cpp.html
+title: test/yosupo/lca1.test.cpp
 ---

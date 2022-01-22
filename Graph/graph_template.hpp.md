@@ -16,11 +16,11 @@ data:
     title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
       \u77ED\u8DEF)"
   - icon: ':heavy_check_mark:'
+    path: Graph/doubling_lowest_common_ancestor.hpp
+    title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+  - icon: ':heavy_check_mark:'
     path: Graph/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':heavy_check_mark:'
-    path: Graph/lowest_common_ancestor.hpp
-    title: "Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':heavy_check_mark:'
     path: Graph/prim.hpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
@@ -54,11 +54,8 @@ data:
     path: test/aoj/GRL/GRL_4_B.test.cpp
     title: test/aoj/GRL/GRL_4_B.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_5_C.test.cpp
-    title: test/aoj/GRL/GRL_5_C.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/lca.test.cpp
-    title: test/yosupo/lca.test.cpp
+    path: test/yosupo/lca1.test.cpp
+    title: test/yosupo/lca1.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
@@ -111,10 +108,10 @@ data:
   - Graph/warshall_floyd.hpp
   - Graph/kruskal.hpp
   - Graph/dijkstra_path.hpp
-  - Graph/lowest_common_ancestor.hpp
   - Graph/topological_sort.hpp
   - Graph/prim.hpp
   - Graph/dijkstra.hpp
+  - Graph/doubling_lowest_common_ancestor.hpp
   timestamp: '2022-01-11 21:49:44+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -123,11 +120,10 @@ data:
   - test/aoj/GRL/GRL_2_A.test.cpp
   - test/aoj/GRL/GRL_1_B.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
-  - test/aoj/GRL/GRL_5_C.test.cpp
   - test/aoj/GRL/GRL_1_A.test.cpp
   - test/aoj/GRL/GRL_1_C.test.cpp
   - test/yosupo/shortest_path.test.cpp
-  - test/yosupo/lca.test.cpp
+  - test/yosupo/lca1.test.cpp
 documentation_of: Graph/graph_template.hpp
 layout: document
 redirect_from:

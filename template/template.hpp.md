@@ -52,9 +52,6 @@ data:
     path: test/aoj/GRL/GRL_5_B.test.cpp
     title: test/aoj/GRL/GRL_5_B.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_5_C.test.cpp
-    title: test/aoj/GRL/GRL_5_C.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/aoj/ITP1/ITP1_3_D.test.cpp
     title: test/aoj/ITP1/ITP1_3_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -88,8 +85,8 @@ data:
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/lca.test.cpp
-    title: test/yosupo/lca.test.cpp
+    path: test/yosupo/lca1.test.cpp
+    title: test/yosupo/lca1.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
@@ -277,7 +274,6 @@ data:
   - test/aoj/GRL/GRL_2_A.test.cpp
   - test/aoj/GRL/GRL_1_B.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
-  - test/aoj/GRL/GRL_5_C.test.cpp
   - test/aoj/GRL/GRL_5_B.test.cpp
   - test/aoj/GRL/GRL_1_A.test.cpp
   - test/aoj/GRL/GRL_1_C.test.cpp
@@ -295,11 +291,11 @@ data:
   - test/yosupo/polynomial_taylor_shift.test.cpp
   - test/yosupo/matrix_product.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
-  - test/yosupo/lca.test.cpp
   - test/yosupo/unionfind.test.cpp
   - test/yosupo/multipoint_evaluation.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/convolution_mod.test.cpp
+  - test/yosupo/lca1.test.cpp
   - test/yosupo/factorize.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
