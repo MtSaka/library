@@ -28,7 +28,7 @@ data:
     \    }\n    vector<vector<int>>result(n);\n    for(int i=0;i<n;i++)result[i].reserve(group_size[i]);\n\
     \    for(int i=0;i<n;i++)result[leader[i]].push_back(i);\n    result.erase(remove_if(result.begin(),result.end(),[](const\
     \ vector<int>&v){return v.empty();}),result.end());\n    return result;\n  }\n\
-    };\n/**\n * @brief Disjoint Set Union(Union Find)\n*/\n#line 1 \"Graph/graph_template.hpp\"\
+    };\n/**\n * @brief Disjoint Set Union(Union Find)\n*/\n#line 2 \"Graph/graph_template.hpp\"\
     \ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n  int idx;\n\
     \  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
     \  operator int()const{return to;}\n  bool operator<(const Edge&e)const{return\
@@ -62,7 +62,7 @@ data:
   isVerificationFile: false
   path: Graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2022-01-11 21:49:44+00:00'
+  timestamp: '2022-01-22 22:12:05+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_2_A.test.cpp

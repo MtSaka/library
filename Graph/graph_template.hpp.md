@@ -3,6 +3,9 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: Graph/RMQ_lowest_common_ancestor.hpp
+    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+  - icon: ':heavy_check_mark:'
     path: Graph/bellman_ford.hpp
     title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
   - icon: ':heavy_check_mark:'
@@ -54,8 +57,17 @@ data:
     path: test/aoj/GRL/GRL_4_B.test.cpp
     title: test/aoj/GRL/GRL_4_B.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL/GRL_5_C_1.test.cpp
+    title: test/aoj/GRL/GRL_5_C_1.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL/GRL_5_C_2.test.cpp
+    title: test/aoj/GRL/GRL_5_C_2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca1.test.cpp
     title: test/yosupo/lca1.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/lca2.test.cpp
+    title: test/yosupo/lca2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
@@ -66,7 +78,7 @@ data:
     document_title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
       \u30C8)"
     links: []
-  bundledCode: "#line 1 \"Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct\
+  bundledCode: "#line 2 \"Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct\
     \ Edge{\n  int from,to;\n  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int\
     \ to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n  operator\
     \ int()const{return to;}\n  bool operator<(const Edge&e)const{return cost<e.cost;}\n\
@@ -83,8 +95,8 @@ data:
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
     \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n"
-  code: "template<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n  int\
-    \ idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
+  code: "#pragma once\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n  T\
+    \ cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
     \  operator int()const{return to;}\n  bool operator<(const Edge&e)const{return\
     \ cost<e.cost;}\n};\ntemplate<typename T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n\
     \  int es;\n  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n  size_t size()const{return\
@@ -108,21 +120,25 @@ data:
   - Graph/warshall_floyd.hpp
   - Graph/kruskal.hpp
   - Graph/dijkstra_path.hpp
+  - Graph/RMQ_lowest_common_ancestor.hpp
   - Graph/topological_sort.hpp
   - Graph/prim.hpp
   - Graph/dijkstra.hpp
   - Graph/doubling_lowest_common_ancestor.hpp
-  timestamp: '2022-01-11 21:49:44+00:00'
+  timestamp: '2022-01-22 22:12:05+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_4_A.test.cpp
   - test/aoj/GRL/GRL_2_A_2.test.cpp
   - test/aoj/GRL/GRL_2_A.test.cpp
   - test/aoj/GRL/GRL_1_B.test.cpp
+  - test/aoj/GRL/GRL_5_C_1.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
+  - test/aoj/GRL/GRL_5_C_2.test.cpp
   - test/aoj/GRL/GRL_1_A.test.cpp
   - test/aoj/GRL/GRL_1_C.test.cpp
   - test/yosupo/shortest_path.test.cpp
+  - test/yosupo/lca2.test.cpp
   - test/yosupo/lca1.test.cpp
 documentation_of: Graph/graph_template.hpp
 layout: document

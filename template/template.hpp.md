@@ -52,6 +52,12 @@ data:
     path: test/aoj/GRL/GRL_5_B.test.cpp
     title: test/aoj/GRL/GRL_5_B.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL/GRL_5_C_1.test.cpp
+    title: test/aoj/GRL/GRL_5_C_1.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL/GRL_5_C_2.test.cpp
+    title: test/aoj/GRL/GRL_5_C_2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ITP1/ITP1_3_D.test.cpp
     title: test/aoj/ITP1/ITP1_3_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -87,6 +93,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/lca1.test.cpp
     title: test/yosupo/lca1.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/lca2.test.cpp
+    title: test/yosupo/lca2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
@@ -273,8 +282,10 @@ data:
   - test/aoj/GRL/GRL_2_A_2.test.cpp
   - test/aoj/GRL/GRL_2_A.test.cpp
   - test/aoj/GRL/GRL_1_B.test.cpp
+  - test/aoj/GRL/GRL_5_C_1.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
   - test/aoj/GRL/GRL_5_B.test.cpp
+  - test/aoj/GRL/GRL_5_C_2.test.cpp
   - test/aoj/GRL/GRL_1_A.test.cpp
   - test/aoj/GRL/GRL_1_C.test.cpp
   - test/aoj/DPL/DPL_1_D.test.cpp
@@ -289,6 +300,7 @@ data:
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/point_add_range_sum1.test.cpp
   - test/yosupo/polynomial_taylor_shift.test.cpp
+  - test/yosupo/lca2.test.cpp
   - test/yosupo/matrix_product.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/unionfind.test.cpp

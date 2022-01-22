@@ -2,9 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Graph/dijkstra_path.hpp
-    title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
-      \u77ED\u8DEF)"
+    path: Graph/doubling_lowest_common_ancestor.hpp
+    title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
@@ -18,21 +17,21 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/shortest_path
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
     links:
-    - https://judge.yosupo.jp/problem/shortest_path
-  bundledCode: "#line 1 \"test/yosupo/shortest_path.test.cpp\"\n#define PROBLEM \"\
-    https://judge.yosupo.jp/problem/shortest_path\"\n#line 1 \"template/template.hpp\"\
-    \n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC\
-    \ optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define overload4(a,b,c,d,e,...)\
-    \ e\n#define overload3(a,b,c,d,...) d\n#define rep1(a) for(ll i=0;i<(ll)(a);i++)\n\
-    #define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n#define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n\
-    #define rep4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...)\
-    \ overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a)\
-    \ for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
-    #define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n#define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n\
-    #define all1(i) begin(i),end(i)\n#define all2(i,a) begin(i),begin(i)+a\n#define\
-    \ all3(i,a,b) begin(i)+a,begin(i)+b\n#define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n\
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
+  bundledCode: "#line 1 \"test/aoj/GRL/GRL_5_C_1.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
+    \n#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
+    \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
+    #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
+    \ rep1(a) for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n\
+    #define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n#define rep4(i,a,b,c) for(ll\
+    \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) overload4(__VA_ARGS__, rep4,\
+    \ rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
+    #define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n\
+    #define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n#define\
+    \ all1(i) begin(i),end(i)\n#define all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b)\
+    \ begin(i)+a,begin(i)+b\n#define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n\
     #define rall(n) (n).rbegin(),(n).rend()\n#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
@@ -92,43 +91,47 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/dijkstra_path.hpp\"\ntemplate<typename\
-    \ T=int>\npair<T,vector<int>>dijkstra_path(const Graph<T>&g,int s,int t){\n  const\
-    \ int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
-    \  d[s]=0;\n  vector<int>prev(n);\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
-    \  q.emplace(0,s);\n  while(!q.empty()){\n    auto [d_u,u]=q.top();q.pop();\n\
-    \    if(d[u]<d_u)continue;\n    for(auto &e:g[u]){\n      if(d[e]>d[u]+e.cost){\n\
-    \        d[e]=d[u]+e.cost;\n        prev[e]=u;\n        q.emplace(d[e],e);\n \
-    \     }\n    }\n  }\n  if(d[t]==MAX)return {-1,{}};\n  vector<int>path;\n  path.emplace_back(t);\n\
-    \  while(path.back()!=s)path.emplace_back(prev[path.back()]);\n  reverse(path.begin(),path.end());\n\
-    \  return {d[t],path};\n}\n/**\n * @brief Dijkstra With Path(\u7D4C\u8DEF\u4ED8\
-    \u304D\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n*/\n#line 4 \"test/yosupo/shortest_path.test.cpp\"\
-    \nint main(){\n  int n,m,s,t;\n  cin>>n>>m>>s>>t;\n  Graph<long long>g(n);\n \
-    \ g.read(m,0,true,true);\n  auto d=dijkstra_path(g,s,t);\n  if(d.first==-1){\n\
-    \    cout<<d.first<<endl;\n    return 0;\n  }\n  cout<<d.first<<\" \"<<d.second.size()-1<<endl;\n\
-    \  for(int i=0;i<d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
-    }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../Graph/dijkstra_path.hpp\"\nint\
-    \ main(){\n  int n,m,s,t;\n  cin>>n>>m>>s>>t;\n  Graph<long long>g(n);\n  g.read(m,0,true,true);\n\
-    \  auto d=dijkstra_path(g,s,t);\n  if(d.first==-1){\n    cout<<d.first<<endl;\n\
-    \    return 0;\n  }\n  cout<<d.first<<\" \"<<d.second.size()-1<<endl;\n  for(int\
-    \ i=0;i<d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
-    }"
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/doubling_lowest_common_ancestor.hpp\"\
+    \ntemplate<typename T>\nstruct Doubling_LCA:Graph<T>{\n  using Graph<T>::g;\n\
+    \  const int lg;\n  vector<int>dep;\n  vector<T>sum;\n  vector<vector<int>>table;\n\
+    \  Doubling_LCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}\n  Doubling_LCA(const\
+    \ Graph<T>&g):Graph<T>(g),lg(32-__builtin_clz(g.size())){}\n  void build(int root=0){\n\
+    \    dep.assign(g.size(),0);\n    sum.assign(g.size(),0);\n    table.assign(lg,vector<int>(g.size(),-1));\n\
+    \    dfs(root,-1,0);\n    for(int k=0;k+1<lg;k++){\n      for(int i=0;i<(int)table[k].size();i++){\n\
+    \        if(table[k][i]==-1)table[k+1][i]=-1;\n        else table[k+1][i]=table[k][table[k][i]];\n\
+    \      }\n    }\n  }\n  int lca(int u,int v){\n    if(dep[u]>dep[v])swap(u,v);\n\
+    \    int k=dep[v]-dep[u];\n    if(dep[v]<k)return -1;\n    for(int i=lg-1;i>=0;i--){\n\
+    \      if((k>>i)&1)v=table[i][v];\n    }\n    if(u==v)return u;\n    for(int i=lg-1;i>=0;i--){\n\
+    \      if(table[i][u]!=table[i][v]){\n        u=table[i][u];\n        v=table[i][v];\n\
+    \      }\n    }\n    return table[0][u];\n  }\n  T dist(int u,int v){return sum[u]+sum[v]-2*sum[lca(u,v)];}\n\
+    \  private:\n  void dfs(int idx,int par,int d){\n    table[0][idx]=par;\n    dep[idx]=d;\n\
+    \    for(auto &e:g[idx])if(e!=par){\n      sum[e]=sum[idx]+e.cost;\n      dfs(e,idx,d+1);\n\
+    \    }\n  }\n};\n/**\n * @brief Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\
+    \u901A\u7956\u5148)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_C_1.test.cpp\"\nint main(){\n\
+    \  int n;\n  cin>>n;\n  Doubling_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n    int\
+    \ k;\n    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n      g.add_edge(i,j);\n\
+    \    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n    int a,b;\n\
+    \    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}\n"
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/doubling_lowest_common_ancestor.hpp\"\
+    \nint main(){\n  int n;\n  cin>>n;\n  Doubling_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n\
+    \    int k;\n    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n     \
+    \ g.add_edge(i,j);\n    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n\
+    \    int a,b;\n    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}"
   dependsOn:
   - template/template.hpp
-  - Graph/dijkstra_path.hpp
+  - Graph/doubling_lowest_common_ancestor.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
-  path: test/yosupo/shortest_path.test.cpp
+  path: test/aoj/GRL/GRL_5_C_1.test.cpp
   requiredBy: []
   timestamp: '2022-01-22 22:12:05+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/shortest_path.test.cpp
+documentation_of: test/aoj/GRL/GRL_5_C_1.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/shortest_path.test.cpp
-- /verify/test/yosupo/shortest_path.test.cpp.html
-title: test/yosupo/shortest_path.test.cpp
+- /verify/test/aoj/GRL/GRL_5_C_1.test.cpp
+- /verify/test/aoj/GRL/GRL_5_C_1.test.cpp.html
+title: test/aoj/GRL/GRL_5_C_1.test.cpp
 ---

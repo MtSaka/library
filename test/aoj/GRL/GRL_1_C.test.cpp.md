@@ -75,7 +75,7 @@ data:
     ,\";trace(forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...) (void(0))\n\
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
-    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
+    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
     Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n\
     \  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
     \  operator int()const{return to;}\n  bool operator<(const Edge&e)const{return\
@@ -118,7 +118,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2022-01-20 20:34:11+00:00'
+  timestamp: '2022-01-22 22:12:05+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_1_C.test.cpp

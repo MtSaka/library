@@ -16,7 +16,7 @@ data:
     document_title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\
       \u70B9\u6700\u77ED\u8DEF)"
     links: []
-  bundledCode: "#line 1 \"Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct\
+  bundledCode: "#line 2 \"Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct\
     \ Edge{\n  int from,to;\n  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int\
     \ to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n  operator\
     \ int()const{return to;}\n  bool operator<(const Edge&e)const{return cost<e.cost;}\n\
@@ -58,7 +58,7 @@ data:
   isVerificationFile: false
   path: Graph/dijkstra_path.hpp
   requiredBy: []
-  timestamp: '2022-01-11 21:49:44+00:00'
+  timestamp: '2022-01-22 22:12:05+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/shortest_path.test.cpp

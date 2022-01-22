@@ -2,9 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Graph/dijkstra_path.hpp
-    title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
-      \u77ED\u8DEF)"
+    path: Data_Structure/sparse_table.hpp
+    title: Sparse Table
+  - icon: ':heavy_check_mark:'
+    path: Graph/RMQ_lowest_common_ancestor.hpp
+    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
@@ -18,21 +20,21 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/shortest_path
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
     links:
-    - https://judge.yosupo.jp/problem/shortest_path
-  bundledCode: "#line 1 \"test/yosupo/shortest_path.test.cpp\"\n#define PROBLEM \"\
-    https://judge.yosupo.jp/problem/shortest_path\"\n#line 1 \"template/template.hpp\"\
-    \n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC\
-    \ optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define overload4(a,b,c,d,e,...)\
-    \ e\n#define overload3(a,b,c,d,...) d\n#define rep1(a) for(ll i=0;i<(ll)(a);i++)\n\
-    #define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n#define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n\
-    #define rep4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...)\
-    \ overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a)\
-    \ for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
-    #define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n#define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n\
-    #define all1(i) begin(i),end(i)\n#define all2(i,a) begin(i),begin(i)+a\n#define\
-    \ all3(i,a,b) begin(i)+a,begin(i)+b\n#define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n\
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
+  bundledCode: "#line 1 \"test/aoj/GRL/GRL_5_C_2.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
+    \n#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
+    \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
+    #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
+    \ rep1(a) for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n\
+    #define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n#define rep4(i,a,b,c) for(ll\
+    \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) overload4(__VA_ARGS__, rep4,\
+    \ rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
+    #define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n\
+    #define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n#define\
+    \ all1(i) begin(i),end(i)\n#define all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b)\
+    \ begin(i)+a,begin(i)+b\n#define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n\
     #define rall(n) (n).rbegin(),(n).rend()\n#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
@@ -92,43 +94,53 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/dijkstra_path.hpp\"\ntemplate<typename\
-    \ T=int>\npair<T,vector<int>>dijkstra_path(const Graph<T>&g,int s,int t){\n  const\
-    \ int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
-    \  d[s]=0;\n  vector<int>prev(n);\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
-    \  q.emplace(0,s);\n  while(!q.empty()){\n    auto [d_u,u]=q.top();q.pop();\n\
-    \    if(d[u]<d_u)continue;\n    for(auto &e:g[u]){\n      if(d[e]>d[u]+e.cost){\n\
-    \        d[e]=d[u]+e.cost;\n        prev[e]=u;\n        q.emplace(d[e],e);\n \
-    \     }\n    }\n  }\n  if(d[t]==MAX)return {-1,{}};\n  vector<int>path;\n  path.emplace_back(t);\n\
-    \  while(path.back()!=s)path.emplace_back(prev[path.back()]);\n  reverse(path.begin(),path.end());\n\
-    \  return {d[t],path};\n}\n/**\n * @brief Dijkstra With Path(\u7D4C\u8DEF\u4ED8\
-    \u304D\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n*/\n#line 4 \"test/yosupo/shortest_path.test.cpp\"\
-    \nint main(){\n  int n,m,s,t;\n  cin>>n>>m>>s>>t;\n  Graph<long long>g(n);\n \
-    \ g.read(m,0,true,true);\n  auto d=dijkstra_path(g,s,t);\n  if(d.first==-1){\n\
-    \    cout<<d.first<<endl;\n    return 0;\n  }\n  cout<<d.first<<\" \"<<d.second.size()-1<<endl;\n\
-    \  for(int i=0;i<d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
-    }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../Graph/dijkstra_path.hpp\"\nint\
-    \ main(){\n  int n,m,s,t;\n  cin>>n>>m>>s>>t;\n  Graph<long long>g(n);\n  g.read(m,0,true,true);\n\
-    \  auto d=dijkstra_path(g,s,t);\n  if(d.first==-1){\n    cout<<d.first<<endl;\n\
-    \    return 0;\n  }\n  cout<<d.first<<\" \"<<d.second.size()-1<<endl;\n  for(int\
-    \ i=0;i<d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
-    }"
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"Data_Structure/sparse_table.hpp\"\
+    \ntemplate<typename T,typename F>\nstruct sparse_table{\n  F f;\n  vector<vector<T>>table;\n\
+    \  vector<int>log_table;\n  sparse_table()=default;\n  sparse_table(const vector<T>&v,const\
+    \ F&f):f(f){\n    const int n=(int)v.size();\n    const int lg=32-__builtin_clz(n);\n\
+    \    table.assign(lg,vector<T>(n));\n    for(int i=0;i<n;i++)table[0][i]=v[i];\n\
+    \    for(int i=1;i<lg;i++)for(int j=0;j+(1<<i)<=n;j++)table[i][j]=f(table[i-1][j],table[i-1][j+(1<<(i-1))]);\n\
+    \    log_table.resize(n+1);\n    for(int i=2;i<=n;i++)log_table[i]=1+log_table[i>>1];\n\
+    \  }\n  T query(int l,int r){\n    int a=log_table[r-l];\n    return f(table[a][l],table[a][r-(1<<a)]);\n\
+    \  }\n};\ntemplate<typename T,typename F>\nsparse_table<T,F>make_sparse_table(const\
+    \ vector<T>&v,const F&f){\n  return sparse_table<T,F>(v,f);\n} \n/**\n * @brief\
+    \ Sparse Table\n*/\n#line 4 \"Graph/RMQ_lowest_common_ancestor.hpp\"\ntemplate<typename\
+    \ T=int>\nstruct RMQ_LCA:Graph<T>{\n  using Graph<T>::Graph;\n  using Graph<T>::g;\n\
+    \  using F=function<int(int,int)>;\n  sparse_table<int,F>st;\n  vector<int>ord,dep,in;\n\
+    \  void build(int root=0){\n    in.resize(g.size());\n    dfs(root,-1,0);\n  \
+    \  vector<int>v(g.size()*2-1);\n    iota(v.begin(),v.end(),0);\n    F f=[&](int\
+    \ a,int b){return dep[a]<dep[b]?a:b;};\n    st=sparse_table<int,F>(v,f);\n  }\n\
+    \  int lca(int u,int v){\n    if(in[u]>in[v])swap(u,v);\n    return u==v?u:ord[st.query(in[u],in[v])];\n\
+    \  }\n  private:\n  void dfs(int idx,int par,int d){\n    in[idx]=(int)ord.size();\n\
+    \    ord.emplace_back(idx);\n    dep.emplace_back(d);\n    for(auto &e:g[idx])if(e!=par){\n\
+    \      dfs(e,idx,d+1);\n      ord.emplace_back(idx);\n      dep.emplace_back(d);\n\
+    \    }\n  }\n};\n/**\n * @brief RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\
+    \u7956\u5148)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_C_2.test.cpp\"\nint main(){\n\
+    \  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n    int k;\n\
+    \    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n      g.add_edge(i,j);\n\
+    \    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n    int a,b;\n\
+    \    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}\n"
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/RMQ_lowest_common_ancestor.hpp\"\
+    \nint main(){\n  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n\
+    \    int k;\n    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n     \
+    \ g.add_edge(i,j);\n    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n\
+    \    int a,b;\n    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}"
   dependsOn:
   - template/template.hpp
-  - Graph/dijkstra_path.hpp
+  - Graph/RMQ_lowest_common_ancestor.hpp
   - Graph/graph_template.hpp
+  - Data_Structure/sparse_table.hpp
   isVerificationFile: true
-  path: test/yosupo/shortest_path.test.cpp
+  path: test/aoj/GRL/GRL_5_C_2.test.cpp
   requiredBy: []
   timestamp: '2022-01-22 22:12:05+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/shortest_path.test.cpp
+documentation_of: test/aoj/GRL/GRL_5_C_2.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/shortest_path.test.cpp
-- /verify/test/yosupo/shortest_path.test.cpp.html
-title: test/yosupo/shortest_path.test.cpp
+- /verify/test/aoj/GRL/GRL_5_C_2.test.cpp
+- /verify/test/aoj/GRL/GRL_5_C_2.test.cpp.html
+title: test/aoj/GRL/GRL_5_C_2.test.cpp
 ---

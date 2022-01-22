@@ -16,7 +16,7 @@ data:
     document_title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\
       \u30C8)"
     links: []
-  bundledCode: "#line 1 \"Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct\
+  bundledCode: "#line 2 \"Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct\
     \ Edge{\n  int from,to;\n  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int\
     \ to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n  operator\
     \ int()const{return to;}\n  bool operator<(const Edge&e)const{return cost<e.cost;}\n\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: false
   path: Graph/topological_sort.hpp
   requiredBy: []
-  timestamp: '2022-01-11 21:49:44+00:00'
+  timestamp: '2022-01-22 22:12:05+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_4_B.test.cpp

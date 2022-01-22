@@ -48,6 +48,9 @@ data:
   - name: Graph
     pages:
     - icon: ':heavy_check_mark:'
+      path: Graph/RMQ_lowest_common_ancestor.hpp
+      title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+    - icon: ':heavy_check_mark:'
       path: Graph/bellman_ford.hpp
       title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
     - icon: ':heavy_check_mark:'
@@ -231,9 +234,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_B.test.cpp
       title: test/aoj/GRL/GRL_5_B.test.cpp
-    - icon: ':x:'
-      path: test/aoj/GRL/GRL_5_C.test.cpp
-      title: test/aoj/GRL/GRL_5_C.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL/GRL_5_C_1.test.cpp
+      title: test/aoj/GRL/GRL_5_C_1.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL/GRL_5_C_2.test.cpp
+      title: test/aoj/GRL/GRL_5_C_2.test.cpp
   - name: test/aoj/ITP1
     pages:
     - icon: ':heavy_check_mark:'
@@ -276,6 +282,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/lca1.test.cpp
       title: test/yosupo/lca1.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/lca2.test.cpp
+      title: test/yosupo/lca2.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/log_of_formal_power_series.test.cpp
       title: test/yosupo/log_of_formal_power_series.test.cpp
