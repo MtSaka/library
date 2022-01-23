@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A"
 #include"../../../template/template.hpp"
-#include"../../../Graph/dijkstra.hpp"
+#include"../../../Graph/shortest_path/dijkstra.hpp"
 int main(){
   int v,e,r;
   cin>>v>>e>>r;

@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/shortest_path"
 #include"../../template/template.hpp"
-#include"../../Graph/dijkstra_path.hpp"
+#include"../../Graph/shortest_path/dijkstra_path.hpp"
 int main(){
   int n,m,s,t;
   cin>>n>>m>>s>>t;

@@ -1,4 +1,4 @@
-#include"graph_template.hpp"
+#include"../graph_template.hpp"
 template<typename T>
 vector<T>dijkstra(const Graph<T>&g,int s){
   const int n=g.size();

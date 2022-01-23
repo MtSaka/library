@@ -1,5 +1,5 @@
-#include"../Data_Structure/dsu.hpp"
-#include"graph_template.hpp"
+#include"../../Data_Structure/dsu.hpp"
+#include"../graph_template.hpp"
 template<typename T>
 struct mst{
   T cost;

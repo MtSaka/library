@@ -1,6 +1,6 @@
 #pragma once
-#include"graph_template.hpp"
-#include"../Data_Structure/sparse_table.hpp"
+#include"../graph_template.hpp"
+#include"../../Data_Structure/sparse_table.hpp"
 template<typename T=int>
 struct RMQ_LCA:Graph<T>{
   using Graph<T>::Graph;

@@ -1,4 +1,4 @@
-#include"graph_template.hpp"
+#include"../graph_template.hpp"
 template<typename T>
 bool detect_cycle(const Graph<T>&g){
   const int n=g.size();

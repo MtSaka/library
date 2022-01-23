@@ -1,5 +1,5 @@
 #pragma once
-#include"graph_template.hpp"
+#include"../graph_template.hpp"
 template<typename T>
 struct Doubling_LCA:Graph<T>{
   using Graph<T>::g;

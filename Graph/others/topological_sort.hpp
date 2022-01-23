@@ -1,4 +1,4 @@
-#include"graph_template.hpp"
+#include"../graph_template.hpp"
 template<typename T>
 struct topological_sort{
   int n;

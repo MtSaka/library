@@ -1,4 +1,4 @@
-#include"graph_template.hpp"
+#include"../graph_template.hpp"
 template<typename T=int>
 pair<T,vector<int>>dijkstra_path(const Graph<T>&g,int s,int t){
   const int n=g.size();
