@@ -3,37 +3,37 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: Graph/RMQ_lowest_common_ancestor.hpp
-    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
-    path: Graph/bellman_ford.hpp
-    title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
-    path: Graph/detect_cycle.hpp
-    title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':heavy_check_mark:'
-    path: Graph/dijkstra.hpp
-    title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
-    path: Graph/dijkstra_path.hpp
-    title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
-      \u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
-    path: Graph/doubling_lowest_common_ancestor.hpp
-    title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
-    path: Graph/kruskal.hpp
+    path: Graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
-    path: Graph/prim.hpp
+    path: Graph/mst/prim.hpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
-    path: Graph/topological_sort.hpp
+    path: Graph/others/detect_cycle.hpp
+    title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
+  - icon: ':heavy_check_mark:'
+    path: Graph/others/topological_sort.hpp
     title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
       )"
   - icon: ':heavy_check_mark:'
-    path: Graph/warshall_floyd.hpp
+    path: Graph/shortest_path/bellman_ford.hpp
+    title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
+  - icon: ':heavy_check_mark:'
+    path: Graph/shortest_path/dijkstra.hpp
+    title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
+  - icon: ':heavy_check_mark:'
+    path: Graph/shortest_path/dijkstra_path.hpp
+    title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
+      \u77ED\u8DEF)"
+  - icon: ':heavy_check_mark:'
+    path: Graph/shortest_path/warshall_floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
+  - icon: ':heavy_check_mark:'
+    path: Graph/tree/RMQ_lowest_common_ancestor.hpp
+    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+  - icon: ':heavy_check_mark:'
+    path: Graph/tree/doubling_lowest_common_ancestor.hpp
+    title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_A.test.cpp
@@ -115,16 +115,16 @@ data:
   isVerificationFile: false
   path: Graph/graph_template.hpp
   requiredBy:
-  - Graph/detect_cycle.hpp
-  - Graph/bellman_ford.hpp
-  - Graph/warshall_floyd.hpp
-  - Graph/kruskal.hpp
-  - Graph/dijkstra_path.hpp
-  - Graph/RMQ_lowest_common_ancestor.hpp
-  - Graph/topological_sort.hpp
-  - Graph/prim.hpp
-  - Graph/dijkstra.hpp
-  - Graph/doubling_lowest_common_ancestor.hpp
+  - Graph/others/detect_cycle.hpp
+  - Graph/others/topological_sort.hpp
+  - Graph/mst/kruskal.hpp
+  - Graph/mst/prim.hpp
+  - Graph/tree/RMQ_lowest_common_ancestor.hpp
+  - Graph/tree/doubling_lowest_common_ancestor.hpp
+  - Graph/shortest_path/bellman_ford.hpp
+  - Graph/shortest_path/warshall_floyd.hpp
+  - Graph/shortest_path/dijkstra_path.hpp
+  - Graph/shortest_path/dijkstra.hpp
   timestamp: '2022-01-22 22:12:05+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

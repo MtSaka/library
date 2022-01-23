@@ -5,7 +5,7 @@ data:
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':heavy_check_mark:'
-    path: Graph/warshall_floyd.hpp
+    path: Graph/shortest_path/warshall_floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - icon: ':heavy_check_mark:'
     path: template/template.hpp
@@ -91,9 +91,9 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/warshall_floyd.hpp\"\ntemplate<typename\
-    \ T>\nvector<vector<T>>warshall_floyd(const Graph<T>&g){\n  const int n=g.size();\n\
-    \  const T MAX=numeric_limits<T>::max()/2;\n  vector<vector<T>>d(n,vector<T>(n,MAX));\n\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/shortest_path/warshall_floyd.hpp\"\
+    \ntemplate<typename T>\nvector<vector<T>>warshall_floyd(const Graph<T>&g){\n \
+    \ const int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n  vector<vector<T>>d(n,vector<T>(n,MAX));\n\
     \  for(int i=0;i<n;i++){\n    d[i][i]=0;\n    for(auto &e:g[i])d[i][e]=e.cost;\n\
     \  }\n  for(int k=0;k<n;k++){\n    for(int i=0;i<n;i++){\n      for(int j=0;j<n;j++){\n\
     \        if(d[i][k]!=MAX&d[k][j]!=MAX){\n          d[i][j]=min(d[i][j],d[i][k]+d[k][j]);\n\
@@ -105,7 +105,7 @@ data:
     \ k:d)for(int i=0;i<k.size();i++)cout<<(k[i]==numeric_limits<long long>::max()/2?\"\
     INF\":to_string(k[i]))<<(i==k.size()-1?\"\\n\":\" \");\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/warshall_floyd.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/shortest_path/warshall_floyd.hpp\"\
     \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n\
     \  auto d=warshall_floyd(g);\n  for(int i=0;i<v;i++){\n    if(d[i][i]<0){\n  \
     \    cout<<\"NEGATIVE CYCLE\"<<endl;\n      return 0;\n    }\n  }\n  for(auto\
@@ -113,12 +113,12 @@ data:
     INF\":to_string(k[i]))<<(i==k.size()-1?\"\\n\":\" \");\n}"
   dependsOn:
   - template/template.hpp
-  - Graph/warshall_floyd.hpp
+  - Graph/shortest_path/warshall_floyd.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
   path: test/aoj/GRL/GRL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_1_C.test.cpp

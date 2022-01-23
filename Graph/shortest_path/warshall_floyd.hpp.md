@@ -7,13 +7,13 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_4_A.test.cpp
-    title: test/aoj/GRL/GRL_4_A.test.cpp
+    path: test/aoj/GRL/GRL_1_C.test.cpp
+    title: test/aoj/GRL/GRL_1_C.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
+    document_title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
     links: []
   bundledCode: "#line 2 \"Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct\
     \ Edge{\n  int from,to;\n  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int\
@@ -31,33 +31,35 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/detect_cycle.hpp\"\ntemplate<typename\
-    \ T>\nbool detect_cycle(const Graph<T>&g){\n  const int n=g.size();\n  vector<int>deg(n,0);\n\
-    \  for(int i=0;i<n;i++)for(auto &e:g[i])deg[e]++;\n  queue<int>q;\n  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n\
-    \  while(!q.empty()){\n    int u=q.front();q.pop();\n    for(auto &e:g[u]){\n\
-    \      deg[e]--;\n      if(deg[e]==0)q.push(e);\n    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return\
-    \ true;\n  return false;\n}\n/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\
-    \u51FA)\n*/\n"
-  code: "#include\"graph_template.hpp\"\ntemplate<typename T>\nbool detect_cycle(const\
-    \ Graph<T>&g){\n  const int n=g.size();\n  vector<int>deg(n,0);\n  for(int i=0;i<n;i++)for(auto\
-    \ &e:g[i])deg[e]++;\n  queue<int>q;\n  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n\
-    \  while(!q.empty()){\n    int u=q.front();q.pop();\n    for(auto &e:g[u]){\n\
-    \      deg[e]--;\n      if(deg[e]==0)q.push(e);\n    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return\
-    \ true;\n  return false;\n}\n/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\
-    \u51FA)\n*/"
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/shortest_path/warshall_floyd.hpp\"\
+    \ntemplate<typename T>\nvector<vector<T>>warshall_floyd(const Graph<T>&g){\n \
+    \ const int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n  vector<vector<T>>d(n,vector<T>(n,MAX));\n\
+    \  for(int i=0;i<n;i++){\n    d[i][i]=0;\n    for(auto &e:g[i])d[i][e]=e.cost;\n\
+    \  }\n  for(int k=0;k<n;k++){\n    for(int i=0;i<n;i++){\n      for(int j=0;j<n;j++){\n\
+    \        if(d[i][k]!=MAX&d[k][j]!=MAX){\n          d[i][j]=min(d[i][j],d[i][k]+d[k][j]);\n\
+    \        }\n      }\n    }\n  }\n  return d;\n}\n/**\n * @brief Warshall Floyd(\u5168\
+    \u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)\n*/\n"
+  code: "#include\"../graph_template.hpp\"\ntemplate<typename T>\nvector<vector<T>>warshall_floyd(const\
+    \ Graph<T>&g){\n  const int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n\
+    \  vector<vector<T>>d(n,vector<T>(n,MAX));\n  for(int i=0;i<n;i++){\n    d[i][i]=0;\n\
+    \    for(auto &e:g[i])d[i][e]=e.cost;\n  }\n  for(int k=0;k<n;k++){\n    for(int\
+    \ i=0;i<n;i++){\n      for(int j=0;j<n;j++){\n        if(d[i][k]!=MAX&d[k][j]!=MAX){\n\
+    \          d[i][j]=min(d[i][j],d[i][k]+d[k][j]);\n        }\n      }\n    }\n\
+    \  }\n  return d;\n}\n/**\n * @brief Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\
+    \u77ED\u8DEF)\n*/"
   dependsOn:
   - Graph/graph_template.hpp
   isVerificationFile: false
-  path: Graph/detect_cycle.hpp
+  path: Graph/shortest_path/warshall_floyd.hpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL/GRL_4_A.test.cpp
-documentation_of: Graph/detect_cycle.hpp
+  - test/aoj/GRL/GRL_1_C.test.cpp
+documentation_of: Graph/shortest_path/warshall_floyd.hpp
 layout: document
 redirect_from:
-- /library/Graph/detect_cycle.hpp
-- /library/Graph/detect_cycle.hpp.html
-title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
+- /library/Graph/shortest_path/warshall_floyd.hpp
+- /library/Graph/shortest_path/warshall_floyd.hpp.html
+title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
 ---

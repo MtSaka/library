@@ -2,12 +2,12 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Graph/dijkstra_path.hpp
-    title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
-      \u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  - icon: ':heavy_check_mark:'
+    path: Graph/shortest_path/dijkstra_path.hpp
+    title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
+      \u77ED\u8DEF)"
   - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
@@ -92,10 +92,10 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/dijkstra_path.hpp\"\ntemplate<typename\
-    \ T=int>\npair<T,vector<int>>dijkstra_path(const Graph<T>&g,int s,int t){\n  const\
-    \ int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
-    \  d[s]=0;\n  vector<int>prev(n);\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/shortest_path/dijkstra_path.hpp\"\
+    \ntemplate<typename T=int>\npair<T,vector<int>>dijkstra_path(const Graph<T>&g,int\
+    \ s,int t){\n  const int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n\
+    \  vector<T>d(n,MAX);\n  d[s]=0;\n  vector<int>prev(n);\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
     \  q.emplace(0,s);\n  while(!q.empty()){\n    auto [d_u,u]=q.top();q.pop();\n\
     \    if(d[u]<d_u)continue;\n    for(auto &e:g[u]){\n      if(d[e]>d[u]+e.cost){\n\
     \        d[e]=d[u]+e.cost;\n        prev[e]=u;\n        q.emplace(d[e],e);\n \
@@ -109,20 +109,20 @@ data:
     \  for(int i=0;i<d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../Graph/dijkstra_path.hpp\"\nint\
-    \ main(){\n  int n,m,s,t;\n  cin>>n>>m>>s>>t;\n  Graph<long long>g(n);\n  g.read(m,0,true,true);\n\
-    \  auto d=dijkstra_path(g,s,t);\n  if(d.first==-1){\n    cout<<d.first<<endl;\n\
-    \    return 0;\n  }\n  cout<<d.first<<\" \"<<d.second.size()-1<<endl;\n  for(int\
-    \ i=0;i<d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
+    ../../template/template.hpp\"\n#include\"../../Graph/shortest_path/dijkstra_path.hpp\"\
+    \nint main(){\n  int n,m,s,t;\n  cin>>n>>m>>s>>t;\n  Graph<long long>g(n);\n \
+    \ g.read(m,0,true,true);\n  auto d=dijkstra_path(g,s,t);\n  if(d.first==-1){\n\
+    \    cout<<d.first<<endl;\n    return 0;\n  }\n  cout<<d.first<<\" \"<<d.second.size()-1<<endl;\n\
+    \  for(int i=0;i<d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
     }"
   dependsOn:
   - template/template.hpp
-  - Graph/dijkstra_path.hpp
+  - Graph/shortest_path/dijkstra_path.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
   path: test/yosupo/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/shortest_path.test.cpp

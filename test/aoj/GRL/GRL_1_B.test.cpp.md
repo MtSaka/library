@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Graph/bellman_ford.hpp
-    title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  - icon: ':heavy_check_mark:'
+    path: Graph/shortest_path/bellman_ford.hpp
+    title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
   - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
@@ -91,10 +91,10 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/bellman_ford.hpp\"\ntemplate<typename\
-    \ T>\nvector<T>bellman_ford(const Graph<T>&g,int s){\n  const int n=g.size();\n\
-    \  const T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n  d[s]=0;\n\
-    \  for(int i=0;i<n;i++){\n    bool changed=false;\n    for(int j=0;j<n;j++){\n\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/shortest_path/bellman_ford.hpp\"\
+    \ntemplate<typename T>\nvector<T>bellman_ford(const Graph<T>&g,int s){\n  const\
+    \ int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
+    \  d[s]=0;\n  for(int i=0;i<n;i++){\n    bool changed=false;\n    for(int j=0;j<n;j++){\n\
     \      for(auto &e:g[j]){\n        if(d[j]!=MAX&&d[e]>d[j]+e.cost){\n        \
     \  d[e]=d[j]+e.cost;\n          changed=true;\n        }\n      }\n    }\n   \
     \ if(!changed)return d;\n  }\n  for(int i=0;i<n;i++)for(auto &e:g[i])if(d[i]!=MAX&&d[e]>d[i]+e.cost)d[e]=-MAX;\n\
@@ -109,7 +109,7 @@ data:
     \  for(auto i:d)cout<<(i==numeric_limits<long long>::max()/2?\"INF\":to_string(i))<<endl;\n\
     }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/bellman_ford.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/shortest_path/bellman_ford.hpp\"\
     \nint main(){\n  int v,e,r;\n  cin>>v>>e>>r;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n\
     \  auto d=bellman_ford(g,r);\n  if(count(d.begin(),d.end(),-numeric_limits<long\
     \ long>::max()/2)){\n    cout<<\"NEGATIVE CYCLE\"<<endl;\n    return 0;\n  }\n\
@@ -117,12 +117,12 @@ data:
     }"
   dependsOn:
   - template/template.hpp
-  - Graph/bellman_ford.hpp
+  - Graph/shortest_path/bellman_ford.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
   path: test/aoj/GRL/GRL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_1_B.test.cpp

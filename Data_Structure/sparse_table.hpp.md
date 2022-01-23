@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: Graph/RMQ_lowest_common_ancestor.hpp
+    path: Graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -45,7 +45,7 @@ data:
   isVerificationFile: false
   path: Data_Structure/sparse_table.hpp
   requiredBy:
-  - Graph/RMQ_lowest_common_ancestor.hpp
+  - Graph/tree/RMQ_lowest_common_ancestor.hpp
   timestamp: '2022-01-17 17:09:11+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

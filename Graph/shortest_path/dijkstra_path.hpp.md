@@ -32,10 +32,10 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/dijkstra_path.hpp\"\ntemplate<typename\
-    \ T=int>\npair<T,vector<int>>dijkstra_path(const Graph<T>&g,int s,int t){\n  const\
-    \ int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
-    \  d[s]=0;\n  vector<int>prev(n);\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/shortest_path/dijkstra_path.hpp\"\
+    \ntemplate<typename T=int>\npair<T,vector<int>>dijkstra_path(const Graph<T>&g,int\
+    \ s,int t){\n  const int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n\
+    \  vector<T>d(n,MAX);\n  d[s]=0;\n  vector<int>prev(n);\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
     \  q.emplace(0,s);\n  while(!q.empty()){\n    auto [d_u,u]=q.top();q.pop();\n\
     \    if(d[u]<d_u)continue;\n    for(auto &e:g[u]){\n      if(d[e]>d[u]+e.cost){\n\
     \        d[e]=d[u]+e.cost;\n        prev[e]=u;\n        q.emplace(d[e],e);\n \
@@ -43,7 +43,7 @@ data:
     \  while(path.back()!=s)path.emplace_back(prev[path.back()]);\n  reverse(path.begin(),path.end());\n\
     \  return {d[t],path};\n}\n/**\n * @brief Dijkstra With Path(\u7D4C\u8DEF\u4ED8\
     \u304D\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n*/\n"
-  code: "#include\"graph_template.hpp\"\ntemplate<typename T=int>\npair<T,vector<int>>dijkstra_path(const\
+  code: "#include\"../graph_template.hpp\"\ntemplate<typename T=int>\npair<T,vector<int>>dijkstra_path(const\
     \ Graph<T>&g,int s,int t){\n  const int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n\
     \  vector<T>d(n,MAX);\n  d[s]=0;\n  vector<int>prev(n);\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
     \  q.emplace(0,s);\n  while(!q.empty()){\n    auto [d_u,u]=q.top();q.pop();\n\
@@ -56,17 +56,17 @@ data:
   dependsOn:
   - Graph/graph_template.hpp
   isVerificationFile: false
-  path: Graph/dijkstra_path.hpp
+  path: Graph/shortest_path/dijkstra_path.hpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/shortest_path.test.cpp
-documentation_of: Graph/dijkstra_path.hpp
+documentation_of: Graph/shortest_path/dijkstra_path.hpp
 layout: document
 redirect_from:
-- /library/Graph/dijkstra_path.hpp
-- /library/Graph/dijkstra_path.hpp.html
+- /library/Graph/shortest_path/dijkstra_path.hpp
+- /library/Graph/shortest_path/dijkstra_path.hpp.html
 title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\u77ED\
   \u8DEF)"
 ---

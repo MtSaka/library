@@ -12,11 +12,11 @@ data:
   attributes:
     document_title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
     links: []
-  bundledCode: "#line 1 \"Graph/rerooting.hpp\"\ntemplate<typename S,typename T=S>\n\
-    struct ReRooting{\n  struct Edge{\n    int from,to;\n    S cost;\n    T dp,ndp;\n\
-    \  };\n  using F=function<T(T,T)>;\n  using G=function<T(T,Edge)>;\n  vector<vector<Edge>>\
-    \ g;\n  const F f;\n  const G gg;\n  const T id;\n  vector<T> subdp,dp;\n  void\
-    \ add_edge(int u,int v,const S &d) {\n    g[u].emplace_back(Edge{u,v,d,id,id});\n\
+  bundledCode: "#line 1 \"Graph/tree/rerooting.hpp\"\ntemplate<typename S,typename\
+    \ T=S>\nstruct ReRooting{\n  struct Edge{\n    int from,to;\n    S cost;\n   \
+    \ T dp,ndp;\n  };\n  using F=function<T(T,T)>;\n  using G=function<T(T,Edge)>;\n\
+    \  vector<vector<Edge>> g;\n  const F f;\n  const G gg;\n  const T id;\n  vector<T>\
+    \ subdp,dp;\n  void add_edge(int u,int v,const S &d) {\n    g[u].emplace_back(Edge{u,v,d,id,id});\n\
     \    g[v].emplace_back(Edge{v,u,d,id,id});\n  }\n  ReRooting(int n,const F &f,const\
     \ G &g,const T &id=T{}):g(n),f(f),gg(g),id(id),subdp(n,id),dp(n,id) {}\n  void\
     \ dfs_sub(int x,int p) {\n    for(auto &e:g[x])if(e.to!=p){\n      dfs_sub(e.to,x);\n\
@@ -45,16 +45,16 @@ data:
     \u65B9\u4F4D\u6728DP)\n*/"
   dependsOn: []
   isVerificationFile: false
-  path: Graph/rerooting.hpp
+  path: Graph/tree/rerooting.hpp
   requiredBy: []
-  timestamp: '2022-01-11 21:49:44+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_5_B.test.cpp
-documentation_of: Graph/rerooting.hpp
+documentation_of: Graph/tree/rerooting.hpp
 layout: document
 redirect_from:
-- /library/Graph/rerooting.hpp
-- /library/Graph/rerooting.hpp.html
+- /library/Graph/tree/rerooting.hpp
+- /library/Graph/tree/rerooting.hpp.html
 title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
 ---

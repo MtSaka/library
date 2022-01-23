@@ -5,7 +5,7 @@ data:
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':heavy_check_mark:'
-    path: Graph/topological_sort.hpp
+    path: Graph/others/topological_sort.hpp
     title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
       )"
   - icon: ':heavy_check_mark:'
@@ -92,8 +92,8 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/topological_sort.hpp\"\n\
-    template<typename T>\nstruct topological_sort{\n  int n;\n  const Graph<T>&g;\n\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/others/topological_sort.hpp\"\
+    \ntemplate<typename T>\nstruct topological_sort{\n  int n;\n  const Graph<T>&g;\n\
     \  vector<int>order;\n  vector<bool>seen;\n  void dfs(int v){\n    seen[v]=true;\n\
     \    for(auto &e:g[v])if(!seen[e])dfs(e);\n    order.push_back(v);\n  }\n  void\
     \ init(){\n    n=g.size();\n    seen.assign(n,false);\n    order.reserve(n);\n\
@@ -105,17 +105,17 @@ data:
     \  g.read(e,0,false,true);\n  for(auto i:topological_sort<int>(g).get())cout<<i<<endl;\n\
     }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_B\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/topological_sort.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/others/topological_sort.hpp\"\
     \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<int>g(v);\n  g.read(e,0,false,true);\n\
     \  for(auto i:topological_sort<int>(g).get())cout<<i<<endl;\n}"
   dependsOn:
   - template/template.hpp
-  - Graph/topological_sort.hpp
+  - Graph/others/topological_sort.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
   path: test/aoj/GRL/GRL_4_B.test.cpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_4_B.test.cpp

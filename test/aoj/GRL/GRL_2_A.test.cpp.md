@@ -8,7 +8,7 @@ data:
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':heavy_check_mark:'
-    path: Graph/kruskal.hpp
+    path: Graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
     path: template/template.hpp
@@ -105,7 +105,7 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/kruskal.hpp\"\ntemplate<typename\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/mst/kruskal.hpp\"\ntemplate<typename\
     \ T>\nstruct mst{\n  T cost;\n  Edges<T>edges;\n};\ntemplate<typename T>\nmst<T>kruskal(Edges<T>&edges,int\
     \ v){\n  sort(edges.begin(),edges.end());\n  dsu d(v);\n  T total=0;\n  Edges<T>es;\n\
     \  for(auto &e:edges){\n    if(!d.same(e.to,e.from)){\n      d.merge(e.to,e.from);\n\
@@ -115,19 +115,19 @@ data:
     \ &i:edges)cin>>i.from>>i.to>>i.cost;\n  auto ans=kruskal(edges,v);\n  cout<<ans.cost<<endl;\n\
     }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/kruskal.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/mst/kruskal.hpp\"\
     \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Edges<long long>edges(e);\n  for(auto\
     \ &i:edges)cin>>i.from>>i.to>>i.cost;\n  auto ans=kruskal(edges,v);\n  cout<<ans.cost<<endl;\n\
     }"
   dependsOn:
   - template/template.hpp
-  - Graph/kruskal.hpp
+  - Graph/mst/kruskal.hpp
   - Data_Structure/dsu.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
   path: test/aoj/GRL/GRL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_2_A.test.cpp

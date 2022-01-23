@@ -48,7 +48,7 @@ data:
     \  }\n  T query(int l,int r){\n    int a=log_table[r-l];\n    return f(table[a][l],table[a][r-(1<<a)]);\n\
     \  }\n};\ntemplate<typename T,typename F>\nsparse_table<T,F>make_sparse_table(const\
     \ vector<T>&v,const F&f){\n  return sparse_table<T,F>(v,f);\n} \n/**\n * @brief\
-    \ Sparse Table\n*/\n#line 4 \"Graph/RMQ_lowest_common_ancestor.hpp\"\ntemplate<typename\
+    \ Sparse Table\n*/\n#line 4 \"Graph/tree/RMQ_lowest_common_ancestor.hpp\"\ntemplate<typename\
     \ T=int>\nstruct RMQ_LCA:Graph<T>{\n  using Graph<T>::Graph;\n  using Graph<T>::g;\n\
     \  using F=function<int(int,int)>;\n  sparse_table<int,F>st;\n  vector<int>ord,dep,in;\n\
     \  void build(int root=0){\n    in.resize(g.size());\n    dfs(root,-1,0);\n  \
@@ -60,7 +60,7 @@ data:
     \      dfs(e,idx,d+1);\n      ord.emplace_back(idx);\n      dep.emplace_back(d);\n\
     \    }\n  }\n};\n/**\n * @brief RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\
     \u7956\u5148)\n*/\n"
-  code: "#pragma once\n#include\"graph_template.hpp\"\n#include\"../Data_Structure/sparse_table.hpp\"\
+  code: "#pragma once\n#include\"../graph_template.hpp\"\n#include\"../../Data_Structure/sparse_table.hpp\"\
     \ntemplate<typename T=int>\nstruct RMQ_LCA:Graph<T>{\n  using Graph<T>::Graph;\n\
     \  using Graph<T>::g;\n  using F=function<int(int,int)>;\n  sparse_table<int,F>st;\n\
     \  vector<int>ord,dep,in;\n  void build(int root=0){\n    in.resize(g.size());\n\
@@ -76,17 +76,17 @@ data:
   - Graph/graph_template.hpp
   - Data_Structure/sparse_table.hpp
   isVerificationFile: false
-  path: Graph/RMQ_lowest_common_ancestor.hpp
+  path: Graph/tree/RMQ_lowest_common_ancestor.hpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_5_C_2.test.cpp
   - test/yosupo/lca2.test.cpp
-documentation_of: Graph/RMQ_lowest_common_ancestor.hpp
+documentation_of: Graph/tree/RMQ_lowest_common_ancestor.hpp
 layout: document
 redirect_from:
-- /library/Graph/RMQ_lowest_common_ancestor.hpp
-- /library/Graph/RMQ_lowest_common_ancestor.hpp.html
+- /library/Graph/tree/RMQ_lowest_common_ancestor.hpp
+- /library/Graph/tree/RMQ_lowest_common_ancestor.hpp.html
 title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
 ---

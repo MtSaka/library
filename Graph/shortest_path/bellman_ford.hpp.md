@@ -31,10 +31,10 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/bellman_ford.hpp\"\ntemplate<typename\
-    \ T>\nvector<T>bellman_ford(const Graph<T>&g,int s){\n  const int n=g.size();\n\
-    \  const T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n  d[s]=0;\n\
-    \  for(int i=0;i<n;i++){\n    bool changed=false;\n    for(int j=0;j<n;j++){\n\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/shortest_path/bellman_ford.hpp\"\
+    \ntemplate<typename T>\nvector<T>bellman_ford(const Graph<T>&g,int s){\n  const\
+    \ int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
+    \  d[s]=0;\n  for(int i=0;i<n;i++){\n    bool changed=false;\n    for(int j=0;j<n;j++){\n\
     \      for(auto &e:g[j]){\n        if(d[j]!=MAX&&d[e]>d[j]+e.cost){\n        \
     \  d[e]=d[j]+e.cost;\n          changed=true;\n        }\n      }\n    }\n   \
     \ if(!changed)return d;\n  }\n  for(int i=0;i<n;i++)for(auto &e:g[i])if(d[i]!=MAX&&d[e]>d[i]+e.cost)d[e]=-MAX;\n\
@@ -43,7 +43,7 @@ data:
     \          d[e]=d[j];\n          changed=true;\n        }\n      }\n    }\n  \
     \  if(!changed)break;\n  }\n  return d;\n}\n/**\n * @brief Bellman-Ford(\u5358\
     \u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n*/\n"
-  code: "#include\"graph_template.hpp\"\ntemplate<typename T>\nvector<T>bellman_ford(const\
+  code: "#include\"../graph_template.hpp\"\ntemplate<typename T>\nvector<T>bellman_ford(const\
     \ Graph<T>&g,int s){\n  const int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n\
     \  vector<T>d(n,MAX);\n  d[s]=0;\n  for(int i=0;i<n;i++){\n    bool changed=false;\n\
     \    for(int j=0;j<n;j++){\n      for(auto &e:g[j]){\n        if(d[j]!=MAX&&d[e]>d[j]+e.cost){\n\
@@ -57,16 +57,16 @@ data:
   dependsOn:
   - Graph/graph_template.hpp
   isVerificationFile: false
-  path: Graph/bellman_ford.hpp
+  path: Graph/shortest_path/bellman_ford.hpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_1_B.test.cpp
-documentation_of: Graph/bellman_ford.hpp
+documentation_of: Graph/shortest_path/bellman_ford.hpp
 layout: document
 redirect_from:
-- /library/Graph/bellman_ford.hpp
-- /library/Graph/bellman_ford.hpp.html
+- /library/Graph/shortest_path/bellman_ford.hpp
+- /library/Graph/shortest_path/bellman_ford.hpp.html
 title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
 ---

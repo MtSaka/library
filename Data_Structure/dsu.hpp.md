@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: Graph/kruskal.hpp
+    path: Graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -47,7 +47,7 @@ data:
   isVerificationFile: false
   path: Data_Structure/dsu.hpp
   requiredBy:
-  - Graph/kruskal.hpp
+  - Graph/mst/kruskal.hpp
   timestamp: '2022-01-11 20:35:27+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

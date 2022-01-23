@@ -5,7 +5,7 @@ data:
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':heavy_check_mark:'
-    path: Graph/prim.hpp
+    path: Graph/mst/prim.hpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
     path: template/template.hpp
@@ -91,7 +91,7 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/prim.hpp\"\ntemplate<typename\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/mst/prim.hpp\"\ntemplate<typename\
     \ T>\nstruct mst{\n  T cost;\n  Edges<T>edges;\n};\ntemplate<typename T>\nmst<T>prim(const\
     \ Graph<T>&g){\n  T sum=T();\n  vector<bool>used(g.size(),false);\n  vector<Edge<T>>dist(g.size());\n\
     \  using pi=pair<T,int>;\n  priority_queue<pi,vector<pi>,greater<>>q;\n  q.emplace(T(),0);\n\
@@ -103,17 +103,17 @@ data:
     \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<>g(v);\n  g.read(e,0,true);\n\
     \  cout<<prim(g).cost<<endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/prim.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/mst/prim.hpp\"\
     \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<>g(v);\n  g.read(e,0,true);\n\
     \  cout<<prim(g).cost<<endl;\n}"
   dependsOn:
   - template/template.hpp
-  - Graph/prim.hpp
+  - Graph/mst/prim.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
   path: test/aoj/GRL/GRL_2_A_2.test.cpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_2_A_2.test.cpp

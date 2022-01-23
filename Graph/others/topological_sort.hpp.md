@@ -32,8 +32,8 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/topological_sort.hpp\"\n\
-    template<typename T>\nstruct topological_sort{\n  int n;\n  const Graph<T>&g;\n\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/others/topological_sort.hpp\"\
+    \ntemplate<typename T>\nstruct topological_sort{\n  int n;\n  const Graph<T>&g;\n\
     \  vector<int>order;\n  vector<bool>seen;\n  void dfs(int v){\n    seen[v]=true;\n\
     \    for(auto &e:g[v])if(!seen[e])dfs(e);\n    order.push_back(v);\n  }\n  void\
     \ init(){\n    n=g.size();\n    seen.assign(n,false);\n    order.reserve(n);\n\
@@ -41,7 +41,7 @@ data:
     \  }\n  topological_sort(const Graph<T>&g):g(g){init();}\n  const vector<int>&get()const&{return\
     \ order;}\n  vector<int>get()&&{return move(order);}\n};\n/**\n * @brief Topological\
     \ Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8)\n*/\n"
-  code: "#include\"graph_template.hpp\"\ntemplate<typename T>\nstruct topological_sort{\n\
+  code: "#include\"../graph_template.hpp\"\ntemplate<typename T>\nstruct topological_sort{\n\
     \  int n;\n  const Graph<T>&g;\n  vector<int>order;\n  vector<bool>seen;\n  void\
     \ dfs(int v){\n    seen[v]=true;\n    for(auto &e:g[v])if(!seen[e])dfs(e);\n \
     \   order.push_back(v);\n  }\n  void init(){\n    n=g.size();\n    seen.assign(n,false);\n\
@@ -52,16 +52,16 @@ data:
   dependsOn:
   - Graph/graph_template.hpp
   isVerificationFile: false
-  path: Graph/topological_sort.hpp
+  path: Graph/others/topological_sort.hpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_4_B.test.cpp
-documentation_of: Graph/topological_sort.hpp
+documentation_of: Graph/others/topological_sort.hpp
 layout: document
 redirect_from:
-- /library/Graph/topological_sort.hpp
-- /library/Graph/topological_sort.hpp.html
+- /library/Graph/others/topological_sort.hpp
+- /library/Graph/others/topological_sort.hpp.html
 title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8)"
 ---

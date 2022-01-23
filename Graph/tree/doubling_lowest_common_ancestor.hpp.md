@@ -35,7 +35,7 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/doubling_lowest_common_ancestor.hpp\"\
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/tree/doubling_lowest_common_ancestor.hpp\"\
     \ntemplate<typename T>\nstruct Doubling_LCA:Graph<T>{\n  using Graph<T>::g;\n\
     \  const int lg;\n  vector<int>dep;\n  vector<T>sum;\n  vector<vector<int>>table;\n\
     \  Doubling_LCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}\n  Doubling_LCA(const\
@@ -52,7 +52,7 @@ data:
     \    for(auto &e:g[idx])if(e!=par){\n      sum[e]=sum[idx]+e.cost;\n      dfs(e,idx,d+1);\n\
     \    }\n  }\n};\n/**\n * @brief Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\
     \u901A\u7956\u5148)\n*/\n"
-  code: "#pragma once\n#include\"graph_template.hpp\"\ntemplate<typename T>\nstruct\
+  code: "#pragma once\n#include\"../graph_template.hpp\"\ntemplate<typename T>\nstruct\
     \ Doubling_LCA:Graph<T>{\n  using Graph<T>::g;\n  const int lg;\n  vector<int>dep;\n\
     \  vector<T>sum;\n  vector<vector<int>>table;\n  Doubling_LCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}\n\
     \  Doubling_LCA(const Graph<T>&g):Graph<T>(g),lg(32-__builtin_clz(g.size())){}\n\
@@ -72,17 +72,17 @@ data:
   dependsOn:
   - Graph/graph_template.hpp
   isVerificationFile: false
-  path: Graph/doubling_lowest_common_ancestor.hpp
+  path: Graph/tree/doubling_lowest_common_ancestor.hpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_5_C_1.test.cpp
   - test/yosupo/lca1.test.cpp
-documentation_of: Graph/doubling_lowest_common_ancestor.hpp
+documentation_of: Graph/tree/doubling_lowest_common_ancestor.hpp
 layout: document
 redirect_from:
-- /library/Graph/doubling_lowest_common_ancestor.hpp
-- /library/Graph/doubling_lowest_common_ancestor.hpp.html
+- /library/Graph/tree/doubling_lowest_common_ancestor.hpp
+- /library/Graph/tree/doubling_lowest_common_ancestor.hpp.html
 title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
 ---

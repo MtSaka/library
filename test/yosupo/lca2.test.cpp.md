@@ -5,11 +5,11 @@ data:
     path: Data_Structure/sparse_table.hpp
     title: Sparse Table
   - icon: ':heavy_check_mark:'
-    path: Graph/RMQ_lowest_common_ancestor.hpp
-    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  - icon: ':heavy_check_mark:'
+    path: Graph/tree/RMQ_lowest_common_ancestor.hpp
+    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
@@ -104,7 +104,7 @@ data:
     \  }\n  T query(int l,int r){\n    int a=log_table[r-l];\n    return f(table[a][l],table[a][r-(1<<a)]);\n\
     \  }\n};\ntemplate<typename T,typename F>\nsparse_table<T,F>make_sparse_table(const\
     \ vector<T>&v,const F&f){\n  return sparse_table<T,F>(v,f);\n} \n/**\n * @brief\
-    \ Sparse Table\n*/\n#line 4 \"Graph/RMQ_lowest_common_ancestor.hpp\"\ntemplate<typename\
+    \ Sparse Table\n*/\n#line 4 \"Graph/tree/RMQ_lowest_common_ancestor.hpp\"\ntemplate<typename\
     \ T=int>\nstruct RMQ_LCA:Graph<T>{\n  using Graph<T>::Graph;\n  using Graph<T>::g;\n\
     \  using F=function<int(int,int)>;\n  sparse_table<int,F>st;\n  vector<int>ord,dep,in;\n\
     \  void build(int root=0){\n    in.resize(g.size());\n    dfs(root,-1,0);\n  \
@@ -120,19 +120,19 @@ data:
     \    g.add_edge(u,i);\n  }\n  g.build();\n  while(q--){\n    int u,v;\n    cin>>u>>v;\n\
     \    cout<<g.lca(u,v)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include\"../../template/template.hpp\"\
-    \n#include\"../../Graph/RMQ_lowest_common_ancestor.hpp\"\nint main(){\n  int n,q;\n\
-    \  cin>>n>>q;\n  RMQ_LCA<int>g(n);\n  for(int i=1;i<n;i++){\n    int u;\n    cin>>u;\n\
-    \    g.add_edge(u,i);\n  }\n  g.build();\n  while(q--){\n    int u,v;\n    cin>>u>>v;\n\
-    \    cout<<g.lca(u,v)<<endl;\n  }\n}"
+    \n#include\"../../Graph/tree/RMQ_lowest_common_ancestor.hpp\"\nint main(){\n \
+    \ int n,q;\n  cin>>n>>q;\n  RMQ_LCA<int>g(n);\n  for(int i=1;i<n;i++){\n    int\
+    \ u;\n    cin>>u;\n    g.add_edge(u,i);\n  }\n  g.build();\n  while(q--){\n  \
+    \  int u,v;\n    cin>>u>>v;\n    cout<<g.lca(u,v)<<endl;\n  }\n}"
   dependsOn:
   - template/template.hpp
-  - Graph/RMQ_lowest_common_ancestor.hpp
+  - Graph/tree/RMQ_lowest_common_ancestor.hpp
   - Graph/graph_template.hpp
   - Data_Structure/sparse_table.hpp
   isVerificationFile: true
   path: test/yosupo/lca2.test.cpp
   requiredBy: []
-  timestamp: '2022-01-22 22:12:05+00:00'
+  timestamp: '2022-01-23 11:55:23+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lca2.test.cpp
