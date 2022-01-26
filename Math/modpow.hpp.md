@@ -37,8 +37,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/NTL/NTL_1_B.test.cpp
-  - test/yosupo/sqrt_mod.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/sqrt_mod.test.cpp
 documentation_of: Math/modpow.hpp
 layout: document
 redirect_from:

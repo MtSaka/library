@@ -95,6 +95,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
+    - icon: ':heavy_check_mark:'
+      path: Graph/tree/tree_diameter.hpp
+      title: Graph/tree/tree_diameter.hpp
   - name: Math
     pages:
     - icon: ':heavy_check_mark:'
@@ -240,6 +243,9 @@ data:
       path: test/aoj/GRL/GRL_4_B.test.cpp
       title: test/aoj/GRL/GRL_4_B.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL/GRL_5_A.test.cpp
+      title: test/aoj/GRL/GRL_5_A.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_B.test.cpp
       title: test/aoj/GRL/GRL_5_B.test.cpp
     - icon: ':heavy_check_mark:'
@@ -335,6 +341,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq.test.cpp
       title: test/yosupo/staticrmq.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/tree_diameter.test.cpp
+      title: test/yosupo/tree_diameter.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/unionfind.test.cpp
       title: test/yosupo/unionfind.test.cpp
