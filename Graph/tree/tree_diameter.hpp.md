@@ -16,7 +16,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: "Tree Diameter(\u6728\u306E\u76F4\u7CFB)"
+    document_title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
     links: []
   bundledCode: "#line 2 \"Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct\
     \ Edge{\n  int from,to;\n  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int\
@@ -44,7 +44,7 @@ data:
     \ idx,int par){\n    pair<T,int>res(0,idx);\n    for(auto &e:g[idx])if(e.to!=par){\n\
     \      auto cost=dfs(e.to,idx);\n      cost.first+=e.cost;\n      if(res<cost)res=cost,to[idx]=e.to;\n\
     \    }\n    return res;\n  }\n};\n/**\n * @brief Tree Diameter(\u6728\u306E\u76F4\
-    \u7CFB)\n*/\n"
+    \u5F84)\n*/\n"
   code: "#pragma once\n#include\"../graph_template.hpp\"\ntemplate<typename T=int>\n\
     struct TreeDiameter:Graph<T>{\n  using Graph<T>::Graph;\n  using Graph<T>::g;\n\
     \  vector<Edge<T>>path;\n  T build(){\n    to.assign(g.size(),-1);\n    auto p=dfs(0,-1);\n\
@@ -55,13 +55,13 @@ data:
     \ idx,int par){\n    pair<T,int>res(0,idx);\n    for(auto &e:g[idx])if(e.to!=par){\n\
     \      auto cost=dfs(e.to,idx);\n      cost.first+=e.cost;\n      if(res<cost)res=cost,to[idx]=e.to;\n\
     \    }\n    return res;\n  }\n};\n/**\n * @brief Tree Diameter(\u6728\u306E\u76F4\
-    \u7CFB)\n*/"
+    \u5F84)\n*/"
   dependsOn:
   - Graph/graph_template.hpp
   isVerificationFile: false
   path: Graph/tree/tree_diameter.hpp
   requiredBy: []
-  timestamp: '2022-01-26 17:12:59+00:00'
+  timestamp: '2022-01-26 17:17:09+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_5_A.test.cpp
@@ -71,5 +71,5 @@ layout: document
 redirect_from:
 - /library/Graph/tree/tree_diameter.hpp
 - /library/Graph/tree/tree_diameter.hpp.html
-title: "Tree Diameter(\u6728\u306E\u76F4\u7CFB)"
+title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
 ---
