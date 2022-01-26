@@ -6,7 +6,7 @@ data:
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':heavy_check_mark:'
     path: Graph/tree/tree_diameter.hpp
-    title: Graph/tree/tree_diameter.hpp
+    title: "Tree Diameter(\u6728\u306E\u76F4\u7CFB)"
   - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
@@ -100,10 +100,10 @@ data:
     \ Graph<T>&g):Graph<T>(g){}\n  private:\n  vector<int>to;\n  pair<T,int>dfs(int\
     \ idx,int par){\n    pair<T,int>res(0,idx);\n    for(auto &e:g[idx])if(e.to!=par){\n\
     \      auto cost=dfs(e.to,idx);\n      cost.first+=e.cost;\n      if(res<cost)res=cost,to[idx]=e.to;\n\
-    \    }\n    return res;\n  }\n};\n#line 4 \"test/yosupo/tree_diameter.test.cpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n\
-    \  cout<<g.build()<<\" \"<<g.path.size()+1<<endl;\n  cout<<g.path[0].from<<\"\
-    \ \"<<g.path<<endl;\n}\n"
+    \    }\n    return res;\n  }\n};\n/**\n * @brief Tree Diameter(\u6728\u306E\u76F4\
+    \u7CFB)\n*/\n#line 4 \"test/yosupo/tree_diameter.test.cpp\"\nint main(){\n  int\
+    \ n;\n  cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n  cout<<g.build()<<\"\
+    \ \"<<g.path.size()+1<<endl;\n  cout<<g.path[0].from<<\" \"<<g.path<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n#include\"\
     ../../template/template.hpp\"\n#include\"../../Graph/tree/tree_diameter.hpp\"\n\
     int main(){\n  int n;\n  cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n\
@@ -116,7 +116,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2022-01-26 17:06:36+00:00'
+  timestamp: '2022-01-26 17:12:59+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/tree_diameter.test.cpp

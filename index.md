@@ -97,7 +97,7 @@ data:
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
     - icon: ':heavy_check_mark:'
       path: Graph/tree/tree_diameter.hpp
-      title: Graph/tree/tree_diameter.hpp
+      title: "Tree Diameter(\u6728\u306E\u76F4\u7CFB)"
   - name: Math
     pages:
     - icon: ':heavy_check_mark:'

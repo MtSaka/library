@@ -36,7 +36,7 @@ data:
     title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':heavy_check_mark:'
     path: Graph/tree/tree_diameter.hpp
-    title: Graph/tree/tree_diameter.hpp
+    title: "Tree Diameter(\u6728\u306E\u76F4\u7CFB)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_A.test.cpp
