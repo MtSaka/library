@@ -31,3 +31,6 @@ struct TreeDiameter:Graph<T>{
     return res;
   }
 };
+/**
+ * @brief Tree Diameter(木の直系)
+*/
