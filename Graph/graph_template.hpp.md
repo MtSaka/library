@@ -31,6 +31,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+  - icon: ':warning:'
+    path: Graph/tree/centroid.hpp
+    title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
   - icon: ':heavy_check_mark:'
     path: Graph/tree/doubling_lowest_common_ancestor.hpp
     title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
@@ -132,6 +135,7 @@ data:
   - Graph/shortest_path/dijkstra.hpp
   - Graph/others/detect_cycle.hpp
   - Graph/others/topological_sort.hpp
+  - Graph/tree/centroid.hpp
   - Graph/tree/tree_diameter.hpp
   - Graph/tree/doubling_lowest_common_ancestor.hpp
   - Graph/tree/RMQ_lowest_common_ancestor.hpp
