@@ -45,6 +45,11 @@ data:
     - icon: ':warning:'
       path: Geometry/point.hpp
       title: "Point(\u70B9)"
+  - name: Graph/flow
+    pages:
+    - icon: ':warning:'
+      path: Graph/flow/ford_fulkerson.hpp
+      title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: Graph
     pages:
     - icon: ':heavy_check_mark:'
