@@ -48,6 +48,9 @@ data:
   - name: Graph/flow
     pages:
     - icon: ':warning:'
+      path: Graph/flow/dinic.hpp
+      title: "Dinic(\u6700\u5927\u6D41)"
+    - icon: ':warning:'
       path: Graph/flow/ford_fulkerson.hpp
       title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: Graph
