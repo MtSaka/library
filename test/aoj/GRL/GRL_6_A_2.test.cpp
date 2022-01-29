@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A"
 #include"../../../template/template.hpp"
-#include"../../../graph/flow/ford_fulkerson.hpp"
+#include"../../../Graph/flow/ford_fulkerson.hpp"
 int main(){
   int v,e;
   cin>>v>>e;
