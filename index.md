@@ -265,6 +265,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_C_2.test.cpp
       title: test/aoj/GRL/GRL_5_C_2.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL/GRL_6_A.test.cpp
+      title: test/aoj/GRL/GRL_6_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL/GRL_6_A_2.test.cpp
+      title: test/aoj/GRL/GRL_6_A_2.test.cpp
   - name: test/aoj/ITP1
     pages:
     - icon: ':heavy_check_mark:'
