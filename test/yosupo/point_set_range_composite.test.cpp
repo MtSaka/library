@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 #include"../../template/template.hpp"
 #include"../../Data_Structure/segtree.hpp"
-#include"../../Math/modint.hpp"
+#include"../../Math/modular/modint.hpp"
 using mint=modint<mod>;
 using S=pair<mint,mint>;
 S op(S a,S b){return S{a.first*b.first,a.second*b.first+b.second};}

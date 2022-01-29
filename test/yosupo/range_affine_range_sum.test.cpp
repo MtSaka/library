@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 #include"../../template/template.hpp"
-#include"../../Math/modint.hpp"
+#include"../../Math/modular/modint.hpp"
 #include"../../Data_Structure/lazy_segtree.hpp"
 using mint=modint<mod>;
 using Pi=pair<mint,int >;
