@@ -121,6 +121,9 @@ data:
     path: test/yosupo/point_add_range_sum2.test.cpp
     title: test/yosupo/point_add_range_sum2.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_set_range_composite.test.cpp
+    title: test/yosupo/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial_interpolation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -130,12 +133,15 @@ data:
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/range_affine_range_sum.test.cpp
+    title: test/yosupo/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -147,12 +153,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -270,7 +276,7 @@ data:
   path: template/template.hpp
   requiredBy: []
   timestamp: '2022-01-20 20:34:11+00:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1236.test.cpp
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
@@ -303,6 +309,7 @@ data:
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/polynomial_taylor_shift.test.cpp
+  - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/polynomial_interpolation.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
@@ -312,6 +319,7 @@ data:
   - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/unionfind.test.cpp
+  - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/factorize.test.cpp
   - test/yosupo/point_add_range_sum1.test.cpp
   - test/yosupo/lca2.test.cpp
