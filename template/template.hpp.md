@@ -61,6 +61,12 @@ data:
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL/GRL_6_A.test.cpp
+    title: test/aoj/GRL/GRL_6_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL/GRL_6_A_2.test.cpp
+    title: test/aoj/GRL/GRL_6_A_2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ITP1/ITP1_3_D.test.cpp
     title: test/aoj/ITP1/ITP1_3_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -286,6 +292,8 @@ data:
   - test/aoj/NTL/NTL_1_A.test.cpp
   - test/aoj/NTL/NTL_1_D.test.cpp
   - test/aoj/GRL/GRL_5_B.test.cpp
+  - test/aoj/GRL/GRL_6_A.test.cpp
+  - test/aoj/GRL/GRL_6_A_2.test.cpp
   - test/aoj/GRL/GRL_5_A.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
   - test/aoj/GRL/GRL_1_B.test.cpp
