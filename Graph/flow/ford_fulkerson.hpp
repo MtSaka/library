@@ -5,7 +5,7 @@ struct FordFulkerson{
     int to;
     T cap;
     int rev;
-    bool isrev
+    bool isrev;
     int idx;
   };
   const T INF;
