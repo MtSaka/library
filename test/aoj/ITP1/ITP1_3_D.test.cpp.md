@@ -2,9 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Math/factor.hpp
+    path: Math/number/factor.hpp
     title: "Factor Enumeration(\u7D04\u6570\u5217\u6319)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -73,24 +73,24 @@ data:
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Math/factor.hpp\"\nvector<long long>factor(long long N){\n  vector<long long>ans;\n\
-    \  for(long long i=1;i*i<=N;i++){\n    if(N%i==0){\n      ans.push_back(i);\n\
+    Math/number/factor.hpp\"\nvector<long long>factor(long long N){\n  vector<long\
+    \ long>ans;\n  for(long long i=1;i*i<=N;i++){\n    if(N%i==0){\n      ans.push_back(i);\n\
     \      if(i*i!=N)ans.push_back(N/i);\n    }\n  }\n  sort(ans.begin(),ans.end());\n\
     \  return ans;\n}\n/**\n * @brief Factor Enumeration(\u7D04\u6570\u5217\u6319\
     )\n*/\n#line 4 \"test/aoj/ITP1/ITP1_3_D.test.cpp\"\nint main(){\n  int a,b,c;\n\
     \  cin>>a>>b>>c;\n  int ans=0;\n  for(auto &x:factor(c)){\n    ans+=(a<=x&&x<=b);\n\
     \  }\n  print(ans);\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_3_D\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/factor.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/number/factor.hpp\"\
     \nint main(){\n  int a,b,c;\n  cin>>a>>b>>c;\n  int ans=0;\n  for(auto &x:factor(c)){\n\
     \    ans+=(a<=x&&x<=b);\n  }\n  print(ans);\n}"
   dependsOn:
   - template/template.hpp
-  - Math/factor.hpp
+  - Math/number/factor.hpp
   isVerificationFile: true
   path: test/aoj/ITP1/ITP1_3_D.test.cpp
   requiredBy: []
-  timestamp: '2022-01-20 20:34:11+00:00'
+  timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ITP1/ITP1_3_D.test.cpp

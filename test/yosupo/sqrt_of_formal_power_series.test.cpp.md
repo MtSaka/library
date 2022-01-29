@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Math/fps.hpp
-    title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
-    path: Math/mod_sqrt.hpp
-    title: Math/mod_sqrt.hpp
-  - icon: ':heavy_check_mark:'
-    path: Math/modint.hpp
-    title: modint
-  - icon: ':heavy_check_mark:'
-    path: Math/modpow.hpp
-    title: "Mod Pow(\u3079\u304D\u4E57)"
-  - icon: ':heavy_check_mark:'
-    path: Math/ntt.hpp
+  - icon: ':question:'
+    path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
+    path: Math/fps/fps.hpp
+    title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
+  - icon: ':x:'
+    path: Math/modular/mod_sqrt.hpp
+    title: Math/modular/mod_sqrt.hpp
+  - icon: ':question:'
+    path: Math/modular/modint.hpp
+    title: modint
+  - icon: ':question:'
+    path: Math/modular/modpow.hpp
+    title: "Mod Pow(\u3079\u304D\u4E57)"
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
@@ -85,25 +85,26 @@ data:
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Math/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  long long x;\n  modint():x(0){}\n\
-    \  modint(long long y){\n    if(y<0){\n      y%=m;\n      if(y==0)x=y;\n     \
-    \ else x=m+y;\n    }\n    else if(y<m)x=y;\n    else x=y%m;\n  }\n  modint inv()const{\n\
-    \    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n\
-    \      swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n  modint &operator+=(const\
-    \ modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return\
-    \ *this;}\n  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n\
-    \  modint &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint\
-    \ operator-()const{return modint(-x); }\n  modint operator+(const modint&p)const{return\
-    \ modint(*this)+=p; }\n  modint operator-(const modint&p)const{return modint(*this)-=p;\
-    \ }\n  modint operator*(const modint&p)const{return modint(*this)*=p; }\n  modint\
-    \ operator/(const modint&p)const{return modint(*this)/=p; }\n  bool operator==(const\
-    \ modint&p)const{return x==p.x;}\n  bool operator!=(const modint&p)const{return\
-    \ x!=p.x;}\n  modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n\
-    \      if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
-    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
-    \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
-    \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/ntt.hpp\"\ntemplate<long\
+    Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  long long\
+    \ x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n      y%=m;\n \
+    \     if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n    else x=y%m;\n\
+    \  }\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n\
+    \      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return\
+    \ modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
+    \ *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n\
+    \  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
+    \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint operator-()const{return\
+    \ modint(-x); }\n  modint operator+(const modint&p)const{return modint(*this)+=p;\
+    \ }\n  modint operator-(const modint&p)const{return modint(*this)-=p; }\n  modint\
+    \ operator*(const modint&p)const{return modint(*this)*=p; }\n  modint operator/(const\
+    \ modint&p)const{return modint(*this)/=p; }\n  bool operator==(const modint&p)const{return\
+    \ x==p.x;}\n  bool operator!=(const modint&p)const{return x!=p.x;}\n  modint pow(long\
+    \ long n)const{\n    modint ret(1),mul(x);\n    while(n){\n      if(n&1)ret*=mul;\n\
+    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  friend ostream\
+    \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
+    \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
+    \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
+    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/convolution/ntt.hpp\"\ntemplate<long\
     \ long m>\nstruct NTT{\n  using mint=modint<m>;\n  static modint<m> g;\n  static\
     \ int limit;\n  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
     \ long long&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
@@ -131,8 +132,8 @@ data:
     \ long m>\nvector<modint<m>>NTT<m>::root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic Transform(\u6570\
-    \u8AD6\u5909\u63DB)\n*/\n#line 3 \"Math/fps.hpp\"\ntemplate<long long Mod>\nstruct\
-    \ FPS:vector<modint<Mod>>{\n  using mint=modint<Mod>;\n  using vector<mint>::vector;\n\
+    \u8AD6\u5909\u63DB)\n*/\n#line 3 \"Math/fps/fps.hpp\"\ntemplate<long long Mod>\n\
+    struct FPS:vector<modint<Mod>>{\n  using mint=modint<Mod>;\n  using vector<mint>::vector;\n\
     \  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}\n\
     \  FPS inv(int d=-1)const{\n    NTT<Mod>ntt;\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res{(*this)[0].inv()};\n    for(int m=1;m<d;m<<=1){\n\
@@ -201,13 +202,13 @@ data:
     \      if(i<n)f.insert(f.end(),(*this).begin()+i,(*this).begin()+min(n,i<<1));\n\
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      ret=(ret+f*ret.inv(i<<1))*inv2;\n\
     \    }\n    ret.resize(d);\n    return ret;\n  }\n};\n/**\n * @brief Formal Power\
-    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 2 \"Math/modpow.hpp\"\
+    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 2 \"Math/modular/modpow.hpp\"\
     \ntemplate<typename T,typename S>\nT modpow(T a,S b,T m){\n  T ret=1;\n  while(b){\n\
     \    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n  }\n  return ret;\n}\n/**\n\
-    \ * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line 3 \"Math/mod_sqrt.hpp\"\ntemplate<typename\
-    \ T,typename S>\nS mod_sqrt(T a,S p){\n  a%=p;\n  if(a==0)return 0;\n  if(p==2)return\
-    \ a;\n  if(modpow(a,(p-1)/2,p)!=1)return -1;\n  if((p&3)==3)return modpow(a,(p+1)/4,p);\n\
-    \  S q=p-1,s=0,z=2;\n  while(!(q&1))q>>=1,s++;\n  while(modpow(z,(p-1)/2,p)==1)z++;\n\
+    \ * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line 3 \"Math/modular/mod_sqrt.hpp\"\
+    \ntemplate<typename T,typename S>\nS mod_sqrt(T a,S p){\n  a%=p;\n  if(a==0)return\
+    \ 0;\n  if(p==2)return a;\n  if(modpow(a,(p-1)/2,p)!=1)return -1;\n  if((p&3)==3)return\
+    \ modpow(a,(p+1)/4,p);\n  S q=p-1,s=0,z=2;\n  while(!(q&1))q>>=1,s++;\n  while(modpow(z,(p-1)/2,p)==1)z++;\n\
     \  S m=s,c=modpow(z,q,p),t=modpow(a,q,p),r=modpow(a,(q+1)/2,p);\n  while(t!=1){\n\
     \    S pow_t=t*t%p,m_update;\n    for(int j=1;j<m;j++){\n      if(pow_t==1){\n\
     \        m_update=j;\n        break;\n      }\n      pow_t=pow_t*pow_t%p;\n  \
@@ -218,23 +219,23 @@ data:
     \ x){return mint(mod_sqrt(x.x,x.get_mod()));};\n  f=f.sqrt(-1,get_sqrt);\n  if(f.empty())print(-1);\n\
     \  else{\n    print(f);\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\"\
-    \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps.hpp\"\n#include\"\
-    ../../Math/mod_sqrt.hpp\"\nusing mint=modint<mod>;\nint main(){\n  int n;\n  cin>>n;\n\
-    \  FPS<mod>f(n);\n  cin>>f;\n  auto get_sqrt=[&](mint x){return mint(mod_sqrt(x.x,x.get_mod()));};\n\
-    \  f=f.sqrt(-1,get_sqrt);\n  if(f.empty())print(-1);\n  else{\n    print(f);\n\
-    \  }\n}"
+    \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps/fps.hpp\"\n\
+    #include\"../../Math/modular/mod_sqrt.hpp\"\nusing mint=modint<mod>;\nint main(){\n\
+    \  int n;\n  cin>>n;\n  FPS<mod>f(n);\n  cin>>f;\n  auto get_sqrt=[&](mint x){return\
+    \ mint(mod_sqrt(x.x,x.get_mod()));};\n  f=f.sqrt(-1,get_sqrt);\n  if(f.empty())print(-1);\n\
+    \  else{\n    print(f);\n  }\n}"
   dependsOn:
   - template/template.hpp
-  - Math/fps.hpp
-  - Math/ntt.hpp
-  - Math/modint.hpp
-  - Math/mod_sqrt.hpp
-  - Math/modpow.hpp
+  - Math/fps/fps.hpp
+  - Math/convolution/ntt.hpp
+  - Math/modular/modint.hpp
+  - Math/modular/mod_sqrt.hpp
+  - Math/modular/modpow.hpp
   isVerificationFile: true
   path: test/yosupo/sqrt_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-01-20 20:34:11+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-01-29 16:22:31+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/sqrt_of_formal_power_series.test.cpp
 layout: document

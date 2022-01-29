@@ -2,47 +2,47 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: Math/mod_sqrt.hpp
-    title: Math/mod_sqrt.hpp
+  - icon: ':x:'
+    path: Math/modular/mod_sqrt.hpp
+    title: Math/modular/mod_sqrt.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/NTL/NTL_1_B.test.cpp
     title: test/aoj/NTL/NTL_1_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Mod Pow(\u3079\u304D\u4E57)"
     links: []
-  bundledCode: "#line 2 \"Math/modpow.hpp\"\ntemplate<typename T,typename S>\nT modpow(T\
-    \ a,S b,T m){\n  T ret=1;\n  while(b){\n    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n\
-    \    b>>=1;\n  }\n  return ret;\n}\n/**\n * @brief Mod Pow(\u3079\u304D\u4E57\
-    )\n*/\n"
+  bundledCode: "#line 2 \"Math/modular/modpow.hpp\"\ntemplate<typename T,typename\
+    \ S>\nT modpow(T a,S b,T m){\n  T ret=1;\n  while(b){\n    if(b&1)ret=ret*a%m;\n\
+    \    a=a*a%m;\n    b>>=1;\n  }\n  return ret;\n}\n/**\n * @brief Mod Pow(\u3079\
+    \u304D\u4E57)\n*/\n"
   code: "#pragma once\ntemplate<typename T,typename S>\nT modpow(T a,S b,T m){\n \
     \ T ret=1;\n  while(b){\n    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n \
     \ }\n  return ret;\n}\n/**\n * @brief Mod Pow(\u3079\u304D\u4E57)\n*/"
   dependsOn: []
   isVerificationFile: false
-  path: Math/modpow.hpp
+  path: Math/modular/modpow.hpp
   requiredBy:
-  - Math/mod_sqrt.hpp
-  timestamp: '2022-01-15 23:22:23+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  - Math/modular/mod_sqrt.hpp
+  timestamp: '2022-01-29 16:22:31+00:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/NTL/NTL_1_B.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_mod.test.cpp
-documentation_of: Math/modpow.hpp
+documentation_of: Math/modular/modpow.hpp
 layout: document
 redirect_from:
-- /library/Math/modpow.hpp
-- /library/Math/modpow.hpp.html
+- /library/Math/modular/modpow.hpp
+- /library/Math/modular/modpow.hpp.html
 title: "Mod Pow(\u3079\u304D\u4E57)"
 ---

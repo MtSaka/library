@@ -13,17 +13,18 @@ data:
     document_title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\
       \u89E3)"
     links: []
-  bundledCode: "#line 1 \"Math/fast_prime.hpp\"\nnamespace fastprime{\n  using i128=__uint128_t;\n\
-    \  long long inner_modmul(const long long&x,const long long&y,const long long&p){\n\
-    \    return i128(x)*y%p;\n  }\n  long long inner_modpow(long long n,long long\
-    \ m,const long long&p){\n    long long res=1;\n    while(m){\n      if(m&1)res=inner_modmul(res,n,p);\n\
-    \      n=inner_modmul(n,n,p);\n      m>>=1;\n    }\n    return res;\n  }\n  bool\
-    \ miller_rabin(const long long&n,const vector<long long>&p){\n    long long s=__builtin_ctzll(n-1),d=n>>s;\n\
-    \    for(long long a:p){\n      if(n<=a)break;\n      long long t=d,y=inner_modpow(a,t,n);\n\
-    \      while(t!=n-1&&y!=1&&y!=n-1){\n        y=inner_modmul(y,y,n);\n        t=inner_modmul(t,2,n);\n\
-    \      }\n      if(y!=n-1&&!(t&1))return false;\n    }\n    return true;\n  }\n\
-    \  bool is_prime(const long long&n){\n    if(n<=2)return n==2;\n    if(!(n&1))return\
-    \ false;\n    if(n<=4759123141)return miller_rabin(n,{2,7,61});\n    return miller_rabin(n,{2,325,9375,28178,450775,9780504,1795265022});\n\
+  bundledCode: "#line 1 \"Math/number/fast_prime.hpp\"\nnamespace fastprime{\n  using\
+    \ i128=__uint128_t;\n  long long inner_modmul(const long long&x,const long long&y,const\
+    \ long long&p){\n    return i128(x)*y%p;\n  }\n  long long inner_modpow(long long\
+    \ n,long long m,const long long&p){\n    long long res=1;\n    while(m){\n   \
+    \   if(m&1)res=inner_modmul(res,n,p);\n      n=inner_modmul(n,n,p);\n      m>>=1;\n\
+    \    }\n    return res;\n  }\n  bool miller_rabin(const long long&n,const vector<long\
+    \ long>&p){\n    long long s=__builtin_ctzll(n-1),d=n>>s;\n    for(long long a:p){\n\
+    \      if(n<=a)break;\n      long long t=d,y=inner_modpow(a,t,n);\n      while(t!=n-1&&y!=1&&y!=n-1){\n\
+    \        y=inner_modmul(y,y,n);\n        t=inner_modmul(t,2,n);\n      }\n   \
+    \   if(y!=n-1&&!(t&1))return false;\n    }\n    return true;\n  }\n  bool is_prime(const\
+    \ long long&n){\n    if(n<=2)return n==2;\n    if(!(n&1))return false;\n    if(n<=4759123141)return\
+    \ miller_rabin(n,{2,7,61});\n    return miller_rabin(n,{2,325,9375,28178,450775,9780504,1795265022});\n\
     \  }\n  long long factor(const long long&n){\n    if(!(n&1))return 2;\n    else\
     \ if(is_prime(n))return n;\n    int c=2;\n    while(true){\n      auto f=[&](long\
     \ long x){\n        x=inner_modmul(x,x,n)+c;\n        if(x>=n)x-=n;\n        return\
@@ -71,16 +72,16 @@ data:
     \u7D20\u56E0\u6570\u5206\u89E3)\n*/"
   dependsOn: []
   isVerificationFile: false
-  path: Math/fast_prime.hpp
+  path: Math/number/fast_prime.hpp
   requiredBy: []
-  timestamp: '2022-01-11 21:13:55+00:00'
+  timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/factorize.test.cpp
-documentation_of: Math/fast_prime.hpp
+documentation_of: Math/number/fast_prime.hpp
 layout: document
 redirect_from:
-- /library/Math/fast_prime.hpp
-- /library/Math/fast_prime.hpp.html
+- /library/Math/number/fast_prime.hpp
+- /library/Math/number/fast_prime.hpp.html
 title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
 ---

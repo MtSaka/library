@@ -2,9 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Math/factorize.hpp
+    path: Math/number/factorize.hpp
     title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -73,24 +73,24 @@ data:
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Math/factorize.hpp\"\nvector<pair<long long,int>>factorize(long long N){\n  vector<pair<long\
-    \ long,int>>ans;\n  for(long long i=2;i*i<=N;i++){\n    if(N%i!=0)continue;\n\
+    Math/number/factorize.hpp\"\nvector<pair<long long,int>>factorize(long long N){\n\
+    \  vector<pair<long long,int>>ans;\n  for(long long i=2;i*i<=N;i++){\n    if(N%i!=0)continue;\n\
     \    int idx=0;\n    while(N%i==0){\n      idx++;\n      N/=i;\n    }\n    ans.push_back({i,idx});\n\
     \  }\n  if(N!=1)ans.push_back({N,1});\n  return ans;\n}\n/**\n * @brief Prime\
     \ Factorization(\u7D20\u56E0\u6570\u5206\u89E3)\n*/\n#line 4 \"test/aoj/NTL/NTL_1_A.test.cpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  cout<<n<<\":\";\n  for(auto p:factorize(n)){\n\
     \    while(p.second--)cout<<\" \"<<p.first;\n  }\n  cout<<endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/factorize.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/number/factorize.hpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  cout<<n<<\":\";\n  for(auto p:factorize(n)){\n\
     \    while(p.second--)cout<<\" \"<<p.first;\n  }\n  cout<<endl;\n}"
   dependsOn:
   - template/template.hpp
-  - Math/factorize.hpp
+  - Math/number/factorize.hpp
   isVerificationFile: true
   path: test/aoj/NTL/NTL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2022-01-20 20:34:11+00:00'
+  timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL/NTL_1_A.test.cpp

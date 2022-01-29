@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Math/combinatorics.hpp
-    title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
-  - icon: ':heavy_check_mark:'
-    path: Math/fps.hpp
+  - icon: ':question:'
+    path: Math/convolution/ntt.hpp
+    title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
+  - icon: ':question:'
+    path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
-    path: Math/modint.hpp
+    path: Math/fps/taylor-shift.hpp
+    title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
+  - icon: ':question:'
+    path: Math/modular/modint.hpp
     title: modint
   - icon: ':heavy_check_mark:'
-    path: Math/ntt.hpp
-    title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
-    path: Math/taylor-shift.hpp
-    title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
-  - icon: ':heavy_check_mark:'
+    path: Math/others/combinatorics.hpp
+    title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -85,25 +85,26 @@ data:
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Math/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  long long x;\n  modint():x(0){}\n\
-    \  modint(long long y){\n    if(y<0){\n      y%=m;\n      if(y==0)x=y;\n     \
-    \ else x=m+y;\n    }\n    else if(y<m)x=y;\n    else x=y%m;\n  }\n  modint inv()const{\n\
-    \    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n\
-    \      swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n  modint &operator+=(const\
-    \ modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return\
-    \ *this;}\n  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n\
-    \  modint &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint\
-    \ operator-()const{return modint(-x); }\n  modint operator+(const modint&p)const{return\
-    \ modint(*this)+=p; }\n  modint operator-(const modint&p)const{return modint(*this)-=p;\
-    \ }\n  modint operator*(const modint&p)const{return modint(*this)*=p; }\n  modint\
-    \ operator/(const modint&p)const{return modint(*this)/=p; }\n  bool operator==(const\
-    \ modint&p)const{return x==p.x;}\n  bool operator!=(const modint&p)const{return\
-    \ x!=p.x;}\n  modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n\
-    \      if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
-    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
-    \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
-    \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/ntt.hpp\"\ntemplate<long\
+    Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  long long\
+    \ x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n      y%=m;\n \
+    \     if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n    else x=y%m;\n\
+    \  }\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n\
+    \      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return\
+    \ modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
+    \ *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n\
+    \  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
+    \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint operator-()const{return\
+    \ modint(-x); }\n  modint operator+(const modint&p)const{return modint(*this)+=p;\
+    \ }\n  modint operator-(const modint&p)const{return modint(*this)-=p; }\n  modint\
+    \ operator*(const modint&p)const{return modint(*this)*=p; }\n  modint operator/(const\
+    \ modint&p)const{return modint(*this)/=p; }\n  bool operator==(const modint&p)const{return\
+    \ x==p.x;}\n  bool operator!=(const modint&p)const{return x!=p.x;}\n  modint pow(long\
+    \ long n)const{\n    modint ret(1),mul(x);\n    while(n){\n      if(n&1)ret*=mul;\n\
+    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  friend ostream\
+    \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
+    \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
+    \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
+    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/convolution/ntt.hpp\"\ntemplate<long\
     \ long m>\nstruct NTT{\n  using mint=modint<m>;\n  static modint<m> g;\n  static\
     \ int limit;\n  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
     \ long long&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
@@ -131,8 +132,8 @@ data:
     \ long m>\nvector<modint<m>>NTT<m>::root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic Transform(\u6570\
-    \u8AD6\u5909\u63DB)\n*/\n#line 3 \"Math/fps.hpp\"\ntemplate<long long Mod>\nstruct\
-    \ FPS:vector<modint<Mod>>{\n  using mint=modint<Mod>;\n  using vector<mint>::vector;\n\
+    \u8AD6\u5909\u63DB)\n*/\n#line 3 \"Math/fps/fps.hpp\"\ntemplate<long long Mod>\n\
+    struct FPS:vector<modint<Mod>>{\n  using mint=modint<Mod>;\n  using vector<mint>::vector;\n\
     \  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}\n\
     \  FPS inv(int d=-1)const{\n    NTT<Mod>ntt;\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res{(*this)[0].inv()};\n    for(int m=1;m<d;m<<=1){\n\
@@ -201,7 +202,7 @@ data:
     \      if(i<n)f.insert(f.end(),(*this).begin()+i,(*this).begin()+min(n,i<<1));\n\
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      ret=(ret+f*ret.inv(i<<1))*inv2;\n\
     \    }\n    ret.resize(d);\n    return ret;\n  }\n};\n/**\n * @brief Formal Power\
-    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 3 \"Math/combinatorics.hpp\"\
+    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 3 \"Math/others/combinatorics.hpp\"\
     \ntemplate<long long m>\nstruct combination{\n  using mint=modint<m>;\n  vector<mint>dat,idat;\n\
     \  long long mx;\n  combination(long long mx_=300000):dat(mx_+1,1),idat(mx_+1,1),mx(mx_){\n\
     \    for(long long i=1;i<=mx;i++)dat[i]=dat[i-1]*mint(i);\n    idat[mx]/=dat[mx];\n\
@@ -212,7 +213,7 @@ data:
     \  }\n  mint hom(long long n,long long k){\n    return com(n+k-1,k);\n  }\n  mint\
     \ per(long long n,long long k){\n    if(k<0||k>n)return mint(0);\n    return dat[n]*idat[n-k];\n\
     \  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n#line\
-    \ 4 \"Math/taylor-shift.hpp\"\ntemplate<long long m>\nFPS<m>TaylorShift(FPS<m>f,modint<m>a,combination<m>&c){\n\
+    \ 4 \"Math/fps/taylor-shift.hpp\"\ntemplate<long long m>\nFPS<m>TaylorShift(FPS<m>f,modint<m>a,combination<m>&c){\n\
     \  const int n=f.size();\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n\
     \  FPS<m>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
     \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
@@ -222,21 +223,21 @@ data:
     \  cin>>n>>c;\n  FPS<mod>f(n);\n  cin>>f;\n  print(TaylorShift(f,mint(c),a));\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
-    \n#include\"../../template/template.hpp\"\n#include\"../../Math/taylor-shift.hpp\"\
+    \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps/taylor-shift.hpp\"\
     \nusing mint=modint<mod>;\ncombination<mod>a(525000);\nint main(){\n  int n,c;\n\
     \  cin>>n>>c;\n  FPS<mod>f(n);\n  cin>>f;\n  print(TaylorShift(f,mint(c),a));\n\
     }"
   dependsOn:
   - template/template.hpp
-  - Math/taylor-shift.hpp
-  - Math/fps.hpp
-  - Math/ntt.hpp
-  - Math/modint.hpp
-  - Math/combinatorics.hpp
+  - Math/fps/taylor-shift.hpp
+  - Math/fps/fps.hpp
+  - Math/convolution/ntt.hpp
+  - Math/modular/modint.hpp
+  - Math/others/combinatorics.hpp
   isVerificationFile: true
   path: test/yosupo/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2022-01-20 20:34:11+00:00'
+  timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial_taylor_shift.test.cpp

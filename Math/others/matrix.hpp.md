@@ -12,8 +12,8 @@ data:
   attributes:
     document_title: "Matrix(\u884C\u5217)"
     links: []
-  bundledCode: "#line 1 \"Math/matrix.hpp\"\ntemplate<class T>\nstruct Matrix {\n\
-    \  vector<vector<T>>A;\n  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n\
+  bundledCode: "#line 1 \"Math/others/matrix.hpp\"\ntemplate<class T>\nstruct Matrix\
+    \ {\n  vector<vector<T>>A;\n  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n\
     \  Matrix(size_t n):A(n,vector<T>(n,0)){};\n  size_t height()const{return (A.size());}\n\
     \  size_t width()const{return (A[0].size());}\n  inline const vector<T>&operator[](int\
     \ k)const{return A.at(k);}\n  inline vector<T>&operator[](int k){return A.at(k);}\n\
@@ -53,16 +53,16 @@ data:
     \ Matrix(*this)^=k;}\n};\n/**\n * @brief Matrix(\u884C\u5217)\n*/"
   dependsOn: []
   isVerificationFile: false
-  path: Math/matrix.hpp
+  path: Math/others/matrix.hpp
   requiredBy: []
-  timestamp: '2022-01-11 21:13:55+00:00'
+  timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/matrix_product.test.cpp
-documentation_of: Math/matrix.hpp
+documentation_of: Math/others/matrix.hpp
 layout: document
 redirect_from:
-- /library/Math/matrix.hpp
-- /library/Math/matrix.hpp.html
+- /library/Math/others/matrix.hpp
+- /library/Math/others/matrix.hpp.html
 title: "Matrix(\u884C\u5217)"
 ---

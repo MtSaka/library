@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Math/matrix.hpp
-    title: "Matrix(\u884C\u5217)"
-  - icon: ':heavy_check_mark:'
-    path: Math/modint.hpp
+  - icon: ':question:'
+    path: Math/modular/modint.hpp
     title: modint
   - icon: ':heavy_check_mark:'
+    path: Math/others/matrix.hpp
+    title: "Matrix(\u884C\u5217)"
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -76,7 +76,7 @@ data:
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Math/matrix.hpp\"\ntemplate<class T>\nstruct Matrix {\n  vector<vector<T>>A;\n\
+    Math/others/matrix.hpp\"\ntemplate<class T>\nstruct Matrix {\n  vector<vector<T>>A;\n\
     \  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n  Matrix(size_t\
     \ n):A(n,vector<T>(n,0)){};\n  size_t height()const{return (A.size());}\n  size_t\
     \ width()const{return (A[0].size());}\n  inline const vector<T>&operator[](int\
@@ -96,43 +96,45 @@ data:
     \ operator-(const Matrix&B)const{return Matrix(*this)-=B;}\n  Matrix operator*(const\
     \ Matrix&B)const{return Matrix(*this)*=B;}\n  Matrix operator^(const long long&k)const{return\
     \ Matrix(*this)^=k;}\n};\n/**\n * @brief Matrix(\u884C\u5217)\n*/\n#line 2 \"\
-    Math/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  long long x;\n  modint():x(0){}\n\
-    \  modint(long long y){\n    if(y<0){\n      y%=m;\n      if(y==0)x=y;\n     \
-    \ else x=m+y;\n    }\n    else if(y<m)x=y;\n    else x=y%m;\n  }\n  modint inv()const{\n\
-    \    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n\
-    \      swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n  modint &operator+=(const\
-    \ modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return\
-    \ *this;}\n  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n\
-    \  modint &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint\
-    \ operator-()const{return modint(-x); }\n  modint operator+(const modint&p)const{return\
-    \ modint(*this)+=p; }\n  modint operator-(const modint&p)const{return modint(*this)-=p;\
-    \ }\n  modint operator*(const modint&p)const{return modint(*this)*=p; }\n  modint\
-    \ operator/(const modint&p)const{return modint(*this)/=p; }\n  bool operator==(const\
-    \ modint&p)const{return x==p.x;}\n  bool operator!=(const modint&p)const{return\
-    \ x!=p.x;}\n  modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n\
-    \      if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
-    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
-    \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
-    \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
+    Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  long long\
+    \ x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n      y%=m;\n \
+    \     if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n    else x=y%m;\n\
+    \  }\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n\
+    \      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return\
+    \ modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
+    \ *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n\
+    \  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
+    \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  modint operator-()const{return\
+    \ modint(-x); }\n  modint operator+(const modint&p)const{return modint(*this)+=p;\
+    \ }\n  modint operator-(const modint&p)const{return modint(*this)-=p; }\n  modint\
+    \ operator*(const modint&p)const{return modint(*this)*=p; }\n  modint operator/(const\
+    \ modint&p)const{return modint(*this)/=p; }\n  bool operator==(const modint&p)const{return\
+    \ x==p.x;}\n  bool operator!=(const modint&p)const{return x!=p.x;}\n  modint pow(long\
+    \ long n)const{\n    modint ret(1),mul(x);\n    while(n){\n      if(n&1)ret*=mul;\n\
+    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  friend ostream\
+    \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
+    \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
+    \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
     \ m;}\n};\n/**\n * @brief modint\n*/\n#line 5 \"test/yosupo/matrix_product.test.cpp\"\
     \nint main(){\n  int n,m,k;\n  cin>>n>>m>>k;\n  Matrix<modint<mod>>a(n,m),b(m,k);\n\
     \  for(int i=0;i<n;i++){\n    for(int j=0;j<m;j++){\n      cin>>a[i][j];\n   \
     \ }\n  }\n  for(int i=0;i<m;i++){\n    for(int j=0;j<k;j++){\n      cin>>b[i][j];\n\
     \    }\n  }\n  a*=b;\n  for(int i=0;i<n;i++){\n    cout<<a[i]<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../Math/matrix.hpp\"\n#include\"../../Math/modint.hpp\"\
-    \nint main(){\n  int n,m,k;\n  cin>>n>>m>>k;\n  Matrix<modint<mod>>a(n,m),b(m,k);\n\
-    \  for(int i=0;i<n;i++){\n    for(int j=0;j<m;j++){\n      cin>>a[i][j];\n   \
-    \ }\n  }\n  for(int i=0;i<m;i++){\n    for(int j=0;j<k;j++){\n      cin>>b[i][j];\n\
-    \    }\n  }\n  a*=b;\n  for(int i=0;i<n;i++){\n    cout<<a[i]<<endl;\n  }\n}"
+    ../../template/template.hpp\"\n#include\"../../Math/others/matrix.hpp\"\n#include\"\
+    ../../Math/modular/modint.hpp\"\nint main(){\n  int n,m,k;\n  cin>>n>>m>>k;\n\
+    \  Matrix<modint<mod>>a(n,m),b(m,k);\n  for(int i=0;i<n;i++){\n    for(int j=0;j<m;j++){\n\
+    \      cin>>a[i][j];\n    }\n  }\n  for(int i=0;i<m;i++){\n    for(int j=0;j<k;j++){\n\
+    \      cin>>b[i][j];\n    }\n  }\n  a*=b;\n  for(int i=0;i<n;i++){\n    cout<<a[i]<<endl;\n\
+    \  }\n}"
   dependsOn:
   - template/template.hpp
-  - Math/matrix.hpp
-  - Math/modint.hpp
+  - Math/others/matrix.hpp
+  - Math/modular/modint.hpp
   isVerificationFile: true
   path: test/yosupo/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2022-01-20 20:34:11+00:00'
+  timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix_product.test.cpp

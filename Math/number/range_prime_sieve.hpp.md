@@ -10,8 +10,8 @@ data:
     document_title: "Range Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\
       \u533A\u9593\u7BE9)"
     links: []
-  bundledCode: "#line 1 \"Math/range_prime_sieve.hpp\"\ntemplate<typename T>\nstruct\
-    \ range_prime_sieve{\n  T l,r,m;\n  vector<T>small;\n  vector<vector<pair<T,int>>>large;\n\
+  bundledCode: "#line 1 \"Math/number/range_prime_sieve.hpp\"\ntemplate<typename T>\n\
+    struct range_prime_sieve{\n  T l,r,m;\n  vector<T>small;\n  vector<vector<pair<T,int>>>large;\n\
     \  vector<T>mul;\n  range_prime_sieve(T l,T r):l(l),r(r),m(sqrt(r)+1){\n    large.resize(r-l);\n\
     \    small.resize(m);\n    mul.resize(r-l);\n    iota(mul.begin(),mul.end(),l);\n\
     \    iota(small.begin(),small.end(),0);\n    for(T i=2;i*i<r;i++){\n      if(small[i]==i){\n\
@@ -36,16 +36,16 @@ data:
     \u533A\u9593\u7BE9)\n*/"
   dependsOn: []
   isVerificationFile: false
-  path: Math/range_prime_sieve.hpp
+  path: Math/number/range_prime_sieve.hpp
   requiredBy: []
-  timestamp: '2022-01-11 21:13:55+00:00'
+  timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Math/range_prime_sieve.hpp
+documentation_of: Math/number/range_prime_sieve.hpp
 layout: document
 redirect_from:
-- /library/Math/range_prime_sieve.hpp
-- /library/Math/range_prime_sieve.hpp.html
+- /library/Math/number/range_prime_sieve.hpp
+- /library/Math/number/range_prime_sieve.hpp.html
 title: "Range Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u533A\u9593\
   \u7BE9)"
 ---

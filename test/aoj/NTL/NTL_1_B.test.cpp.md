@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Math/modpow.hpp
+  - icon: ':question:'
+    path: Math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -73,22 +73,22 @@ data:
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Math/modpow.hpp\"\ntemplate<typename T,typename S>\nT modpow(T a,S b,T m){\n \
-    \ T ret=1;\n  while(b){\n    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n \
-    \ }\n  return ret;\n}\n/**\n * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line 4\
-    \ \"test/aoj/NTL/NTL_1_B.test.cpp\"\nint main(){\n  long long m,n;\n  cin>>m>>n;\n\
+    Math/modular/modpow.hpp\"\ntemplate<typename T,typename S>\nT modpow(T a,S b,T\
+    \ m){\n  T ret=1;\n  while(b){\n    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n\
+    \  }\n  return ret;\n}\n/**\n * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line\
+    \ 4 \"test/aoj/NTL/NTL_1_B.test.cpp\"\nint main(){\n  long long m,n;\n  cin>>m>>n;\n\
     \  print(modpow(m,n,(long long)MOD));\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/modpow.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/modular/modpow.hpp\"\
     \nint main(){\n  long long m,n;\n  cin>>m>>n;\n  print(modpow(m,n,(long long)MOD));\n\
     }"
   dependsOn:
   - template/template.hpp
-  - Math/modpow.hpp
+  - Math/modular/modpow.hpp
   isVerificationFile: true
   path: test/aoj/NTL/NTL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2022-01-20 20:34:11+00:00'
+  timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL/NTL_1_B.test.cpp

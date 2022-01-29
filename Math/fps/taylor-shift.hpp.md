@@ -1,29 +1,33 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Math/fps.hpp
+  - icon: ':question:'
+    path: Math/convolution/ntt.hpp
+    title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
+  - icon: ':question:'
+    path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
-    path: Math/modint.hpp
+  - icon: ':question:'
+    path: Math/modular/modint.hpp
     title: modint
   - icon: ':heavy_check_mark:'
-    path: Math/ntt.hpp
-    title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
+    path: Math/others/combinatorics.hpp
+    title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/polynomial_interpolation.test.cpp
-    title: test/yosupo/polynomial_interpolation.test.cpp
+    path: test/yosupo/polynomial_taylor_shift.test.cpp
+    title: test/yosupo/polynomial_taylor_shift.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
+    document_title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5\
+      )"
     links: []
-  bundledCode: "#line 2 \"Math/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n\
-    \  long long x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n   \
-    \   y%=m;\n      if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n\
+  bundledCode: "#line 2 \"Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct\
+    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n\
+    \      y%=m;\n      if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n\
     \    else x=y%m;\n  }\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n\
     \    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n \
     \   }\n    return modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
@@ -40,7 +44,7 @@ data:
     \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
     \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
     \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/ntt.hpp\"\ntemplate<long\
+    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/convolution/ntt.hpp\"\ntemplate<long\
     \ long m>\nstruct NTT{\n  using mint=modint<m>;\n  static modint<m> g;\n  static\
     \ int limit;\n  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
     \ long long&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
@@ -68,8 +72,8 @@ data:
     \ long m>\nvector<modint<m>>NTT<m>::root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic Transform(\u6570\
-    \u8AD6\u5909\u63DB)\n*/\n#line 3 \"Math/fps.hpp\"\ntemplate<long long Mod>\nstruct\
-    \ FPS:vector<modint<Mod>>{\n  using mint=modint<Mod>;\n  using vector<mint>::vector;\n\
+    \u8AD6\u5909\u63DB)\n*/\n#line 3 \"Math/fps/fps.hpp\"\ntemplate<long long Mod>\n\
+    struct FPS:vector<modint<Mod>>{\n  using mint=modint<Mod>;\n  using vector<mint>::vector;\n\
     \  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}\n\
     \  FPS inv(int d=-1)const{\n    NTT<Mod>ntt;\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res{(*this)[0].inv()};\n    for(int m=1;m<d;m<<=1){\n\
@@ -138,38 +142,46 @@ data:
     \      if(i<n)f.insert(f.end(),(*this).begin()+i,(*this).begin()+min(n,i<<1));\n\
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      ret=(ret+f*ret.inv(i<<1))*inv2;\n\
     \    }\n    ret.resize(d);\n    return ret;\n  }\n};\n/**\n * @brief Formal Power\
-    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 3 \"Math/polynomial_interpolation.hpp\"\
-    \ntemplate<long long Mod>\nFPS<Mod>polynominal_interpolation(const vector<modint<Mod>>&xs,const\
-    \ vector<modint<Mod>>&ys){\n  const int n=xs.size();\n  int sz=1;\n  while(sz<n)sz<<=1;\n\
-    \  vector<FPS<Mod>>mul(sz*2,{1});\n  for(int i=0;i<n;i++)mul[i+sz]={-xs[i],modint<Mod>(1)};\n\
-    \  for(int i=sz;i-->1;)mul[i]=mul[i<<1]*mul[i<<1|1];\n  vector<FPS<Mod>>g(2*sz);\n\
-    \  g[1]=mul[1].diff()%mul[1];\n  for(int i=2;i<sz+n;i++)g[i]=g[i>>1]%mul[i];\n\
-    \  for(int i=0;i<n;i++)g[sz+i]={ys[i]/g[sz+i][0]};\n  for(int i=sz;i-->1;)g[i]=g[i<<1]*mul[i<<1|1]+g[i<<1|1]*mul[i<<1];\n\
-    \  return g[1];\n}\n/**\n * @brief Polynomial Interpolation(\u591A\u9805\u5F0F\
-    \u88DC\u9593)\n*/\n"
-  code: "#pragma once\n#include\"fps.hpp\"\ntemplate<long long Mod>\nFPS<Mod>polynominal_interpolation(const\
-    \ vector<modint<Mod>>&xs,const vector<modint<Mod>>&ys){\n  const int n=xs.size();\n\
-    \  int sz=1;\n  while(sz<n)sz<<=1;\n  vector<FPS<Mod>>mul(sz*2,{1});\n  for(int\
-    \ i=0;i<n;i++)mul[i+sz]={-xs[i],modint<Mod>(1)};\n  for(int i=sz;i-->1;)mul[i]=mul[i<<1]*mul[i<<1|1];\n\
-    \  vector<FPS<Mod>>g(2*sz);\n  g[1]=mul[1].diff()%mul[1];\n  for(int i=2;i<sz+n;i++)g[i]=g[i>>1]%mul[i];\n\
-    \  for(int i=0;i<n;i++)g[sz+i]={ys[i]/g[sz+i][0]};\n  for(int i=sz;i-->1;)g[i]=g[i<<1]*mul[i<<1|1]+g[i<<1|1]*mul[i<<1];\n\
-    \  return g[1];\n}\n/**\n * @brief Polynomial Interpolation(\u591A\u9805\u5F0F\
-    \u88DC\u9593)\n*/"
+    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 3 \"Math/others/combinatorics.hpp\"\
+    \ntemplate<long long m>\nstruct combination{\n  using mint=modint<m>;\n  vector<mint>dat,idat;\n\
+    \  long long mx;\n  combination(long long mx_=300000):dat(mx_+1,1),idat(mx_+1,1),mx(mx_){\n\
+    \    for(long long i=1;i<=mx;i++)dat[i]=dat[i-1]*mint(i);\n    idat[mx]/=dat[mx];\n\
+    \    for(long long i=mx;i>0;i--)idat[i-1]=idat[i]*mint(i);\n  }\n  mint com(long\
+    \ long n,long long k){\n    if(n<0||k<0||n<k)return mint(0);\n    return dat[n]*idat[k]*idat[n-k];\n\
+    \  }\n  mint fac(long long n){\n    if(n<0)return mint(0);\n    return dat[n];\n\
+    \  }\n  mint finv(long long n){\n    if(n<0)return mint(0);\n    return idat[n];\n\
+    \  }\n  mint hom(long long n,long long k){\n    return com(n+k-1,k);\n  }\n  mint\
+    \ per(long long n,long long k){\n    if(k<0||k>n)return mint(0);\n    return dat[n]*idat[n-k];\n\
+    \  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n#line\
+    \ 4 \"Math/fps/taylor-shift.hpp\"\ntemplate<long long m>\nFPS<m>TaylorShift(FPS<m>f,modint<m>a,combination<m>&c){\n\
+    \  const int n=f.size();\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n\
+    \  FPS<m>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
+    \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
+    \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
+    \u79FB\u52D5)\n*/\n"
+  code: "#pragma once\n#include\"fps.hpp\"\n#include\"../others/combinatorics.hpp\"\
+    \ntemplate<long long m>\nFPS<m>TaylorShift(FPS<m>f,modint<m>a,combination<m>&c){\n\
+    \  const int n=f.size();\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n\
+    \  FPS<m>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
+    \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
+    \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
+    \u79FB\u52D5)\n*/"
   dependsOn:
-  - Math/fps.hpp
-  - Math/ntt.hpp
-  - Math/modint.hpp
+  - Math/fps/fps.hpp
+  - Math/convolution/ntt.hpp
+  - Math/modular/modint.hpp
+  - Math/others/combinatorics.hpp
   isVerificationFile: false
-  path: Math/polynomial_interpolation.hpp
+  path: Math/fps/taylor-shift.hpp
   requiredBy: []
-  timestamp: '2022-01-16 19:22:05+00:00'
+  timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/polynomial_interpolation.test.cpp
-documentation_of: Math/polynomial_interpolation.hpp
+  - test/yosupo/polynomial_taylor_shift.test.cpp
+documentation_of: Math/fps/taylor-shift.hpp
 layout: document
 redirect_from:
-- /library/Math/polynomial_interpolation.hpp
-- /library/Math/polynomial_interpolation.hpp.html
-title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
+- /library/Math/fps/taylor-shift.hpp
+- /library/Math/fps/taylor-shift.hpp.html
+title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
 ---

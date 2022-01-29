@@ -1,12 +1,12 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Math/combinatorics.hpp
-    title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
-  - icon: ':heavy_check_mark:'
-    path: Math/modint.hpp
+  - icon: ':question:'
+    path: Math/modular/modint.hpp
     title: modint
+  - icon: ':heavy_check_mark:'
+    path: Math/others/combinatorics.hpp
+    title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -15,9 +15,9 @@ data:
   attributes:
     document_title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
     links: []
-  bundledCode: "#line 2 \"Math/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n\
-    \  long long x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n   \
-    \   y%=m;\n      if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n\
+  bundledCode: "#line 2 \"Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct\
+    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n\
+    \      y%=m;\n      if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n\
     \    else x=y%m;\n  }\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n\
     \    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n \
     \   }\n    return modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
@@ -34,8 +34,8 @@ data:
     \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
     \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
     \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/combinatorics.hpp\"\ntemplate<long\
-    \ long m>\nstruct combination{\n  using mint=modint<m>;\n  vector<mint>dat,idat;\n\
+    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/others/combinatorics.hpp\"\
+    \ntemplate<long long m>\nstruct combination{\n  using mint=modint<m>;\n  vector<mint>dat,idat;\n\
     \  long long mx;\n  combination(long long mx_=300000):dat(mx_+1,1),idat(mx_+1,1),mx(mx_){\n\
     \    for(long long i=1;i<=mx;i++)dat[i]=dat[i-1]*mint(i);\n    idat[mx]/=dat[mx];\n\
     \    for(long long i=mx;i>0;i--)idat[i-1]=idat[i]*mint(i);\n  }\n  mint com(long\
@@ -45,7 +45,7 @@ data:
     \  }\n  mint hom(long long n,long long k){\n    return com(n+k-1,k);\n  }\n  mint\
     \ per(long long n,long long k){\n    if(k<0||k>n)return mint(0);\n    return dat[n]*idat[n-k];\n\
     \  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n#line\
-    \ 2 \"Math/lagrange.hpp\"\ntemplate<long long m>\nmodint<m> lagrange_polynominal(const\
+    \ 2 \"Math/others/lagrange.hpp\"\ntemplate<long long m>\nmodint<m> lagrange_polynominal(const\
     \ vector<modint<m>>&y,const long long&t){\n  using mint=modint<m>;\n  const int\
     \ n=y.size()-1;\n  combination<m>c(n);\n  if(t<=n)return y[t];\n  mint ret;\n\
     \  vector<mint>dp(n+1,1),pd(n+1,1);\n  for(int i=0;i<n;i++)dp[i+1]=dp[i]*(t-i);\n\
@@ -62,18 +62,18 @@ data:
     \ ret+=tmp;\n  }\n  return ret;\n}\n/**\n * @brief Lagrange Polynomial(\u591A\u9805\
     \u5F0F\u88DC\u9593)\n*/"
   dependsOn:
-  - Math/combinatorics.hpp
-  - Math/modint.hpp
+  - Math/others/combinatorics.hpp
+  - Math/modular/modint.hpp
   isVerificationFile: false
-  path: Math/lagrange.hpp
+  path: Math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2022-01-11 21:13:55+00:00'
+  timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Math/lagrange.hpp
+documentation_of: Math/others/lagrange.hpp
 layout: document
 redirect_from:
-- /library/Math/lagrange.hpp
-- /library/Math/lagrange.hpp.html
+- /library/Math/others/lagrange.hpp
+- /library/Math/others/lagrange.hpp.html
 title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
 ---

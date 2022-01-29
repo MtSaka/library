@@ -10,7 +10,7 @@ data:
     document_title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\
       \u63DB)"
     links: []
-  bundledCode: "#line 1 \"Math/fft.hpp\"\nvoid dft(vector<complex<double>>&a,double\
+  bundledCode: "#line 1 \"Math/convolution/fft.hpp\"\nvoid dft(vector<complex<double>>&a,double\
     \ inv){\n  const int sz=a.size();\n  if(sz==1)return;\n  const int mask=sz-1;\n\
     \  vector<complex<double>>b(sz);\n  for(int i=sz>>1;i>=1;i>>=1){\n    complex<double>z=polar(1.0,2*M_PI*i*inv/sz),w=1;\n\
     \    for(int j=0;j<sz;j+=i){\n      for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
@@ -34,15 +34,15 @@ data:
     \u30EA\u30A8\u5909\u63DB)\n*/"
   dependsOn: []
   isVerificationFile: false
-  path: Math/fft.hpp
+  path: Math/convolution/fft.hpp
   requiredBy: []
-  timestamp: '2022-01-11 21:13:55+00:00'
+  timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Math/fft.hpp
+documentation_of: Math/convolution/fft.hpp
 layout: document
 redirect_from:
-- /library/Math/fft.hpp
-- /library/Math/fft.hpp.html
+- /library/Math/convolution/fft.hpp
+- /library/Math/convolution/fft.hpp.html
 title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB)"
 ---

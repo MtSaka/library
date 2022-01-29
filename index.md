@@ -12,7 +12,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: Data_Structure/lazy_segtree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
@@ -109,86 +109,94 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/tree/tree_diameter.hpp
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
-  - name: Math
+  - name: Math/convolution
     pages:
-    - icon: ':heavy_check_mark:'
-      path: Math/combinatorics.hpp
-      title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
     - icon: ':warning:'
-      path: Math/convolution.hpp
+      path: Math/convolution/convolution.hpp
       title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-    - icon: ':heavy_check_mark:'
-      path: Math/factor.hpp
-      title: "Factor Enumeration(\u7D04\u6570\u5217\u6319)"
     - icon: ':warning:'
-      path: Math/factor_cnt.hpp
-      title: "Factor Count(\u7D04\u6570\u500B\u6570)"
-    - icon: ':heavy_check_mark:'
-      path: Math/factorize.hpp
-      title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
-    - icon: ':heavy_check_mark:'
-      path: Math/fast_prime.hpp
-      title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
-    - icon: ':warning:'
-      path: Math/fft.hpp
+      path: Math/convolution/fft.hpp
       title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB\
         )"
     - icon: ':heavy_check_mark:'
-      path: Math/fps.hpp
+      path: Math/convolution/mod_ntt.hpp
+      title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
+    - icon: ':question:'
+      path: Math/convolution/ntt.hpp
+      title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
+  - name: Math/fps
+    pages:
+    - icon: ':question:'
+      path: Math/fps/fps.hpp
       title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
-      path: Math/fraction.hpp
-      title: "Fraction(\u6709\u7406\u6570\u578B)"
-    - icon: ':heavy_check_mark:'
-      path: Math/is_prime.hpp
-      title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
-    - icon: ':warning:'
-      path: Math/lagrange.hpp
-      title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
-    - icon: ':heavy_check_mark:'
-      path: Math/matrix.hpp
-      title: "Matrix(\u884C\u5217)"
-    - icon: ':heavy_check_mark:'
-      path: Math/mod_ntt.hpp
-      title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':heavy_check_mark:'
-      path: Math/mod_sqrt.hpp
-      title: Math/mod_sqrt.hpp
-    - icon: ':heavy_check_mark:'
-      path: Math/modint.hpp
-      title: modint
-    - icon: ':warning:'
-      path: Math/modinv.hpp
-      title: "Mod Inv(\u9006\u5143)"
-    - icon: ':heavy_check_mark:'
-      path: Math/modpow.hpp
-      title: "Mod Pow(\u3079\u304D\u4E57)"
-    - icon: ':heavy_check_mark:'
-      path: Math/multipoint_evaluation.hpp
+      path: Math/fps/multipoint_evaluation.hpp
       title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
     - icon: ':heavy_check_mark:'
-      path: Math/ntt.hpp
-      title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
+      path: Math/fps/polynomial_interpolation.hpp
+      title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
     - icon: ':heavy_check_mark:'
-      path: Math/phi.hpp
+      path: Math/fps/taylor-shift.hpp
+      title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
+  - name: Math/modular
+    pages:
+    - icon: ':x:'
+      path: Math/modular/mod_sqrt.hpp
+      title: Math/modular/mod_sqrt.hpp
+    - icon: ':question:'
+      path: Math/modular/modint.hpp
+      title: modint
+    - icon: ':warning:'
+      path: Math/modular/modinv.hpp
+      title: "Mod Inv(\u9006\u5143)"
+    - icon: ':question:'
+      path: Math/modular/modpow.hpp
+      title: "Mod Pow(\u3079\u304D\u4E57)"
+  - name: Math/number
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: Math/number/factor.hpp
+      title: "Factor Enumeration(\u7D04\u6570\u5217\u6319)"
+    - icon: ':warning:'
+      path: Math/number/factor_cnt.hpp
+      title: "Factor Count(\u7D04\u6570\u500B\u6570)"
+    - icon: ':heavy_check_mark:'
+      path: Math/number/factorize.hpp
+      title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
+    - icon: ':heavy_check_mark:'
+      path: Math/number/fast_prime.hpp
+      title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
+    - icon: ':heavy_check_mark:'
+      path: Math/number/is_prime.hpp
+      title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
+    - icon: ':heavy_check_mark:'
+      path: Math/number/phi.hpp
       title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
         )"
-    - icon: ':heavy_check_mark:'
-      path: Math/polynomial_interpolation.hpp
-      title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
     - icon: ':warning:'
-      path: Math/prime_sieve.hpp
+      path: Math/number/prime_sieve.hpp
       title: "Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
     - icon: ':warning:'
-      path: Math/quotient_ranges.hpp
+      path: Math/number/quotient_ranges.hpp
       title: "Quotient Ranges(\u5546\u5217\u6319)"
     - icon: ':warning:'
-      path: Math/range_prime_sieve.hpp
+      path: Math/number/range_prime_sieve.hpp
       title: "Range Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u533A\
         \u9593\u7BE9)"
+  - name: Math/others
+    pages:
     - icon: ':heavy_check_mark:'
-      path: Math/taylor-shift.hpp
-      title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
+      path: Math/others/combinatorics.hpp
+      title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
+    - icon: ':x:'
+      path: Math/others/fraction.hpp
+      title: "Fraction(\u6709\u7406\u6570\u578B)"
+    - icon: ':warning:'
+      path: Math/others/lagrange.hpp
+      title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
+    - icon: ':heavy_check_mark:'
+      path: Math/others/matrix.hpp
+      title: "Matrix(\u884C\u5217)"
   - name: Others
     pages:
     - icon: ':warning:'
@@ -196,7 +204,7 @@ data:
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -331,7 +339,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum2.test.cpp
       title: test/yosupo/point_add_range_sum2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp
     - icon: ':heavy_check_mark:'
@@ -343,16 +351,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/range_affine_range_sum.test.cpp
       title: test/yosupo/range_affine_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/sqrt_mod.test.cpp
       title: test/yosupo/sqrt_mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/sqrt_of_formal_power_series.test.cpp
       title: test/yosupo/sqrt_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -366,7 +374,7 @@ data:
       title: test/yosupo/unionfind.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/1236.test.cpp
       title: test/yukicoder/1236.test.cpp
 layout: toppage

@@ -1,27 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Math/modint.hpp
+  - icon: ':question:'
+    path: Math/modular/modint.hpp
     title: modint
   _extendedRequiredBy:
   - icon: ':warning:'
-    path: Math/convolution.hpp
+    path: Math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
   - icon: ':heavy_check_mark:'
-    path: Math/fps.hpp
+    path: Math/convolution/mod_ntt.hpp
+    title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
+  - icon: ':question:'
+    path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
-    path: Math/mod_ntt.hpp
-    title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
-    path: Math/multipoint_evaluation.hpp
+    path: Math/fps/multipoint_evaluation.hpp
     title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
   - icon: ':heavy_check_mark:'
-    path: Math/polynomial_interpolation.hpp
+    path: Math/fps/polynomial_interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':heavy_check_mark:'
-    path: Math/taylor-shift.hpp
+    path: Math/fps/taylor-shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -54,18 +54,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
     links: []
-  bundledCode: "#line 2 \"Math/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n\
-    \  long long x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n   \
-    \   y%=m;\n      if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n\
+  bundledCode: "#line 2 \"Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct\
+    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n\
+    \      y%=m;\n      if(y==0)x=y;\n      else x=m+y;\n    }\n    else if(y<m)x=y;\n\
     \    else x=y%m;\n  }\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n\
     \    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n \
     \   }\n    return modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
@@ -82,7 +82,7 @@ data:
     \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
     \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
     \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/ntt.hpp\"\ntemplate<long\
+    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/convolution/ntt.hpp\"\ntemplate<long\
     \ long m>\nstruct NTT{\n  using mint=modint<m>;\n  static modint<m> g;\n  static\
     \ int limit;\n  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
     \ long long&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
@@ -111,14 +111,14 @@ data:
     \ m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic Transform(\u6570\
     \u8AD6\u5909\u63DB)\n*/\n"
-  code: "#pragma once\n#include\"modint.hpp\"\ntemplate<long long m>\nstruct NTT{\n\
-    \  using mint=modint<m>;\n  static modint<m> g;\n  static int limit;\n  static\
-    \ vector<modint<m>>root,inv_root;\n  static mint primitive_root(const long long&mo){\n\
-    \    if(mo==167772161)return mint(3);\n    if(mo==469762049)return mint(3);\n\
-    \    if(mo==754974721)return mint(11);\n    if(mo==998244353)return mint(3);\n\
-    \    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n  static void\
-    \ init(){\n    if(root.empty()){\n      g=primitive_root(m);\n      long long\
-    \ now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
+  code: "#pragma once\n#include\"../modular/modint.hpp\"\ntemplate<long long m>\n\
+    struct NTT{\n  using mint=modint<m>;\n  static modint<m> g;\n  static int limit;\n\
+    \  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
+    \ long long&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
+    \ mint(3);\n    if(mo==754974721)return mint(11);\n    if(mo==998244353)return\
+    \ mint(3);\n    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n\
+    \  static void init(){\n    if(root.empty()){\n      g=primitive_root(m);\n  \
+    \    long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
     \      root[limit]=g.pow(now);\n      inv_root[limit]/=root[limit];\n      for(int\
     \ i=limit-1;i>=0;i--){\n        root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
     \      }\n    }\n  }\n  NTT(){};\n  static void dft(vector<mint>&a,int inv){\n\
@@ -141,18 +141,18 @@ data:
     \ m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic Transform(\u6570\
     \u8AD6\u5909\u63DB)\n*/"
   dependsOn:
-  - Math/modint.hpp
+  - Math/modular/modint.hpp
   isVerificationFile: false
-  path: Math/ntt.hpp
+  path: Math/convolution/ntt.hpp
   requiredBy:
-  - Math/fps.hpp
-  - Math/convolution.hpp
-  - Math/polynomial_interpolation.hpp
-  - Math/mod_ntt.hpp
-  - Math/multipoint_evaluation.hpp
-  - Math/taylor-shift.hpp
-  timestamp: '2022-01-11 20:35:27+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  - Math/convolution/convolution.hpp
+  - Math/convolution/mod_ntt.hpp
+  - Math/fps/fps.hpp
+  - Math/fps/polynomial_interpolation.hpp
+  - Math/fps/multipoint_evaluation.hpp
+  - Math/fps/taylor-shift.hpp
+  timestamp: '2022-01-29 16:22:31+00:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
@@ -165,10 +165,10 @@ data:
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
-documentation_of: Math/ntt.hpp
+documentation_of: Math/convolution/ntt.hpp
 layout: document
 redirect_from:
-- /library/Math/ntt.hpp
-- /library/Math/ntt.hpp.html
+- /library/Math/convolution/ntt.hpp
+- /library/Math/convolution/ntt.hpp.html
 title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
 ---
