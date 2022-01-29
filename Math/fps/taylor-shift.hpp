@@ -1,6 +1,6 @@
 #pragma once
 #include"fps.hpp"
-#include"combinatorics.hpp"
+#include"../others/combinatorics.hpp"
 template<long long m>
 FPS<m>TaylorShift(FPS<m>f,modint<m>a,combination<m>&c){
   const int n=f.size();

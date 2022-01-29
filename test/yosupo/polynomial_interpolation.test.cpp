@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/polynomial_interpolation"
 #include"../../template/template.hpp"
-#include"../../Math/fps.hpp"
-#include"../../Math/polynomial_interpolation.hpp"
+#include"../../Math/fps/fps.hpp"
+#include"../../Math/fps/polynomial_interpolation.hpp"
 using mint=modint<mod>;
 int main(){
   int n,m;

@@ -1,5 +1,5 @@
 #pragma once
-#include"modint.hpp"
+#include"../modular/modint.hpp"
 template<long long m>
 struct NTT{
   using mint=modint<m>;

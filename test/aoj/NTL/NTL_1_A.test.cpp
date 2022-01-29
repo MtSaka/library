@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A"
 #include"../../../template/template.hpp"
-#include"../../../Math/factorize.hpp"
+#include"../../../Math/number/factorize.hpp"
 int main(){
   int n;
   cin>>n;

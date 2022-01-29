@@ -1,3 +1,4 @@
+#pragma once
 template<typename T>
 T modinv(T a,T m){
   T b=m,c=1,d=0,t;
