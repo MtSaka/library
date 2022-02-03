@@ -139,6 +139,9 @@ data:
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/scc.test.cpp
+    title: test/yosupo/scc.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
   - icon: ':heavy_check_mark:'
@@ -304,6 +307,7 @@ data:
   - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/sqrt_mod.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
+  - test/yosupo/scc.test.cpp
   - test/yosupo/multipoint_evaluation.test.cpp
   - test/aoj/NTL/NTL_1_B.test.cpp
   - test/aoj/NTL/NTL_1_A.test.cpp

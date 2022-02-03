@@ -9,9 +9,12 @@ data:
   - icon: ':x:'
     path: test/aoj/GRL/GRL_3_C.test.cpp
     title: test/aoj/GRL/GRL_3_C.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/scc.test.cpp
+    title: test/yosupo/scc.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\
       \u89E3)"
@@ -34,7 +37,24 @@ data:
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
     \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/others/scc.hpp\"\ntemplate<typename\
     \ T=int>\nstruct SCC:Graph<T>{\n  public:\n  using Graph<T>::Graph;\n  using Graph<T>::g;\n\
-    \  void build(){\n    rg=Graph<T>(g.size());\n    for(size_t i=0;i<g.size();i++){\n\
+    \  vector<vector<int>>group;\n  Graph<T>dag;\n  void build(){\n    rg=Graph<T>(g.size());\n\
+    \    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n        rg.add_directed_edge(e.to,i,e.cost);\n\
+    \      }\n    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n\
+    \    for(size_t i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n\
+    \    int cnt=0;\n    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n    dag=Graph<T>(cnt);\n\
+    \    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n        if(comp[i]!=comp[e.to])dag.add_directed_edge(comp[i],comp[e.to],e.cost);\n\
+    \      }\n    }\n    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
+    \  }\n  void add(int u,int v){g.add_directed_edge(u,v);}\n  int operator[](int\
+    \ k)const{return comp[k];}\n  vector<vector<int>>scc()const{return group;}\n \
+    \ Graph<T>DAG()const{return dag;}\n  private:\n  Graph<T>rg;\n  vector<int>comp,ord;\n\
+    \  vector<bool>used;\n  void dfs(int idx){\n    if(used[idx])return;\n    used[idx]=true;\n\
+    \    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n  }\n  void rdfs(int\
+    \ idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n    for(auto&to:rg.g[idx])rdfs(to,k);\n\
+    \  }\n};\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\
+    \u5206\u5206\u89E3)\n*/\n"
+  code: "#include\"../graph_template.hpp\"\ntemplate<typename T=int>\nstruct SCC:Graph<T>{\n\
+    \  public:\n  using Graph<T>::Graph;\n  using Graph<T>::g;\n  vector<vector<int>>group;\n\
+    \  Graph<T>dag;\n  void build(){\n    rg=Graph<T>(g.size());\n    for(size_t i=0;i<g.size();i++){\n\
     \      for(auto&e:g[i]){\n        rg.add_directed_edge(e.to,i,e.cost);\n     \
     \ }\n    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n\
     \    for(size_t i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n\
@@ -43,37 +63,21 @@ data:
     \      }\n    }\n    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
     \  }\n  void add(int u,int v){g.add_directed_edge(u,v);}\n  int operator[](int\
     \ k)const{return comp[k];}\n  vector<vector<int>>scc()const{return group;}\n \
-    \ Graph<T>dag()const{return dag;}\n  private:\n  Graph<T>dag,rg;\n  vector<int>comp,ord;\n\
-    \  vector<bool>used;\n  vector<vector<int>>group;\n  void dfs(int idx){\n    if(used[idx])return;\n\
-    \    used[idx]=true;\n    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n\
-    \  }\n  void rdfs(int idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n\
-    \    for(auto&to:rg.g[idx])rdfs(to,k);\n  }\n};\n/**\n * @brief Strongly Connected\
-    \ Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n*/\n"
-  code: "#include\"../graph_template.hpp\"\ntemplate<typename T=int>\nstruct SCC:Graph<T>{\n\
-    \  public:\n  using Graph<T>::Graph;\n  using Graph<T>::g;\n  void build(){\n\
-    \    rg=Graph<T>(g.size());\n    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n\
-    \        rg.add_directed_edge(e.to,i,e.cost);\n      }\n    }\n    comp.assign(g.size(),-1);\n\
-    \    used.assign(g.size(),false);\n    for(size_t i=0;i<g.size();i++)dfs(i);\n\
-    \    reverse(ord.begin(),ord.end());\n    int cnt=0;\n    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n\
-    \    dag=Graph<T>(cnt);\n    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n\
-    \        if(comp[i]!=comp[e.to])dag.add_directed_edge(comp[i],comp[e.to],e.cost);\n\
-    \      }\n    }\n    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
-    \  }\n  void add(int u,int v){g.add_directed_edge(u,v);}\n  int operator[](int\
-    \ k)const{return comp[k];}\n  vector<vector<int>>scc()const{return group;}\n \
-    \ Graph<T>dag()const{return dag;}\n  private:\n  Graph<T>dag,rg;\n  vector<int>comp,ord;\n\
-    \  vector<bool>used;\n  vector<vector<int>>group;\n  void dfs(int idx){\n    if(used[idx])return;\n\
-    \    used[idx]=true;\n    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n\
-    \  }\n  void rdfs(int idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n\
-    \    for(auto&to:rg.g[idx])rdfs(to,k);\n  }\n};\n/**\n * @brief Strongly Connected\
-    \ Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n*/"
+    \ Graph<T>DAG()const{return dag;}\n  private:\n  Graph<T>rg;\n  vector<int>comp,ord;\n\
+    \  vector<bool>used;\n  void dfs(int idx){\n    if(used[idx])return;\n    used[idx]=true;\n\
+    \    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n  }\n  void rdfs(int\
+    \ idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n    for(auto&to:rg.g[idx])rdfs(to,k);\n\
+    \  }\n};\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\
+    \u5206\u5206\u89E3)\n*/"
   dependsOn:
   - Graph/graph_template.hpp
   isVerificationFile: false
   path: Graph/others/scc.hpp
   requiredBy: []
-  timestamp: '2022-02-03 20:35:04+00:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-02-03 20:42:09+00:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/yosupo/scc.test.cpp
   - test/aoj/GRL/GRL_3_C.test.cpp
 documentation_of: Graph/others/scc.hpp
 layout: document

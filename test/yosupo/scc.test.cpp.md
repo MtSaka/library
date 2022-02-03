@@ -13,16 +13,15 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: '#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C"'
+    PROBLEM: https://judge.yosupo.jp/problem/scc
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C
-  bundledCode: "#line 1 \"test/aoj/GRL/GRL_3_C.test.cpp\"\n#define PROBLEM #define\
-    \ PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\
+    - https://judge.yosupo.jp/problem/scc
+  bundledCode: "#line 1 \"test/yosupo/scc.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\
     \n#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
     \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
     #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
@@ -109,29 +108,28 @@ data:
     \    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n  }\n  void rdfs(int\
     \ idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n    for(auto&to:rg.g[idx])rdfs(to,k);\n\
     \  }\n};\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\
-    \u5206\u5206\u89E3)\n*/\n#line 4 \"test/aoj/GRL/GRL_3_C.test.cpp\"\nint main(){\n\
-    \  int v,e,q;\n  cin>>v>>e;\n  SCC<>scc(v);\n  scc.read(e,0,false,true);\n  scc.build();\n\
-    \  cin>>q;\n  while(q--){\n    int a,b;\n    cin>>a>>b;\n    cout<<(scc[a]==scc[b])<<endl;\n\
-    \  }\n}\n"
-  code: "#define PROBLEM #define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/others/scc.hpp\"\
-    \nint main(){\n  int v,e,q;\n  cin>>v>>e;\n  SCC<>scc(v);\n  scc.read(e,0,false,true);\n\
-    \  scc.build();\n  cin>>q;\n  while(q--){\n    int a,b;\n    cin>>a>>b;\n    cout<<(scc[a]==scc[b])<<endl;\n\
-    \  }\n}"
+    \u5206\u5206\u89E3)\n*/\n#line 4 \"test/yosupo/scc.test.cpp\"\nint main(){\n \
+    \ int n,m;\n  cin>>n>>m;\n  SCC<>scc(n);\n  scc.read(m,0,false,true);\n  scc.build();\n\
+    \  cout<<scc.group.size()<<endl;\n  for(auto&p:scc.group)cout<<p.size()<<\" \"\
+    <<p<<endl;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n#include\"../../template/template.hpp\"\
+    \n#include\"../../Graph/others/scc.hpp\"\nint main(){\n  int n,m;\n  cin>>n>>m;\n\
+    \  SCC<>scc(n);\n  scc.read(m,0,false,true);\n  scc.build();\n  cout<<scc.group.size()<<endl;\n\
+    \  for(auto&p:scc.group)cout<<p.size()<<\" \"<<p<<endl;\n}"
   dependsOn:
   - template/template.hpp
   - Graph/others/scc.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
-  path: test/aoj/GRL/GRL_3_C.test.cpp
+  path: test/yosupo/scc.test.cpp
   requiredBy: []
   timestamp: '2022-02-03 20:42:09+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/GRL/GRL_3_C.test.cpp
+documentation_of: test/yosupo/scc.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL/GRL_3_C.test.cpp
-- /verify/test/aoj/GRL/GRL_3_C.test.cpp.html
-title: test/aoj/GRL/GRL_3_C.test.cpp
+- /verify/test/yosupo/scc.test.cpp
+- /verify/test/yosupo/scc.test.cpp.html
+title: test/yosupo/scc.test.cpp
 ---
