@@ -1,28 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/others/scc.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: '#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C"'
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C
-  bundledCode: "#line 1 \"test/aoj/GRL/GRL_3_C.test.cpp\"\n#define PROBLEM #define\
-    \ PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\
+  bundledCode: "#line 1 \"test/aoj/GRL/GRL_3_C.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\
     \n#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
     \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
     #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
@@ -113,7 +112,7 @@ data:
     \  int v,e,q;\n  cin>>v>>e;\n  SCC<>scc(v);\n  scc.read(e,0,false,true);\n  scc.build();\n\
     \  cin>>q;\n  while(q--){\n    int a,b;\n    cin>>a>>b;\n    cout<<(scc[a]==scc[b])<<endl;\n\
     \  }\n}\n"
-  code: "#define PROBLEM #define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/others/scc.hpp\"\
     \nint main(){\n  int v,e,q;\n  cin>>v>>e;\n  SCC<>scc(v);\n  scc.read(e,0,false,true);\n\
     \  scc.build();\n  cin>>q;\n  while(q--){\n    int a,b;\n    cin>>a>>b;\n    cout<<(scc[a]==scc[b])<<endl;\n\
@@ -125,8 +124,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_3_C.test.cpp
   requiredBy: []
-  timestamp: '2022-02-03 20:42:09+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-02-03 20:51:34+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_3_C.test.cpp
 layout: document
