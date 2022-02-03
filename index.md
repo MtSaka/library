@@ -72,6 +72,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/others/detect_cycle.hpp
       title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
+    - icon: ':warning:'
+      path: Graph/others/scc.hpp
+      title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
+        )"
     - icon: ':heavy_check_mark:'
       path: Graph/others/topological_sort.hpp
       title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\

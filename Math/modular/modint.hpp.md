@@ -121,32 +121,32 @@ data:
   isVerificationFile: false
   path: Math/modular/modint.hpp
   requiredBy:
-  - Math/convolution/convolution.hpp
-  - Math/convolution/mod_ntt.hpp
   - Math/convolution/ntt.hpp
+  - Math/convolution/mod_ntt.hpp
+  - Math/convolution/convolution.hpp
   - Math/others/combinatorics.hpp
   - Math/others/lagrange.hpp
-  - Math/fps/fps.hpp
-  - Math/fps/polynomial_interpolation.hpp
-  - Math/fps/multipoint_evaluation.hpp
   - Math/fps/taylor-shift.hpp
+  - Math/fps/multipoint_evaluation.hpp
+  - Math/fps/polynomial_interpolation.hpp
+  - Math/fps/fps.hpp
   timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/point_set_range_composite.test.cpp
+  - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/convolution_mod.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/polynomial_taylor_shift.test.cpp
-  - test/yosupo/range_affine_range_sum.test.cpp
-  - test/yosupo/convolution_mod_1000000007.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/polynomial_interpolation.test.cpp
   - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/matrix_product.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/matrix_product.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/range_affine_range_sum.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
 documentation_of: Math/modular/modint.hpp
 layout: document
 redirect_from:

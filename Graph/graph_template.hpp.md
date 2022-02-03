@@ -11,6 +11,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/others/detect_cycle.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
+  - icon: ':warning:'
+    path: Graph/others/scc.hpp
+    title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
+      )"
   - icon: ':heavy_check_mark:'
     path: Graph/others/topological_sort.hpp
     title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
@@ -129,33 +133,34 @@ data:
   requiredBy:
   - Graph/mst/kruskal.hpp
   - Graph/mst/prim.hpp
+  - Graph/others/topological_sort.hpp
+  - Graph/others/scc.hpp
+  - Graph/others/detect_cycle.hpp
   - Graph/shortest_path/dijkstra_path.hpp
-  - Graph/shortest_path/bellman_ford.hpp
   - Graph/shortest_path/warshall_floyd.hpp
   - Graph/shortest_path/dijkstra.hpp
-  - Graph/others/detect_cycle.hpp
-  - Graph/others/topological_sort.hpp
-  - Graph/tree/centroid.hpp
-  - Graph/tree/tree_diameter.hpp
+  - Graph/shortest_path/bellman_ford.hpp
   - Graph/tree/doubling_lowest_common_ancestor.hpp
   - Graph/tree/RMQ_lowest_common_ancestor.hpp
+  - Graph/tree/tree_diameter.hpp
+  - Graph/tree/centroid.hpp
   timestamp: '2022-01-22 22:12:05+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/GRL/GRL_5_A.test.cpp
-  - test/aoj/GRL/GRL_4_B.test.cpp
-  - test/aoj/GRL/GRL_1_B.test.cpp
-  - test/aoj/GRL/GRL_5_C_2.test.cpp
-  - test/aoj/GRL/GRL_2_A.test.cpp
-  - test/aoj/GRL/GRL_1_A.test.cpp
-  - test/aoj/GRL/GRL_4_A.test.cpp
-  - test/aoj/GRL/GRL_2_A_2.test.cpp
-  - test/aoj/GRL/GRL_1_C.test.cpp
-  - test/aoj/GRL/GRL_5_C_1.test.cpp
   - test/yosupo/shortest_path.test.cpp
-  - test/yosupo/tree_diameter.test.cpp
-  - test/yosupo/lca2.test.cpp
   - test/yosupo/lca1.test.cpp
+  - test/yosupo/lca2.test.cpp
+  - test/yosupo/tree_diameter.test.cpp
+  - test/aoj/GRL/GRL_1_A.test.cpp
+  - test/aoj/GRL/GRL_5_A.test.cpp
+  - test/aoj/GRL/GRL_2_A_2.test.cpp
+  - test/aoj/GRL/GRL_5_C_1.test.cpp
+  - test/aoj/GRL/GRL_1_C.test.cpp
+  - test/aoj/GRL/GRL_2_A.test.cpp
+  - test/aoj/GRL/GRL_4_B.test.cpp
+  - test/aoj/GRL/GRL_5_C_2.test.cpp
+  - test/aoj/GRL/GRL_1_B.test.cpp
+  - test/aoj/GRL/GRL_4_A.test.cpp
 documentation_of: Graph/graph_template.hpp
 layout: document
 redirect_from:
