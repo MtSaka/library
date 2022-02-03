@@ -4,23 +4,25 @@ data:
   - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':heavy_check_mark:'
-    path: Graph/shortest_path/dijkstra.hpp
-    title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
+  - icon: ':x:'
+    path: Graph/others/scc.hpp
+    title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
+      )"
   - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
+    PROBLEM: '#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C"'
     links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
-  bundledCode: "#line 1 \"test/aoj/GRL/GRL_1_A.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C
+  bundledCode: "#line 1 \"test/aoj/GRL/GRL_3_C.test.cpp\"\n#define PROBLEM #define\
+    \ PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\
     \n#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
     \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
     #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
@@ -91,37 +93,45 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/shortest_path/dijkstra.hpp\"\
-    \ntemplate<typename T>\nvector<T>dijkstra(const Graph<T>&g,int s){\n  const int\
-    \ n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n  vector<T>d(n,MAX);\n\
-    \  d[s]=0;\n  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<pair<T,int>>>q;\n\
-    \  q.emplace(0,s);\n  while(!q.empty()){\n    auto [d_u,u]=q.top();q.pop();\n\
-    \    if(d[u]<d_u)continue;\n    for(auto &e:g[u]){\n      if(d[e]>d[u]+e.cost){\n\
-    \        d[e]=d[u]+e.cost;\n        q.emplace(d[e],e);\n      }\n    }\n  }\n\
-    \  return d;\n}\n/**\n * @brief Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF\
-    )\n*/\n#line 4 \"test/aoj/GRL/GRL_1_A.test.cpp\"\nint main(){\n  int v,e,r;\n\
-    \  cin>>v>>e>>r;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n  auto d=dijkstra(g,r);\n\
-    \  for(auto i:d)cout<<(i==numeric_limits<long long>::max()/2?\"INF\":to_string(i))<<endl;\n\
-    }\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/shortest_path/dijkstra.hpp\"\
-    \nint main(){\n  int v,e,r;\n  cin>>v>>e>>r;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n\
-    \  auto d=dijkstra(g,r);\n  for(auto i:d)cout<<(i==numeric_limits<long long>::max()/2?\"\
-    INF\":to_string(i))<<endl;\n}"
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/others/scc.hpp\"\ntemplate<typename\
+    \ T=int>\nstruct SCC:Graph<T>{\n  public:\n  using Graph<T>::Graph;\n  using Graph<T>::g;\n\
+    \  void build(){\n    rg=Graph<T>(g.size());\n    for(size_t i=0;i<g.size();i++){\n\
+    \      for(auto&e:g[i]){\n        rg.add_directed_edge(e.to,i,e.cost);\n     \
+    \ }\n    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n\
+    \    for(size_t i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n\
+    \    int cnt=0;\n    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n    dag=Graph<T>(cnt);\n\
+    \    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n        if(comp[i]!=comp[e.to])dag.add_directed_edge(comp[i],comp[e.to],e.cost);\n\
+    \      }\n    }\n    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
+    \  }\n  void add(int u,int v){g.add_directed_edge(u,v);}\n  int operator[](int\
+    \ k)const{return comp[k];}\n  vector<vector<int>>scc()const{return group;}\n \
+    \ Graph<T>dag()const{return dag;}\n  private:\n  Graph<T>dag,rg;\n  vector<int>comp,ord;\n\
+    \  vector<bool>used;\n  vector<vector<int>>group;\n  void dfs(int idx){\n    if(used[idx])return;\n\
+    \    used[idx]=true;\n    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n\
+    \  }\n  void rdfs(int idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n\
+    \    for(auto&to:rg.g[idx])rdfs(to,k);\n  }\n};\n/**\n * @brief Strongly Connected\
+    \ Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n*/\n#line 4 \"test/aoj/GRL/GRL_3_C.test.cpp\"\
+    \nint main(){\n  int v,e,q;\n  cin>>v>>e;\n  SCC<>scc(v);\n  scc.read(e,0,false,true);\n\
+    \  scc.build();\n  cin>>q;\n  while(q--){\n    int a,b;\n    cin>>a>>b;\n    cout<<(scc[a]==scc[b])<<endl;\n\
+    \  }\n}\n"
+  code: "#define PROBLEM #define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/others/scc.hpp\"\
+    \nint main(){\n  int v,e,q;\n  cin>>v>>e;\n  SCC<>scc(v);\n  scc.read(e,0,false,true);\n\
+    \  scc.build();\n  cin>>q;\n  while(q--){\n    int a,b;\n    cin>>a>>b;\n    cout<<(scc[a]==scc[b])<<endl;\n\
+    \  }\n}"
   dependsOn:
   - template/template.hpp
-  - Graph/shortest_path/dijkstra.hpp
+  - Graph/others/scc.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
-  path: test/aoj/GRL/GRL_1_A.test.cpp
+  path: test/aoj/GRL/GRL_3_C.test.cpp
   requiredBy: []
-  timestamp: '2022-01-23 11:55:23+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-02-03 20:35:04+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/aoj/GRL/GRL_1_A.test.cpp
+documentation_of: test/aoj/GRL/GRL_3_C.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL/GRL_1_A.test.cpp
-- /verify/test/aoj/GRL/GRL_1_A.test.cpp.html
-title: test/aoj/GRL/GRL_1_A.test.cpp
+- /verify/test/aoj/GRL/GRL_3_C.test.cpp
+- /verify/test/aoj/GRL/GRL_3_C.test.cpp.html
+title: test/aoj/GRL/GRL_3_C.test.cpp
 ---
