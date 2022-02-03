@@ -4,6 +4,8 @@ struct SCC:Graph<T>{
   public:
   using Graph<T>::Graph;
   using Graph<T>::g;
+  vector<vector<int>>group;
+  Graph<T>dag;
   void build(){
     rg=Graph<T>(g.size());
     for(size_t i=0;i<g.size();i++){
@@ -29,12 +31,11 @@ struct SCC:Graph<T>{
   void add(int u,int v){g.add_directed_edge(u,v);}
   int operator[](int k)const{return comp[k];}
   vector<vector<int>>scc()const{return group;}
-  Graph<T>dag()const{return dag;}
+  Graph<T>DAG()const{return dag;}
   private:
-  Graph<T>dag,rg;
+  Graph<T>rg;
   vector<int>comp,ord;
   vector<bool>used;
-  vector<vector<int>>group;
   void dfs(int idx){
     if(used[idx])return;
     used[idx]=true;
