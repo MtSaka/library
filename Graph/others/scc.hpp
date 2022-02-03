@@ -16,9 +16,9 @@ struct SCC:Graph<T>{
     for(size_t i=0;i<g.size();i++)dfs(i);
     reverse(ord.begin(),ord.end());
     int cnt=0;
-    for(auto i:ord)if(comp[i]!=-1)rdfs(i,cnt),cnt++;
+    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;
     dag=Graph<T>(cnt);
-    for(szie_t i=0;i<g.size();i++){
+    for(size_t i=0;i<g.size();i++){
       for(auto&e:g[i]){
         if(comp[i]!=comp[e.to])dag.add_directed_edge(comp[i],comp[e.to],e.cost);
       }
@@ -36,7 +36,8 @@ struct SCC:Graph<T>{
   vector<bool>used;
   vector<vector<int>>group;
   void dfs(int idx){
-    if(exchange(used[idx],true))return;
+    if(used[idx])return;
+    used[idx]=true;
     for(auto&to:g[idx])dfs(to);
     ord.emplace_back(idx);
   }
