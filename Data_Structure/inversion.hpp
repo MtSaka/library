@@ -11,7 +11,7 @@ long long inversion(vector<T>a){
   long long ans=0;
   BIT<int>c(n);
   for(int i=0;i<n;i++){
-    ans+=i-c.sum(a[i]);
+    ans+=i-c.sum(a[i]+1);
     c.add(a[i],1);
   }
   return ans;
