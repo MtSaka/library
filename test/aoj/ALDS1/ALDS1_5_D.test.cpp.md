@@ -85,7 +85,7 @@ data:
     \ntemplate<typename T>\nlong long inversion(vector<T>a){\n  int n=a.size();\n\
     \  vector<T>b=a;\n  sort(b.begin(),b.end());\n  map<long long,int>mp;\n  for(int\
     \ i=0;i<n;i++)mp[b[i]]=i+1;\n  for(int i=0;i<n;i++)a[i]=mp[a[i]];\n  long long\
-    \ ans=0;\n  BIT<int>c(n);\n  for(int i=0;i<n;i++){\n    ans+=i-c.sum(a[i]);\n\
+    \ ans=0;\n  BIT<int>c(n);\n  for(int i=0;i<n;i++){\n    ans+=i-c.sum(a[i]+1);\n\
     \    c.add(a[i],1);\n  }\n  return ans;\n}\n/**\n * @brief Inversion Number(\u8EE2\
     \u5012\u6570)\n*/\n#line 4 \"test/aoj/ALDS1/ALDS1_5_D.test.cpp\"\nint main(){\n\
     \  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n\
@@ -101,7 +101,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   requiredBy: []
-  timestamp: '2022-01-20 20:34:11+00:00'
+  timestamp: '2022-02-04 12:55:30+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_5_D.test.cpp

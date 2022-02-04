@@ -24,13 +24,13 @@ data:
     */\n#line 3 \"Data_Structure/inversion.hpp\"\ntemplate<typename T>\nlong long\
     \ inversion(vector<T>a){\n  int n=a.size();\n  vector<T>b=a;\n  sort(b.begin(),b.end());\n\
     \  map<long long,int>mp;\n  for(int i=0;i<n;i++)mp[b[i]]=i+1;\n  for(int i=0;i<n;i++)a[i]=mp[a[i]];\n\
-    \  long long ans=0;\n  BIT<int>c(n);\n  for(int i=0;i<n;i++){\n    ans+=i-c.sum(a[i]);\n\
+    \  long long ans=0;\n  BIT<int>c(n);\n  for(int i=0;i<n;i++){\n    ans+=i-c.sum(a[i]+1);\n\
     \    c.add(a[i],1);\n  }\n  return ans;\n}\n/**\n * @brief Inversion Number(\u8EE2\
     \u5012\u6570)\n*/\n"
   code: "#pragma once\n#include\"BIT.hpp\"\ntemplate<typename T>\nlong long inversion(vector<T>a){\n\
     \  int n=a.size();\n  vector<T>b=a;\n  sort(b.begin(),b.end());\n  map<long long,int>mp;\n\
     \  for(int i=0;i<n;i++)mp[b[i]]=i+1;\n  for(int i=0;i<n;i++)a[i]=mp[a[i]];\n \
-    \ long long ans=0;\n  BIT<int>c(n);\n  for(int i=0;i<n;i++){\n    ans+=i-c.sum(a[i]);\n\
+    \ long long ans=0;\n  BIT<int>c(n);\n  for(int i=0;i<n;i++){\n    ans+=i-c.sum(a[i]+1);\n\
     \    c.add(a[i],1);\n  }\n  return ans;\n}\n/**\n * @brief Inversion Number(\u8EE2\
     \u5012\u6570)\n*/"
   dependsOn:
@@ -38,7 +38,7 @@ data:
   isVerificationFile: false
   path: Data_Structure/inversion.hpp
   requiredBy: []
-  timestamp: '2022-01-11 20:35:27+00:00'
+  timestamp: '2022-02-04 12:55:30+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
