@@ -50,3 +50,6 @@ struct RollingHash{
   Hash get_hash(const T&s)const{return Hash(BASE,s);}
   ull get_base()const{return BASE;}
 };
+/**
+ * @brief Rolling Hash(ローリングハッシュ)
+*/
