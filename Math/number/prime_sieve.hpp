@@ -19,7 +19,7 @@ struct prime_sieve{
     vector<pair<T,int>>res;
     T now=n;
     while(now!=1){
-      if(res.back().first==mpf[now])res.back().second++;
+      if(res.size()&&res.back().first==mpf[now])res.back().second++;
       else res.emplace_back(mpf[now],1);
       now/=mpf[now];
     }
