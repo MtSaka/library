@@ -16,7 +16,7 @@ data:
     \    for(T i=2;i*i<=n;i++){\n      if(mpf[i]==i){\n        for(T j=i*i;j<=n;j+=i){\n\
     \          if(mpf[j]==j)mpf[j]=i;\n        }\n      }\n    }\n    for(T i=2;i<=n;i++)if(mpf[i]==i)primes.push_back(i);\n\
     \  }\n  vector<pair<T,int>>factorize(T n){\n    vector<pair<T,int>>res;\n    T\
-    \ now=n;\n    while(now!=1){\n      if(res.back().first==mpf[now])res.back().second++;\n\
+    \ now=n;\n    while(now!=1){\n      if(res.size()&&res.back().first==mpf[now])res.back().second++;\n\
     \      else res.emplace_back(mpf[now],1);\n      now/=mpf[now];\n    }\n    return\
     \ res;\n  }\n};\n/**\n * @brief Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\
     \u30B9\u306E\u7BE9)\n*/\n"
@@ -26,7 +26,7 @@ data:
     \     for(T j=i*i;j<=n;j+=i){\n          if(mpf[j]==j)mpf[j]=i;\n        }\n \
     \     }\n    }\n    for(T i=2;i<=n;i++)if(mpf[i]==i)primes.push_back(i);\n  }\n\
     \  vector<pair<T,int>>factorize(T n){\n    vector<pair<T,int>>res;\n    T now=n;\n\
-    \    while(now!=1){\n      if(res.back().first==mpf[now])res.back().second++;\n\
+    \    while(now!=1){\n      if(res.size()&&res.back().first==mpf[now])res.back().second++;\n\
     \      else res.emplace_back(mpf[now],1);\n      now/=mpf[now];\n    }\n    return\
     \ res;\n  }\n};\n/**\n * @brief Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\
     \u30B9\u306E\u7BE9)\n*/"
@@ -34,7 +34,7 @@ data:
   isVerificationFile: false
   path: Math/number/prime_sieve.hpp
   requiredBy: []
-  timestamp: '2022-01-29 16:22:31+00:00'
+  timestamp: '2022-02-05 23:13:37+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/number/prime_sieve.hpp

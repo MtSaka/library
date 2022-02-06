@@ -206,10 +206,10 @@ data:
     - icon: ':warning:'
       path: Others/timer.hpp
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
-  - name: string
+  - name: String
     pages:
-    - icon: ':warning:'
-      path: string/rolling_hash.hpp
+    - icon: ':heavy_check_mark:'
+      path: String/rolling_hash.hpp
       title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
   - name: template
     pages:
@@ -222,7 +222,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
       title: test/aoj/ALDS1/ALDS1_10_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_14_B.test.cpp
       title: test/aoj/ALDS1/ALDS1_14_B.test.cpp
     - icon: ':heavy_check_mark:'
