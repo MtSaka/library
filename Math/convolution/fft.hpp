@@ -15,15 +15,15 @@ void dft(vector<complex<double>>&a,double inv){
 template<typename T>
 vector<double>multiply(const vector<T>&a,const vector<T>&b){
   int sz=1;
-  while(sz<a.size()+b.size()-1)sz<<=1;
+  while(sz<(int)a.size()+b.size()-1)sz<<=1;
   vector<complex<double>>ma(sz),mb(sz);
-  for(int i=0;i<a.size();i++)ma[i]=a[i];
-  for(int i=0;i<b.size();i++)mb[i]=b[i];
+  for(int i=0;i<(int)a.size();i++)ma[i]=a[i];
+  for(int i=0;i<(int)b.size();i++)mb[i]=b[i];
   dft(ma,1);dft(mb,1);
   for(int i=0;i<sz;i++)ma[i]*=mb[i];
   dft(ma,-1);
   vector<double>res(a.size()+b.size()-1);
-  for(int i=0;i<res.size();i++)res[i]=(ma[i].real())/(double)sz;
+  for(int i=0;i<(int)res.size();i++)res[i]=(ma[i].real())/(double)sz;
   return res;
 }
 /**

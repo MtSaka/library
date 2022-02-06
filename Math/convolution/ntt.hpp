@@ -62,8 +62,8 @@ struct NTT{
   static vector<T>multiply(const vector<T>&a,const vector<T>&b){
     using mint=modint<m>;
     vector<mint>a2(a.size()),b2(b.size());
-    for(int i=0;i<a.size();i++)a2[i]=a[i];
-    for(int i=0;i<b.size();i++)b2[i]=b[i];
+    for(int i=0;i<(int)a.size();i++)a2[i]=a[i];
+    for(int i=0;i<(int)b.size();i++)b2[i]=b[i];
     auto c2=multiply(a2,b2);
     vector<T>c(c2.size());
     for(int i=0;i<c.size();i++)c[i]=c2[i].x;

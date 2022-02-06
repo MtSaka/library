@@ -5,7 +5,7 @@ vector<long long>mod_convolution(vector<long long>a,vector<long long>b,long long
   auto y=NTT<m2>::multiply(a,b);
   auto z=NTT<m3>::multiply(a,b);
   vector<long long>res(x.size());
-  for(int i=0;i<x.size();i++){
+  for(int i=0;i<(int)x.size();i++){
     long long v1=(y[i]-x[i])*m1_inv_m2%m2;
     if(v1<0)v1+=m2;
     long long v2=(z[i]-(x[i]+m1*v1)%m3)*m12_inv_m3%m3;
