@@ -1,12 +1,13 @@
 #include"ntt.hpp"
-vector<long long>convolution(const vector<long long>&a,const vector<long long>&b){
+template<typename T>
+vector<T>convolution(const vector<T>&a,const vector<T>&b){
   const int n=a.size(),m=b.size();
   if(!n||!m)return {};
   static constexpr unsigned long long MOD1=754974721ull,MOD2=167772161ull,MOD3=469762049ull,M2M3=78812994116517889ull,M1M3=354658471880163329ull,M1M2=126663740442542081ull,M1M2M3=560135205046714369ull,i1=190329765ull,i2=58587104,i3=187290749ull;
   auto c1=NTT<MOD1>::multiply(a,b);
   auto c2=NTT<MOD2>::multiply(a,b);
   auto c3=NTT<MOD3>::multiply(a,b);
-  vector<long long>c(n+m-1);
+  vector<T>c(n+m-1);
   static constexpr unsigned long long offset[5]={0,0,M1M2M3,2*M1M2M3,3*M1M2M3};
   for(int i=0;i<n+m-1;i++){
     unsigned long long x=0;
