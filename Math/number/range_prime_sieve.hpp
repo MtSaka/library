@@ -16,7 +16,7 @@ struct range_prime_sieve{
         for(T j=(l+i-1)/i*i;j<r;j+=i){
           while(mul[j-l]%i==0){
             mul[j-l]/=i;
-            if(large[j-l].back().first==i)large[j-l].back().second++;
+            if(large[j-l].size()&&large[j-l].back().first==i)large[j-l].back().second++;
             else large[j-l].emplace_back(i,1);
           }
         }
