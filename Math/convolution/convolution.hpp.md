@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
   _extendedRequiredBy: []
@@ -56,29 +56,29 @@ data:
     \    a.resize(mxsiz);\n    return a;\n  }\n  template<typename T,std::enable_if_t<is_integral<T>::value>*\
     \ = nullptr>\n  static vector<T>multiply(const vector<T>&a,const vector<T>&b){\n\
     \    using mint=modint<m>;\n    vector<mint>a2(a.size()),b2(b.size());\n    for(int\
-    \ i=0;i<a.size();i++)a2[i]=a[i];\n    for(int i=0;i<b.size();i++)b2[i]=b[i];\n\
-    \    auto c2=multiply(a2,b2);\n    vector<T>c(c2.size());\n    for(int i=0;i<c.size();i++)c[i]=c2[i].x;\n\
+    \ i=0;i<(int)a.size();i++)a2[i]=a[i];\n    for(int i=0;i<(int)b.size();i++)b2[i]=b[i];\n\
+    \    auto c2=multiply(a2,b2);\n    vector<T>c(c2.size());\n    for(int i=0;i<(int)c.size();i++)c[i]=c2[i].x;\n\
     \    return c;\n  }\n};\ntemplate<long long m>\nint NTT<m>::limit=0;\ntemplate<long\
     \ long m>\nvector<modint<m>>NTT<m>::root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\ntemplate<long long\
     \ m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic Transform(\u6570\
-    \u8AD6\u5909\u63DB)\n*/\n#line 2 \"Math/convolution/convolution.hpp\"\nvector<long\
-    \ long>convolution(const vector<long long>&a,const vector<long long>&b){\n  const\
-    \ int n=a.size(),m=b.size();\n  if(!n||!m)return {};\n  static constexpr unsigned\
+    \u8AD6\u5909\u63DB)\n*/\n#line 2 \"Math/convolution/convolution.hpp\"\ntemplate<typename\
+    \ T>\nvector<T>convolution(const vector<T>&a,const vector<T>&b){\n  const int\
+    \ n=a.size(),m=b.size();\n  if(!n||!m)return {};\n  static constexpr unsigned\
     \ long long MOD1=754974721ull,MOD2=167772161ull,MOD3=469762049ull,M2M3=78812994116517889ull,M1M3=354658471880163329ull,M1M2=126663740442542081ull,M1M2M3=560135205046714369ull,i1=190329765ull,i2=58587104,i3=187290749ull;\n\
     \  auto c1=NTT<MOD1>::multiply(a,b);\n  auto c2=NTT<MOD2>::multiply(a,b);\n  auto\
-    \ c3=NTT<MOD3>::multiply(a,b);\n  vector<long long>c(n+m-1);\n  static constexpr\
-    \ unsigned long long offset[5]={0,0,M1M2M3,2*M1M2M3,3*M1M2M3};\n  for(int i=0;i<n+m-1;i++){\n\
+    \ c3=NTT<MOD3>::multiply(a,b);\n  vector<T>c(n+m-1);\n  static constexpr unsigned\
+    \ long long offset[5]={0,0,M1M2M3,2*M1M2M3,3*M1M2M3};\n  for(int i=0;i<n+m-1;i++){\n\
     \    unsigned long long x=0;\n    x+=(c1[i]*i1)%MOD1*M2M3;\n    x+=(c2[i]*i2)%MOD2*M1M3;\n\
     \    x+=(c3[i]*i3)%MOD3*M1M2;\n    long long diff=c1[i]-x%MOD1;\n    if(diff<0)diff+=MOD1;\n\
     \    x-=offset[diff%5];\n    c[i]=x;\n  }\n  return c;\n}\n/**\n * @brief Convolution(\u7573\
     \u307F\u8FBC\u307F)\n*/\n"
-  code: "#include\"ntt.hpp\"\nvector<long long>convolution(const vector<long long>&a,const\
-    \ vector<long long>&b){\n  const int n=a.size(),m=b.size();\n  if(!n||!m)return\
-    \ {};\n  static constexpr unsigned long long MOD1=754974721ull,MOD2=167772161ull,MOD3=469762049ull,M2M3=78812994116517889ull,M1M3=354658471880163329ull,M1M2=126663740442542081ull,M1M2M3=560135205046714369ull,i1=190329765ull,i2=58587104,i3=187290749ull;\n\
+  code: "#include\"ntt.hpp\"\ntemplate<typename T>\nvector<T>convolution(const vector<T>&a,const\
+    \ vector<T>&b){\n  const int n=a.size(),m=b.size();\n  if(!n||!m)return {};\n\
+    \  static constexpr unsigned long long MOD1=754974721ull,MOD2=167772161ull,MOD3=469762049ull,M2M3=78812994116517889ull,M1M3=354658471880163329ull,M1M2=126663740442542081ull,M1M2M3=560135205046714369ull,i1=190329765ull,i2=58587104,i3=187290749ull;\n\
     \  auto c1=NTT<MOD1>::multiply(a,b);\n  auto c2=NTT<MOD2>::multiply(a,b);\n  auto\
-    \ c3=NTT<MOD3>::multiply(a,b);\n  vector<long long>c(n+m-1);\n  static constexpr\
-    \ unsigned long long offset[5]={0,0,M1M2M3,2*M1M2M3,3*M1M2M3};\n  for(int i=0;i<n+m-1;i++){\n\
+    \ c3=NTT<MOD3>::multiply(a,b);\n  vector<T>c(n+m-1);\n  static constexpr unsigned\
+    \ long long offset[5]={0,0,M1M2M3,2*M1M2M3,3*M1M2M3};\n  for(int i=0;i<n+m-1;i++){\n\
     \    unsigned long long x=0;\n    x+=(c1[i]*i1)%MOD1*M2M3;\n    x+=(c2[i]*i2)%MOD2*M1M3;\n\
     \    x+=(c3[i]*i3)%MOD3*M1M2;\n    long long diff=c1[i]-x%MOD1;\n    if(diff<0)diff+=MOD1;\n\
     \    x-=offset[diff%5];\n    c[i]=x;\n  }\n  return c;\n}\n/**\n * @brief Convolution(\u7573\
@@ -89,7 +89,7 @@ data:
   isVerificationFile: false
   path: Math/convolution/convolution.hpp
   requiredBy: []
-  timestamp: '2022-01-29 16:22:31+00:00'
+  timestamp: '2022-02-06 21:25:02+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/convolution/convolution.hpp

@@ -125,12 +125,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/convolution/mod_ntt.hpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/convolution/ntt.hpp
       title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - name: Math/fps
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/fps/fps.hpp
       title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
@@ -144,16 +144,16 @@ data:
       title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - name: Math/modular
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/modular/mod_sqrt.hpp
       title: Math/modular/mod_sqrt.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/modular/modint.hpp
       title: modint
     - icon: ':warning:'
       path: Math/modular/modinv.hpp
       title: "Mod Inv(\u9006\u5143)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/modular/modpow.hpp
       title: "Mod Pow(\u3079\u304D\u4E57)"
   - name: Math/number
@@ -213,7 +213,7 @@ data:
       title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -378,7 +378,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/sqrt_mod.test.cpp
       title: test/yosupo/sqrt_mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/sqrt_of_formal_power_series.test.cpp
       title: test/yosupo/sqrt_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
