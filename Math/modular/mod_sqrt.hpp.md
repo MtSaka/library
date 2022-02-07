@@ -6,7 +6,7 @@ data:
     title: "Mod Pow(\u3079\u304D\u4E57)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
   - icon: ':x:'
@@ -14,7 +14,7 @@ data:
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Math/modular/modpow.hpp\"\ntemplate<typename T,typename\
@@ -45,7 +45,7 @@ data:
   path: Math/modular/mod_sqrt.hpp
   requiredBy: []
   timestamp: '2022-01-29 16:22:31+00:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_mod.test.cpp
