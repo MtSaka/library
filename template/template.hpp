@@ -13,6 +13,7 @@
 #define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)
 #define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)
 #define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)
+#define fore(...) for (auto&& __VA_ARGS__)
 #define all1(i) begin(i),end(i)
 #define all2(i,a) begin(i),begin(i)+a
 #define all3(i,a,b) begin(i)+a,begin(i)+b
@@ -90,9 +91,19 @@ return popcount(x);
 #endif
 x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);x=(x&0x3333333333333333)+((x>>2)&0x3333333333333333);x=(x&0x0f0f0f0f0f0f0f0f)+((x>>4)&0x0f0f0f0f0f0f0f0f);x=(x&0x00ff00ff00ff00ff)+((x>>8)&0x00ff00ff00ff00ff);x=(x&0x0000ffff0000ffff)+((x>>16)&0x0000ffff0000ffff);return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);
 }
+template<typename T,typename=void>
+struct is_specialize:false_type{};
+template<typename T>
+struct is_specialize<T,typename conditional<false,typename T::iterator, void>::type>:true_type{};
+template<typename T>
+struct is_specialize<T,typename conditional<false,decltype(T::first),void>::type>:true_type{};
+template<typename T>
+struct is_specialize<T,enable_if_t<is_integral<T>::value,void>>:true_type{};
 void dump(const char&t){cerr<<t;}
 void dump(const string&t){cerr<<t;}
 void dump(const bool&t){cerr<<(t?"true":"false");}
+template <typename T,enable_if_t<!is_specialize<T>::value,nullptr_t> =nullptr>
+void dump(const T&t){cerr<<t;}
 template<typename T>
 void dump(const T&t,enable_if_t<is_integral<T>::value>* =nullptr){string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp="inf";if(t==infinity<T>::mvalue||t==infinity<T>::MIN)tmp="-inf";if(tmp.empty())tmp=to_string(t);cerr<<tmp;}
 template <typename T>
