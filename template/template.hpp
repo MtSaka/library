@@ -84,7 +84,8 @@ template<class T>const T infinity<T>::mvalue;
 template<class T>const T infinity<T>::MAX;
 template<class T>const T infinity<T>::MIN;
 #endif
-template<typename T>const T inf=infinity<T>::value;
+template<typename T>const T INF=infinity<T>::value;
+const long long inf=INF<ll>;
 inline int popcnt(ull x){
 #if __cplusplus>=202002L
 return popcount(x);
