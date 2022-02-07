@@ -10,8 +10,11 @@ data:
     path: test/aoj/ALDS1/ALDS1_14_B.test.cpp
     title: test/aoj/ALDS1/ALDS1_14_B.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/aoj/ALDS1/ALDS1_1_C.test.cpp
-    title: test/aoj/ALDS1/ALDS1_1_C.test.cpp
+    path: test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
+    title: test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
+    title: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
     title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
@@ -99,43 +102,43 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/factorize.test.cpp
     title: test/yosupo/factorize.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca1.test.cpp
     title: test/yosupo/lca1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix_product.test.cpp
     title: test/yosupo/matrix_product.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum1.test.cpp
     title: test/yosupo/point_add_range_sum1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum2.test.cpp
     title: test/yosupo/point_add_range_sum2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial_interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':x:'
@@ -348,7 +351,8 @@ data:
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - test/aoj/ALDS1/ALDS1_14_B.test.cpp
   - test/aoj/ALDS1/ALDS1_10_C.test.cpp
-  - test/aoj/ALDS1/ALDS1_1_C.test.cpp
+  - test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
+  - test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
   - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp

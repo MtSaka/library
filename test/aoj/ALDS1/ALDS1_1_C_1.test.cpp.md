@@ -17,7 +17,7 @@ data:
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C
-  bundledCode: "#line 1 \"test/aoj/ALDS1/ALDS1_1_C.test.cpp\"\n#define PROBLEM \"\
+  bundledCode: "#line 1 \"test/aoj/ALDS1/ALDS1_1_C_1.test.cpp\"\n#define PROBLEM \"\
     http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C\"\n#line 1\
     \ \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"\
     O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define\
@@ -83,9 +83,9 @@ data:
     Math/number/is_prime.hpp\"\nbool is_prime(long long N){\n  if(N<2)return 0;\n\
     \  if(N==2)return 1;\n  if(N%2==0)return 0;\n  for(long long i=3;i*i<=N;i+=2){\n\
     \    if(N%i==0)return 0;\n  }\n  return 1;\n}\n/**\n * @brief Prime Determination(\u7D20\
-    \u6570\u5224\u5B9A)\n*/\n#line 4 \"test/aoj/ALDS1/ALDS1_1_C.test.cpp\"\nint main(){\n\
-    \  int q;\n  cin>>q;\n  int ans=0;\n  while(q--){\n    int x;\n    cin>>x;\n \
-    \   ans+=is_prime(x);\n  }\n  print(ans);\n}\n"
+    \u6570\u5224\u5B9A)\n*/\n#line 4 \"test/aoj/ALDS1/ALDS1_1_C_1.test.cpp\"\nint\
+    \ main(){\n  int q;\n  cin>>q;\n  int ans=0;\n  while(q--){\n    int x;\n    cin>>x;\n\
+    \    ans+=is_prime(x);\n  }\n  print(ans);\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/number/is_prime.hpp\"\
     \nint main(){\n  int q;\n  cin>>q;\n  int ans=0;\n  while(q--){\n    int x;\n\
@@ -94,15 +94,15 @@ data:
   - template/template.hpp
   - Math/number/is_prime.hpp
   isVerificationFile: true
-  path: test/aoj/ALDS1/ALDS1_1_C.test.cpp
+  path: test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
   requiredBy: []
-  timestamp: '2022-02-07 21:16:16+00:00'
+  timestamp: '2022-02-07 21:35:33+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/ALDS1/ALDS1_1_C.test.cpp
+documentation_of: test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/ALDS1/ALDS1_1_C.test.cpp
-- /verify/test/aoj/ALDS1/ALDS1_1_C.test.cpp.html
-title: test/aoj/ALDS1/ALDS1_1_C.test.cpp
+- /verify/test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
+- /verify/test/aoj/ALDS1/ALDS1_1_C_1.test.cpp.html
+title: test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
 ---

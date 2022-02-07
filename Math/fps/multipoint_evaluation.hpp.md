@@ -12,12 +12,12 @@ data:
     title: modint
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
     links: []
@@ -161,7 +161,7 @@ data:
   path: Math/fps/multipoint_evaluation.hpp
   requiredBy: []
   timestamp: '2022-02-06 21:21:25+00:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/multipoint_evaluation.test.cpp
 documentation_of: Math/fps/multipoint_evaluation.hpp

@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Data_Structure/BIT.hpp
-    title: Binary Indexed Tree(BIT)
+    path: Math/number/prime_sieve.hpp
+    title: "Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
   - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
@@ -14,18 +14,18 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C
     links:
-    - https://judge.yosupo.jp/problem/point_add_range_sum
-  bundledCode: "#line 1 \"test/yosupo/point_add_range_sum2.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n#line 1 \"template/template.hpp\"\
-    \n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC\
-    \ optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define overload4(a,b,c,d,e,...)\
-    \ e\n#define overload3(a,b,c,d,...) d\n#define rep1(a) for(ll i=0;i<(ll)(a);i++)\n\
-    #define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n#define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n\
-    #define rep4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...)\
-    \ overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a)\
-    \ for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C
+  bundledCode: "#line 1 \"test/aoj/ALDS1/ALDS1_1_C_2.test.cpp\"\n#define PROBLEM \"\
+    http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C\"\n#line 1\
+    \ \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"\
+    O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define\
+    \ overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define rep1(a)\
+    \ for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n#define\
+    \ rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n#define rep4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n\
+    #define rep(...) overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)\n\
+    #define rrep1(a) for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
     #define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n#define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n\
     #define fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n\
     #define all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n\
@@ -79,36 +79,43 @@ data:
     ,\";trace(forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...) (void(0))\n\
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
-    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Data_Structure/BIT.hpp\"\ntemplate<typename T>\nstruct BIT{\n  long long N;\n\
-    \  vector<T>bit;\n  BIT(long long n){\n    N=1;\n    while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n\
-    \  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n      bit[i]+=x;\n \
-    \     i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n\
-    \    return ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n\
-    };\n/**\n * @brief Binary Indexed Tree(BIT)\n*/\n#line 4 \"test/yosupo/point_add_range_sum2.test.cpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  BIT<long long>bit(n);\n  for(int i=0;i<n;i++){\n\
-    \    int a;\n    cin>>a;\n    bit.add(i,a);\n  }\n  while(q--){\n    int t,l,r;\n\
-    \    cin>>t>>l>>r;\n    if(t)cout<<bit.query(l,r)<<endl;\n    else bit.add(l,r);\n\
-    \  }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
-    #include\"../../template/template.hpp\"\n#include\"../../Data_Structure/BIT.hpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  BIT<long long>bit(n);\n  for(int i=0;i<n;i++){\n\
-    \    int a;\n    cin>>a;\n    bit.add(i,a);\n  }\n  while(q--){\n    int t,l,r;\n\
-    \    cin>>t>>l>>r;\n    if(t)cout<<bit.query(l,r)<<endl;\n    else bit.add(l,r);\n\
-    \  }\n}"
+    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
+    Math/number/prime_sieve.hpp\"\ntemplate<typename T>\nstruct prime_sieve{\n  vector<T>mpf;\n\
+    \  vector<T>primes;\n  prime_sieve(T n=1e5){\n    mpf.resize(n+1,0);\n    iota(mpf.begin(),mpf.end(),0);\n\
+    \    mpf[0]=mpf[1]=-1;\n    for(T i=2;i*i<=n;i++){\n      if(mpf[i]==i){\n   \
+    \     for(T j=i*i;j<=n;j+=i){\n          if(mpf[j]==j)mpf[j]=i;\n        }\n \
+    \     }\n    }\n    for(T i=2;i<=n;i++)if(mpf[i]==i)primes.push_back(i);\n  }\n\
+    \  vector<pair<T,int>>factorize(T n){\n    vector<pair<T,int>>res;\n    T now=n;\n\
+    \    while(now!=1){\n      if(res.size()&&res.back().first==mpf[now])res.back().second++;\n\
+    \      else res.emplace_back(mpf[now],1);\n      now/=mpf[now];\n    }\n    return\
+    \ res;\n  }\n};\ntemplate<typename T>\nstruct IsPrime{\n  T MAX;\n  vector<bool>isprime;\n\
+    \  IsPrime(T MAX):MAX(MAX),isprime(MAX+1,true){\n    isprime[0]=isprime[1]=false;\n\
+    \    for(T i=2;i<MAX+1;i++){\n      if(!isprime[i])continue;\n      for(T j=i*i;j<MAX+1;j+=i)isprime[j]=false;\n\
+    \    }\n  }\n  bool is_prime(T x){return isprime[x];}\n  vector<T>primes(T m=-1){\n\
+    \    if(m==-1)m=MAX;\n    vector<T>res;\n    for(T i=2;i<m+1;i++)if(isprime[i])res.push_back(i);\n\
+    \    return res;\n  }\n};\n/**\n * @brief Prime Sieve(\u30A8\u30E9\u30C8\u30B9\
+    \u30C6\u30CD\u30B9\u306E\u7BE9)\n*/\n#line 4 \"test/aoj/ALDS1/ALDS1_1_C_2.test.cpp\"\
+    \nint main(){\n  int n;\n  cin>>n;\n  IsPrime<ll>ip(100000000);\n  int ans=0;\n\
+    \  while(n--){\n    int a;\n    cin>>a;\n    ans+=ip.is_prime(a);\n  }\n  print(ans);\n\
+    }\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../Math/number/prime_sieve.hpp\"\
+    \nint main(){\n  int n;\n  cin>>n;\n  IsPrime<ll>ip(100000000);\n  int ans=0;\n\
+    \  while(n--){\n    int a;\n    cin>>a;\n    ans+=ip.is_prime(a);\n  }\n  print(ans);\n\
+    }"
   dependsOn:
   - template/template.hpp
-  - Data_Structure/BIT.hpp
+  - Math/number/prime_sieve.hpp
   isVerificationFile: true
-  path: test/yosupo/point_add_range_sum2.test.cpp
+  path: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
   requiredBy: []
-  timestamp: '2022-02-07 21:16:16+00:00'
+  timestamp: '2022-02-07 21:35:33+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/point_add_range_sum2.test.cpp
+documentation_of: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/point_add_range_sum2.test.cpp
-- /verify/test/yosupo/point_add_range_sum2.test.cpp.html
-title: test/yosupo/point_add_range_sum2.test.cpp
+- /verify/test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
+- /verify/test/aoj/ALDS1/ALDS1_1_C_2.test.cpp.html
+title: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
 ---

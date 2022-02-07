@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/polynomial_interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':question:'
@@ -18,9 +18,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/polynomial_interpolation
@@ -232,7 +232,7 @@ data:
   path: test/yosupo/polynomial_interpolation.test.cpp
   requiredBy: []
   timestamp: '2022-02-07 21:16:16+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial_interpolation.test.cpp
 layout: document
