@@ -1,5 +1,5 @@
-template<class T>
-struct Matrix {
+template<typename T>
+struct Matrix{
   vector<vector<T>>A;
   Matrix(){}
   Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}
