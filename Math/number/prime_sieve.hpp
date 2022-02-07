@@ -26,6 +26,25 @@ struct prime_sieve{
     return res;
   }
 };
+template<typename T>
+struct IsPrime{
+  T MAX;
+  vector<bool>isprime;
+  IsPrime(T MAX):MAX(MAX),isprime(MAX+1,true){
+    isprime[0]=isprime[1]=false;
+    for(T i=2;i<MAX+1;i++){
+      if(!isprime[i])continue;
+      for(T j=i*i;j<MAX+1;j+=i)isprime[j]=false;
+    }
+  }
+  bool is_prime(T x){return isprime[x];}
+  vector<T>primes(T m=-1){
+    if(m==-1)m=MAX;
+    vector<T>res;
+    for(T i=2;i<m+1;i++)if(isprime[i])res.push_back(i);
+    return res;
+  }
+};
 /**
  * @brief Prime Sieve(エラトステネスの篩)
 */
