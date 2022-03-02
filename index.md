@@ -40,11 +40,8 @@ data:
   - name: Geometry
     pages:
     - icon: ':warning:'
-      path: Geometry/line.hpp
-      title: "Line(\u76F4\u7DDA)"
-    - icon: ':warning:'
-      path: Geometry/point.hpp
-      title: "Point(\u70B9)"
+      path: Geometry/geometry.hpp
+      title: Geometry/geometry.hpp
   - name: Graph/flow
     pages:
     - icon: ':heavy_check_mark:'
