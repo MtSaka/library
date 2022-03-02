@@ -1,6 +1,4 @@
 #pragma once
-#include<bits/stdc++.h>
-using namespace std;
 namespace geometry{
   const double eps=1e-8;
   const double pi=acos(-1.0);
