@@ -10,23 +10,23 @@ struct Matrix{
   inline vector<T>&operator[](int k){return A.at(k);}
   static Matrix I(size_t n){
     Matrix mat(n);
-    for(int i=0;i<n;i++)mat[i][i]=1;
+    for(size_t i=0;i<n;i++)mat[i][i]=1;
     return mat;
   }
   Matrix &operator+=(const Matrix&B){
     const size_t n=height(),m=width();
-    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]+=B[i][j];
+    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)(*this)[i][j]+=B[i][j];
     return *this;
   }
   Matrix &operator-=(const Matrix&B){
     const size_t n=height(),m=width();
-    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]-=B[i][j];
+    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)(*this)[i][j]-=B[i][j];
     return *this;
   }
   Matrix &operator*=(const Matrix&B) {
     const size_t n=height(),m=B.width(),p=width();
     vector<vector<T>>C(n,vector<T>(m,0));
-    for(int i=0;i<n;i++)for(int j=0;j<m;j++)for(int k=0;k<p;k++)C[i][j]+=(*this)[i][k]*B[k][j];
+    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)for(size_t k=0;k<p;k++)C[i][j]+=(*this)[i][k]*B[k][j];
     A.swap(C);
     return *this;
   }
