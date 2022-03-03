@@ -88,14 +88,14 @@ data:
     \ n):A(n,vector<T>(n,0)){};\n  size_t height()const{return (A.size());}\n  size_t\
     \ width()const{return (A[0].size());}\n  inline const vector<T>&operator[](int\
     \ k)const{return A.at(k);}\n  inline vector<T>&operator[](int k){return A.at(k);}\n\
-    \  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(int i=0;i<n;i++)mat[i][i]=1;\n\
+    \  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(size_t i=0;i<n;i++)mat[i][i]=1;\n\
     \    return mat;\n  }\n  Matrix &operator+=(const Matrix&B){\n    const size_t\
-    \ n=height(),m=width();\n    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]+=B[i][j];\n\
+    \ n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)(*this)[i][j]+=B[i][j];\n\
     \    return *this;\n  }\n  Matrix &operator-=(const Matrix&B){\n    const size_t\
-    \ n=height(),m=width();\n    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]-=B[i][j];\n\
+    \ n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)(*this)[i][j]-=B[i][j];\n\
     \    return *this;\n  }\n  Matrix &operator*=(const Matrix&B) {\n    const size_t\
     \ n=height(),m=B.width(),p=width();\n    vector<vector<T>>C(n,vector<T>(m,0));\n\
-    \    for(int i=0;i<n;i++)for(int j=0;j<m;j++)for(int k=0;k<p;k++)C[i][j]+=(*this)[i][k]*B[k][j];\n\
+    \    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)for(size_t k=0;k<p;k++)C[i][j]+=(*this)[i][k]*B[k][j];\n\
     \    A.swap(C);\n    return *this;\n  }\n  Matrix &operator^=(long long k){\n\
     \    Matrix B=Matrix::I(height());\n    while(k>0){\n      if(k&1)B*=*this;\n\
     \      *this*=*this;\n      k>>=1LL;\n    }\n    A.swap(B.A);\n    return *this;\n\
@@ -141,7 +141,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2022-02-07 21:50:47+00:00'
+  timestamp: '2022-03-03 22:50:14+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix_product.test.cpp
