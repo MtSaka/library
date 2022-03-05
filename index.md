@@ -201,6 +201,9 @@ data:
   - name: Others
     pages:
     - icon: ':warning:'
+      path: Others/mo.hpp
+      title: Mo's Algorithm
+    - icon: ':warning:'
       path: Others/timer.hpp
       title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
   - name: String
@@ -381,6 +384,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/sqrt_of_formal_power_series.test.cpp
       title: test/yosupo/sqrt_of_formal_power_series.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/static_range_inversions_query.test.cpp
+      title: test/yosupo/static_range_inversions_query.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq.test.cpp
       title: test/yosupo/staticrmq.test.cpp
