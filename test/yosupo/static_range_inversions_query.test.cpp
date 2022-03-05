@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_inversions_query"
 #include"../../template/template.hpp"
 #include"../../Data_Structure/BIT.hpp"
-#include"../../others/mo.hpp"
+#include"../../Others/mo.hpp"
 int main(){
   int n,q;
   cin>>n>>q;
