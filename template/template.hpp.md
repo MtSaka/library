@@ -157,6 +157,9 @@ data:
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/static_range_inversions_query.test.cpp
+    title: test/yosupo/static_range_inversions_query.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
@@ -308,6 +311,7 @@ data:
   - test/yosupo/shortest_path.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/factorize.test.cpp
+  - test/yosupo/static_range_inversions_query.test.cpp
   - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/point_add_range_sum2.test.cpp
   - test/yosupo/lca1.test.cpp
