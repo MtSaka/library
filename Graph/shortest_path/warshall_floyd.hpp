@@ -11,7 +11,7 @@ vector<vector<T>>warshall_floyd(const Graph<T>&g){
   for(int k=0;k<n;k++){
     for(int i=0;i<n;i++){
       for(int j=0;j<n;j++){
-        if(d[i][k]!=MAX&d[k][j]!=MAX){
+        if(d[i][k]!=MAX&&d[k][j]!=MAX){
           d[i][j]=min(d[i][j],d[i][k]+d[k][j]);
         }
       }
