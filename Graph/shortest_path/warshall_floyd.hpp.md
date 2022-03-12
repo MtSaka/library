@@ -36,14 +36,14 @@ data:
     \ const int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n  vector<vector<T>>d(n,vector<T>(n,MAX));\n\
     \  for(int i=0;i<n;i++){\n    d[i][i]=0;\n    for(auto &e:g[i])d[i][e]=e.cost;\n\
     \  }\n  for(int k=0;k<n;k++){\n    for(int i=0;i<n;i++){\n      for(int j=0;j<n;j++){\n\
-    \        if(d[i][k]!=MAX&d[k][j]!=MAX){\n          d[i][j]=min(d[i][j],d[i][k]+d[k][j]);\n\
+    \        if(d[i][k]!=MAX&&d[k][j]!=MAX){\n          d[i][j]=min(d[i][j],d[i][k]+d[k][j]);\n\
     \        }\n      }\n    }\n  }\n  return d;\n}\n/**\n * @brief Warshall Floyd(\u5168\
     \u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)\n*/\n"
   code: "#include\"../graph_template.hpp\"\ntemplate<typename T>\nvector<vector<T>>warshall_floyd(const\
     \ Graph<T>&g){\n  const int n=g.size();\n  const T MAX=numeric_limits<T>::max()/2;\n\
     \  vector<vector<T>>d(n,vector<T>(n,MAX));\n  for(int i=0;i<n;i++){\n    d[i][i]=0;\n\
     \    for(auto &e:g[i])d[i][e]=e.cost;\n  }\n  for(int k=0;k<n;k++){\n    for(int\
-    \ i=0;i<n;i++){\n      for(int j=0;j<n;j++){\n        if(d[i][k]!=MAX&d[k][j]!=MAX){\n\
+    \ i=0;i<n;i++){\n      for(int j=0;j<n;j++){\n        if(d[i][k]!=MAX&&d[k][j]!=MAX){\n\
     \          d[i][j]=min(d[i][j],d[i][k]+d[k][j]);\n        }\n      }\n    }\n\
     \  }\n  return d;\n}\n/**\n * @brief Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\
     \u77ED\u8DEF)\n*/"
@@ -52,7 +52,7 @@ data:
   isVerificationFile: false
   path: Graph/shortest_path/warshall_floyd.hpp
   requiredBy: []
-  timestamp: '2022-01-23 11:55:23+00:00'
+  timestamp: '2022-03-12 19:38:35+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_1_C.test.cpp
