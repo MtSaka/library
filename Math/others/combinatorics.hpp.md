@@ -50,7 +50,13 @@ data:
     \  }\n  mint finv(long long n){\n    if(n<0)return mint(0);\n    return idat[n];\n\
     \  }\n  mint hom(long long n,long long k){\n    return com(n+k-1,k);\n  }\n  mint\
     \ per(long long n,long long k){\n    if(k<0||k>n)return mint(0);\n    return dat[n]*idat[n-k];\n\
-    \  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n"
+    \  }\n};\ntemplate<long long p>\nstruct COMB{\n  vector<vector<modint<p>>>comb;\n\
+    \  COMB(){\n    comb.assign(p,vector<modint<p>>(p));\n    comb[0][0]=1;\n    for(int\
+    \ i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n\
+    \    }\n  }\n  modint<p>com(int n,int k){\n    modint<p>ret=1;\n    while(n>0||k>0){\n\
+    \      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n      n/=p;k/=p;\n    }\n\
+    \    return ret;\n  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\
+    \u305B)\n*/\n"
   code: "#pragma once\n#include\"../modular/modint.hpp\"\ntemplate<long long m>\n\
     struct combination{\n  using mint=modint<m>;\n  vector<mint>dat,idat;\n  long\
     \ long mx;\n  combination(long long mx_=300000):dat(mx_+1,1),idat(mx_+1,1),mx(mx_){\n\
@@ -61,7 +67,13 @@ data:
     \  }\n  mint finv(long long n){\n    if(n<0)return mint(0);\n    return idat[n];\n\
     \  }\n  mint hom(long long n,long long k){\n    return com(n+k-1,k);\n  }\n  mint\
     \ per(long long n,long long k){\n    if(k<0||k>n)return mint(0);\n    return dat[n]*idat[n-k];\n\
-    \  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/"
+    \  }\n};\ntemplate<long long p>\nstruct COMB{\n  vector<vector<modint<p>>>comb;\n\
+    \  COMB(){\n    comb.assign(p,vector<modint<p>>(p));\n    comb[0][0]=1;\n    for(int\
+    \ i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n\
+    \    }\n  }\n  modint<p>com(int n,int k){\n    modint<p>ret=1;\n    while(n>0||k>0){\n\
+    \      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n      n/=p;k/=p;\n    }\n\
+    \    return ret;\n  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\
+    \u305B)\n*/"
   dependsOn:
   - Math/modular/modint.hpp
   isVerificationFile: false
@@ -69,7 +81,7 @@ data:
   requiredBy:
   - Math/others/lagrange.hpp
   - Math/fps/taylor-shift.hpp
-  timestamp: '2022-01-29 16:22:31+00:00'
+  timestamp: '2022-03-13 17:50:56+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/polynomial_taylor_shift.test.cpp

@@ -44,11 +44,16 @@ data:
     \  }\n  mint finv(long long n){\n    if(n<0)return mint(0);\n    return idat[n];\n\
     \  }\n  mint hom(long long n,long long k){\n    return com(n+k-1,k);\n  }\n  mint\
     \ per(long long n,long long k){\n    if(k<0||k>n)return mint(0);\n    return dat[n]*idat[n-k];\n\
-    \  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n#line\
-    \ 2 \"Math/others/lagrange.hpp\"\ntemplate<long long m>\nmodint<m> lagrange_polynominal(const\
-    \ vector<modint<m>>&y,const long long&t){\n  using mint=modint<m>;\n  const int\
-    \ n=y.size()-1;\n  combination<m>c(n);\n  if(t<=n)return y[t];\n  mint ret;\n\
-    \  vector<mint>dp(n+1,1),pd(n+1,1);\n  for(int i=0;i<n;i++)dp[i+1]=dp[i]*(t-i);\n\
+    \  }\n};\ntemplate<long long p>\nstruct COMB{\n  vector<vector<modint<p>>>comb;\n\
+    \  COMB(){\n    comb.assign(p,vector<modint<p>>(p));\n    comb[0][0]=1;\n    for(int\
+    \ i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n\
+    \    }\n  }\n  modint<p>com(int n,int k){\n    modint<p>ret=1;\n    while(n>0||k>0){\n\
+    \      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n      n/=p;k/=p;\n    }\n\
+    \    return ret;\n  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\
+    \u305B)\n*/\n#line 2 \"Math/others/lagrange.hpp\"\ntemplate<long long m>\nmodint<m>\
+    \ lagrange_polynominal(const vector<modint<m>>&y,const long long&t){\n  using\
+    \ mint=modint<m>;\n  const int n=y.size()-1;\n  combination<m>c(n);\n  if(t<=n)return\
+    \ y[t];\n  mint ret;\n  vector<mint>dp(n+1,1),pd(n+1,1);\n  for(int i=0;i<n;i++)dp[i+1]=dp[i]*(t-i);\n\
     \  for(int i=n;i>0;i--)pd[i-1]=pd[i]*(t-i);\n  for(int i=0;i<=n;i++){\n    mint\
     \ tmp=y[i]*dp[i]*pd[i]*c.idat[i]*c.idat[n-i];\n    if((n-i)&1)ret-=tmp;\n    else\
     \ ret+=tmp;\n  }\n  return ret;\n}\n/**\n * @brief Lagrange Polynomial(\u591A\u9805\
@@ -67,7 +72,7 @@ data:
   isVerificationFile: false
   path: Math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2022-01-29 16:22:31+00:00'
+  timestamp: '2022-03-13 17:50:56+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/others/lagrange.hpp
