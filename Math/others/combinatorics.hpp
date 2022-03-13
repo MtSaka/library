@@ -30,6 +30,27 @@ struct combination{
     return dat[n]*idat[n-k];
   }
 };
+template<long long p>
+struct COMB{
+  vector<vector<modint<p>>>comb;
+  COMB(){
+    comb.assign(p,vector<modint<p>>(p));
+    comb[0][0]=1;
+    for(int i=1;i<p;i++){
+      comb[i][0]=1;
+      for(int j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];
+    }
+  }
+  modint<p>com(int n,int k){
+    modint<p>ret=1;
+    while(n>0||k>0){
+      int ni=n%p,ki=k%p;
+      ret*=comb[ni][ki];
+      n/=p;k/=p;
+    }
+    return ret;
+  }
+};
 /**
  * @brief Combinatorics(組み合わせ)
 */
