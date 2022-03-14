@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_2_A"
 #include"../../../template/template.hpp"
-#include"../../../geometry/geometry.hpp"
+#include"../../../Geometry/geometry.hpp"
 int main(){
   int q;
   cin>>q;

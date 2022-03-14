@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_1_C"
 #include"../../../template/template.hpp"
-#include"../../../geometry/geometry.hpp"
+#include"../../../Geometry/geometry.hpp"
 int main(){
   geometry::point p1,p2;
   cin>>p1>>p2;
