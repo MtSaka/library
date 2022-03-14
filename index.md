@@ -234,6 +234,38 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
       title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
+  - name: test/aoj/CGL
+    pages:
+    - icon: ':x:'
+      path: test/aoj/CGL/CGL_1_A.test.cpp
+      title: test/aoj/CGL/CGL_1_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/CGL/CGL_1_B.test.cpp
+      title: test/aoj/CGL/CGL_1_B.test.cpp
+    - icon: ':x:'
+      path: test/aoj/CGL/CGL_1_C.test.cpp
+      title: test/aoj/CGL/CGL_1_C.test.cpp
+    - icon: ':x:'
+      path: test/aoj/CGL/CGL_2_A.test.cpp
+      title: test/aoj/CGL/CGL_2_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/CGL/CGL_2_B.test.cpp
+      title: test/aoj/CGL/CGL_2_B.test.cpp
+    - icon: ':x:'
+      path: test/aoj/CGL/CGL_2_C.test.cpp
+      title: test/aoj/CGL/CGL_2_C.test.cpp
+    - icon: ':x:'
+      path: test/aoj/CGL/CGL_2_D.test.cpp
+      title: test/aoj/CGL/CGL_2_D.test.cpp
+    - icon: ':x:'
+      path: test/aoj/CGL/CGL_3_A.test.cpp
+      title: test/aoj/CGL/CGL_3_A.test.cpp
+    - icon: ':x:'
+      path: test/aoj/CGL/CGL_3_B.test.cpp
+      title: test/aoj/CGL/CGL_3_B.test.cpp
+    - icon: ':x:'
+      path: test/aoj/CGL/CGL_3_C.test.cpp
+      title: test/aoj/CGL/CGL_3_C.test.cpp
   - name: test/aoj/DPL
     pages:
     - icon: ':heavy_check_mark:'
