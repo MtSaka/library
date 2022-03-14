@@ -2,10 +2,40 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/CGL/CGL_1_A.test.cpp
+    title: test/aoj/CGL/CGL_1_A.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL/CGL_1_B.test.cpp
+    title: test/aoj/CGL/CGL_1_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL/CGL_1_C.test.cpp
+    title: test/aoj/CGL/CGL_1_C.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL/CGL_2_A.test.cpp
+    title: test/aoj/CGL/CGL_2_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL/CGL_2_B.test.cpp
+    title: test/aoj/CGL/CGL_2_B.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL/CGL_2_C.test.cpp
+    title: test/aoj/CGL/CGL_2_C.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL/CGL_2_D.test.cpp
+    title: test/aoj/CGL/CGL_2_D.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL/CGL_3_A.test.cpp
+    title: test/aoj/CGL/CGL_3_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL/CGL_3_B.test.cpp
+    title: test/aoj/CGL/CGL_3_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL/CGL_3_C.test.cpp
+    title: test/aoj/CGL/CGL_3_C.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Geometry/geometry.hpp\"\nnamespace geometry{\n  const long\
@@ -219,8 +249,18 @@ data:
   path: Geometry/geometry.hpp
   requiredBy: []
   timestamp: '2022-03-14 20:38:41+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - test/aoj/CGL/CGL_2_A.test.cpp
+  - test/aoj/CGL/CGL_1_B.test.cpp
+  - test/aoj/CGL/CGL_2_D.test.cpp
+  - test/aoj/CGL/CGL_3_A.test.cpp
+  - test/aoj/CGL/CGL_1_A.test.cpp
+  - test/aoj/CGL/CGL_2_C.test.cpp
+  - test/aoj/CGL/CGL_2_B.test.cpp
+  - test/aoj/CGL/CGL_1_C.test.cpp
+  - test/aoj/CGL/CGL_3_B.test.cpp
+  - test/aoj/CGL/CGL_3_C.test.cpp
 documentation_of: Geometry/geometry.hpp
 layout: document
 redirect_from:

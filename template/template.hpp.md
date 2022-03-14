@@ -18,6 +18,36 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
     title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL/CGL_1_A.test.cpp
+    title: test/aoj/CGL/CGL_1_A.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL/CGL_1_B.test.cpp
+    title: test/aoj/CGL/CGL_1_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL/CGL_1_C.test.cpp
+    title: test/aoj/CGL/CGL_1_C.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL/CGL_2_A.test.cpp
+    title: test/aoj/CGL/CGL_2_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL/CGL_2_B.test.cpp
+    title: test/aoj/CGL/CGL_2_B.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL/CGL_2_C.test.cpp
+    title: test/aoj/CGL/CGL_2_C.test.cpp
+  - icon: ':x:'
+    path: test/aoj/CGL/CGL_2_D.test.cpp
+    title: test/aoj/CGL/CGL_2_D.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL/CGL_3_A.test.cpp
+    title: test/aoj/CGL/CGL_3_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL/CGL_3_B.test.cpp
+    title: test/aoj/CGL/CGL_3_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/CGL/CGL_3_C.test.cpp
+    title: test/aoj/CGL/CGL_3_C.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL/DPL_1_D.test.cpp
     title: test/aoj/DPL/DPL_1_D.test.cpp
@@ -171,9 +201,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -305,7 +335,7 @@ data:
   path: template/template.hpp
   requiredBy: []
   timestamp: '2022-02-07 21:16:16+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/shortest_path.test.cpp
@@ -333,6 +363,16 @@ data:
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/scc.test.cpp
   - test/yosupo/multipoint_evaluation.test.cpp
+  - test/aoj/CGL/CGL_2_A.test.cpp
+  - test/aoj/CGL/CGL_1_B.test.cpp
+  - test/aoj/CGL/CGL_2_D.test.cpp
+  - test/aoj/CGL/CGL_3_A.test.cpp
+  - test/aoj/CGL/CGL_1_A.test.cpp
+  - test/aoj/CGL/CGL_2_C.test.cpp
+  - test/aoj/CGL/CGL_2_B.test.cpp
+  - test/aoj/CGL/CGL_1_C.test.cpp
+  - test/aoj/CGL/CGL_3_B.test.cpp
+  - test/aoj/CGL/CGL_3_C.test.cpp
   - test/aoj/NTL/NTL_1_B.test.cpp
   - test/aoj/NTL/NTL_1_A.test.cpp
   - test/aoj/NTL/NTL_1_D.test.cpp

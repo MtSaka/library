@@ -39,7 +39,7 @@ data:
         )"
   - name: Geometry
     pages:
-    - icon: ':warning:'
+    - icon: ':question:'
       path: Geometry/geometry.hpp
       title: Geometry/geometry.hpp
   - name: Graph/flow
@@ -213,7 +213,7 @@ data:
       title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -242,13 +242,13 @@ data:
     - icon: ':x:'
       path: test/aoj/CGL/CGL_1_B.test.cpp
       title: test/aoj/CGL/CGL_1_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_1_C.test.cpp
       title: test/aoj/CGL/CGL_1_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_2_A.test.cpp
       title: test/aoj/CGL/CGL_2_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_2_B.test.cpp
       title: test/aoj/CGL/CGL_2_B.test.cpp
     - icon: ':x:'
@@ -257,13 +257,13 @@ data:
     - icon: ':x:'
       path: test/aoj/CGL/CGL_2_D.test.cpp
       title: test/aoj/CGL/CGL_2_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_3_A.test.cpp
       title: test/aoj/CGL/CGL_3_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_3_B.test.cpp
       title: test/aoj/CGL/CGL_3_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_3_C.test.cpp
       title: test/aoj/CGL/CGL_3_C.test.cpp
   - name: test/aoj/DPL
