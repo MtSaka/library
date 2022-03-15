@@ -3,10 +3,10 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL/CGL_1_A.test.cpp
     title: test/aoj/CGL/CGL_1_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL/CGL_1_B.test.cpp
     title: test/aoj/CGL/CGL_1_B.test.cpp
   - icon: ':heavy_check_mark:'
@@ -18,10 +18,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL/CGL_2_B.test.cpp
     title: test/aoj/CGL/CGL_2_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL/CGL_2_C.test.cpp
     title: test/aoj/CGL/CGL_2_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/CGL/CGL_2_D.test.cpp
     title: test/aoj/CGL/CGL_2_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -33,9 +33,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL/CGL_3_C.test.cpp
     title: test/aoj/CGL/CGL_3_C.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Geometry/geometry.hpp\"\nnamespace geometry{\n  const long\
@@ -89,7 +89,7 @@ data:
     \  long double dist(segment s,line l){return dist(l,s);}\n  long double dist(segment\
     \ s,point p){\n    point q=project(line(s.s,s.t),p);\n    if(intersect(s,q))return\
     \ (p-q).abs();\n    else return min((s.s-p).abs(),(s.t-p).abs());\n  }\n  long\
-    \ double dist(point p,segment s){return dist(p,s);}\n  long double dist(segment\
+    \ double dist(point p,segment s){return dist(s,p);}\n  long double dist(segment\
     \ s,segment t){\n    if(intersect(s,t))return 0;\n    return min(min(dist(s,t.s),dist(s,t.t)),min(dist(t,s.s),dist(t,s.t)));\n\
     \  }\n  point crosspoint(line l,line m){\n    long double a=cross(m.t-m.s,m.s-l.s);\n\
     \    long double b=cross(m.t-m.s,l.t-l.s);\n    if(sign(a)==0&&sign(b)==0)return\
@@ -192,7 +192,7 @@ data:
     \  long double dist(segment s,line l){return dist(l,s);}\n  long double dist(segment\
     \ s,point p){\n    point q=project(line(s.s,s.t),p);\n    if(intersect(s,q))return\
     \ (p-q).abs();\n    else return min((s.s-p).abs(),(s.t-p).abs());\n  }\n  long\
-    \ double dist(point p,segment s){return dist(p,s);}\n  long double dist(segment\
+    \ double dist(point p,segment s){return dist(s,p);}\n  long double dist(segment\
     \ s,segment t){\n    if(intersect(s,t))return 0;\n    return min(min(dist(s,t.s),dist(s,t.t)),min(dist(t,s.s),dist(t,s.t)));\n\
     \  }\n  point crosspoint(line l,line m){\n    long double a=cross(m.t-m.s,m.s-l.s);\n\
     \    long double b=cross(m.t-m.s,l.t-l.s);\n    if(sign(a)==0&&sign(b)==0)return\
@@ -248,8 +248,8 @@ data:
   isVerificationFile: false
   path: Geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2022-03-14 20:38:41+00:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-03-15 06:37:12+00:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL/CGL_2_A.test.cpp
   - test/aoj/CGL/CGL_1_B.test.cpp

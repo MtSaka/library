@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Geometry/geometry.hpp
     title: Geometry/geometry.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -131,7 +131,7 @@ data:
     \  long double dist(segment s,line l){return dist(l,s);}\n  long double dist(segment\
     \ s,point p){\n    point q=project(line(s.s,s.t),p);\n    if(intersect(s,q))return\
     \ (p-q).abs();\n    else return min((s.s-p).abs(),(s.t-p).abs());\n  }\n  long\
-    \ double dist(point p,segment s){return dist(p,s);}\n  long double dist(segment\
+    \ double dist(point p,segment s){return dist(s,p);}\n  long double dist(segment\
     \ s,segment t){\n    if(intersect(s,t))return 0;\n    return min(min(dist(s,t.s),dist(s,t.t)),min(dist(t,s.s),dist(t,s.t)));\n\
     \  }\n  point crosspoint(line l,line m){\n    long double a=cross(m.t-m.s,m.s-l.s);\n\
     \    long double b=cross(m.t-m.s,l.t-l.s);\n    if(sign(a)==0&&sign(b)==0)return\
@@ -195,7 +195,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL/CGL_3_B.test.cpp
   requiredBy: []
-  timestamp: '2022-03-14 22:23:14+00:00'
+  timestamp: '2022-03-15 06:37:12+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL/CGL_3_B.test.cpp

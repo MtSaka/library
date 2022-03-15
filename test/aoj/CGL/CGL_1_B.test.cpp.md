@@ -1,27 +1,28 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Geometry/geometry.hpp
     title: Geometry/geometry.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
+    ERROR: 1e-6
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_1_B
     links:
     - https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_1_B
   bundledCode: "#line 1 \"test/aoj/CGL/CGL_1_B.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_1_B\"\
-    \n#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
-    \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
-    #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
-    \ rep1(a) for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n\
+    \n#define ERROR 1e-6\n#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"\
+    avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\"\
+    )\n#include<bits/stdc++.h>\n#define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...)\
+    \ d\n#define rep1(a) for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n\
     #define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n#define rep4(i,a,b,c) for(ll\
     \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) overload4(__VA_ARGS__, rep4,\
     \ rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
@@ -131,7 +132,7 @@ data:
     \  long double dist(segment s,line l){return dist(l,s);}\n  long double dist(segment\
     \ s,point p){\n    point q=project(line(s.s,s.t),p);\n    if(intersect(s,q))return\
     \ (p-q).abs();\n    else return min((s.s-p).abs(),(s.t-p).abs());\n  }\n  long\
-    \ double dist(point p,segment s){return dist(p,s);}\n  long double dist(segment\
+    \ double dist(point p,segment s){return dist(s,p);}\n  long double dist(segment\
     \ s,segment t){\n    if(intersect(s,t))return 0;\n    return min(min(dist(s,t.s),dist(s,t.t)),min(dist(t,s.s),dist(t,s.t)));\n\
     \  }\n  point crosspoint(line l,line m){\n    long double a=cross(m.t-m.s,m.s-l.s);\n\
     \    long double b=cross(m.t-m.s,l.t-l.s);\n    if(sign(a)==0&&sign(b)==0)return\
@@ -182,12 +183,12 @@ data:
     \ 0;\n    return 1;\n  }\n  int in_polygon(point p,polygon&pol){\n    int n=pol.n;\n\
     \    bool in=false;\n    for(int i=0;i<n;i++){\n      point a=pol[i],b=pol[(i+1)%n];\n\
     \      if(intersect(p,segment(a,b)))return 2;\n      if(intersect(segment(p,point(p.x+1.0,INT_MAX)),segment(a,b)))in=!in;\
-    \ \n    }\n    return in;\n  }\n};\n#line 4 \"test/aoj/CGL/CGL_1_B.test.cpp\"\n\
+    \ \n    }\n    return in;\n  }\n};\n#line 5 \"test/aoj/CGL/CGL_1_B.test.cpp\"\n\
     int main(){\n  cout<<fixed<<setprecision(15);\n  geometry::point p1,p2;cin>>p1>>p2;\n\
     \  int q;cin>>q;\n  while(q--){\n    geometry::point p;cin>>p;\n    auto ans=geometry::reflect(geometry::line(p1,p2),p);\n\
     \    cout<<ans.x<<\" \"<<ans.y<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_1_B\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Geometry/geometry.hpp\"\
+    \n#define ERROR 1e-6\n#include\"../../../template/template.hpp\"\n#include\"../../../Geometry/geometry.hpp\"\
     \nint main(){\n  cout<<fixed<<setprecision(15);\n  geometry::point p1,p2;cin>>p1>>p2;\n\
     \  int q;cin>>q;\n  while(q--){\n    geometry::point p;cin>>p;\n    auto ans=geometry::reflect(geometry::line(p1,p2),p);\n\
     \    cout<<ans.x<<\" \"<<ans.y<<endl;\n  }\n}"
@@ -197,8 +198,8 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL/CGL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2022-03-14 22:23:14+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-03-15 06:37:12+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL/CGL_1_B.test.cpp
 layout: document
