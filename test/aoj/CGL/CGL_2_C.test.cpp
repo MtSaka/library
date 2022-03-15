@@ -1,4 +1,5 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_2_C"
+#define ERROR 1e-6
 #include"../../../template/template.hpp"
 #include"../../../Geometry/geometry.hpp"
 int main(){

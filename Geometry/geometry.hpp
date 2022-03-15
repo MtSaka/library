@@ -87,7 +87,7 @@ namespace geometry{
     if(intersect(s,q))return (p-q).abs();
     else return min((s.s-p).abs(),(s.t-p).abs());
   }
-  long double dist(point p,segment s){return dist(p,s);}
+  long double dist(point p,segment s){return dist(s,p);}
   long double dist(segment s,segment t){
     if(intersect(s,t))return 0;
     return min(min(dist(s,t.s),dist(s,t.t)),min(dist(t,s.s),dist(t,s.t)));
