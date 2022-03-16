@@ -82,12 +82,11 @@ data:
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
     Graph/flow/dinic.hpp\"\ntemplate<typename T>\nstruct Dinic{\n  struct edge{\n\
     \    int to;\n    T cap;\n    int rev;\n    bool isrev;\n    int idx;\n  };\n\
-    \  vector<vector<edge>>g;\n  vector<int>min_cost,iter;\n  const T INF;\n  Dinic(int\
-    \ v):INF(numeric_limits<T>::max()/2),g(v){}\n  void add_edge(int from,int to,T\
-    \ cap,int idx=-1){\n    g[from].emplace_back(edge{to,cap,(int)g[to].size(),false,idx});\n\
-    \    g[to].emplace_back(edge{from,0,(int)g[from].size()-1,true,idx});\n  }\n \
-    \ bool build_path(int s,int t){\n    min_cost.assign(g.size(),-1);\n    queue<int>q;\n\
-    \    min_cost[s]=0;\n    q.push(s);\n    while(!q.empty()&&min_cost[t]==-1){\n\
+    \  vector<vector<edge>>g;\n  vector<int>min_cost,iter;\n  const T INF=numeric_limits<T>::max()/2;\n\
+    \  Dinic(int v):g(v){}\n  void add_edge(int from,int to,T cap,int idx=-1){\n \
+    \   g[from].emplace_back(edge{to,cap,(int)g[to].size(),false,idx});\n    g[to].emplace_back(edge{from,0,(int)g[from].size()-1,true,idx});\n\
+    \  }\n  bool build_path(int s,int t){\n    min_cost.assign(g.size(),-1);\n   \
+    \ queue<int>q;\n    min_cost[s]=0;\n    q.push(s);\n    while(!q.empty()&&min_cost[t]==-1){\n\
     \      int v=q.front();q.pop();\n      for(auto&e:g[v]){\n        if(e.cap>0&&min_cost[e.to]==-1){\n\
     \          min_cost[e.to]=min_cost[v]+1;\n          q.push(e.to);\n        }\n\
     \      }\n    }\n    return min_cost[t]!=-1;\n  }\n  T find_path(int idx,const\
@@ -112,7 +111,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_6_A.test.cpp
   requiredBy: []
-  timestamp: '2022-02-07 21:16:16+00:00'
+  timestamp: '2022-03-16 21:23:38+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_6_A.test.cpp

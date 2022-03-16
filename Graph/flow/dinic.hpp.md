@@ -15,7 +15,7 @@ data:
   bundledCode: "#line 2 \"Graph/flow/dinic.hpp\"\ntemplate<typename T>\nstruct Dinic{\n\
     \  struct edge{\n    int to;\n    T cap;\n    int rev;\n    bool isrev;\n    int\
     \ idx;\n  };\n  vector<vector<edge>>g;\n  vector<int>min_cost,iter;\n  const T\
-    \ INF;\n  Dinic(int v):INF(numeric_limits<T>::max()/2),g(v){}\n  void add_edge(int\
+    \ INF=numeric_limits<T>::max()/2;\n  Dinic(int v):g(v){}\n  void add_edge(int\
     \ from,int to,T cap,int idx=-1){\n    g[from].emplace_back(edge{to,cap,(int)g[to].size(),false,idx});\n\
     \    g[to].emplace_back(edge{from,0,(int)g[from].size()-1,true,idx});\n  }\n \
     \ bool build_path(int s,int t){\n    min_cost.assign(g.size(),-1);\n    queue<int>q;\n\
@@ -33,8 +33,8 @@ data:
     */\n"
   code: "#pragma once\ntemplate<typename T>\nstruct Dinic{\n  struct edge{\n    int\
     \ to;\n    T cap;\n    int rev;\n    bool isrev;\n    int idx;\n  };\n  vector<vector<edge>>g;\n\
-    \  vector<int>min_cost,iter;\n  const T INF;\n  Dinic(int v):INF(numeric_limits<T>::max()/2),g(v){}\n\
-    \  void add_edge(int from,int to,T cap,int idx=-1){\n    g[from].emplace_back(edge{to,cap,(int)g[to].size(),false,idx});\n\
+    \  vector<int>min_cost,iter;\n  const T INF=numeric_limits<T>::max()/2;\n  Dinic(int\
+    \ v):g(v){}\n  void add_edge(int from,int to,T cap,int idx=-1){\n    g[from].emplace_back(edge{to,cap,(int)g[to].size(),false,idx});\n\
     \    g[to].emplace_back(edge{from,0,(int)g[from].size()-1,true,idx});\n  }\n \
     \ bool build_path(int s,int t){\n    min_cost.assign(g.size(),-1);\n    queue<int>q;\n\
     \    min_cost[s]=0;\n    q.push(s);\n    while(!q.empty()&&min_cost[t]==-1){\n\
@@ -53,7 +53,7 @@ data:
   isVerificationFile: false
   path: Graph/flow/dinic.hpp
   requiredBy: []
-  timestamp: '2022-01-29 09:29:56+00:00'
+  timestamp: '2022-03-16 21:23:38+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_6_A.test.cpp
