@@ -10,8 +10,8 @@ struct Dinic{
   };
   vector<vector<edge>>g;
   vector<int>min_cost,iter;
-  const T INF;
-  Dinic(int v):INF(numeric_limits<T>::max()/2),g(v){}
+  const T INF=numeric_limits<T>::max()/2;
+  Dinic(int v):g(v){}
   void add_edge(int from,int to,T cap,int idx=-1){
     g[from].emplace_back(edge{to,cap,(int)g[to].size(),false,idx});
     g[to].emplace_back(edge{from,0,(int)g[from].size()-1,true,idx});
