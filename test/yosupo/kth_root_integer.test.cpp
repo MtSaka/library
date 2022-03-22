@@ -10,3 +10,4 @@ int main(){
     cin>>a>>k;
     cout<<kth_root_integer(a,k)<<endl;
   }
+}
