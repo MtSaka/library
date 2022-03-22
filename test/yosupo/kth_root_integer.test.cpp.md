@@ -1,38 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Math/modular/mod_sqrt.hpp
-    title: Math/modular/mod_sqrt.hpp
-  - icon: ':heavy_check_mark:'
-    path: Math/modular/modpow.hpp
-    title: "Mod Pow(\u3079\u304D\u4E57)"
+  - icon: ':x:'
+    path: Math/number/kth_root_integer.hpp
+    title: Kth Root Integer
   - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/sqrt_mod
+    PROBLEM: https://judge.yosupo.jp/problem/kth_root_integer
     links:
-    - https://judge.yosupo.jp/problem/sqrt_mod
-  bundledCode: "#line 1 \"test/yosupo/sqrt_mod.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_mod\"\
-    \n#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
-    \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
-    #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
-    \ rep1(a) for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n\
-    #define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n#define rep4(i,a,b,c) for(ll\
-    \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) overload4(__VA_ARGS__, rep4,\
-    \ rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
-    #define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n\
-    #define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n#define\
-    \ fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n#define\
-    \ all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n#define\
-    \ all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n#define rall(n)\
+    - https://judge.yosupo.jp/problem/kth_root_integer
+  bundledCode: "#line 1 \"test/yosupo/kth_root_integer.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.yosupo.jp/problem/kth_root_integer\"\n#line 1 \"template/template.hpp\"\
+    \n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC\
+    \ optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define overload4(a,b,c,d,e,...)\
+    \ e\n#define overload3(a,b,c,d,...) d\n#define rep1(a) for(ll i=0;i<(ll)(a);i++)\n\
+    #define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n#define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n\
+    #define rep4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...)\
+    \ overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a)\
+    \ for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
+    #define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n#define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n\
+    #define fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n\
+    #define all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n\
+    #define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n#define rall(n)\
     \ (n).rbegin(),(n).rend()\n#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
@@ -82,38 +79,32 @@ data:
     ,\";trace(forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...) (void(0))\n\
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
-    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Math/modular/modpow.hpp\"\ntemplate<typename T,typename S>\nT modpow(T a,S b,T\
-    \ m){\n  T ret=1;\n  while(b){\n    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n\
-    \  }\n  return ret;\n}\n/**\n * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line\
-    \ 3 \"Math/modular/mod_sqrt.hpp\"\ntemplate<typename T,typename S>\nS mod_sqrt(T\
-    \ a,S p){\n  a%=p;\n  if(a==0)return 0;\n  if(p==2)return a;\n  if(modpow(a,(p-1)/2,p)!=1)return\
-    \ -1;\n  if((p&3)==3)return modpow(a,(p+1)/4,p);\n  S q=p-1,s=0,z=2;\n  while(!(q&1))q>>=1,s++;\n\
-    \  while(modpow(z,(p-1)/2,p)==1)z++;\n  S m=s,c=modpow(z,q,p),t=modpow(a,q,p),r=modpow(a,(q+1)/2,p);\n\
-    \  while(t!=1){\n    S pow_t=t*t%p,m_update;\n    for(int j=1;j<m;j++){\n    \
-    \  if(pow_t==1){\n        m_update=j;\n        break;\n      }\n      pow_t=pow_t*pow_t%p;\n\
-    \    }\n    S b=modpow(c,S(1)<<(m-m_update-1),p);\n    m=m_update,c=modpow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
-    \  }\n  return r;\n}\n/**\n * @breif Mod Square Root(\u5E73\u65B9\u5270\u4F59\
-    )\n*/\n#line 4 \"test/yosupo/sqrt_mod.test.cpp\"\nint main(){\n  int t;\n  cin>>t;\n\
-    \  while(t--){\n    LL(y,p);\n    print(mod_sqrt(y,p));\n  }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_mod\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../Math/modular/mod_sqrt.hpp\"\nint\
-    \ main(){\n  int t;\n  cin>>t;\n  while(t--){\n    LL(y,p);\n    print(mod_sqrt(y,p));\n\
-    \  }\n}"
+    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
+    Math/number/kth_root_integer.hpp\"\nuint64_t kth_root_integer(uint64_t a,int k){\n\
+    \  if(k==1)return a;\n  auto check=[&](uint64_t x){\n    uint64_t mul=1;\n   \
+    \ for(int j=0;j<k;j++){\n      if(__builtin_mul_overflow(mul,x,&mul))return false;\n\
+    \    }\n    return mul<=a;\n  };\n  uint64_t ret=0;\n  for(int i=31;i>=0;i--){\n\
+    \    if(check(ret|(1u<<i)))ret|=1u<<i;\n  }\n  return ret;\n}\n/**\n * @brief\
+    \ Kth Root Integer\n*/\n#line 4 \"test/yosupo/kth_root_integer.test.cpp\"\nint\
+    \ main(){\n  int t;\n  cin>>t;\n  while(t--){\n    uint64_t a;\n    int k;\n \
+    \   cin>>a>>k;\n    cout<<kth_root_integer(a,k)<<endl;\n  }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/kth_root_integer\"\n#include\"\
+    ../../template/template.hpp\"\n#include\"../../Math/number/kth_root_integer.hpp\"\
+    \nint main(){\n  int t;\n  cin>>t;\n  while(t--){\n    uint64_t a;\n    int k;\n\
+    \    cin>>a>>k;\n    cout<<kth_root_integer(a,k)<<endl;\n  }"
   dependsOn:
   - template/template.hpp
-  - Math/modular/mod_sqrt.hpp
-  - Math/modular/modpow.hpp
+  - Math/number/kth_root_integer.hpp
   isVerificationFile: true
-  path: test/yosupo/sqrt_mod.test.cpp
+  path: test/yosupo/kth_root_integer.test.cpp
   requiredBy: []
-  timestamp: '2022-02-07 21:16:16+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-03-22 22:15:18+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/yosupo/sqrt_mod.test.cpp
+documentation_of: test/yosupo/kth_root_integer.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/sqrt_mod.test.cpp
-- /verify/test/yosupo/sqrt_mod.test.cpp.html
-title: test/yosupo/sqrt_mod.test.cpp
+- /verify/test/yosupo/kth_root_integer.test.cpp
+- /verify/test/yosupo/kth_root_integer.test.cpp.html
+title: test/yosupo/kth_root_integer.test.cpp
 ---

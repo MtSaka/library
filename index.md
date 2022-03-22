@@ -170,6 +170,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/number/is_prime.hpp
       title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
+    - icon: ':x:'
+      path: Math/number/kth_root_integer.hpp
+      title: Kth Root Integer
     - icon: ':heavy_check_mark:'
       path: Math/number/phi.hpp
       title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
@@ -213,7 +216,7 @@ data:
       title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -368,6 +371,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/inv_of_formal_power_series.test.cpp
       title: test/yosupo/inv_of_formal_power_series.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/kth_root_integer.test.cpp
+      title: test/yosupo/kth_root_integer.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/lca1.test.cpp
       title: test/yosupo/lca1.test.cpp
