@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/number/kth_root_integer.hpp
     title: Kth Root Integer
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/kth_root_integer
@@ -87,19 +87,19 @@ data:
     \    if(check(ret|(1u<<i)))ret|=1u<<i;\n  }\n  return ret;\n}\n/**\n * @brief\
     \ Kth Root Integer\n*/\n#line 4 \"test/yosupo/kth_root_integer.test.cpp\"\nint\
     \ main(){\n  int t;\n  cin>>t;\n  while(t--){\n    uint64_t a;\n    int k;\n \
-    \   cin>>a>>k;\n    cout<<kth_root_integer(a,k)<<endl;\n  }\n"
+    \   cin>>a>>k;\n    cout<<kth_root_integer(a,k)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/kth_root_integer\"\n#include\"\
     ../../template/template.hpp\"\n#include\"../../Math/number/kth_root_integer.hpp\"\
     \nint main(){\n  int t;\n  cin>>t;\n  while(t--){\n    uint64_t a;\n    int k;\n\
-    \    cin>>a>>k;\n    cout<<kth_root_integer(a,k)<<endl;\n  }"
+    \    cin>>a>>k;\n    cout<<kth_root_integer(a,k)<<endl;\n  }\n}"
   dependsOn:
   - template/template.hpp
   - Math/number/kth_root_integer.hpp
   isVerificationFile: true
   path: test/yosupo/kth_root_integer.test.cpp
   requiredBy: []
-  timestamp: '2022-03-22 22:15:18+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-03-22 22:16:48+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/kth_root_integer.test.cpp
 layout: document
