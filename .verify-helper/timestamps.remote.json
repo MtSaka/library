@@ -44,6 +44,7 @@
 "test/yosupo/exp_of_formal_power_series.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/factorize.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/inv_of_formal_power_series.test.cpp": "2022-02-07 21:16:16 +0000",
+"test/yosupo/kth_root_integer.test.cpp": "2022-03-22 22:16:48 +0000",
 "test/yosupo/lca1.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/lca2.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/log_of_formal_power_series.test.cpp": "2022-02-07 21:16:16 +0000",
