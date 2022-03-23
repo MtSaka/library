@@ -127,6 +127,9 @@ data:
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/discrete-logarithm-mod.test.cpp
+    title: test/yosupo/discrete-logarithm-mod.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/division_of_polynomials.test.cpp
     title: test/yosupo/division_of_polynomials.test.cpp
   - icon: ':heavy_check_mark:'
@@ -346,6 +349,7 @@ data:
   - test/yosupo/factorize.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
   - test/yosupo/convolution_mod.test.cpp
+  - test/yosupo/discrete-logarithm-mod.test.cpp
   - test/yosupo/point_add_range_sum2.test.cpp
   - test/yosupo/lca1.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
