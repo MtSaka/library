@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/discrete_logarithm_mod" 
-#include"../../library/template/template.hpp"
-#include"../../library/Math/modular/mod_log.hpp"
+#include"../../template/template.hpp"
+#include"../../Math/modular/mod_log.hpp"
 int main(){
   int t;
   cin>>t;

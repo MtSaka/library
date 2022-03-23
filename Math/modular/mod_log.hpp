@@ -2,6 +2,8 @@
 template<typename T>
 T discrete_logarithm(T x,T y,T m){
   x%=m,y%=m;
+  if(y==1||m==1)return 0;
+  if(x==0)return y==0?1:-1;
   T add=0,g,k=1%m;
   while((g=gcd(x,m))>1){
     if(y==k)return add;
