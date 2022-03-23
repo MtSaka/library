@@ -1,0 +1,27 @@
+#include"modpow.hpp"
+template<typename T>
+T discrete_logarithm(T x,T y,T m){
+  x%=m,y%=m;
+  T add=0,g,k=1%m;
+  while((g=gcd(x,m))>1){
+    if(y==k)return add;
+    if(y%g)return -1;
+    y/=g,m/=g,add++;
+    k=(k*(x/g))%m;
+  }
+  T n=sqrt(m)+1;
+  T tmp=modpow(x,n,m);
+  unordered_map<T,T>mp;
+  for(T i=0,now=y;i<=n;i++){
+    mp[now]=i;
+    now=(now*x)%m;
+  }
+  for(T i=1,now=k;i<=n;i++){
+    now=(now*tmp)%m;
+    if(mp.count(now))return n*i-mp[now]+add;
+  }
+  return -1;
+}
+/**
+ * @brief Mod Log(離散対数)
+*/
