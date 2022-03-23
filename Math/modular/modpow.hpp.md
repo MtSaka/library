@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: Math/modular/mod_log.hpp
+    title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
   - icon: ':heavy_check_mark:'
     path: Math/modular/mod_sqrt.hpp
     title: Math/modular/mod_sqrt.hpp
@@ -33,6 +36,7 @@ data:
   path: Math/modular/modpow.hpp
   requiredBy:
   - Math/modular/mod_sqrt.hpp
+  - Math/modular/mod_log.hpp
   timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

@@ -141,6 +141,9 @@ data:
       title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - name: Math/modular
     pages:
+    - icon: ':warning:'
+      path: Math/modular/mod_log.hpp
+      title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
     - icon: ':heavy_check_mark:'
       path: Math/modular/mod_sqrt.hpp
       title: Math/modular/mod_sqrt.hpp
@@ -359,6 +362,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution_mod_1000000007.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/discrete-logarithm-mod.test.cpp
+      title: test/yosupo/discrete-logarithm-mod.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/division_of_polynomials.test.cpp
       title: test/yosupo/division_of_polynomials.test.cpp
