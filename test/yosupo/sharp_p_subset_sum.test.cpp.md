@@ -1,41 +1,44 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/subset_sum.hpp
     title: Math/fps/subset_sum.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    links: []
-  bundledCode: "#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n\
-    //#pragma GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
-    #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
-    \ rep1(a) for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n\
-    #define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n#define rep4(i,a,b,c) for(ll\
-    \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) overload4(__VA_ARGS__, rep4,\
-    \ rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
-    #define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n\
-    #define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n#define\
-    \ fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n#define\
-    \ all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n#define\
-    \ all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n#define rall(n)\
+    PROBLEM: https://judge.yosupo.jp/problem/sharp_p_subset_sum
+    links:
+    - https://judge.yosupo.jp/problem/sharp_p_subset_sum
+  bundledCode: "#line 1 \"test/yosupo/sharp_p_subset_sum.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.yosupo.jp/problem/sharp_p_subset_sum\"\n#line 1 \"template/template.hpp\"\
+    \n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC\
+    \ optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define overload4(a,b,c,d,e,...)\
+    \ e\n#define overload3(a,b,c,d,...) d\n#define rep1(a) for(ll i=0;i<(ll)(a);i++)\n\
+    #define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n#define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n\
+    #define rep4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...)\
+    \ overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a)\
+    \ for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
+    #define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n#define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n\
+    #define fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n\
+    #define all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n\
+    #define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n#define rall(n)\
     \ (n).rbegin(),(n).rend()\n#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
@@ -209,11 +212,12 @@ data:
     \  for(int i=2;i<n;i++)inv_table[i]=-inv_table[mod%i]*(mod/i);\n  FPS<Mod>f(n);\n\
     \  for(int i=1;i<n;i++)if(count[i].x){\n    for(int j=1,k=i;k<n;j++,k+=i){\n \
     \     if(j&1)f[k]+=inv_table[j]*count[i];\n      else f[k]-=inv_table[j]*count[i];\n\
-    \    }\n  }\n  return f.exp();\n}\n#line 3 \"test/yosupo/sharp_p_subset_sum.test.cpp\"\
+    \    }\n  }\n  return f.exp();\n}\n#line 4 \"test/yosupo/sharp_p_subset_sum.test.cpp\"\
     \nint main(){\n  int n,t;\n  cin>>n>>t;\n  vector<modint<mod>>cnt(t+1);\n  while(n--){\n\
     \    int s;cin>>s;\n    cnt[s]+=1;\n  }\n  auto ans=subset_sum(cnt);\n  for(int\
     \ i=1;i<=t;i++)cout<<ans[i]<<\" \\n\"[i==t];\n}\n"
-  code: "#include\"../../template/template.hpp\"\n#include\"../../Math/fps/subset_sum.hpp\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sharp_p_subset_sum\"\n\
+    #include\"../../template/template.hpp\"\n#include\"../../Math/fps/subset_sum.hpp\"\
     \nint main(){\n  int n,t;\n  cin>>n>>t;\n  vector<modint<mod>>cnt(t+1);\n  while(n--){\n\
     \    int s;cin>>s;\n    cnt[s]+=1;\n  }\n  auto ans=subset_sum(cnt);\n  for(int\
     \ i=1;i<=t;i++)cout<<ans[i]<<\" \\n\"[i==t];\n}"
@@ -226,8 +230,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/sharp_p_subset_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-03-25 21:46:42+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-03-25 21:47:57+00:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/sharp_p_subset_sum.test.cpp
 layout: document
