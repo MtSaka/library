@@ -16,7 +16,7 @@ data:
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':heavy_check_mark:'
     path: Math/fps/subset_sum.hpp
-    title: Math/fps/subset_sum.hpp
+    title: Count Subset Sum
   - icon: ':heavy_check_mark:'
     path: Math/fps/taylor_shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"

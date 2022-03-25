@@ -19,6 +19,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    document_title: Count Subset Sum
     links: []
   bundledCode: "#line 2 \"Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct\
     \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y){\n    if(y<0){\n\
@@ -143,13 +144,13 @@ data:
     \  for(int i=2;i<n;i++)inv_table[i]=-inv_table[mod%i]*(mod/i);\n  FPS<Mod>f(n);\n\
     \  for(int i=1;i<n;i++)if(count[i].x){\n    for(int j=1,k=i;k<n;j++,k+=i){\n \
     \     if(j&1)f[k]+=inv_table[j]*count[i];\n      else f[k]-=inv_table[j]*count[i];\n\
-    \    }\n  }\n  return f.exp();\n}\n"
+    \    }\n  }\n  return f.exp();\n}\n/**\n * @brief Count Subset Sum\n*/\n"
   code: "#pragma once\n#include\"fps.hpp\"\ntemplate<long long Mod>\nFPS<Mod>subset_sum(vector<modint<Mod>>&count){\n\
     \  const int n=(int)count.size();\n  vector<modint<Mod>>inv_table(n);\n  inv_table[1]=1;\n\
     \  for(int i=2;i<n;i++)inv_table[i]=-inv_table[mod%i]*(mod/i);\n  FPS<Mod>f(n);\n\
     \  for(int i=1;i<n;i++)if(count[i].x){\n    for(int j=1,k=i;k<n;j++,k+=i){\n \
     \     if(j&1)f[k]+=inv_table[j]*count[i];\n      else f[k]-=inv_table[j]*count[i];\n\
-    \    }\n  }\n  return f.exp();\n}"
+    \    }\n  }\n  return f.exp();\n}\n/**\n * @brief Count Subset Sum\n*/"
   dependsOn:
   - Math/fps/fps.hpp
   - Math/convolution/ntt.hpp
@@ -157,7 +158,7 @@ data:
   isVerificationFile: false
   path: Math/fps/subset_sum.hpp
   requiredBy: []
-  timestamp: '2022-03-25 21:46:42+00:00'
+  timestamp: '2022-03-25 21:53:48+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/sharp_p_subset_sum.test.cpp
@@ -166,5 +167,5 @@ layout: document
 redirect_from:
 - /library/Math/fps/subset_sum.hpp
 - /library/Math/fps/subset_sum.hpp.html
-title: Math/fps/subset_sum.hpp
+title: Count Subset Sum
 ---

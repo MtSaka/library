@@ -16,6 +16,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    document_title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
     links: []
   bundledCode: "#line 2 \"Math/modular/modpow.hpp\"\ntemplate<typename T,typename\
     \ S>\nT modpow(T a,S b,T m){\n  T ret=1;\n  while(b){\n    if(b&1)ret=ret*a%m;\n\
@@ -28,7 +29,7 @@ data:
     \    S pow_t=t*t%p,m_update;\n    for(int j=1;j<m;j++){\n      if(pow_t==1){\n\
     \        m_update=j;\n        break;\n      }\n      pow_t=pow_t*pow_t%p;\n  \
     \  }\n    S b=modpow(c,S(1)<<(m-m_update-1),p);\n    m=m_update,c=modpow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
-    \  }\n  return r;\n}\n/**\n * @breif Mod Square Root(\u5E73\u65B9\u5270\u4F59\
+    \  }\n  return r;\n}\n/**\n * @brief Mod Square Root(\u5E73\u65B9\u5270\u4F59\
     )\n*/\n"
   code: "#pragma once\n#include\"modpow.hpp\"\ntemplate<typename T,typename S>\nS\
     \ mod_sqrt(T a,S p){\n  a%=p;\n  if(a==0)return 0;\n  if(p==2)return a;\n  if(modpow(a,(p-1)/2,p)!=1)return\
@@ -37,14 +38,14 @@ data:
     \  while(t!=1){\n    S pow_t=t*t%p,m_update;\n    for(int j=1;j<m;j++){\n    \
     \  if(pow_t==1){\n        m_update=j;\n        break;\n      }\n      pow_t=pow_t*pow_t%p;\n\
     \    }\n    S b=modpow(c,S(1)<<(m-m_update-1),p);\n    m=m_update,c=modpow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
-    \  }\n  return r;\n}\n/**\n * @breif Mod Square Root(\u5E73\u65B9\u5270\u4F59\
+    \  }\n  return r;\n}\n/**\n * @brief Mod Square Root(\u5E73\u65B9\u5270\u4F59\
     )\n*/"
   dependsOn:
   - Math/modular/modpow.hpp
   isVerificationFile: false
   path: Math/modular/mod_sqrt.hpp
   requiredBy: []
-  timestamp: '2022-01-29 16:22:31+00:00'
+  timestamp: '2022-03-25 21:53:48+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
@@ -54,5 +55,5 @@ layout: document
 redirect_from:
 - /library/Math/modular/mod_sqrt.hpp
 - /library/Math/modular/mod_sqrt.hpp.html
-title: Math/modular/mod_sqrt.hpp
+title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
 ---

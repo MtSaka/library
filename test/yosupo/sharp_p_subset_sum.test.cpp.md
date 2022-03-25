@@ -9,7 +9,7 @@ data:
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
     path: Math/fps/subset_sum.hpp
-    title: Math/fps/subset_sum.hpp
+    title: Count Subset Sum
   - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
@@ -212,10 +212,11 @@ data:
     \  for(int i=2;i<n;i++)inv_table[i]=-inv_table[mod%i]*(mod/i);\n  FPS<Mod>f(n);\n\
     \  for(int i=1;i<n;i++)if(count[i].x){\n    for(int j=1,k=i;k<n;j++,k+=i){\n \
     \     if(j&1)f[k]+=inv_table[j]*count[i];\n      else f[k]-=inv_table[j]*count[i];\n\
-    \    }\n  }\n  return f.exp();\n}\n#line 4 \"test/yosupo/sharp_p_subset_sum.test.cpp\"\
-    \nint main(){\n  int n,t;\n  cin>>n>>t;\n  vector<modint<mod>>cnt(t+1);\n  while(n--){\n\
-    \    int s;cin>>s;\n    cnt[s]+=1;\n  }\n  auto ans=subset_sum(cnt);\n  for(int\
-    \ i=1;i<=t;i++)cout<<ans[i]<<\" \\n\"[i==t];\n}\n"
+    \    }\n  }\n  return f.exp();\n}\n/**\n * @brief Count Subset Sum\n*/\n#line\
+    \ 4 \"test/yosupo/sharp_p_subset_sum.test.cpp\"\nint main(){\n  int n,t;\n  cin>>n>>t;\n\
+    \  vector<modint<mod>>cnt(t+1);\n  while(n--){\n    int s;cin>>s;\n    cnt[s]+=1;\n\
+    \  }\n  auto ans=subset_sum(cnt);\n  for(int i=1;i<=t;i++)cout<<ans[i]<<\" \\\
+    n\"[i==t];\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sharp_p_subset_sum\"\n\
     #include\"../../template/template.hpp\"\n#include\"../../Math/fps/subset_sum.hpp\"\
     \nint main(){\n  int n,t;\n  cin>>n>>t;\n  vector<modint<mod>>cnt(t+1);\n  while(n--){\n\
@@ -230,7 +231,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/sharp_p_subset_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-03-25 21:47:57+00:00'
+  timestamp: '2022-03-25 21:53:48+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/sharp_p_subset_sum.test.cpp

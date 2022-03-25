@@ -138,7 +138,7 @@ data:
       title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
     - icon: ':heavy_check_mark:'
       path: Math/fps/subset_sum.hpp
-      title: Math/fps/subset_sum.hpp
+      title: Count Subset Sum
     - icon: ':heavy_check_mark:'
       path: Math/fps/taylor_shift.hpp
       title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
@@ -149,7 +149,7 @@ data:
       title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
     - icon: ':heavy_check_mark:'
       path: Math/modular/mod_sqrt.hpp
-      title: Math/modular/mod_sqrt.hpp
+      title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
     - icon: ':heavy_check_mark:'
       path: Math/modular/modint.hpp
       title: modint

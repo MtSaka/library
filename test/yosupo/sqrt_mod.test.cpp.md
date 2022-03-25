@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: Math/modular/mod_sqrt.hpp
-    title: Math/modular/mod_sqrt.hpp
+    title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
   - icon: ':heavy_check_mark:'
     path: Math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
@@ -93,7 +93,7 @@ data:
     \  while(t!=1){\n    S pow_t=t*t%p,m_update;\n    for(int j=1;j<m;j++){\n    \
     \  if(pow_t==1){\n        m_update=j;\n        break;\n      }\n      pow_t=pow_t*pow_t%p;\n\
     \    }\n    S b=modpow(c,S(1)<<(m-m_update-1),p);\n    m=m_update,c=modpow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
-    \  }\n  return r;\n}\n/**\n * @breif Mod Square Root(\u5E73\u65B9\u5270\u4F59\
+    \  }\n  return r;\n}\n/**\n * @brief Mod Square Root(\u5E73\u65B9\u5270\u4F59\
     )\n*/\n#line 4 \"test/yosupo/sqrt_mod.test.cpp\"\nint main(){\n  int t;\n  cin>>t;\n\
     \  while(t--){\n    LL(y,p);\n    print(mod_sqrt(y,p));\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_mod\"\n#include\"\
@@ -107,7 +107,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/sqrt_mod.test.cpp
   requiredBy: []
-  timestamp: '2022-02-07 21:16:16+00:00'
+  timestamp: '2022-03-25 21:53:48+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/sqrt_mod.test.cpp

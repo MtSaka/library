@@ -7,7 +7,7 @@ data:
     title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
   - icon: ':heavy_check_mark:'
     path: Math/modular/mod_sqrt.hpp
-    title: Math/modular/mod_sqrt.hpp
+    title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/NTL/NTL_1_B.test.cpp
