@@ -205,7 +205,7 @@ data:
     \    }\n    ret.resize(d);\n    return ret;\n  }\n};\n/**\n * @brief Formal Power\
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 3 \"Math/fps/subset_sum.hpp\"\
     \ntemplate<long long Mod>\nFPS<Mod>subset_sum(vector<modint<Mod>>&count){\n  const\
-    \ int n=count.size();\n  vector<modint<Mod>>inv_table(n);\n  inv_table[1]=1;\n\
+    \ int n=(int)count.size();\n  vector<modint<Mod>>inv_table(n);\n  inv_table[1]=1;\n\
     \  for(int i=2;i<n;i++)inv_table[i]=-inv_table[mod%i]*(mod/i);\n  FPS<Mod>f(n);\n\
     \  for(int i=1;i<n;i++)if(count[i].x){\n    for(int j=1,k=i;k<n;j++,k+=i){\n \
     \     if(j&1)f[k]+=inv_table[j]*count[i];\n      else f[k]-=inv_table[j]*count[i];\n\
@@ -226,7 +226,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/sharp_p_subset_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-03-25 21:42:28+00:00'
+  timestamp: '2022-03-25 21:46:42+00:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/sharp_p_subset_sum.test.cpp
