@@ -1,3 +1,4 @@
+#define PROBLEM "https://judge.yosupo.jp/problem/sharp_p_subset_sum"
 #include"../../template/template.hpp"
 #include"../../Math/fps/subset_sum.hpp"
 int main(){
