@@ -26,5 +26,5 @@ S mod_sqrt(T a,S p){
   return r;
 }
 /**
- * @breif Mod Square Root(平方剰余)
+ * @brief Mod Square Root(平方剰余)
 */

@@ -15,3 +15,6 @@ FPS<Mod>subset_sum(vector<modint<Mod>>&count){
   }
   return f.exp();
 }
+/**
+ * @brief Count Subset Sum
+*/
