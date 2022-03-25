@@ -40,6 +40,7 @@
 "test/aoj/NTL/NTL_1_D.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/convolution_mod.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/convolution_mod_1000000007.test.cpp": "2022-02-07 21:16:16 +0000",
+"test/yosupo/discrete-logarithm-mod.test.cpp": "2022-03-23 20:57:45 +0000",
 "test/yosupo/division_of_polynomials.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/exp_of_formal_power_series.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/factorize.test.cpp": "2022-02-07 21:16:16 +0000",
