@@ -59,6 +59,7 @@
 "test/yosupo/pow_of_formal_power_series.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/range_affine_range_sum.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/scc.test.cpp": "2022-02-07 21:16:16 +0000",
+"test/yosupo/sharp_p_subset_sum.test.cpp": "2022-03-25 21:47:57 +0000",
 "test/yosupo/shortest_path.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/sqrt_mod.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/sqrt_of_formal_power_series.test.cpp": "2022-02-07 21:16:16 +0000",
