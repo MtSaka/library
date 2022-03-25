@@ -2,7 +2,7 @@
 #include"fps.hpp"
 template<long long Mod>
 FPS<Mod>subset_sum(vector<modint<Mod>>&count){
-  const int n=count.size();
+  const int n=(int)count.size();
   vector<modint<Mod>>inv_table(n);
   inv_table[1]=1;
   for(int i=2;i<n;i++)inv_table[i]=-inv_table[mod%i]*(mod/i);
