@@ -1,12 +1,12 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: Math/fps/taylor-shift.hpp
+    path: Math/fps/taylor_shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - icon: ':warning:'
     path: Math/others/lagrange.hpp
@@ -80,7 +80,7 @@ data:
   path: Math/others/combinatorics.hpp
   requiredBy:
   - Math/others/lagrange.hpp
-  - Math/fps/taylor-shift.hpp
+  - Math/fps/taylor_shift.hpp
   timestamp: '2022-03-13 17:50:56+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

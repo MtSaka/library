@@ -7,41 +7,35 @@ data:
   - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
-    path: Math/fps/taylor_shift.hpp
-    title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
+  - icon: ':x:'
+    path: Math/fps/subset_sum.hpp
+    title: Math/fps/subset_sum.hpp
   - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
-    path: Math/others/combinatorics.hpp
-    title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/polynomial_taylor_shift
-    links:
-    - https://judge.yosupo.jp/problem/polynomial_taylor_shift
-  bundledCode: "#line 1 \"test/yosupo/polynomial_taylor_shift.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\n#line 1\
-    \ \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"\
-    O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define\
-    \ overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define rep1(a)\
-    \ for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n#define\
-    \ rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n#define rep4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n\
-    #define rep(...) overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)\n\
-    #define rrep1(a) for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
-    #define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n#define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n\
-    #define fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n\
-    #define all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n\
-    #define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n#define rall(n)\
+    links: []
+  bundledCode: "#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n\
+    //#pragma GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
+    #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
+    \ rep1(a) for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n\
+    #define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n#define rep4(i,a,b,c) for(ll\
+    \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) overload4(__VA_ARGS__, rep4,\
+    \ rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
+    #define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n\
+    #define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n#define\
+    \ fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n#define\
+    \ all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n#define\
+    \ all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n#define rall(n)\
     \ (n).rbegin(),(n).rend()\n#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
@@ -209,53 +203,36 @@ data:
     \      if(i<n)f.insert(f.end(),(*this).begin()+i,(*this).begin()+min(n,i<<1));\n\
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      ret=(ret+f*ret.inv(i<<1))*inv2;\n\
     \    }\n    ret.resize(d);\n    return ret;\n  }\n};\n/**\n * @brief Formal Power\
-    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 3 \"Math/others/combinatorics.hpp\"\
-    \ntemplate<long long m>\nstruct combination{\n  using mint=modint<m>;\n  vector<mint>dat,idat;\n\
-    \  long long mx;\n  combination(long long mx_=300000):dat(mx_+1,1),idat(mx_+1,1),mx(mx_){\n\
-    \    for(long long i=1;i<=mx;i++)dat[i]=dat[i-1]*mint(i);\n    idat[mx]/=dat[mx];\n\
-    \    for(long long i=mx;i>0;i--)idat[i-1]=idat[i]*mint(i);\n  }\n  mint com(long\
-    \ long n,long long k){\n    if(n<0||k<0||n<k)return mint(0);\n    return dat[n]*idat[k]*idat[n-k];\n\
-    \  }\n  mint fac(long long n){\n    if(n<0)return mint(0);\n    return dat[n];\n\
-    \  }\n  mint finv(long long n){\n    if(n<0)return mint(0);\n    return idat[n];\n\
-    \  }\n  mint hom(long long n,long long k){\n    return com(n+k-1,k);\n  }\n  mint\
-    \ per(long long n,long long k){\n    if(k<0||k>n)return mint(0);\n    return dat[n]*idat[n-k];\n\
-    \  }\n};\ntemplate<long long p>\nstruct COMB{\n  vector<vector<modint<p>>>comb;\n\
-    \  COMB(){\n    comb.assign(p,vector<modint<p>>(p));\n    comb[0][0]=1;\n    for(int\
-    \ i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n\
-    \    }\n  }\n  modint<p>com(int n,int k){\n    modint<p>ret=1;\n    while(n>0||k>0){\n\
-    \      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n      n/=p;k/=p;\n    }\n\
-    \    return ret;\n  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\
-    \u305B)\n*/\n#line 4 \"Math/fps/taylor_shift.hpp\"\ntemplate<long long m>\nFPS<m>TaylorShift(FPS<m>f,modint<m>a,combination<m>&c){\n\
-    \  const int n=f.size();\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n\
-    \  FPS<m>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
-    \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
-    \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
-    \u79FB\u52D5)\n*/\n#line 4 \"test/yosupo/polynomial_taylor_shift.test.cpp\"\n\
-    using mint=modint<mod>;\ncombination<mod>a(525000);\nint main(){\n  int n,c;\n\
-    \  cin>>n>>c;\n  FPS<mod>f(n);\n  cin>>f;\n  print(TaylorShift(f,mint(c),a));\n\
-    }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
-    \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps/taylor_shift.hpp\"\
-    \nusing mint=modint<mod>;\ncombination<mod>a(525000);\nint main(){\n  int n,c;\n\
-    \  cin>>n>>c;\n  FPS<mod>f(n);\n  cin>>f;\n  print(TaylorShift(f,mint(c),a));\n\
-    }"
+    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 3 \"Math/fps/subset_sum.hpp\"\
+    \ntemplate<long long Mod>\nFPS<Mod>subset_sum(vector<modint<Mod>>&count){\n  const\
+    \ int n=count.size();\n  vector<modint<Mod>>inv_table(n);\n  inv_table[1]=1;\n\
+    \  for(int i=2;i<n;i++)inv_table[i]=-inv_table[mod%i]*(mod/i);\n  FPS<Mod>f(n);\n\
+    \  for(int i=1;i<n;i++)if(count[i].x){\n    for(int j=1,k=i;k<n;j++,k+=i){\n \
+    \     if(j&1)f[k]+=inv_table[j]*count[i];\n      else f[k]-=inv_table[j]*count[i];\n\
+    \    }\n  }\n  return f.exp();\n}\n#line 3 \"test/yosupo/sharp_p_subset_sum.test.cpp\"\
+    \nint main(){\n  int n,t;\n  cin>>n>>t;\n  vector<modint<mod>>cnt(t+1);\n  while(n--){\n\
+    \    int s;cin>>s;\n    cnt[s]+=1;\n  }\n  auto ans=subset_sum(cnt);\n  for(int\
+    \ i=1;i<=t;i++)cout<<ans[i]<<\" \\n\"[i==t];\n}\n"
+  code: "#include\"../../template/template.hpp\"\n#include\"../../Math/fps/subset_sum.hpp\"\
+    \nint main(){\n  int n,t;\n  cin>>n>>t;\n  vector<modint<mod>>cnt(t+1);\n  while(n--){\n\
+    \    int s;cin>>s;\n    cnt[s]+=1;\n  }\n  auto ans=subset_sum(cnt);\n  for(int\
+    \ i=1;i<=t;i++)cout<<ans[i]<<\" \\n\"[i==t];\n}"
   dependsOn:
   - template/template.hpp
-  - Math/fps/taylor_shift.hpp
+  - Math/fps/subset_sum.hpp
   - Math/fps/fps.hpp
   - Math/convolution/ntt.hpp
   - Math/modular/modint.hpp
-  - Math/others/combinatorics.hpp
   isVerificationFile: true
-  path: test/yosupo/polynomial_taylor_shift.test.cpp
+  path: test/yosupo/sharp_p_subset_sum.test.cpp
   requiredBy: []
   timestamp: '2022-03-25 21:42:28+00:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/yosupo/polynomial_taylor_shift.test.cpp
+documentation_of: test/yosupo/sharp_p_subset_sum.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/polynomial_taylor_shift.test.cpp
-- /verify/test/yosupo/polynomial_taylor_shift.test.cpp.html
-title: test/yosupo/polynomial_taylor_shift.test.cpp
+- /verify/test/yosupo/sharp_p_subset_sum.test.cpp
+- /verify/test/yosupo/sharp_p_subset_sum.test.cpp.html
+title: test/yosupo/sharp_p_subset_sum.test.cpp
 ---

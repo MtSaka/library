@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
   - icon: ':heavy_check_mark:'
@@ -158,7 +158,7 @@ data:
     \    }\n  }\n  modint<p>com(int n,int k){\n    modint<p>ret=1;\n    while(n>0||k>0){\n\
     \      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n      n/=p;k/=p;\n    }\n\
     \    return ret;\n  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\
-    \u305B)\n*/\n#line 4 \"Math/fps/taylor-shift.hpp\"\ntemplate<long long m>\nFPS<m>TaylorShift(FPS<m>f,modint<m>a,combination<m>&c){\n\
+    \u305B)\n*/\n#line 4 \"Math/fps/taylor_shift.hpp\"\ntemplate<long long m>\nFPS<m>TaylorShift(FPS<m>f,modint<m>a,combination<m>&c){\n\
     \  const int n=f.size();\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n\
     \  FPS<m>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
     \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
@@ -177,16 +177,16 @@ data:
   - Math/modular/modint.hpp
   - Math/others/combinatorics.hpp
   isVerificationFile: false
-  path: Math/fps/taylor-shift.hpp
+  path: Math/fps/taylor_shift.hpp
   requiredBy: []
-  timestamp: '2022-03-13 17:50:56+00:00'
+  timestamp: '2022-03-25 21:42:28+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/polynomial_taylor_shift.test.cpp
-documentation_of: Math/fps/taylor-shift.hpp
+documentation_of: Math/fps/taylor_shift.hpp
 layout: document
 redirect_from:
-- /library/Math/fps/taylor-shift.hpp
-- /library/Math/fps/taylor-shift.hpp.html
+- /library/Math/fps/taylor_shift.hpp
+- /library/Math/fps/taylor_shift.hpp.html
 title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
 ---

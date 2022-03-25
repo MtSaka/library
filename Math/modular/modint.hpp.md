@@ -8,10 +8,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/convolution/mod_ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
@@ -20,8 +20,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/fps/polynomial_interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
+  - icon: ':x:'
+    path: Math/fps/subset_sum.hpp
+    title: Math/fps/subset_sum.hpp
   - icon: ':heavy_check_mark:'
-    path: Math/fps/taylor-shift.hpp
+    path: Math/fps/taylor_shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - icon: ':heavy_check_mark:'
     path: Math/others/combinatorics.hpp
@@ -69,12 +72,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/sharp_p_subset_sum.test.cpp
+    title: test/yosupo/sharp_p_subset_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: modint
     links: []
@@ -126,12 +132,13 @@ data:
   - Math/convolution/convolution.hpp
   - Math/others/combinatorics.hpp
   - Math/others/lagrange.hpp
-  - Math/fps/taylor-shift.hpp
+  - Math/fps/taylor_shift.hpp
+  - Math/fps/subset_sum.hpp
   - Math/fps/multipoint_evaluation.hpp
   - Math/fps/polynomial_interpolation.hpp
   - Math/fps/fps.hpp
   timestamp: '2022-01-29 16:22:31+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
@@ -145,6 +152,7 @@ data:
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/matrix_product.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/sharp_p_subset_sum.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/multipoint_evaluation.test.cpp
 documentation_of: Math/modular/modint.hpp
