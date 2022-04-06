@@ -53,9 +53,9 @@ struct NTT{
     dft(a,1),dft(b,1);
     for(int i=0;i<sz;i++)a[i]*=b[i];
     dft(a,-1);
+    a.resize(mxsiz);
     mint iz=mint(sz).inv();
     for(int i=0;i<mxsiz;i++)a[i]*=iz;
-    a.resize(mxsiz);
     return a;
   }
   template<typename T,std::enable_if_t<is_integral<T>::value>* = nullptr>
