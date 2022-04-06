@@ -3,15 +3,7 @@ template<long long m>
 struct modint{
   long long x;
   modint():x(0){}
-  modint(long long y){
-    if(y<0){
-      y%=m;
-      if(y==0)x=y;
-      else x=m+y;
-    }
-    else if(y<m)x=y;
-    else x=y%m;
-  }
+  modint(long long y):x(y>=0?y%mod:(mod-(-y)%mod)%mod){}
   modint inv()const{
     long long a=x,b=m,u=1,v=0,t;
     while(b){
