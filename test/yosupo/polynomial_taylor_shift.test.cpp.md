@@ -128,8 +128,8 @@ data:
     \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  static vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
     \    int sz=1;\n    const int mxsiz=a.size()+b.size()-1;\n    while(sz<mxsiz)sz<<=1;\n\
     \    a.resize(sz),b.resize(sz);\n    dft(a,1),dft(b,1);\n    for(int i=0;i<sz;i++)a[i]*=b[i];\n\
-    \    dft(a,-1);\n    mint iz=mint(sz).inv();\n    for(int i=0;i<mxsiz;i++)a[i]*=iz;\n\
-    \    a.resize(mxsiz);\n    return a;\n  }\n  template<typename T,std::enable_if_t<is_integral<T>::value>*\
+    \    dft(a,-1);\n    a.resize(mxsiz);\n    mint iz=mint(sz).inv();\n    for(int\
+    \ i=0;i<mxsiz;i++)a[i]*=iz;\n    return a;\n  }\n  template<typename T,std::enable_if_t<is_integral<T>::value>*\
     \ = nullptr>\n  static vector<T>multiply(const vector<T>&a,const vector<T>&b){\n\
     \    using mint=modint<m>;\n    vector<mint>a2(a.size()),b2(b.size());\n    for(int\
     \ i=0;i<(int)a.size();i++)a2[i]=a[i];\n    for(int i=0;i<(int)b.size();i++)b2[i]=b[i];\n\
@@ -248,7 +248,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2022-04-06 13:48:48+01:00'
+  timestamp: '2022-04-06 15:35:33+01:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/polynomial_taylor_shift.test.cpp

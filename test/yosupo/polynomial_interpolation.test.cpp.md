@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/polynomial_interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':question:'
@@ -18,9 +18,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/polynomial_interpolation
@@ -125,8 +125,8 @@ data:
     \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  static vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
     \    int sz=1;\n    const int mxsiz=a.size()+b.size()-1;\n    while(sz<mxsiz)sz<<=1;\n\
     \    a.resize(sz),b.resize(sz);\n    dft(a,1),dft(b,1);\n    for(int i=0;i<sz;i++)a[i]*=b[i];\n\
-    \    dft(a,-1);\n    mint iz=mint(sz).inv();\n    for(int i=0;i<mxsiz;i++)a[i]*=iz;\n\
-    \    a.resize(mxsiz);\n    return a;\n  }\n  template<typename T,std::enable_if_t<is_integral<T>::value>*\
+    \    dft(a,-1);\n    a.resize(mxsiz);\n    mint iz=mint(sz).inv();\n    for(int\
+    \ i=0;i<mxsiz;i++)a[i]*=iz;\n    return a;\n  }\n  template<typename T,std::enable_if_t<is_integral<T>::value>*\
     \ = nullptr>\n  static vector<T>multiply(const vector<T>&a,const vector<T>&b){\n\
     \    using mint=modint<m>;\n    vector<mint>a2(a.size()),b2(b.size());\n    for(int\
     \ i=0;i<(int)a.size();i++)a2[i]=a[i];\n    for(int i=0;i<(int)b.size();i++)b2[i]=b[i];\n\
@@ -230,8 +230,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial_interpolation.test.cpp
   requiredBy: []
-  timestamp: '2022-04-06 13:48:48+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-04-06 15:35:33+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial_interpolation.test.cpp
 layout: document

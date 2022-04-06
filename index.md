@@ -15,7 +15,7 @@ data:
     - icon: ':x:'
       path: Data_Structure/lazy_segtree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/segtree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
@@ -130,10 +130,10 @@ data:
     - icon: ':question:'
       path: Math/fps/fps.hpp
       title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/fps/multipoint_evaluation.hpp
       title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/fps/polynomial_interpolation.hpp
       title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
     - icon: ':x:'
@@ -395,7 +395,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_product.test.cpp
       title: test/yosupo/matrix_product.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/multipoint_evaluation.test.cpp
       title: test/yosupo/multipoint_evaluation.test.cpp
     - icon: ':heavy_check_mark:'
@@ -404,10 +404,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum2.test.cpp
       title: test/yosupo/point_add_range_sum2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_interpolation.test.cpp
       title: test/yosupo/polynomial_interpolation.test.cpp
     - icon: ':x:'
