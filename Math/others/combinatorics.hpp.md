@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/taylor_shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - icon: ':warning:'
     path: Math/others/lagrange.hpp
     title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
     links: []
@@ -33,16 +33,16 @@ data:
     \ modint&l,const modint&r){return modint(l)-=r;}\n  friend modint operator*(const\
     \ modint&l,const modint&r){return modint(l)*=r;}\n  friend modint operator/(const\
     \ modint&l,const modint&r){return modint(l)/=r;}\n  modint operator-()const{return\
-    \ modint(-x);}\n  modint operator+()const(){return *this;}\n  modint &operator++(){x++;if(x==m)x=0;return\
+    \ modint(-x);}\n  modint operator+()const{return *this;}\n  modint &operator++(){x++;if(x==m)x=0;return\
     \ *this;}\n  modint &operator--(){if(x==0)x=m;x--;return *this;}\n  modint operator++(int){modint\
     \ ret(*this);++*this;return ret;}\n  modint operator--(int){modint ret(*this);--*this;return\
-    \ ret;}\n  friend bool operator==(const modint&p)const{return x==p.x;}\n  friend\
-    \ bool operator!=(const modint&p)const{return x!=p.x;}\n  modint pow(long long\
-    \ n)const{\n    modint ret(1),mul(x);\n    while(n){\n      if(n&1)ret*=mul;\n\
-    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  friend ostream\
-    \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
-    \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
-    \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
+    \ ret;}\n  friend bool operator==(const modint&l,const modint&r){return l.x==r.x;}\n\
+    \  friend bool operator!=(const modint&l,const modint&r){return l.x!=r.x;}\n \
+    \ modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n  \
+    \    if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
+    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
+    \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
+    \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
     \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/others/combinatorics.hpp\"\
     \ntemplate<long long m>\nstruct combination{\n  using mint=modint<m>;\n  vector<mint>dat,idat;\n\
     \  long long mx;\n  combination(long long mx_=300000):dat(mx_+1,1),idat(mx_+1,1),mx(mx_){\n\
@@ -84,8 +84,8 @@ data:
   requiredBy:
   - Math/others/lagrange.hpp
   - Math/fps/taylor_shift.hpp
-  timestamp: '2022-04-10 12:23:35+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-04-10 15:30:48+01:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/polynomial_taylor_shift.test.cpp
 documentation_of: Math/others/combinatorics.hpp

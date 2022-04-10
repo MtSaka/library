@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: Data_Structure/lazy_segtree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
   - icon: ':question:'
@@ -95,16 +95,16 @@ data:
     \ modint&l,const modint&r){return modint(l)-=r;}\n  friend modint operator*(const\
     \ modint&l,const modint&r){return modint(l)*=r;}\n  friend modint operator/(const\
     \ modint&l,const modint&r){return modint(l)/=r;}\n  modint operator-()const{return\
-    \ modint(-x);}\n  modint operator+()const(){return *this;}\n  modint &operator++(){x++;if(x==m)x=0;return\
+    \ modint(-x);}\n  modint operator+()const{return *this;}\n  modint &operator++(){x++;if(x==m)x=0;return\
     \ *this;}\n  modint &operator--(){if(x==0)x=m;x--;return *this;}\n  modint operator++(int){modint\
     \ ret(*this);++*this;return ret;}\n  modint operator--(int){modint ret(*this);--*this;return\
-    \ ret;}\n  friend bool operator==(const modint&p)const{return x==p.x;}\n  friend\
-    \ bool operator!=(const modint&p)const{return x!=p.x;}\n  modint pow(long long\
-    \ n)const{\n    modint ret(1),mul(x);\n    while(n){\n      if(n&1)ret*=mul;\n\
-    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  friend ostream\
-    \ &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n  }\n  friend\
-    \ istream &operator>>(istream &is, modint &a) {\n    long long t;\n    is>>t;\n\
-    \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
+    \ ret;}\n  friend bool operator==(const modint&l,const modint&r){return l.x==r.x;}\n\
+    \  friend bool operator!=(const modint&l,const modint&r){return l.x!=r.x;}\n \
+    \ modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n  \
+    \    if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
+    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
+    \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
+    \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
     \ m;}\n};\n/**\n * @brief modint\n*/\n#line 2 \"Data_Structure/lazy_segtree.hpp\"\
     \ntemplate<class S,S (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F\
     \ (*id)()>\nstruct lazy_segtree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
@@ -160,7 +160,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-04-10 12:23:35+01:00'
+  timestamp: '2022-04-10 15:30:48+01:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/range_affine_range_sum.test.cpp
