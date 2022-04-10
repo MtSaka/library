@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Data_Structure/segtree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -90,7 +90,17 @@ data:
     \  }\n  S operator[](int p){return seq[p+size];}\n  S query(int l,int r){\n  \
     \  S sml=e(),smr=e();\n    l+=size,r+=size;\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n\
     \      if(r&1)smr=op(seq[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n\
-    \  }\n  S all_query()const{return seq[1];}\n};\n/**\n * @brief Segment Tree(\u30BB\
+    \  }\n  S all_query()const{return seq[1];}\n  template<typename F>\n  int find_right(int\
+    \ l,const F&f)const{\n    if(l==_n)return _n;\n    l+=size;\n    S sum=e();\n\
+    \    do{\n      while(!(l&1))l>>=1;\n      if(!f(op(sum,seq[l]))){\n        while(l<size){\n\
+    \          l<<=1;\n          if(f(op(sum,seq[l])))sum=op(sum,seq[l++]);\n    \
+    \    }\n        return l-size;\n      }\n      sum=op(sum,seq[l++]);\n    }while((l&-l)!=l);\n\
+    \    return _n;\n  }\n  template<typename F>\n  int find_left(int r,const F&f)const{\n\
+    \    if(!r)return 0;\n    r+=size;\n    S sum=e();\n    do{\n      r--;\n    \
+    \  while(r>1&&(r&1))r>>=1;\n      if(!f(op(seq[r],sum))){\n        while(r<size){\n\
+    \          (r<<=1)++;\n          if(f(op(seq[r],sum)))sum=op(seq[r--],sum);\n\
+    \        }\n        return r+1-size;\n      }\n      sum=op(seq[r],sum);\n   \
+    \ }while((r&-r)!=r);\n    return 0;\n  }\n};\n/**\n * @brief Segment Tree(\u30BB\
     \u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 4 \"test/aoj/DSL/DSL_2_A.test.cpp\"\
     \nint op(int a,int b){return min(a,b);}\nint e(){return INT_MAX;}\nint main(){\n\
     \  INT(n,q);\n  segtree<int,op,e>s(n);\n  while(q--){\n    INT(t,x,y);\n    if(t==0)s.set(x,y);\n\
@@ -106,7 +116,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2022-02-07 21:16:16+00:00'
+  timestamp: '2022-04-10 23:19:54+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_A.test.cpp
