@@ -2,8 +2,8 @@ struct RollingHash{
   using ull=unsigned long long;
   using i128=__uint128_t;
   private:
-  static const ull MOD=(1ull<<61)-1;
-  static const ull MASK31=(1ull<<31)-1;
+  static constexpr ull MOD=(1ull<<61)-1;
+  static constexpr ull MASK31=(1ull<<31)-1;
   static ull calc_mod(ull a){
     ull ret=(a&MOD)+(a>>61);
     if(ret>=MOD)ret-=MOD;
