@@ -12,12 +12,12 @@ data:
     title: modint
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sharp_p_subset_sum.test.cpp
     title: test/yosupo/sharp_p_subset_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Count Subset Sum
     links: []
@@ -158,7 +158,7 @@ data:
   path: Math/fps/subset_sum.hpp
   requiredBy: []
   timestamp: '2022-04-10 11:14:02+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/sharp_p_subset_sum.test.cpp
 documentation_of: Math/fps/subset_sum.hpp
