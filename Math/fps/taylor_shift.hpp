@@ -2,7 +2,7 @@
 #include"fps.hpp"
 #include"../others/combinatorics.hpp"
 template<long long m>
-FPS<m>TaylorShift(FPS<m>f,modint<m>a,combination<m>&c){
+FPS<m>taylor_shift(FPS<m>f,modint<m>a,combination<m>&c){
   const int n=f.size();
   for(int i=0;i<n;i++)f[i]*=c.fac(i);
   reverse(f.begin(),f.end());
