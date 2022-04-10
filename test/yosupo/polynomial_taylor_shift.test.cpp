@@ -8,5 +8,5 @@ int main(){
   cin>>n>>c;
   FPS<mod>f(n);
   cin>>f;
-  print(TaylorShift(f,mint(c),a));
+  print(taylor_shift(f,mint(c),a));
 }
