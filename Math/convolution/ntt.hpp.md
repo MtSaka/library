@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
   _extendedRequiredBy:
@@ -11,7 +11,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/convolution/mod_ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
@@ -23,7 +23,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/fps/subset_sum.hpp
     title: Count Subset Sum
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/taylor_shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   _extendedVerifiedWith:
@@ -51,7 +51,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial_interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
   - icon: ':heavy_check_mark:'
@@ -63,9 +63,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
     links: []
@@ -158,7 +158,7 @@ data:
   - Math/fps/multipoint_evaluation.hpp
   - Math/fps/polynomial_interpolation.hpp
   timestamp: '2022-04-10 11:14:02+01:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/sharp_p_subset_sum.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp

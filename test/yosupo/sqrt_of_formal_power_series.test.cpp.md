@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
     path: Math/modular/mod_sqrt.hpp
     title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
   - icon: ':heavy_check_mark:'
     path: Math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []

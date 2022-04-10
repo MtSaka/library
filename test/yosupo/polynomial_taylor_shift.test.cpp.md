@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/taylor_shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/polynomial_taylor_shift
@@ -231,12 +231,12 @@ data:
     \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
     \u79FB\u52D5)\n*/\n#line 4 \"test/yosupo/polynomial_taylor_shift.test.cpp\"\n\
     using mint=modint<mod>;\ncombination<mod>a(525000);\nint main(){\n  int n,c;\n\
-    \  cin>>n>>c;\n  FPS<mod>f(n);\n  cin>>f;\n  print(TaylorShift(f,mint(c),a));\n\
+    \  cin>>n>>c;\n  FPS<mod>f(n);\n  cin>>f;\n  print(taylor_shift(f,mint(c),a));\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps/taylor_shift.hpp\"\
     \nusing mint=modint<mod>;\ncombination<mod>a(525000);\nint main(){\n  int n,c;\n\
-    \  cin>>n>>c;\n  FPS<mod>f(n);\n  cin>>f;\n  print(TaylorShift(f,mint(c),a));\n\
+    \  cin>>n>>c;\n  FPS<mod>f(n);\n  cin>>f;\n  print(taylor_shift(f,mint(c),a));\n\
     }"
   dependsOn:
   - template/template.hpp
@@ -248,8 +248,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2022-04-10 11:58:15+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-04-10 12:15:42+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial_taylor_shift.test.cpp
 layout: document
