@@ -31,6 +31,43 @@ struct segtree{
     return op(sml,smr);
   }
   S all_query()const{return seq[1];}
+  template<typename F>
+  int find_right(int l,const F&f)const{
+    if(l==_n)return _n;
+    l+=size;
+    S sum=e();
+    do{
+      while(!(l&1))l>>=1;
+      if(!f(op(sum,seq[l]))){
+        while(l<size){
+          l<<=1;
+          if(f(op(sum,seq[l])))sum=op(sum,seq[l++]);
+        }
+        return l-size;
+      }
+      sum=op(sum,seq[l++]);
+    }while((l&-l)!=l);
+    return _n;
+  }
+  template<typename F>
+  int find_left(int r,const F&f)const{
+    if(!r)return 0;
+    r+=size;
+    S sum=e();
+    do{
+      r--;
+      while(r>1&&(r&1))r>>=1;
+      if(!f(op(seq[r],sum))){
+        while(r<size){
+          (r<<=1)++;
+          if(f(op(seq[r],sum)))sum=op(seq[r--],sum);
+        }
+        return r+1-size;
+      }
+      sum=op(seq[r],sum);
+    }while((r&-r)!=r);
+    return 0;
+  }
 };
 /**
  * @brief Segment Tree(セグメント木)
