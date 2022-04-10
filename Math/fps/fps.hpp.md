@@ -17,7 +17,7 @@ data:
   - icon: ':x:'
     path: Math/fps/subset_sum.hpp
     title: Count Subset Sum
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/taylor_shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   _extendedVerifiedWith:
@@ -39,10 +39,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial_interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':x:'
@@ -58,7 +58,7 @@ data:
     document_title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
   bundledCode: "#line 2 \"Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct\
-    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%mod:(mod-(-y)%mod)%mod){}\n\
+    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n\
     \  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n     \
     \ t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n\
     \  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n\
@@ -255,19 +255,19 @@ data:
   - Math/fps/subset_sum.hpp
   - Math/fps/multipoint_evaluation.hpp
   - Math/fps/polynomial_interpolation.hpp
-  timestamp: '2022-04-06 15:35:33+01:00'
+  timestamp: '2022-04-10 11:14:02+01:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial_taylor_shift.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/sharp_p_subset_sum.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/polynomial_interpolation.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial_taylor_shift.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
 documentation_of: Math/fps/fps.hpp
 layout: document
 redirect_from:

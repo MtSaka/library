@@ -9,18 +9,18 @@ data:
     title: modint
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
       )"
     links: []
   bundledCode: "#line 2 \"Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct\
-    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%mod:(mod-(-y)%mod)%mod){}\n\
+    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n\
     \  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n     \
     \ t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n\
     \  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n\
@@ -88,8 +88,8 @@ data:
   isVerificationFile: false
   path: Math/convolution/mod_ntt.hpp
   requiredBy: []
-  timestamp: '2022-04-06 15:35:33+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-04-10 11:14:02+01:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/convolution_mod_1000000007.test.cpp
 documentation_of: Math/convolution/mod_ntt.hpp

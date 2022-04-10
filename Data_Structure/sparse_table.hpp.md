@@ -50,8 +50,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_5_C_2.test.cpp
-  - test/yosupo/staticrmq.test.cpp
   - test/yosupo/lca2.test.cpp
+  - test/yosupo/staticrmq.test.cpp
 documentation_of: Data_Structure/sparse_table.hpp
 layout: document
 redirect_from:

@@ -104,9 +104,9 @@ data:
     \ Matrix&B)const{return Matrix(*this)*=B;}\n  Matrix operator^(const long long&k)const{return\
     \ Matrix(*this)^=k;}\n};\n/**\n * @brief Matrix(\u884C\u5217)\n*/\n#line 2 \"\
     Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  long long\
-    \ x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%mod:(mod-(-y)%mod)%mod){}\n\
-    \  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n     \
-    \ t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n\
+    \ x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint\
+    \ inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n\
+    \      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n\
     \  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n\
     \  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n \
     \ modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
@@ -140,7 +140,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2022-04-06 13:48:48+01:00'
+  timestamp: '2022-04-10 11:14:02+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix_product.test.cpp

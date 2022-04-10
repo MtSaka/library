@@ -5,7 +5,7 @@ data:
   - icon: ':warning:'
     path: Math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/convolution/mod_ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':question:'
@@ -23,10 +23,10 @@ data:
   - icon: ':x:'
     path: Math/fps/subset_sum.hpp
     title: Count Subset Sum
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/taylor_shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   - icon: ':warning:'
@@ -36,7 +36,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
   - icon: ':heavy_check_mark:'
@@ -63,10 +63,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial_interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':x:'
@@ -85,7 +85,7 @@ data:
     document_title: modint
     links: []
   bundledCode: "#line 2 \"Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct\
-    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%mod:(mod-(-y)%mod)%mod){}\n\
+    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n\
     \  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n     \
     \ t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n\
     \  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n\
@@ -104,8 +104,8 @@ data:
     \    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
     \ m;}\n};\n/**\n * @brief modint\n*/\n"
   code: "#pragma once\ntemplate<long long m>\nstruct modint{\n  long long x;\n  modint():x(0){}\n\
-    \  modint(long long y):x(y>=0?y%mod:(mod-(-y)%mod)%mod){}\n  modint inv()const{\n\
-    \    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n\
+    \  modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint inv()const{\n    long\
+    \ long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n\
     \      swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n  modint &operator+=(const\
     \ modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return\
     \ *this;}\n  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n\
@@ -127,32 +127,32 @@ data:
   requiredBy:
   - Math/others/combinatorics.hpp
   - Math/others/lagrange.hpp
+  - Math/convolution/mod_ntt.hpp
+  - Math/convolution/convolution.hpp
+  - Math/convolution/ntt.hpp
   - Math/fps/taylor_shift.hpp
+  - Math/fps/fps.hpp
   - Math/fps/subset_sum.hpp
   - Math/fps/multipoint_evaluation.hpp
   - Math/fps/polynomial_interpolation.hpp
-  - Math/fps/fps.hpp
-  - Math/convolution/ntt.hpp
-  - Math/convolution/convolution.hpp
-  - Math/convolution/mod_ntt.hpp
-  timestamp: '2022-04-06 13:48:48+01:00'
+  timestamp: '2022-04-10 11:14:02+01:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/range_affine_range_sum.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/convolution_mod.test.cpp
-  - test/yosupo/polynomial_taylor_shift.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/sharp_p_subset_sum.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/matrix_product.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
-  - test/yosupo/convolution_mod_1000000007.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/polynomial_interpolation.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
+  - test/yosupo/range_affine_range_sum.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/matrix_product.test.cpp
+  - test/yosupo/polynomial_taylor_shift.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
+  - test/yosupo/convolution_mod.test.cpp
+  - test/yosupo/convolution_mod_1000000007.test.cpp
 documentation_of: Math/modular/modint.hpp
 layout: document
 redirect_from:

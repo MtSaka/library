@@ -81,10 +81,10 @@ data:
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
     String/rolling_hash.hpp\"\nstruct RollingHash{\n  using ull=unsigned long long;\n\
-    \  using i128=__uint128_t;\n  private:\n  static const ull MOD=(1ull<<61)-1;\n\
-    \  static const ull MASK31=(1ull<<31)-1;\n  static ull calc_mod(ull a){\n    ull\
-    \ ret=(a&MOD)+(a>>61);\n    if(ret>=MOD)ret-=MOD;\n    return ret;\n  }\n  static\
-    \ ull calc_mul(ull a,ull b){\n    i128 c=(i128)a*b;\n    return calc_add(c&MOD,c>>61);\n\
+    \  using i128=__uint128_t;\n  private:\n  static constexpr ull MOD=(1ull<<61)-1;\n\
+    \  static constexpr ull MASK31=(1ull<<31)-1;\n  static ull calc_mod(ull a){\n\
+    \    ull ret=(a&MOD)+(a>>61);\n    if(ret>=MOD)ret-=MOD;\n    return ret;\n  }\n\
+    \  static ull calc_mul(ull a,ull b){\n    i128 c=(i128)a*b;\n    return calc_add(c&MOD,c>>61);\n\
     \  }\n  static ull calc_add(ull a,ull b){\n    ull ret=a+b;\n    if(ret>=MOD)ret-=MOD;\n\
     \    return ret;\n  }\n  ull BASE;\n  void init(){\n    BASE=(1ull<<31)+(random_device()()&MASK31);\n\
     \  }\n  public:\n  struct Hash{\n    private:\n    int n;\n    ull BASE;\n   \
@@ -111,7 +111,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_14_B.test.cpp
   requiredBy: []
-  timestamp: '2022-02-07 21:16:16+00:00'
+  timestamp: '2022-04-10 11:09:51+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_14_B.test.cpp

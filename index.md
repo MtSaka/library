@@ -119,7 +119,7 @@ data:
       path: Math/convolution/fft.hpp
       title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB\
         )"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/convolution/mod_ntt.hpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
     - icon: ':question:'
@@ -139,7 +139,7 @@ data:
     - icon: ':x:'
       path: Math/fps/subset_sum.hpp
       title: Count Subset Sum
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/fps/taylor_shift.hpp
       title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - name: Math/modular
@@ -195,7 +195,7 @@ data:
         \u9593\u7BE9)"
   - name: Math/others
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/others/combinatorics.hpp
       title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
     - icon: ':heavy_check_mark:'
@@ -362,7 +362,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod.test.cpp
       title: test/yosupo/convolution_mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution_mod_1000000007.test.cpp
     - icon: ':heavy_check_mark:'
@@ -410,10 +410,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_interpolation.test.cpp
       title: test/yosupo/polynomial_interpolation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_taylor_shift.test.cpp
       title: test/yosupo/polynomial_taylor_shift.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
     - icon: ':x:'

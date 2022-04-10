@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   _extendedRequiredBy: []
@@ -16,7 +16,7 @@ data:
     document_title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
     links: []
   bundledCode: "#line 2 \"Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct\
-    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%mod:(mod-(-y)%mod)%mod){}\n\
+    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n\
     \  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n     \
     \ t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n\
     \  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n\
@@ -71,7 +71,7 @@ data:
   isVerificationFile: false
   path: Math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2022-04-06 13:48:48+01:00'
+  timestamp: '2022-04-10 11:14:02+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/others/lagrange.hpp

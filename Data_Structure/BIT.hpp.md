@@ -47,8 +47,8 @@ data:
   verifiedWith:
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - test/aoj/DSL/DSL_2_B.test.cpp
-  - test/yosupo/static_range_inversions_query.test.cpp
   - test/yosupo/point_add_range_sum2.test.cpp
+  - test/yosupo/static_range_inversions_query.test.cpp
 documentation_of: Data_Structure/BIT.hpp
 layout: document
 redirect_from:

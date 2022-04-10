@@ -22,7 +22,7 @@ data:
     document_title: Count Subset Sum
     links: []
   bundledCode: "#line 2 \"Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct\
-    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%mod:(mod-(-y)%mod)%mod){}\n\
+    \ modint{\n  long long x;\n  modint():x(0){}\n  modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n\
     \  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n     \
     \ t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n\
     \  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n\
@@ -157,7 +157,7 @@ data:
   isVerificationFile: false
   path: Math/fps/subset_sum.hpp
   requiredBy: []
-  timestamp: '2022-04-06 15:35:33+01:00'
+  timestamp: '2022-04-10 11:14:02+01:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/sharp_p_subset_sum.test.cpp
