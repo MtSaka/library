@@ -55,6 +55,7 @@
 "test/yosupo/point_add_range_sum2.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/point_set_range_composite.test.cpp": "2022-04-10 11:14:02 +0100",
 "test/yosupo/polynomial_interpolation.test.cpp": "2022-04-10 11:14:02 +0100",
+"test/yosupo/polynomial_taylor_shift.test.cpp": "2022-04-10 12:15:42 +0100",
 "test/yosupo/pow_of_formal_power_series.test.cpp": "2022-04-10 11:14:02 +0100",
 "test/yosupo/range_affine_range_sum.test.cpp": "2022-04-10 11:14:02 +0100",
 "test/yosupo/scc.test.cpp": "2022-02-07 21:16:16 +0000",
