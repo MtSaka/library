@@ -22,13 +22,13 @@ struct modint{
   friend modint operator*(const modint&l,const modint&r){return modint(l)*=r;}
   friend modint operator/(const modint&l,const modint&r){return modint(l)/=r;}
   modint operator-()const{return modint(-x);}
-  modint operator+()const(){return *this;}
+  modint operator+()const{return *this;}
   modint &operator++(){x++;if(x==m)x=0;return *this;}
   modint &operator--(){if(x==0)x=m;x--;return *this;}
   modint operator++(int){modint ret(*this);++*this;return ret;}
   modint operator--(int){modint ret(*this);--*this;return ret;}
-  friend bool operator==(const modint&p)const{return x==p.x;}
-  friend bool operator!=(const modint&p)const{return x!=p.x;}
+  friend bool operator==(const modint&l,const modint&r){return l.x==r.x;}
+  friend bool operator!=(const modint&l,const modint&r){return l.x!=r.x;}
   modint pow(long long n)const{
     modint ret(1),mul(x);
     while(n){
