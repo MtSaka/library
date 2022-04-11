@@ -40,10 +40,31 @@ struct Matrix{
     A.swap(B.A);
     return *this;
   }
-  Matrix operator+(const Matrix&B)const{return Matrix(*this)+=B;}
-  Matrix operator-(const Matrix&B)const{return Matrix(*this)-=B;}
-  Matrix operator*(const Matrix&B)const{return Matrix(*this)*=B;}
-  Matrix operator^(const long long&k)const{return Matrix(*this)^=k;}
+  friend Matrix operator+(const Matrix&A,const Matrix&B){return Matrix(A)+=B;}
+  friend Matrix operator-(const Matrix&A,const Matrix&B){return Matrix(A)-=B;}
+  friend Matrix operator*(const Matrix&A,const Matrix&B){return Matrix(A)*=B;}
+  friend Matrix operator^(const Matrix&A,const long long&k){return Matrix(A)^=k;}
+  T determinant()const{
+    Matrix b(*this);
+    T ret=1;
+    for(int i=0;i<(int)width();i++){
+      int idx=-1;
+      for(int j=i;j<(int)width();j++)if(b[j][i]!=0){idx=j;break;}
+      if(idx==-1)return T(0);
+      if(i!=idx){
+        ret*=T(-1);
+        swap(b[i],b[idx]);
+      }
+      ret*=b[i][i];
+      T tmp=b[i][i];
+      for(int j=0;j<(int)width();j++)b[i][j]/=tmp;
+      for(int j=i+1;j<(int)width();j++){
+        T now=b[j][i];
+        for(int k=0;k<(int)width();k++)b[j][k]-=b[i][k]*now;
+      }
+    }
+    return ret;
+  }
 };
 /**
  * @brief Matrix(行列)
