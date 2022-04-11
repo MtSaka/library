@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/matrix_det.test.cpp
+    title: test/yosupo/matrix_det.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix_product.test.cpp
     title: test/yosupo/matrix_product.test.cpp
   _isVerificationFailed: false
@@ -28,10 +31,18 @@ data:
     \    A.swap(C);\n    return *this;\n  }\n  Matrix &operator^=(long long k){\n\
     \    Matrix B=Matrix::I(height());\n    while(k>0){\n      if(k&1)B*=*this;\n\
     \      *this*=*this;\n      k>>=1LL;\n    }\n    A.swap(B.A);\n    return *this;\n\
-    \  }\n  Matrix operator+(const Matrix&B)const{return Matrix(*this)+=B;}\n  Matrix\
-    \ operator-(const Matrix&B)const{return Matrix(*this)-=B;}\n  Matrix operator*(const\
-    \ Matrix&B)const{return Matrix(*this)*=B;}\n  Matrix operator^(const long long&k)const{return\
-    \ Matrix(*this)^=k;}\n};\n/**\n * @brief Matrix(\u884C\u5217)\n*/\n"
+    \  }\n  friend Matrix operator+(const Matrix&A,const Matrix&B){return Matrix(A)+=B;}\n\
+    \  friend Matrix operator-(const Matrix&A,const Matrix&B){return Matrix(A)-=B;}\n\
+    \  friend Matrix operator*(const Matrix&A,const Matrix&B){return Matrix(A)*=B;}\n\
+    \  friend Matrix operator^(const Matrix&A,const long long&k){return Matrix(A)^=k;}\n\
+    \  T determinant()const{\n    Matrix b(*this);\n    T ret=1;\n    for(int i=0;i<(int)width();i++){\n\
+    \      int idx=-1;\n      for(int j=i;j<(int)width();j++)if(b[j][i]!=0){idx=j;break;}\n\
+    \      if(idx==-1)return T(0);\n      if(i!=idx){\n        ret*=T(-1);\n     \
+    \   swap(b[i],b[idx]);\n      }\n      ret*=b[i][i];\n      T tmp=b[i][i];\n \
+    \     for(int j=0;j<(int)width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<(int)width();j++){\n\
+    \        T now=b[j][i];\n        for(int k=0;k<(int)width();k++)b[j][k]-=b[i][k]*now;\n\
+    \      }\n    }\n    return ret;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
+    )\n*/\n"
   code: "template<typename T>\nstruct Matrix{\n  vector<vector<T>>A;\n  Matrix(){}\n\
     \  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n  Matrix(size_t n):A(n,vector<T>(n,0)){};\n\
     \  size_t height()const{return (A.size());}\n  size_t width()const{return (A[0].size());}\n\
@@ -47,18 +58,27 @@ data:
     \    A.swap(C);\n    return *this;\n  }\n  Matrix &operator^=(long long k){\n\
     \    Matrix B=Matrix::I(height());\n    while(k>0){\n      if(k&1)B*=*this;\n\
     \      *this*=*this;\n      k>>=1LL;\n    }\n    A.swap(B.A);\n    return *this;\n\
-    \  }\n  Matrix operator+(const Matrix&B)const{return Matrix(*this)+=B;}\n  Matrix\
-    \ operator-(const Matrix&B)const{return Matrix(*this)-=B;}\n  Matrix operator*(const\
-    \ Matrix&B)const{return Matrix(*this)*=B;}\n  Matrix operator^(const long long&k)const{return\
-    \ Matrix(*this)^=k;}\n};\n/**\n * @brief Matrix(\u884C\u5217)\n*/"
+    \  }\n  friend Matrix operator+(const Matrix&A,const Matrix&B){return Matrix(A)+=B;}\n\
+    \  friend Matrix operator-(const Matrix&A,const Matrix&B){return Matrix(A)-=B;}\n\
+    \  friend Matrix operator*(const Matrix&A,const Matrix&B){return Matrix(A)*=B;}\n\
+    \  friend Matrix operator^(const Matrix&A,const long long&k){return Matrix(A)^=k;}\n\
+    \  T determinant()const{\n    Matrix b(*this);\n    T ret=1;\n    for(int i=0;i<(int)width();i++){\n\
+    \      int idx=-1;\n      for(int j=i;j<(int)width();j++)if(b[j][i]!=0){idx=j;break;}\n\
+    \      if(idx==-1)return T(0);\n      if(i!=idx){\n        ret*=T(-1);\n     \
+    \   swap(b[i],b[idx]);\n      }\n      ret*=b[i][i];\n      T tmp=b[i][i];\n \
+    \     for(int j=0;j<(int)width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<(int)width();j++){\n\
+    \        T now=b[j][i];\n        for(int k=0;k<(int)width();k++)b[j][k]-=b[i][k]*now;\n\
+    \      }\n    }\n    return ret;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
+    )\n*/"
   dependsOn: []
   isVerificationFile: false
   path: Math/others/matrix.hpp
   requiredBy: []
-  timestamp: '2022-03-03 22:50:14+00:00'
+  timestamp: '2022-04-11 19:10:42+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/matrix_product.test.cpp
+  - test/yosupo/matrix_det.test.cpp
 documentation_of: Math/others/matrix.hpp
 layout: document
 redirect_from:

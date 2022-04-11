@@ -17,22 +17,22 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/matrix_product
+    PROBLEM: https://judge.yosupo.jp/problem/matrix_det
     links:
-    - https://judge.yosupo.jp/problem/matrix_product
-  bundledCode: "#line 1 \"test/yosupo/matrix_product.test.cpp\"\n#define PROBLEM \"\
-    https://judge.yosupo.jp/problem/matrix_product\"\n#line 1 \"template/template.hpp\"\
-    \n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC\
-    \ optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define overload4(a,b,c,d,e,...)\
-    \ e\n#define overload3(a,b,c,d,...) d\n#define rep1(a) for(ll i=0;i<(ll)(a);i++)\n\
-    #define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n#define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n\
-    #define rep4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...)\
-    \ overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a)\
-    \ for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
-    #define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n#define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n\
-    #define fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n\
-    #define all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n\
-    #define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n#define rall(n)\
+    - https://judge.yosupo.jp/problem/matrix_det
+  bundledCode: "#line 1 \"test/yosupo/matrix_det.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\
+    \n#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
+    \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
+    #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
+    \ rep1(a) for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n\
+    #define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n#define rep4(i,a,b,c) for(ll\
+    \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) overload4(__VA_ARGS__, rep4,\
+    \ rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
+    #define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n\
+    #define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n#define\
+    \ fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n#define\
+    \ all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n#define\
+    \ all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n#define rall(n)\
     \ (n).rbegin(),(n).rend()\n#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
@@ -82,36 +82,9 @@ data:
     ,\";trace(forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...) (void(0))\n\
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
-    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Math/others/matrix.hpp\"\ntemplate<typename T>\nstruct Matrix{\n  vector<vector<T>>A;\n\
-    \  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n  Matrix(size_t\
-    \ n):A(n,vector<T>(n,0)){};\n  size_t height()const{return (A.size());}\n  size_t\
-    \ width()const{return (A[0].size());}\n  inline const vector<T>&operator[](int\
-    \ k)const{return A.at(k);}\n  inline vector<T>&operator[](int k){return A.at(k);}\n\
-    \  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(size_t i=0;i<n;i++)mat[i][i]=1;\n\
-    \    return mat;\n  }\n  Matrix &operator+=(const Matrix&B){\n    const size_t\
-    \ n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)(*this)[i][j]+=B[i][j];\n\
-    \    return *this;\n  }\n  Matrix &operator-=(const Matrix&B){\n    const size_t\
-    \ n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)(*this)[i][j]-=B[i][j];\n\
-    \    return *this;\n  }\n  Matrix &operator*=(const Matrix&B) {\n    const size_t\
-    \ n=height(),m=B.width(),p=width();\n    vector<vector<T>>C(n,vector<T>(m,0));\n\
-    \    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)for(size_t k=0;k<p;k++)C[i][j]+=(*this)[i][k]*B[k][j];\n\
-    \    A.swap(C);\n    return *this;\n  }\n  Matrix &operator^=(long long k){\n\
-    \    Matrix B=Matrix::I(height());\n    while(k>0){\n      if(k&1)B*=*this;\n\
-    \      *this*=*this;\n      k>>=1LL;\n    }\n    A.swap(B.A);\n    return *this;\n\
-    \  }\n  friend Matrix operator+(const Matrix&A,const Matrix&B){return Matrix(A)+=B;}\n\
-    \  friend Matrix operator-(const Matrix&A,const Matrix&B){return Matrix(A)-=B;}\n\
-    \  friend Matrix operator*(const Matrix&A,const Matrix&B){return Matrix(A)*=B;}\n\
-    \  friend Matrix operator^(const Matrix&A,const long long&k){return Matrix(A)^=k;}\n\
-    \  T determinant()const{\n    Matrix b(*this);\n    T ret=1;\n    for(int i=0;i<(int)width();i++){\n\
-    \      int idx=-1;\n      for(int j=i;j<(int)width();j++)if(b[j][i]!=0){idx=j;break;}\n\
-    \      if(idx==-1)return T(0);\n      if(i!=idx){\n        ret*=T(-1);\n     \
-    \   swap(b[i],b[idx]);\n      }\n      ret*=b[i][i];\n      T tmp=b[i][i];\n \
-    \     for(int j=0;j<(int)width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<(int)width();j++){\n\
-    \        T now=b[j][i];\n        for(int k=0;k<(int)width();k++)b[j][k]-=b[i][k]*now;\n\
-    \      }\n    }\n    return ret;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
-    )\n*/\n#line 2 \"Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n\
-    \  long long x;\n  constexpr modint():x(0){}\n  constexpr modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n\
+    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
+    Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  long long\
+    \ x;\n  constexpr modint():x(0){}\n  constexpr modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n\
     \  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n     \
     \ t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n\
     \  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n\
@@ -132,32 +105,55 @@ data:
     \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
     \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 5 \"test/yosupo/matrix_product.test.cpp\"\
-    \nint main(){\n  int n,m,k;\n  cin>>n>>m>>k;\n  Matrix<modint<mod>>a(n,m),b(m,k);\n\
-    \  for(int i=0;i<n;i++){\n    for(int j=0;j<m;j++){\n      cin>>a[i][j];\n   \
-    \ }\n  }\n  for(int i=0;i<m;i++){\n    for(int j=0;j<k;j++){\n      cin>>b[i][j];\n\
-    \    }\n  }\n  a*=b;\n  for(int i=0;i<n;i++){\n    cout<<a[i]<<endl;\n  }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../Math/others/matrix.hpp\"\n#include\"\
-    ../../Math/modular/modint.hpp\"\nint main(){\n  int n,m,k;\n  cin>>n>>m>>k;\n\
-    \  Matrix<modint<mod>>a(n,m),b(m,k);\n  for(int i=0;i<n;i++){\n    for(int j=0;j<m;j++){\n\
-    \      cin>>a[i][j];\n    }\n  }\n  for(int i=0;i<m;i++){\n    for(int j=0;j<k;j++){\n\
-    \      cin>>b[i][j];\n    }\n  }\n  a*=b;\n  for(int i=0;i<n;i++){\n    cout<<a[i]<<endl;\n\
-    \  }\n}"
+    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 1 \"Math/others/matrix.hpp\"\ntemplate<typename\
+    \ T>\nstruct Matrix{\n  vector<vector<T>>A;\n  Matrix(){}\n  Matrix(size_t n,size_t\
+    \ m):A(n,vector<T>(m,0)){}\n  Matrix(size_t n):A(n,vector<T>(n,0)){};\n  size_t\
+    \ height()const{return (A.size());}\n  size_t width()const{return (A[0].size());}\n\
+    \  inline const vector<T>&operator[](int k)const{return A.at(k);}\n  inline vector<T>&operator[](int\
+    \ k){return A.at(k);}\n  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(size_t\
+    \ i=0;i<n;i++)mat[i][i]=1;\n    return mat;\n  }\n  Matrix &operator+=(const Matrix&B){\n\
+    \    const size_t n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t\
+    \ j=0;j<m;j++)(*this)[i][j]+=B[i][j];\n    return *this;\n  }\n  Matrix &operator-=(const\
+    \ Matrix&B){\n    const size_t n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t\
+    \ j=0;j<m;j++)(*this)[i][j]-=B[i][j];\n    return *this;\n  }\n  Matrix &operator*=(const\
+    \ Matrix&B) {\n    const size_t n=height(),m=B.width(),p=width();\n    vector<vector<T>>C(n,vector<T>(m,0));\n\
+    \    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)for(size_t k=0;k<p;k++)C[i][j]+=(*this)[i][k]*B[k][j];\n\
+    \    A.swap(C);\n    return *this;\n  }\n  Matrix &operator^=(long long k){\n\
+    \    Matrix B=Matrix::I(height());\n    while(k>0){\n      if(k&1)B*=*this;\n\
+    \      *this*=*this;\n      k>>=1LL;\n    }\n    A.swap(B.A);\n    return *this;\n\
+    \  }\n  friend Matrix operator+(const Matrix&A,const Matrix&B){return Matrix(A)+=B;}\n\
+    \  friend Matrix operator-(const Matrix&A,const Matrix&B){return Matrix(A)-=B;}\n\
+    \  friend Matrix operator*(const Matrix&A,const Matrix&B){return Matrix(A)*=B;}\n\
+    \  friend Matrix operator^(const Matrix&A,const long long&k){return Matrix(A)^=k;}\n\
+    \  T determinant()const{\n    Matrix b(*this);\n    T ret=1;\n    for(int i=0;i<(int)width();i++){\n\
+    \      int idx=-1;\n      for(int j=i;j<(int)width();j++)if(b[j][i]!=0){idx=j;break;}\n\
+    \      if(idx==-1)return T(0);\n      if(i!=idx){\n        ret*=T(-1);\n     \
+    \   swap(b[i],b[idx]);\n      }\n      ret*=b[i][i];\n      T tmp=b[i][i];\n \
+    \     for(int j=0;j<(int)width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<(int)width();j++){\n\
+    \        T now=b[j][i];\n        for(int k=0;k<(int)width();k++)b[j][k]-=b[i][k]*now;\n\
+    \      }\n    }\n    return ret;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
+    )\n*/\n#line 5 \"test/yosupo/matrix_det.test.cpp\"\nusing mint=modint<mod>;\n\
+    int main(){\n  INT(n);\n  Matrix<mint>mat(n);\n  for(int i=0;i<n;i++)for(int j=0;j<n;j++)cin>>mat[i][j];\n\
+    \  cout<<mat.determinant()<<endl;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n#include\"\
+    ../../template/template.hpp\"\n#include\"../../Math/modular/modint.hpp\"\n#include\"\
+    ../../Math/others/matrix.hpp\"\nusing mint=modint<mod>;\nint main(){\n  INT(n);\n\
+    \  Matrix<mint>mat(n);\n  for(int i=0;i<n;i++)for(int j=0;j<n;j++)cin>>mat[i][j];\n\
+    \  cout<<mat.determinant()<<endl;\n}"
   dependsOn:
   - template/template.hpp
-  - Math/others/matrix.hpp
   - Math/modular/modint.hpp
+  - Math/others/matrix.hpp
   isVerificationFile: true
-  path: test/yosupo/matrix_product.test.cpp
+  path: test/yosupo/matrix_det.test.cpp
   requiredBy: []
   timestamp: '2022-04-11 19:10:42+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/matrix_product.test.cpp
+documentation_of: test/yosupo/matrix_det.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/matrix_product.test.cpp
-- /verify/test/yosupo/matrix_product.test.cpp.html
-title: test/yosupo/matrix_product.test.cpp
+- /verify/test/yosupo/matrix_det.test.cpp
+- /verify/test/yosupo/matrix_det.test.cpp.html
+title: test/yosupo/matrix_det.test.cpp
 ---
