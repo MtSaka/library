@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Graph/tree/rerooting.hpp
     title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_B
@@ -82,24 +82,24 @@ data:
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
     Graph/tree/rerooting.hpp\"\ntemplate<typename S,typename T=S>\nstruct ReRooting{\n\
     \  struct Edge{\n    int from,to;\n    S cost;\n    T dp,ndp;\n  };\n  using F=function<T(T,T)>;\n\
-    \  using G=function<T(T,Edge)>;\n  vector<vector<Edge>> g;\n  const F f;\n  const\
-    \ G gg;\n  const T id;\n  vector<T> subdp,dp;\n  void add_edge(int u,int v,const\
-    \ S &d) {\n    g[u].emplace_back(Edge{u,v,d,id,id});\n    g[v].emplace_back(Edge{v,u,d,id,id});\n\
-    \  }\n  ReRooting(int n,const F &f,const G &g,const T &id=T{}):g(n),f(f),gg(g),id(id),subdp(n,id),dp(n,id)\
-    \ {}\n  void dfs_sub(int x,int p) {\n    for(auto &e:g[x])if(e.to!=p){\n     \
-    \ dfs_sub(e.to,x);\n      e.dp=gg(subdp[e.to], e);\n      subdp[x]=f(subdp[x],\
-    \ e.dp);\n    }\n  }\n  void dfs_all(int x,int p,T top) {\n    T now = id;\n \
-    \   for(auto &e:g[x]){\n      e.ndp=now;\n      if(e.to==p)e.dp=gg(top, e);\n\
-    \      now=f(now,e.dp);\n    }\n    dp[x]=now;\n    now=id;\n    for(int i=(int)g[x].size()-1;i>=0;i--){\n\
-    \      auto &e=g[x][i];\n      if(e.to!= p)dfs_all(e.to,x,f(e.ndp,now));\n   \
-    \   now=f(now,e.dp);\n    }\n  }\n  vector<T>solve(){\n    dfs_sub(0,-1);\n  \
-    \  dfs_all(0,-1,id);\n    return dp;\n  }\n};\n/**\n * @brief ReRooting(\u5168\
-    \u65B9\u4F4D\u6728DP)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_B.test.cpp\"\nlong long\
-    \ f(long long a,long long b){\n  return max(a,b);\n}\nlong long g(long long a,ReRooting<long\
-    \ long>::Edge b){\n  return a+b.cost;\n}\nint main(){\n  int n;\n  cin>>n;\n \
-    \ ReRooting<long long>r(n,f,g);\n  for(int i=0;i<n-1;i++){\n    int s,t;\n   \
-    \ long long w;\n    cin>>s>>t>>w;\n    r.add_edge(s,t,w);\n  }\n  auto ans=r.solve();\n\
-    \  for(auto i:ans)cout<<i<<endl;\n}\n"
+    \  using G=function<T(T,Edge)>;\n  vector<vector<Edge>>graph;\n  const F f;\n\
+    \  const G g;\n  const T id;\n  vector<T>subdp,dp;\n  void add_edge(int u,int\
+    \ v,const S&d) {\n    graph[u].emplace_back(Edge{u,v,d,id,id});\n    graph[v].emplace_back(Edge{v,u,d,id,id});\n\
+    \  }\n  ReRooting(int n,const F&f,const G&g,const T&id=T{}):g(n),f(f),g(g),id(id),subdp(n,id),dp(n,id){}\n\
+    \  void dfs_sub(int x,int p){\n    for(auto&e:g[x])if(e.to!=p){\n      dfs_sub(e.to,x);\n\
+    \      e.dp=g(subdp[e.to],e);\n      subdp[x]=f(subdp[x],e.dp);\n    }\n  }\n\
+    \  void dfs_all(int x,int p,T top) {\n    T now=id;\n    for(auto&e:g[x]){\n \
+    \     e.ndp=now;\n      if(e.to==p)e.dp=g(top,e);\n      now=f(now,e.dp);\n  \
+    \  }\n    dp[x]=now;\n    now=id;\n    for(int i=(int)g[x].size()-1;i>=0;i--){\n\
+    \      auto&e=g[x][i];\n      if(e.to!=p)dfs_all(e.to,x,f(e.ndp,now));\n     \
+    \ now=f(e.dp,now);\n    }\n  }\n  vector<T>solve(){\n    dfs_sub(0,-1);\n    dfs_all(0,-1,id);\n\
+    \    return dp;\n  }\n};\n/**\n * @brief ReRooting(\u5168\u65B9\u4F4D\u6728DP)\n\
+    */\n#line 4 \"test/aoj/GRL/GRL_5_B.test.cpp\"\nlong long f(long long a,long long\
+    \ b){\n  return max(a,b);\n}\nlong long g(long long a,ReRooting<long long>::Edge\
+    \ b){\n  return a+b.cost;\n}\nint main(){\n  int n;\n  cin>>n;\n  ReRooting<long\
+    \ long>r(n,f,g);\n  for(int i=0;i<n-1;i++){\n    int s,t;\n    long long w;\n\
+    \    cin>>s>>t>>w;\n    r.add_edge(s,t,w);\n  }\n  auto ans=r.solve();\n  for(auto\
+    \ i:ans)cout<<i<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_B\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/tree/rerooting.hpp\"\
     \nlong long f(long long a,long long b){\n  return max(a,b);\n}\nlong long g(long\
@@ -113,8 +113,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_B.test.cpp
   requiredBy: []
-  timestamp: '2022-02-07 21:16:16+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-04-12 14:04:57+01:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_B.test.cpp
 layout: document
