@@ -71,4 +71,5 @@ struct segtree{
 };
 /**
  * @brief Segment Tree(セグメント木)
+ * @docs docs/segtree.md
 */
