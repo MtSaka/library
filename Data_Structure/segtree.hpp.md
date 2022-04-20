@@ -16,6 +16,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/segtree.md
     document_title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     links: []
   bundledCode: "#line 2 \"Data_Structure/segtree.hpp\"\ntemplate<class S,S (*op)(S,S),S\
@@ -39,7 +40,7 @@ data:
     \          (r<<=1)++;\n          if(f(op(seq[r],sum)))sum=op(seq[r--],sum);\n\
     \        }\n        return r+1-size;\n      }\n      sum=op(seq[r],sum);\n   \
     \ }while((r&-r)!=r);\n    return 0;\n  }\n};\n/**\n * @brief Segment Tree(\u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n"
+    \u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segtree.md\n*/\n"
   code: "#pragma once\ntemplate<class S,S (*op)(S,S),S (*e)()>\nstruct segtree{\n\
     \  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  void update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n\
     \  public:\n  segtree():segtree(0){};\n  segtree(int n):segtree(vector<S>(n,e())){}\n\
@@ -61,12 +62,12 @@ data:
     \          (r<<=1)++;\n          if(f(op(seq[r],sum)))sum=op(seq[r--],sum);\n\
     \        }\n        return r+1-size;\n      }\n      sum=op(seq[r],sum);\n   \
     \ }while((r&-r)!=r);\n    return 0;\n  }\n};\n/**\n * @brief Segment Tree(\u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728)\n*/"
+    \u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segtree.md\n*/"
   dependsOn: []
   isVerificationFile: false
   path: Data_Structure/segtree.hpp
   requiredBy: []
-  timestamp: '2022-04-10 23:19:54+01:00'
+  timestamp: '2022-04-20 20:18:20+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL/DSL_2_A.test.cpp
@@ -79,3 +80,16 @@ redirect_from:
 - /library/Data_Structure/segtree.hpp.html
 title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
 ---
+##概要
+完全二分木の実装です。モノイドについての区間に対する演算が$O(\log N)$で処理できます。
+実装では木を1-indexedで表現しています。
+
+##使い方
+*`segtree<S,op,e>seg(N)`:サイズ`N`で初期化する、ここで`S`は型、`op`は二項演算、`e`はモノイドの単位元である。また、opとeはそれぞれ関数である。計算量は$O(N)$
+*`segtree<S,op,e>seg(V)`:配列`V`で初期化する。`S`,`op`,`e`は上と同じく。`N=V.size()`として、計算量は$O(N)$
+*`set(p,x)`:`p`番目の要素を`x`に変更する。この時、0-indexedで表現している。計算量は$O(\log N)$
+*`operator[p]`:`p`番目の要素を返す。(0-indexed)計算量は$O(1)$
+*`query(l,r)`:区間$[l,r)$に対しての演算の結果を返す。`l`,`r`は0-indexedで表現している。計算量は$O(\log N)$
+*`all_query()`:全体に対しての演算の結果を返す。計算量は$O(1)$
+*`find_right(l,F)`:区間$[l,x)$に対して$F(x)$が$false$を返す、最小の$x$を返す。存在しないときは$N$を返す。計算量は$O(\log N)$
+*`find_left(r,F)`:区間$[x,r)$に対して$F(x)$が$false$を返す、最大の$x$を返す。存在しないときは$-1$を返す。計算量は$O(\log N)$

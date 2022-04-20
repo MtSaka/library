@@ -101,7 +101,7 @@ data:
     \          (r<<=1)++;\n          if(f(op(seq[r],sum)))sum=op(seq[r--],sum);\n\
     \        }\n        return r+1-size;\n      }\n      sum=op(seq[r],sum);\n   \
     \ }while((r&-r)!=r);\n    return 0;\n  }\n};\n/**\n * @brief Segment Tree(\u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 4 \"test/yosupo/point_add_range_sum1.test.cpp\"\
+    \u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segtree.md\n*/\n#line 4 \"test/yosupo/point_add_range_sum1.test.cpp\"\
     \nlong long op(long long a,long long b){return a+b;}\nlong long e(){return 0;}\n\
     int main(){\n  int n,q;\n  cin>>n>>q;\n  vector<long long>a(n);\n  cin>>a;\n \
     \ segtree<long long,op,e>s(a);\n  while(q--){\n    int t,l,r;\n    cin>>t>>l>>r;\n\
@@ -118,7 +118,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_add_range_sum1.test.cpp
   requiredBy: []
-  timestamp: '2022-04-10 23:19:54+01:00'
+  timestamp: '2022-04-20 20:18:20+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_add_range_sum1.test.cpp

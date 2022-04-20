@@ -104,10 +104,10 @@ data:
     \          (r<<=1)++;\n          if(f(op(seq[r],sum)))sum=op(seq[r--],sum);\n\
     \        }\n        return r+1-size;\n      }\n      sum=op(seq[r],sum);\n   \
     \ }while((r&-r)!=r);\n    return 0;\n  }\n};\n/**\n * @brief Segment Tree(\u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 2 \"Math/modular/modint.hpp\"\ntemplate<long\
-    \ long m>\nstruct modint{\n  long long x;\n  constexpr modint():x(0){}\n  constexpr\
-    \ modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint inv()const{\n    long\
-    \ long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n\
+    \u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segtree.md\n*/\n#line 2 \"Math/modular/modint.hpp\"\
+    \ntemplate<long long m>\nstruct modint{\n  long long x;\n  constexpr modint():x(0){}\n\
+    \  constexpr modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint inv()const{\n\
+    \    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n\
     \      swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n  modint &operator+=(const\
     \ modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return\
     \ *this;}\n  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n\
@@ -150,7 +150,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-04-10 23:19:54+01:00'
+  timestamp: '2022-04-20 20:18:20+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_set_range_composite.test.cpp

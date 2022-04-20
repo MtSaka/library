@@ -101,7 +101,7 @@ data:
     \          (r<<=1)++;\n          if(f(op(seq[r],sum)))sum=op(seq[r--],sum);\n\
     \        }\n        return r+1-size;\n      }\n      sum=op(seq[r],sum);\n   \
     \ }while((r&-r)!=r);\n    return 0;\n  }\n};\n/**\n * @brief Segment Tree(\u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 4 \"test/aoj/DSL/DSL_2_A.test.cpp\"\
+    \u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segtree.md\n*/\n#line 4 \"test/aoj/DSL/DSL_2_A.test.cpp\"\
     \nint op(int a,int b){return min(a,b);}\nint e(){return INT_MAX;}\nint main(){\n\
     \  INT(n,q);\n  segtree<int,op,e>s(n);\n  while(q--){\n    INT(t,x,y);\n    if(t==0)s.set(x,y);\n\
     \    else cout<<s.query(x,y+1)<<endl;\n  }\n}\n"
@@ -116,7 +116,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2022-04-10 23:19:54+01:00'
+  timestamp: '2022-04-20 20:18:20+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_A.test.cpp
