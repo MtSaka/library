@@ -71,8 +71,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL/DSL_2_A.test.cpp
-  - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/point_add_range_sum1.test.cpp
+  - test/yosupo/point_set_range_composite.test.cpp
 documentation_of: Data_Structure/segtree.hpp
 layout: document
 redirect_from:

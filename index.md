@@ -9,6 +9,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/dsu.hpp
       title: Disjoint Set Union(Union Find)
+    - icon: ':warning:'
+      path: Data_Structure/dynamic_bitset.hpp
+      title: "\u52D5\u7684bitset"
     - icon: ':heavy_check_mark:'
       path: Data_Structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
