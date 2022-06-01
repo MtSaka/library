@@ -1,6 +1,8 @@
 #pragma once
 struct dsu{
+  private:
   vector<int>p;
+  public:
   dsu(int n):p(n,-1){}
   int root(int x){return p[x]<0?x:p[x]=root(p[x]);}
   bool same(int x,int y){return root(x)==root(y);}

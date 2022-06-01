@@ -1,3 +1,4 @@
+#pragma once
 struct BitSet{
   private:
   using u64=unsigned long long;
