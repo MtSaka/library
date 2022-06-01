@@ -18,8 +18,8 @@ data:
   attributes:
     document_title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
     links: []
-  bundledCode: "#line 2 \"Data_Structure/dsu.hpp\"\nstruct dsu{\n  vector<int>p;\n\
-    \  dsu(int n):p(n,-1){}\n  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n\
+  bundledCode: "#line 2 \"Data_Structure/dsu.hpp\"\nstruct dsu{\n  private:\n  vector<int>p;\n\
+    \  public:\n  dsu(int n):p(n,-1){}\n  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n\
     \  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
     \ -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return\
     \ x;\n    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n\
@@ -63,7 +63,7 @@ data:
   isVerificationFile: false
   path: Graph/mst/kruskal.hpp
   requiredBy: []
-  timestamp: '2022-01-23 11:55:23+00:00'
+  timestamp: '2022-06-01 18:39:17+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_2_A.test.cpp

@@ -38,15 +38,15 @@ data:
   isVerificationFile: false
   path: Math/modular/modpow.hpp
   requiredBy:
-  - Math/modular/mod_log.hpp
   - Math/modular/mod_sqrt.hpp
+  - Math/modular/mod_log.hpp
   timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/NTL/NTL_1_B.test.cpp
-  - test/yosupo/discrete-logarithm-mod.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/discrete-logarithm-mod.test.cpp
   - test/yosupo/sqrt_mod.test.cpp
+  - test/aoj/NTL/NTL_1_B.test.cpp
 documentation_of: Math/modular/modpow.hpp
 layout: document
 redirect_from:

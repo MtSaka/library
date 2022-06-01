@@ -252,15 +252,15 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL/CGL_1_B.test.cpp
-  - test/aoj/CGL/CGL_3_C.test.cpp
-  - test/aoj/CGL/CGL_3_A.test.cpp
-  - test/aoj/CGL/CGL_3_B.test.cpp
-  - test/aoj/CGL/CGL_2_B.test.cpp
+  - test/aoj/CGL/CGL_2_A.test.cpp
   - test/aoj/CGL/CGL_1_C.test.cpp
+  - test/aoj/CGL/CGL_3_B.test.cpp
   - test/aoj/CGL/CGL_2_D.test.cpp
   - test/aoj/CGL/CGL_1_A.test.cpp
+  - test/aoj/CGL/CGL_2_B.test.cpp
+  - test/aoj/CGL/CGL_3_A.test.cpp
   - test/aoj/CGL/CGL_2_C.test.cpp
-  - test/aoj/CGL/CGL_2_A.test.cpp
+  - test/aoj/CGL/CGL_3_C.test.cpp
 documentation_of: Geometry/geometry.hpp
 layout: document
 redirect_from:

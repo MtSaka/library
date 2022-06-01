@@ -45,10 +45,10 @@ data:
   timestamp: '2022-01-11 20:35:27+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DSL/DSL_2_B.test.cpp
-  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - test/yosupo/point_add_range_sum2.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
+  - test/aoj/DSL/DSL_2_B.test.cpp
+  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
 documentation_of: Data_Structure/BIT.hpp
 layout: document
 redirect_from:
