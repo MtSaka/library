@@ -77,8 +77,8 @@ data:
   timestamp: '2022-04-11 19:10:42+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/matrix_product.test.cpp
   - test/yosupo/matrix_det.test.cpp
+  - test/yosupo/matrix_product.test.cpp
 documentation_of: Math/others/matrix.hpp
 layout: document
 redirect_from:

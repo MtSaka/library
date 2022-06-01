@@ -19,6 +19,9 @@ data:
       path: Data_Structure/lazy_segtree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':warning:'
+      path: Data_Structure/presistent_array.hpp
+      title: Data_Structure/presistent_array.hpp
+    - icon: ':warning:'
       path: Data_Structure/rollback_dsu.hpp
       title: Rollback Disjoint Set Union(Union Find)
     - icon: ':heavy_check_mark:'
