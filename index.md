@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/BIT.hpp
       title: Binary Indexed Tree(BIT)
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Data_Structure/bit_vector.hpp
       title: Data_Structure/bit_vector.hpp
     - icon: ':heavy_check_mark:'
@@ -36,7 +36,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/sparse_table.hpp
       title: Sparse Table
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Data_Structure/wavelet_matrix.hpp
       title: Wavelet Matrix
     - icon: ':heavy_check_mark:'
@@ -240,7 +240,7 @@ data:
       title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -443,6 +443,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/range_affine_range_sum.test.cpp
       title: test/yosupo/range_affine_range_sum.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/range_kth_smallest.test.cpp
+      title: test/yosupo/range_kth_smallest.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp

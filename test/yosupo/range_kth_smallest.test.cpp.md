@@ -1,27 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Graph/graph_template.hpp
-    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':heavy_check_mark:'
-    path: Graph/tree/tree_diameter.hpp
-    title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
+  - icon: ':x:'
+    path: Data_Structure/bit_vector.hpp
+    title: Data_Structure/bit_vector.hpp
+  - icon: ':x:'
+    path: Data_Structure/wavelet_matrix.hpp
+    title: Wavelet Matrix
   - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/tree_diameter
+    PROBLEM: https://judge.yosupo.jp/problem/range_kth_smallest
     links:
-    - https://judge.yosupo.jp/problem/tree_diameter
-  bundledCode: "#line 1 \"test/yosupo/tree_diameter.test.cpp\"\n#define PROBLEM \"\
-    https://judge.yosupo.jp/problem/tree_diameter\"\n#line 1 \"template/template.hpp\"\
+    - https://judge.yosupo.jp/problem/range_kth_smallest
+  bundledCode: "#line 1 \"test/yosupo/range_kth_smallest.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.yosupo.jp/problem/range_kth_smallest\"\n#line 1 \"template/template.hpp\"\
     \n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC\
     \ optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define overload4(a,b,c,d,e,...)\
     \ e\n#define overload3(a,b,c,d,...) d\n#define rep1(a) for(ll i=0;i<(ll)(a);i++)\n\
@@ -83,53 +83,77 @@ data:
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n\
-    \  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
-    \  operator int()const{return to;}\n  bool operator<(const Edge&e)const{return\
-    \ cost<e.cost;}\n};\ntemplate<typename T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n\
-    \  int es;\n  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n  size_t size()const{return\
-    \ g.size();}\n  size_t edge_size()const{return es;}\n  void add_directed_edge(int\
-    \ from,int to,T cost=1){\n    g[from].emplace_back(from,to,cost,es++);\n  }\n\
-    \  void add_edge(int from,int to,T cost=1){\n    g[from].emplace_back(from,to,cost,es);\n\
-    \    g[to].emplace_back(to,from,cost,es++);\n  }\n  inline vector<Edge<T>>&operator[](int\
-    \ idx){return g[idx];}\n  inline const vector<Edge<T>>&operator[](int idx)const{return\
-    \ g[idx];}\n  void read(int m,int padding=-1,bool weighed=false,bool direct=false){\n\
-    \    int a,b;\n    T c;\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n      a+=padding;\n\
-    \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
-    \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
-    \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/tree/tree_diameter.hpp\"\n\
-    template<typename T=int>\nstruct TreeDiameter:Graph<T>{\n  using Graph<T>::Graph;\n\
-    \  using Graph<T>::g;\n  vector<Edge<T>>path;\n  T build(){\n    to.assign(g.size(),-1);\n\
-    \    auto p=dfs(0,-1);\n    auto q=dfs(p.second,-1);\n    int now=p.second;\n\
-    \    while(now!=q.second){\n      for(auto &e:g[now]){\n        if(to[now]==e.to)path.emplace_back(e);\n\
-    \      }\n      now=to[now];\n    }\n    return q.first;\n  }\n  TreeDiameter(const\
-    \ Graph<T>&g):Graph<T>(g){}\n  private:\n  vector<int>to;\n  pair<T,int>dfs(int\
-    \ idx,int par){\n    pair<T,int>res(0,idx);\n    for(auto &e:g[idx])if(e.to!=par){\n\
-    \      auto cost=dfs(e.to,idx);\n      cost.first+=e.cost;\n      if(res<cost)res=cost,to[idx]=e.to;\n\
-    \    }\n    return res;\n  }\n};\n/**\n * @brief Tree Diameter(\u6728\u306E\u76F4\
-    \u5F84)\n*/\n#line 4 \"test/yosupo/tree_diameter.test.cpp\"\nint main(){\n  int\
-    \ n;\n  cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n  cout<<g.build()<<\"\
-    \ \"<<g.path.size()+1<<endl;\n  cout<<g.path[0].from<<\" \"<<g.path<<endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../Graph/tree/tree_diameter.hpp\"\n\
-    int main(){\n  int n;\n  cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n\
-    \  cout<<g.build()<<\" \"<<g.path.size()+1<<endl;\n  cout<<g.path[0].from<<\"\
-    \ \"<<g.path<<endl;\n}"
+    Data_Structure/bit_vector.hpp\"\nstruct bit_vector{\n  private:\n  size_t size,block;\n\
+    \  vector<unsigned int>bit,sum;\n  public:\n  bit_vector(){}\n  bit_vector(size_t\
+    \ size):size(size),block((size+31)>>5),bit(block,0u),sum(block,0u){}\n  void set(int\
+    \ i){bit[i>>5]|=1u<<(i&31);}\n  bool operator[](int i)const{return (bit[i>>5]>>(i&31))&1;}\n\
+    \  void build(){\n    sum[0]=0u;\n    for(size_t i=1;i<block;i++)sum[i]=sum[i-1]+__builtin_popcount(bit[i-1]);\n\
+    \  }\n  int rank(int i)const{return sum[i>>5]+__builtin_popcount(bit[i>>5]&((1<<(i&31))-1));}\n\
+    \  int rank(bool v,int i)const{return (v?rank(i):i-rank(i));}\n};\n#line 3 \"\
+    Data_Structure/wavelet_matrix.hpp\"\ntemplate<typename T,int LOG>\nstruct wavelet_matrix{\n\
+    \  private:\n  size_t size;\n  bit_vector matrix[LOG];\n  int mid[LOG];\n  public:\n\
+    \  wavelet_matrix(){}\n  wavelet_matrix(vector<T>v):size(v.size()){\n    vector<T>left(size),right(size);\n\
+    \    for(int level=LOG-1;level>=0;level--){\n      matrix[level]=bit_vector(size+1);\n\
+    \      int l=0,r=0;\n      for(size_t i=0;i<size;i++){\n        if((v[i]>>level)&1)right[r++]=v[i],matrix[level].set(i);\n\
+    \        else left[l++]=v[i];\n      }\n      mid[level]=l;\n      matrix[level].build();\n\
+    \      swap(v,left);\n      for(int i=0;i<r;i++)v[l+i]=right[i];\n    }\n  }\n\
+    \  T access(int i)const{\n    T ret=0;\n    for(int level=LOG-1;level>=0;level--){\n\
+    \      bool f=matrix[level][i];\n      if(f)ret|=T(1)<<level;\n      i=mid[level]*f+matrix[level].rank(f,i);\n\
+    \    }\n    return ret;\n  }\n  T operator[](int i)const{return access(i);}\n\
+    \  pair<int,int>succ(bool f,int l,int r,int level)const{\n    return {matrix[level].rank(f,l)+mid[level]*f,matrix[level].rank(f,r)+mid[level]*f};\n\
+    \  }\n  int rank(int r,const T&x)const{\n    int l=0;\n    for(int level=LOG-1;level>=0;level--){\n\
+    \      tie(l,r)=succ((x>>level)&1,l,r,level);\n    }\n    return r-l;\n  }\n \
+    \ T kth_smallest(int l,int r,int k)const{\n    T ret=0;\n    for(int level=LOG-1;level>=0;level--){\n\
+    \      int cnt=matrix[level].rank(false,r)-matrix[level].rank(false,l);\n    \
+    \  bool f=(cnt<=k);\n      if(f){\n        ret|=T(1)<<level;\n        k-=cnt;\n\
+    \      }\n      tie(l,r)=succ(f,l,r,level);\n    }\n    return ret;\n  }\n  T\
+    \ kth_largest(int l,int r,int k)const{return kth_smallest(l,r,r-l-1-k);}\n  int\
+    \ range_freq(int l,int r,T high)const{\n    int ret=0;\n    for(int level=LOG-1;level>=0;level--){\n\
+    \      bool f=(high>>level)&1;\n      if(f)ret+=matrix[level].rank(false,r)-matrix[level].rank(false,l);\n\
+    \      tie(l,r)=succ(f,l,r,level);\n    }\n    return ret;\n  }\n  int range_freq(int\
+    \ l,int r,T low,T high)const{return range_freq(l,r,high)-range_freq(l,r,low);}\n\
+    \  int prev_val(int l,int r,T x)const{\n    int cnt=range_freq(l,r,x);\n    return\
+    \ (cnt==0?T(-1):kth_smallest(l,r,cnt-1));\n  }\n  int next_val(int l,int r,T x)const{\n\
+    \    int cnt=range_freq(l,r,x);\n    return (cnt==r-l?T(-1):kth_largest(l,r,cnt));\n\
+    \  }\n};\n\ntemplate<typename T,int LOG>\nstruct compressed_wavelet_matrix{\n\
+    \  private:\n  wavelet_matrix<int,LOG>w;\n  vector<T>v;\n  int get(const T&x)const{return\
+    \ lower_bound(v.begin(),v.end(),x)-v.begin();}\n  public:\n  compressed_wavelet_matrix(){}\n\
+    \  compressed_wavelet_matrix(const vector<T>&x):v(x){\n    sort(v.begin(),v.end());\n\
+    \    v.erase(unique(v.begin(),v.end()),v.end());\n    vector<int>t(x.size());\n\
+    \    for(int i=0;i<(int)x.size();i++)t[i]=get(x[i]);\n    w=wavelet_matrix<int,LOG>(t);\n\
+    \  }\n  T access(int i)const{return v[w.access(i)];}\n  T operator[](int i)const{return\
+    \ access(i);}\n  int rank(int r,const T&x)const{\n    auto idx=get(x);\n    if(idx==(int)v.size()||v[idx]!=x)return\
+    \ 0;\n    return w.rank(r,idx);\n  }\n  T kth_smallest(int l,int r,int k)const{\n\
+    \    return v[w.kth_smallest(l,r,k)];\n  }\n  T kth_largest(int l,int r,int k)const{\n\
+    \    return v[w.kth_largest(l,r,k)];\n  }\n  int range_freq(int l,int r,T high)const{\n\
+    \    return w.range_freq(l,r,get(high));\n  }\n  int range_freq(int l,int r,T\
+    \ low,T high)const{\n    return w.range_freq(l,r,get(low),get(high));\n  }\n \
+    \ T prev_val(int l,int r,T high)const{\n    auto ret=w.prev_val(l,r,get(high));\n\
+    \    return ret==-1?T(-1):v[ret];\n  }\n  T next_val(int l,int r,T low)const{\n\
+    \    auto ret=w.next_val(l,r,get(low));\n    return ret==-1?T(-1):v[ret];\n  }\n\
+    };\n/**\n * @brief Wavelet Matrix\n*/\n#line 4 \"test/yosupo/range_kth_smallest.test.cpp\"\
+    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  vi a;cin>>a;\n  compressed_wavelet_matrix<int,18>w(a);\n\
+    \  while(q--){\n    int l,r,k;\n    cin>>l>>r>>k;\n    print(w.kth_smallest(l,r,k));\n\
+    \  }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_kth_smallest\"\n\
+    #include\"../../template/template.hpp\"\n#include\"../../Data_Structure/wavelet_matrix.hpp\"\
+    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  vi a;cin>>a;\n  compressed_wavelet_matrix<int,18>w(a);\n\
+    \  while(q--){\n    int l,r,k;\n    cin>>l>>r>>k;\n    print(w.kth_smallest(l,r,k));\n\
+    \  }\n}"
   dependsOn:
   - template/template.hpp
-  - Graph/tree/tree_diameter.hpp
-  - Graph/graph_template.hpp
+  - Data_Structure/wavelet_matrix.hpp
+  - Data_Structure/bit_vector.hpp
   isVerificationFile: true
-  path: test/yosupo/tree_diameter.test.cpp
+  path: test/yosupo/range_kth_smallest.test.cpp
   requiredBy: []
-  timestamp: '2022-02-07 21:16:16+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-06-02 17:44:37+01:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/yosupo/tree_diameter.test.cpp
+documentation_of: test/yosupo/range_kth_smallest.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/tree_diameter.test.cpp
-- /verify/test/yosupo/tree_diameter.test.cpp.html
-title: test/yosupo/tree_diameter.test.cpp
+- /verify/test/yosupo/range_kth_smallest.test.cpp
+- /verify/test/yosupo/range_kth_smallest.test.cpp.html
+title: test/yosupo/range_kth_smallest.test.cpp
 ---
