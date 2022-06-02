@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/sparse_table.hpp
     title: Sparse Table
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
@@ -102,29 +102,31 @@ data:
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
     \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"Data_Structure/sparse_table.hpp\"\
-    \ntemplate<class S,S (*op)(S,S)>\nstruct sparse_table{\n  private:\n  vector<vector<S>>table;\n\
-    \  vector<int>log_table;\n  public:\n  sparse_table()=default;\n  sparse_table(const\
-    \ vector<S>&v){\n    const int n=(int)v.size();\n    const int lg=32-__builtin_clz(n);\n\
-    \    table.assign(lg,vector<S>(n));\n    for(int i=0;i<n;i++)table[0][i]=v[i];\n\
-    \    for(int i=1;i<lg;i++)for(int j=0;j+(1<<i)<=n;j++)table[i][j]=op(table[i-1][j],table[i-1][j+(1<<(i-1))]);\n\
+    \ntemplate<typename T,typename F>\nstruct sparse_table{\n  F f;\n  vector<vector<T>>table;\n\
+    \  vector<int>log_table;\n  sparse_table()=default;\n  sparse_table(const vector<T>&v,const\
+    \ F&f):f(f){\n    const int n=(int)v.size();\n    const int lg=32-__builtin_clz(n);\n\
+    \    table.assign(lg,vector<T>(n));\n    for(int i=0;i<n;i++)table[0][i]=v[i];\n\
+    \    for(int i=1;i<lg;i++)for(int j=0;j+(1<<i)<=n;j++)table[i][j]=f(table[i-1][j],table[i-1][j+(1<<(i-1))]);\n\
     \    log_table.resize(n+1);\n    for(int i=2;i<=n;i++)log_table[i]=1+log_table[i>>1];\n\
-    \  }\n  S query(int l,int r){\n    int a=log_table[r-l];\n    return op(table[a][l],table[a][r-(1<<a)]);\n\
-    \  }\n};\n/**\n * @brief Sparse Table\n*/\n#line 4 \"Graph/tree/RMQ_lowest_common_ancestor.hpp\"\
-    \ntemplate<typename T=int>\nstruct RMQ_LCA:Graph<T>{\n  using Graph<T>::Graph;\n\
-    \  using Graph<T>::g;\n  vector<int>ord,dep,in;\n  void build(int root=0){\n \
-    \   in.resize(g.size());\n    dfs(root,-1,0);\n    vector<int>v(g.size()*2-1);\n\
-    \    iota(v.begin(),v.end(),0);\n    st=sparse_table<int,f>(v,f);\n  }\n  int\
-    \ lca(int u,int v){\n    if(in[u]>in[v])swap(u,v);\n    return u==v?u:ord[st.query(in[u],in[v])];\n\
+    \  }\n  T query(int l,int r){\n    int a=log_table[r-l];\n    return f(table[a][l],table[a][r-(1<<a)]);\n\
+    \  }\n};\ntemplate<typename T,typename F>\nsparse_table<T,F>make_sparse_table(const\
+    \ vector<T>&v,const F&f){\n  return sparse_table<T,F>(v,f);\n} \n/**\n * @brief\
+    \ Sparse Table\n*/\n#line 4 \"Graph/tree/RMQ_lowest_common_ancestor.hpp\"\ntemplate<typename\
+    \ T=int>\nstruct RMQ_LCA:Graph<T>{\n  using Graph<T>::Graph;\n  using Graph<T>::g;\n\
+    \  using F=function<int(int,int)>;\n  sparse_table<int,F>st;\n  vector<int>ord,dep,in;\n\
+    \  void build(int root=0){\n    in.resize(g.size());\n    dfs(root,-1,0);\n  \
+    \  vector<int>v(g.size()*2-1);\n    iota(v.begin(),v.end(),0);\n    F f=[&](int\
+    \ a,int b){return dep[a]<dep[b]?a:b;};\n    st=sparse_table<int,F>(v,f);\n  }\n\
+    \  int lca(int u,int v){\n    if(in[u]>in[v])swap(u,v);\n    return u==v?u:ord[st.query(in[u],in[v])];\n\
     \  }\n  private:\n  void dfs(int idx,int par,int d){\n    in[idx]=(int)ord.size();\n\
     \    ord.emplace_back(idx);\n    dep.emplace_back(d);\n    for(auto &e:g[idx])if(e!=par){\n\
     \      dfs(e,idx,d+1);\n      ord.emplace_back(idx);\n      dep.emplace_back(d);\n\
-    \    }\n  }\n  int f(int a,int b){return dep[a]<dep[b]?a:b;}\n  sparse_table<int,f>st;\n\
-    };\n/**\n * @brief RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
-    )\n*/\n#line 4 \"test/aoj/GRL/GRL_5_C_2.test.cpp\"\nint main(){\n  int n;\n  cin>>n;\n\
-    \  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n    int k;\n    cin>>k;\n    while(k--){\n\
-    \      int j;\n      cin>>j;\n      g.add_edge(i,j);\n    }\n  }\n  int q;\n \
-    \ cin>>q;\n  g.build();\n  while(q--){\n    int a,b;\n    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n\
-    \  }\n}\n"
+    \    }\n  }\n};\n/**\n * @brief RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\
+    \u7956\u5148)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_C_2.test.cpp\"\nint main(){\n\
+    \  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n    int k;\n\
+    \    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n      g.add_edge(i,j);\n\
+    \    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n    int a,b;\n\
+    \    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/tree/RMQ_lowest_common_ancestor.hpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n\
@@ -139,8 +141,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_C_2.test.cpp
   requiredBy: []
-  timestamp: '2022-06-02 20:39:24+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-06-02 20:57:01+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_C_2.test.cpp
 layout: document

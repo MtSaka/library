@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yosupo/staticrmq2.test.cpp
+    title: test/yosupo/staticrmq2.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: Disjoint Sparse Table
     links: []
@@ -16,7 +19,7 @@ data:
     \    for(size_t i=0;i<v.size();i++)table[0][i]=v[i];\n    int shift=1;\n    for(int\
     \ i=1;i<bit;i++){\n      shift<<=1;\n      for(int j=0;j<(int)v.size();j+=shift<<1){\n\
     \        int l=min<int>(j+shift,v.size());\n        table[i][l-1]=v[l-1];\n  \
-    \      for(int k=l-2;l>=j;l--)table[i][k]=op(v[k],table[i][k+1]);\n        if((int)v.size()==l)break;\n\
+    \      for(int k=l-2;k>=j;k--)table[i][k]=op(v[k],table[i][k+1]);\n        if((int)v.size()==l)break;\n\
     \        table[i][l]=v[l];\n        int r=min<int>(l+shift,v.size());\n      \
     \  for(int k=l+1;k<r;k++)table[i][k]=op(table[i][k-1],v[k]);\n      }\n    }\n\
     \    log_table.resize(sz);\n    for(int i=2;i<sz;i++)log_table[i]=1+log_table[i>>1];\n\
@@ -29,7 +32,7 @@ data:
     \    table.resize(bit,vector<S>(v.size(),e()));\n    for(size_t i=0;i<v.size();i++)table[0][i]=v[i];\n\
     \    int shift=1;\n    for(int i=1;i<bit;i++){\n      shift<<=1;\n      for(int\
     \ j=0;j<(int)v.size();j+=shift<<1){\n        int l=min<int>(j+shift,v.size());\n\
-    \        table[i][l-1]=v[l-1];\n        for(int k=l-2;l>=j;l--)table[i][k]=op(v[k],table[i][k+1]);\n\
+    \        table[i][l-1]=v[l-1];\n        for(int k=l-2;k>=j;k--)table[i][k]=op(v[k],table[i][k+1]);\n\
     \        if((int)v.size()==l)break;\n        table[i][l]=v[l];\n        int r=min<int>(l+shift,v.size());\n\
     \        for(int k=l+1;k<r;k++)table[i][k]=op(table[i][k-1],v[k]);\n      }\n\
     \    }\n    log_table.resize(sz);\n    for(int i=2;i<sz;i++)log_table[i]=1+log_table[i>>1];\n\
@@ -40,9 +43,10 @@ data:
   isVerificationFile: false
   path: Data_Structure/disjoint_sparse_table.hpp
   requiredBy: []
-  timestamp: '2022-06-02 20:39:24+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2022-06-02 20:57:01+01:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yosupo/staticrmq2.test.cpp
 documentation_of: Data_Structure/disjoint_sparse_table.hpp
 layout: document
 redirect_from:

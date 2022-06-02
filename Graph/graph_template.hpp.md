@@ -32,7 +32,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/shortest_path/warshall_floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':warning:'
@@ -75,13 +75,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_1.test.cpp
     title: test/aoj/GRL/GRL_5_C_1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/lca1.test.cpp
     title: test/yosupo/lca1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -93,9 +93,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
       \u30C8)"
@@ -151,7 +151,7 @@ data:
   - Graph/others/scc.hpp
   - Graph/others/topological_sort.hpp
   timestamp: '2022-01-22 22:12:05+00:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_5_C_1.test.cpp
   - test/aoj/GRL/GRL_5_A.test.cpp

@@ -1,38 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Graph/graph_template.hpp
-    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':heavy_check_mark:'
-    path: Graph/tree/tree_diameter.hpp
-    title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
+  - icon: ':x:'
+    path: Data_Structure/disjoint_sparse_table.hpp
+    title: Disjoint Sparse Table
   - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/tree_diameter
+    PROBLEM: https://judge.yosupo.jp/problem/staticrmq
     links:
-    - https://judge.yosupo.jp/problem/tree_diameter
-  bundledCode: "#line 1 \"test/yosupo/tree_diameter.test.cpp\"\n#define PROBLEM \"\
-    https://judge.yosupo.jp/problem/tree_diameter\"\n#line 1 \"template/template.hpp\"\
-    \n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC\
-    \ optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define overload4(a,b,c,d,e,...)\
-    \ e\n#define overload3(a,b,c,d,...) d\n#define rep1(a) for(ll i=0;i<(ll)(a);i++)\n\
-    #define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n#define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n\
-    #define rep4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...)\
-    \ overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a)\
-    \ for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
-    #define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n#define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n\
-    #define fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n\
-    #define all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n\
-    #define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n#define rall(n)\
+    - https://judge.yosupo.jp/problem/staticrmq
+  bundledCode: "#line 1 \"test/yosupo/staticrmq2.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\
+    \n#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
+    \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
+    #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
+    \ rep1(a) for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n\
+    #define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n#define rep4(i,a,b,c) for(ll\
+    \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) overload4(__VA_ARGS__, rep4,\
+    \ rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
+    #define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n\
+    #define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n#define\
+    \ fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n#define\
+    \ all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n#define\
+    \ all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n#define rall(n)\
     \ (n).rbegin(),(n).rend()\n#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
@@ -83,53 +80,43 @@ data:
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n\
-    \  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
-    \  operator int()const{return to;}\n  bool operator<(const Edge&e)const{return\
-    \ cost<e.cost;}\n};\ntemplate<typename T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n\
-    \  int es;\n  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n  size_t size()const{return\
-    \ g.size();}\n  size_t edge_size()const{return es;}\n  void add_directed_edge(int\
-    \ from,int to,T cost=1){\n    g[from].emplace_back(from,to,cost,es++);\n  }\n\
-    \  void add_edge(int from,int to,T cost=1){\n    g[from].emplace_back(from,to,cost,es);\n\
-    \    g[to].emplace_back(to,from,cost,es++);\n  }\n  inline vector<Edge<T>>&operator[](int\
-    \ idx){return g[idx];}\n  inline const vector<Edge<T>>&operator[](int idx)const{return\
-    \ g[idx];}\n  void read(int m,int padding=-1,bool weighed=false,bool direct=false){\n\
-    \    int a,b;\n    T c;\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n      a+=padding;\n\
-    \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
-    \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
-    \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/tree/tree_diameter.hpp\"\n\
-    template<typename T=int>\nstruct TreeDiameter:Graph<T>{\n  using Graph<T>::Graph;\n\
-    \  using Graph<T>::g;\n  vector<Edge<T>>path;\n  T build(){\n    to.assign(g.size(),-1);\n\
-    \    auto p=dfs(0,-1);\n    auto q=dfs(p.second,-1);\n    int now=p.second;\n\
-    \    while(now!=q.second){\n      for(auto &e:g[now]){\n        if(to[now]==e.to)path.emplace_back(e);\n\
-    \      }\n      now=to[now];\n    }\n    return q.first;\n  }\n  TreeDiameter(const\
-    \ Graph<T>&g):Graph<T>(g){}\n  private:\n  vector<int>to;\n  pair<T,int>dfs(int\
-    \ idx,int par){\n    pair<T,int>res(0,idx);\n    for(auto &e:g[idx])if(e.to!=par){\n\
-    \      auto cost=dfs(e.to,idx);\n      cost.first+=e.cost;\n      if(res<cost)res=cost,to[idx]=e.to;\n\
-    \    }\n    return res;\n  }\n};\n/**\n * @brief Tree Diameter(\u6728\u306E\u76F4\
-    \u5F84)\n*/\n#line 4 \"test/yosupo/tree_diameter.test.cpp\"\nint main(){\n  int\
-    \ n;\n  cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n  cout<<g.build()<<\"\
-    \ \"<<g.path.size()+1<<endl;\n  cout<<g.path[0].from<<\" \"<<g.path<<endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../Graph/tree/tree_diameter.hpp\"\n\
-    int main(){\n  int n;\n  cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n\
-    \  cout<<g.build()<<\" \"<<g.path.size()+1<<endl;\n  cout<<g.path[0].from<<\"\
-    \ \"<<g.path<<endl;\n}"
+    Data_Structure/disjoint_sparse_table.hpp\"\ntemplate<class S,S (*op)(S,S),S (*e)()>\n\
+    struct disjoint_sparse_table{\n  private:\n  vector<vector<S>>table;\n  vector<int>log_table;\n\
+    \  public:\n  disjoint_sparse_table(const vector<S>&v){\n    int bit=0,sz=1;\n\
+    \    while(sz<=(int)v.size())sz<<=1,bit++;\n    table.resize(bit,vector<S>(v.size(),e()));\n\
+    \    for(size_t i=0;i<v.size();i++)table[0][i]=v[i];\n    int shift=1;\n    for(int\
+    \ i=1;i<bit;i++){\n      shift<<=1;\n      for(int j=0;j<(int)v.size();j+=shift<<1){\n\
+    \        int l=min<int>(j+shift,v.size());\n        table[i][l-1]=v[l-1];\n  \
+    \      for(int k=l-2;k>=j;k--)table[i][k]=op(v[k],table[i][k+1]);\n        if((int)v.size()==l)break;\n\
+    \        table[i][l]=v[l];\n        int r=min<int>(l+shift,v.size());\n      \
+    \  for(int k=l+1;k<r;k++)table[i][k]=op(table[i][k-1],v[k]);\n      }\n    }\n\
+    \    log_table.resize(sz);\n    for(int i=2;i<sz;i++)log_table[i]=1+log_table[i>>1];\n\
+    \  }\n  S query(int l,int r){\n    if(l>=--r)return table[0][l];\n    int pos=log_table[l^r];\n\
+    \    return op(table[pos][l],table[pos][r]);\n  }\n};\n/**\n * @brief Disjoint\
+    \ Sparse Table\n */\n#line 4 \"test/yosupo/staticrmq2.test.cpp\"\nint main(){\n\
+    \  int n,q;\n  cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  auto f=[](int a,int b){return\
+    \ min(a,b);};\n  auto op=[](){return INF<int>;};\n  disjoint_sparse_table<int,f,op>st(a);\n\
+    \  while(q--){\n    int l,r;\n    cin>>l>>r;\n    cout<<st.query(l,r)<<endl;\n\
+    \  }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include\"\
+    ../../template/template.hpp\"\n#include\"../../Data_Structure/disjoint_sparse_table.hpp\"\
+    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  auto f=[](int\
+    \ a,int b){return min(a,b);};\n  auto op=[](){return INF<int>;};\n  disjoint_sparse_table<int,f,op>st(a);\n\
+    \  while(q--){\n    int l,r;\n    cin>>l>>r;\n    cout<<st.query(l,r)<<endl;\n\
+    \  }\n}"
   dependsOn:
   - template/template.hpp
-  - Graph/tree/tree_diameter.hpp
-  - Graph/graph_template.hpp
+  - Data_Structure/disjoint_sparse_table.hpp
   isVerificationFile: true
-  path: test/yosupo/tree_diameter.test.cpp
+  path: test/yosupo/staticrmq2.test.cpp
   requiredBy: []
-  timestamp: '2022-02-07 21:16:16+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-06-02 20:57:01+01:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/yosupo/tree_diameter.test.cpp
+documentation_of: test/yosupo/staticrmq2.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/tree_diameter.test.cpp
-- /verify/test/yosupo/tree_diameter.test.cpp.html
-title: test/yosupo/tree_diameter.test.cpp
+- /verify/test/yosupo/staticrmq2.test.cpp
+- /verify/test/yosupo/staticrmq2.test.cpp.html
+title: test/yosupo/staticrmq2.test.cpp
 ---

@@ -9,7 +9,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/bit_vector.hpp
       title: Bit Vector
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Data_Structure/disjoint_sparse_table.hpp
       title: Disjoint Sparse Table
     - icon: ':heavy_check_mark:'
@@ -36,7 +36,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/segtree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/sparse_table.hpp
       title: Sparse Table
     - icon: ':heavy_check_mark:'
@@ -73,7 +73,7 @@ data:
       title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: Graph
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Graph/graph_template.hpp
       title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
         )"
@@ -115,7 +115,7 @@ data:
       title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - name: Graph/tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/tree/RMQ_lowest_common_ancestor.hpp
       title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':warning:'
@@ -350,7 +350,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_C_1.test.cpp
       title: test/aoj/GRL/GRL_5_C_1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_C_2.test.cpp
       title: test/aoj/GRL/GRL_5_C_2.test.cpp
     - icon: ':heavy_check_mark:'
@@ -407,7 +407,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/lca1.test.cpp
       title: test/yosupo/lca1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/lca2.test.cpp
       title: test/yosupo/lca2.test.cpp
     - icon: ':heavy_check_mark:'
@@ -470,6 +470,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq.test.cpp
       title: test/yosupo/staticrmq.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/staticrmq2.test.cpp
+      title: test/yosupo/staticrmq2.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/tree_diameter.test.cpp
       title: test/yosupo/tree_diameter.test.cpp

@@ -96,7 +96,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_1.test.cpp
     title: test/aoj/GRL/GRL_5_C_1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -147,7 +147,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/lca1.test.cpp
     title: test/yosupo/lca1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -210,6 +210,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/staticrmq2.test.cpp
+    title: test/yosupo/staticrmq2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
@@ -410,6 +413,7 @@ data:
   - test/yosupo/kth_root_integer.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/matrix_product.test.cpp
+  - test/yosupo/staticrmq2.test.cpp
   - test/yosupo/polynomial_taylor_shift.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/staticrmq.test.cpp
