@@ -22,6 +22,9 @@ data:
       path: Data_Structure/presistent_array.hpp
       title: Data_Structure/presistent_array.hpp
     - icon: ':warning:'
+      path: Data_Structure/presistent_dsu.hpp
+      title: "Presistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
+    - icon: ':warning:'
       path: Data_Structure/rollback_dsu.hpp
       title: Rollback Disjoint Set Union(Union Find)
     - icon: ':heavy_check_mark:'
