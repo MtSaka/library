@@ -14,7 +14,7 @@ struct sparse_table{
     log_table.resize(n+1);
     for(int i=2;i<=n;i++)log_table[i]=1+log_table[i>>1];
   }
-  T query(int l,int r){
+  S query(int l,int r){
     int a=log_table[r-l];
     return op(table[a][l],table[a][r-(1<<a)]);
   }
