@@ -7,29 +7,37 @@ struct persistent_array{
   };
   node*root=nullptr;
   persistent_array(){}
-  presistent_array(vector<t>&a){
+  persistent_array(const vector<T>&a){
+    build(a);
+  }
+  void build(const vector<T>&a){
     for(int i=0;i<(int)a.size();i++){
-      root=set(i,a[i],root);
+      destructive_set(i,a[i],root);
     }
   }
   node*get_root(){return root;}
-  node*set(int idx,const T&val,node*&t){
+  void destructive_set(int idx,T val,node*&t){
+    if(!t)t=new node();
+    if(idx==0)t->val=val;
+    else destructive_set(idx/20,val,t->ch[idx%20]);
+  }
+  node*set(int idx,T val,const node*& t){
     node*ret=new node();
     if(t){
       memcpy(ret->ch,t->ch,sizeof(t->ch));
-      res->data=t->data;
+      ret->val=t->val;
     }
     if(idx==0){
-      ret->data=val;
+      ret->val=val;
     }
     else{
       ret->ch[idx%20]=set(idx/20,val,ret->ch[idx%20]);
     }
     return ret;
   }
-  T get(int idx,node*t){
+  T get(int idx, node*t){
     if(!t)return 0;
-    if(idx==0)return t->data;
+    if(idx==0)return t->val;
     return get(idx/20,t->ch[idx%20]);
   }
 };
