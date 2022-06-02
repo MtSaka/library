@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/disjoint_sparse_table.hpp
     title: Disjoint Sparse Table
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/staticrmq
@@ -93,15 +93,15 @@ data:
     \    log_table.resize(sz);\n    for(int i=2;i<sz;i++)log_table[i]=1+log_table[i>>1];\n\
     \  }\n  S query(int l,int r){\n    if(l>=--r)return table[0][l];\n    int pos=log_table[l^r];\n\
     \    return op(table[pos][l],table[pos][r]);\n  }\n};\n/**\n * @brief Disjoint\
-    \ Sparse Table\n */\n#line 4 \"test/yosupo/staticrmq2.test.cpp\"\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  auto f=[](int a,int b){return\
-    \ min(a,b);};\n  auto op=[](){return INF<int>;};\n  disjoint_sparse_table<int,f,op>st(a);\n\
+    \ Sparse Table\n */\n#line 4 \"test/yosupo/staticrmq2.test.cpp\"\nint op(int a,int\
+    \ b){return min(a,b);}\nint e(){return INF<int>;}\nint main(){\n  int n,q;\n \
+    \ cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  disjoint_sparse_table<int,op,e>st(a);\n\
     \  while(q--){\n    int l,r;\n    cin>>l>>r;\n    cout<<st.query(l,r)<<endl;\n\
     \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include\"\
     ../../template/template.hpp\"\n#include\"../../Data_Structure/disjoint_sparse_table.hpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  auto f=[](int\
-    \ a,int b){return min(a,b);};\n  auto op=[](){return INF<int>;};\n  disjoint_sparse_table<int,f,op>st(a);\n\
+    \nint op(int a,int b){return min(a,b);}\nint e(){return INF<int>;}\nint main(){\n\
+    \  int n,q;\n  cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  disjoint_sparse_table<int,op,e>st(a);\n\
     \  while(q--){\n    int l,r;\n    cin>>l>>r;\n    cout<<st.query(l,r)<<endl;\n\
     \  }\n}"
   dependsOn:
@@ -110,8 +110,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/staticrmq2.test.cpp
   requiredBy: []
-  timestamp: '2022-06-02 20:57:01+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-06-02 21:02:47+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/staticrmq2.test.cpp
 layout: document
