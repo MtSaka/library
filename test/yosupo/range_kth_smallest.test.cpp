@@ -4,7 +4,7 @@
 int main(){
   int n,q;
   cin>>n>>q;
-  vi a;cin>>a;
+  vi a(n);cin>>a;
   compressed_wavelet_matrix<int,18>w(a);
   while(q--){
     int l,r,k;

@@ -15,3 +15,6 @@ struct bit_vector{
   int rank(int i)const{return sum[i>>5]+__builtin_popcount(bit[i>>5]&((1<<(i&31))-1));}
   int rank(bool v,int i)const{return (v?rank(i):i-rank(i));}
 };
+/**
+ * @brief Bit Vector
+*/
