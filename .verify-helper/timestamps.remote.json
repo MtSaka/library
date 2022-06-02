@@ -52,6 +52,7 @@
 "test/yosupo/matrix_det.test.cpp": "2022-04-11 19:10:42 +0100",
 "test/yosupo/matrix_product.test.cpp": "2022-04-11 19:10:42 +0100",
 "test/yosupo/multipoint_evaluation.test.cpp": "2022-04-10 15:30:48 +0100",
+"test/yosupo/persistent_unionfind.test.cpp": "2022-06-02 15:39:38 +0100",
 "test/yosupo/point_add_range_sum1.test.cpp": "2022-04-20 20:18:20 +0100",
 "test/yosupo/point_add_range_sum2.test.cpp": "2022-02-07 21:16:16 +0000",
 "test/yosupo/point_set_range_composite.test.cpp": "2022-04-20 20:18:20 +0100",
