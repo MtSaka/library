@@ -6,6 +6,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/BIT.hpp
       title: Binary Indexed Tree(BIT)
+    - icon: ':warning:'
+      path: Data_Structure/bit_vector.hpp
+      title: Data_Structure/bit_vector.hpp
     - icon: ':heavy_check_mark:'
       path: Data_Structure/dsu.hpp
       title: Disjoint Set Union(Union Find)
@@ -33,6 +36,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/sparse_table.hpp
       title: Sparse Table
+    - icon: ':warning:'
+      path: Data_Structure/wavelet_matrix.hpp
+      title: Wavelet Matrix
     - icon: ':heavy_check_mark:'
       path: Data_Structure/weighted_dsu.hpp
       title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
