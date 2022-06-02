@@ -16,7 +16,7 @@ struct disjoint_sparse_table{
       for(int j=0;j<(int)v.size();j+=shift<<1){
         int l=min<int>(j+shift,v.size());
         table[i][l-1]=v[l-1];
-        for(int k=l-2;l>=j;l--)table[i][k]=op(v[k],table[i][k+1]);
+        for(int k=l-2;k>=j;k--)table[i][k]=op(v[k],table[i][k+1]);
         if((int)v.size()==l)break;
         table[i][l]=v[l];
         int r=min<int>(l+shift,v.size());
