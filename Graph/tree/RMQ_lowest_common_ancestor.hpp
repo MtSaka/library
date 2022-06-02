@@ -5,16 +5,13 @@ template<typename T=int>
 struct RMQ_LCA:Graph<T>{
   using Graph<T>::Graph;
   using Graph<T>::g;
-  using F=function<int(int,int)>;
-  sparse_table<int,F>st;
   vector<int>ord,dep,in;
   void build(int root=0){
     in.resize(g.size());
     dfs(root,-1,0);
     vector<int>v(g.size()*2-1);
     iota(v.begin(),v.end(),0);
-    F f=[&](int a,int b){return dep[a]<dep[b]?a:b;};
-    st=sparse_table<int,F>(v,f);
+    st=sparse_table<int,f>(v,f);
   }
   int lca(int u,int v){
     if(in[u]>in[v])swap(u,v);
@@ -31,6 +28,8 @@ struct RMQ_LCA:Graph<T>{
       dep.emplace_back(d);
     }
   }
+  int f(int a,int b){return dep[a]<dep[b]?a:b;}
+  sparse_table<int,f>st;
 };
 /**
  * @brief RMQ Lowest Common Ancestor(最小共通祖先)
