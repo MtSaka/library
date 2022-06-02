@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/bit_vector.hpp
-    title: Data_Structure/bit_vector.hpp
+    title: Bit Vector
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/range_kth_smallest.test.cpp
     title: test/yosupo/range_kth_smallest.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Wavelet Matrix
     links: []
@@ -21,12 +21,13 @@ data:
     \  void set(int i){bit[i>>5]|=1u<<(i&31);}\n  bool operator[](int i)const{return\
     \ (bit[i>>5]>>(i&31))&1;}\n  void build(){\n    sum[0]=0u;\n    for(size_t i=1;i<block;i++)sum[i]=sum[i-1]+__builtin_popcount(bit[i-1]);\n\
     \  }\n  int rank(int i)const{return sum[i>>5]+__builtin_popcount(bit[i>>5]&((1<<(i&31))-1));}\n\
-    \  int rank(bool v,int i)const{return (v?rank(i):i-rank(i));}\n};\n#line 3 \"\
-    Data_Structure/wavelet_matrix.hpp\"\ntemplate<typename T,int LOG>\nstruct wavelet_matrix{\n\
-    \  private:\n  size_t size;\n  bit_vector matrix[LOG];\n  int mid[LOG];\n  public:\n\
-    \  wavelet_matrix(){}\n  wavelet_matrix(vector<T>v):size(v.size()){\n    vector<T>left(size),right(size);\n\
-    \    for(int level=LOG-1;level>=0;level--){\n      matrix[level]=bit_vector(size+1);\n\
-    \      int l=0,r=0;\n      for(size_t i=0;i<size;i++){\n        if((v[i]>>level)&1)right[r++]=v[i],matrix[level].set(i);\n\
+    \  int rank(bool v,int i)const{return (v?rank(i):i-rank(i));}\n};\n/**\n * @brief\
+    \ Bit Vector\n*/\n#line 3 \"Data_Structure/wavelet_matrix.hpp\"\ntemplate<typename\
+    \ T,int LOG>\nstruct wavelet_matrix{\n  private:\n  size_t size;\n  bit_vector\
+    \ matrix[LOG];\n  int mid[LOG];\n  public:\n  wavelet_matrix(){}\n  wavelet_matrix(vector<T>v):size(v.size()){\n\
+    \    vector<T>left(size),right(size);\n    for(int level=LOG-1;level>=0;level--){\n\
+    \      matrix[level]=bit_vector(size+1);\n      int l=0,r=0;\n      for(size_t\
+    \ i=0;i<size;i++){\n        if((v[i]>>level)&1)right[r++]=v[i],matrix[level].set(i);\n\
     \        else left[l++]=v[i];\n      }\n      mid[level]=l;\n      matrix[level].build();\n\
     \      swap(v,left);\n      for(int i=0;i<r;i++)v[l+i]=right[i];\n    }\n  }\n\
     \  T access(int i)const{\n    T ret=0;\n    for(int level=LOG-1;level>=0;level--){\n\
@@ -112,8 +113,8 @@ data:
   isVerificationFile: false
   path: Data_Structure/wavelet_matrix.hpp
   requiredBy: []
-  timestamp: '2022-06-02 17:44:37+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-06-02 17:56:16+01:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/range_kth_smallest.test.cpp
 documentation_of: Data_Structure/wavelet_matrix.hpp

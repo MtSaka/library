@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/bit_vector.hpp
-    title: Data_Structure/bit_vector.hpp
-  - icon: ':x:'
+    title: Bit Vector
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/wavelet_matrix.hpp
     title: Wavelet Matrix
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_kth_smallest
@@ -89,12 +89,13 @@ data:
     \ i){bit[i>>5]|=1u<<(i&31);}\n  bool operator[](int i)const{return (bit[i>>5]>>(i&31))&1;}\n\
     \  void build(){\n    sum[0]=0u;\n    for(size_t i=1;i<block;i++)sum[i]=sum[i-1]+__builtin_popcount(bit[i-1]);\n\
     \  }\n  int rank(int i)const{return sum[i>>5]+__builtin_popcount(bit[i>>5]&((1<<(i&31))-1));}\n\
-    \  int rank(bool v,int i)const{return (v?rank(i):i-rank(i));}\n};\n#line 3 \"\
-    Data_Structure/wavelet_matrix.hpp\"\ntemplate<typename T,int LOG>\nstruct wavelet_matrix{\n\
-    \  private:\n  size_t size;\n  bit_vector matrix[LOG];\n  int mid[LOG];\n  public:\n\
-    \  wavelet_matrix(){}\n  wavelet_matrix(vector<T>v):size(v.size()){\n    vector<T>left(size),right(size);\n\
-    \    for(int level=LOG-1;level>=0;level--){\n      matrix[level]=bit_vector(size+1);\n\
-    \      int l=0,r=0;\n      for(size_t i=0;i<size;i++){\n        if((v[i]>>level)&1)right[r++]=v[i],matrix[level].set(i);\n\
+    \  int rank(bool v,int i)const{return (v?rank(i):i-rank(i));}\n};\n/**\n * @brief\
+    \ Bit Vector\n*/\n#line 3 \"Data_Structure/wavelet_matrix.hpp\"\ntemplate<typename\
+    \ T,int LOG>\nstruct wavelet_matrix{\n  private:\n  size_t size;\n  bit_vector\
+    \ matrix[LOG];\n  int mid[LOG];\n  public:\n  wavelet_matrix(){}\n  wavelet_matrix(vector<T>v):size(v.size()){\n\
+    \    vector<T>left(size),right(size);\n    for(int level=LOG-1;level>=0;level--){\n\
+    \      matrix[level]=bit_vector(size+1);\n      int l=0,r=0;\n      for(size_t\
+    \ i=0;i<size;i++){\n        if((v[i]>>level)&1)right[r++]=v[i],matrix[level].set(i);\n\
     \        else left[l++]=v[i];\n      }\n      mid[level]=l;\n      matrix[level].build();\n\
     \      swap(v,left);\n      for(int i=0;i<r;i++)v[l+i]=right[i];\n    }\n  }\n\
     \  T access(int i)const{\n    T ret=0;\n    for(int level=LOG-1;level>=0;level--){\n\
@@ -132,12 +133,12 @@ data:
     \    return ret==-1?T(-1):v[ret];\n  }\n  T next_val(int l,int r,T low)const{\n\
     \    auto ret=w.next_val(l,r,get(low));\n    return ret==-1?T(-1):v[ret];\n  }\n\
     };\n/**\n * @brief Wavelet Matrix\n*/\n#line 4 \"test/yosupo/range_kth_smallest.test.cpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  vi a;cin>>a;\n  compressed_wavelet_matrix<int,18>w(a);\n\
+    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  vi a(n);cin>>a;\n  compressed_wavelet_matrix<int,18>w(a);\n\
     \  while(q--){\n    int l,r,k;\n    cin>>l>>r>>k;\n    print(w.kth_smallest(l,r,k));\n\
     \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_kth_smallest\"\n\
     #include\"../../template/template.hpp\"\n#include\"../../Data_Structure/wavelet_matrix.hpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  vi a;cin>>a;\n  compressed_wavelet_matrix<int,18>w(a);\n\
+    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  vi a(n);cin>>a;\n  compressed_wavelet_matrix<int,18>w(a);\n\
     \  while(q--){\n    int l,r,k;\n    cin>>l>>r>>k;\n    print(w.kth_smallest(l,r,k));\n\
     \  }\n}"
   dependsOn:
@@ -147,8 +148,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/range_kth_smallest.test.cpp
   requiredBy: []
-  timestamp: '2022-06-02 17:44:37+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-06-02 17:56:16+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/range_kth_smallest.test.cpp
 layout: document
