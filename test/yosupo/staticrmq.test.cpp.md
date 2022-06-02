@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: Data_Structure/sparse_table.hpp
     title: Sparse Table
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/staticrmq
@@ -86,7 +86,7 @@ data:
     \    const int lg=32-__builtin_clz(n);\n    table.assign(lg,vector<S>(n));\n \
     \   for(int i=0;i<n;i++)table[0][i]=v[i];\n    for(int i=1;i<lg;i++)for(int j=0;j+(1<<i)<=n;j++)table[i][j]=op(table[i-1][j],table[i-1][j+(1<<(i-1))]);\n\
     \    log_table.resize(n+1);\n    for(int i=2;i<=n;i++)log_table[i]=1+log_table[i>>1];\n\
-    \  }\n  T query(int l,int r){\n    int a=log_table[r-l];\n    return op(table[a][l],table[a][r-(1<<a)]);\n\
+    \  }\n  S query(int l,int r){\n    int a=log_table[r-l];\n    return op(table[a][l],table[a][r-(1<<a)]);\n\
     \  }\n};\n/**\n * @brief Sparse Table\n*/\n#line 4 \"test/yosupo/staticrmq.test.cpp\"\
     \nint op(int a,int b){return min(a,b);}\nint main(){\n  int n,q;\n  cin>>n>>q;\n\
     \  vector<int>a(n);\n  cin>>a;\n  sparse_table<int,op>st(a);\n  while(q--){\n\
@@ -102,8 +102,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2022-06-02 20:26:34+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-06-02 20:39:24+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/staticrmq.test.cpp
 layout: document
