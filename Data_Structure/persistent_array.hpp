@@ -21,7 +21,7 @@ struct persistent_array{
     if(idx==0)t->val=val;
     else destructive_set(idx/20,val,t->ch[idx%20]);
   }
-  node*set(int idx,T val,const node*& t){
+  node*set(int idx,T val,node*const& t){
     node*ret=new node();
     if(t){
       memcpy(ret->ch,t->ch,sizeof(t->ch));

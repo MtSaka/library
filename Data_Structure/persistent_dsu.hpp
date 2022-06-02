@@ -1,14 +1,14 @@
 
 #pragma once
-#include"presistent_array.hpp"
-struct presistent_dsu{
+#include"persistent_array.hpp"
+struct persistent_dsu{
   private:
   using pa=persistent_array<int>;
   pa p;
   public:
   using node=pa::node;
-  presistent_dsu(){}
-  presistent_dsu(int n){
+  persistent_dsu(){}
+  persistent_dsu(int n){
     p.build(vector<int>(n,-1));
   }
   int root(int x,node*t){
@@ -30,5 +30,5 @@ struct presistent_dsu{
   }
 };
 /**
- * @brief Presistent Disjoint Set Union(永続Union-Find)
+ * @brief persistent Disjoint Set Union(永続Union-Find)
 */
