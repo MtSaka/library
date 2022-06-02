@@ -1,4 +1,3 @@
-
 #pragma once
 #include"persistent_array.hpp"
 struct persistent_dsu{
@@ -28,7 +27,8 @@ struct persistent_dsu{
     node*ret=p.set(y,x,p.set(x,p.get(x,t)+p.get(y,t),t));
     return {x,ret};
   }
+  node*get_root(){return p.get_root();}
 };
 /**
- * @brief persistent Disjoint Set Union(永続Union-Find)
+ * @brief Persistent Disjoint Set Union(永続Union-Find)
 */
