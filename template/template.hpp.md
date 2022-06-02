@@ -163,6 +163,9 @@ data:
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/persistent_unionfind.test.cpp
+    title: test/yosupo/persistent_unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum1.test.cpp
     title: test/yosupo/point_add_range_sum1.test.cpp
   - icon: ':heavy_check_mark:'
@@ -416,6 +419,7 @@ data:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/scc.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
+  - test/yosupo/persistent_unionfind.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
   - test/yukicoder/1236.test.cpp

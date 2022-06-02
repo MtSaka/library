@@ -18,12 +18,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/lazy_segtree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/persistent_array.hpp
       title: Data_Structure/persistent_array.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/persistent_dsu.hpp
-      title: "persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
+      title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
     - icon: ':warning:'
       path: Data_Structure/rollback_dsu.hpp
       title: Rollback Disjoint Set Union(Union Find)
@@ -413,6 +413,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/multipoint_evaluation.test.cpp
       title: test/yosupo/multipoint_evaluation.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/persistent_unionfind.test.cpp
+      title: test/yosupo/persistent_unionfind.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum1.test.cpp
       title: test/yosupo/point_add_range_sum1.test.cpp
