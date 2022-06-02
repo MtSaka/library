@@ -1,6 +1,6 @@
 #pragma once
 #include"bit_vector.hpp"
-template<typnemae T,int LOG>
+template<typename T,int LOG>
 struct wavelet_matrix{
   private:
   size_t size;
@@ -14,12 +14,12 @@ struct wavelet_matrix{
       matrix[level]=bit_vector(size+1);
       int l=0,r=0;
       for(size_t i=0;i<size;i++){
-        if((v[i]>>level)&1)right[r++]=v[i];
+        if((v[i]>>level)&1)right[r++]=v[i],matrix[level].set(i);
         else left[l++]=v[i];
       }
       mid[level]=l;
       matrix[level].build();
-      swap(v,l);
+      swap(v,left);
       for(int i=0;i<r;i++)v[l+i]=right[i];
     }
   }
@@ -33,7 +33,7 @@ struct wavelet_matrix{
     return ret;
   }
   T operator[](int i)const{return access(i);}
-  pair<int,int>succ(bool f,int l,int r,int level){
+  pair<int,int>succ(bool f,int l,int r,int level)const{
     return {matrix[level].rank(f,l)+mid[level]*f,matrix[level].rank(f,r)+mid[level]*f};
   }
   int rank(int r,const T&x)const{
@@ -74,6 +74,50 @@ struct wavelet_matrix{
   int next_val(int l,int r,T x)const{
     int cnt=range_freq(l,r,x);
     return (cnt==r-l?T(-1):kth_largest(l,r,cnt));
+  }
+};
+
+template<typename T,int LOG>
+struct compressed_wavelet_matrix{
+  private:
+  wavelet_matrix<int,LOG>w;
+  vector<T>v;
+  int get(const T&x)const{return lower_bound(v.begin(),v.end(),x)-v.begin();}
+  public:
+  compressed_wavelet_matrix(){}
+  compressed_wavelet_matrix(const vector<T>&x):v(x){
+    sort(v.begin(),v.end());
+    v.erase(unique(v.begin(),v.end()),v.end());
+    vector<int>t(x.size());
+    for(int i=0;i<(int)x.size();i++)t[i]=get(x[i]);
+    w=wavelet_matrix<int,LOG>(t);
+  }
+  T access(int i)const{return v[w.access(i)];}
+  T operator[](int i)const{return access(i);}
+  int rank(int r,const T&x)const{
+    auto idx=get(x);
+    if(idx==(int)v.size()||v[idx]!=x)return 0;
+    return w.rank(r,idx);
+  }
+  T kth_smallest(int l,int r,int k)const{
+    return v[w.kth_smallest(l,r,k)];
+  }
+  T kth_largest(int l,int r,int k)const{
+    return v[w.kth_largest(l,r,k)];
+  }
+  int range_freq(int l,int r,T high)const{
+    return w.range_freq(l,r,get(high));
+  }
+  int range_freq(int l,int r,T low,T high)const{
+    return w.range_freq(l,r,get(low),get(high));
+  }
+  T prev_val(int l,int r,T high)const{
+    auto ret=w.prev_val(l,r,get(high));
+    return ret==-1?T(-1):v[ret];
+  }
+  T next_val(int l,int r,T low)const{
+    auto ret=w.next_val(l,r,get(low));
+    return ret==-1?T(-1):v[ret];
   }
 };
 /**
