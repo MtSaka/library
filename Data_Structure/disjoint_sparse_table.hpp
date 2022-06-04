@@ -27,6 +27,7 @@ struct disjoint_sparse_table{
     for(int i=2;i<sz;i++)log_table[i]=1+log_table[i>>1];
   }
   S query(int l,int r){
+    if(l==r)return e();
     if(l>=--r)return table[0][l];
     int pos=log_table[l^r];
     return op(table[pos][l],table[pos][r]);
