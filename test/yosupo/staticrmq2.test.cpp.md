@@ -91,11 +91,11 @@ data:
     \        table[i][l]=v[l];\n        int r=min<int>(l+shift,v.size());\n      \
     \  for(int k=l+1;k<r;k++)table[i][k]=op(table[i][k-1],v[k]);\n      }\n    }\n\
     \    log_table.resize(sz);\n    for(int i=2;i<sz;i++)log_table[i]=1+log_table[i>>1];\n\
-    \  }\n  S query(int l,int r){\n    if(l>=--r)return table[0][l];\n    int pos=log_table[l^r];\n\
-    \    return op(table[pos][l],table[pos][r]);\n  }\n};\n/**\n * @brief Disjoint\
-    \ Sparse Table\n */\n#line 4 \"test/yosupo/staticrmq2.test.cpp\"\nint op(int a,int\
-    \ b){return min(a,b);}\nint e(){return INF<int>;}\nint main(){\n  int n,q;\n \
-    \ cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  disjoint_sparse_table<int,op,e>st(a);\n\
+    \  }\n  S query(int l,int r){\n    if(l==r)return e();\n    if(l>=--r)return table[0][l];\n\
+    \    int pos=log_table[l^r];\n    return op(table[pos][l],table[pos][r]);\n  }\n\
+    };\n/**\n * @brief Disjoint Sparse Table\n */\n#line 4 \"test/yosupo/staticrmq2.test.cpp\"\
+    \nint op(int a,int b){return min(a,b);}\nint e(){return INF<int>;}\nint main(){\n\
+    \  int n,q;\n  cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  disjoint_sparse_table<int,op,e>st(a);\n\
     \  while(q--){\n    int l,r;\n    cin>>l>>r;\n    cout<<st.query(l,r)<<endl;\n\
     \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include\"\
@@ -110,7 +110,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/staticrmq2.test.cpp
   requiredBy: []
-  timestamp: '2022-06-02 21:02:47+01:00'
+  timestamp: '2022-06-05 00:13:06+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/staticrmq2.test.cpp
