@@ -97,7 +97,7 @@ struct hash_map{
     }
     return itr(h,this);
   }
-  itr end(){return itr(cap,*this);}    
+  itr end(){return itr(cap,this);}    
   friend itr begin(hash_map<Key,Data>&a){return a.begin();}
   friend itr end(hash_map<Key,Data>&a){return a.end();}
   itr find(const Key&key){
