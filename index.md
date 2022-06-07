@@ -18,6 +18,9 @@ data:
     - icon: ':warning:'
       path: Data_Structure/dynamic_bitset.hpp
       title: "\u52D5\u7684bitset"
+    - icon: ':warning:'
+      path: Data_Structure/hash_map.hpp
+      title: Data_Structure/hash_map.hpp
     - icon: ':heavy_check_mark:'
       path: Data_Structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
