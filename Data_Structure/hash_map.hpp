@@ -1,26 +1,47 @@
 #include<bits/stdc++.h>
 using namespace std;
-namespace inner_hash{
-  //TODO
-template<class T>
-struct Hash{
-  constexpr size_t operator()(T a)const noexcept{
-    return hash<T>::operator()(a);
-  }
-};
-}
-template<typename Key,typename Val,typename Hash=inner_hash::Hash<Key>>
+template<typename Key,typename Val>
 struct hash_map{
   using u32=uint32_t;
   using u64=uint64_t;
   using Data=pair<Key,Val>;
   protected:
+  template <typename K>
+  inline u64 randomized(const K&key)const{
+    return u64(key)^r;
+  }
+  template<typename K,enable_if_t<is_integral<K>::value,nullptr_t> = nullptr>
+  inline u64 inner_hash(const K&key)const{
+    return (randomized(key)*11995408973635179863ULL);
+  }
+  template<typename K,enable_if_t<is_integral<decltype(K::first)>::value,nullptr_t>=nullptr,enable_if_t<is_integral<decltype(K::second)>::value,nullptr_t>=nullptr>
+  inline u32 inner_hash(const K&key)const{
+    u64 a=randomized(key.first),b=randomized(key.second);
+    a*=11995408973635179863ULL;
+    b*=10150724397891781847ULL;
+    return (a+b);
+  }
+  template <typename K,enable_if_t<is_integral<typename K::value_type>::value,nullptr_t>=nullptr>
+  inline u32 inner_hash(const K&key)const{
+    static constexpr u64 mod=(1LL << 61)-1;
+    static constexpr u64 base=950699498548472943ULL;
+    u64 res=0;
+    for(auto&elem:key) {
+      __uint128_t x=__uint128_t(res)*base+(randomized(elem)&mod);
+      res=(x&mod)+(x>>61);
+    }
+    __uint128_t x=__uint128_t(res)*base;
+    res=(x&mod)+(x >> 61);
+    if(res>=mod)res-=mod;
+    return (res<<3);
+  }
   inline u32 hash(const Key&key){
-    //TODO
+    return inner_hash(key)>>shift;
   }
   void reallocate(u32 new_cap){
     vector<Data>new_data(new_cap);
     vector<bool>new_flag(new_cap,false);
+    shift=64-__lg(new_cap);
     for(u32 i=0;i<cap;i++){
       if(flag[i]&&!dflag[i]){
         u32 h=hash(data[i].first);
@@ -44,6 +65,7 @@ struct hash_map{
   vector<Data>data;
   vector<bool>flag,dflag;
   u32 shift;
+  u64 r;
   constexpr uint32_t DEFAULT_SIZE=4;
   struct iterator{
     u32 i;
@@ -88,7 +110,7 @@ struct hash_map{
     }
   };
   using itr=iterator;
-  explicit hash_map():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(){}
+  explicit hash_map():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}
   itr begin(){
     u32 h=0;
     whhile(h!=cap){
@@ -192,4 +214,7 @@ struct hash_map{
     return insert(Data(key,val));
   }
 };
-//template<typename Key,typename Val>u64 hash_map<Key,Val>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();
+template<typename Key,typename Val>uint64_t hash_map<Key,Val>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();
+/**
+ * @brief HashMap(ハッシュマップ)
+*/
