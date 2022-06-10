@@ -14,15 +14,15 @@ struct hash_map{
   inline u64 inner_hash(const K&key)const{
     return (randomized(key)*11995408973635179863ULL);
   }
-  template<typename K,enable_if_t<is_integral<decltype(K::first)>::value,nullptr_t>=nullptr,enable_if_t<is_integral<decltype(K::second)>::value,nullptr_t>=nullptr>
-  inline u32 inner_hash(const K&key)const{
+  template<typename K,enable_if_t<is_integral<decltype(K::first)>::value,nullptr_t> = nullptr,enable_if_t<is_integral<decltype(K::second)>::value,nullptr_t> = nullptr>
+  inline u64 inner_hash(const K&key)const{
     u64 a=randomized(key.first),b=randomized(key.second);
     a*=11995408973635179863ULL;
     b*=10150724397891781847ULL;
     return (a+b);
   }
-  template <typename K,enable_if_t<is_integral<typename K::value_type>::value,nullptr_t>=nullptr>
-  inline u32 inner_hash(const K&key)const{
+  template <typename K,enable_if_t<is_integral<typename K::value_type>::value,nullptr_t> = nullptr>
+  inline u64 inner_hash(const K&key)const{
     static constexpr u64 mod=(1LL << 61)-1;
     static constexpr u64 base=950699498548472943ULL;
     u64 res=0;
@@ -65,8 +65,8 @@ struct hash_map{
   vector<Data>data;
   vector<bool>flag,dflag;
   u32 shift;
-  u64 r;
-  constexpr uint32_t DEFAULT_SIZE=4;
+  static u64 r;
+  static constexpr uint32_t DEFAULT_SIZE=4;
   struct iterator{
     u32 i;
     hash_map<Key,Data>*p;
@@ -113,7 +113,7 @@ struct hash_map{
   explicit hash_map():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}
   itr begin(){
     u32 h=0;
-    whhile(h!=cap){
+    while(h!=cap){
       if(flag[h]&&!dflag[h])break;
       h++;
     }
@@ -203,7 +203,7 @@ struct hash_map{
         s++;
         return data[h].second;
       }
-      if(data[h].first==k){
+      if(data[h].first==key){
         if(dflag[h])data[h].second=Val();
         return data[h].second;
       }
