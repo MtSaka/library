@@ -18,7 +18,7 @@ data:
     - icon: ':warning:'
       path: Data_Structure/dynamic_bitset.hpp
       title: "\u52D5\u7684bitset"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/hash_map.hpp
       title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
     - icon: ':heavy_check_mark:'
@@ -383,6 +383,9 @@ data:
       title: test/aoj/NTL/NTL_1_D.test.cpp
   - name: test/yosupo
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/associative_array.test.cpp
+      title: test/yosupo/associative_array.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution_mod.test.cpp
       title: test/yosupo/convolution_mod.test.cpp

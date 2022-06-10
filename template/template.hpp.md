@@ -121,6 +121,9 @@ data:
     path: test/aoj/NTL/NTL_1_D.test.cpp
     title: test/aoj/NTL/NTL_1_D.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/associative_array.test.cpp
+    title: test/yosupo/associative_array.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
   - icon: ':heavy_check_mark:'
@@ -405,6 +408,7 @@ data:
   - test/yosupo/matrix_det.test.cpp
   - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/lca2.test.cpp
+  - test/yosupo/associative_array.test.cpp
   - test/yosupo/point_add_range_sum1.test.cpp
   - test/yosupo/polynomial_interpolation.test.cpp
   - test/yosupo/lca1.test.cpp

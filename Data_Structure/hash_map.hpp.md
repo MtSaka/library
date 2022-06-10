@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/associative_array.test.cpp
+    title: test/yosupo/associative_array.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
     links: []
@@ -15,13 +18,14 @@ data:
     \ protected:\n  template <typename K>\n  inline u64 randomized(const K&key)const{\n\
     \    return u64(key)^r;\n  }\n  template<typename K,enable_if_t<is_integral<K>::value,nullptr_t>\
     \ = nullptr>\n  inline u64 inner_hash(const K&key)const{\n    return (randomized(key)*11995408973635179863ULL);\n\
-    \  }\n  template<typename K,enable_if_t<is_integral<decltype(K::first)>::value,nullptr_t>=nullptr,enable_if_t<is_integral<decltype(K::second)>::value,nullptr_t>=nullptr>\n\
-    \  inline u32 inner_hash(const K&key)const{\n    u64 a=randomized(key.first),b=randomized(key.second);\n\
+    \  }\n  template<typename K,enable_if_t<is_integral<decltype(K::first)>::value,nullptr_t>\
+    \ = nullptr,enable_if_t<is_integral<decltype(K::second)>::value,nullptr_t> = nullptr>\n\
+    \  inline u64 inner_hash(const K&key)const{\n    u64 a=randomized(key.first),b=randomized(key.second);\n\
     \    a*=11995408973635179863ULL;\n    b*=10150724397891781847ULL;\n    return\
-    \ (a+b);\n  }\n  template <typename K,enable_if_t<is_integral<typename K::value_type>::value,nullptr_t>=nullptr>\n\
-    \  inline u32 inner_hash(const K&key)const{\n    static constexpr u64 mod=(1LL\
-    \ << 61)-1;\n    static constexpr u64 base=950699498548472943ULL;\n    u64 res=0;\n\
-    \    for(auto&elem:key) {\n      __uint128_t x=__uint128_t(res)*base+(randomized(elem)&mod);\n\
+    \ (a+b);\n  }\n  template <typename K,enable_if_t<is_integral<typename K::value_type>::value,nullptr_t>\
+    \ = nullptr>\n  inline u64 inner_hash(const K&key)const{\n    static constexpr\
+    \ u64 mod=(1LL << 61)-1;\n    static constexpr u64 base=950699498548472943ULL;\n\
+    \    u64 res=0;\n    for(auto&elem:key) {\n      __uint128_t x=__uint128_t(res)*base+(randomized(elem)&mod);\n\
     \      res=(x&mod)+(x>>61);\n    }\n    __uint128_t x=__uint128_t(res)*base;\n\
     \    res=(x&mod)+(x >> 61);\n    if(res>=mod)res-=mod;\n    return (res<<3);\n\
     \  }\n  inline u32 hash(const Key&key){\n    return inner_hash(key)>>shift;\n\
@@ -34,11 +38,12 @@ data:
     \  }\n  inline bool should_extend(u32 x)const{return x*2>=cap;}\n  inline bool\
     \ should_shrink(u32 x)const{return 4<cap&&x*10<=cap;}\n  inline void extend(){reallocate(cap<<1);}\n\
     \  inline void shrink(){reallocate(cap>>1);}\n  public:\n  u32 cap,s;\n  vector<Data>data;\n\
-    \  vector<bool>flag,dflag;\n  u32 shift;\n  u64 r;\n  constexpr uint32_t DEFAULT_SIZE=4;\n\
-    \  struct iterator{\n    u32 i;\n    hash_map<Key,Data>*p;\n    explicit constexpr\
-    \ iterator():i(0),p(nullptr){}\n    explicit constexpr iterator(u32 i,hash_map<Key,Data>*p):i(i),p(p){}\n\
-    \    explicit constexpr iterator(u32 i,const hash_map<Key,Data>*p):i(i),p(const_cast<hash_map<Key,Data>*>(p)){}\n\
-    \    const Data& operator*()const{\n      return const_cast<hash_map<Key,Data>*>(p)->data[i];\n\
+    \  vector<bool>flag,dflag;\n  u32 shift;\n  static u64 r;\n  static constexpr\
+    \ uint32_t DEFAULT_SIZE=4;\n  struct iterator{\n    u32 i;\n    hash_map<Key,Data>*p;\n\
+    \    explicit constexpr iterator():i(0),p(nullptr){}\n    explicit constexpr iterator(u32\
+    \ i,hash_map<Key,Data>*p):i(i),p(p){}\n    explicit constexpr iterator(u32 i,const\
+    \ hash_map<Key,Data>*p):i(i),p(const_cast<hash_map<Key,Data>*>(p)){}\n    const\
+    \ Data& operator*()const{\n      return const_cast<hash_map<Key,Data>*>(p)->data[i];\n\
     \    }\n    Data& operator*(){return p->data[i];}\n    Data* operator->(){return\
     \ &(p->data[i]);}\n    friend void swap(iterator&a,iterator&b){swap(a.i,b.i);swap(a.p,b.p);}\n\
     \    friend bool operator==(const iterator&a,const iterator&b){return a.i==b.i;}\n\
@@ -52,7 +57,7 @@ data:
     \ *this;\n    }\n    iterator operator--(int){\n      iterator tmp(*this);\n \
     \     --(*this);\n      return tmp;\n    }\n  };\n  using itr=iterator;\n  explicit\
     \ hash_map():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}\n\
-    \  itr begin(){\n    u32 h=0;\n    whhile(h!=cap){\n      if(flag[h]&&!dflag[h])break;\n\
+    \  itr begin(){\n    u32 h=0;\n    while(h!=cap){\n      if(flag[h]&&!dflag[h])break;\n\
     \      h++;\n    }\n    return itr(h,this);\n  }\n  itr end(){return itr(cap,this);}\
     \    \n  friend itr begin(hash_map<Key,Data>&a){return a.begin();}\n  friend itr\
     \ end(hash_map<Key,Data>&a){return a.end();}\n  itr find(const Key&key){\n   \
@@ -78,7 +83,7 @@ data:
     \ h=hash(key);\n    while(true){\n      if(!flag[h]){\n        if(should_extend(s+1)){\n\
     \          extend();\n          h=hash(key);\n          continue;\n        }\n\
     \        data[h]=Data(key,Val());\n        flag[h]=true;\n        s++;\n     \
-    \   return data[h].second;\n      }\n      if(data[h].first==k){\n        if(dflag[h])data[h].second=Val();\n\
+    \   return data[h].second;\n      }\n      if(data[h].first==key){\n        if(dflag[h])data[h].second=Val();\n\
     \        return data[h].second;\n      }\n      h=(h+1)&(cap-1);\n    }\n  }\n\
     \  bool emplace(const Key&key,const Val&val){\n    return insert(Data(key,val));\n\
     \  }\n};\ntemplate<typename Key,typename Val>uint64_t hash_map<Key,Val>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();\n\
@@ -88,13 +93,14 @@ data:
     \ Data=pair<Key,Val>;\n  protected:\n  template <typename K>\n  inline u64 randomized(const\
     \ K&key)const{\n    return u64(key)^r;\n  }\n  template<typename K,enable_if_t<is_integral<K>::value,nullptr_t>\
     \ = nullptr>\n  inline u64 inner_hash(const K&key)const{\n    return (randomized(key)*11995408973635179863ULL);\n\
-    \  }\n  template<typename K,enable_if_t<is_integral<decltype(K::first)>::value,nullptr_t>=nullptr,enable_if_t<is_integral<decltype(K::second)>::value,nullptr_t>=nullptr>\n\
-    \  inline u32 inner_hash(const K&key)const{\n    u64 a=randomized(key.first),b=randomized(key.second);\n\
+    \  }\n  template<typename K,enable_if_t<is_integral<decltype(K::first)>::value,nullptr_t>\
+    \ = nullptr,enable_if_t<is_integral<decltype(K::second)>::value,nullptr_t> = nullptr>\n\
+    \  inline u64 inner_hash(const K&key)const{\n    u64 a=randomized(key.first),b=randomized(key.second);\n\
     \    a*=11995408973635179863ULL;\n    b*=10150724397891781847ULL;\n    return\
-    \ (a+b);\n  }\n  template <typename K,enable_if_t<is_integral<typename K::value_type>::value,nullptr_t>=nullptr>\n\
-    \  inline u32 inner_hash(const K&key)const{\n    static constexpr u64 mod=(1LL\
-    \ << 61)-1;\n    static constexpr u64 base=950699498548472943ULL;\n    u64 res=0;\n\
-    \    for(auto&elem:key) {\n      __uint128_t x=__uint128_t(res)*base+(randomized(elem)&mod);\n\
+    \ (a+b);\n  }\n  template <typename K,enable_if_t<is_integral<typename K::value_type>::value,nullptr_t>\
+    \ = nullptr>\n  inline u64 inner_hash(const K&key)const{\n    static constexpr\
+    \ u64 mod=(1LL << 61)-1;\n    static constexpr u64 base=950699498548472943ULL;\n\
+    \    u64 res=0;\n    for(auto&elem:key) {\n      __uint128_t x=__uint128_t(res)*base+(randomized(elem)&mod);\n\
     \      res=(x&mod)+(x>>61);\n    }\n    __uint128_t x=__uint128_t(res)*base;\n\
     \    res=(x&mod)+(x >> 61);\n    if(res>=mod)res-=mod;\n    return (res<<3);\n\
     \  }\n  inline u32 hash(const Key&key){\n    return inner_hash(key)>>shift;\n\
@@ -107,11 +113,12 @@ data:
     \  }\n  inline bool should_extend(u32 x)const{return x*2>=cap;}\n  inline bool\
     \ should_shrink(u32 x)const{return 4<cap&&x*10<=cap;}\n  inline void extend(){reallocate(cap<<1);}\n\
     \  inline void shrink(){reallocate(cap>>1);}\n  public:\n  u32 cap,s;\n  vector<Data>data;\n\
-    \  vector<bool>flag,dflag;\n  u32 shift;\n  u64 r;\n  constexpr uint32_t DEFAULT_SIZE=4;\n\
-    \  struct iterator{\n    u32 i;\n    hash_map<Key,Data>*p;\n    explicit constexpr\
-    \ iterator():i(0),p(nullptr){}\n    explicit constexpr iterator(u32 i,hash_map<Key,Data>*p):i(i),p(p){}\n\
-    \    explicit constexpr iterator(u32 i,const hash_map<Key,Data>*p):i(i),p(const_cast<hash_map<Key,Data>*>(p)){}\n\
-    \    const Data& operator*()const{\n      return const_cast<hash_map<Key,Data>*>(p)->data[i];\n\
+    \  vector<bool>flag,dflag;\n  u32 shift;\n  static u64 r;\n  static constexpr\
+    \ uint32_t DEFAULT_SIZE=4;\n  struct iterator{\n    u32 i;\n    hash_map<Key,Data>*p;\n\
+    \    explicit constexpr iterator():i(0),p(nullptr){}\n    explicit constexpr iterator(u32\
+    \ i,hash_map<Key,Data>*p):i(i),p(p){}\n    explicit constexpr iterator(u32 i,const\
+    \ hash_map<Key,Data>*p):i(i),p(const_cast<hash_map<Key,Data>*>(p)){}\n    const\
+    \ Data& operator*()const{\n      return const_cast<hash_map<Key,Data>*>(p)->data[i];\n\
     \    }\n    Data& operator*(){return p->data[i];}\n    Data* operator->(){return\
     \ &(p->data[i]);}\n    friend void swap(iterator&a,iterator&b){swap(a.i,b.i);swap(a.p,b.p);}\n\
     \    friend bool operator==(const iterator&a,const iterator&b){return a.i==b.i;}\n\
@@ -125,7 +132,7 @@ data:
     \ *this;\n    }\n    iterator operator--(int){\n      iterator tmp(*this);\n \
     \     --(*this);\n      return tmp;\n    }\n  };\n  using itr=iterator;\n  explicit\
     \ hash_map():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}\n\
-    \  itr begin(){\n    u32 h=0;\n    whhile(h!=cap){\n      if(flag[h]&&!dflag[h])break;\n\
+    \  itr begin(){\n    u32 h=0;\n    while(h!=cap){\n      if(flag[h]&&!dflag[h])break;\n\
     \      h++;\n    }\n    return itr(h,this);\n  }\n  itr end(){return itr(cap,this);}\
     \    \n  friend itr begin(hash_map<Key,Data>&a){return a.begin();}\n  friend itr\
     \ end(hash_map<Key,Data>&a){return a.end();}\n  itr find(const Key&key){\n   \
@@ -151,7 +158,7 @@ data:
     \ h=hash(key);\n    while(true){\n      if(!flag[h]){\n        if(should_extend(s+1)){\n\
     \          extend();\n          h=hash(key);\n          continue;\n        }\n\
     \        data[h]=Data(key,Val());\n        flag[h]=true;\n        s++;\n     \
-    \   return data[h].second;\n      }\n      if(data[h].first==k){\n        if(dflag[h])data[h].second=Val();\n\
+    \   return data[h].second;\n      }\n      if(data[h].first==key){\n        if(dflag[h])data[h].second=Val();\n\
     \        return data[h].second;\n      }\n      h=(h+1)&(cap-1);\n    }\n  }\n\
     \  bool emplace(const Key&key,const Val&val){\n    return insert(Data(key,val));\n\
     \  }\n};\ntemplate<typename Key,typename Val>uint64_t hash_map<Key,Val>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();\n\
@@ -160,9 +167,10 @@ data:
   isVerificationFile: false
   path: Data_Structure/hash_map.hpp
   requiredBy: []
-  timestamp: '2022-06-09 23:16:50+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2022-06-10 23:01:24+01:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/associative_array.test.cpp
 documentation_of: Data_Structure/hash_map.hpp
 layout: document
 redirect_from:
