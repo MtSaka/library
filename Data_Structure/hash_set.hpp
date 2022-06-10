@@ -1,8 +1,7 @@
-template<typename Key,typename Val>
-struct hash_map{
+template<typename Key>
+struct hash_set{
   using u32=uint32_t;
   using u64=uint64_t;
-  using Data=pair<Key,Val>;
   protected:
   template <typename K>
   inline u64 randomized(const K&key)const{
@@ -37,7 +36,7 @@ struct hash_map{
     return inner_hash(key)>>shift;
   }
   void reallocate(u32 new_cap){
-    vector<Data>new_data(new_cap);
+    vector<Key>new_data(new_cap);
     vector<bool>new_flag(new_cap,false);
     shift=64-__lg(new_cap);
     for(u32 i=0;i<cap;i++){
@@ -60,22 +59,22 @@ struct hash_map{
   inline void shrink(){reallocate(cap>>1);}
   public:
   u32 cap,s;
-  vector<Data>data;
+  vector<Key>data;
   vector<bool>flag,dflag;
   u32 shift;
   static u64 r;
   static constexpr uint32_t DEFAULT_SIZE=4;
   struct iterator{
     u32 i;
-    hash_map<Key,Val>*p;
+    hash_set<Key>*p;
     explicit constexpr iterator():i(0),p(nullptr){}
-    explicit constexpr iterator(u32 i,hash_map<Key,Val>*p):i(i),p(p){}
-    explicit constexpr iterator(u32 i,const hash_map<Key,Val>*p):i(i),p(const_cast<hash_map<Key,Val>*>(p)){}
-    const Data& operator*()const{
-      return const_cast<hash_map<Key,Val>*>(p)->data[i];
+    explicit constexpr iterator(u32 i,hash_set<Key>*p):i(i),p(p){}
+    explicit constexpr iterator(u32 i,const hash_set<Key>*p):i(i),p(const_cast<hash_set<Key>*>(p)){}
+    const Key& operator*()const{
+      return const_cast<hash_set<Key>*>(p)->data[i];
     }
-    Data& operator*(){return p->data[i];}
-    Data* operator->(){return &(p->data[i]);}
+    Key& operator*(){return p->data[i];}
+    Key* operator->(){return &(p->data[i]);}
     friend void swap(iterator&a,iterator&b){swap(a.i,b.i);swap(a.p,b.p);}
     friend bool operator==(const iterator&a,const iterator&b){return a.i==b.i;}
     friend bool operator!=(const iterator&a,const iterator&b){return a.i!=b.i;}
@@ -108,7 +107,7 @@ struct hash_map{
     }
   };
   using itr=iterator;
-  explicit hash_map():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}
+  explicit hash_set():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}
   itr begin(){
     u32 h=0;
     while(h!=cap){
@@ -118,8 +117,8 @@ struct hash_map{
     return itr(h,this);
   }
   itr end(){return itr(cap,this);}    
-  friend itr begin(hash_map<Key,Val>&a){return a.begin();}
-  friend itr end(hash_map<Key,Val>&a){return a.end();}
+  friend itr begin(hash_set<Key>&a){return a.begin();}
+  friend itr end(hash_set<Key>&a){return a.end();}
   itr find(const Key&key){
     u32 h=hash(key);
     while(true){
@@ -132,7 +131,7 @@ struct hash_map{
     }
   }
   bool contain(const Key&key)const{return find(key)!=this->end();}
-  itr insert(const Data&d){
+  itr insert(const Key&d){
     u32 h=hash(d.first);
     while(true){
       if(!flag[h]){
@@ -161,7 +160,7 @@ struct hash_map{
     if(it==this->end())return false;
     s--;
     if(should_shrink(s)){
-      Data d=data[it.i];
+      Key d=data[it.i];
       shrink();
       it=find(d.first);
     }
@@ -187,32 +186,8 @@ struct hash_map{
     n=1<<(__lg(n)+2);
     if(cap<u32(n))reallocate(n);
   }
-  Val& operator[](const Key&key){
-    u32 h=hash(key);
-    while(true){
-      if(!flag[h]){
-        if(should_extend(s+1)){
-          extend();
-          h=hash(key);
-          continue;
-        }
-        data[h]=Data(key,Val());
-        flag[h]=true;
-        s++;
-        return data[h].second;
-      }
-      if(data[h].first==key){
-        if(dflag[h])data[h].second=Val();
-        return data[h].second;
-      }
-      h=(h+1)&(cap-1);
-    }
-  }
-  bool emplace(const Key&key,const Val&val){
-    return insert(Data(key,val));
-  }
 };
-template<typename Key,typename Val>uint64_t hash_map<Key,Val>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();
+template<typename Key>uint64_t hash_set<Key>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();
 /**
- * @brief HashMap(ハッシュマップ)
+ * @brief HashSet(ハッシュセット)
 */
