@@ -33,7 +33,7 @@ struct hash_map{
     if(res>=mod)res-=mod;
     return (res<<3);
   }
-  inline u32 hash(const Key&key){
+  inline u32 hash(const Key&key)const{
     return inner_hash(key)>>shift;
   }
   void reallocate(u32 new_cap){
@@ -109,18 +109,18 @@ struct hash_map{
   };
   using itr=iterator;
   explicit hash_map():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}
-  itr begin(){
+  itr begin()const{
     u32 h=0;
     while(h!=cap){
       if(flag[h]&&!dflag[h])break;
       h++;
     }
-    return itr(h,this);
+    return itr(this->h,this);
   }
-  itr end(){return itr(cap,this);}    
+  itr end()const{return itr(this->cap,this);}    
   friend itr begin(hash_map<Key,Val>&a){return a.begin();}
   friend itr end(hash_map<Key,Val>&a){return a.end();}
-  itr find(const Key&key){
+  itr find(const Key&key)const{
     u32 h=hash(key);
     while(true){
       if(!flag[h])return this->end();
