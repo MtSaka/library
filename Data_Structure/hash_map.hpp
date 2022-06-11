@@ -115,7 +115,7 @@ struct hash_map{
       if(flag[h]&&!dflag[h])break;
       h++;
     }
-    return itr(this->h,this);
+    return itr(h,this);
   }
   itr end()const{return itr(this->cap,this);}    
   friend itr begin(hash_map<Key,Val>&a){return a.begin();}
@@ -132,6 +132,7 @@ struct hash_map{
     }
   }
   bool contain(const Key&key)const{return find(key)!=this->end();}
+  int count(const Key&key)const{return int(find(key)!=this->end());}
   itr insert(const Data&d){
     u32 h=hash(d.first);
     while(true){

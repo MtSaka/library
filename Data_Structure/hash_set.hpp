@@ -131,6 +131,7 @@ struct hash_set{
     }
   }
   bool contain(const Key&key)const{return find(key)!=this->end();}
+  int count(const Key&key)const{return int(find(key)!=this->end());}
   itr insert(const Key&d){
     u32 h=hash(d.first);
     while(true){
