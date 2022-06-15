@@ -225,9 +225,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yukicoder/1469.test.cpp
+    title: test/yukicoder/1469.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -359,7 +362,7 @@ data:
   path: template/template.hpp
   requiredBy: []
   timestamp: '2022-02-07 21:16:16+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/CGL/CGL_1_B.test.cpp
   - test/aoj/CGL/CGL_3_C.test.cpp
@@ -435,6 +438,7 @@ data:
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
   - test/yukicoder/1236.test.cpp
+  - test/yukicoder/1469.test.cpp
 documentation_of: template/template.hpp
 layout: document
 redirect_from:
