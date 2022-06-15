@@ -247,12 +247,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: String/rolling_hash.hpp
       title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: String/run_length.hpp
       title: String/run_length.hpp
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -496,7 +496,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1236.test.cpp
       title: test/yukicoder/1236.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1469.test.cpp
       title: test/yukicoder/1469.test.cpp
 layout: toppage
