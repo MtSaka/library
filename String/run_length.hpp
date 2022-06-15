@@ -13,4 +13,4 @@ vector<pair<typename Cont::value_type,int>>run_length(const Cont&c,const Cmp&cmp
   }
   return ret;
 }
-template<typename Cont>vector<pair<typename Cont::value_type,int>>run_length(const Cont&c){return runlength(c,equal_to<typename Cont::value_type>());}
+template<typename Cont>vector<pair<typename Cont::value_type,int>>run_length(const Cont&c){return run_length(c,equal_to<typename Cont::value_type>());}
