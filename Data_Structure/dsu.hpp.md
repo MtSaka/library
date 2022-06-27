@@ -12,12 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_2_A.test.cpp
     title: test/aoj/GRL/GRL_2_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: Disjoint Set Union(Union Find)
     links: []
@@ -49,11 +49,11 @@ data:
   requiredBy:
   - Graph/mst/kruskal.hpp
   timestamp: '2022-06-01 18:39:17+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/yosupo/unionfind.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp
   - test/aoj/GRL/GRL_2_A.test.cpp
-  - test/yosupo/unionfind.test.cpp
 documentation_of: Data_Structure/dsu.hpp
 layout: document
 redirect_from:

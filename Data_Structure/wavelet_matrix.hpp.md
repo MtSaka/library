@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Data_Structure/bit_vector.hpp
     title: Bit Vector
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/range_kth_smallest.test.cpp
     title: test/yosupo/range_kth_smallest.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: Wavelet Matrix
     links: []
@@ -114,7 +114,7 @@ data:
   path: Data_Structure/wavelet_matrix.hpp
   requiredBy: []
   timestamp: '2022-06-02 17:56:16+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/range_kth_smallest.test.cpp
 documentation_of: Data_Structure/wavelet_matrix.hpp

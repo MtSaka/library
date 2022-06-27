@@ -11,7 +11,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/others/detect_cycle.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/others/scc.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
@@ -25,23 +25,23 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/shortest_path/dijkstra.hpp
     title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Graph/shortest_path/dijkstra_path.hpp
     title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
       \u77ED\u8DEF)"
   - icon: ':heavy_check_mark:'
     path: Graph/shortest_path/warshall_floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':warning:'
     path: Graph/tree/centroid.hpp
     title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/tree/doubling_lowest_common_ancestor.hpp
     title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/tree/tree_diameter.hpp
     title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   _extendedVerifiedWith:
@@ -78,24 +78,24 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/lca1.test.cpp
     title: test/yosupo/lca1.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
       \u30C8)"
@@ -137,38 +137,38 @@ data:
   isVerificationFile: false
   path: Graph/graph_template.hpp
   requiredBy:
+  - Graph/shortest_path/dijkstra_path.hpp
+  - Graph/shortest_path/warshall_floyd.hpp
   - Graph/shortest_path/dijkstra.hpp
   - Graph/shortest_path/bellman_ford.hpp
-  - Graph/shortest_path/warshall_floyd.hpp
-  - Graph/shortest_path/dijkstra_path.hpp
-  - Graph/mst/prim.hpp
-  - Graph/mst/kruskal.hpp
+  - Graph/others/detect_cycle.hpp
+  - Graph/others/topological_sort.hpp
+  - Graph/others/scc.hpp
   - Graph/tree/centroid.hpp
+  - Graph/tree/tree_diameter.hpp
   - Graph/tree/doubling_lowest_common_ancestor.hpp
   - Graph/tree/RMQ_lowest_common_ancestor.hpp
-  - Graph/tree/tree_diameter.hpp
-  - Graph/others/detect_cycle.hpp
-  - Graph/others/scc.hpp
-  - Graph/others/topological_sort.hpp
+  - Graph/mst/kruskal.hpp
+  - Graph/mst/prim.hpp
   timestamp: '2022-01-22 22:12:05+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/aoj/GRL/GRL_5_C_1.test.cpp
-  - test/aoj/GRL/GRL_5_A.test.cpp
-  - test/aoj/GRL/GRL_4_B.test.cpp
-  - test/aoj/GRL/GRL_1_C.test.cpp
-  - test/aoj/GRL/GRL_1_A.test.cpp
-  - test/aoj/GRL/GRL_3_C.test.cpp
-  - test/aoj/GRL/GRL_1_B.test.cpp
-  - test/aoj/GRL/GRL_4_A.test.cpp
-  - test/aoj/GRL/GRL_2_A.test.cpp
-  - test/aoj/GRL/GRL_5_C_2.test.cpp
-  - test/aoj/GRL/GRL_2_A_2.test.cpp
-  - test/yosupo/tree_diameter.test.cpp
-  - test/yosupo/lca2.test.cpp
   - test/yosupo/lca1.test.cpp
   - test/yosupo/shortest_path.test.cpp
+  - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/scc.test.cpp
+  - test/yosupo/lca2.test.cpp
+  - test/aoj/GRL/GRL_4_B.test.cpp
+  - test/aoj/GRL/GRL_1_A.test.cpp
+  - test/aoj/GRL/GRL_5_C_2.test.cpp
+  - test/aoj/GRL/GRL_4_A.test.cpp
+  - test/aoj/GRL/GRL_5_C_1.test.cpp
+  - test/aoj/GRL/GRL_5_A.test.cpp
+  - test/aoj/GRL/GRL_3_C.test.cpp
+  - test/aoj/GRL/GRL_1_B.test.cpp
+  - test/aoj/GRL/GRL_1_C.test.cpp
+  - test/aoj/GRL/GRL_2_A_2.test.cpp
+  - test/aoj/GRL/GRL_2_A.test.cpp
 documentation_of: Graph/graph_template.hpp
 layout: document
 redirect_from:

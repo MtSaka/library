@@ -12,15 +12,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/point_add_range_sum2.test.cpp
     title: test/yosupo/point_add_range_sum2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/static_range_inversions_query.test.cpp
     title: test/yosupo/static_range_inversions_query.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: Binary Indexed Tree(BIT)
     links: []
@@ -43,12 +43,12 @@ data:
   requiredBy:
   - Data_Structure/inversion.hpp
   timestamp: '2022-01-11 20:35:27+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/aoj/DSL/DSL_2_B.test.cpp
-  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
-  - test/yosupo/point_add_range_sum2.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
+  - test/yosupo/point_add_range_sum2.test.cpp
+  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
+  - test/aoj/DSL/DSL_2_B.test.cpp
 documentation_of: Data_Structure/BIT.hpp
 layout: document
 redirect_from:

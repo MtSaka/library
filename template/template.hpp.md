@@ -108,129 +108,129 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ITP1/ITP1_3_D.test.cpp
     title: test/aoj/ITP1/ITP1_3_D.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/NTL/NTL_1_A.test.cpp
     title: test/aoj/NTL/NTL_1_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/NTL/NTL_1_B.test.cpp
     title: test/aoj/NTL/NTL_1_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/NTL/NTL_1_C.test.cpp
     title: test/aoj/NTL/NTL_1_C.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/NTL/NTL_1_D.test.cpp
     title: test/aoj/NTL/NTL_1_D.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/associative_array.test.cpp
     title: test/yosupo/associative_array.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/discrete-logarithm-mod.test.cpp
     title: test/yosupo/discrete-logarithm-mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/division_of_polynomials.test.cpp
     title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/factorize.test.cpp
     title: test/yosupo/factorize.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/kth_root_integer.test.cpp
     title: test/yosupo/kth_root_integer.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/lca1.test.cpp
     title: test/yosupo/lca1.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/matrix_det.test.cpp
     title: test/yosupo/matrix_det.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/matrix_product.test.cpp
     title: test/yosupo/matrix_product.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/persistent_unionfind.test.cpp
     title: test/yosupo/persistent_unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/point_add_range_sum1.test.cpp
     title: test/yosupo/point_add_range_sum1.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/point_add_range_sum2.test.cpp
     title: test/yosupo/point_add_range_sum2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial_interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/range_kth_smallest.test.cpp
     title: test/yosupo/range_kth_smallest.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/sharp_p_subset_sum.test.cpp
     title: test/yosupo/sharp_p_subset_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/static_range_inversions_query.test.cpp
     title: test/yosupo/static_range_inversions_query.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/staticrmq2.test.cpp
     title: test/yosupo/staticrmq2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1469.test.cpp
     title: test/yukicoder/1469.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -254,11 +254,12 @@ data:
     \ std;\nusing ll=long long;\nusing ull=unsigned long long;\nusing ld=long double;\n\
     using vl=vector<ll>;\nusing vi=vector<int>;\nusing vs=vector<string>;\nusing vc=vector<char>;\n\
     using vvl=vector<vl>;\nusing pi=pair<int,int>;\nusing pl=pair<ll,ll>;\nusing vvc=vector<vc>;\n\
-    using vd=vector<double>;\nusing vp=vector<pl>;\nusing vb=vector<bool>;\nconst\
-    \ int dx[8]={1,0,-1,0,1,-1,-1,1};\nconst int dy[8]={0,1,0,-1,1,1,-1,-1};\nconst\
-    \ ll MOD=1000000007;\nconst ll mod=998244353;\nconst ld EPS=1e-8;\nconst ld PI=3.1415926535897932384626;\n\
-    template<typename T,typename U>\nostream &operator<<(ostream&os,const pair<T,U>&p){os<<p.first<<\"\
-    \ \"<<p.second;return os;}\ntemplate<typename T,typename U>\nistream &operator>>(istream&is,pair<T,U>&p){is>>p.first>>p.second;return\
+    using vd=vector<double>;\nusing vp=vector<pl>;\nusing vb=vector<bool>;\nconstexpr\
+    \ int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n\
+    constexpr ll MOD=1000000007;\nconstexpr ll mod=998244353;\nconstexpr ld EPS=1e-8;\n\
+    constexpr ld PI=3.1415926535897932384626;\ntemplate<typename T,typename U>\nostream\
+    \ &operator<<(ostream&os,const pair<T,U>&p){os<<p.first<<\" \"<<p.second;return\
+    \ os;}\ntemplate<typename T,typename U>\nistream &operator>>(istream&is,pair<T,U>&p){is>>p.first>>p.second;return\
     \ is;}\ntemplate<typename T>\nostream &operator<<(ostream&os,const vector<T>&v){for(auto\
     \ it=v.begin();it!=v.end();){os<<*it<<((++it)!=v.end()?\" \":\"\");}return os;}\n\
     template<typename T>\nistream &operator>>(istream&is,vector<T>&v){for(T &in:v){is>>in;}return\
@@ -315,11 +316,12 @@ data:
     \ std;\nusing ll=long long;\nusing ull=unsigned long long;\nusing ld=long double;\n\
     using vl=vector<ll>;\nusing vi=vector<int>;\nusing vs=vector<string>;\nusing vc=vector<char>;\n\
     using vvl=vector<vl>;\nusing pi=pair<int,int>;\nusing pl=pair<ll,ll>;\nusing vvc=vector<vc>;\n\
-    using vd=vector<double>;\nusing vp=vector<pl>;\nusing vb=vector<bool>;\nconst\
-    \ int dx[8]={1,0,-1,0,1,-1,-1,1};\nconst int dy[8]={0,1,0,-1,1,1,-1,-1};\nconst\
-    \ ll MOD=1000000007;\nconst ll mod=998244353;\nconst ld EPS=1e-8;\nconst ld PI=3.1415926535897932384626;\n\
-    template<typename T,typename U>\nostream &operator<<(ostream&os,const pair<T,U>&p){os<<p.first<<\"\
-    \ \"<<p.second;return os;}\ntemplate<typename T,typename U>\nistream &operator>>(istream&is,pair<T,U>&p){is>>p.first>>p.second;return\
+    using vd=vector<double>;\nusing vp=vector<pl>;\nusing vb=vector<bool>;\nconstexpr\
+    \ int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n\
+    constexpr ll MOD=1000000007;\nconstexpr ll mod=998244353;\nconstexpr ld EPS=1e-8;\n\
+    constexpr ld PI=3.1415926535897932384626;\ntemplate<typename T,typename U>\nostream\
+    \ &operator<<(ostream&os,const pair<T,U>&p){os<<p.first<<\" \"<<p.second;return\
+    \ os;}\ntemplate<typename T,typename U>\nistream &operator>>(istream&is,pair<T,U>&p){is>>p.first>>p.second;return\
     \ is;}\ntemplate<typename T>\nostream &operator<<(ostream&os,const vector<T>&v){for(auto\
     \ it=v.begin();it!=v.end();){os<<*it<<((++it)!=v.end()?\" \":\"\");}return os;}\n\
     template<typename T>\nistream &operator>>(istream&is,vector<T>&v){for(T &in:v){is>>in;}return\
@@ -361,84 +363,84 @@ data:
   isVerificationFile: false
   path: template/template.hpp
   requiredBy: []
-  timestamp: '2022-02-07 21:16:16+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-06-28 00:39:17+01:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/aoj/CGL/CGL_1_B.test.cpp
-  - test/aoj/CGL/CGL_3_C.test.cpp
-  - test/aoj/CGL/CGL_3_A.test.cpp
-  - test/aoj/CGL/CGL_3_B.test.cpp
-  - test/aoj/CGL/CGL_2_B.test.cpp
-  - test/aoj/CGL/CGL_1_C.test.cpp
-  - test/aoj/CGL/CGL_2_D.test.cpp
-  - test/aoj/CGL/CGL_1_A.test.cpp
-  - test/aoj/CGL/CGL_2_C.test.cpp
-  - test/aoj/CGL/CGL_2_A.test.cpp
-  - test/aoj/DPL/DPL_1_D.test.cpp
-  - test/aoj/DSL/DSL_1_A.test.cpp
-  - test/aoj/DSL/DSL_1_B.test.cpp
-  - test/aoj/DSL/DSL_2_A.test.cpp
-  - test/aoj/DSL/DSL_2_B.test.cpp
-  - test/aoj/GRL/GRL_5_C_1.test.cpp
-  - test/aoj/GRL/GRL_5_A.test.cpp
-  - test/aoj/GRL/GRL_4_B.test.cpp
-  - test/aoj/GRL/GRL_1_C.test.cpp
-  - test/aoj/GRL/GRL_1_A.test.cpp
-  - test/aoj/GRL/GRL_6_A.test.cpp
-  - test/aoj/GRL/GRL_3_C.test.cpp
-  - test/aoj/GRL/GRL_1_B.test.cpp
-  - test/aoj/GRL/GRL_4_A.test.cpp
-  - test/aoj/GRL/GRL_6_A_2.test.cpp
-  - test/aoj/GRL/GRL_2_A.test.cpp
-  - test/aoj/GRL/GRL_5_C_2.test.cpp
-  - test/aoj/GRL/GRL_2_A_2.test.cpp
-  - test/aoj/GRL/GRL_5_B.test.cpp
-  - test/aoj/ITP1/ITP1_3_D.test.cpp
-  - test/aoj/NTL/NTL_1_A.test.cpp
-  - test/aoj/NTL/NTL_1_B.test.cpp
-  - test/aoj/NTL/NTL_1_D.test.cpp
-  - test/aoj/NTL/NTL_1_C.test.cpp
-  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
-  - test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
-  - test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
-  - test/aoj/ALDS1/ALDS1_10_C.test.cpp
-  - test/aoj/ALDS1/ALDS1_14_B.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/convolution_mod.test.cpp
+  - test/yukicoder/1469.test.cpp
+  - test/yukicoder/1236.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
+  - test/yosupo/associative_array.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/point_set_range_composite.test.cpp
+  - test/yosupo/range_affine_range_sum.test.cpp
+  - test/yosupo/sqrt_mod.test.cpp
+  - test/yosupo/staticrmq.test.cpp
+  - test/yosupo/range_kth_smallest.test.cpp
+  - test/yosupo/lca1.test.cpp
   - test/yosupo/unionfind.test.cpp
-  - test/yosupo/factorize.test.cpp
+  - test/yosupo/shortest_path.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/matrix_det.test.cpp
-  - test/yosupo/tree_diameter.test.cpp
-  - test/yosupo/lca2.test.cpp
-  - test/yosupo/associative_array.test.cpp
-  - test/yosupo/point_add_range_sum1.test.cpp
-  - test/yosupo/polynomial_interpolation.test.cpp
-  - test/yosupo/lca1.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
-  - test/yosupo/range_kth_smallest.test.cpp
   - test/yosupo/kth_root_integer.test.cpp
-  - test/yosupo/point_set_range_composite.test.cpp
-  - test/yosupo/matrix_product.test.cpp
-  - test/yosupo/staticrmq2.test.cpp
-  - test/yosupo/polynomial_taylor_shift.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/staticrmq.test.cpp
-  - test/yosupo/discrete-logarithm-mod.test.cpp
-  - test/yosupo/point_add_range_sum2.test.cpp
-  - test/yosupo/range_affine_range_sum.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/shortest_path.test.cpp
-  - test/yosupo/sqrt_mod.test.cpp
   - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/scc.test.cpp
-  - test/yosupo/convolution_mod_1000000007.test.cpp
-  - test/yosupo/persistent_unionfind.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
-  - test/yukicoder/1236.test.cpp
-  - test/yukicoder/1469.test.cpp
+  - test/yosupo/staticrmq2.test.cpp
+  - test/yosupo/tree_diameter.test.cpp
+  - test/yosupo/polynomial_interpolation.test.cpp
+  - test/yosupo/matrix_product.test.cpp
+  - test/yosupo/point_add_range_sum2.test.cpp
+  - test/yosupo/sharp_p_subset_sum.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial_taylor_shift.test.cpp
+  - test/yosupo/scc.test.cpp
+  - test/yosupo/discrete-logarithm-mod.test.cpp
+  - test/yosupo/lca2.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
+  - test/yosupo/persistent_unionfind.test.cpp
+  - test/yosupo/factorize.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/point_add_range_sum1.test.cpp
+  - test/yosupo/convolution_mod_1000000007.test.cpp
+  - test/yosupo/convolution_mod.test.cpp
+  - test/aoj/NTL/NTL_1_C.test.cpp
+  - test/aoj/NTL/NTL_1_D.test.cpp
+  - test/aoj/NTL/NTL_1_B.test.cpp
+  - test/aoj/NTL/NTL_1_A.test.cpp
+  - test/aoj/ALDS1/ALDS1_14_B.test.cpp
+  - test/aoj/ALDS1/ALDS1_10_C.test.cpp
+  - test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
+  - test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
+  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
+  - test/aoj/DPL/DPL_1_D.test.cpp
+  - test/aoj/DSL/DSL_2_B.test.cpp
+  - test/aoj/DSL/DSL_1_A.test.cpp
+  - test/aoj/DSL/DSL_2_A.test.cpp
+  - test/aoj/DSL/DSL_1_B.test.cpp
+  - test/aoj/ITP1/ITP1_3_D.test.cpp
+  - test/aoj/CGL/CGL_3_A.test.cpp
+  - test/aoj/CGL/CGL_1_B.test.cpp
+  - test/aoj/CGL/CGL_3_B.test.cpp
+  - test/aoj/CGL/CGL_3_C.test.cpp
+  - test/aoj/CGL/CGL_2_C.test.cpp
+  - test/aoj/CGL/CGL_2_D.test.cpp
+  - test/aoj/CGL/CGL_1_C.test.cpp
+  - test/aoj/CGL/CGL_2_A.test.cpp
+  - test/aoj/CGL/CGL_1_A.test.cpp
+  - test/aoj/CGL/CGL_2_B.test.cpp
+  - test/aoj/GRL/GRL_4_B.test.cpp
+  - test/aoj/GRL/GRL_1_A.test.cpp
+  - test/aoj/GRL/GRL_5_C_2.test.cpp
+  - test/aoj/GRL/GRL_6_A_2.test.cpp
+  - test/aoj/GRL/GRL_4_A.test.cpp
+  - test/aoj/GRL/GRL_5_C_1.test.cpp
+  - test/aoj/GRL/GRL_5_A.test.cpp
+  - test/aoj/GRL/GRL_3_C.test.cpp
+  - test/aoj/GRL/GRL_1_B.test.cpp
+  - test/aoj/GRL/GRL_1_C.test.cpp
+  - test/aoj/GRL/GRL_2_A_2.test.cpp
+  - test/aoj/GRL/GRL_5_B.test.cpp
+  - test/aoj/GRL/GRL_2_A.test.cpp
+  - test/aoj/GRL/GRL_6_A.test.cpp
 documentation_of: template/template.hpp
 layout: document
 redirect_from:
