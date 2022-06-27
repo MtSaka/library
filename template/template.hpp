@@ -43,12 +43,12 @@ using vvc=vector<vc>;
 using vd=vector<double>;
 using vp=vector<pl>;
 using vb=vector<bool>;
-const int dx[8]={1,0,-1,0,1,-1,-1,1};
-const int dy[8]={0,1,0,-1,1,1,-1,-1};
-const ll MOD=1000000007;
-const ll mod=998244353;
-const ld EPS=1e-8;
-const ld PI=3.1415926535897932384626;
+constexpr int dx[8]={1,0,-1,0,1,-1,-1,1};
+constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};
+constexpr ll MOD=1000000007;
+constexpr ll mod=998244353;
+constexpr ld EPS=1e-8;
+constexpr ld PI=3.1415926535897932384626;
 template<typename T,typename U>
 ostream &operator<<(ostream&os,const pair<T,U>&p){os<<p.first<<" "<<p.second;return os;}
 template<typename T,typename U>
