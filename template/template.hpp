@@ -106,8 +106,10 @@ void dump(const bool&t){cerr<<(t?"true":"false");}
 template <typename T,enable_if_t<!is_specialize<T>::value,nullptr_t> =nullptr>
 void dump(const T&t){cerr<<t;}
 template<typename T>
-void dump(const T&t,enable_if_t<is_integral<T>::value>* =nullptr){string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp="inf";if(t==infinity<T>::mvalue||t==infinity<T>::MIN)tmp="-inf";if(tmp.empty())tmp=to_string(t);cerr<<tmp;}
-template <typename T>
+void dump(const T&t,enable_if_t<is_integral<T>::value>* =nullptr){string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp="inf";if(is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp="-inf";if(tmp.empty())tmp=to_string(t);cerr<<tmp;}
+template<typename T,typename U>
+void dump(const pair<T,U>&);
+template<typename T>
 void dump(const T&t,enable_if_t<!is_void<typename T::iterator>::value>* =nullptr){cerr<<"{";for(auto it=t.begin();it!=t.end();){dump(*it);cerr<<(++it==t.end()?"":",");}cerr<<"}";}
 template<typename T,typename U>
 void dump(const pair<T,U>&t){cerr<<"(";dump(t.first);cerr<<",";dump(t.second);cerr<<")";}
