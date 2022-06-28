@@ -194,7 +194,7 @@ data:
     - icon: ':warning:'
       path: Math/number/factor_cnt.hpp
       title: "Factor Count(\u7D04\u6570\u500B\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/number/factorize.hpp
       title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
     - icon: ':x:'
@@ -375,7 +375,7 @@ data:
       title: test/aoj/ITP1/ITP1_3_D.test.cpp
   - name: test/aoj/NTL
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_A.test.cpp
       title: test/aoj/NTL/NTL_1_A.test.cpp
     - icon: ':x:'
