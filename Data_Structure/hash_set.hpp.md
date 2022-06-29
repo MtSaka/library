@@ -27,7 +27,7 @@ data:
     \  }\n  inline u32 hash(const Key&key){\n    return inner_hash(key)>>shift;\n\
     \  }\n  void reallocate(u32 new_cap){\n    vector<Key>new_data(new_cap);\n   \
     \ vector<bool>new_flag(new_cap,false);\n    shift=64-__lg(new_cap);\n    for(u32\
-    \ i=0;i<cap;i++){\n      if(flag[i]&&!dflag[i]){\n        u32 h=hash(data[i].first);\n\
+    \ i=0;i<cap;i++){\n      if(flag[i]&&!dflag[i]){\n        u32 h=hash(data[i]);\n\
     \        while(new_flag[h])h=(h+1)&(new_cap-1);\n        new_data[h]=move(data[i]);\n\
     \        new_flag[h]=true;\n      }\n    }\n    data.swap(new_data);\n    flag.swap(new_flag);\n\
     \    cap=new_cap;\n    dflag.resize(cap);\n    fill(dflag.begin(),dflag.end(),false);\n\
@@ -57,21 +57,20 @@ data:
     \      h++;\n    }\n    return itr(h,this);\n  }\n  itr end(){return itr(cap,this);}\
     \    \n  friend itr begin(hash_set<Key>&a){return a.begin();}\n  friend itr end(hash_set<Key>&a){return\
     \ a.end();}\n  itr find(const Key&key){\n    u32 h=hash(key);\n    while(true){\n\
-    \      if(!flag[h])return this->end();\n      if(data[h].first==key){\n      \
-    \  if(dflag[h])return this->end();\n        return itr(h,this);\n      }\n   \
-    \   h=(h+1)&(cap-1);\n    }\n  }\n  bool contain(const Key&key)const{return find(key)!=this->end();}\n\
+    \      if(!flag[h])return this->end();\n      if(data[h]==key){\n        if(dflag[h])return\
+    \ this->end();\n        return itr(h,this);\n      }\n      h=(h+1)&(cap-1);\n\
+    \    }\n  }\n  bool contain(const Key&key)const{return find(key)!=this->end();}\n\
     \  int count(const Key&key)const{return int(find(key)!=this->end());}\n  itr insert(const\
-    \ Key&d){\n    u32 h=hash(d.first);\n    while(true){\n      if(!flag[h]){\n \
-    \       if(should_extend(s+1)){\n          extend();\n          h=hash(d.first);\n\
-    \          continue;\n        }\n        data[h]=d;\n        flag[h]=true;\n \
-    \       s++;\n        return itr(h,this);\n      }\n      if(data[h].first==d.first){\n\
-    \        if(dflag[h]){\n          data[h]=d;\n          dflag[h]=false;\n    \
-    \      s++;\n        }\n        return itr(h,this);\n      }\n      h=(h+1)&(cap-1);\n\
-    \    }\n  }\n  bool erase(itr it){\n    if(it==this->end())return false;\n   \
-    \ s--;\n    if(should_shrink(s)){\n      Key d=data[it.i];\n      shrink();\n\
-    \      it=find(d.first);\n    }\n    int ni=(it.i+1)&(cap-1);\n    if(flag[ni]){\n\
-    \      dflag[it.i]=true;\n    }\n    else{\n      flag[it.i]=false;\n    }\n \
-    \   return true;\n  }\n  bool erase(const Key&key){return erase(find(key));}\n\
+    \ Key&d){\n    u32 h=hash(d);\n    while(true){\n      if(!flag[h]){\n       \
+    \ if(should_extend(s+1)){\n          extend();\n          h=hash(d);\n       \
+    \   continue;\n        }\n        data[h]=d;\n        flag[h]=true;\n        s++;\n\
+    \        return itr(h,this);\n      }\n      if(data[h]==d){\n        if(dflag[h]){\n\
+    \          data[h]=d;\n          dflag[h]=false;\n          s++;\n        }\n\
+    \        return itr(h,this);\n      }\n      h=(h+1)&(cap-1);\n    }\n  }\n  bool\
+    \ erase(itr it){\n    if(it==this->end())return false;\n    s--;\n    if(should_shrink(s)){\n\
+    \      Key d=data[it.i];\n      shrink();\n      it=find(d);\n    }\n    int ni=(it.i+1)&(cap-1);\n\
+    \    if(flag[ni]){\n      dflag[it.i]=true;\n    }\n    else{\n      flag[it.i]=false;\n\
+    \    }\n    return true;\n  }\n  bool erase(const Key&key){return erase(find(key));}\n\
     \  bool empty()const{return s==0;}\n  u32 size()const{return s;}\n  void clear(){\n\
     \    s=0;\n    fill(flag.begin(),flag.end(),false);\n    fill(dflag.begin(),dflag.end(),false);\n\
     \  }\n  void reserve(int n){\n    if(n<=0)return;\n    n=1<<(__lg(n)+2);\n   \
@@ -94,7 +93,7 @@ data:
     \  }\n  inline u32 hash(const Key&key){\n    return inner_hash(key)>>shift;\n\
     \  }\n  void reallocate(u32 new_cap){\n    vector<Key>new_data(new_cap);\n   \
     \ vector<bool>new_flag(new_cap,false);\n    shift=64-__lg(new_cap);\n    for(u32\
-    \ i=0;i<cap;i++){\n      if(flag[i]&&!dflag[i]){\n        u32 h=hash(data[i].first);\n\
+    \ i=0;i<cap;i++){\n      if(flag[i]&&!dflag[i]){\n        u32 h=hash(data[i]);\n\
     \        while(new_flag[h])h=(h+1)&(new_cap-1);\n        new_data[h]=move(data[i]);\n\
     \        new_flag[h]=true;\n      }\n    }\n    data.swap(new_data);\n    flag.swap(new_flag);\n\
     \    cap=new_cap;\n    dflag.resize(cap);\n    fill(dflag.begin(),dflag.end(),false);\n\
@@ -124,21 +123,20 @@ data:
     \      h++;\n    }\n    return itr(h,this);\n  }\n  itr end(){return itr(cap,this);}\
     \    \n  friend itr begin(hash_set<Key>&a){return a.begin();}\n  friend itr end(hash_set<Key>&a){return\
     \ a.end();}\n  itr find(const Key&key){\n    u32 h=hash(key);\n    while(true){\n\
-    \      if(!flag[h])return this->end();\n      if(data[h].first==key){\n      \
-    \  if(dflag[h])return this->end();\n        return itr(h,this);\n      }\n   \
-    \   h=(h+1)&(cap-1);\n    }\n  }\n  bool contain(const Key&key)const{return find(key)!=this->end();}\n\
+    \      if(!flag[h])return this->end();\n      if(data[h]==key){\n        if(dflag[h])return\
+    \ this->end();\n        return itr(h,this);\n      }\n      h=(h+1)&(cap-1);\n\
+    \    }\n  }\n  bool contain(const Key&key)const{return find(key)!=this->end();}\n\
     \  int count(const Key&key)const{return int(find(key)!=this->end());}\n  itr insert(const\
-    \ Key&d){\n    u32 h=hash(d.first);\n    while(true){\n      if(!flag[h]){\n \
-    \       if(should_extend(s+1)){\n          extend();\n          h=hash(d.first);\n\
-    \          continue;\n        }\n        data[h]=d;\n        flag[h]=true;\n \
-    \       s++;\n        return itr(h,this);\n      }\n      if(data[h].first==d.first){\n\
-    \        if(dflag[h]){\n          data[h]=d;\n          dflag[h]=false;\n    \
-    \      s++;\n        }\n        return itr(h,this);\n      }\n      h=(h+1)&(cap-1);\n\
-    \    }\n  }\n  bool erase(itr it){\n    if(it==this->end())return false;\n   \
-    \ s--;\n    if(should_shrink(s)){\n      Key d=data[it.i];\n      shrink();\n\
-    \      it=find(d.first);\n    }\n    int ni=(it.i+1)&(cap-1);\n    if(flag[ni]){\n\
-    \      dflag[it.i]=true;\n    }\n    else{\n      flag[it.i]=false;\n    }\n \
-    \   return true;\n  }\n  bool erase(const Key&key){return erase(find(key));}\n\
+    \ Key&d){\n    u32 h=hash(d);\n    while(true){\n      if(!flag[h]){\n       \
+    \ if(should_extend(s+1)){\n          extend();\n          h=hash(d);\n       \
+    \   continue;\n        }\n        data[h]=d;\n        flag[h]=true;\n        s++;\n\
+    \        return itr(h,this);\n      }\n      if(data[h]==d){\n        if(dflag[h]){\n\
+    \          data[h]=d;\n          dflag[h]=false;\n          s++;\n        }\n\
+    \        return itr(h,this);\n      }\n      h=(h+1)&(cap-1);\n    }\n  }\n  bool\
+    \ erase(itr it){\n    if(it==this->end())return false;\n    s--;\n    if(should_shrink(s)){\n\
+    \      Key d=data[it.i];\n      shrink();\n      it=find(d);\n    }\n    int ni=(it.i+1)&(cap-1);\n\
+    \    if(flag[ni]){\n      dflag[it.i]=true;\n    }\n    else{\n      flag[it.i]=false;\n\
+    \    }\n    return true;\n  }\n  bool erase(const Key&key){return erase(find(key));}\n\
     \  bool empty()const{return s==0;}\n  u32 size()const{return s;}\n  void clear(){\n\
     \    s=0;\n    fill(flag.begin(),flag.end(),false);\n    fill(dflag.begin(),dflag.end(),false);\n\
     \  }\n  void reserve(int n){\n    if(n<=0)return;\n    n=1<<(__lg(n)+2);\n   \
@@ -148,7 +146,7 @@ data:
   isVerificationFile: false
   path: Data_Structure/hash_set.hpp
   requiredBy: []
-  timestamp: '2022-06-11 22:45:22+01:00'
+  timestamp: '2022-06-29 13:35:28+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Data_Structure/hash_set.hpp

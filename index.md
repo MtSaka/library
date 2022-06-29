@@ -30,16 +30,16 @@ data:
     - icon: ':x:'
       path: Data_Structure/lazy_segtree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/persistent_array.hpp
       title: Data_Structure/persistent_array.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/persistent_dsu.hpp
       title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
     - icon: ':warning:'
       path: Data_Structure/rollback_dsu.hpp
       title: Rollback Disjoint Set Union(Union Find)
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/segtree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':question:'
@@ -157,16 +157,16 @@ data:
     - icon: ':question:'
       path: Math/fps/fps.hpp
       title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/fps/multipoint_evaluation.hpp
       title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/fps/polynomial_interpolation.hpp
       title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
     - icon: ':x:'
       path: Math/fps/subset_sum.hpp
       title: Count Subset Sum
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/fps/taylor_shift.hpp
       title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - name: Math/modular
@@ -222,7 +222,7 @@ data:
         \u9593\u7BE9)"
   - name: Math/others
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/others/combinatorics.hpp
       title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
     - icon: ':x:'
@@ -231,7 +231,7 @@ data:
     - icon: ':warning:'
       path: Math/others/lagrange.hpp
       title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/others/matrix.hpp
       title: "Matrix(\u884C\u5217)"
   - name: Others
@@ -425,31 +425,31 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/log_of_formal_power_series.test.cpp
       title: test/yosupo/log_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_det.test.cpp
       title: test/yosupo/matrix_det.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix_product.test.cpp
       title: test/yosupo/matrix_product.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/multipoint_evaluation.test.cpp
       title: test/yosupo/multipoint_evaluation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/persistent_unionfind.test.cpp
       title: test/yosupo/persistent_unionfind.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum1.test.cpp
       title: test/yosupo/point_add_range_sum1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum2.test.cpp
       title: test/yosupo/point_add_range_sum2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_interpolation.test.cpp
       title: test/yosupo/polynomial_interpolation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_taylor_shift.test.cpp
       title: test/yosupo/polynomial_taylor_shift.test.cpp
     - icon: ':x:'

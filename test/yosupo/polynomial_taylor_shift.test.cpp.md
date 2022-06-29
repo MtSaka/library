@@ -7,13 +7,13 @@ data:
   - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/taylor_shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   - icon: ':question:'
@@ -21,9 +21,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/polynomial_taylor_shift
@@ -256,7 +256,7 @@ data:
   path: test/yosupo/polynomial_taylor_shift.test.cpp
   requiredBy: []
   timestamp: '2022-06-28 02:27:43+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial_taylor_shift.test.cpp
 layout: document
