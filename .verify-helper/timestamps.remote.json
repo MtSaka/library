@@ -49,5 +49,14 @@
 "test/yosupo/kth_root_integer.test.cpp": "2022-06-28 01:57:16 +0100",
 "test/yosupo/lca1.test.cpp": "2022-06-28 01:57:16 +0100",
 "test/yosupo/lca2.test.cpp": "2022-06-28 01:57:16 +0100",
-"test/yosupo/log_of_formal_power_series.test.cpp": "2022-06-28 01:57:16 +0100"
+"test/yosupo/log_of_formal_power_series.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/matrix_det.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/matrix_product.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/multipoint_evaluation.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/persistent_unionfind.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/point_add_range_sum1.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/point_add_range_sum2.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/point_set_range_composite.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/polynomial_interpolation.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/polynomial_taylor_shift.test.cpp": "2022-06-28 02:27:43 +0100"
 }
