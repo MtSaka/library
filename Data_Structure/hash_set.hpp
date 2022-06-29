@@ -41,7 +41,7 @@ struct hash_set{
     shift=64-__lg(new_cap);
     for(u32 i=0;i<cap;i++){
       if(flag[i]&&!dflag[i]){
-        u32 h=hash(data[i].first);
+        u32 h=hash(data[i]);
         while(new_flag[h])h=(h+1)&(new_cap-1);
         new_data[h]=move(data[i]);
         new_flag[h]=true;
@@ -123,7 +123,7 @@ struct hash_set{
     u32 h=hash(key);
     while(true){
       if(!flag[h])return this->end();
-      if(data[h].first==key){
+      if(data[h]==key){
         if(dflag[h])return this->end();
         return itr(h,this);
       }
@@ -133,12 +133,12 @@ struct hash_set{
   bool contain(const Key&key)const{return find(key)!=this->end();}
   int count(const Key&key)const{return int(find(key)!=this->end());}
   itr insert(const Key&d){
-    u32 h=hash(d.first);
+    u32 h=hash(d);
     while(true){
       if(!flag[h]){
         if(should_extend(s+1)){
           extend();
-          h=hash(d.first);
+          h=hash(d);
           continue;
         }
         data[h]=d;
@@ -146,7 +146,7 @@ struct hash_set{
         s++;
         return itr(h,this);
       }
-      if(data[h].first==d.first){
+      if(data[h]==d){
         if(dflag[h]){
           data[h]=d;
           dflag[h]=false;
@@ -163,7 +163,7 @@ struct hash_set{
     if(should_shrink(s)){
       Key d=data[it.i];
       shrink();
-      it=find(d.first);
+      it=find(d);
     }
     int ni=(it.i+1)&(cap-1);
     if(flag[ni]){
