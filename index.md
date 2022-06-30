@@ -9,7 +9,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/bit_vector.hpp
       title: Bit Vector
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/disjoint_sparse_table.hpp
       title: Disjoint Sparse Table
     - icon: ':question:'
@@ -42,7 +42,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/segtree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/sparse_table.hpp
       title: Sparse Table
     - icon: ':heavy_check_mark:'
@@ -479,10 +479,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/static_range_inversions_query.test.cpp
       title: test/yosupo/static_range_inversions_query.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq.test.cpp
       title: test/yosupo/staticrmq.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq2.test.cpp
       title: test/yosupo/staticrmq2.test.cpp
     - icon: ':x:'

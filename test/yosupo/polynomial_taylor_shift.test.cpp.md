@@ -237,14 +237,14 @@ data:
     \      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n      n/=p;k/=p;\n    }\n\
     \    return ret;\n  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\
     \u305B)\n*/\n#line 4 \"Math/fps/taylor_shift.hpp\"\ntemplate<long long Mod>\n\
-    FPS<Mod>taylor_shift(FPS<Mod>f,modint<Mod>a){\n  combination<Mod>c;\n  const int\
-    \ n=f.size();\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n\
-    \  FPS<Mod>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
-    \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
-    \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
-    \u79FB\u52D5)\n*/\n#line 4 \"test/yosupo/polynomial_taylor_shift.test.cpp\"\n\
-    using mint=modint<mod>;\nint main(){\n  int n,c;\n  cin>>n>>c;\n  FPS<mod>f(n);\n\
-    \  cin>>f;\n  print(taylor_shift(f,mint(c)));\n}\n"
+    FPS<Mod>taylor_shift(FPS<Mod>f,modint<Mod>a){\n  const int n=f.size();\n  combination<Mod>c(n);\n\
+    \  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n  FPS<Mod>g(n,1);\n\
+    \  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n  f*=g;\n  f.resize(n);\n\
+    \  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n  return\
+    \ f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\
+    \u52D5)\n*/\n#line 4 \"test/yosupo/polynomial_taylor_shift.test.cpp\"\nusing mint=modint<mod>;\n\
+    int main(){\n  int n,c;\n  cin>>n>>c;\n  FPS<mod>f(n);\n  cin>>f;\n  print(taylor_shift(f,mint(c)));\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps/taylor_shift.hpp\"\
     \nusing mint=modint<mod>;\nint main(){\n  int n,c;\n  cin>>n>>c;\n  FPS<mod>f(n);\n\
@@ -259,7 +259,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2022-06-30 23:38:50+01:00'
+  timestamp: '2022-06-30 23:52:37+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial_taylor_shift.test.cpp
