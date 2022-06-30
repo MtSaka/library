@@ -3,8 +3,8 @@
 #include"../others/combinatorics.hpp"
 template<long long Mod>
 FPS<Mod>taylor_shift(FPS<Mod>f,modint<Mod>a){
-  combination<Mod>c;
   const int n=f.size();
+  combination<Mod>c(n);
   for(int i=0;i<n;i++)f[i]*=c.fac(i);
   reverse(f.begin(),f.end());
   FPS<Mod>g(n,1);
