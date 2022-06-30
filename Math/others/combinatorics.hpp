@@ -16,7 +16,7 @@ struct combination{
     }
   }
   public:
-  combination():dat(1,1),idat(1,1){}
+  combination(int sz=0){if(dat.size()==0)dat={1},idat={1};extend(sz);}
   static inline mint fac(long long n){
     if(n<0)return mint(0);
     extend(n);
