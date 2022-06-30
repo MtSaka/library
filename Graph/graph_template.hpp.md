@@ -11,7 +11,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/others/detect_cycle.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/others/scc.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
@@ -84,7 +84,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
   - icon: ':x:'

@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   _extendedRequiredBy: []
@@ -38,18 +38,23 @@ data:
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
     \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
     \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/others/combinatorics.hpp\"\
-    \ntemplate<long long m>\nstruct combination{\n  using mint=modint<m>;\n  vector<mint>dat,idat;\n\
-    \  long long mx;\n  combination(long long mx_=300000):dat(mx_+1,1),idat(mx_+1,1),mx(mx_){\n\
-    \    for(long long i=1;i<=mx;i++)dat[i]=dat[i-1]*mint(i);\n    idat[mx]/=dat[mx];\n\
-    \    for(long long i=mx;i>0;i--)idat[i-1]=idat[i]*mint(i);\n  }\n  mint com(long\
-    \ long n,long long k){\n    if(n<0||k<0||n<k)return mint(0);\n    return dat[n]*idat[k]*idat[n-k];\n\
-    \  }\n  mint fac(long long n){\n    if(n<0)return mint(0);\n    return dat[n];\n\
-    \  }\n  mint finv(long long n){\n    if(n<0)return mint(0);\n    return idat[n];\n\
-    \  }\n  mint hom(long long n,long long k){\n    return com(n+k-1,k);\n  }\n  mint\
-    \ per(long long n,long long k){\n    if(k<0||k>n)return mint(0);\n    return dat[n]*idat[n-k];\n\
-    \  }\n};\ntemplate<long long p>\nstruct COMB{\n  vector<vector<modint<p>>>comb;\n\
-    \  COMB(){\n    comb.assign(p,vector<modint<p>>(p));\n    comb[0][0]=1;\n    for(int\
-    \ i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n\
+    \ntemplate<long long m>\nstruct combination{\n  using mint=modint<m>;\n  private:\n\
+    \  static vector<mint>dat,idat;\n  inline static void extend(int sz){\n    if((int)dat.size()<sz+1){\n\
+    \      int pre_sz=dat.size();\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
+    \      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n      idat[sz]/=dat[sz];\n\
+    \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n    }\n  }\n  public:\n\
+    \  combination():dat(1,1),idat(1,1){}\n  static inline mint fac(long long n){\n\
+    \    if(n<0)return mint(0);\n    extend(n);\n    return dat[n];\n  }\n  static\
+    \ inline mint finv(long long n){\n    if(n<0)return mint(0);\n    extend(n);\n\
+    \    return idat[n];\n  }\n  static mint com(long long n,long long k){\n    if(k<0||n<k)return\
+    \ mint(0);\n    return fac(n)*finv(k)*finv(n-k);\n  }\n  static mint hom(long\
+    \ long n,long long k){\n    if(n<0||k<0)return mint(0);\n    return k==0?1:com(n+k-1,k);\n\
+    \  }\n  static mint per(long long n,long long k){\n    if(k<0||n<k)return mint(0);\n\
+    \    return fac(n)*finv(n-k);\n  }\n};\ntemplate<long long m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
+    template<long long m>\nvector<modint<m>>combination<m>::idat=vector<modint<m>>();\n\
+    template<long long p>\nstruct COMB{\n  vector<vector<modint<p>>>comb;\n  COMB(){\n\
+    \    comb.assign(p,vector<modint<p>>(p));\n    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n\
+    \      comb[i][0]=1;\n      for(int j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n\
     \    }\n  }\n  modint<p>com(int n,int k){\n    modint<p>ret=1;\n    while(n>0||k>0){\n\
     \      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n      n/=p;k/=p;\n    }\n\
     \    return ret;\n  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\
@@ -75,7 +80,7 @@ data:
   isVerificationFile: false
   path: Math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2022-04-10 15:30:48+01:00'
+  timestamp: '2022-06-30 23:24:40+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/others/lagrange.hpp

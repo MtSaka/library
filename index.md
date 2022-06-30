@@ -6,7 +6,7 @@ data:
     - icon: ':question:'
       path: Data_Structure/BIT.hpp
       title: Binary Indexed Tree(BIT)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/bit_vector.hpp
       title: Bit Vector
     - icon: ':x:'
@@ -27,7 +27,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/lazy_segtree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
@@ -45,7 +45,7 @@ data:
     - icon: ':question:'
       path: Data_Structure/sparse_table.hpp
       title: Sparse Table
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/wavelet_matrix.hpp
       title: Wavelet Matrix
     - icon: ':heavy_check_mark:'
@@ -96,7 +96,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/others/detect_cycle.hpp
       title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Graph/others/scc.hpp
       title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
@@ -163,10 +163,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/fps/polynomial_interpolation.hpp
       title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/fps/subset_sum.hpp
       title: Count Subset Sum
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Math/fps/taylor_shift.hpp
       title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - name: Math/modular
@@ -222,7 +222,7 @@ data:
         \u9593\u7BE9)"
   - name: Math/others
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Math/others/combinatorics.hpp
       title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
     - icon: ':x:'
@@ -449,22 +449,22 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_interpolation.test.cpp
       title: test/yosupo/polynomial_interpolation.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/polynomial_taylor_shift.test.cpp
       title: test/yosupo/polynomial_taylor_shift.test.cpp
     - icon: ':x:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/range_affine_range_sum.test.cpp
       title: test/yosupo/range_affine_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/range_kth_smallest.test.cpp
       title: test/yosupo/range_kth_smallest.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/sharp_p_subset_sum.test.cpp
       title: test/yosupo/sharp_p_subset_sum.test.cpp
     - icon: ':x:'
