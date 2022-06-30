@@ -161,10 +161,15 @@ struct FPS:vector<modint<Mod>>{
   FPS pow(long long k,int d=-1)const{
     const int n=(*this).size();
     if(d==-1)d=n;
+    if(k==0){
+      FPS ans(d,mint(0));
+      ans[0]=1;
+      return ans;
+    }
     for(int i=0;i<n;i++){
       if((*this)[i]!=mint()){
+        if(i>d/k)return FPS(d,mint(0));
         mint rev=(*this)[i].inv();
-        if(i*k>d)return FPS(d,mint(0));
         FPS ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));
         ret=(ret<<(i*k));
         ret.resize(d);
