@@ -68,5 +68,9 @@
 "test/yosupo/sqrt_of_formal_power_series.test.cpp": "2022-06-28 01:57:16 +0100",
 "test/yosupo/static_range_inversions_query.test.cpp": "2022-06-28 01:57:16 +0100",
 "test/yosupo/staticrmq.test.cpp": "2022-06-28 01:57:16 +0100",
-"test/yosupo/staticrmq2.test.cpp": "2022-06-28 01:57:16 +0100"
+"test/yosupo/staticrmq2.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/tree_diameter.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/unionfind.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yukicoder/1236.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yukicoder/1469.test.cpp": "2022-06-28 01:57:16 +0100"
 }
