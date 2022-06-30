@@ -20,10 +20,9 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/pow_of_formal_power_series
     links:
     - https://judge.yosupo.jp/problem/pow_of_formal_power_series
-  bundledCode: "#line 1 \"test/yosupo/pow_of_formal_power_series.test.cpp\"\n#define\
+  bundledCode: "#line 1 \"test/yosupo/pow_of_formal_power_series.test.cpp\"\n//#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\n#line\
     \ 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"\
     O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define\
@@ -211,7 +210,7 @@ data:
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"test/yosupo/pow_of_formal_power_series.test.cpp\"\
     \nint main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n);\n  cin>>f;\n  cout<<f.pow(m)<<endl;\n\
     }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\
+  code: "//#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps/fps.hpp\"\n\
     int main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n);\n  cin>>f;\n  cout<<f.pow(m)<<endl;\n\
     }"
@@ -223,7 +222,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/pow_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-06-28 01:57:16+01:00'
+  timestamp: '2022-07-01 00:04:45+01:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/pow_of_formal_power_series.test.cpp
