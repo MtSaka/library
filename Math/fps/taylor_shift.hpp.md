@@ -10,17 +10,17 @@ data:
   - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5\
       )"
@@ -151,14 +151,15 @@ data:
     \      int pre_sz=dat.size();\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
     \      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n      idat[sz]/=dat[sz];\n\
     \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n    }\n  }\n  public:\n\
-    \  combination():dat(1,1),idat(1,1){}\n  static inline mint fac(long long n){\n\
-    \    if(n<0)return mint(0);\n    extend(n);\n    return dat[n];\n  }\n  static\
-    \ inline mint finv(long long n){\n    if(n<0)return mint(0);\n    extend(n);\n\
-    \    return idat[n];\n  }\n  static mint com(long long n,long long k){\n    if(k<0||n<k)return\
-    \ mint(0);\n    return fac(n)*finv(k)*finv(n-k);\n  }\n  static mint hom(long\
-    \ long n,long long k){\n    if(n<0||k<0)return mint(0);\n    return k==0?1:com(n+k-1,k);\n\
-    \  }\n  static mint per(long long n,long long k){\n    if(k<0||n<k)return mint(0);\n\
-    \    return fac(n)*finv(n-k);\n  }\n};\ntemplate<long long m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
+    \  combination(int sz=0){if(dat.size()==0)dat={1},idat={1};extend(sz);}\n  static\
+    \ inline mint fac(long long n){\n    if(n<0)return mint(0);\n    extend(n);\n\
+    \    return dat[n];\n  }\n  static inline mint finv(long long n){\n    if(n<0)return\
+    \ mint(0);\n    extend(n);\n    return idat[n];\n  }\n  static mint com(long long\
+    \ n,long long k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(k)*finv(n-k);\n\
+    \  }\n  static mint hom(long long n,long long k){\n    if(n<0||k<0)return mint(0);\n\
+    \    return k==0?1:com(n+k-1,k);\n  }\n  static mint per(long long n,long long\
+    \ k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(n-k);\n  }\n};\n\
+    template<long long m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
     template<long long m>\nvector<modint<m>>combination<m>::idat=vector<modint<m>>();\n\
     template<long long p>\nstruct COMB{\n  vector<vector<modint<p>>>comb;\n  COMB(){\n\
     \    comb.assign(p,vector<modint<p>>(p));\n    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n\
@@ -167,14 +168,14 @@ data:
     \      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n      n/=p;k/=p;\n    }\n\
     \    return ret;\n  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\
     \u305B)\n*/\n#line 4 \"Math/fps/taylor_shift.hpp\"\ntemplate<long long Mod>\n\
-    FPS<Mod>taylor_shift(FPS<Mod>f,modint<Mod>a,combination<Mod>&c){\n  const int\
+    FPS<Mod>taylor_shift(FPS<Mod>f,modint<Mod>a){\n  combination<Mod>c;\n  const int\
     \ n=f.size();\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n\
     \  FPS<Mod>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
     \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
     \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
     \u79FB\u52D5)\n*/\n"
   code: "#pragma once\n#include\"fps.hpp\"\n#include\"../others/combinatorics.hpp\"\
-    \ntemplate<long long Mod>\nFPS<Mod>taylor_shift(FPS<Mod>f,modint<Mod>a,combination<Mod>&c){\n\
+    \ntemplate<long long Mod>\nFPS<Mod>taylor_shift(FPS<Mod>f,modint<Mod>a){\n  combination<Mod>c;\n\
     \  const int n=f.size();\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n\
     \  FPS<Mod>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
     \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
@@ -188,8 +189,8 @@ data:
   isVerificationFile: false
   path: Math/fps/taylor_shift.hpp
   requiredBy: []
-  timestamp: '2022-06-30 23:24:40+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-06-30 23:38:50+01:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/polynomial_taylor_shift.test.cpp
 documentation_of: Math/fps/taylor_shift.hpp

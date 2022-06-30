@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: Data_Structure
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/BIT.hpp
       title: Binary Indexed Tree(BIT)
     - icon: ':heavy_check_mark:'
@@ -112,7 +112,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/shortest_path/dijkstra.hpp
       title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/shortest_path/dijkstra_path.hpp
       title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
         \u77ED\u8DEF)"
@@ -166,7 +166,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/fps/subset_sum.hpp
       title: Count Subset Sum
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/fps/taylor_shift.hpp
       title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - name: Math/modular
@@ -174,7 +174,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/modular/mod_log.hpp
       title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/modular/mod_sqrt.hpp
       title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
     - icon: ':question:'
@@ -183,7 +183,7 @@ data:
     - icon: ':warning:'
       path: Math/modular/modinv.hpp
       title: "Mod Inv(\u9006\u5143)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Math/modular/modpow.hpp
       title: "Mod Pow(\u3079\u304D\u4E57)"
   - name: Math/number
@@ -222,7 +222,7 @@ data:
         \u9593\u7BE9)"
   - name: Math/others
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/others/combinatorics.hpp
       title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
     - icon: ':x:'
@@ -236,7 +236,7 @@ data:
       title: "Matrix(\u884C\u5217)"
   - name: Others
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Others/mo.hpp
       title: Mo's Algorithm
     - icon: ':warning:'
@@ -449,7 +449,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_interpolation.test.cpp
       title: test/yosupo/polynomial_interpolation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_taylor_shift.test.cpp
       title: test/yosupo/polynomial_taylor_shift.test.cpp
     - icon: ':x:'
@@ -467,16 +467,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/sharp_p_subset_sum.test.cpp
       title: test/yosupo/sharp_p_subset_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/sqrt_mod.test.cpp
       title: test/yosupo/sqrt_mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/sqrt_of_formal_power_series.test.cpp
       title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/static_range_inversions_query.test.cpp
       title: test/yosupo/static_range_inversions_query.test.cpp
     - icon: ':x:'

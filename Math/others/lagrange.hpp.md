@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   _extendedRequiredBy: []
@@ -43,14 +43,15 @@ data:
     \      int pre_sz=dat.size();\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
     \      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n      idat[sz]/=dat[sz];\n\
     \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n    }\n  }\n  public:\n\
-    \  combination():dat(1,1),idat(1,1){}\n  static inline mint fac(long long n){\n\
-    \    if(n<0)return mint(0);\n    extend(n);\n    return dat[n];\n  }\n  static\
-    \ inline mint finv(long long n){\n    if(n<0)return mint(0);\n    extend(n);\n\
-    \    return idat[n];\n  }\n  static mint com(long long n,long long k){\n    if(k<0||n<k)return\
-    \ mint(0);\n    return fac(n)*finv(k)*finv(n-k);\n  }\n  static mint hom(long\
-    \ long n,long long k){\n    if(n<0||k<0)return mint(0);\n    return k==0?1:com(n+k-1,k);\n\
-    \  }\n  static mint per(long long n,long long k){\n    if(k<0||n<k)return mint(0);\n\
-    \    return fac(n)*finv(n-k);\n  }\n};\ntemplate<long long m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
+    \  combination(int sz=0){if(dat.size()==0)dat={1},idat={1};extend(sz);}\n  static\
+    \ inline mint fac(long long n){\n    if(n<0)return mint(0);\n    extend(n);\n\
+    \    return dat[n];\n  }\n  static inline mint finv(long long n){\n    if(n<0)return\
+    \ mint(0);\n    extend(n);\n    return idat[n];\n  }\n  static mint com(long long\
+    \ n,long long k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(k)*finv(n-k);\n\
+    \  }\n  static mint hom(long long n,long long k){\n    if(n<0||k<0)return mint(0);\n\
+    \    return k==0?1:com(n+k-1,k);\n  }\n  static mint per(long long n,long long\
+    \ k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(n-k);\n  }\n};\n\
+    template<long long m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
     template<long long m>\nvector<modint<m>>combination<m>::idat=vector<modint<m>>();\n\
     template<long long p>\nstruct COMB{\n  vector<vector<modint<p>>>comb;\n  COMB(){\n\
     \    comb.assign(p,vector<modint<p>>(p));\n    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n\
@@ -80,7 +81,7 @@ data:
   isVerificationFile: false
   path: Math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2022-06-30 23:24:40+01:00'
+  timestamp: '2022-06-30 23:38:50+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/others/lagrange.hpp
