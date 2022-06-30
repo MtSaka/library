@@ -58,8 +58,13 @@
 "test/yosupo/point_add_range_sum2.test.cpp": "2022-06-28 01:57:16 +0100",
 "test/yosupo/point_set_range_composite.test.cpp": "2022-06-28 01:57:16 +0100",
 "test/yosupo/polynomial_interpolation.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/polynomial_taylor_shift.test.cpp": "2022-06-30 23:38:50 +0100",
 "test/yosupo/range_affine_range_sum.test.cpp": "2022-06-28 01:57:16 +0100",
 "test/yosupo/range_kth_smallest.test.cpp": "2022-06-28 01:57:16 +0100",
 "test/yosupo/scc.test.cpp": "2022-06-28 01:57:16 +0100",
-"test/yosupo/sharp_p_subset_sum.test.cpp": "2022-06-28 01:57:16 +0100"
+"test/yosupo/sharp_p_subset_sum.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/shortest_path.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/sqrt_mod.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/sqrt_of_formal_power_series.test.cpp": "2022-06-28 01:57:16 +0100",
+"test/yosupo/static_range_inversions_query.test.cpp": "2022-06-28 01:57:16 +0100"
 }
