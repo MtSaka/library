@@ -15,14 +15,15 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/pow_of_formal_power_series
     links:
     - https://judge.yosupo.jp/problem/pow_of_formal_power_series
-  bundledCode: "#line 1 \"test/yosupo/pow_of_formal_power_series.test.cpp\"\n//#define\
+  bundledCode: "#line 1 \"test/yosupo/pow_of_formal_power_series.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\n#line\
     \ 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"\
     O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define\
@@ -193,8 +194,9 @@ data:
     \      if((int)f.size()<2*m)f.resize(2*m);\n      res=res*(f-res.log(2*m));\n\
     \      res.resize(2*m);\n    }\n    res.resize(d);\n    return res;\n  }\n  FPS\
     \ pow(long long k,int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
-    \    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        mint rev=(*this)[i].inv();\n\
-    \        if(i*k>d)return FPS(d,mint(0));\n        FPS ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));\n\
+    \    if(k==0){\n      FPS ans(d,mint(0));\n      ans[0]=1;\n      return ans;\n\
+    \    }\n    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n        if(i>d/k)return\
+    \ FPS(d,mint(0));\n        mint rev=(*this)[i].inv();\n        FPS ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));\n\
     \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
     \  }\n    }\n    return FPS(d,mint(0));\n  }\n  FPS sqrt(int d=-1,const function<mint(mint)>&get_sqrt=[](mint){return\
     \ mint(1);})const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n    if((*this)[0]==mint(0)){\n\
@@ -208,11 +210,11 @@ data:
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      ret=(ret+f*ret.inv(i<<1))*inv2;\n\
     \    }\n    ret.resize(d);\n    return ret;\n  }\n};\n/**\n * @brief Formal Power\
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"test/yosupo/pow_of_formal_power_series.test.cpp\"\
-    \nint main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n);\n  cin>>f;\n  cout<<f.pow(m)<<endl;\n\
+    \nint main(){\n  long long n,m;\n  cin>>n>>m;\n  FPS<mod>f(n);\n  cin>>f;\n  cout<<f.pow(m)<<endl;\n\
     }\n"
-  code: "//#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps/fps.hpp\"\n\
-    int main(){\n  int n,m;\n  cin>>n>>m;\n  FPS<mod>f(n);\n  cin>>f;\n  cout<<f.pow(m)<<endl;\n\
+    int main(){\n  long long n,m;\n  cin>>n>>m;\n  FPS<mod>f(n);\n  cin>>f;\n  cout<<f.pow(m)<<endl;\n\
     }"
   dependsOn:
   - template/template.hpp
@@ -222,8 +224,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/pow_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-07-01 00:04:45+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-01 00:37:58+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/pow_of_formal_power_series.test.cpp
 layout: document
