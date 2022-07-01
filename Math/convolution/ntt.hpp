@@ -3,6 +3,7 @@
 template<long long m>
 struct NTT{
   using mint=modint<m>;
+  private:
   static modint<m> g;
   static int limit;
   static vector<modint<m>>root,inv_root;
@@ -28,7 +29,8 @@ struct NTT{
       }
     }
   }
-  NTT(){};
+  public:
+  NTT(){init();};
   static void dft(vector<mint>&a,int inv){
     init();
     const int sz=a.size();
