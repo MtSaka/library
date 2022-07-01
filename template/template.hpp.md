@@ -15,7 +15,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
     title: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
     title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -51,7 +51,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DPL/DPL_1_D.test.cpp
     title: test/aoj/DPL/DPL_1_D.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL/DSL_1_A.test.cpp
     title: test/aoj/DSL/DSL_1_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -72,7 +72,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_C.test.cpp
     title: test/aoj/GRL/GRL_1_C.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL/GRL_2_A.test.cpp
     title: test/aoj/GRL/GRL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -219,7 +219,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
   - icon: ':heavy_check_mark:'

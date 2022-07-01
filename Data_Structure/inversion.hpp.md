@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/BIT.hpp
     title: Binary Indexed Tree(BIT)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Others/compressor.hpp
     title: Others/compressor.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
     title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Inversion Number(\u8EE2\u5012\u6570)"
     links: []
@@ -43,25 +43,24 @@ data:
     \ vector<int>ret(v.size());\n    for(int i=0;i<(int)v.size();i++)ret[i]=get_index(v[i]);\n\
     \    return ret;\n  }\n  int size()const{\n    assert(sorted);\n    return data.size();\n\
     \  }\n};\n#line 4 \"Data_Structure/inversion.hpp\"\ntemplate<typename T>\nlong\
-    \ long inversion(vector<T>a)const{\n  int n=a.size();\n  compressor<T>c(a);\n\
+    \ long inversion(vector<T>a){\n  int n=a.size();\n  compressor<T>c(a);\n  c.build();\n\
+    \  a=c.pressed(a);\n  long long ans=0;\n  BIT<int>bit(c.size());\n  for(int i=0;i<n;i++){\n\
+    \    ans+=i-bit.sum(a[i]+1);\n    bit.add(a[i],1);\n  }\n  return ans;\n}\n/**\n\
+    \ * @brief Inversion Number(\u8EE2\u5012\u6570)\n*/\n"
+  code: "#pragma once\n#include\"BIT.hpp\"\n#include\"../Others/compressor.hpp\"\n\
+    template<typename T>\nlong long inversion(vector<T>a){\n  int n=a.size();\n  compressor<T>c(a);\n\
     \  c.build();\n  a=c.pressed(a);\n  long long ans=0;\n  BIT<int>bit(c.size());\n\
     \  for(int i=0;i<n;i++){\n    ans+=i-bit.sum(a[i]+1);\n    bit.add(a[i],1);\n\
     \  }\n  return ans;\n}\n/**\n * @brief Inversion Number(\u8EE2\u5012\u6570)\n\
-    */\n"
-  code: "#pragma once\n#include\"BIT.hpp\"\n#include\"../Others/compressor.hpp\"\n\
-    template<typename T>\nlong long inversion(vector<T>a)const{\n  int n=a.size();\n\
-    \  compressor<T>c(a);\n  c.build();\n  a=c.pressed(a);\n  long long ans=0;\n \
-    \ BIT<int>bit(c.size());\n  for(int i=0;i<n;i++){\n    ans+=i-bit.sum(a[i]+1);\n\
-    \    bit.add(a[i],1);\n  }\n  return ans;\n}\n/**\n * @brief Inversion Number(\u8EE2\
-    \u5012\u6570)\n*/"
+    */"
   dependsOn:
   - Data_Structure/BIT.hpp
   - Others/compressor.hpp
   isVerificationFile: false
   path: Data_Structure/inversion.hpp
   requiredBy: []
-  timestamp: '2022-07-01 22:11:02+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-07-01 22:17:42+01:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
 documentation_of: Data_Structure/inversion.hpp

@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/BIT.hpp
     title: Binary Indexed Tree(BIT)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/inversion.hpp
     title: "Inversion Number(\u8EE2\u5012\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Others/compressor.hpp
     title: Others/compressor.hpp
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D
@@ -113,12 +113,12 @@ data:
     \ vector<int>ret(v.size());\n    for(int i=0;i<(int)v.size();i++)ret[i]=get_index(v[i]);\n\
     \    return ret;\n  }\n  int size()const{\n    assert(sorted);\n    return data.size();\n\
     \  }\n};\n#line 4 \"Data_Structure/inversion.hpp\"\ntemplate<typename T>\nlong\
-    \ long inversion(vector<T>a)const{\n  int n=a.size();\n  compressor<T>c(a);\n\
-    \  c.build();\n  a=c.pressed(a);\n  long long ans=0;\n  BIT<int>bit(c.size());\n\
-    \  for(int i=0;i<n;i++){\n    ans+=i-bit.sum(a[i]+1);\n    bit.add(a[i],1);\n\
-    \  }\n  return ans;\n}\n/**\n * @brief Inversion Number(\u8EE2\u5012\u6570)\n\
-    */\n#line 4 \"test/aoj/ALDS1/ALDS1_5_D.test.cpp\"\nint main(){\n  int n;\n  cin>>n;\n\
-    \  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n}\n"
+    \ long inversion(vector<T>a){\n  int n=a.size();\n  compressor<T>c(a);\n  c.build();\n\
+    \  a=c.pressed(a);\n  long long ans=0;\n  BIT<int>bit(c.size());\n  for(int i=0;i<n;i++){\n\
+    \    ans+=i-bit.sum(a[i]+1);\n    bit.add(a[i],1);\n  }\n  return ans;\n}\n/**\n\
+    \ * @brief Inversion Number(\u8EE2\u5012\u6570)\n*/\n#line 4 \"test/aoj/ALDS1/ALDS1_5_D.test.cpp\"\
+    \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n\
+    }\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Data_Structure/inversion.hpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n\
@@ -131,8 +131,8 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   requiredBy: []
-  timestamp: '2022-07-01 22:11:02+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-01 22:17:42+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_5_D.test.cpp
 layout: document
