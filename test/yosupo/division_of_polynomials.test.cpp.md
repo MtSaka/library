@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -111,19 +111,20 @@ data:
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
     \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
     \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/convolution/ntt.hpp\"\ntemplate<long\
-    \ long m>\nstruct NTT{\n  using mint=modint<m>;\n  static modint<m> g;\n  static\
-    \ int limit;\n  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
-    \ long long&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
-    \ mint(3);\n    if(mo==754974721)return mint(11);\n    if(mo==998244353)return\
-    \ mint(3);\n    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n\
-    \  static void init(){\n    if(root.empty()){\n      g=primitive_root(m);\n  \
-    \    long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
-    \      root[limit]=g.pow(now);\n      inv_root[limit]/=root[limit];\n      for(int\
-    \ i=limit-1;i>=0;i--){\n        root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
-    \      }\n    }\n  }\n  NTT(){};\n  static void dft(vector<mint>&a,int inv){\n\
-    \    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const int\
-    \ mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n     \
-    \ int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
+    \ long m>\nstruct NTT{\n  using mint=modint<m>;\n  private:\n  static modint<m>\
+    \ g;\n  static int limit;\n  static vector<modint<m>>root,inv_root;\n  static\
+    \ mint primitive_root(const long long&mo){\n    if(mo==167772161)return mint(3);\n\
+    \    if(mo==469762049)return mint(3);\n    if(mo==754974721)return mint(11);\n\
+    \    if(mo==998244353)return mint(3);\n    if(mo==1224736769)return mint(3);\n\
+    \    return mint(0);\n  }\n  static void init(){\n    if(root.empty()){\n    \
+    \  g=primitive_root(m);\n      long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n\
+    \      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n      root[limit]=g.pow(now);\n\
+    \      inv_root[limit]/=root[limit];\n      for(int i=limit-1;i>=0;i--){\n   \
+    \     root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
+    \      }\n    }\n  }\n  public:\n  NTT(){init();};\n  static void dft(vector<mint>&a,int\
+    \ inv){\n    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const\
+    \ int mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n \
+    \     int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
     \      for(int j=0;j<sz;j+=i){\n        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
     \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  static vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
     \    int sz=1;\n    const int mxsiz=a.size()+b.size()-1;\n    while(sz<mxsiz)sz<<=1;\n\
@@ -226,7 +227,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/division_of_polynomials.test.cpp
   requiredBy: []
-  timestamp: '2022-07-01 00:37:58+01:00'
+  timestamp: '2022-07-01 11:02:29+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/division_of_polynomials.test.cpp

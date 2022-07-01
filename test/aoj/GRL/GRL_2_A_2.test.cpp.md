@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/mst/prim.hpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []

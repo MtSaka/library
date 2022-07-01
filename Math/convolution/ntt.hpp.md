@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
   _extendedRequiredBy:
@@ -11,7 +11,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/convolution/mod_ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
@@ -60,12 +60,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sharp_p_subset_sum.test.cpp
     title: test/yosupo/sharp_p_subset_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
     links: []
@@ -92,19 +92,20 @@ data:
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
     \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
     \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/convolution/ntt.hpp\"\ntemplate<long\
-    \ long m>\nstruct NTT{\n  using mint=modint<m>;\n  static modint<m> g;\n  static\
-    \ int limit;\n  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
-    \ long long&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
-    \ mint(3);\n    if(mo==754974721)return mint(11);\n    if(mo==998244353)return\
-    \ mint(3);\n    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n\
-    \  static void init(){\n    if(root.empty()){\n      g=primitive_root(m);\n  \
-    \    long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
-    \      root[limit]=g.pow(now);\n      inv_root[limit]/=root[limit];\n      for(int\
-    \ i=limit-1;i>=0;i--){\n        root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
-    \      }\n    }\n  }\n  NTT(){};\n  static void dft(vector<mint>&a,int inv){\n\
-    \    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const int\
-    \ mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n     \
-    \ int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
+    \ long m>\nstruct NTT{\n  using mint=modint<m>;\n  private:\n  static modint<m>\
+    \ g;\n  static int limit;\n  static vector<modint<m>>root,inv_root;\n  static\
+    \ mint primitive_root(const long long&mo){\n    if(mo==167772161)return mint(3);\n\
+    \    if(mo==469762049)return mint(3);\n    if(mo==754974721)return mint(11);\n\
+    \    if(mo==998244353)return mint(3);\n    if(mo==1224736769)return mint(3);\n\
+    \    return mint(0);\n  }\n  static void init(){\n    if(root.empty()){\n    \
+    \  g=primitive_root(m);\n      long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n\
+    \      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n      root[limit]=g.pow(now);\n\
+    \      inv_root[limit]/=root[limit];\n      for(int i=limit-1;i>=0;i--){\n   \
+    \     root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
+    \      }\n    }\n  }\n  public:\n  NTT(){init();};\n  static void dft(vector<mint>&a,int\
+    \ inv){\n    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const\
+    \ int mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n \
+    \     int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
     \      for(int j=0;j<sz;j+=i){\n        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
     \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  static vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
     \    int sz=1;\n    const int mxsiz=a.size()+b.size()-1;\n    while(sz<mxsiz)sz<<=1;\n\
@@ -121,8 +122,8 @@ data:
     \ m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic Transform(\u6570\
     \u8AD6\u5909\u63DB)\n*/\n"
   code: "#pragma once\n#include\"../modular/modint.hpp\"\ntemplate<long long m>\n\
-    struct NTT{\n  using mint=modint<m>;\n  static modint<m> g;\n  static int limit;\n\
-    \  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
+    struct NTT{\n  using mint=modint<m>;\n  private:\n  static modint<m> g;\n  static\
+    \ int limit;\n  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
     \ long long&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
     \ mint(3);\n    if(mo==754974721)return mint(11);\n    if(mo==998244353)return\
     \ mint(3);\n    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n\
@@ -130,10 +131,10 @@ data:
     \    long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
     \      root[limit]=g.pow(now);\n      inv_root[limit]/=root[limit];\n      for(int\
     \ i=limit-1;i>=0;i--){\n        root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
-    \      }\n    }\n  }\n  NTT(){};\n  static void dft(vector<mint>&a,int inv){\n\
-    \    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const int\
-    \ mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n     \
-    \ int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
+    \      }\n    }\n  }\n  public:\n  NTT(){init();};\n  static void dft(vector<mint>&a,int\
+    \ inv){\n    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const\
+    \ int mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n \
+    \     int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
     \      for(int j=0;j<sz;j+=i){\n        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
     \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  static vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
     \    int sz=1;\n    const int mxsiz=a.size()+b.size()-1;\n    while(sz<mxsiz)sz<<=1;\n\
@@ -161,8 +162,8 @@ data:
   - Math/fps/multipoint_evaluation.hpp
   - Math/convolution/convolution.hpp
   - Math/convolution/mod_ntt.hpp
-  timestamp: '2022-04-10 15:30:48+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-07-01 11:02:29+01:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
