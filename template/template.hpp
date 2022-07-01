@@ -122,6 +122,7 @@ void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))cerr<<",";tr
 #define debug(...) do{cerr<<#__VA_ARGS__<<"=";trace(__VA_ARGS__);}while(0)
 #endif
 struct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};
+template<class F>struct REC{F f;REC(F&&f_):f(std::forward<F>(f_)){}template<class...Args>auto operator()(Args&&...args)const{return f(*this, std::forward<Args>(args)...);}};
 /**
  * @brief Template(テンプレート)
 */
