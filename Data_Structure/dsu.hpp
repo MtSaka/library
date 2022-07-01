@@ -4,9 +4,9 @@ struct dsu{
   vector<int>p;
   public:
   dsu(int n):p(n,-1){}
-  int root(int x)const{return p[x]<0?x:p[x]=root(p[x]);}
-  bool same(int x,int y)const{return root(x)==root(y);}
-  int size(int x)const{return -p[root(x)];}
+  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}
+  bool same(int x,int y){return root(x)==root(y);}
+  int size(int x){return -p[root(x)];}
   int merge(int x,int y){
     x=root(x),y=root(y);
     if(x==y)return x;
