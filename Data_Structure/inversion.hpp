@@ -2,7 +2,7 @@
 #include"BIT.hpp"
 #include"../Others/compressor.hpp"
 template<typename T>
-long long inversion(vector<T>a)const{
+long long inversion(vector<T>a){
   int n=a.size();
   compressor<T>c(a);
   c.build();
