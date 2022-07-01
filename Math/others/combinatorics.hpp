@@ -46,8 +46,10 @@ template<long long m>
 vector<modint<m>>combination<m>::idat=vector<modint<m>>();
 template<long long p>
 struct COMB{
-  vector<vector<modint<p>>>comb;
-  COMB(){
+  private:
+  static vector<vector<modint<p>>>comb;
+  static void init(){
+    if(!comb.empty())return;
     comb.assign(p,vector<modint<p>>(p));
     comb[0][0]=1;
     for(int i=1;i<p;i++){
@@ -55,7 +57,12 @@ struct COMB{
       for(int j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];
     }
   }
+  public:
+  COMB(){
+    init();
+  }
   modint<p>com(int n,int k){
+    init();
     modint<p>ret=1;
     while(n>0||k>0){
       int ni=n%p,ki=k%p;
@@ -65,6 +72,8 @@ struct COMB{
     return ret;
   }
 };
+template<long long p>
+vector<vector<modint<p>>>COMB<p>::comb=vector<vector<modint<p>>>();
 /**
  * @brief Combinatorics(組み合わせ)
 */
