@@ -22,8 +22,8 @@ data:
     document_title: Disjoint Set Union(Union Find)
     links: []
   bundledCode: "#line 2 \"Data_Structure/dsu.hpp\"\nstruct dsu{\n  private:\n  vector<int>p;\n\
-    \  public:\n  dsu(int n):p(n,-1){}\n  int root(int x)const{return p[x]<0?x:p[x]=root(p[x]);}\n\
-    \  bool same(int x,int y)const{return root(x)==root(y);}\n  int size(int x)const{return\
+    \  public:\n  dsu(int n):p(n,-1){}\n  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n\
+    \  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
     \ -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return\
     \ x;\n    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n\
     \  vector<vector<int>>groups()const{\n    const int n=p.size();\n    vector<vector<int>>result(n);\n\
@@ -31,20 +31,20 @@ data:
     \ vector<int>&v){return v.empty();}),result.end());\n    return result;\n  }\n\
     };\n/**\n * @brief Disjoint Set Union(Union Find)\n*/\n"
   code: "#pragma once\nstruct dsu{\n  private:\n  vector<int>p;\n  public:\n  dsu(int\
-    \ n):p(n,-1){}\n  int root(int x)const{return p[x]<0?x:p[x]=root(p[x]);}\n  bool\
-    \ same(int x,int y)const{return root(x)==root(y);}\n  int size(int x)const{return\
-    \ -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return\
-    \ x;\n    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n\
-    \  vector<vector<int>>groups()const{\n    const int n=p.size();\n    vector<vector<int>>result(n);\n\
-    \    for(int i=0;i<n;i++)result[root(i)].push_back(i);\n    result.erase(remove_if(result.begin(),result.end(),[](const\
-    \ vector<int>&v){return v.empty();}),result.end());\n    return result;\n  }\n\
-    };\n/**\n * @brief Disjoint Set Union(Union Find)\n*/"
+    \ n):p(n,-1){}\n  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n  bool same(int\
+    \ x,int y){return root(x)==root(y);}\n  int size(int x){return -p[root(x)];}\n\
+    \  int merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return x;\n\
+    \    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n  vector<vector<int>>groups()const{\n\
+    \    const int n=p.size();\n    vector<vector<int>>result(n);\n    for(int i=0;i<n;i++)result[root(i)].push_back(i);\n\
+    \    result.erase(remove_if(result.begin(),result.end(),[](const vector<int>&v){return\
+    \ v.empty();}),result.end());\n    return result;\n  }\n};\n/**\n * @brief Disjoint\
+    \ Set Union(Union Find)\n*/"
   dependsOn: []
   isVerificationFile: false
   path: Data_Structure/dsu.hpp
   requiredBy:
   - Graph/mst/kruskal.hpp
-  timestamp: '2022-07-01 22:16:58+01:00'
+  timestamp: '2022-07-01 22:23:17+01:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/unionfind.test.cpp

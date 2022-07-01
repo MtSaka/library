@@ -83,8 +83,8 @@ data:
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
     Data_Structure/dsu.hpp\"\nstruct dsu{\n  private:\n  vector<int>p;\n  public:\n\
-    \  dsu(int n):p(n,-1){}\n  int root(int x)const{return p[x]<0?x:p[x]=root(p[x]);}\n\
-    \  bool same(int x,int y)const{return root(x)==root(y);}\n  int size(int x)const{return\
+    \  dsu(int n):p(n,-1){}\n  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n\
+    \  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
     \ -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return\
     \ x;\n    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n\
     \  vector<vector<int>>groups()const{\n    const int n=p.size();\n    vector<vector<int>>result(n);\n\
@@ -104,7 +104,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/unionfind.test.cpp
   requiredBy: []
-  timestamp: '2022-07-01 22:16:58+01:00'
+  timestamp: '2022-07-01 22:23:17+01:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/unionfind.test.cpp
