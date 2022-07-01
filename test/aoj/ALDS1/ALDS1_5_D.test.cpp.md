@@ -1,20 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Data_Structure/BIT.hpp
     title: Binary Indexed Tree(BIT)
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Data_Structure/inversion.hpp
     title: "Inversion Number(\u8EE2\u5012\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: Others/compressor.hpp
+    title: Others/compressor.hpp
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D
@@ -85,20 +88,37 @@ data:
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Data_Structure/BIT.hpp\"\ntemplate<typename T>\nstruct BIT{\n  long long N;\n\
-    \  vector<T>bit;\n  BIT(long long n){\n    N=1;\n    while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n\
-    \  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n      bit[i]+=x;\n \
-    \     i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n\
-    \    return ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n\
-    };\n/**\n * @brief Binary Indexed Tree(BIT)\n*/\n#line 3 \"Data_Structure/inversion.hpp\"\
-    \ntemplate<typename T>\nlong long inversion(vector<T>a){\n  int n=a.size();\n\
-    \  vector<T>b=a;\n  sort(b.begin(),b.end());\n  map<long long,int>mp;\n  for(int\
-    \ i=0;i<n;i++)mp[b[i]]=i+1;\n  for(int i=0;i<n;i++)a[i]=mp[a[i]];\n  long long\
-    \ ans=0;\n  BIT<int>c(n);\n  for(int i=0;i<n;i++){\n    ans+=i-c.sum(a[i]+1);\n\
-    \    c.add(a[i],1);\n  }\n  return ans;\n}\n/**\n * @brief Inversion Number(\u8EE2\
-    \u5012\u6570)\n*/\n#line 4 \"test/aoj/ALDS1/ALDS1_5_D.test.cpp\"\nint main(){\n\
-    \  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n\
-    }\n"
+    Data_Structure/BIT.hpp\"\ntemplate<typename T>\nstruct BIT{\n  private:\n  int\
+    \ N;\n  vector<T>bit;\n  public:\n  BIT(int n){\n    N=1;\n    while(N<n)N<<=1;\n\
+    \    bit=vector<T>(N+1,0);\n  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n\
+    \      bit[i]+=x;\n      i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n\
+    \    while(i>0)ans+=bit[i],i-=i&-i;\n    return ans;\n  }\n  T query(int l,int\
+    \ r){\n    return sum(r)-sum(l);\n  }\n};\n/**\n * @brief Binary Indexed Tree(BIT)\n\
+    */\n#line 2 \"Others/compressor.hpp\"\ntemplate<class T,class comp=less<T>>\n\
+    class compressor{\n  private:\n  vector<T>data;\n  comp cmp;\n  bool sorted=false;\n\
+    \  public:\n  compressor():compressor(comp()){}\n  compressor(const comp&cmp):cmp(cmp){}\n\
+    \  compressor(const vector<T>&dat,const comp&cmp=comp()):data(dat),cmp(cmp){}\n\
+    \  compressor(vector<T>&&dat,const comp&cmp=comp()):data(move(dat)),cmp(cmp){}\n\
+    \  compressor(initializer_list<T>li,const comp&cmp=comp()):data(li.begin(),li.end()),cmp(cmp){}\n\
+    \  void push_back(const T&v){assert(!sorted);data.push_back(v);}\n  void push_back(T&&v){assert(!sorted);data.push_back(move(v));}\n\
+    \  void push(const vector<T>&v){\n    assert(!sorted);\n    const int n=data.size();\n\
+    \    data.resize(v.size()+n);\n    for(int i=0;i<(int)v.size();i++)data[i+n]=v[i];\n\
+    \  }\n  void build(){\n    assert(!sorted);sorted=1;\n    sort(data.begin(),data.end(),cmp);\n\
+    \    data.erase(unique(data.begin(),data.end(),[&](const T&l,const T&r)->bool{return\
+    \ !cmp(l,r)&&!cmp(r,l);}),data.end());\n  }\n  const T&operator[](int k)const&{\n\
+    \    assert(sorted);\n    return data[k];\n  }\n  int get_index(const T&v)const{\n\
+    \    assert(sorted);\n    return int(lower_bound(data.begin(),data.end(),v,cmp)-data.begin());\n\
+    \  }\n  void press(vector<T>&v)const{\n    assert(sorted);\n    for(auto&&i:v)i=get_index(i);\n\
+    \  }\n  vector<int>pressed(const vector<T>&v)const{\n    assert(sorted);\n   \
+    \ vector<int>ret(v.size());\n    for(int i=0;i<(int)v.size();i++)ret[i]=get_index(v[i]);\n\
+    \    return ret;\n  }\n  int size()const{\n    assert(sorted);\n    return data.size();\n\
+    \  }\n};\n#line 4 \"Data_Structure/inversion.hpp\"\ntemplate<typename T>\nlong\
+    \ long inversion(vector<T>a)const{\n  int n=a.size();\n  compressor<T>c(a);\n\
+    \  c.build();\n  a=c.pressed(a);\n  long long ans=0;\n  BIT<int>bit(c.size());\n\
+    \  for(int i=0;i<n;i++){\n    ans+=i-bit.sum(a[i]+1);\n    bit.add(a[i],1);\n\
+    \  }\n  return ans;\n}\n/**\n * @brief Inversion Number(\u8EE2\u5012\u6570)\n\
+    */\n#line 4 \"test/aoj/ALDS1/ALDS1_5_D.test.cpp\"\nint main(){\n  int n;\n  cin>>n;\n\
+    \  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Data_Structure/inversion.hpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n\
@@ -107,11 +127,12 @@ data:
   - template/template.hpp
   - Data_Structure/inversion.hpp
   - Data_Structure/BIT.hpp
+  - Others/compressor.hpp
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   requiredBy: []
-  timestamp: '2022-06-28 01:57:16+01:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-01 22:11:02+01:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_5_D.test.cpp
 layout: document

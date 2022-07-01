@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: Data_Structure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Data_Structure/BIT.hpp
       title: Binary Indexed Tree(BIT)
     - icon: ':heavy_check_mark:'
@@ -24,7 +24,7 @@ data:
     - icon: ':warning:'
       path: Data_Structure/hash_set.hpp
       title: "HashSet(\u30CF\u30C3\u30B7\u30E5\u30BB\u30C3\u30C8)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Data_Structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
     - icon: ':heavy_check_mark:'
@@ -236,7 +236,7 @@ data:
       title: "Matrix(\u884C\u5217)"
   - name: Others
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Others/compressor.hpp
       title: Others/compressor.hpp
     - icon: ':heavy_check_mark:'
@@ -255,7 +255,7 @@ data:
       title: String/run_length.hpp
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -273,7 +273,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
       title: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
       title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - name: test/aoj/CGL

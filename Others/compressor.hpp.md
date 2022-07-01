@@ -1,11 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: Data_Structure/inversion.hpp
+    title: "Inversion Number(\u8EE2\u5012\u6570)"
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
+    title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Others/compressor.hpp\"\ntemplate<class T,class comp=less<T>>\n\
@@ -49,10 +55,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Others/compressor.hpp
-  requiredBy: []
+  requiredBy:
+  - Data_Structure/inversion.hpp
   timestamp: '2022-07-01 16:11:37+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
 documentation_of: Others/compressor.hpp
 layout: document
 redirect_from:

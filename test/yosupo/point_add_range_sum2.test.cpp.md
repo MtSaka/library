@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Data_Structure/BIT.hpp
     title: Binary Indexed Tree(BIT)
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -82,15 +82,16 @@ data:
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Data_Structure/BIT.hpp\"\ntemplate<typename T>\nstruct BIT{\n  long long N;\n\
-    \  vector<T>bit;\n  BIT(long long n){\n    N=1;\n    while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n\
-    \  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n      bit[i]+=x;\n \
-    \     i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n\
-    \    return ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n\
-    };\n/**\n * @brief Binary Indexed Tree(BIT)\n*/\n#line 4 \"test/yosupo/point_add_range_sum2.test.cpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  BIT<long long>bit(n);\n  for(int i=0;i<n;i++){\n\
-    \    int a;\n    cin>>a;\n    bit.add(i,a);\n  }\n  while(q--){\n    int t,l,r;\n\
-    \    cin>>t>>l>>r;\n    if(t)cout<<bit.query(l,r)<<endl;\n    else bit.add(l,r);\n\
+    Data_Structure/BIT.hpp\"\ntemplate<typename T>\nstruct BIT{\n  private:\n  int\
+    \ N;\n  vector<T>bit;\n  public:\n  BIT(int n){\n    N=1;\n    while(N<n)N<<=1;\n\
+    \    bit=vector<T>(N+1,0);\n  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n\
+    \      bit[i]+=x;\n      i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n\
+    \    while(i>0)ans+=bit[i],i-=i&-i;\n    return ans;\n  }\n  T query(int l,int\
+    \ r){\n    return sum(r)-sum(l);\n  }\n};\n/**\n * @brief Binary Indexed Tree(BIT)\n\
+    */\n#line 4 \"test/yosupo/point_add_range_sum2.test.cpp\"\nint main(){\n  int\
+    \ n,q;\n  cin>>n>>q;\n  BIT<long long>bit(n);\n  for(int i=0;i<n;i++){\n    int\
+    \ a;\n    cin>>a;\n    bit.add(i,a);\n  }\n  while(q--){\n    int t,l,r;\n   \
+    \ cin>>t>>l>>r;\n    if(t)cout<<bit.query(l,r)<<endl;\n    else bit.add(l,r);\n\
     \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
     #include\"../../template/template.hpp\"\n#include\"../../Data_Structure/BIT.hpp\"\
@@ -104,7 +105,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_add_range_sum2.test.cpp
   requiredBy: []
-  timestamp: '2022-06-28 01:57:16+01:00'
+  timestamp: '2022-07-01 22:11:02+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_add_range_sum2.test.cpp

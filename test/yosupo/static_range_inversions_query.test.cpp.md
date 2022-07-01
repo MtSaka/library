@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Data_Structure/BIT.hpp
     title: Binary Indexed Tree(BIT)
   - icon: ':heavy_check_mark:'
     path: Others/mo.hpp
     title: Mo's Algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -86,17 +86,17 @@ data:
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Data_Structure/BIT.hpp\"\ntemplate<typename T>\nstruct BIT{\n  long long N;\n\
-    \  vector<T>bit;\n  BIT(long long n){\n    N=1;\n    while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n\
-    \  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n      bit[i]+=x;\n \
-    \     i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n\
-    \    return ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n\
-    };\n/**\n * @brief Binary Indexed Tree(BIT)\n*/\n#line 2 \"Others/mo.hpp\"\nstruct\
-    \ Mo{\n  int n;\n  vector<int>left,right;\n  Mo(int n):n(n){}\n  void add(int\
-    \ l,int r){\n    left.push_back(l);\n    right.push_back(r);\n  }\n  template<typename\
-    \ AL,typename AR,typename DL,typename DR,typename REM>\n  void run(const AL&add_left,const\
-    \ AR&add_right,const DL&delete_left,const DR&delete_right,const REM&rem){\n  \
-    \  int q=left.size(),width=max<int>(1,n/sqrt(q));\n    vector<int>order(q);\n\
+    Data_Structure/BIT.hpp\"\ntemplate<typename T>\nstruct BIT{\n  private:\n  int\
+    \ N;\n  vector<T>bit;\n  public:\n  BIT(int n){\n    N=1;\n    while(N<n)N<<=1;\n\
+    \    bit=vector<T>(N+1,0);\n  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n\
+    \      bit[i]+=x;\n      i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n\
+    \    while(i>0)ans+=bit[i],i-=i&-i;\n    return ans;\n  }\n  T query(int l,int\
+    \ r){\n    return sum(r)-sum(l);\n  }\n};\n/**\n * @brief Binary Indexed Tree(BIT)\n\
+    */\n#line 2 \"Others/mo.hpp\"\nstruct Mo{\n  int n;\n  vector<int>left,right;\n\
+    \  Mo(int n):n(n){}\n  void add(int l,int r){\n    left.push_back(l);\n    right.push_back(r);\n\
+    \  }\n  template<typename AL,typename AR,typename DL,typename DR,typename REM>\n\
+    \  void run(const AL&add_left,const AR&add_right,const DL&delete_left,const DR&delete_right,const\
+    \ REM&rem){\n    int q=left.size(),width=max<int>(1,n/sqrt(q));\n    vector<int>order(q);\n\
     \    iota(order.begin(),order.end(),0);\n    sort(order.begin(),order.end(),[&](int\
     \ a,int b){\n      int ablock=left[a]/width,bblock=left[b]/width;\n      if(ablock!=bblock)return\
     \ ablock<bblock;\n      return (ablock&1)?(right[a]>right[b]):(right[a]<right[b]);\n\
@@ -139,7 +139,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2022-06-28 01:57:16+01:00'
+  timestamp: '2022-07-01 22:11:02+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/static_range_inversions_query.test.cpp
