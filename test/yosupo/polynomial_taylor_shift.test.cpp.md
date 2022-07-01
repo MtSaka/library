@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
     path: Math/fps/taylor_shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
   - icon: ':heavy_check_mark:'
     path: Math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -232,21 +232,22 @@ data:
     \ k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(n-k);\n  }\n};\n\
     template<long long m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
     template<long long m>\nvector<modint<m>>combination<m>::idat=vector<modint<m>>();\n\
-    template<long long p>\nstruct COMB{\n  vector<vector<modint<p>>>comb;\n  COMB(){\n\
-    \    comb.assign(p,vector<modint<p>>(p));\n    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n\
-    \      comb[i][0]=1;\n      for(int j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n\
-    \    }\n  }\n  modint<p>com(int n,int k){\n    modint<p>ret=1;\n    while(n>0||k>0){\n\
-    \      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n      n/=p;k/=p;\n    }\n\
-    \    return ret;\n  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\
-    \u305B)\n*/\n#line 4 \"Math/fps/taylor_shift.hpp\"\ntemplate<long long Mod>\n\
-    FPS<Mod>taylor_shift(FPS<Mod>f,modint<Mod>a){\n  const int n=f.size();\n  combination<Mod>c(n);\n\
-    \  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n  FPS<Mod>g(n,1);\n\
-    \  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n  f*=g;\n  f.resize(n);\n\
-    \  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n  return\
-    \ f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\
-    \u52D5)\n*/\n#line 4 \"test/yosupo/polynomial_taylor_shift.test.cpp\"\nusing mint=modint<mod>;\n\
-    int main(){\n  int n,c;\n  cin>>n>>c;\n  FPS<mod>f(n);\n  cin>>f;\n  print(taylor_shift(f,mint(c)));\n\
-    }\n"
+    template<long long p>\nstruct COMB{\n  private:\n  static vector<vector<modint<p>>>comb;\n\
+    \  static void init(){\n    if(!comb.empty())return;\n    comb.assign(p,vector<modint<p>>(p));\n\
+    \    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int\
+    \ j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n    }\n  }\n  public:\n\
+    \  COMB(){\n    init();\n  }\n  modint<p>com(int n,int k){\n    init();\n    modint<p>ret=1;\n\
+    \    while(n>0||k>0){\n      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n  \
+    \    n/=p;k/=p;\n    }\n    return ret;\n  }\n};\ntemplate<long long p>\nvector<vector<modint<p>>>COMB<p>::comb=vector<vector<modint<p>>>();\n\
+    /**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n#line 4 \"Math/fps/taylor_shift.hpp\"\
+    \ntemplate<long long Mod>\nFPS<Mod>taylor_shift(FPS<Mod>f,modint<Mod>a){\n  const\
+    \ int n=f.size();\n  combination<Mod>c(n);\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n\
+    \  reverse(f.begin(),f.end());\n  FPS<Mod>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
+    \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
+    \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
+    \u79FB\u52D5)\n*/\n#line 4 \"test/yosupo/polynomial_taylor_shift.test.cpp\"\n\
+    using mint=modint<mod>;\nint main(){\n  int n,c;\n  cin>>n>>c;\n  FPS<mod>f(n);\n\
+    \  cin>>f;\n  print(taylor_shift(f,mint(c)));\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps/taylor_shift.hpp\"\
     \nusing mint=modint<mod>;\nint main(){\n  int n,c;\n  cin>>n>>c;\n  FPS<mod>f(n);\n\
@@ -261,7 +262,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2022-07-01 11:02:29+01:00'
+  timestamp: '2022-07-01 11:20:03+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial_taylor_shift.test.cpp

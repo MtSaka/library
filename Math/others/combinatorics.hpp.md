@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
   _extendedRequiredBy:
@@ -59,13 +59,14 @@ data:
     \ k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(n-k);\n  }\n};\n\
     template<long long m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
     template<long long m>\nvector<modint<m>>combination<m>::idat=vector<modint<m>>();\n\
-    template<long long p>\nstruct COMB{\n  vector<vector<modint<p>>>comb;\n  COMB(){\n\
-    \    comb.assign(p,vector<modint<p>>(p));\n    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n\
-    \      comb[i][0]=1;\n      for(int j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n\
-    \    }\n  }\n  modint<p>com(int n,int k){\n    modint<p>ret=1;\n    while(n>0||k>0){\n\
-    \      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n      n/=p;k/=p;\n    }\n\
-    \    return ret;\n  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\
-    \u305B)\n*/\n"
+    template<long long p>\nstruct COMB{\n  private:\n  static vector<vector<modint<p>>>comb;\n\
+    \  static void init(){\n    if(!comb.empty())return;\n    comb.assign(p,vector<modint<p>>(p));\n\
+    \    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int\
+    \ j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n    }\n  }\n  public:\n\
+    \  COMB(){\n    init();\n  }\n  modint<p>com(int n,int k){\n    init();\n    modint<p>ret=1;\n\
+    \    while(n>0||k>0){\n      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n  \
+    \    n/=p;k/=p;\n    }\n    return ret;\n  }\n};\ntemplate<long long p>\nvector<vector<modint<p>>>COMB<p>::comb=vector<vector<modint<p>>>();\n\
+    /**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n"
   code: "#pragma once\n#include\"../modular/modint.hpp\"\ntemplate<long long m>\n\
     struct combination{\n  using mint=modint<m>;\n  private:\n  static vector<mint>dat,idat;\n\
     \  inline static void extend(int sz){\n    if((int)dat.size()<sz+1){\n      int\
@@ -82,13 +83,14 @@ data:
     \ k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(n-k);\n  }\n};\n\
     template<long long m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
     template<long long m>\nvector<modint<m>>combination<m>::idat=vector<modint<m>>();\n\
-    template<long long p>\nstruct COMB{\n  vector<vector<modint<p>>>comb;\n  COMB(){\n\
-    \    comb.assign(p,vector<modint<p>>(p));\n    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n\
-    \      comb[i][0]=1;\n      for(int j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n\
-    \    }\n  }\n  modint<p>com(int n,int k){\n    modint<p>ret=1;\n    while(n>0||k>0){\n\
-    \      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n      n/=p;k/=p;\n    }\n\
-    \    return ret;\n  }\n};\n/**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\
-    \u305B)\n*/"
+    template<long long p>\nstruct COMB{\n  private:\n  static vector<vector<modint<p>>>comb;\n\
+    \  static void init(){\n    if(!comb.empty())return;\n    comb.assign(p,vector<modint<p>>(p));\n\
+    \    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int\
+    \ j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n    }\n  }\n  public:\n\
+    \  COMB(){\n    init();\n  }\n  modint<p>com(int n,int k){\n    init();\n    modint<p>ret=1;\n\
+    \    while(n>0||k>0){\n      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n  \
+    \    n/=p;k/=p;\n    }\n    return ret;\n  }\n};\ntemplate<long long p>\nvector<vector<modint<p>>>COMB<p>::comb=vector<vector<modint<p>>>();\n\
+    /**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/"
   dependsOn:
   - Math/modular/modint.hpp
   isVerificationFile: false
@@ -96,7 +98,7 @@ data:
   requiredBy:
   - Math/others/lagrange.hpp
   - Math/fps/taylor_shift.hpp
-  timestamp: '2022-06-30 23:38:50+01:00'
+  timestamp: '2022-07-01 11:20:03+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/polynomial_taylor_shift.test.cpp
