@@ -22,7 +22,7 @@ data:
     \ !cmp(l,r)&&!cmp(r,l);}),data.end());\n  }\n  const T&operator[](int k)const&{\n\
     \    assert(sorted);\n    return data[k];\n  }\n  int get_index(const T&v)const{\n\
     \    assert(sorted);\n    return int(lower_bound(data.begin(),data.end(),v,cmp)-data.begin());\n\
-    \  }\n  void press(vector<T>&v)const{\n    assert(soreted);\n    for(auto&&i:v)i=get_index(i);\n\
+    \  }\n  void press(vector<T>&v)const{\n    assert(sorted);\n    for(auto&&i:v)i=get_index(i);\n\
     \  }\n  vector<int>pressed(const vector<T>&v)const{\n    assert(sorted);\n   \
     \ vector<int>ret(v.size());\n    for(int i=0;i<(int)v.size();i++)ret[i]=get_index(v[i]);\n\
     \    return ret;\n  }\n  int size()const{\n    assert(sorted);\n    return data.size();\n\
@@ -41,7 +41,7 @@ data:
     \ !cmp(l,r)&&!cmp(r,l);}),data.end());\n  }\n  const T&operator[](int k)const&{\n\
     \    assert(sorted);\n    return data[k];\n  }\n  int get_index(const T&v)const{\n\
     \    assert(sorted);\n    return int(lower_bound(data.begin(),data.end(),v,cmp)-data.begin());\n\
-    \  }\n  void press(vector<T>&v)const{\n    assert(soreted);\n    for(auto&&i:v)i=get_index(i);\n\
+    \  }\n  void press(vector<T>&v)const{\n    assert(sorted);\n    for(auto&&i:v)i=get_index(i);\n\
     \  }\n  vector<int>pressed(const vector<T>&v)const{\n    assert(sorted);\n   \
     \ vector<int>ret(v.size());\n    for(int i=0;i<(int)v.size();i++)ret[i]=get_index(v[i]);\n\
     \    return ret;\n  }\n  int size()const{\n    assert(sorted);\n    return data.size();\n\
@@ -50,7 +50,7 @@ data:
   isVerificationFile: false
   path: Others/compressor.hpp
   requiredBy: []
-  timestamp: '2022-07-01 03:07:39+01:00'
+  timestamp: '2022-07-01 16:11:37+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Others/compressor.hpp
