@@ -1,14 +1,15 @@
 #pragma once
+#include<bits/stdc++.h>
+using namespace std;
 struct rollback_dsu{
   private:
   vector<int>p;
   stack<pair<int,int>>history;
-  int internal_snap;
   public:
-  rollback_dsu(int sz):p(sz,-1),internal_snap(0){}
-  int root(int x){return p[x]<0?x:root(p[x]);}
-  bool same(int x,int y){return root(x)==root(y);}
-  int size(int x){return -p[root(x)];}
+  rollback_dsu(int sz):p(sz,-1){}
+  int root(int x)const{return p[x]<0?x:root(p[x]);}
+  bool same(int x,int y)const{return root(x)==root(y);}
+  int size(int x)const{return -p[root(x)];}
   int merge(int x,int y){
     x=root(x),y=root(y);
     history.emplace(x,p[x]);
@@ -19,17 +20,19 @@ struct rollback_dsu{
     return x;
   }
   void undo(){
-    p[history.top().first]=history.top().second;
-    history.pop();
-    p[history.top().first]=history.top().second;
-    history.pop();
+    p[history.top().first]=history.top().second;history.pop();
+    p[history.top().first]=history.top().second;history.pop();
   }
-  void snapshot(){internal_snap=int(history.size()>>1);}
-  int get_state(){return int(history.size()>>1);}
-  void rollback(int state=-1){
-    if(state==-1)state=internal_snap;
-    state<<=1;
-    while((int)history.size()>state)undo();
+  void snapshot(){while(!history.empty())history.pop();}
+  void rollback(){
+    while(!history.empty())undo();
+  }
+  vector<vector<int>>groups()const{
+    const int n=p.size();
+    vector<vector<int>>result(n);
+    for(int i=0;i<n;i++)result[root(i)].push_back(i);
+    result.erase(remove_if(result.begin(),result.end(),[](const vector<int>&v){return v.empty();}),result.end());
+    return result;
   }
 };
 /**
