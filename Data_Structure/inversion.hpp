@@ -1,18 +1,17 @@
 #pragma once
 #include"BIT.hpp"
+#include"../Others/compressor.hpp"
 template<typename T>
-long long inversion(vector<T>a){
+long long inversion(vector<T>a)const{
   int n=a.size();
-  vector<T>b=a;
-  sort(b.begin(),b.end());
-  map<long long,int>mp;
-  for(int i=0;i<n;i++)mp[b[i]]=i+1;
-  for(int i=0;i<n;i++)a[i]=mp[a[i]];
+  compressor<T>c(a);
+  c.build();
+  a=c.pressed(a);
   long long ans=0;
-  BIT<int>c(n);
+  BIT<int>bit(c.size());
   for(int i=0;i<n;i++){
-    ans+=i-c.sum(a[i]+1);
-    c.add(a[i],1);
+    ans+=i-bit.sum(a[i]+1);
+    bit.add(a[i],1);
   }
   return ans;
 }

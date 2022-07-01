@@ -1,9 +1,11 @@
 #pragma once
 template<typename T>
 struct BIT{
-  long long N;
+  private:
+  int N;
   vector<T>bit;
-  BIT(long long n){
+  public:
+  BIT(int n){
     N=1;
     while(N<n)N<<=1;
     bit=vector<T>(N+1,0);
