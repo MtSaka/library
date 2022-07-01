@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_3_C.test.cpp
     title: test/aoj/GRL/GRL_3_C.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\
       \u89E3)"
@@ -75,7 +75,7 @@ data:
   path: Graph/others/scc.hpp
   requiredBy: []
   timestamp: '2022-02-03 20:42:09+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/scc.test.cpp
   - test/aoj/GRL/GRL_3_C.test.cpp

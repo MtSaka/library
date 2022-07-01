@@ -81,6 +81,8 @@ data:
     ,\";trace(forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...) (void(0))\n\
     #else\n#define debug(...) do{cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
+    template<class F>struct REC{F f;REC(F&&f_):f(std::forward<F>(f_)){}template<class...Args>auto\
+    \ operator()(Args&&...args)const{return f(*this, std::forward<Args>(args)...);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
     Geometry/geometry.hpp\"\nnamespace geometry{\n  const long double eps=1e-9;\n\
     \  const long double pi=acos(-1.0);\n  bool equals(long double a,long double b){return\
@@ -200,7 +202,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL/CGL_3_C.test.cpp
   requiredBy: []
-  timestamp: '2022-06-28 01:57:16+01:00'
+  timestamp: '2022-07-02 00:42:50+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL/CGL_3_C.test.cpp
