@@ -33,7 +33,7 @@ class compressor{
     return int(lower_bound(data.begin(),data.end(),v,cmp)-data.begin());
   }
   void press(vector<T>&v)const{
-    assert(soreted);
+    assert(sorted);
     for(auto&&i:v)i=get_index(i);
   }
   vector<int>pressed(const vector<T>&v)const{
