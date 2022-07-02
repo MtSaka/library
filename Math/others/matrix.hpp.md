@@ -16,9 +16,10 @@ data:
     document_title: "Matrix(\u884C\u5217)"
     links: []
   bundledCode: "#line 1 \"Math/others/matrix.hpp\"\ntemplate<typename T>\nstruct Matrix{\n\
-    \  vector<vector<T>>A;\n  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n\
-    \  Matrix(size_t n):A(n,vector<T>(n,0)){};\n  size_t height()const{return (A.size());}\n\
-    \  size_t width()const{return (A[0].size());}\n  inline const vector<T>&operator[](int\
+    \  private:\n  vector<vector<T>>A;\n  public:\n  Matrix(){}\n  Matrix(size_t n,size_t\
+    \ m):A(n,vector<T>(m,0)){}\n  Matrix(size_t n):A(n,vector<T>(n,0)){};\n  Matrix(const\
+    \ vector<vector<T>>&a):A(a){}\n  size_t height()const{return (A.size());}\n  size_t\
+    \ width()const{return (A[0].size());}\n  inline const vector<T>&operator[](int\
     \ k)const{return A.at(k);}\n  inline vector<T>&operator[](int k){return A.at(k);}\n\
     \  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(size_t i=0;i<n;i++)mat[i][i]=1;\n\
     \    return mat;\n  }\n  Matrix &operator+=(const Matrix&B){\n    const size_t\
@@ -43,8 +44,9 @@ data:
     \        T now=b[j][i];\n        for(int k=0;k<(int)width();k++)b[j][k]-=b[i][k]*now;\n\
     \      }\n    }\n    return ret;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
     )\n*/\n"
-  code: "template<typename T>\nstruct Matrix{\n  vector<vector<T>>A;\n  Matrix(){}\n\
-    \  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n  Matrix(size_t n):A(n,vector<T>(n,0)){};\n\
+  code: "template<typename T>\nstruct Matrix{\n  private:\n  vector<vector<T>>A;\n\
+    \  public:\n  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n\
+    \  Matrix(size_t n):A(n,vector<T>(n,0)){};\n  Matrix(const vector<vector<T>>&a):A(a){}\n\
     \  size_t height()const{return (A.size());}\n  size_t width()const{return (A[0].size());}\n\
     \  inline const vector<T>&operator[](int k)const{return A.at(k);}\n  inline vector<T>&operator[](int\
     \ k){return A.at(k);}\n  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(size_t\
@@ -74,7 +76,7 @@ data:
   isVerificationFile: false
   path: Math/others/matrix.hpp
   requiredBy: []
-  timestamp: '2022-04-11 19:10:42+01:00'
+  timestamp: '2022-07-02 17:01:14+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/matrix_det.test.cpp
