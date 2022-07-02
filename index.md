@@ -9,7 +9,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/bit_vector.hpp
       title: Bit Vector
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/disjoint_sparse_table.hpp
       title: Disjoint Sparse Table
     - icon: ':x:'
@@ -134,7 +134,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Graph/tree/tree_diameter.hpp
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: Math/convolution
@@ -225,7 +225,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/others/combinatorics.hpp
       title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/others/fraction.hpp
       title: "Fraction(\u6709\u7406\u6570\u578B)"
     - icon: ':warning:'
@@ -250,7 +250,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: String/rolling_hash.hpp
       title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: String/run_length.hpp
       title: String/run_length.hpp
   - name: template
@@ -488,10 +488,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq.test.cpp
       title: test/yosupo/staticrmq.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq2.test.cpp
       title: test/yosupo/staticrmq2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/tree_diameter.test.cpp
       title: test/yosupo/tree_diameter.test.cpp
     - icon: ':x:'
@@ -499,10 +499,10 @@ data:
       title: test/yosupo/unionfind.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1236.test.cpp
       title: test/yukicoder/1236.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1469.test.cpp
       title: test/yukicoder/1469.test.cpp
 layout: toppage

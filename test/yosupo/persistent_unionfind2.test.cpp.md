@@ -98,26 +98,28 @@ data:
     \ v.empty();}),result.end());\n    return result;\n  }\n};\n/**\n * @brief Rollback\
     \ Disjoint Set Union(Union Find)\n*/\n#line 4 \"test/yosupo/persistent_unionfind2.test.cpp\"\
     \nint main(){\n  int n,q;cin>>n>>q;\n  vector<vector<array<int,3>>>g(q+1);\n \
-    \ vector<vector<array<int,3>>>a(q+1);\n  rep(i,q){\n    INT(t,k,u,v);\n    if(t==0)g[k+1].eb(array<int,3>{i+1,u,v});\n\
-    \    else a[k+1].eb(array<int,3>{i,u,v});\n  }\n  vector<int>ans(q,-1);\n  rollback_dsu\
-    \ dsu(n);\n  REC([&](auto&&f,int v)->void{\n    for(auto&b:a[v])ans[b[0]]=dsu.same(b[1],b[2]);\n\
-    \    for(auto&e:g[v]){\n      dsu.merge(e[1],e[2]);\n      f(e[0]);\n      dsu.undo();\n\
-    \    }\n  })(0);\n  rep(i,q)if(ans[i]!=-1)print(ans[i]);\n}\n"
+    \ vector<vector<array<int,3>>>a(q+1);\n  rep(i,q){\n    int t,k,u,v;cin>>t>>k>>u>>v;\n\
+    \    if(t==0)g[k+1].eb(array<int,3>{i+1,u,v});\n    else a[k+1].eb(array<int,3>{i,u,v});\n\
+    \  }\n  vector<int>ans(q,-1);\n  rollback_dsu dsu(n);\n  REC([&](auto&&f,int v)->void{\n\
+    \    for(auto&b:a[v])ans[b[0]]=dsu.same(b[1],b[2]);\n    for(auto&e:g[v]){\n \
+    \     dsu.merge(e[1],e[2]);\n      f(e[0]);\n      dsu.undo();\n    }\n  })(0);\n\
+    \  for(const auto&i:ans)if(i!=-1)print(i);\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/persistent_unionfind\"\n\
     #include\"../../template/template.hpp\"\n#include\"../../Data_Structure/rollback_dsu.hpp\"\
     \nint main(){\n  int n,q;cin>>n>>q;\n  vector<vector<array<int,3>>>g(q+1);\n \
-    \ vector<vector<array<int,3>>>a(q+1);\n  rep(i,q){\n    INT(t,k,u,v);\n    if(t==0)g[k+1].eb(array<int,3>{i+1,u,v});\n\
-    \    else a[k+1].eb(array<int,3>{i,u,v});\n  }\n  vector<int>ans(q,-1);\n  rollback_dsu\
-    \ dsu(n);\n  REC([&](auto&&f,int v)->void{\n    for(auto&b:a[v])ans[b[0]]=dsu.same(b[1],b[2]);\n\
-    \    for(auto&e:g[v]){\n      dsu.merge(e[1],e[2]);\n      f(e[0]);\n      dsu.undo();\n\
-    \    }\n  })(0);\n  rep(i,q)if(ans[i]!=-1)print(ans[i]);\n}\n"
+    \ vector<vector<array<int,3>>>a(q+1);\n  rep(i,q){\n    int t,k,u,v;cin>>t>>k>>u>>v;\n\
+    \    if(t==0)g[k+1].eb(array<int,3>{i+1,u,v});\n    else a[k+1].eb(array<int,3>{i,u,v});\n\
+    \  }\n  vector<int>ans(q,-1);\n  rollback_dsu dsu(n);\n  REC([&](auto&&f,int v)->void{\n\
+    \    for(auto&b:a[v])ans[b[0]]=dsu.same(b[1],b[2]);\n    for(auto&e:g[v]){\n \
+    \     dsu.merge(e[1],e[2]);\n      f(e[0]);\n      dsu.undo();\n    }\n  })(0);\n\
+    \  for(const auto&i:ans)if(i!=-1)print(i);\n}\n"
   dependsOn:
   - template/template.hpp
   - Data_Structure/rollback_dsu.hpp
   isVerificationFile: true
   path: test/yosupo/persistent_unionfind2.test.cpp
   requiredBy: []
-  timestamp: '2022-07-02 01:55:10+01:00'
+  timestamp: '2022-07-02 02:08:53+01:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/persistent_unionfind2.test.cpp
