@@ -64,7 +64,7 @@ struct lazy_segtree{
     r+=size;
     for(int i=idx;i>=1;i--){
       if(((l>>i)<<i)!=l)eval(l>>i);
-      if(((r>>i)<<i)!=r)eval((r-1)>>i);
+      if(((r>>i)<<i)!=r)eval(r>>i);
     }
     int l2=l,r2=r;
     while(l<r){
@@ -76,7 +76,7 @@ struct lazy_segtree{
     l=l2,r=r2;
     for(int i=1;i<=idx;i++){
       if(((l>>i)<<i)!=l)update(l>>i);
-      if(((r>>i)<<i)!=r)update((r-1)>>i);
+      if(((r>>i)<<i)!=r)update(r>>i);
     }
   }
 };

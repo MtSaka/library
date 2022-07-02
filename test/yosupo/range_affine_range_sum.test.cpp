@@ -12,12 +12,9 @@ Pi e(){return Pi(0,0);}
 qi id(){return qi(1,0);}
 int main(){
   INT(n,q);
-  lazy_segtree<Pi,op,e,qi,mapping,composition,id>s(n);
-  rep(i,n){
-    mint a;
-    scan(a);
-    s.set(i,Pi(a,1));
-  }
+  vector<Pi>a(n,{0,1});
+  rep(i,n)cin>>a[i].first;
+  lazy_segtree<Pi,op,e,qi,mapping,composition,id>s(a);
   while(q--){
     LL(t);
     if(t){
