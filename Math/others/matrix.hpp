@@ -1,9 +1,12 @@
 template<typename T>
 struct Matrix{
+  private:
   vector<vector<T>>A;
+  public:
   Matrix(){}
   Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}
   Matrix(size_t n):A(n,vector<T>(n,0)){};
+  Matrix(const vector<vector<T>>&a):A(a){}
   size_t height()const{return (A.size());}
   size_t width()const{return (A[0].size());}
   inline const vector<T>&operator[](int k)const{return A.at(k);}
