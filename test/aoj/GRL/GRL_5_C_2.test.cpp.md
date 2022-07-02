@@ -116,21 +116,21 @@ data:
     \  }\n};\ntemplate<typename T,typename F>\nsparse_table<T,F>make_sparse_table(const\
     \ vector<T>&v,const F&f){\n  return sparse_table<T,F>(v,f);\n} \n/**\n * @brief\
     \ Sparse Table\n*/\n#line 4 \"Graph/tree/RMQ_lowest_common_ancestor.hpp\"\ntemplate<typename\
-    \ T=int>\nstruct RMQ_LCA:Graph<T>{\n  using Graph<T>::Graph;\n  using Graph<T>::g;\n\
-    \  using F=function<int(int,int)>;\n  sparse_table<int,F>st;\n  vector<int>ord,dep,in;\n\
+    \ T=int>\nstruct RMQ_LCA:Graph<T>{\n  using Graph<T>::g;\n  using F=function<int(int,int)>;\n\
+    \  vector<int>ord,dep,in;\n  RMQ_LCA(int n):Graph<T>(n){}\n  RMQ_LCA(const Graph<T>&g):Graph<T>(g){}\n\
     \  void build(int root=0){\n    in.resize(g.size());\n    dfs(root,-1,0);\n  \
     \  vector<int>v(g.size()*2-1);\n    iota(v.begin(),v.end(),0);\n    F f=[&](int\
     \ a,int b){return dep[a]<dep[b]?a:b;};\n    st=sparse_table<int,F>(v,f);\n  }\n\
     \  int lca(int u,int v){\n    if(in[u]>in[v])swap(u,v);\n    return u==v?u:ord[st.query(in[u],in[v])];\n\
-    \  }\n  private:\n  void dfs(int idx,int par,int d){\n    in[idx]=(int)ord.size();\n\
-    \    ord.emplace_back(idx);\n    dep.emplace_back(d);\n    for(auto &e:g[idx])if(e!=par){\n\
-    \      dfs(e,idx,d+1);\n      ord.emplace_back(idx);\n      dep.emplace_back(d);\n\
-    \    }\n  }\n};\n/**\n * @brief RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\
-    \u7956\u5148)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_C_2.test.cpp\"\nint main(){\n\
-    \  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n    int k;\n\
-    \    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n      g.add_edge(i,j);\n\
-    \    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n    int a,b;\n\
-    \    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}\n"
+    \  }\n  private:\n  sparse_table<int,F>st;\n  void dfs(int idx,int par,int d){\n\
+    \    in[idx]=(int)ord.size();\n    ord.emplace_back(idx);\n    dep.emplace_back(d);\n\
+    \    for(auto &e:g[idx])if(e!=par){\n      dfs(e,idx,d+1);\n      ord.emplace_back(idx);\n\
+    \      dep.emplace_back(d);\n    }\n  }\n};\n/**\n * @brief RMQ Lowest Common\
+    \ Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_C_2.test.cpp\"\
+    \nint main(){\n  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n\
+    \    int k;\n    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n     \
+    \ g.add_edge(i,j);\n    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n\
+    \    int a,b;\n    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/tree/RMQ_lowest_common_ancestor.hpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n\
@@ -145,7 +145,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_C_2.test.cpp
   requiredBy: []
-  timestamp: '2022-07-02 00:42:50+01:00'
+  timestamp: '2022-07-02 01:33:27+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_C_2.test.cpp

@@ -119,13 +119,13 @@ data:
     \    for(auto &e:g[idx])if(e!=par){\n      sum[e]=sum[idx]+e.cost;\n      dfs(e,idx,d+1);\n\
     \    }\n  }\n};\n/**\n * @brief Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\
     \u901A\u7956\u5148)\n*/\n#line 4 \"test/yosupo/lca1.test.cpp\"\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  Doubling_LCA<int>g(n);\n  for(int i=1;i<n;i++){\n\
-    \    int u;\n    cin>>u;\n    g.add_edge(u,i);\n  }\n  g.build();\n  while(q--){\n\
+    \  int n,q;\n  cin>>n>>q;\n  Doubling_LCA g(n);\n  for(int i=1;i<n;i++){\n   \
+    \ int u;\n    cin>>u;\n    g.add_edge(u,i);\n  }\n  g.build();\n  while(q--){\n\
     \    int u,v;\n    cin>>u>>v;\n    cout<<g.lca(u,v)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include\"../../template/template.hpp\"\
     \n#include\"../../Graph/tree/doubling_lowest_common_ancestor.hpp\"\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  Doubling_LCA<int>g(n);\n  for(int i=1;i<n;i++){\n\
-    \    int u;\n    cin>>u;\n    g.add_edge(u,i);\n  }\n  g.build();\n  while(q--){\n\
+    \  int n,q;\n  cin>>n>>q;\n  Doubling_LCA g(n);\n  for(int i=1;i<n;i++){\n   \
+    \ int u;\n    cin>>u;\n    g.add_edge(u,i);\n  }\n  g.build();\n  while(q--){\n\
     \    int u,v;\n    cin>>u>>v;\n    cout<<g.lca(u,v)<<endl;\n  }\n}"
   dependsOn:
   - template/template.hpp
@@ -134,7 +134,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/lca1.test.cpp
   requiredBy: []
-  timestamp: '2022-07-02 01:12:14+01:00'
+  timestamp: '2022-07-02 01:33:27+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lca1.test.cpp
