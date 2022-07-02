@@ -21,7 +21,7 @@ struct lazy_segtree{
   lazy_segtree(const vector<S>&v):_n(int(v.size())){
     while(size<_n)size<<=1,idx++;
     seq=vector<S>(size<<1,e());
-    lazy=vector<F>(size<<1,id());
+    lazy=vector<F>(size,id());
     for(int i=0;i<_n;i++)seq[size+i]=v[i];
     for(int i=size-1;i>=1;i--)update(i);
   }
