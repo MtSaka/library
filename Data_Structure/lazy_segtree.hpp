@@ -5,14 +5,14 @@ struct lazy_segtree{
   int _n,size=1,idx=0;
   vector<S>seq;
   vector<F>lazy;
-  void update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}
+  void update(int k){seq[k]=op(seq[k<<1],seq[k<<1^1]);}
   void all_apply(int k,F f){
     seq[k]=mapping(f,seq[k]);
     if(k<size)lazy[k]=composition(f,lazy[k]);
   }
   void eval(int k){
-    all_apply(2*k,lazy[k]);
-    all_apply(2*k+1,lazy[k]);
+    all_apply(k<<1,lazy[k]);
+    all_apply(k<<1^1,lazy[k]);
     lazy[k]=id();
   }
   public:
@@ -20,8 +20,8 @@ struct lazy_segtree{
   lazy_segtree(int n):lazy_segtree(vector<S>(n,e())){}
   lazy_segtree(const vector<S>&v):_n(int(v.size())){
     while(size<_n)size<<=1,idx++;
-    seq=vector<S>(2*size,e());
-    lazy=vector<F>(2*size,id());
+    seq=vector<S>(size<<1,e());
+    lazy=vector<F>(size<<1,id());
     for(int i=0;i<_n;i++)seq[size+i]=v[i];
     for(int i=size-1;i>=1;i--)update(i);
   }
