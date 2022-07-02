@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_1.test.cpp
     title: test/aoj/GRL/GRL_5_C_1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca1.test.cpp
     title: test/yosupo/lca1.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\
       \u5148)"
@@ -36,7 +36,7 @@ data:
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
     \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/tree/doubling_lowest_common_ancestor.hpp\"\
-    \ntemplate<typename T>\nstruct Doubling_LCA:Graph<T>{\n  using Graph<T>::g;\n\
+    \ntemplate<typename T=int>\nstruct Doubling_LCA:Graph<T>{\n  using Graph<T>::g;\n\
     \  const int lg;\n  vector<int>dep;\n  vector<T>sum;\n  vector<vector<int>>table;\n\
     \  Doubling_LCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}\n  Doubling_LCA(const\
     \ Graph<T>&g):Graph<T>(g),lg(32-__builtin_clz(g.size())){}\n  void build(int root=0){\n\
@@ -52,8 +52,8 @@ data:
     \    for(auto &e:g[idx])if(e!=par){\n      sum[e]=sum[idx]+e.cost;\n      dfs(e,idx,d+1);\n\
     \    }\n  }\n};\n/**\n * @brief Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\
     \u901A\u7956\u5148)\n*/\n"
-  code: "#pragma once\n#include\"../graph_template.hpp\"\ntemplate<typename T>\nstruct\
-    \ Doubling_LCA:Graph<T>{\n  using Graph<T>::g;\n  const int lg;\n  vector<int>dep;\n\
+  code: "#pragma once\n#include\"../graph_template.hpp\"\ntemplate<typename T=int>\n\
+    struct Doubling_LCA:Graph<T>{\n  using Graph<T>::g;\n  const int lg;\n  vector<int>dep;\n\
     \  vector<T>sum;\n  vector<vector<int>>table;\n  Doubling_LCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}\n\
     \  Doubling_LCA(const Graph<T>&g):Graph<T>(g),lg(32-__builtin_clz(g.size())){}\n\
     \  void build(int root=0){\n    dep.assign(g.size(),0);\n    sum.assign(g.size(),0);\n\
@@ -74,8 +74,8 @@ data:
   isVerificationFile: false
   path: Graph/tree/doubling_lowest_common_ancestor.hpp
   requiredBy: []
-  timestamp: '2022-01-23 11:55:23+00:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-07-02 01:12:14+01:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/lca1.test.cpp
   - test/aoj/GRL/GRL_5_C_1.test.cpp
