@@ -43,6 +43,7 @@ struct Matrix{
     A.swap(B.A);
     return *this;
   }
+  Matrix pow(long long k)const{return Matrix(*this)^=k;}
   friend Matrix operator+(const Matrix&A,const Matrix&B){return Matrix(A)+=B;}
   friend Matrix operator-(const Matrix&A,const Matrix&B){return Matrix(A)-=B;}
   friend Matrix operator*(const Matrix&A,const Matrix&B){return Matrix(A)*=B;}
