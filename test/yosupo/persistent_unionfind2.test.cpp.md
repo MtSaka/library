@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/rollback_dsu.hpp
     title: Rollback Disjoint Set Union(Union Find)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/persistent_unionfind
@@ -99,7 +99,7 @@ data:
     \ Disjoint Set Union(Union Find)\n*/\n#line 4 \"test/yosupo/persistent_unionfind2.test.cpp\"\
     \nint main(){\n  int n,q;cin>>n>>q;\n  vector<vector<array<int,3>>>g(q+1);\n \
     \ vector<vector<array<int,3>>>a(q+1);\n  rep(i,q){\n    int t,k,u,v;cin>>t>>k>>u>>v;\n\
-    \    if(t==0)g[k+1].eb(array<int,3>{i+1,u,v});\n    else a[k+1].eb(array<int,3>{i,u,v});\n\
+    \    if(t==0)g[k+1].eb(array<int,3>{(int)i+1,u,v});\n    else a[k+1].eb(array<int,3>{(int)i,u,v});\n\
     \  }\n  vector<int>ans(q,-1);\n  rollback_dsu dsu(n);\n  REC([&](auto&&f,int v)->void{\n\
     \    for(auto&b:a[v])ans[b[0]]=dsu.same(b[1],b[2]);\n    for(auto&e:g[v]){\n \
     \     dsu.merge(e[1],e[2]);\n      f(e[0]);\n      dsu.undo();\n    }\n  })(0);\n\
@@ -108,7 +108,7 @@ data:
     #include\"../../template/template.hpp\"\n#include\"../../Data_Structure/rollback_dsu.hpp\"\
     \nint main(){\n  int n,q;cin>>n>>q;\n  vector<vector<array<int,3>>>g(q+1);\n \
     \ vector<vector<array<int,3>>>a(q+1);\n  rep(i,q){\n    int t,k,u,v;cin>>t>>k>>u>>v;\n\
-    \    if(t==0)g[k+1].eb(array<int,3>{i+1,u,v});\n    else a[k+1].eb(array<int,3>{i,u,v});\n\
+    \    if(t==0)g[k+1].eb(array<int,3>{(int)i+1,u,v});\n    else a[k+1].eb(array<int,3>{(int)i,u,v});\n\
     \  }\n  vector<int>ans(q,-1);\n  rollback_dsu dsu(n);\n  REC([&](auto&&f,int v)->void{\n\
     \    for(auto&b:a[v])ans[b[0]]=dsu.same(b[1],b[2]);\n    for(auto&e:g[v]){\n \
     \     dsu.merge(e[1],e[2]);\n      f(e[0]);\n      dsu.undo();\n    }\n  })(0);\n\
@@ -119,8 +119,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/persistent_unionfind2.test.cpp
   requiredBy: []
-  timestamp: '2022-07-02 02:19:20+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-02 02:22:41+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/persistent_unionfind2.test.cpp
 layout: document

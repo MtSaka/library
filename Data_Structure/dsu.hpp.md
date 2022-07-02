@@ -2,22 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_1_A.test.cpp
     title: test/aoj/DSL/DSL_1_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_2_A.test.cpp
     title: test/aoj/GRL/GRL_2_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Disjoint Set Union(Union Find)
     links: []
@@ -26,7 +26,7 @@ data:
     \  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
     \ -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return\
     \ x;\n    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n\
-    \  vector<vector<int>>groups()const{\n    const int n=p.size();\n    vector<vector<int>>result(n);\n\
+    \  vector<vector<int>>groups(){\n    const int n=p.size();\n    vector<vector<int>>result(n);\n\
     \    for(int i=0;i<n;i++)result[root(i)].push_back(i);\n    result.erase(remove_if(result.begin(),result.end(),[](const\
     \ vector<int>&v){return v.empty();}),result.end());\n    return result;\n  }\n\
     };\n/**\n * @brief Disjoint Set Union(Union Find)\n*/\n"
@@ -34,7 +34,7 @@ data:
     \ n):p(n,-1){}\n  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n  bool same(int\
     \ x,int y){return root(x)==root(y);}\n  int size(int x){return -p[root(x)];}\n\
     \  int merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return x;\n\
-    \    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n  vector<vector<int>>groups()const{\n\
+    \    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n  vector<vector<int>>groups(){\n\
     \    const int n=p.size();\n    vector<vector<int>>result(n);\n    for(int i=0;i<n;i++)result[root(i)].push_back(i);\n\
     \    result.erase(remove_if(result.begin(),result.end(),[](const vector<int>&v){return\
     \ v.empty();}),result.end());\n    return result;\n  }\n};\n/**\n * @brief Disjoint\
@@ -44,8 +44,8 @@ data:
   path: Data_Structure/dsu.hpp
   requiredBy:
   - Graph/mst/kruskal.hpp
-  timestamp: '2022-07-01 22:23:17+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-07-02 02:22:41+01:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/unionfind.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp
