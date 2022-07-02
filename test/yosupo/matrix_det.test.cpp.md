@@ -126,12 +126,13 @@ data:
     \    A.swap(C);\n    return *this;\n  }\n  Matrix &operator^=(long long k){\n\
     \    Matrix B=Matrix::I(height());\n    while(k>0){\n      if(k&1)B*=*this;\n\
     \      *this*=*this;\n      k>>=1LL;\n    }\n    A.swap(B.A);\n    return *this;\n\
-    \  }\n  friend Matrix operator+(const Matrix&A,const Matrix&B){return Matrix(A)+=B;}\n\
-    \  friend Matrix operator-(const Matrix&A,const Matrix&B){return Matrix(A)-=B;}\n\
-    \  friend Matrix operator*(const Matrix&A,const Matrix&B){return Matrix(A)*=B;}\n\
-    \  friend Matrix operator^(const Matrix&A,const long long&k){return Matrix(A)^=k;}\n\
-    \  T determinant()const{\n    Matrix b(*this);\n    T ret=1;\n    for(int i=0;i<(int)width();i++){\n\
-    \      int idx=-1;\n      for(int j=i;j<(int)width();j++)if(b[j][i]!=0){idx=j;break;}\n\
+    \  }\n  Matrix pow(long long k)const{return Matrix(*this)^=k;}\n  friend Matrix\
+    \ operator+(const Matrix&A,const Matrix&B){return Matrix(A)+=B;}\n  friend Matrix\
+    \ operator-(const Matrix&A,const Matrix&B){return Matrix(A)-=B;}\n  friend Matrix\
+    \ operator*(const Matrix&A,const Matrix&B){return Matrix(A)*=B;}\n  friend Matrix\
+    \ operator^(const Matrix&A,const long long&k){return Matrix(A)^=k;}\n  T determinant()const{\n\
+    \    Matrix b(*this);\n    T ret=1;\n    for(int i=0;i<(int)width();i++){\n  \
+    \    int idx=-1;\n      for(int j=i;j<(int)width();j++)if(b[j][i]!=0){idx=j;break;}\n\
     \      if(idx==-1)return T(0);\n      if(i!=idx){\n        ret*=T(-1);\n     \
     \   swap(b[i],b[idx]);\n      }\n      ret*=b[i][i];\n      T tmp=b[i][i];\n \
     \     for(int j=0;j<(int)width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<(int)width();j++){\n\
@@ -152,7 +153,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix_det.test.cpp
   requiredBy: []
-  timestamp: '2022-07-02 17:01:14+01:00'
+  timestamp: '2022-07-02 17:09:19+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix_det.test.cpp
