@@ -6,7 +6,7 @@ int main(){
   vector<vector<array<int,3>>>g(q+1);
   vector<vector<array<int,3>>>a(q+1);
   rep(i,q){
-    INT(t,k,u,v);
+    int t,k,u,v;cin>>t>>k>>u>>v;
     if(t==0)g[k+1].eb(array<int,3>{i+1,u,v});
     else a[k+1].eb(array<int,3>{i,u,v});
   }
@@ -20,5 +20,5 @@ int main(){
       dsu.undo();
     }
   })(0);
-  rep(i,q)if(ans[i]!=-1)print(ans[i]);
+  for(const auto&i:ans)if(i!=-1)print(i);
 }
