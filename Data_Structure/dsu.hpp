@@ -14,7 +14,7 @@ struct dsu{
     p[x]+=p[y];p[y]=x;
     return x;
   }
-  vector<vector<int>>groups()const{
+  vector<vector<int>>groups(){
     const int n=p.size();
     vector<vector<int>>result(n);
     for(int i=0;i<n;i++)result[root(i)].push_back(i);

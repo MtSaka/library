@@ -7,8 +7,8 @@ int main(){
   vector<vector<array<int,3>>>a(q+1);
   rep(i,q){
     int t,k,u,v;cin>>t>>k>>u>>v;
-    if(t==0)g[k+1].eb(array<int,3>{i+1,u,v});
-    else a[k+1].eb(array<int,3>{i,u,v});
+    if(t==0)g[k+1].eb(array<int,3>{(int)i+1,u,v});
+    else a[k+1].eb(array<int,3>{(int)i,u,v});
   }
   vector<int>ans(q,-1);
   rollback_dsu dsu(n);
