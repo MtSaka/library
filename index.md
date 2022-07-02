@@ -15,7 +15,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/dsu.hpp
       title: Disjoint Set Union(Union Find)
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/dual_segtree.hpp
       title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':warning:'
@@ -330,10 +330,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_B.test.cpp
       title: test/aoj/DSL/DSL_2_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_D.test.cpp
       title: test/aoj/DSL/DSL_2_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_E.test.cpp
       title: test/aoj/DSL/DSL_2_E.test.cpp
   - name: test/aoj/GRL
