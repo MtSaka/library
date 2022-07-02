@@ -34,11 +34,11 @@ data:
     \    for(int i=idx;i>=1;i--)eval(p>>i);\n    seq[p]=mapping(f,seq[p]);\n    for(int\
     \ i=1;i<=idx;i++)update(p>>i);\n  }\n  void apply(int l,int r,F f){\n    if(l==r)return\
     \ ;\n    l+=size;\n    r+=size;\n    for(int i=idx;i>=1;i--){\n      if(((l>>i)<<i)!=l)eval(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)eval((r-1)>>i);\n    }\n    int l2=l,r2=r;\n    while(l<r){\n\
+    \      if(((r>>i)<<i)!=r)eval(r>>i);\n    }\n    int l2=l,r2=r;\n    while(l<r){\n\
     \      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n      l>>=1;\n\
     \      r>>=1;\n    }\n    l=l2,r=r2;\n    for(int i=1;i<=idx;i++){\n      if(((l>>i)<<i)!=l)update(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)update((r-1)>>i);\n    }\n  }\n};\n/**\n * @brief Lazy\
-    \ Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n"
+    \      if(((r>>i)<<i)!=r)update(r>>i);\n    }\n  }\n};\n/**\n * @brief Lazy Segment\
+    \ Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n"
   code: "#pragma once\ntemplate<class S,S (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F\
     \ (*composition)(F,F),F (*id)()>\nstruct lazy_segtree{\n  private:\n  int _n,size=1,idx=0;\n\
     \  vector<S>seq;\n  vector<F>lazy;\n  void update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n\
@@ -59,16 +59,16 @@ data:
     \    for(int i=idx;i>=1;i--)eval(p>>i);\n    seq[p]=mapping(f,seq[p]);\n    for(int\
     \ i=1;i<=idx;i++)update(p>>i);\n  }\n  void apply(int l,int r,F f){\n    if(l==r)return\
     \ ;\n    l+=size;\n    r+=size;\n    for(int i=idx;i>=1;i--){\n      if(((l>>i)<<i)!=l)eval(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)eval((r-1)>>i);\n    }\n    int l2=l,r2=r;\n    while(l<r){\n\
+    \      if(((r>>i)<<i)!=r)eval(r>>i);\n    }\n    int l2=l,r2=r;\n    while(l<r){\n\
     \      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n      l>>=1;\n\
     \      r>>=1;\n    }\n    l=l2,r=r2;\n    for(int i=1;i<=idx;i++){\n      if(((l>>i)<<i)!=l)update(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)update((r-1)>>i);\n    }\n  }\n};\n/**\n * @brief Lazy\
-    \ Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/"
+    \      if(((r>>i)<<i)!=r)update(r>>i);\n    }\n  }\n};\n/**\n * @brief Lazy Segment\
+    \ Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/"
   dependsOn: []
   isVerificationFile: false
   path: Data_Structure/lazy_segtree.hpp
   requiredBy: []
-  timestamp: '2022-01-11 20:35:27+00:00'
+  timestamp: '2022-07-02 22:54:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/range_affine_range_sum.test.cpp

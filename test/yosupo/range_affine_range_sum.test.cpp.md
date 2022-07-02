@@ -130,20 +130,19 @@ data:
     \    for(int i=idx;i>=1;i--)eval(p>>i);\n    seq[p]=mapping(f,seq[p]);\n    for(int\
     \ i=1;i<=idx;i++)update(p>>i);\n  }\n  void apply(int l,int r,F f){\n    if(l==r)return\
     \ ;\n    l+=size;\n    r+=size;\n    for(int i=idx;i>=1;i--){\n      if(((l>>i)<<i)!=l)eval(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)eval((r-1)>>i);\n    }\n    int l2=l,r2=r;\n    while(l<r){\n\
+    \      if(((r>>i)<<i)!=r)eval(r>>i);\n    }\n    int l2=l,r2=r;\n    while(l<r){\n\
     \      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n      l>>=1;\n\
     \      r>>=1;\n    }\n    l=l2,r=r2;\n    for(int i=1;i<=idx;i++){\n      if(((l>>i)<<i)!=l)update(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)update((r-1)>>i);\n    }\n  }\n};\n/**\n * @brief Lazy\
-    \ Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 5\
-    \ \"test/yosupo/range_affine_range_sum.test.cpp\"\nusing mint=modint<mod>;\nusing\
-    \ Pi=pair<mint,int >;\nusing qi=pair<mint,mint>;\nPi op(Pi a,Pi b){return {a.first+b.first,a.second+b.second};}\n\
-    Pi mapping(qi a,Pi b){return {a.first*b.first+a.second*mint(b.second),b.second};}\n\
-    qi composition(qi b,qi a){return {a.first*b.first,a.second*b.first+b.second};}\n\
-    Pi e(){return Pi(0,0);}\nqi id(){return qi(1,0);}\nint main(){\n  INT(n,q);\n\
-    \  lazy_segtree<Pi,op,e,qi,mapping,composition,id>s(n);\n  rep(i,n){\n    mint\
-    \ a;\n    scan(a);\n    s.set(i,Pi(a,1));\n  }\n  while(q--){\n    LL(t);\n  \
-    \  if(t){\n      INT(l,r);\n      print(s.query(l,r).first);\n    }\n    else{\n\
-    \      INT(l,r);\n      mint b,c;\n      scan(b,c);\n      s.apply(l,r,qi(b,c));\n\
+    \      if(((r>>i)<<i)!=r)update(r>>i);\n    }\n  }\n};\n/**\n * @brief Lazy Segment\
+    \ Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 5 \"test/yosupo/range_affine_range_sum.test.cpp\"\
+    \nusing mint=modint<mod>;\nusing Pi=pair<mint,int >;\nusing qi=pair<mint,mint>;\n\
+    Pi op(Pi a,Pi b){return {a.first+b.first,a.second+b.second};}\nPi mapping(qi a,Pi\
+    \ b){return {a.first*b.first+a.second*mint(b.second),b.second};}\nqi composition(qi\
+    \ b,qi a){return {a.first*b.first,a.second*b.first+b.second};}\nPi e(){return\
+    \ Pi(0,0);}\nqi id(){return qi(1,0);}\nint main(){\n  INT(n,q);\n  vector<Pi>a(n,{0,1});\n\
+    \  rep(i,n)cin>>a[i].first;\n  lazy_segtree<Pi,op,e,qi,mapping,composition,id>s(a);\n\
+    \  while(q--){\n    LL(t);\n    if(t){\n      INT(l,r);\n      print(s.query(l,r).first);\n\
+    \    }\n    else{\n      INT(l,r);\n      mint b,c;\n      scan(b,c);\n      s.apply(l,r,qi(b,c));\n\
     \    }\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/modular/modint.hpp\"\
@@ -152,10 +151,9 @@ data:
     \ {a.first+b.first,a.second+b.second};}\nPi mapping(qi a,Pi b){return {a.first*b.first+a.second*mint(b.second),b.second};}\n\
     qi composition(qi b,qi a){return {a.first*b.first,a.second*b.first+b.second};}\n\
     Pi e(){return Pi(0,0);}\nqi id(){return qi(1,0);}\nint main(){\n  INT(n,q);\n\
-    \  lazy_segtree<Pi,op,e,qi,mapping,composition,id>s(n);\n  rep(i,n){\n    mint\
-    \ a;\n    scan(a);\n    s.set(i,Pi(a,1));\n  }\n  while(q--){\n    LL(t);\n  \
-    \  if(t){\n      INT(l,r);\n      print(s.query(l,r).first);\n    }\n    else{\n\
-    \      INT(l,r);\n      mint b,c;\n      scan(b,c);\n      s.apply(l,r,qi(b,c));\n\
+    \  vector<Pi>a(n,{0,1});\n  rep(i,n)cin>>a[i].first;\n  lazy_segtree<Pi,op,e,qi,mapping,composition,id>s(a);\n\
+    \  while(q--){\n    LL(t);\n    if(t){\n      INT(l,r);\n      print(s.query(l,r).first);\n\
+    \    }\n    else{\n      INT(l,r);\n      mint b,c;\n      scan(b,c);\n      s.apply(l,r,qi(b,c));\n\
     \    }\n  }\n}"
   dependsOn:
   - template/template.hpp
@@ -164,7 +162,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-07-02 00:42:50+01:00'
+  timestamp: '2022-07-02 22:54:59+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/range_affine_range_sum.test.cpp
