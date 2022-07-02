@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_E"
-#include"../../template/template.hpp"
-#include"../../Data_Structure/dual_segtree.hpp"
+#include"../../../template/template.hpp"
+#include"../../../Data_Structure/dual_segtree.hpp"
 int e(){return 0;}
 int mapping(int a,int b){return a+b;}
 int composition(int a,int b){return a+b;}
