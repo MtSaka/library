@@ -21,9 +21,9 @@ data:
     links: []
   bundledCode: "#line 2 \"Data_Structure/segtree.hpp\"\ntemplate<class S,S (*op)(S,S),S\
     \ (*e)()>\nstruct segtree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
-    \  void update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n  public:\n  segtree():segtree(0){};\n\
+    \  void update(int k){seq[k]=op(seq[k<<1],seq[k<<1^1]);}\n  public:\n  segtree():segtree(0){};\n\
     \  segtree(int n):segtree(vector<S>(n,e())){}\n  segtree(const vector<S>&v):_n(int(v.size())){\n\
-    \    while(size<_n)size<<=1,idx++;\n    seq=vector<S>(2*size,e());\n    for(int\
+    \    while(size<_n)size<<=1,idx++;\n    seq=vector<S>(size<<1,e());\n    for(int\
     \ i=0;i<_n;i++)seq[size+i]=v[i];\n    for(int i=size-1;i>=1;i--)update(i);\n \
     \ }\n  void set(int p,S x){\n    p+=size;\n    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n\
     \  }\n  S operator[](int p){return seq[p+size];}\n  S query(int l,int r){\n  \
@@ -42,10 +42,10 @@ data:
     \ }while((r&-r)!=r);\n    return 0;\n  }\n};\n/**\n * @brief Segment Tree(\u30BB\
     \u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segtree.md\n*/\n"
   code: "#pragma once\ntemplate<class S,S (*op)(S,S),S (*e)()>\nstruct segtree{\n\
-    \  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  void update(int k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n\
+    \  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  void update(int k){seq[k]=op(seq[k<<1],seq[k<<1^1]);}\n\
     \  public:\n  segtree():segtree(0){};\n  segtree(int n):segtree(vector<S>(n,e())){}\n\
     \  segtree(const vector<S>&v):_n(int(v.size())){\n    while(size<_n)size<<=1,idx++;\n\
-    \    seq=vector<S>(2*size,e());\n    for(int i=0;i<_n;i++)seq[size+i]=v[i];\n\
+    \    seq=vector<S>(size<<1,e());\n    for(int i=0;i<_n;i++)seq[size+i]=v[i];\n\
     \    for(int i=size-1;i>=1;i--)update(i);\n  }\n  void set(int p,S x){\n    p+=size;\n\
     \    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n  }\n  S operator[](int\
     \ p){return seq[p+size];}\n  S query(int l,int r){\n    S sml=e(),smr=e();\n \
@@ -67,7 +67,7 @@ data:
   isVerificationFile: false
   path: Data_Structure/segtree.hpp
   requiredBy: []
-  timestamp: '2022-04-20 20:18:20+01:00'
+  timestamp: '2022-07-02 23:08:33+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/point_set_range_composite.test.cpp

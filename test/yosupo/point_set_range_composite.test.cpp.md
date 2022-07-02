@@ -89,9 +89,9 @@ data:
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
     Data_Structure/segtree.hpp\"\ntemplate<class S,S (*op)(S,S),S (*e)()>\nstruct\
     \ segtree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  void update(int\
-    \ k){seq[k]=op(seq[2*k],seq[2*k+1]);}\n  public:\n  segtree():segtree(0){};\n\
+    \ k){seq[k]=op(seq[k<<1],seq[k<<1^1]);}\n  public:\n  segtree():segtree(0){};\n\
     \  segtree(int n):segtree(vector<S>(n,e())){}\n  segtree(const vector<S>&v):_n(int(v.size())){\n\
-    \    while(size<_n)size<<=1,idx++;\n    seq=vector<S>(2*size,e());\n    for(int\
+    \    while(size<_n)size<<=1,idx++;\n    seq=vector<S>(size<<1,e());\n    for(int\
     \ i=0;i<_n;i++)seq[size+i]=v[i];\n    for(int i=size-1;i>=1;i--)update(i);\n \
     \ }\n  void set(int p,S x){\n    p+=size;\n    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n\
     \  }\n  S operator[](int p){return seq[p+size];}\n  S query(int l,int r){\n  \
@@ -154,7 +154,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-07-02 00:42:50+01:00'
+  timestamp: '2022-07-02 23:08:33+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_set_range_composite.test.cpp
