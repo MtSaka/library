@@ -4,7 +4,7 @@
 int main(){
   int n,q;
   cin>>n>>q;
-  RMQ_LCA<int>g(n);
+  RMQ_LCA g(n);
   for(int i=1;i<n;i++){
     int u;
     cin>>u;

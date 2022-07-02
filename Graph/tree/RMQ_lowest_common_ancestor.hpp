@@ -3,11 +3,11 @@
 #include"../../Data_Structure/sparse_table.hpp"
 template<typename T=int>
 struct RMQ_LCA:Graph<T>{
-  using Graph<T>::Graph;
   using Graph<T>::g;
   using F=function<int(int,int)>;
-  sparse_table<int,F>st;
   vector<int>ord,dep,in;
+  RMQ_LCA(int n):Graph<T>(n){}
+  RMQ_LCA(const Graph<T>&g):Graph<T>(g){}
   void build(int root=0){
     in.resize(g.size());
     dfs(root,-1,0);
@@ -21,6 +21,7 @@ struct RMQ_LCA:Graph<T>{
     return u==v?u:ord[st.query(in[u],in[v])];
   }
   private:
+  sparse_table<int,F>st;
   void dfs(int idx,int par,int d){
     in[idx]=(int)ord.size();
     ord.emplace_back(idx);

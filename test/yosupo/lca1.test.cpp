@@ -4,7 +4,7 @@
 int main(){
   int n,q;
   cin>>n>>q;
-  Doubling_LCA<int>g(n);
+  Doubling_LCA g(n);
   for(int i=1;i<n;i++){
     int u;
     cin>>u;
