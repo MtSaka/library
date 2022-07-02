@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yosupo/persistent_unionfind2.test.cpp
+    title: test/yosupo/persistent_unionfind2.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: Rollback Disjoint Set Union(Union Find)
     links: []
@@ -40,8 +43,9 @@ data:
   path: Data_Structure/rollback_dsu.hpp
   requiredBy: []
   timestamp: '2022-07-01 22:16:58+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yosupo/persistent_unionfind2.test.cpp
 documentation_of: Data_Structure/rollback_dsu.hpp
 layout: document
 redirect_from:

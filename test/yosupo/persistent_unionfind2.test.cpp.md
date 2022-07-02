@@ -1,35 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Data_Structure/sparse_table.hpp
-    title: Sparse Table
+  - icon: ':x:'
+    path: Data_Structure/rollback_dsu.hpp
+    title: Rollback Disjoint Set Union(Union Find)
   - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/staticrmq
+    PROBLEM: https://judge.yosupo.jp/problem/persistent_unionfind
     links:
-    - https://judge.yosupo.jp/problem/staticrmq
-  bundledCode: "#line 1 \"test/yosupo/staticrmq.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\
-    \n#line 1 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
-    \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
-    #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
-    \ rep1(a) for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n\
-    #define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n#define rep4(i,a,b,c) for(ll\
-    \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) overload4(__VA_ARGS__, rep4,\
-    \ rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
-    #define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n\
-    #define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n#define\
-    \ fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n#define\
-    \ all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n#define\
-    \ all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n#define rall(n)\
+    - https://judge.yosupo.jp/problem/persistent_unionfind
+  bundledCode: "#line 1 \"test/yosupo/persistent_unionfind2.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.yosupo.jp/problem/persistent_unionfind\"\n#line 1 \"template/template.hpp\"\
+    \n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC\
+    \ optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define overload4(a,b,c,d,e,...)\
+    \ e\n#define overload3(a,b,c,d,...) d\n#define rep1(a) for(ll i=0;i<(ll)(a);i++)\n\
+    #define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n#define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n\
+    #define rep4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...)\
+    \ overload4(__VA_ARGS__, rep4, rep3, rep2, rep1)(__VA_ARGS__)\n#define rrep1(a)\
+    \ for(ll i=(ll)(a)-1;i>=0;i--)\n#define rrep2(i,a) for(ll i=(ll)(a)-1;i>=0;i--)\n\
+    #define rrep3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);i--)\n#define rrep(...) overload3(__VA_ARGS__,rrep3,rrep2,rrep1)(__VA_ARGS__)\n\
+    #define fore(...) for (auto&& __VA_ARGS__)\n#define all1(i) begin(i),end(i)\n\
+    #define all2(i,a) begin(i),begin(i)+a\n#define all3(i,a,b) begin(i)+a,begin(i)+b\n\
+    #define all(...) overload3(__VA_ARGS__,all3,all2,all1)(__VA_ARGS__)\n#define rall(n)\
     \ (n).rbegin(),(n).rend()\n#define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n#define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n#define DBL(...) double __VA_ARGS__;scan(__VA_ARGS__)\n\
@@ -83,38 +83,47 @@ data:
     #endif\nstruct IOSetup{IOSetup(){cin.tie(nullptr);ios::sync_with_stdio(false);cout.tie(0);cout<<fixed<<setprecision(12);cerr<<fixed<<setprecision(12);}};\n\
     template<class F>struct REC{F f;REC(F&&f_):f(std::forward<F>(f_)){}template<class...Args>auto\
     \ operator()(Args&&...args)const{return f(*this, std::forward<Args>(args)...);}};\n\
-    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"\
-    Data_Structure/sparse_table.hpp\"\ntemplate<typename T,typename F>\nstruct sparse_table{\n\
-    \  F f;\n  vector<vector<T>>table;\n  vector<int>log_table;\n  sparse_table()=default;\n\
-    \  sparse_table(const vector<T>&v,const F&f):f(f){\n    const int n=(int)v.size();\n\
-    \    const int lg=32-__builtin_clz(n);\n    table.assign(lg,vector<T>(n));\n \
-    \   for(int i=0;i<n;i++)table[0][i]=v[i];\n    for(int i=1;i<lg;i++)for(int j=0;j+(1<<i)<=n;j++)table[i][j]=f(table[i-1][j],table[i-1][j+(1<<(i-1))]);\n\
-    \    log_table.resize(n+1);\n    for(int i=2;i<=n;i++)log_table[i]=1+log_table[i>>1];\n\
-    \  }\n  T query(int l,int r){\n    int a=log_table[r-l];\n    return f(table[a][l],table[a][r-(1<<a)]);\n\
-    \  }\n};\ntemplate<typename T,typename F>\nsparse_table<T,F>make_sparse_table(const\
-    \ vector<T>&v,const F&f){\n  return sparse_table<T,F>(v,f);\n} \n/**\n * @brief\
-    \ Sparse Table\n*/\n#line 4 \"test/yosupo/staticrmq.test.cpp\"\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  vector<int>a(n);\n  cin>>a;\n  auto st=make_sparse_table(a,[](int\
-    \ a,int b){return min(a,b);});\n  while(q--){\n    int l,r;\n    cin>>l>>r;\n\
-    \    cout<<st.query(l,r)<<endl;\n  }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../Data_Structure/sparse_table.hpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  vector<int>a(n);\n  cin>>a;\n  auto\
-    \ st=make_sparse_table(a,[](int a,int b){return min(a,b);});\n  while(q--){\n\
-    \    int l,r;\n    cin>>l>>r;\n    cout<<st.query(l,r)<<endl;\n  }\n}"
+    /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"\
+    Data_Structure/rollback_dsu.hpp\"\nusing namespace std;\nstruct rollback_dsu{\n\
+    \  private:\n  vector<int>p;\n  stack<pair<int,int>>history;\n  public:\n  rollback_dsu(int\
+    \ sz):p(sz,-1){}\n  int root(int x)const{return p[x]<0?x:root(p[x]);}\n  bool\
+    \ same(int x,int y)const{return root(x)==root(y);}\n  int size(int x)const{return\
+    \ -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n    history.emplace(x,p[x]);\n\
+    \    history.emplace(y,p[y]);\n    if(x==y)return x;\n    if(p[x]>p[y])swap(x,y);\n\
+    \    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n  void undo(){\n    p[history.top().first]=history.top().second;history.pop();\n\
+    \    p[history.top().first]=history.top().second;history.pop();\n  }\n  void snapshot(){while(!history.empty())history.pop();}\n\
+    \  void rollback(){\n    while(!history.empty())undo();\n  }\n  vector<vector<int>>groups()const{\n\
+    \    const int n=p.size();\n    vector<vector<int>>result(n);\n    for(int i=0;i<n;i++)result[root(i)].push_back(i);\n\
+    \    result.erase(remove_if(result.begin(),result.end(),[](const vector<int>&v){return\
+    \ v.empty();}),result.end());\n    return result;\n  }\n};\n/**\n * @brief Rollback\
+    \ Disjoint Set Union(Union Find)\n*/\n#line 4 \"test/yosupo/persistent_unionfind2.test.cpp\"\
+    \nint main(){\n  int n,q;cin>>n>>q;\n  vector<vector<array<int,3>>>g(q+1);\n \
+    \ vector<vector<array<int,3>>>a(q+1);\n  rep(i,q){\n    INT(t,k,u,v);\n    if(t==0)g[k+1].eb(array<int,3>{i+1,u,v});\n\
+    \    else a[k+1].eb(array<int,3>{i,u,v});\n  }\n  vector<int>ans(q,-1);\n  rollback_dsu\
+    \ dsu(n);\n  REC([&](auto&&f,int v)->void{\n    for(auto&b:a[v])ans[b[0]]=dsu.same(b[1],b[2]);\n\
+    \    for(auto&e:g[v]){\n      dsu.merge(e[1],e[2]);\n      f(e[0]);\n      dsu.undo();\n\
+    \    }\n  })(0);\n  rep(i,q)if(ans[i]!=-1)print(ans[i]);\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/persistent_unionfind\"\n\
+    #include\"../../template/template.hpp\"\n#include\"../../Data_Structure/rollback_dsu.hpp\"\
+    \nint main(){\n  int n,q;cin>>n>>q;\n  vector<vector<array<int,3>>>g(q+1);\n \
+    \ vector<vector<array<int,3>>>a(q+1);\n  rep(i,q){\n    INT(t,k,u,v);\n    if(t==0)g[k+1].eb(array<int,3>{i+1,u,v});\n\
+    \    else a[k+1].eb(array<int,3>{i,u,v});\n  }\n  vector<int>ans(q,-1);\n  rollback_dsu\
+    \ dsu(n);\n  REC([&](auto&&f,int v)->void{\n    for(auto&b:a[v])ans[b[0]]=dsu.same(b[1],b[2]);\n\
+    \    for(auto&e:g[v]){\n      dsu.merge(e[1],e[2]);\n      f(e[0]);\n      dsu.undo();\n\
+    \    }\n  })(0);\n  rep(i,q)if(ans[i]!=-1)print(ans[i]);\n}\n"
   dependsOn:
   - template/template.hpp
-  - Data_Structure/sparse_table.hpp
+  - Data_Structure/rollback_dsu.hpp
   isVerificationFile: true
-  path: test/yosupo/staticrmq.test.cpp
+  path: test/yosupo/persistent_unionfind2.test.cpp
   requiredBy: []
-  timestamp: '2022-07-02 00:42:50+01:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-02 01:55:10+01:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/yosupo/staticrmq.test.cpp
+documentation_of: test/yosupo/persistent_unionfind2.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/staticrmq.test.cpp
-- /verify/test/yosupo/staticrmq.test.cpp.html
-title: test/yosupo/staticrmq.test.cpp
+- /verify/test/yosupo/persistent_unionfind2.test.cpp
+- /verify/test/yosupo/persistent_unionfind2.test.cpp.html
+title: test/yosupo/persistent_unionfind2.test.cpp
 ---
