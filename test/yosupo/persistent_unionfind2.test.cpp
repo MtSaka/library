@@ -20,5 +20,5 @@ int main(){
       dsu.undo();
     }
   })(0);
-  for(const auto&i:ans)if(i!=-1)print(i);
+  for(auto&i:ans)if(i!=-1)print(i);
 }
