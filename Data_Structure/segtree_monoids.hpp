@@ -31,7 +31,7 @@ namespace monoid_lazy_segtree{
   template<class T>static constexpr T mapping4(T a,T b){return a+b;}
   template<class T>static constexpr T mapping5(T a,T b){return min<T>(a,b);}
   template<class T>static constexpr T mapping6(T a,T b){return max<T>(a,b);}
-  template<class T>static constexpr T composition1(T a,T b){reutrn a==INF<T>?b:a;}
+  template<class T>static constexpr T composition1(T a,T b){return a==INF<T>?b:a;}
   template<class T>static constexpr T composition2(T a,T b){return a+b;}
   template<class T>static constexpr T composition3(T a,T b){return min<T>(a,b);}
   template<class T>static constexpr T composition4(T a,T b){return max<T>(a,b);}
@@ -39,7 +39,7 @@ namespace monoid_lazy_segtree{
   template<class T>static constexpr T id2(){return T(0);}
   template<class T>static constexpr T id3(){return infinity<T>::mvalue;}
   template<class T>using RUQRmQ=lazy_segtree<T,op1<T>,e1<T>,T,mapping1<T>,composition1<T>,id1<T>>;
-  template<class T>using RUQRMQ=lazy_srgtree<T,op2<T>,e2<T>,T,mapping1<T>,composition1<T>,id1<T>>;
+  template<class T>using RUQRMQ=lazy_segtree<T,op2<T>,e2<T>,T,mapping1<T>,composition1<T>,id1<T>>;
   template<class T>using RUQRSQ=lazy_segtree<S<T>,op3<T>,e3<T>,T,mapping2<T>,composition1<T>,id1<T>>;
   template<class T>using RAQRSQ=lazy_segtree<S<T>,op3<T>,e3<T>,T,mapping3<T>,composition2<T>,id2<T>>;
   template<class T>using RAQRmQ=lazy_segtree<T,op1<T>,e1<T>,T,mapping4<T>,composition2<T>,id2<T>>;
