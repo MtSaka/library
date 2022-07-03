@@ -13,7 +13,6 @@ struct combination{
       for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;
       idat[sz]=1/dat[sz];
       for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);
-
     }
   }
   public:
