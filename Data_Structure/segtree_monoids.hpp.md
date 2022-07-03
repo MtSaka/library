@@ -15,7 +15,7 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -24,19 +24,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_D.test.cpp
     title: test/aoj/DSL/DSL_2_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_E.test.cpp
     title: test/aoj/DSL/DSL_2_E.test.cpp
   - icon: ':x:'
     path: test/aoj/DSL/DSL_2_F.test.cpp
     title: test/aoj/DSL/DSL_2_F.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_G.test.cpp
     title: test/aoj/DSL/DSL_2_G.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_H.test.cpp
     title: test/aoj/DSL/DSL_2_H.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_I.test.cpp
     title: test/aoj/DSL/DSL_2_I.test.cpp
   - icon: ':heavy_check_mark:'
@@ -186,7 +186,8 @@ data:
     \ T>using RMQ=segtree<T,op2<T>,e2<T>>;\n  template<class T>using RSQ=segtree<T,op3<T>,e3<T>>;\n\
     }\nusing monoid_segtree::RmQ;\nusing monoid_segtree::RMQ;\nusing monoid_segtree::RSQ;\n\
     namespace monoid_lazy_segtree{\n  template<class T>struct S{T value;int size;S(const\
-    \ T&a):value(a),size(1){}};\n  template<class T>static constexpr T op1(T a,T b){return\
+    \ T&a):value(a),size(1){}S(const T&a,const int&size):value(a),size(size){}operator\
+    \ T()const{return value;}};\n  template<class T>static constexpr T op1(T a,T b){return\
     \ min<T>(a,b);}\n  template<class T>static constexpr T op2(T a,T b){return max<T>(a,b);}\n\
     \  template<class T>static constexpr S<T> op3(S<T>a,S<T>b){return {a.value+b.value,a.size+b.size};}\n\
     \  template<class T>static constexpr T e1(){return INF<T>;}\n  template<class\
@@ -222,15 +223,19 @@ data:
     \ T>static constexpr T mapping1(T a,T b){return a==INF<T>?b:a;}\n  template<class\
     \ T>static constexpr T mapping2(T a,T b){return min<T>(a,b);}\n  template<class\
     \ T>static constexpr T mapping3(T a,T b){return max<T>(a,b);}\n  template<class\
-    \ T>static constexpr T composition1(T a,T b){return a==INF<T>?b:a;}\n  template<class\
-    \ T>static constexpr T composition2(T a,T b){return min<T>(a,b);}\n  template<class\
-    \ T>static constexpr T composition3(T a,T b){return max<T>(a,b);}\n  template<class\
-    \ T>static constexpr T id1(){return INF<T>;}\n  template<class T>static constexpr\
-    \ T id2(){return infinity<T>::mvalue;}\n  template<class T>using RUQ=dual_segtree<T,T,mapping1<T>,composition1<T>,id1<T>>;\n\
+    \ T>static constexpr T mapping4(T a,T b){return a+b;}\n  template<class T>static\
+    \ constexpr T composition1(T a,T b){return a==INF<T>?b:a;}\n  template<class T>static\
+    \ constexpr T composition2(T a,T b){return min<T>(a,b);}\n  template<class T>static\
+    \ constexpr T composition3(T a,T b){return max<T>(a,b);}\n  template<class T>static\
+    \ constexpr T composition4(T a,T b){return a+b;}\n  template<class T>static constexpr\
+    \ T id1(){return INF<T>;}\n  template<class T>static constexpr T id2(){return\
+    \ infinity<T>::mvalue;}\n  template<class T>static constexpr T id3(){return T(0);}\n\
+    \  template<class T>using RUQ=dual_segtree<T,T,mapping1<T>,composition1<T>,id1<T>>;\n\
     \  template<class T>using RChminQ=dual_segtree<T,T,mapping2<T>,composition2<T>,id1<T>>;\n\
     \  template<class T>using RChmaxQ=dual_segtree<T,T,mapping3<T>,composition3<T>,id2<T>>;\n\
+    \  template<class T>using RAQ=dual_segtree<T,T,mapping4<T>,composition4<T>,id3<T>>;\n\
     }\nusing monoid_dual_segtree::RUQ;\nusing monoid_dual_segtree::RChminQ;\nusing\
-    \ monoid_dual_segtree::RChmaxQ;\n"
+    \ monoid_dual_segtree::RChmaxQ;\nusing monoid_dual_segtree::RAQ;\n"
   code: "#pragma once\n#include\"../template/template.hpp\"\n#include\"segtree.hpp\"\
     \n#include\"lazy_segtree.hpp\"\n#include\"dual_segtree.hpp\"\nnamespace monoid_segtree{\n\
     \  template<class T>static constexpr T op1(T a,T b){return min<T>(a,b);}\n  template<class\
@@ -241,7 +246,8 @@ data:
     \ RmQ=segtree<T,op1<T>,e1<T>>;\n  template<class T>using RMQ=segtree<T,op2<T>,e2<T>>;\n\
     \  template<class T>using RSQ=segtree<T,op3<T>,e3<T>>;\n}\nusing monoid_segtree::RmQ;\n\
     using monoid_segtree::RMQ;\nusing monoid_segtree::RSQ;\nnamespace monoid_lazy_segtree{\n\
-    \  template<class T>struct S{T value;int size;S(const T&a):value(a),size(1){}};\n\
+    \  template<class T>struct S{T value;int size;S(const T&a):value(a),size(1){}S(const\
+    \ T&a,const int&size):value(a),size(size){}operator T()const{return value;}};\n\
     \  template<class T>static constexpr T op1(T a,T b){return min<T>(a,b);}\n  template<class\
     \ T>static constexpr T op2(T a,T b){return max<T>(a,b);}\n  template<class T>static\
     \ constexpr S<T> op3(S<T>a,S<T>b){return {a.value+b.value,a.size+b.size};}\n \
@@ -278,15 +284,19 @@ data:
     \ T>static constexpr T mapping1(T a,T b){return a==INF<T>?b:a;}\n  template<class\
     \ T>static constexpr T mapping2(T a,T b){return min<T>(a,b);}\n  template<class\
     \ T>static constexpr T mapping3(T a,T b){return max<T>(a,b);}\n  template<class\
-    \ T>static constexpr T composition1(T a,T b){return a==INF<T>?b:a;}\n  template<class\
-    \ T>static constexpr T composition2(T a,T b){return min<T>(a,b);}\n  template<class\
-    \ T>static constexpr T composition3(T a,T b){return max<T>(a,b);}\n  template<class\
-    \ T>static constexpr T id1(){return INF<T>;}\n  template<class T>static constexpr\
-    \ T id2(){return infinity<T>::mvalue;}\n  template<class T>using RUQ=dual_segtree<T,T,mapping1<T>,composition1<T>,id1<T>>;\n\
+    \ T>static constexpr T mapping4(T a,T b){return a+b;}\n  template<class T>static\
+    \ constexpr T composition1(T a,T b){return a==INF<T>?b:a;}\n  template<class T>static\
+    \ constexpr T composition2(T a,T b){return min<T>(a,b);}\n  template<class T>static\
+    \ constexpr T composition3(T a,T b){return max<T>(a,b);}\n  template<class T>static\
+    \ constexpr T composition4(T a,T b){return a+b;}\n  template<class T>static constexpr\
+    \ T id1(){return INF<T>;}\n  template<class T>static constexpr T id2(){return\
+    \ infinity<T>::mvalue;}\n  template<class T>static constexpr T id3(){return T(0);}\n\
+    \  template<class T>using RUQ=dual_segtree<T,T,mapping1<T>,composition1<T>,id1<T>>;\n\
     \  template<class T>using RChminQ=dual_segtree<T,T,mapping2<T>,composition2<T>,id1<T>>;\n\
     \  template<class T>using RChmaxQ=dual_segtree<T,T,mapping3<T>,composition3<T>,id2<T>>;\n\
+    \  template<class T>using RAQ=dual_segtree<T,T,mapping4<T>,composition4<T>,id3<T>>;\n\
     }\nusing monoid_dual_segtree::RUQ;\nusing monoid_dual_segtree::RChminQ;\nusing\
-    \ monoid_dual_segtree::RChmaxQ;"
+    \ monoid_dual_segtree::RChmaxQ;\nusing monoid_dual_segtree::RAQ;"
   dependsOn:
   - template/template.hpp
   - Data_Structure/segtree.hpp
@@ -295,7 +305,7 @@ data:
   isVerificationFile: false
   path: Data_Structure/segtree_monoids.hpp
   requiredBy: []
-  timestamp: '2022-07-03 22:49:08+01:00'
+  timestamp: '2022-07-03 23:50:41+01:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/point_add_range_sum1.test.cpp
