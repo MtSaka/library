@@ -3,7 +3,7 @@
 #include"../../../Data_Structure/segtree_monoids.hpp"
 int main(){
   int n,q;cin>>n>>q;
-  RAQRMQ<int>seg(vector<int>(n,0));
+  RAQRmQ<int>seg(vector<int>(n,0));
   while(q--){
     int t;cin>>t;
     if(t==0){

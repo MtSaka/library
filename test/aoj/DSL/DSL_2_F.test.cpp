@@ -3,7 +3,7 @@
 #include"../../../Data_Structure/segtree_monoids.hpp"
 int main(){
   int n,q;cin>>n>>q;
-  RUQRMQ<int>seg(n);
+  RUQRmQ<int>seg(vector<int>(n,INT_MAX));
   while(q--){
     int t;cin>>t;
     if(t==0){
@@ -12,9 +12,7 @@ int main(){
     }
     else{
       int l,r;cin>>l>>r;
-      int ret=seg.query(l,r+1);
-      if(ret==INF<int>)ret=INT_MAX;
-      cout<<ret<<endl;
+      cout<<seg.query(l,r+1)<<endl;
     }
   }
 }

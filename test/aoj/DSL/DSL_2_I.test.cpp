@@ -3,7 +3,7 @@
 #include"../../../Data_Structure/segtree_monoids.hpp"
 int main(){
   int n,q;cin>>n>>q;
-  RUQRSQ<int>seg(n);
+  RUQRSQ<int>seg(vector<monoid_lazy_segtree::S<int>>(n,{0,1}));
   while(q--){
     int t;cin>>t;
     if(t==0){
@@ -12,7 +12,7 @@ int main(){
     }
     else{
       int l,r;cin>>l>>r;
-      cout<<seg.query(l,r+1).value<<endl;
+      cout<<seg.query(l,r+1)<<endl;
     }
   }
 }
