@@ -18,15 +18,15 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A
-  bundledCode: "#line 1 \"test/aoj/DSL/DSL_2_A.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A\"\
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B
+  bundledCode: "#line 1 \"test/aoj/DSL/DSL_2_B2.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B\"\
     \n#line 2 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
     \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
     #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
@@ -210,13 +210,13 @@ data:
     \  template<class T>using RChminQ=dual_segtree<T,T,mapping2<T>,composition2<T>,id1<T>>;\n\
     \  template<class T>using RChmaxQ=dual_segtree<T,T,mapping3<T>,composition3<T>,id2<T>>;\n\
     }\nusing monoid_dual_segtree::RUQ;\nusing monoid_dual_segtree::RChminQ;\nusing\
-    \ monoid_dual_segtree::RChmaxQ;\n#line 4 \"test/aoj/DSL/DSL_2_A.test.cpp\"\nint\
-    \ main(){\n  INT(n,q);\n  RmQ<int>s(n);\n  while(q--){\n    INT(t,x,y);\n    if(t==0)s.set(x,y);\n\
-    \    else cout<<s.query(x,y+1)<<endl;\n  }\n}\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A\"\
+    \ monoid_dual_segtree::RChmaxQ;\n#line 4 \"test/aoj/DSL/DSL_2_B2.test.cpp\"\n\
+    int main(){\n  INT(n,q);\n  RSQ<int>seg(n);\n  while(q--){\n    INT(t,x,y);\n\
+    \    if(t)print(seg.query(x-1,y));\n    else seg.set(x-1,seg[x-1]+y);\n  }\n}\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Data_Structure/segtree_monoids.hpp\"\
-    \nint main(){\n  INT(n,q);\n  RmQ<int>s(n);\n  while(q--){\n    INT(t,x,y);\n\
-    \    if(t==0)s.set(x,y);\n    else cout<<s.query(x,y+1)<<endl;\n  }\n}"
+    \nint main(){\n  INT(n,q);\n  RSQ<int>seg(n);\n  while(q--){\n    INT(t,x,y);\n\
+    \    if(t)print(seg.query(x-1,y));\n    else seg.set(x-1,seg[x-1]+y);\n  }\n}"
   dependsOn:
   - template/template.hpp
   - Data_Structure/segtree_monoids.hpp
@@ -224,15 +224,15 @@ data:
   - Data_Structure/lazy_segtree.hpp
   - Data_Structure/dual_segtree.hpp
   isVerificationFile: true
-  path: test/aoj/DSL/DSL_2_A.test.cpp
+  path: test/aoj/DSL/DSL_2_B2.test.cpp
   requiredBy: []
   timestamp: '2022-07-03 22:49:08+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/aoj/DSL/DSL_2_A.test.cpp
+documentation_of: test/aoj/DSL/DSL_2_B2.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/DSL/DSL_2_A.test.cpp
-- /verify/test/aoj/DSL/DSL_2_A.test.cpp.html
-title: test/aoj/DSL/DSL_2_A.test.cpp
+- /verify/test/aoj/DSL/DSL_2_B2.test.cpp
+- /verify/test/aoj/DSL/DSL_2_B2.test.cpp.html
+title: test/aoj/DSL/DSL_2_B2.test.cpp
 ---

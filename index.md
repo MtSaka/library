@@ -15,7 +15,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/dsu.hpp
       title: Disjoint Set Union(Union Find)
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Data_Structure/dual_segtree.hpp
       title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':warning:'
@@ -30,7 +30,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Data_Structure/lazy_segtree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
@@ -42,10 +42,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/rollback_dsu.hpp
       title: Rollback Disjoint Set Union(Union Find)
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Data_Structure/segtree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':warning:'
+    - icon: ':question:'
       path: Data_Structure/segtree_monoids.hpp
       title: Data_Structure/segtree_monoids.hpp
     - icon: ':heavy_check_mark:'
@@ -261,7 +261,7 @@ data:
       title: String/run_length.hpp
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -327,12 +327,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_1_B.test.cpp
       title: test/aoj/DSL/DSL_1_B.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL/DSL_2_A.test.cpp
       title: test/aoj/DSL/DSL_2_A.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_B.test.cpp
       title: test/aoj/DSL/DSL_2_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/DSL/DSL_2_B2.test.cpp
+      title: test/aoj/DSL/DSL_2_B2.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_D.test.cpp
       title: test/aoj/DSL/DSL_2_D.test.cpp

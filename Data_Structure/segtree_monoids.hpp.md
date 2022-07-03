@@ -1,23 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Data_Structure/dual_segtree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Data_Structure/lazy_segtree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Data_Structure/segtree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_A.test.cpp
+    title: test/aoj/DSL/DSL_2_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_B2.test.cpp
+    title: test/aoj/DSL/DSL_2_B2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_add_range_sum1.test.cpp
+    title: test/yosupo/point_add_range_sum1.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n\
@@ -93,8 +102,8 @@ data:
     \    while(size<_n)size<<=1,idx++;\n    seq=vector<S>(size<<1,e());\n    for(int\
     \ i=0;i<_n;i++)seq[size+i]=v[i];\n    for(int i=size-1;i>=1;i--)update(i);\n \
     \ }\n  void set(int p,S x){\n    p+=size;\n    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n\
-    \  }\n  S operator[](int p){return seq[p+size];}\n  S query(int l,int r){\n  \
-    \  S sml=e(),smr=e();\n    l+=size,r+=size;\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n\
+    \  }\n  S operator[](int p)const{return seq[p+size];}\n  S query(int l,int r)const{\n\
+    \    S sml=e(),smr=e();\n    l+=size,r+=size;\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n\
     \      if(r&1)smr=op(seq[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n\
     \  }\n  S all_query()const{return seq[1];}\n  template<typename F>\n  int find_right(int\
     \ l,const F&f)const{\n    if(l==_n)return _n;\n    l+=size;\n    S sum=e();\n\
@@ -171,14 +180,14 @@ data:
     \  template<class T>static constexpr T mapping4(T a,T b){return a+b;}\n  template<class\
     \ T>static constexpr T mapping5(T a,T b){return min<T>(a,b);}\n  template<class\
     \ T>static constexpr T mapping6(T a,T b){return max<T>(a,b);}\n  template<class\
-    \ T>static constexpr T composition1(T a,T b){reutrn a==INF<T>?b:a;}\n  template<class\
+    \ T>static constexpr T composition1(T a,T b){return a==INF<T>?b:a;}\n  template<class\
     \ T>static constexpr T composition2(T a,T b){return a+b;}\n  template<class T>static\
     \ constexpr T composition3(T a,T b){return min<T>(a,b);}\n  template<class T>static\
     \ constexpr T composition4(T a,T b){return max<T>(a,b);}\n  template<class T>static\
     \ constexpr T id1(){return INF<T>;}\n  template<class T>static constexpr T id2(){return\
     \ T(0);}\n  template<class T>static constexpr T id3(){return infinity<T>::mvalue;}\n\
     \  template<class T>using RUQRmQ=lazy_segtree<T,op1<T>,e1<T>,T,mapping1<T>,composition1<T>,id1<T>>;\n\
-    \  template<class T>using RUQRMQ=lazy_srgtree<T,op2<T>,e2<T>,T,mapping1<T>,composition1<T>,id1<T>>;\n\
+    \  template<class T>using RUQRMQ=lazy_segtree<T,op2<T>,e2<T>,T,mapping1<T>,composition1<T>,id1<T>>;\n\
     \  template<class T>using RUQRSQ=lazy_segtree<S<T>,op3<T>,e3<T>,T,mapping2<T>,composition1<T>,id1<T>>;\n\
     \  template<class T>using RAQRSQ=lazy_segtree<S<T>,op3<T>,e3<T>,T,mapping3<T>,composition2<T>,id2<T>>;\n\
     \  template<class T>using RAQRmQ=lazy_segtree<T,op1<T>,e1<T>,T,mapping4<T>,composition2<T>,id2<T>>;\n\
@@ -227,14 +236,14 @@ data:
     \ T>static constexpr T mapping4(T a,T b){return a+b;}\n  template<class T>static\
     \ constexpr T mapping5(T a,T b){return min<T>(a,b);}\n  template<class T>static\
     \ constexpr T mapping6(T a,T b){return max<T>(a,b);}\n  template<class T>static\
-    \ constexpr T composition1(T a,T b){reutrn a==INF<T>?b:a;}\n  template<class T>static\
+    \ constexpr T composition1(T a,T b){return a==INF<T>?b:a;}\n  template<class T>static\
     \ constexpr T composition2(T a,T b){return a+b;}\n  template<class T>static constexpr\
     \ T composition3(T a,T b){return min<T>(a,b);}\n  template<class T>static constexpr\
     \ T composition4(T a,T b){return max<T>(a,b);}\n  template<class T>static constexpr\
     \ T id1(){return INF<T>;}\n  template<class T>static constexpr T id2(){return\
     \ T(0);}\n  template<class T>static constexpr T id3(){return infinity<T>::mvalue;}\n\
     \  template<class T>using RUQRmQ=lazy_segtree<T,op1<T>,e1<T>,T,mapping1<T>,composition1<T>,id1<T>>;\n\
-    \  template<class T>using RUQRMQ=lazy_srgtree<T,op2<T>,e2<T>,T,mapping1<T>,composition1<T>,id1<T>>;\n\
+    \  template<class T>using RUQRMQ=lazy_segtree<T,op2<T>,e2<T>,T,mapping1<T>,composition1<T>,id1<T>>;\n\
     \  template<class T>using RUQRSQ=lazy_segtree<S<T>,op3<T>,e3<T>,T,mapping2<T>,composition1<T>,id1<T>>;\n\
     \  template<class T>using RAQRSQ=lazy_segtree<S<T>,op3<T>,e3<T>,T,mapping3<T>,composition2<T>,id2<T>>;\n\
     \  template<class T>using RAQRmQ=lazy_segtree<T,op1<T>,e1<T>,T,mapping4<T>,composition2<T>,id2<T>>;\n\
@@ -268,9 +277,12 @@ data:
   isVerificationFile: false
   path: Data_Structure/segtree_monoids.hpp
   requiredBy: []
-  timestamp: '2022-07-03 22:13:23+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2022-07-03 22:49:08+01:00'
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - test/yosupo/point_add_range_sum1.test.cpp
+  - test/aoj/DSL/DSL_2_B2.test.cpp
+  - test/aoj/DSL/DSL_2_A.test.cpp
 documentation_of: Data_Structure/segtree_monoids.hpp
 layout: document
 redirect_from:
