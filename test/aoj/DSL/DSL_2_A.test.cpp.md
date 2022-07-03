@@ -18,9 +18,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A
@@ -212,11 +212,13 @@ data:
     }\nusing monoid_dual_segtree::RUQ;\nusing monoid_dual_segtree::RChminQ;\nusing\
     \ monoid_dual_segtree::RChmaxQ;\n#line 4 \"test/aoj/DSL/DSL_2_A.test.cpp\"\nint\
     \ main(){\n  INT(n,q);\n  RmQ<int>s(n);\n  while(q--){\n    INT(t,x,y);\n    if(t==0)s.set(x,y);\n\
-    \    else cout<<s.query(x,y+1)<<endl;\n  }\n}\n"
+    \    else{\n      int ret=s.query(x,y+1);\n      cout<<(ret==INF<int>?INT_MAX:ret)<<endl;\n\
+    \    }\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Data_Structure/segtree_monoids.hpp\"\
     \nint main(){\n  INT(n,q);\n  RmQ<int>s(n);\n  while(q--){\n    INT(t,x,y);\n\
-    \    if(t==0)s.set(x,y);\n    else cout<<s.query(x,y+1)<<endl;\n  }\n}"
+    \    if(t==0)s.set(x,y);\n    else{\n      int ret=s.query(x,y+1);\n      cout<<(ret==INF<int>?INT_MAX:ret)<<endl;\n\
+    \    }\n  }\n}"
   dependsOn:
   - template/template.hpp
   - Data_Structure/segtree_monoids.hpp
@@ -226,8 +228,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2022-07-03 22:49:08+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-03 22:58:03+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_A.test.cpp
 layout: document

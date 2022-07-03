@@ -6,12 +6,18 @@ data:
     path: Data_Structure/segtree_monoids.hpp
     title: Data_Structure/segtree_monoids.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B2.test.cpp
     title: test/aoj/DSL/DSL_2_B2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_D.test.cpp
+    title: test/aoj/DSL/DSL_2_D.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_E.test.cpp
+    title: test/aoj/DSL/DSL_2_E.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum1.test.cpp
     title: test/yosupo/point_add_range_sum1.test.cpp
@@ -86,6 +92,8 @@ data:
   verifiedWith:
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/point_add_range_sum1.test.cpp
+  - test/aoj/DSL/DSL_2_D.test.cpp
+  - test/aoj/DSL/DSL_2_E.test.cpp
   - test/aoj/DSL/DSL_2_B2.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
 documentation_of: Data_Structure/lazy_segtree.hpp

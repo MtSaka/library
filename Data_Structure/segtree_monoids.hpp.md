@@ -15,12 +15,18 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B2.test.cpp
     title: test/aoj/DSL/DSL_2_B2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_D.test.cpp
+    title: test/aoj/DSL/DSL_2_D.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_E.test.cpp
+    title: test/aoj/DSL/DSL_2_E.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum1.test.cpp
     title: test/yosupo/point_add_range_sum1.test.cpp
@@ -281,6 +287,8 @@ data:
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/point_add_range_sum1.test.cpp
+  - test/aoj/DSL/DSL_2_D.test.cpp
+  - test/aoj/DSL/DSL_2_E.test.cpp
   - test/aoj/DSL/DSL_2_B2.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
 documentation_of: Data_Structure/segtree_monoids.hpp
