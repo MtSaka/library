@@ -18,6 +18,18 @@ data:
   - icon: ':x:'
     path: test/aoj/DSL/DSL_2_E.test.cpp
     title: test/aoj/DSL/DSL_2_E.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_F.test.cpp
+    title: test/aoj/DSL/DSL_2_F.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_G.test.cpp
+    title: test/aoj/DSL/DSL_2_G.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_H.test.cpp
+    title: test/aoj/DSL/DSL_2_H.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_I.test.cpp
+    title: test/aoj/DSL/DSL_2_I.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum1.test.cpp
     title: test/yosupo/point_add_range_sum1.test.cpp
@@ -94,8 +106,12 @@ data:
   - test/yosupo/point_add_range_sum1.test.cpp
   - test/aoj/DSL/DSL_2_D.test.cpp
   - test/aoj/DSL/DSL_2_E.test.cpp
+  - test/aoj/DSL/DSL_2_I.test.cpp
   - test/aoj/DSL/DSL_2_B2.test.cpp
+  - test/aoj/DSL/DSL_2_G.test.cpp
+  - test/aoj/DSL/DSL_2_H.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
+  - test/aoj/DSL/DSL_2_F.test.cpp
 documentation_of: Data_Structure/lazy_segtree.hpp
 layout: document
 redirect_from:

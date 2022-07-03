@@ -342,6 +342,18 @@ data:
     - icon: ':x:'
       path: test/aoj/DSL/DSL_2_E.test.cpp
       title: test/aoj/DSL/DSL_2_E.test.cpp
+    - icon: ':x:'
+      path: test/aoj/DSL/DSL_2_F.test.cpp
+      title: test/aoj/DSL/DSL_2_F.test.cpp
+    - icon: ':x:'
+      path: test/aoj/DSL/DSL_2_G.test.cpp
+      title: test/aoj/DSL/DSL_2_G.test.cpp
+    - icon: ':x:'
+      path: test/aoj/DSL/DSL_2_H.test.cpp
+      title: test/aoj/DSL/DSL_2_H.test.cpp
+    - icon: ':x:'
+      path: test/aoj/DSL/DSL_2_I.test.cpp
+      title: test/aoj/DSL/DSL_2_I.test.cpp
   - name: test/aoj/GRL
     pages:
     - icon: ':heavy_check_mark:'

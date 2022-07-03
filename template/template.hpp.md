@@ -75,6 +75,18 @@ data:
   - icon: ':x:'
     path: test/aoj/DSL/DSL_2_E.test.cpp
     title: test/aoj/DSL/DSL_2_E.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_F.test.cpp
+    title: test/aoj/DSL/DSL_2_F.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_G.test.cpp
+    title: test/aoj/DSL/DSL_2_G.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_H.test.cpp
+    title: test/aoj/DSL/DSL_2_H.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_I.test.cpp
+    title: test/aoj/DSL/DSL_2_I.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_A.test.cpp
     title: test/aoj/GRL/GRL_1_A.test.cpp
@@ -438,10 +450,14 @@ data:
   - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/DSL/DSL_2_D.test.cpp
   - test/aoj/DSL/DSL_2_E.test.cpp
+  - test/aoj/DSL/DSL_2_I.test.cpp
   - test/aoj/DSL/DSL_2_B2.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp
+  - test/aoj/DSL/DSL_2_G.test.cpp
+  - test/aoj/DSL/DSL_2_H.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
   - test/aoj/DSL/DSL_1_B.test.cpp
+  - test/aoj/DSL/DSL_2_F.test.cpp
   - test/aoj/ITP1/ITP1_3_D.test.cpp
   - test/aoj/CGL/CGL_3_A.test.cpp
   - test/aoj/CGL/CGL_1_B.test.cpp

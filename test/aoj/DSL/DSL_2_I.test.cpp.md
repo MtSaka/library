@@ -18,15 +18,15 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A
-  bundledCode: "#line 1 \"test/aoj/DSL/DSL_2_A.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A\"\
+    - https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I
+  bundledCode: "#line 1 \"test/aoj/DSL/DSL_2_I.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I\"\
     \n#line 2 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
     \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
     #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
@@ -210,15 +210,17 @@ data:
     \  template<class T>using RChminQ=dual_segtree<T,T,mapping2<T>,composition2<T>,id1<T>>;\n\
     \  template<class T>using RChmaxQ=dual_segtree<T,T,mapping3<T>,composition3<T>,id2<T>>;\n\
     }\nusing monoid_dual_segtree::RUQ;\nusing monoid_dual_segtree::RChminQ;\nusing\
-    \ monoid_dual_segtree::RChmaxQ;\n#line 4 \"test/aoj/DSL/DSL_2_A.test.cpp\"\nint\
-    \ main(){\n  INT(n,q);\n  RmQ<int>s(n);\n  while(q--){\n    INT(t,x,y);\n    if(t==0)s.set(x,y);\n\
-    \    else{\n      int ret=s.query(x,y+1);\n      if(ret==INF<int>)ret=INT_MAX;\n\
-    \      cout<<ret<<endl;\n    }\n  }\n}\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Data_Structure/segtree_monoids.hpp\"\
-    \nint main(){\n  INT(n,q);\n  RmQ<int>s(n);\n  while(q--){\n    INT(t,x,y);\n\
-    \    if(t==0)s.set(x,y);\n    else{\n      int ret=s.query(x,y+1);\n      if(ret==INF<int>)ret=INT_MAX;\n\
-    \      cout<<ret<<endl;\n    }\n  }\n}"
+    \ monoid_dual_segtree::RChmaxQ;\n#line 4 \"test/aoj/DSL/DSL_2_I.test.cpp\"\nint\
+    \ main(){\n  int n,q;cin>>n>>q;\n  RUQRSQ<int>seg(n);\n  while(q--){\n    int\
+    \ t;cin>>t;\n    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n      seg.apply(l,r+1,x);\n\
+    \    }\n    else{\n      int l,r;cin>>l>>r;\n      cout<<seg.query(l,r+1).value<<endl;\n\
+    \    }\n  }\n}\n"
+  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I\"\n#include\"\
+    ../../../template/template.hpp\"\n#include\"../../../Data_Structure/segtree_monoids.hpp\"\
+    \nint main(){\n  int n,q;cin>>n>>q;\n  RUQRSQ<int>seg(n);\n  while(q--){\n   \
+    \ int t;cin>>t;\n    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n      seg.apply(l,r+1,x);\n\
+    \    }\n    else{\n      int l,r;cin>>l>>r;\n      cout<<seg.query(l,r+1).value<<endl;\n\
+    \    }\n  }\n}"
   dependsOn:
   - template/template.hpp
   - Data_Structure/segtree_monoids.hpp
@@ -226,15 +228,15 @@ data:
   - Data_Structure/lazy_segtree.hpp
   - Data_Structure/dual_segtree.hpp
   isVerificationFile: true
-  path: test/aoj/DSL/DSL_2_A.test.cpp
+  path: test/aoj/DSL/DSL_2_I.test.cpp
   requiredBy: []
   timestamp: '2022-07-03 23:17:40+01:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/aoj/DSL/DSL_2_A.test.cpp
+documentation_of: test/aoj/DSL/DSL_2_I.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/DSL/DSL_2_A.test.cpp
-- /verify/test/aoj/DSL/DSL_2_A.test.cpp.html
-title: test/aoj/DSL/DSL_2_A.test.cpp
+- /verify/test/aoj/DSL/DSL_2_I.test.cpp
+- /verify/test/aoj/DSL/DSL_2_I.test.cpp.html
+title: test/aoj/DSL/DSL_2_I.test.cpp
 ---
