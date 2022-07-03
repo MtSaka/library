@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: Data_Structure/sparse_table.hpp
     title: Sparse Table
   - icon: ':question:'
@@ -9,7 +9,7 @@ data:
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
   - icon: ':x:'
@@ -17,7 +17,7 @@ data:
     title: test/yosupo/lca2.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
       )"
@@ -79,7 +79,7 @@ data:
   path: Graph/tree/RMQ_lowest_common_ancestor.hpp
   requiredBy: []
   timestamp: '2022-07-02 01:33:27+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/lca2.test.cpp
   - test/aoj/GRL/GRL_5_C_2.test.cpp
