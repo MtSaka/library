@@ -1,3 +1,4 @@
+#pragma once
 //#pragma GCC target("avx")
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("unroll-loops")
@@ -73,19 +74,19 @@ inline bool chmin(T&a,U b){return a>b&&(a=b,true);}
 template<typename T>
 class infinity{
   public:
-  static const T MAX=numeric_limits<T>::max();
-  static const T MIN=numeric_limits<T>::min();
-  static const T value=numeric_limits<T>::max()/2;
-  static const T mvalue=numeric_limits<T>::min()/2;
+  static constexpr T MAX=numeric_limits<T>::max();
+  static constexpr T MIN=numeric_limits<T>::min();
+  static constexpr T value=numeric_limits<T>::max()/2;
+  static constexpr T mvalue=numeric_limits<T>::min()/2;
 };
 #if __cplusplus <= 201402L
-template<class T>const T infinity<T>::value;
-template<class T>const T infinity<T>::mvalue;
-template<class T>const T infinity<T>::MAX;
-template<class T>const T infinity<T>::MIN;
+template<class T>constexpr T infinity<T>::value;
+template<class T>constexpr T infinity<T>::mvalue;
+template<class T>constexpr T infinity<T>::MAX;
+template<class T>constexpr T infinity<T>::MIN;
 #endif
-template<typename T>const T INF=infinity<T>::value;
-const long long inf=INF<ll>;
+template<typename T>constexpr T INF=infinity<T>::value;
+constexpr long long inf=INF<ll>;
 inline int popcnt(ull x){
 #if __cplusplus>=202002L
 return popcount(x);
