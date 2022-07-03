@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Data_Structure/dual_segtree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -84,12 +84,12 @@ data:
     template<class F>struct REC{F f;REC(F&&f_):f(std::forward<F>(f_)){}template<class...Args>auto\
     \ operator()(Args&&...args)const{return f(*this, std::forward<Args>(args)...);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Data_Structure/dual_segtree.hpp\"\ntemplate<class S,S (*e)(),class F,S (*mapping)(F,S),F\
+    Data_Structure/dual_segtree.hpp\"\ntemplate<class S,class F,S (*mapping)(F,S),F\
     \ (*composition)(F,F),F (*id)()>\nstruct dual_segtree{\n  private:\n  int _n,size=1,idx=0;\n\
     \  vector<S>seq;\n  vector<F>lazy;\n  void all_apply(int k,F f){\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
     \    else if(k<size+_n)seq[k-size]=mapping(f,seq[k-size]);\n  }\n  void eval(int\
     \ k){\n    all_apply(k<<1,lazy[k]);\n    all_apply(k<<1^1,lazy[k]);\n    lazy[k]=id();\n\
-    \  }\n  public:\n  dual_segtree():dual_segtree(0){}\n  dual_segtree(int n):dual_segtree(vector<S>(n,e())){};\n\
+    \  }\n  public:\n  dual_segtree():dual_segtree(0){}\n  dual_segtree(int n,S e=S()):dual_segtree(vector<S>(n,e)){};\n\
     \  dual_segtree(const vector<S>&v):_n(v.size()){\n    while(size<_n)size<<=1,idx++;\n\
     \    seq=v;lazy=vector<F>(size,id());\n  }\n  void set(int p,S x){\n    p+=size;\n\
     \    for(int i=idx;i>=1;i--)eval(p>>i);\n    seq[p-size]=x;\n  }\n  S operator[](int\
@@ -101,25 +101,25 @@ data:
     \    while(l<r){\n      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n\
     \      l>>=1,r>>=1;\n    }\n  }\n};\n/**\n *@brief Dual Segment Tree(\u53CC\u5BFE\
     \u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 4 \"test/aoj/DSL/DSL_2_E.test.cpp\"\
-    \nint e(){return 0;}\nint mapping(int a,int b){return a+b;}\nint composition(int\
-    \ a,int b){return a+b;}\nint id(){return 0;}\nint main(){\n  int n,q;cin>>n>>q;\n\
-    \  dual_segtree<int,e,int,mapping,composition,id>seg(n);\n  while(q--){\n    int\
-    \ t;cin>>t;\n    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n      seg.apply(l-1,r,x);\n\
-    \    }\n    else{\n      int k;cin>>k;\n      print(seg[k-1]);\n    }\n  }\n}\n"
+    \nint mapping(int a,int b){return a+b;}\nint composition(int a,int b){return a+b;}\n\
+    int id(){return 0;}\nint main(){\n  int n,q;cin>>n>>q;\n  dual_segtree<int,int,mapping,composition,id>seg(n,0);\n\
+    \  while(q--){\n    int t;cin>>t;\n    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n\
+    \      seg.apply(l-1,r,x);\n    }\n    else{\n      int k;cin>>k;\n      print(seg[k-1]);\n\
+    \    }\n  }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_E\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../Data_Structure/dual_segtree.hpp\"\
-    \nint e(){return 0;}\nint mapping(int a,int b){return a+b;}\nint composition(int\
-    \ a,int b){return a+b;}\nint id(){return 0;}\nint main(){\n  int n,q;cin>>n>>q;\n\
-    \  dual_segtree<int,e,int,mapping,composition,id>seg(n);\n  while(q--){\n    int\
-    \ t;cin>>t;\n    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n      seg.apply(l-1,r,x);\n\
-    \    }\n    else{\n      int k;cin>>k;\n      print(seg[k-1]);\n    }\n  }\n}"
+    \nint mapping(int a,int b){return a+b;}\nint composition(int a,int b){return a+b;}\n\
+    int id(){return 0;}\nint main(){\n  int n,q;cin>>n>>q;\n  dual_segtree<int,int,mapping,composition,id>seg(n,0);\n\
+    \  while(q--){\n    int t;cin>>t;\n    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n\
+    \      seg.apply(l-1,r,x);\n    }\n    else{\n      int k;cin>>k;\n      print(seg[k-1]);\n\
+    \    }\n  }\n}"
   dependsOn:
   - template/template.hpp
   - Data_Structure/dual_segtree.hpp
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_E.test.cpp
   requiredBy: []
-  timestamp: '2022-07-03 21:11:59+01:00'
+  timestamp: '2022-07-03 22:13:23+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_E.test.cpp

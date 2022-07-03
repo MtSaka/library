@@ -4,13 +4,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: Data_Structure/dual_segtree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/lazy_segtree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':heavy_check_mark:'
     path: Data_Structure/segtree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -133,12 +133,12 @@ data:
     \      r>>=1;\n    }\n    l=l2,r=r2;\n    for(int i=1;i<=idx;i++){\n      if(((l>>i)<<i)!=l)update(l>>i);\n\
     \      if(((r>>i)<<i)!=r)update(r>>i);\n    }\n  }\n};\n/**\n * @brief Lazy Segment\
     \ Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 2 \"Data_Structure/dual_segtree.hpp\"\
-    \ntemplate<class S,S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F\
-    \ (*id)()>\nstruct dual_segtree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
-    \  vector<F>lazy;\n  void all_apply(int k,F f){\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
+    \ntemplate<class S,class F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>\n\
+    struct dual_segtree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  vector<F>lazy;\n\
+    \  void all_apply(int k,F f){\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
     \    else if(k<size+_n)seq[k-size]=mapping(f,seq[k-size]);\n  }\n  void eval(int\
     \ k){\n    all_apply(k<<1,lazy[k]);\n    all_apply(k<<1^1,lazy[k]);\n    lazy[k]=id();\n\
-    \  }\n  public:\n  dual_segtree():dual_segtree(0){}\n  dual_segtree(int n):dual_segtree(vector<S>(n,e())){};\n\
+    \  }\n  public:\n  dual_segtree():dual_segtree(0){}\n  dual_segtree(int n,S e=S()):dual_segtree(vector<S>(n,e)){};\n\
     \  dual_segtree(const vector<S>&v):_n(v.size()){\n    while(size<_n)size<<=1,idx++;\n\
     \    seq=v;lazy=vector<F>(size,id());\n  }\n  void set(int p,S x){\n    p+=size;\n\
     \    for(int i=idx;i>=1;i--)eval(p>>i);\n    seq[p-size]=x;\n  }\n  S operator[](int\
@@ -191,7 +191,19 @@ data:
     \ monoid_lazy_segtree::RUQRSQ;\nusing monoid_lazy_segtree::RAQRSQ;\nusing monoid_lazy_segtree::RAQRmQ;\n\
     using monoid_lazy_segtree::RAQRMQ;\nusing monoid_lazy_segtree::RChminRmQ;\nusing\
     \ monoid_lazy_segtree::RChminRMQ;\nusing monoid_lazy_segtree::RChmaxRmQ;\nusing\
-    \ monoid_lazy_segtree::RChmaxRMQ;\nnamespace monoid_dual_segtree{\n}\n"
+    \ monoid_lazy_segtree::RChmaxRMQ;\nnamespace monoid_dual_segtree{\n  template<class\
+    \ T>static constexpr T mapping1(T a,T b){return a==INF<T>?b:a;}\n  template<class\
+    \ T>static constexpr T mapping2(T a,T b){return min<T>(a,b);}\n  template<class\
+    \ T>static constexpr T mapping3(T a,T b){return max<T>(a,b);}\n  template<class\
+    \ T>static constexpr T composition1(T a,T b){return a==INF<T>?b:a;}\n  template<class\
+    \ T>static constexpr T composition2(T a,T b){return min<T>(a,b);}\n  template<class\
+    \ T>static constexpr T composition3(T a,T b){return max<T>(a,b);}\n  template<class\
+    \ T>static constexpr T id1(){return INF<T>;}\n  template<class T>static constexpr\
+    \ T id2(){return infinity<T>::mvalue;}\n  template<class T>using RUQ=dual_segtree<T,T,mapping1<T>,composition1<T>,id1<T>>;\n\
+    \  template<class T>using RChminQ=dual_segtree<T,T,mapping2<T>,composition2<T>,id1<T>>;\n\
+    \  template<class T>using RChmaxQ=dual_segtree<T,T,mapping3<T>,composition3<T>,id2<T>>;\n\
+    }\nusing monoid_dual_segtree::RUQ;\nusing monoid_dual_segtree::RChminQ;\nusing\
+    \ monoid_dual_segtree::RChmaxQ;\n"
   code: "#pragma once\n#include\"../template/template.hpp\"\n#include\"segtree.hpp\"\
     \n#include\"lazy_segtree.hpp\"\n#include\"dual_segtree.hpp\"\nnamespace monoid_segtree{\n\
     \  template<class T>static constexpr T op1(T a,T b){return min<T>(a,b);}\n  template<class\
@@ -235,7 +247,19 @@ data:
     \ monoid_lazy_segtree::RUQRSQ;\nusing monoid_lazy_segtree::RAQRSQ;\nusing monoid_lazy_segtree::RAQRmQ;\n\
     using monoid_lazy_segtree::RAQRMQ;\nusing monoid_lazy_segtree::RChminRmQ;\nusing\
     \ monoid_lazy_segtree::RChminRMQ;\nusing monoid_lazy_segtree::RChmaxRmQ;\nusing\
-    \ monoid_lazy_segtree::RChmaxRMQ;\nnamespace monoid_dual_segtree{\n}\n"
+    \ monoid_lazy_segtree::RChmaxRMQ;\nnamespace monoid_dual_segtree{\n  template<class\
+    \ T>static constexpr T mapping1(T a,T b){return a==INF<T>?b:a;}\n  template<class\
+    \ T>static constexpr T mapping2(T a,T b){return min<T>(a,b);}\n  template<class\
+    \ T>static constexpr T mapping3(T a,T b){return max<T>(a,b);}\n  template<class\
+    \ T>static constexpr T composition1(T a,T b){return a==INF<T>?b:a;}\n  template<class\
+    \ T>static constexpr T composition2(T a,T b){return min<T>(a,b);}\n  template<class\
+    \ T>static constexpr T composition3(T a,T b){return max<T>(a,b);}\n  template<class\
+    \ T>static constexpr T id1(){return INF<T>;}\n  template<class T>static constexpr\
+    \ T id2(){return infinity<T>::mvalue;}\n  template<class T>using RUQ=dual_segtree<T,T,mapping1<T>,composition1<T>,id1<T>>;\n\
+    \  template<class T>using RChminQ=dual_segtree<T,T,mapping2<T>,composition2<T>,id1<T>>;\n\
+    \  template<class T>using RChmaxQ=dual_segtree<T,T,mapping3<T>,composition3<T>,id2<T>>;\n\
+    }\nusing monoid_dual_segtree::RUQ;\nusing monoid_dual_segtree::RChminQ;\nusing\
+    \ monoid_dual_segtree::RChmaxQ;"
   dependsOn:
   - template/template.hpp
   - Data_Structure/segtree.hpp
@@ -244,7 +268,7 @@ data:
   isVerificationFile: false
   path: Data_Structure/segtree_monoids.hpp
   requiredBy: []
-  timestamp: '2022-07-03 21:55:15+01:00'
+  timestamp: '2022-07-03 22:13:23+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Data_Structure/segtree_monoids.hpp

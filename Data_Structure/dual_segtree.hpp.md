@@ -19,13 +19,13 @@ data:
     document_title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
       )"
     links: []
-  bundledCode: "#line 2 \"Data_Structure/dual_segtree.hpp\"\ntemplate<class S,S (*e)(),class\
+  bundledCode: "#line 2 \"Data_Structure/dual_segtree.hpp\"\ntemplate<class S,class\
     \ F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>\nstruct dual_segtree{\n\
     \  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  vector<F>lazy;\n  void\
     \ all_apply(int k,F f){\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n    else\
     \ if(k<size+_n)seq[k-size]=mapping(f,seq[k-size]);\n  }\n  void eval(int k){\n\
     \    all_apply(k<<1,lazy[k]);\n    all_apply(k<<1^1,lazy[k]);\n    lazy[k]=id();\n\
-    \  }\n  public:\n  dual_segtree():dual_segtree(0){}\n  dual_segtree(int n):dual_segtree(vector<S>(n,e())){};\n\
+    \  }\n  public:\n  dual_segtree():dual_segtree(0){}\n  dual_segtree(int n,S e=S()):dual_segtree(vector<S>(n,e)){};\n\
     \  dual_segtree(const vector<S>&v):_n(v.size()){\n    while(size<_n)size<<=1,idx++;\n\
     \    seq=v;lazy=vector<F>(size,id());\n  }\n  void set(int p,S x){\n    p+=size;\n\
     \    for(int i=idx;i>=1;i--)eval(p>>i);\n    seq[p-size]=x;\n  }\n  S operator[](int\
@@ -37,12 +37,12 @@ data:
     \    while(l<r){\n      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n\
     \      l>>=1,r>>=1;\n    }\n  }\n};\n/**\n *@brief Dual Segment Tree(\u53CC\u5BFE\
     \u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n"
-  code: "#pragma once\ntemplate<class S,S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F\
+  code: "#pragma once\ntemplate<class S,class F,S (*mapping)(F,S),F (*composition)(F,F),F\
     \ (*id)()>\nstruct dual_segtree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
     \  vector<F>lazy;\n  void all_apply(int k,F f){\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
     \    else if(k<size+_n)seq[k-size]=mapping(f,seq[k-size]);\n  }\n  void eval(int\
     \ k){\n    all_apply(k<<1,lazy[k]);\n    all_apply(k<<1^1,lazy[k]);\n    lazy[k]=id();\n\
-    \  }\n  public:\n  dual_segtree():dual_segtree(0){}\n  dual_segtree(int n):dual_segtree(vector<S>(n,e())){};\n\
+    \  }\n  public:\n  dual_segtree():dual_segtree(0){}\n  dual_segtree(int n,S e=S()):dual_segtree(vector<S>(n,e)){};\n\
     \  dual_segtree(const vector<S>&v):_n(v.size()){\n    while(size<_n)size<<=1,idx++;\n\
     \    seq=v;lazy=vector<F>(size,id());\n  }\n  void set(int p,S x){\n    p+=size;\n\
     \    for(int i=idx;i>=1;i--)eval(p>>i);\n    seq[p-size]=x;\n  }\n  S operator[](int\
@@ -59,7 +59,7 @@ data:
   path: Data_Structure/dual_segtree.hpp
   requiredBy:
   - Data_Structure/segtree_monoids.hpp
-  timestamp: '2022-07-02 23:35:59+01:00'
+  timestamp: '2022-07-03 22:13:23+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL/DSL_2_D.test.cpp
