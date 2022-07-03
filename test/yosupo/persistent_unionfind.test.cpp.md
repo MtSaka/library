@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/persistent_array.hpp
     title: Data_Structure/persistent_array.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/persistent_dsu.hpp
     title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/persistent_unionfind
@@ -130,7 +130,7 @@ data:
   path: test/yosupo/persistent_unionfind.test.cpp
   requiredBy: []
   timestamp: '2022-07-03 21:11:59+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/persistent_unionfind.test.cpp
 layout: document
