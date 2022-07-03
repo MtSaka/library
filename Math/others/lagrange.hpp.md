@@ -42,16 +42,15 @@ data:
     \  static vector<mint>dat,idat;\n  inline static void extend(int sz){\n    if((int)dat.size()<sz+1){\n\
     \      int pre_sz=max<int>(1,dat.size());\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
     \      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n      idat[sz]=1/dat[sz];\n\
-    \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n\n    }\n  }\n \
-    \ public:\n  combination(int sz=0){extend(sz);}\n  static inline mint fac(long\
-    \ long n){\n    if(n<0)return mint(0);\n    extend(n);\n    return dat[n];\n \
-    \ }\n  static inline mint finv(long long n){\n    if(n<0)return mint(0);\n   \
-    \ extend(n);\n    return idat[n];\n  }\n  static mint com(long long n,long long\
-    \ k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(k)*finv(n-k);\n\
-    \  }\n  static mint hom(long long n,long long k){\n    if(n<0||k<0)return mint(0);\n\
-    \    return k==0?1:com(n+k-1,k);\n  }\n  static mint per(long long n,long long\
-    \ k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(n-k);\n  }\n};\n\
-    template<long long m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
+    \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n    }\n  }\n  public:\n\
+    \  combination(int sz=0){extend(sz);}\n  static inline mint fac(long long n){\n\
+    \    if(n<0)return mint(0);\n    extend(n);\n    return dat[n];\n  }\n  static\
+    \ inline mint finv(long long n){\n    if(n<0)return mint(0);\n    extend(n);\n\
+    \    return idat[n];\n  }\n  static mint com(long long n,long long k){\n    if(k<0||n<k)return\
+    \ mint(0);\n    return fac(n)*finv(k)*finv(n-k);\n  }\n  static mint hom(long\
+    \ long n,long long k){\n    if(n<0||k<0)return mint(0);\n    return k==0?1:com(n+k-1,k);\n\
+    \  }\n  static mint per(long long n,long long k){\n    if(k<0||n<k)return mint(0);\n\
+    \    return fac(n)*finv(n-k);\n  }\n};\ntemplate<long long m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
     template<long long m>\nvector<modint<m>>combination<m>::idat=vector<modint<m>>();\n\
     template<long long p>\nstruct COMB{\n  private:\n  static vector<vector<modint<p>>>comb;\n\
     \  static void init(){\n    if(!comb.empty())return;\n    comb.assign(p,vector<modint<p>>(p));\n\
@@ -61,19 +60,19 @@ data:
     \    while(n>0||k>0){\n      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n  \
     \    n/=p;k/=p;\n    }\n    return ret;\n  }\n};\ntemplate<long long p>\nvector<vector<modint<p>>>COMB<p>::comb=vector<vector<modint<p>>>();\n\
     /**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n#line 2 \"Math/others/lagrange.hpp\"\
-    \ntemplate<long long m>\nmodint<m> lagrange_polynominal(const vector<modint<m>>&y,const\
+    \ntemplate<long long m>\nmodint<m>lagrange_polynominal(const vector<modint<m>>&y,const\
     \ long long&t){\n  using mint=modint<m>;\n  const int n=y.size()-1;\n  combination<m>c(n);\n\
     \  if(t<=n)return y[t];\n  mint ret;\n  vector<mint>dp(n+1,1),pd(n+1,1);\n  for(int\
     \ i=0;i<n;i++)dp[i+1]=dp[i]*(t-i);\n  for(int i=n;i>0;i--)pd[i-1]=pd[i]*(t-i);\n\
-    \  for(int i=0;i<=n;i++){\n    mint tmp=y[i]*dp[i]*pd[i]*c.idat[i]*c.idat[n-i];\n\
+    \  for(int i=0;i<=n;i++){\n    mint tmp=y[i]*dp[i]*pd[i]*c.finv(i)*c.finv(n-i);\n\
     \    if((n-i)&1)ret-=tmp;\n    else ret+=tmp;\n  }\n  return ret;\n}\n/**\n *\
     \ @brief Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)\n*/\n"
-  code: "#include\"combinatorics.hpp\"\ntemplate<long long m>\nmodint<m> lagrange_polynominal(const\
+  code: "#include\"combinatorics.hpp\"\ntemplate<long long m>\nmodint<m>lagrange_polynominal(const\
     \ vector<modint<m>>&y,const long long&t){\n  using mint=modint<m>;\n  const int\
     \ n=y.size()-1;\n  combination<m>c(n);\n  if(t<=n)return y[t];\n  mint ret;\n\
     \  vector<mint>dp(n+1,1),pd(n+1,1);\n  for(int i=0;i<n;i++)dp[i+1]=dp[i]*(t-i);\n\
     \  for(int i=n;i>0;i--)pd[i-1]=pd[i]*(t-i);\n  for(int i=0;i<=n;i++){\n    mint\
-    \ tmp=y[i]*dp[i]*pd[i]*c.idat[i]*c.idat[n-i];\n    if((n-i)&1)ret-=tmp;\n    else\
+    \ tmp=y[i]*dp[i]*pd[i]*c.finv(i)*c.finv(n-i);\n    if((n-i)&1)ret-=tmp;\n    else\
     \ ret+=tmp;\n  }\n  return ret;\n}\n/**\n * @brief Lagrange Polynomial(\u591A\u9805\
     \u5F0F\u88DC\u9593)\n*/"
   dependsOn:
@@ -82,7 +81,7 @@ data:
   isVerificationFile: false
   path: Math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2022-07-03 18:28:45+01:00'
+  timestamp: '2022-07-03 18:33:46+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/others/lagrange.hpp

@@ -223,16 +223,15 @@ data:
     \  static vector<mint>dat,idat;\n  inline static void extend(int sz){\n    if((int)dat.size()<sz+1){\n\
     \      int pre_sz=max<int>(1,dat.size());\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
     \      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n      idat[sz]=1/dat[sz];\n\
-    \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n\n    }\n  }\n \
-    \ public:\n  combination(int sz=0){extend(sz);}\n  static inline mint fac(long\
-    \ long n){\n    if(n<0)return mint(0);\n    extend(n);\n    return dat[n];\n \
-    \ }\n  static inline mint finv(long long n){\n    if(n<0)return mint(0);\n   \
-    \ extend(n);\n    return idat[n];\n  }\n  static mint com(long long n,long long\
-    \ k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(k)*finv(n-k);\n\
-    \  }\n  static mint hom(long long n,long long k){\n    if(n<0||k<0)return mint(0);\n\
-    \    return k==0?1:com(n+k-1,k);\n  }\n  static mint per(long long n,long long\
-    \ k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(n-k);\n  }\n};\n\
-    template<long long m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
+    \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n    }\n  }\n  public:\n\
+    \  combination(int sz=0){extend(sz);}\n  static inline mint fac(long long n){\n\
+    \    if(n<0)return mint(0);\n    extend(n);\n    return dat[n];\n  }\n  static\
+    \ inline mint finv(long long n){\n    if(n<0)return mint(0);\n    extend(n);\n\
+    \    return idat[n];\n  }\n  static mint com(long long n,long long k){\n    if(k<0||n<k)return\
+    \ mint(0);\n    return fac(n)*finv(k)*finv(n-k);\n  }\n  static mint hom(long\
+    \ long n,long long k){\n    if(n<0||k<0)return mint(0);\n    return k==0?1:com(n+k-1,k);\n\
+    \  }\n  static mint per(long long n,long long k){\n    if(k<0||n<k)return mint(0);\n\
+    \    return fac(n)*finv(n-k);\n  }\n};\ntemplate<long long m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
     template<long long m>\nvector<modint<m>>combination<m>::idat=vector<modint<m>>();\n\
     template<long long p>\nstruct COMB{\n  private:\n  static vector<vector<modint<p>>>comb;\n\
     \  static void init(){\n    if(!comb.empty())return;\n    comb.assign(p,vector<modint<p>>(p));\n\
@@ -264,7 +263,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2022-07-03 18:28:45+01:00'
+  timestamp: '2022-07-03 18:33:46+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial_taylor_shift.test.cpp
