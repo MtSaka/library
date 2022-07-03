@@ -60,4 +60,18 @@ using monoid_lazy_segtree::RChminRMQ;
 using monoid_lazy_segtree::RChmaxRmQ;
 using monoid_lazy_segtree::RChmaxRMQ;
 namespace monoid_dual_segtree{
+  template<class T>static constexpr T mapping1(T a,T b){return a==INF<T>?b:a;}
+  template<class T>static constexpr T mapping2(T a,T b){return min<T>(a,b);}
+  template<class T>static constexpr T mapping3(T a,T b){return max<T>(a,b);}
+  template<class T>static constexpr T composition1(T a,T b){return a==INF<T>?b:a;}
+  template<class T>static constexpr T composition2(T a,T b){return min<T>(a,b);}
+  template<class T>static constexpr T composition3(T a,T b){return max<T>(a,b);}
+  template<class T>static constexpr T id1(){return INF<T>;}
+  template<class T>static constexpr T id2(){return infinity<T>::mvalue;}
+  template<class T>using RUQ=dual_segtree<T,T,mapping1<T>,composition1<T>,id1<T>>;
+  template<class T>using RChminQ=dual_segtree<T,T,mapping2<T>,composition2<T>,id1<T>>;
+  template<class T>using RChmaxQ=dual_segtree<T,T,mapping3<T>,composition3<T>,id2<T>>;
 }
+using monoid_dual_segtree::RUQ;
+using monoid_dual_segtree::RChminQ;
+using monoid_dual_segtree::RChmaxQ;

@@ -1,5 +1,5 @@
 #pragma once
-template<class S,S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>
+template<class S,class F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>
 struct dual_segtree{
   private:
   int _n,size=1,idx=0;
@@ -16,7 +16,7 @@ struct dual_segtree{
   }
   public:
   dual_segtree():dual_segtree(0){}
-  dual_segtree(int n):dual_segtree(vector<S>(n,e())){};
+  dual_segtree(int n,S e=S()):dual_segtree(vector<S>(n,e)){};
   dual_segtree(const vector<S>&v):_n(v.size()){
     while(size<_n)size<<=1,idx++;
     seq=v;lazy=vector<F>(size,id());
