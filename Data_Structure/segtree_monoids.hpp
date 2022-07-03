@@ -80,3 +80,6 @@ using monoid_dual_segtree::RUQ;
 using monoid_dual_segtree::RChminQ;
 using monoid_dual_segtree::RChmaxQ;
 using monoid_dual_segtree::RAQ;
+/**
+ * @brief Monoids(モノイド)
+ */
