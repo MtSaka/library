@@ -7,6 +7,9 @@ int main(){
   while(q--){
     INT(t,x,y);
     if(t==0)s.set(x,y);
-    else cout<<s.query(x,y+1)<<endl;
+    else{
+      int ret=s.query(x,y+1);
+      cout<<(ret==INF<int>?INT_MAX:ret)<<endl;
+    }
   }
 }

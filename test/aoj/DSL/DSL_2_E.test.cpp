@@ -1,12 +1,9 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_E"
 #include"../../../template/template.hpp"
-#include"../../../Data_Structure/dual_segtree.hpp"
-int mapping(int a,int b){return a+b;}
-int composition(int a,int b){return a+b;}
-int id(){return 0;}
+#include"../../../Data_Structure/segtree_monoids.hpp"
 int main(){
   int n,q;cin>>n>>q;
-  dual_segtree<int,int,mapping,composition,id>seg(n,0);
+  RAQ<int>seg(n,0);
   while(q--){
     int t;cin>>t;
     if(t==0){
