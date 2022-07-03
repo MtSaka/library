@@ -3,7 +3,7 @@
 #include"../../../Data_Structure/segtree_monoids.hpp"
 int main(){
   int n,q;cin>>n>>q;
-  RUQ<int>seg(n,int((1LL<<31)-1));
+  RUQ<int>seg(n,INT_MAX);
   while(q--){
     int t;cin>>t;
     if(t==0){
