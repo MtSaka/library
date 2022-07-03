@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Data_Structure/hash_map.hpp
     title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/discrete-logarithm-mod.test.cpp
     title: test/yosupo/discrete-logarithm-mod.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
     links: []
@@ -121,7 +121,7 @@ data:
   path: Math/modular/mod_log.hpp
   requiredBy: []
   timestamp: '2022-06-11 22:45:22+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/discrete-logarithm-mod.test.cpp
 documentation_of: Math/modular/mod_log.hpp

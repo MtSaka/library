@@ -1,6 +1,12 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: Data_Structure/dual_segtree.hpp
+    title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  - icon: ':x:'
+    path: Data_Structure/lazy_segtree.hpp
+    title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':question:'
     path: Data_Structure/segtree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
@@ -10,16 +16,12 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _pathExtension: hpp
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A
-    links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A
-  bundledCode: "#line 1 \"test/aoj/DSL/DSL_2_A.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A\"\
-    \n#line 2 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
-    \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
+    links: []
+  bundledCode: "#line 2 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n\
+    //#pragma GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
     #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
     \ rep1(a) for(ll i=0;i<(ll)(a);i++)\n#define rep2(i,a) for(ll i=0;i<(ll)(a);i++)\n\
     #define rep3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);i++)\n#define rep4(i,a,b,c) for(ll\
@@ -105,28 +107,84 @@ data:
     \          (r<<=1)++;\n          if(f(op(seq[r],sum)))sum=op(seq[r--],sum);\n\
     \        }\n        return r+1-size;\n      }\n      sum=op(seq[r],sum);\n   \
     \ }while((r&-r)!=r);\n    return 0;\n  }\n};\n/**\n * @brief Segment Tree(\u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segtree.md\n*/\n#line 4 \"test/aoj/DSL/DSL_2_A.test.cpp\"\
-    \nint op(int a,int b){return min(a,b);}\nint e(){return INT_MAX;}\nint main(){\n\
-    \  INT(n,q);\n  segtree<int,op,e>s(n);\n  while(q--){\n    INT(t,x,y);\n    if(t==0)s.set(x,y);\n\
-    \    else cout<<s.query(x,y+1)<<endl;\n  }\n}\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Data_Structure/segtree.hpp\"\
-    \nint op(int a,int b){return min(a,b);}\nint e(){return INT_MAX;}\nint main(){\n\
-    \  INT(n,q);\n  segtree<int,op,e>s(n);\n  while(q--){\n    INT(t,x,y);\n    if(t==0)s.set(x,y);\n\
-    \    else cout<<s.query(x,y+1)<<endl;\n  }\n}"
+    \u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/segtree.md\n*/\n#line 2 \"Data_Structure/lazy_segtree.hpp\"\
+    \ntemplate<class S,S (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F\
+    \ (*id)()>\nstruct lazy_segtree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
+    \  vector<F>lazy;\n  void update(int k){seq[k]=op(seq[k<<1],seq[k<<1^1]);}\n \
+    \ void all_apply(int k,F f){\n    seq[k]=mapping(f,seq[k]);\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
+    \  }\n  void eval(int k){\n    all_apply(k<<1,lazy[k]);\n    all_apply(k<<1^1,lazy[k]);\n\
+    \    lazy[k]=id();\n  }\n  public:\n  lazy_segtree():lazy_segtree(0){}\n  lazy_segtree(int\
+    \ n):lazy_segtree(vector<S>(n,e())){}\n  lazy_segtree(const vector<S>&v):_n(int(v.size())){\n\
+    \    while(size<_n)size<<=1,idx++;\n    seq=vector<S>(size<<1,e());\n    lazy=vector<F>(size,id());\n\
+    \    for(int i=0;i<_n;i++)seq[size+i]=v[i];\n    for(int i=size-1;i>=1;i--)update(i);\n\
+    \  }\n  void set(int p,S x){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
+    \    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n  }\n  S operator[](int\
+    \ p){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n    return seq[p];\n\
+    \  }\n  S query(int l,int r){\n    if(l==r)return e();\n    S sml=e(),smr=e();\n\
+    \    l+=size,r+=size;\n    for(int i=idx;i>=1;i--){\n      if(((l>>i)<<i)!=l)eval(l>>i);\n\
+    \      if(((r>>i)<<i)!=r)eval(r>>i);\n    }\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n\
+    \      if(r&1)smr=op(seq[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n\
+    \  }\n  S all_query()const{return seq[1];}\n  void apply(int p,F f){\n    p+=size;\n\
+    \    for(int i=idx;i>=1;i--)eval(p>>i);\n    seq[p]=mapping(f,seq[p]);\n    for(int\
+    \ i=1;i<=idx;i++)update(p>>i);\n  }\n  void apply(int l,int r,F f){\n    if(l==r)return\
+    \ ;\n    l+=size;\n    r+=size;\n    for(int i=idx;i>=1;i--){\n      if(((l>>i)<<i)!=l)eval(l>>i);\n\
+    \      if(((r>>i)<<i)!=r)eval(r>>i);\n    }\n    int l2=l,r2=r;\n    while(l<r){\n\
+    \      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n      l>>=1;\n\
+    \      r>>=1;\n    }\n    l=l2,r=r2;\n    for(int i=1;i<=idx;i++){\n      if(((l>>i)<<i)!=l)update(l>>i);\n\
+    \      if(((r>>i)<<i)!=r)update(r>>i);\n    }\n  }\n};\n/**\n * @brief Lazy Segment\
+    \ Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 2 \"Data_Structure/dual_segtree.hpp\"\
+    \ntemplate<class S,S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F\
+    \ (*id)()>\nstruct dual_segtree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
+    \  vector<F>lazy;\n  void all_apply(int k,F f){\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
+    \    else if(k<size+_n)seq[k-size]=mapping(f,seq[k-size]);\n  }\n  void eval(int\
+    \ k){\n    all_apply(k<<1,lazy[k]);\n    all_apply(k<<1^1,lazy[k]);\n    lazy[k]=id();\n\
+    \  }\n  public:\n  dual_segtree():dual_segtree(0){}\n  dual_segtree(int n):dual_segtree(vector<S>(n,e())){};\n\
+    \  dual_segtree(const vector<S>&v):_n(v.size()){\n    while(size<_n)size<<=1,idx++;\n\
+    \    seq=v;lazy=vector<F>(size,id());\n  }\n  void set(int p,S x){\n    p+=size;\n\
+    \    for(int i=idx;i>=1;i--)eval(p>>i);\n    seq[p-size]=x;\n  }\n  S operator[](int\
+    \ p){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n    return seq[p-size];\n\
+    \  }\n  void apply(int p,F f){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
+    \    seq[p-size]=mapping(f,seq[p-size]);\n  }\n  void apply(int l,int r,F f){\n\
+    \    if(l==r)return;\n    l+=size;r+=size;\n    for(int i=idx;i>=1;i--){\n   \
+    \   if(((l>>i)<<i)!=l)eval(l>>i);\n      if(((r>>i)<<i)!=r)eval(r>>i);\n    }\n\
+    \    while(l<r){\n      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n\
+    \      l>>=1,r>>=1;\n    }\n  }\n};\n/**\n *@brief Dual Segment Tree(\u53CC\u5BFE\
+    \u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 6 \"Data_Structure/segtree_monoids.hpp\"\
+    \nnamespace monoid_segtree{\n  template<class T>static constexpr T op1(T a,T b){return\
+    \ min<T>(a,b);}\n  template<class T>static constexpr T op2(T a,T b){return max<T>(a,b);}\n\
+    \  template<class T>static constexpr T op3(T a,T b){return a+b;}\n  template<class\
+    \ T>static constexpr T e1(){return INF<T>;}\n  template<class T>static constexpr\
+    \ T e2(){return infinity<T>::mvalue;}\n  template<class T>static constexpr T e3(){return\
+    \ T(0);}\n  template<class T>using RmQ=segtree<T,op1<T>,e1<T>>;\n  template<class\
+    \ T>using RMQ=segtree<T,op2<T>,e2<T>>;\n  template<class T>using RSQ=segtree<T,op3<T>,e3<T>>;\n\
+    }\nusing monoid_segtree::RmQ;\nusing monoid_segtree::RMQ;\nusing monoid_segtree::RSQ;\n\
+    namespace monoid_lazy_segtree{\n\n}\nnamespace monoid_dual_segtree{\n}\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n#include\"segtree.hpp\"\
+    \n#include\"lazy_segtree.hpp\"\n#include\"dual_segtree.hpp\"\nnamespace monoid_segtree{\n\
+    \  template<class T>static constexpr T op1(T a,T b){return min<T>(a,b);}\n  template<class\
+    \ T>static constexpr T op2(T a,T b){return max<T>(a,b);}\n  template<class T>static\
+    \ constexpr T op3(T a,T b){return a+b;}\n  template<class T>static constexpr T\
+    \ e1(){return INF<T>;}\n  template<class T>static constexpr T e2(){return infinity<T>::mvalue;}\n\
+    \  template<class T>static constexpr T e3(){return T(0);}\n  template<class T>using\
+    \ RmQ=segtree<T,op1<T>,e1<T>>;\n  template<class T>using RMQ=segtree<T,op2<T>,e2<T>>;\n\
+    \  template<class T>using RSQ=segtree<T,op3<T>,e3<T>>;\n}\nusing monoid_segtree::RmQ;\n\
+    using monoid_segtree::RMQ;\nusing monoid_segtree::RSQ;\nnamespace monoid_lazy_segtree{\n\
+    \n}\nnamespace monoid_dual_segtree{\n}\n"
   dependsOn:
   - template/template.hpp
   - Data_Structure/segtree.hpp
-  isVerificationFile: true
-  path: test/aoj/DSL/DSL_2_A.test.cpp
+  - Data_Structure/lazy_segtree.hpp
+  - Data_Structure/dual_segtree.hpp
+  isVerificationFile: false
+  path: Data_Structure/segtree_monoids.hpp
   requiredBy: []
   timestamp: '2022-07-03 21:11:59+01:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/aoj/DSL/DSL_2_A.test.cpp
+documentation_of: Data_Structure/segtree_monoids.hpp
 layout: document
 redirect_from:
-- /verify/test/aoj/DSL/DSL_2_A.test.cpp
-- /verify/test/aoj/DSL/DSL_2_A.test.cpp.html
-title: test/aoj/DSL/DSL_2_A.test.cpp
+- /library/Data_Structure/segtree_monoids.hpp
+- /library/Data_Structure/segtree_monoids.hpp.html
+title: Data_Structure/segtree_monoids.hpp
 ---

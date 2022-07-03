@@ -1,20 +1,23 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: Data_Structure/segtree_monoids.hpp
+    title: Data_Structure/segtree_monoids.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/point_add_range_sum1.test.cpp
     title: test/yosupo/point_add_range_sum1.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/segtree.md
     document_title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
@@ -66,9 +69,10 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Data_Structure/segtree.hpp
-  requiredBy: []
+  requiredBy:
+  - Data_Structure/segtree_monoids.hpp
   timestamp: '2022-07-02 23:08:33+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/point_add_range_sum1.test.cpp

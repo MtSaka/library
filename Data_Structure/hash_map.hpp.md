@@ -2,19 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/modular/mod_log.hpp
     title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/associative_array.test.cpp
     title: test/yosupo/associative_array.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/discrete-logarithm-mod.test.cpp
     title: test/yosupo/discrete-logarithm-mod.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
     links: []
@@ -176,7 +176,7 @@ data:
   requiredBy:
   - Math/modular/mod_log.hpp
   timestamp: '2022-06-11 22:45:22+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/associative_array.test.cpp
   - test/yosupo/discrete-logarithm-mod.test.cpp
