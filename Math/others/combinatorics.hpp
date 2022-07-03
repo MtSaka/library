@@ -7,16 +7,17 @@ struct combination{
   static vector<mint>dat,idat;
   inline static void extend(int sz){
     if((int)dat.size()<sz+1){
-      int pre_sz=dat.size();
+      int pre_sz=max<int>(1,dat.size());
       dat.resize(sz+1,1);
       idat.resize(sz+1,1);
       for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;
-      idat[sz]/=dat[sz];
+      idat[sz]=1/dat[sz];
       for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);
+
     }
   }
   public:
-  combination(int sz=0){if(dat.size()==0)dat={1},idat={1};extend(sz);}
+  combination(int sz=0){extend(sz);}
   static inline mint fac(long long n){
     if(n<0)return mint(0);
     extend(n);
