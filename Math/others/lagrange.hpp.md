@@ -40,14 +40,14 @@ data:
     \ m;}\n};\n/**\n * @brief modint\n*/\n#line 3 \"Math/others/combinatorics.hpp\"\
     \ntemplate<long long m>\nstruct combination{\n  using mint=modint<m>;\n  private:\n\
     \  static vector<mint>dat,idat;\n  inline static void extend(int sz){\n    if((int)dat.size()<sz+1){\n\
-    \      int pre_sz=dat.size();\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
-    \      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n      idat[sz]/=dat[sz];\n\
-    \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n    }\n  }\n  public:\n\
-    \  combination(int sz=0){if(dat.size()==0)dat={1},idat={1};extend(sz);}\n  static\
-    \ inline mint fac(long long n){\n    if(n<0)return mint(0);\n    extend(n);\n\
-    \    return dat[n];\n  }\n  static inline mint finv(long long n){\n    if(n<0)return\
-    \ mint(0);\n    extend(n);\n    return idat[n];\n  }\n  static mint com(long long\
-    \ n,long long k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(k)*finv(n-k);\n\
+    \      int pre_sz=max<int>(1,dat.size());\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
+    \      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n      idat[sz]=1/dat[sz];\n\
+    \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n\n    }\n  }\n \
+    \ public:\n  combination(int sz=0){extend(sz);}\n  static inline mint fac(long\
+    \ long n){\n    if(n<0)return mint(0);\n    extend(n);\n    return dat[n];\n \
+    \ }\n  static inline mint finv(long long n){\n    if(n<0)return mint(0);\n   \
+    \ extend(n);\n    return idat[n];\n  }\n  static mint com(long long n,long long\
+    \ k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(k)*finv(n-k);\n\
     \  }\n  static mint hom(long long n,long long k){\n    if(n<0||k<0)return mint(0);\n\
     \    return k==0?1:com(n+k-1,k);\n  }\n  static mint per(long long n,long long\
     \ k){\n    if(k<0||n<k)return mint(0);\n    return fac(n)*finv(n-k);\n  }\n};\n\
@@ -82,7 +82,7 @@ data:
   isVerificationFile: false
   path: Math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2022-07-01 11:20:03+01:00'
+  timestamp: '2022-07-03 18:28:45+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/others/lagrange.hpp
