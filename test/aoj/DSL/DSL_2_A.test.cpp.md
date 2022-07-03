@@ -12,7 +12,7 @@ data:
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':heavy_check_mark:'
     path: Data_Structure/segtree_monoids.hpp
-    title: Data_Structure/segtree_monoids.hpp
+    title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
   - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
@@ -215,7 +215,8 @@ data:
     \  template<class T>using RChmaxQ=dual_segtree<T,T,mapping3<T>,composition3<T>,id2<T>>;\n\
     \  template<class T>using RAQ=dual_segtree<T,T,mapping4<T>,composition4<T>,id3<T>>;\n\
     }\nusing monoid_dual_segtree::RUQ;\nusing monoid_dual_segtree::RChminQ;\nusing\
-    \ monoid_dual_segtree::RChmaxQ;\nusing monoid_dual_segtree::RAQ;\n#line 4 \"test/aoj/DSL/DSL_2_A.test.cpp\"\
+    \ monoid_dual_segtree::RChmaxQ;\nusing monoid_dual_segtree::RAQ;\n/**\n * @brief\
+    \ Monoids(\u30E2\u30CE\u30A4\u30C9)\n */\n#line 4 \"test/aoj/DSL/DSL_2_A.test.cpp\"\
     \nint main(){\n  INT(n,q);\n  RmQ<int>s(vector<int>(n,INT_MAX));\n  while(q--){\n\
     \    INT(t,x,y);\n    if(t==0)s.set(x,y);\n    else{\n      cout<<s.query(x,y+1)<<endl;\n\
     \    }\n  }\n}\n"
@@ -233,7 +234,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2022-07-04 00:02:06+01:00'
+  timestamp: '2022-07-04 00:22:36+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_A.test.cpp

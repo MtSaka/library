@@ -46,6 +46,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    document_title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n\
     //#pragma GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
@@ -235,7 +236,8 @@ data:
     \  template<class T>using RChmaxQ=dual_segtree<T,T,mapping3<T>,composition3<T>,id2<T>>;\n\
     \  template<class T>using RAQ=dual_segtree<T,T,mapping4<T>,composition4<T>,id3<T>>;\n\
     }\nusing monoid_dual_segtree::RUQ;\nusing monoid_dual_segtree::RChminQ;\nusing\
-    \ monoid_dual_segtree::RChmaxQ;\nusing monoid_dual_segtree::RAQ;\n"
+    \ monoid_dual_segtree::RChmaxQ;\nusing monoid_dual_segtree::RAQ;\n/**\n * @brief\
+    \ Monoids(\u30E2\u30CE\u30A4\u30C9)\n */\n"
   code: "#pragma once\n#include\"../template/template.hpp\"\n#include\"segtree.hpp\"\
     \n#include\"lazy_segtree.hpp\"\n#include\"dual_segtree.hpp\"\nnamespace monoid_segtree{\n\
     \  template<class T>static constexpr T op1(T a,T b){return min<T>(a,b);}\n  template<class\
@@ -296,7 +298,8 @@ data:
     \  template<class T>using RChmaxQ=dual_segtree<T,T,mapping3<T>,composition3<T>,id2<T>>;\n\
     \  template<class T>using RAQ=dual_segtree<T,T,mapping4<T>,composition4<T>,id3<T>>;\n\
     }\nusing monoid_dual_segtree::RUQ;\nusing monoid_dual_segtree::RChminQ;\nusing\
-    \ monoid_dual_segtree::RChmaxQ;\nusing monoid_dual_segtree::RAQ;"
+    \ monoid_dual_segtree::RChmaxQ;\nusing monoid_dual_segtree::RAQ;\n/**\n * @brief\
+    \ Monoids(\u30E2\u30CE\u30A4\u30C9)\n */"
   dependsOn:
   - template/template.hpp
   - Data_Structure/segtree.hpp
@@ -305,7 +308,7 @@ data:
   isVerificationFile: false
   path: Data_Structure/segtree_monoids.hpp
   requiredBy: []
-  timestamp: '2022-07-04 00:02:06+01:00'
+  timestamp: '2022-07-04 00:22:36+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/point_add_range_sum1.test.cpp
@@ -322,5 +325,5 @@ layout: document
 redirect_from:
 - /library/Data_Structure/segtree_monoids.hpp
 - /library/Data_Structure/segtree_monoids.hpp.html
-title: Data_Structure/segtree_monoids.hpp
+title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
 ---
