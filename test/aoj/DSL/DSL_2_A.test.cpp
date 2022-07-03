@@ -9,7 +9,8 @@ int main(){
     if(t==0)s.set(x,y);
     else{
       int ret=s.query(x,y+1);
-      cout<<(ret==INF<int>?INT_MAX:ret)<<endl;
+      if(ret==INF<int>)ret=INT_MAX;
+      cout<<ret<<endl;
     }
   }
 }
