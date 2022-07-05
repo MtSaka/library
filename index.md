@@ -6,6 +6,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/BIT.hpp
       title: Binary Indexed Tree(BIT)
+    - icon: ':warning:'
+      path: Data_Structure/binary_trie.hpp
+      title: Binary Trie
     - icon: ':heavy_check_mark:'
       path: Data_Structure/bit_vector.hpp
       title: Bit Vector
@@ -503,6 +506,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/set_xor_min.test.cpp
+      title: test/yosupo/set_xor_min.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/sharp_p_subset_sum.test.cpp
       title: test/yosupo/sharp_p_subset_sum.test.cpp
