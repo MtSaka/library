@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/binary_trie.hpp
     title: Binary Trie
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/set_xor_min
@@ -113,21 +113,23 @@ data:
     \    return (tmp==nullptr?0:tmp->count);\n  }\n  int size()const{return root->count;}\n\
     };\n/**\n * @brief Binary Trie\n*/\n#line 4 \"test/yosupo/set_xor_min.test.cpp\"\
     \nint main(){\n  binary_trie<int>bt;\n  int q;cin>>q;\n  while(q--){\n    int\
-    \ t,x;cin>>t>>x;\n    if(t==0)if(!bt.count(x))bt.insert(x);\n    else if(t==1)if(bt.count(x))bt.erase(x);\n\
-    \    else print(bt.min_element(x));\n  }\n}\n"
+    \ t,x;cin>>t>>x;\n    if(t==0){\n      if(!bt.count(x))bt.insert(x);\n    }\n\
+    \    else if(t==1){\n      if(bt.count(x))bt.erase(x);\n    }\n    else{\n   \
+    \   print(bt.min_element(x));\n    }\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/set_xor_min\"\n#include\"\
     ../../template/template.hpp\"\n#include\"../../Data_Structure/binary_trie.hpp\"\
     \nint main(){\n  binary_trie<int>bt;\n  int q;cin>>q;\n  while(q--){\n    int\
-    \ t,x;cin>>t>>x;\n    if(t==0)if(!bt.count(x))bt.insert(x);\n    else if(t==1)if(bt.count(x))bt.erase(x);\n\
-    \    else print(bt.min_element(x));\n  }\n}"
+    \ t,x;cin>>t>>x;\n    if(t==0){\n      if(!bt.count(x))bt.insert(x);\n    }\n\
+    \    else if(t==1){\n      if(bt.count(x))bt.erase(x);\n    }\n    else{\n   \
+    \   print(bt.min_element(x));\n    }\n  }\n}"
   dependsOn:
   - template/template.hpp
   - Data_Structure/binary_trie.hpp
   isVerificationFile: true
   path: test/yosupo/set_xor_min.test.cpp
   requiredBy: []
-  timestamp: '2022-07-05 16:12:29+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-05 16:16:49+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/set_xor_min.test.cpp
 layout: document
