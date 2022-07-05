@@ -1,4 +1,4 @@
-#pagma once
+#pragma once
 template<class S,int B=(sizeof(S)*8-1)>
 struct binary_trie{
   private:
@@ -9,7 +9,7 @@ struct binary_trie{
   };
   node*root;
   S xor_all=0;
-  node* find(S x,S xor_val=0){
+  node* find(S x,S xor_val=0)const{
     xor_val^=xor_all;
     node*u=root;
     for(int i=B-1;i>=0;i--){
@@ -36,9 +36,9 @@ struct binary_trie{
       u->count+=a;
     }
   }
-  S min_element(S xor_val=0){return kth_element(0,xor_val);}
-  S max_element(S xor_val=0){return kth_element(size()-1,xor_val);}
-  S kth_element(int k,S xor_val=0){
+  S min_element(S xor_val=0)const{return kth_element(0,xor_val);}
+  S max_element(S xor_val=0)const{return kth_element(size()-1,xor_val);}
+  S kth_element(int k,S xor_val=0)const{
     xor_val^=xor_all;
     node*u=root;
     S ret=0;
@@ -55,7 +55,7 @@ struct binary_trie{
     }
     return ret;
   }
-  int order(S k,S xor_val=0){
+  int order(S k,S xor_val=0)const{
     xor_val^=xor_all;
     node*u=root;
     int order=0;
@@ -73,14 +73,14 @@ struct binary_trie{
     }
     return order;
   }
-  S lower_bound(S k,S xor_val=0){
+  S lower_bound(S k,S xor_val=0)const{
     return kth_element(order(k,xor_val));
   }
-  S upper_bound(S k,S xor_val=0){
+  S upper_bound(S k,S xor_val=0)const{
     return kth_element(order(k+1,xor_val));
   }
   void all_xor(S x){xor_all^=x;}
-  int count(S x){
+  int count(S x)const{
     node*tmp=find(x);
     return (tmp==nullptr?0:tmp->count);
   }
