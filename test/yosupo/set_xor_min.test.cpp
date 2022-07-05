@@ -4,6 +4,7 @@
 int main(){
   binary_trie<int>bt;
   int q;cin>>q;
+  bt.reserve(q);
   while(q--){
     int t,x;cin>>t>>x;
     if(t==0){
