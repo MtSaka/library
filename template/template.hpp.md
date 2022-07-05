@@ -225,6 +225,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/set_xor_min.test.cpp
+    title: test/yosupo/set_xor_min.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sharp_p_subset_sum.test.cpp
     title: test/yosupo/sharp_p_subset_sum.test.cpp
@@ -258,9 +261,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1469.test.cpp
     title: test/yukicoder/1469.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -401,7 +404,7 @@ data:
   requiredBy:
   - Data_Structure/segtree_monoids.hpp
   timestamp: '2022-07-03 21:11:59+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1469.test.cpp
   - test/yukicoder/1236.test.cpp
@@ -435,6 +438,7 @@ data:
   - test/yosupo/lca2.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/persistent_unionfind.test.cpp
+  - test/yosupo/set_xor_min.test.cpp
   - test/yosupo/factorize.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/point_add_range_sum1.test.cpp

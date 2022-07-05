@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/BIT.hpp
       title: Binary Indexed Tree(BIT)
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Data_Structure/binary_trie.hpp
       title: Binary Trie
     - icon: ':heavy_check_mark:'
@@ -267,7 +267,7 @@ data:
       title: String/run_length.hpp
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
