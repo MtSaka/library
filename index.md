@@ -46,6 +46,9 @@ data:
       path: Data_Structure/segtree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
+      path: Data_Structure/segtree_beats.hpp
+      title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/segtree_monoids.hpp
       title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
     - icon: ':heavy_check_mark:'
@@ -491,6 +494,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/range_affine_range_sum.test.cpp
       title: test/yosupo/range_affine_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
+      title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/range_kth_smallest.test.cpp
       title: test/yosupo/range_kth_smallest.test.cpp

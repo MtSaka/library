@@ -217,6 +217,9 @@ data:
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
+    title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/range_kth_smallest.test.cpp
     title: test/yosupo/range_kth_smallest.test.cpp
   - icon: ':heavy_check_mark:'
@@ -437,6 +440,7 @@ data:
   - test/yosupo/point_add_range_sum1.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
   - test/yosupo/convolution_mod.test.cpp
+  - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   - test/aoj/NTL/NTL_1_C.test.cpp
   - test/aoj/NTL/NTL_1_D.test.cpp
   - test/aoj/NTL/NTL_1_B.test.cpp
