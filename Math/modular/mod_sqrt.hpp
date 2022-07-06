@@ -12,7 +12,7 @@ S mod_sqrt(T a,S p){
   while(modpow(z,(p-1)/2,p)==1)z++;
   S m=s,c=modpow(z,q,p),t=modpow(a,q,p),r=modpow(a,(q+1)/2,p);
   while(t!=1){
-    S pow_t=t*t%p,m_update;
+    S pow_t=t*t%p,m_update=0;
     for(int j=1;j<m;j++){
       if(pow_t==1){
         m_update=j;
