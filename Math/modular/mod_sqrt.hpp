@@ -1,7 +1,7 @@
 #pragma once
 #include"modpow.hpp"
 template<typename T,typename S>
-S mod_sqrt(T a,S p){
+S mod_sqrt(T a,const S&p){
   a%=p;
   if(a==0)return 0;
   if(p==2)return a;
