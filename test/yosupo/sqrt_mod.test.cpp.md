@@ -91,7 +91,7 @@ data:
     \ m){\n  T ret=1;\n  while(b){\n    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n\
     \  }\n  return ret;\n}\n/**\n * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line\
     \ 3 \"Math/modular/mod_sqrt.hpp\"\ntemplate<typename T,typename S>\nS mod_sqrt(T\
-    \ a,S p){\n  a%=p;\n  if(a==0)return 0;\n  if(p==2)return a;\n  if(modpow(a,(p-1)/2,p)!=1)return\
+    \ a,const S&p){\n  a%=p;\n  if(a==0)return 0;\n  if(p==2)return a;\n  if(modpow(a,(p-1)/2,p)!=1)return\
     \ -1;\n  if((p&3)==3)return modpow(a,(p+1)/4,p);\n  S q=p-1,s=0,z=2;\n  while(!(q&1))q>>=1,s++;\n\
     \  while(modpow(z,(p-1)/2,p)==1)z++;\n  S m=s,c=modpow(z,q,p),t=modpow(a,q,p),r=modpow(a,(q+1)/2,p);\n\
     \  while(t!=1){\n    S pow_t=t*t%p,m_update=0;\n    for(int j=1;j<m;j++){\n  \
@@ -111,7 +111,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/sqrt_mod.test.cpp
   requiredBy: []
-  timestamp: '2022-07-06 23:23:27+01:00'
+  timestamp: '2022-07-07 12:48:34+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/sqrt_mod.test.cpp
