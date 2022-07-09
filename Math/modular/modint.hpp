@@ -1,7 +1,9 @@
 #pragma once
 template<long long m>
 struct modint{
+  private:
   long long x;
+  public:
   constexpr modint():x(0){}
   constexpr modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}
   modint inv()const{
@@ -39,15 +41,16 @@ struct modint{
     return ret;
   }
   friend ostream &operator<<(ostream &os,const modint&p) {
-    return os<<p.x;
+    return os<<p.val();
   }
   friend istream &operator>>(istream &is, modint &a) {
     long long t;
     is>>t;
-    a=modint<m>(t);
+    a=modint(t);
     return (is);
   }
   static long long get_mod(){return m;}
+  long long val()const{return x;}
 };
 /**
  * @brief modint
