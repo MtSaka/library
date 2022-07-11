@@ -24,7 +24,7 @@ namespace monoid_lazy_segtree{
   template<class T>static constexpr S<T> op3(S<T>a,S<T>b){return {a.value+b.value,a.size+b.size};}
   template<class T>static constexpr T e1(){return infinity<T>::MAX;}
   template<class T>static constexpr T e2(){return infinity<T>::MIN;}
-  template<class T>static constexpr S<T> e3(){return {T(0),0};}
+  template<class T>static constexpr S<T> e3(){return {T(0),1};}
   template<class T>static constexpr T mapping1(T a,T b){return a==infinity<T>::MAX?b:a;}
   template<class T>static constexpr S<T> mapping2(T a,S<T>b){if(a!=infinity<T>::MAX)b.value=a*b.size;return b;}
   template<class T>static constexpr S<T> mapping3(T a,S<T>b){return {b.value+a*b.size,b.size};}
