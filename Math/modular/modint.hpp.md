@@ -88,30 +88,31 @@ data:
     document_title: modint
     links: []
   bundledCode: "#line 2 \"Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct\
-    \ modint{\n  long long x;\n  constexpr modint():x(0){}\n  constexpr modint(long\
-    \ long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n\
-    \    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n \
-    \   }\n    return modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
-    \ *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n\
-    \  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
-    \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  friend modint operator+(const\
-    \ modint&l,const modint&r){return modint(l)+=r;}\n  friend modint operator-(const\
-    \ modint&l,const modint&r){return modint(l)-=r;}\n  friend modint operator*(const\
-    \ modint&l,const modint&r){return modint(l)*=r;}\n  friend modint operator/(const\
-    \ modint&l,const modint&r){return modint(l)/=r;}\n  modint operator-()const{return\
-    \ modint(-x);}\n  modint operator+()const{return *this;}\n  modint &operator++(){x++;if(x==m)x=0;return\
-    \ *this;}\n  modint &operator--(){if(x==0)x=m;x--;return *this;}\n  modint operator++(int){modint\
-    \ ret(*this);++*this;return ret;}\n  modint operator--(int){modint ret(*this);--*this;return\
-    \ ret;}\n  friend bool operator==(const modint&l,const modint&r){return l.x==r.x;}\n\
-    \  friend bool operator!=(const modint&l,const modint&r){return l.x!=r.x;}\n \
-    \ modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n  \
-    \    if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
-    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
-    \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
-    \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n/**\n * @brief modint\n*/\n"
-  code: "#pragma once\ntemplate<long long m>\nstruct modint{\n  long long x;\n  constexpr\
-    \ modint():x(0){}\n  constexpr modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n\
+    \ modint{\n  private:\n  long long x;\n  public:\n  constexpr modint():x(0){}\n\
+    \  constexpr modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint inv()const{\n\
+    \    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n\
+    \      swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n  modint &operator+=(const\
+    \ modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return\
+    \ *this;}\n  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n\
+    \  modint &operator/=(const modint&p){*this*=p.inv();return *this;}\n  friend\
+    \ modint operator+(const modint&l,const modint&r){return modint(l)+=r;}\n  friend\
+    \ modint operator-(const modint&l,const modint&r){return modint(l)-=r;}\n  friend\
+    \ modint operator*(const modint&l,const modint&r){return modint(l)*=r;}\n  friend\
+    \ modint operator/(const modint&l,const modint&r){return modint(l)/=r;}\n  modint\
+    \ operator-()const{return modint(-x);}\n  modint operator+()const{return *this;}\n\
+    \  modint &operator++(){x++;if(x==m)x=0;return *this;}\n  modint &operator--(){if(x==0)x=m;x--;return\
+    \ *this;}\n  modint operator++(int){modint ret(*this);++*this;return ret;}\n \
+    \ modint operator--(int){modint ret(*this);--*this;return ret;}\n  friend bool\
+    \ operator==(const modint&l,const modint&r){return l.x==r.x;}\n  friend bool operator!=(const\
+    \ modint&l,const modint&r){return l.x!=r.x;}\n  modint pow(long long n)const{\n\
+    \    modint ret(1),mul(x);\n    while(n){\n      if(n&1)ret*=mul;\n      mul*=mul;\n\
+    \      n>>=1;\n    }\n    return ret;\n  }\n  friend ostream &operator<<(ostream\
+    \ &os,const modint&p) {\n    return os<<p.val();\n  }\n  friend istream &operator>>(istream\
+    \ &is, modint &a) {\n    long long t;\n    is>>t;\n    a=modint(t);\n    return\
+    \ (is);\n  }\n  static long long get_mod(){return m;}\n  long long val()const{return\
+    \ x;}\n};\n/**\n * @brief modint\n*/\n"
+  code: "#pragma once\ntemplate<long long m>\nstruct modint{\n  private:\n  long long\
+    \ x;\n  public:\n  constexpr modint():x(0){}\n  constexpr modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n\
     \  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n     \
     \ t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n\
     \  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n\
@@ -129,10 +130,10 @@ data:
     \  friend bool operator!=(const modint&l,const modint&r){return l.x!=r.x;}\n \
     \ modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n  \
     \    if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
-    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
+    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.val();\n\
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
-    \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n/**\n * @brief modint\n*/"
+    \    is>>t;\n    a=modint(t);\n    return (is);\n  }\n  static long long get_mod(){return\
+    \ m;}\n  long long val()const{return x;}\n};\n/**\n * @brief modint\n*/"
   dependsOn: []
   isVerificationFile: false
   path: Math/modular/modint.hpp
@@ -147,7 +148,7 @@ data:
   - Math/convolution/ntt.hpp
   - Math/convolution/convolution.hpp
   - Math/convolution/mod_ntt.hpp
-  timestamp: '2022-04-10 15:30:48+01:00'
+  timestamp: '2022-07-09 21:27:31+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/log_of_formal_power_series.test.cpp

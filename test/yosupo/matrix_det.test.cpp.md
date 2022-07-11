@@ -87,13 +87,13 @@ data:
     template<class F>struct REC{F f;REC(F&&f_):f(std::forward<F>(f_)){}template<class...Args>auto\
     \ operator()(Args&&...args)const{return f(*this, std::forward<Args>(args)...);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  long long\
-    \ x;\n  constexpr modint():x(0){}\n  constexpr modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n\
-    \  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n    while(b){\n     \
-    \ t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n\
-    \  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return *this;}\n\
-    \  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n \
-    \ modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
+    Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  private:\n\
+    \  long long x;\n  public:\n  constexpr modint():x(0){}\n  constexpr modint(long\
+    \ long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n\
+    \    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n \
+    \   }\n    return modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
+    \ *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n\
+    \  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
     \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  friend modint operator+(const\
     \ modint&l,const modint&r){return modint(l)+=r;}\n  friend modint operator-(const\
     \ modint&l,const modint&r){return modint(l)-=r;}\n  friend modint operator*(const\
@@ -106,22 +106,22 @@ data:
     \  friend bool operator!=(const modint&l,const modint&r){return l.x!=r.x;}\n \
     \ modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n  \
     \    if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
-    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.x;\n\
+    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.val();\n\
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
-    \    is>>t;\n    a=modint<m>(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n};\n/**\n * @brief modint\n*/\n#line 1 \"Math/others/matrix.hpp\"\ntemplate<typename\
-    \ T>\nstruct Matrix{\n  private:\n  vector<vector<T>>A;\n  public:\n  Matrix(){}\n\
-    \  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n  Matrix(size_t n):A(n,vector<T>(n,0)){};\n\
-    \  Matrix(const vector<vector<T>>&a):A(a){}\n  size_t height()const{return (A.size());}\n\
-    \  size_t width()const{return (A[0].size());}\n  inline const vector<T>&operator[](int\
-    \ k)const{return A.at(k);}\n  inline vector<T>&operator[](int k){return A.at(k);}\n\
-    \  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(size_t i=0;i<n;i++)mat[i][i]=1;\n\
-    \    return mat;\n  }\n  Matrix &operator+=(const Matrix&B){\n    const size_t\
-    \ n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)(*this)[i][j]+=B[i][j];\n\
-    \    return *this;\n  }\n  Matrix &operator-=(const Matrix&B){\n    const size_t\
-    \ n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)(*this)[i][j]-=B[i][j];\n\
-    \    return *this;\n  }\n  Matrix &operator*=(const Matrix&B) {\n    const size_t\
-    \ n=height(),m=B.width(),p=width();\n    vector<vector<T>>C(n,vector<T>(m,0));\n\
+    \    is>>t;\n    a=modint(t);\n    return (is);\n  }\n  static long long get_mod(){return\
+    \ m;}\n  long long val()const{return x;}\n};\n/**\n * @brief modint\n*/\n#line\
+    \ 1 \"Math/others/matrix.hpp\"\ntemplate<typename T>\nstruct Matrix{\n  private:\n\
+    \  vector<vector<T>>A;\n  public:\n  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n\
+    \  Matrix(size_t n):A(n,vector<T>(n,0)){};\n  Matrix(const vector<vector<T>>&a):A(a){}\n\
+    \  size_t height()const{return (A.size());}\n  size_t width()const{return (A[0].size());}\n\
+    \  inline const vector<T>&operator[](int k)const{return A.at(k);}\n  inline vector<T>&operator[](int\
+    \ k){return A.at(k);}\n  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(size_t\
+    \ i=0;i<n;i++)mat[i][i]=1;\n    return mat;\n  }\n  Matrix &operator+=(const Matrix&B){\n\
+    \    const size_t n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t\
+    \ j=0;j<m;j++)(*this)[i][j]+=B[i][j];\n    return *this;\n  }\n  Matrix &operator-=(const\
+    \ Matrix&B){\n    const size_t n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t\
+    \ j=0;j<m;j++)(*this)[i][j]-=B[i][j];\n    return *this;\n  }\n  Matrix &operator*=(const\
+    \ Matrix&B) {\n    const size_t n=height(),m=B.width(),p=width();\n    vector<vector<T>>C(n,vector<T>(m,0));\n\
     \    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)for(size_t k=0;k<p;k++)C[i][j]+=(*this)[i][k]*B[k][j];\n\
     \    A.swap(C);\n    return *this;\n  }\n  Matrix &operator^=(long long k){\n\
     \    Matrix B=Matrix::I(height());\n    while(k>0){\n      if(k&1)B*=*this;\n\
@@ -153,7 +153,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix_det.test.cpp
   requiredBy: []
-  timestamp: '2022-07-03 21:11:59+01:00'
+  timestamp: '2022-07-09 21:27:31+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix_det.test.cpp

@@ -193,7 +193,7 @@ data:
     \  template<class T>static constexpr S<T> op3(S<T>a,S<T>b){return {a.value+b.value,a.size+b.size};}\n\
     \  template<class T>static constexpr T e1(){return infinity<T>::MAX;}\n  template<class\
     \ T>static constexpr T e2(){return infinity<T>::MIN;}\n  template<class T>static\
-    \ constexpr S<T> e3(){return {T(0),0};}\n  template<class T>static constexpr T\
+    \ constexpr S<T> e3(){return {T(0),1};}\n  template<class T>static constexpr T\
     \ mapping1(T a,T b){return a==infinity<T>::MAX?b:a;}\n  template<class T>static\
     \ constexpr S<T> mapping2(T a,S<T>b){if(a!=infinity<T>::MAX)b.value=a*b.size;return\
     \ b;}\n  template<class T>static constexpr S<T> mapping3(T a,S<T>b){return {b.value+a*b.size,b.size};}\n\
@@ -255,7 +255,7 @@ data:
     \  template<class T>static constexpr S<T> op3(S<T>a,S<T>b){return {a.value+b.value,a.size+b.size};}\n\
     \  template<class T>static constexpr T e1(){return infinity<T>::MAX;}\n  template<class\
     \ T>static constexpr T e2(){return infinity<T>::MIN;}\n  template<class T>static\
-    \ constexpr S<T> e3(){return {T(0),0};}\n  template<class T>static constexpr T\
+    \ constexpr S<T> e3(){return {T(0),1};}\n  template<class T>static constexpr T\
     \ mapping1(T a,T b){return a==infinity<T>::MAX?b:a;}\n  template<class T>static\
     \ constexpr S<T> mapping2(T a,S<T>b){if(a!=infinity<T>::MAX)b.value=a*b.size;return\
     \ b;}\n  template<class T>static constexpr S<T> mapping3(T a,S<T>b){return {b.value+a*b.size,b.size};}\n\
@@ -308,7 +308,7 @@ data:
   isVerificationFile: false
   path: Data_Structure/segtree_monoids.hpp
   requiredBy: []
-  timestamp: '2022-07-04 00:22:36+01:00'
+  timestamp: '2022-07-11 02:29:10+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/point_add_range_sum1.test.cpp
