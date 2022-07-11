@@ -1,6 +1,7 @@
-long long factor_cnt(long long N){
-  long long ans=1;
-  for(long long i=2;i*i<=N;i++){
+template<typename T>
+int factor_cnt(T N){
+  int ans=1;
+  for(T i=2;i*i<=N;i++){
     if(N%i==0){
       int e=0;
       while(N%i==0){
