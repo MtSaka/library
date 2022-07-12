@@ -3,7 +3,7 @@
 struct two_sat{
   private:
   int n;
-  SCC<int>scc;
+  SCCscc;
   vector<bool>ans;
   public:
   two_sat(){}

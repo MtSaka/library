@@ -4,7 +4,7 @@
 int main(){
   int v,e;
   cin>>v>>e;
-  Edges<long long>edges(e);
+  edges<long long>edges(e);
   for(auto &i:edges)cin>>i.from>>i.to>>i.cost;
   auto ans=kruskal(edges,v);
   cout<<ans.cost<<endl;

@@ -4,7 +4,7 @@ template<typename T=int>
 struct TreeDiameter:graph<T>{
   using graph<T>::graph;
   using graph<T>::g;
-  vector<Edge<T>>path;
+  vector<edge<T>>path;
   T build(){
     to.assign(g.size(),-1);
     auto p=dfs(0,-1);

@@ -4,7 +4,7 @@
 int main(){
   int v,e,q;
   cin>>v>>e;
-  SCC<>scc(v);
+  SCCscc(v);
   scc.read(e,0,false,true);
   scc.build();
   cin>>q;

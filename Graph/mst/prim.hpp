@@ -2,17 +2,17 @@
 template<typename T>
 struct mst{
   T cost;
-  Edges<T>edges;
+  edges<T>edges;
 };
 template<typename T>
 mst<T>prim(const graph<T>&g){
   T sum=T();
   vector<bool>used(g.size(),false);
-  vector<Edge<T>>dist(g.size());
+  vector<edge<T>>dist(g.size());
   using pi=pair<T,int>;
   priority_queue<pi,vector<pi>,greater<>>q;
   q.emplace(T(),0);
-  Edges<T>edges;
+  edges<T>edges;
   while(!q.empty()){
     auto p=q.top();q.pop();
     if(used[p.second])continue;

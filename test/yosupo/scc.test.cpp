@@ -4,7 +4,7 @@
 int main(){
   int n,m;
   cin>>n>>m;
-  SCC<>scc(n);
+  SCCscc(n);
   scc.read(m,0,false,true);
   scc.build();
   cout<<scc.group.size()<<endl;

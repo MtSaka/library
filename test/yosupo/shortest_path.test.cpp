@@ -12,5 +12,5 @@ int main(){
     return 0;
   }
   cout<<d.first<<" "<<d.second.size()-1<<endl;
-  for(int i=0;i<d.second.size()-1;i++)cout<<d.second[i]<<" "<<d.second[i+1]<<endl;
+  for(int i=0;i<(int)d.second.size()-1;i++)cout<<d.second[i]<<" "<<d.second[i+1]<<endl;
 }
