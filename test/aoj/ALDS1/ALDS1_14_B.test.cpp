@@ -4,7 +4,7 @@
 int main(){
   string t,p;
   cin>>t>>p;
-  RollingHash rh;
+  rolling_hash rh;
   auto rh1=rh.get_hash(t);
   auto rh2=rh.get_hash(p);
   for(int i=0;i+p.size()<=t.size();i++){

@@ -1,4 +1,4 @@
-struct RollingHash{
+struct rolling_hash{
   using ull=unsigned long long;
   using i128=__uint128_t;
   private:
@@ -23,30 +23,30 @@ struct RollingHash{
     BASE=(1ull<<31)+(random_device()()&MASK31);
   }
   public:
-  struct Hash{
+  struct hash{
     private:
     int n;
     ull BASE;
-    vector<ull>hash,power;
+    vector<ull>inner_hash,power;
     public:
     template<typename T>
-    Hash(ull base,const T&s):BASE(base){
+    hash(ull base,const T&s):BASE(base){
       n=s.size();
-      hash.resize(n+1);
-      for(int i=0;i<n;i++)hash[i+1]=calc_add(s[i],calc_mul(BASE,hash[i]));
+      inner_hash.resize(n+1);
+      for(int i=0;i<n;i++)inner_hash[i+1]=calc_add(s[i],calc_mul(BASE,inner_hash[i]));
       power.resize(n+1);power[0]=1;
       for(int i=0;i<n;i++)power[i+1]=calc_mul(power[i],BASE);
     }
     ull get_hash(int l,int r)const{
-      return calc_add(hash[r],MOD-calc_mul(hash[l],power[r-l]));
+      return calc_add(inner_hash[r],MOD-calc_mul(inner_hash[l],power[r-l]));
     }
     ull get_all()const{
-      return hash[n];
+      return inner_hash[n];
     }
   };
-  RollingHash(){init();}
+  rolling_hash(){init();}
   template<typename T>
-  Hash get_hash(const T&s)const{return Hash(BASE,s);}
+  hash get_hash(const T&s)const{return hash(BASE,s);}
   ull get_base()const{return BASE;}
 };
 /**
