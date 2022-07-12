@@ -124,12 +124,12 @@ data:
     \  }\n  void rdfs(int idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n\
     \    for(auto&to:rg.g[idx])rdfs(to,k);\n  }\n};\n/**\n * @brief Strongly Connected\
     \ Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n*/\n#line 4 \"test/yosupo/scc.test.cpp\"\
-    \nint main(){\n  int n,m;\n  cin>>n>>m;\n  SCC<>scc(n);\n  scc.read(m,0,false,true);\n\
+    \nint main(){\n  int n,m;\n  cin>>n>>m;\n  SCCscc(n);\n  scc.read(m,0,false,true);\n\
     \  scc.build();\n  cout<<scc.group.size()<<endl;\n  for(auto&p:scc.group)cout<<p.size()<<\"\
     \ \"<<p<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n#include\"../../template/template.hpp\"\
     \n#include\"../../Graph/others/scc.hpp\"\nint main(){\n  int n,m;\n  cin>>n>>m;\n\
-    \  SCC<>scc(n);\n  scc.read(m,0,false,true);\n  scc.build();\n  cout<<scc.group.size()<<endl;\n\
+    \  SCCscc(n);\n  scc.read(m,0,false,true);\n  scc.build();\n  cout<<scc.group.size()<<endl;\n\
     \  for(auto&p:scc.group)cout<<p.size()<<\" \"<<p<<endl;\n}"
   dependsOn:
   - template/template.hpp
@@ -138,7 +138,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 22:17:45+01:00'
+  timestamp: '2022-07-12 22:30:34+01:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp

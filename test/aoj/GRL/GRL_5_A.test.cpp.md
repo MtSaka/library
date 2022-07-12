@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/tree/tree_diameter.hpp
     title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A
@@ -107,7 +107,7 @@ data:
     /**\n * @brief graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
     \u30C8)\n*/\n#line 3 \"Graph/tree/tree_diameter.hpp\"\ntemplate<typename T=int>\n\
     struct TreeDiameter:graph<T>{\n  using graph<T>::graph;\n  using graph<T>::g;\n\
-    \  vector<Edge<T>>path;\n  T build(){\n    to.assign(g.size(),-1);\n    auto p=dfs(0,-1);\n\
+    \  vector<edge<T>>path;\n  T build(){\n    to.assign(g.size(),-1);\n    auto p=dfs(0,-1);\n\
     \    auto q=dfs(p.second,-1);\n    int now=p.second;\n    while(now!=q.second){\n\
     \      for(auto &e:g[now]){\n        if(to[now]==e.to)path.emplace_back(e);\n\
     \      }\n      now=to[now];\n    }\n    return q.first;\n  }\n  TreeDiameter(const\
@@ -129,8 +129,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_A.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 22:17:45+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-12 22:30:34+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_A.test.cpp
 layout: document

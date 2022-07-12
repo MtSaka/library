@@ -118,17 +118,17 @@ data:
     \ Args&...){}\n  operator int()const{return 1;}\n};\nusing unweighted_graph=graph<unweighted_edge>;\n\
     /**\n * @brief graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
     \u30C8)\n*/\n#line 3 \"Graph/mst/kruskal.hpp\"\ntemplate<typename T>\nstruct mst{\n\
-    \  T cost;\n  Edges<T>edges;\n};\ntemplate<typename T>\nmst<T>kruskal(Edges<T>&edges,int\
-    \ v){\n  sort(edges.begin(),edges.end());\n  dsu d(v);\n  T total=0;\n  Edges<T>es;\n\
+    \  T cost;\n  edges<T>edges;\n};\ntemplate<typename T>\nmst<T>kruskal(edges<T>&edges,int\
+    \ v){\n  sort(edges.begin(),edges.end());\n  dsu d(v);\n  T total=0;\n  edges<T>es;\n\
     \  for(auto &e:edges){\n    if(!d.same(e.to,e.from)){\n      d.merge(e.to,e.from);\n\
     \      es.emplace_back(e);\n      total+=e.cost;\n    }\n  }\n  return {total,es};\n\
     }\n/**\n * @brief Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)\n*/\n#line 4 \"test/aoj/GRL/GRL_2_A.test.cpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Edges<long long>edges(e);\n  for(auto\
+    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  edges<long long>edges(e);\n  for(auto\
     \ &i:edges)cin>>i.from>>i.to>>i.cost;\n  auto ans=kruskal(edges,v);\n  cout<<ans.cost<<endl;\n\
     }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/mst/kruskal.hpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Edges<long long>edges(e);\n  for(auto\
+    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  edges<long long>edges(e);\n  for(auto\
     \ &i:edges)cin>>i.from>>i.to>>i.cost;\n  auto ans=kruskal(edges,v);\n  cout<<ans.cost<<endl;\n\
     }"
   dependsOn:
@@ -139,7 +139,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 22:17:45+01:00'
+  timestamp: '2022-07-12 22:30:34+01:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_2_A.test.cpp

@@ -120,14 +120,14 @@ data:
     \nint main(){\n  int n,m,s,t;\n  cin>>n>>m>>s>>t;\n  graph<long long>g(n);\n \
     \ g.read(m,0,true,true);\n  auto d=dijkstra_path(g,s,t);\n  if(d.first==-1){\n\
     \    cout<<d.first<<endl;\n    return 0;\n  }\n  cout<<d.first<<\" \"<<d.second.size()-1<<endl;\n\
-    \  for(int i=0;i<d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
+    \  for(int i=0;i<(int)d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n#include\"\
     ../../template/template.hpp\"\n#include\"../../Graph/shortest_path/dijkstra_path.hpp\"\
     \nint main(){\n  int n,m,s,t;\n  cin>>n>>m>>s>>t;\n  graph<long long>g(n);\n \
     \ g.read(m,0,true,true);\n  auto d=dijkstra_path(g,s,t);\n  if(d.first==-1){\n\
     \    cout<<d.first<<endl;\n    return 0;\n  }\n  cout<<d.first<<\" \"<<d.second.size()-1<<endl;\n\
-    \  for(int i=0;i<d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
+    \  for(int i=0;i<(int)d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
     }"
   dependsOn:
   - template/template.hpp
@@ -136,7 +136,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 22:17:45+01:00'
+  timestamp: '2022-07-12 22:30:34+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/shortest_path.test.cpp

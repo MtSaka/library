@@ -149,7 +149,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/tree/tree_diameter.hpp
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: Math/convolution
@@ -389,7 +389,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_4_B.test.cpp
       title: test/aoj/GRL/GRL_4_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_A.test.cpp
       title: test/aoj/GRL/GRL_5_A.test.cpp
     - icon: ':heavy_check_mark:'
@@ -533,7 +533,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/staticrmq2.test.cpp
       title: test/yosupo/staticrmq2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/tree_diameter.test.cpp
       title: test/yosupo/tree_diameter.test.cpp
     - icon: ':x:'
