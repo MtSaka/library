@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C"
 #include"../../../template/template.hpp"
-#include"../../../graph/shortest_path/warshall_floyd.hpp"
+#include"../../../Graph/shortest_path/warshall_floyd.hpp"
 int main(){
   int v,e;
   cin>>v>>e;

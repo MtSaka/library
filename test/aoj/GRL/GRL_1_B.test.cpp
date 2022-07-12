@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B"
 #include"../../../template/template.hpp"
-#include"../../../graph/shortest_path/bellman_ford.hpp"
+#include"../../../Graph/shortest_path/bellman_ford.hpp"
 int main(){
   int v,e,r;
   cin>>v>>e>>r;

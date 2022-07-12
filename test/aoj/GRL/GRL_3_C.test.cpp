@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C"
 #include"../../../template/template.hpp"
-#include"../../../graph/others/scc.hpp"
+#include"../../../Graph/others/scc.hpp"
 int main(){
   int v,e,q;
   cin>>v>>e;
