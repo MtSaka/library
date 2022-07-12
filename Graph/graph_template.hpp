@@ -30,14 +30,14 @@ struct graph{
   }
   inline vector<edge<T>>&operator[](int idx){return g[idx];}
   inline const vector<edge<T>>&operator[](int idx)const{return g[idx];}
-  void read(int m,int padding=-1,bool weighed=false,bool direct=false){
+  void read(int m,int padding=-1,bool weighted=false,bool direct=false){
     int a,b;
     T c=T(1);
     for(int i=0;i<m;i++){
       cin>>a>>b;
       a+=padding;
       b+=padding;
-      if(weighed)cin>>c;
+      if(weighted)cin>>c;
       add_edge(a,b,c,direct);
     }
   }
