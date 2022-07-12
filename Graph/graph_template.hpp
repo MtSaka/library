@@ -46,6 +46,7 @@ struct unweighted_edge{
   template<class... Args>unweighted_edge(const Args&...){}
   operator int()const{return 1;}
 };
+istream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return is;}
 using unweighted_graph=graph<unweighted_edge>;
 /**
  * @brief graph Template(グラフテンプレート)
