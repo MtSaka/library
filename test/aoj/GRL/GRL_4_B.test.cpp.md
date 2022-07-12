@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':heavy_check_mark:'
     path: Graph/others/topological_sort.hpp
     title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
       )"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -104,13 +104,14 @@ data:
     \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
     \    a+=padding;\n      b+=padding;\n      if(weighed)cin>>c;\n      add_edge(a,b,c,direct);\n\
     \    }\n  }\n};\nstruct unweighted_edge{\n  template<class... Args>unweighted_edge(const\
-    \ Args&...){}\n  operator int()const{return 1;}\n};\nusing unweighted_graph=graph<unweighted_edge>;\n\
-    /**\n * @brief graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
-    \u30C8)\n*/\n#line 2 \"Graph/others/topological_sort.hpp\"\ntemplate<typename\
-    \ T>\nstruct topological_sort{\n  int n;\n  const graph<T>&g;\n  vector<int>order;\n\
-    \  vector<bool>seen;\n  void dfs(int v){\n    seen[v]=true;\n    for(auto &e:g[v])if(!seen[e])dfs(e);\n\
-    \    order.push_back(v);\n  }\n  void init(){\n    n=g.size();\n    seen.assign(n,false);\n\
-    \    order.reserve(n);\n    for(int i=0;i<n;i++)if(!seen[i])dfs(i);\n    reverse(order.begin(),order.end());\n\
+    \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
+    \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/others/topological_sort.hpp\"\
+    \ntemplate<typename T>\nstruct topological_sort{\n  int n;\n  const graph<T>&g;\n\
+    \  vector<int>order;\n  vector<bool>seen;\n  void dfs(int v){\n    seen[v]=true;\n\
+    \    for(auto &e:g[v])if(!seen[e])dfs(e);\n    order.push_back(v);\n  }\n  void\
+    \ init(){\n    n=g.size();\n    seen.assign(n,false);\n    order.reserve(n);\n\
+    \    for(int i=0;i<n;i++)if(!seen[i])dfs(i);\n    reverse(order.begin(),order.end());\n\
     \  }\n  topological_sort(const graph<T>&g):g(g){init();}\n  const vector<int>&get()const&{return\
     \ order;}\n  vector<int>get()&&{return move(order);}\n};\n/**\n * @brief Topological\
     \ Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8)\n*/\n#line 4 \"\
@@ -128,7 +129,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_4_B.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 22:55:32+01:00'
+  timestamp: '2022-07-12 23:15:38+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_4_B.test.cpp

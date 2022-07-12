@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/others/scc.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C
@@ -104,16 +104,16 @@ data:
     \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
     \    a+=padding;\n      b+=padding;\n      if(weighed)cin>>c;\n      add_edge(a,b,c,direct);\n\
     \    }\n  }\n};\nstruct unweighted_edge{\n  template<class... Args>unweighted_edge(const\
-    \ Args&...){}\n  operator int()const{return 1;}\n};\nusing unweighted_graph=graph<unweighted_edge>;\n\
-    /**\n * @brief graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
-    \u30C8)\n*/\n#line 2 \"Graph/others/scc.hpp\"\nstruct SCC:unweighted_graph{\n\
-    \  public:\n  using unweighted_graph::g;\n  vector<vector<int>>group;\n  unweighted_graph\
-    \ dag;\n  SCC(){}\n  SCC(int n):unweighted_graph(n){}\n  SCC(const unweighted_graph&g):unweighted_graph(g){}\n\
-    \  void build(){\n    rg=unweighted_graph(g.size());\n    for(size_t i=0;i<g.size();i++){\n\
-    \      for(auto&e:g[i]){\n        rg.add_edge(e.to,i,e.cost,true);\n      }\n\
-    \    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n    for(size_t\
-    \ i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n    int cnt=0;\n\
-    \    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n    dag=unweighted_graph(cnt);\n\
+    \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
+    \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/others/scc.hpp\"\
+    \nstruct SCC:unweighted_graph{\n  public:\n  using unweighted_graph::g;\n  vector<vector<int>>group;\n\
+    \  unweighted_graph dag;\n  SCC(){}\n  SCC(int n):unweighted_graph(n){}\n  SCC(const\
+    \ unweighted_graph&g):unweighted_graph(g){}\n  void build(){\n    rg=unweighted_graph(g.size());\n\
+    \    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n        rg.add_edge(e.to,i,e.cost,true);\n\
+    \      }\n    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n\
+    \    for(size_t i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n\
+    \    int cnt=0;\n    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n    dag=unweighted_graph(cnt);\n\
     \    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n        if(comp[i]!=comp[e.to])dag.add_edge(comp[i],comp[e.to],true);\n\
     \      }\n    }\n    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
     \  }\n  void add(int u,int v){unweighted_graph::add_edge(u,v,true);}\n  int operator[](int\
@@ -139,8 +139,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_3_C.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 22:55:32+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-12 23:15:38+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_3_C.test.cpp
 layout: document

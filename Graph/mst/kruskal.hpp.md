@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Data_Structure/dsu.hpp
     title: Disjoint Set Union(Union Find)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -43,14 +43,15 @@ data:
     \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
     \    a+=padding;\n      b+=padding;\n      if(weighed)cin>>c;\n      add_edge(a,b,c,direct);\n\
     \    }\n  }\n};\nstruct unweighted_edge{\n  template<class... Args>unweighted_edge(const\
-    \ Args&...){}\n  operator int()const{return 1;}\n};\nusing unweighted_graph=graph<unweighted_edge>;\n\
-    /**\n * @brief graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
-    \u30C8)\n*/\n#line 3 \"Graph/mst/kruskal.hpp\"\ntemplate<typename T>\nstruct mst{\n\
-    \  T cost;\n  edges<T>es;\n};\ntemplate<typename T>\nmst<T>kruskal(edges<T>&ed,int\
-    \ v){\n  sort(ed.begin(),ed.end());\n  dsu d(v);\n  T total=0;\n  edges<T>es;\n\
-    \  for(auto &e:ed){\n    if(!d.same(e.to,e.from)){\n      d.merge(e.to,e.from);\n\
-    \      es.emplace_back(e);\n      total+=e.cost;\n    }\n  }\n  return {total,es};\n\
-    }\n/**\n * @brief Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)\n*/\n"
+    \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
+    \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/mst/kruskal.hpp\"\
+    \ntemplate<typename T>\nstruct mst{\n  T cost;\n  edges<T>es;\n};\ntemplate<typename\
+    \ T>\nmst<T>kruskal(edges<T>&ed,int v){\n  sort(ed.begin(),ed.end());\n  dsu d(v);\n\
+    \  T total=0;\n  edges<T>es;\n  for(auto &e:ed){\n    if(!d.same(e.to,e.from)){\n\
+    \      d.merge(e.to,e.from);\n      es.emplace_back(e);\n      total+=e.cost;\n\
+    \    }\n  }\n  return {total,es};\n}\n/**\n * @brief Kruskal(\u6700\u5C0F\u5168\
+    \u57DF\u6728)\n*/\n"
   code: "#include\"../../Data_Structure/dsu.hpp\"\n#include\"../graph_template.hpp\"\
     \ntemplate<typename T>\nstruct mst{\n  T cost;\n  edges<T>es;\n};\ntemplate<typename\
     \ T>\nmst<T>kruskal(edges<T>&ed,int v){\n  sort(ed.begin(),ed.end());\n  dsu d(v);\n\
@@ -64,7 +65,7 @@ data:
   isVerificationFile: false
   path: Graph/mst/kruskal.hpp
   requiredBy: []
-  timestamp: '2022-07-12 22:55:32+01:00'
+  timestamp: '2022-07-12 23:15:38+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_2_A.test.cpp

@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':heavy_check_mark:'
     path: Graph/others/detect_cycle.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -103,17 +103,17 @@ data:
     \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
     \    a+=padding;\n      b+=padding;\n      if(weighed)cin>>c;\n      add_edge(a,b,c,direct);\n\
     \    }\n  }\n};\nstruct unweighted_edge{\n  template<class... Args>unweighted_edge(const\
-    \ Args&...){}\n  operator int()const{return 1;}\n};\nusing unweighted_graph=graph<unweighted_edge>;\n\
-    /**\n * @brief graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
-    \u30C8)\n*/\n#line 2 \"Graph/others/detect_cycle.hpp\"\ntemplate<typename T>\n\
-    bool detect_cycle(const graph<T>&g){\n  const int n=g.size();\n  vector<int>deg(n,0);\n\
-    \  for(int i=0;i<n;i++)for(auto &e:g[i])deg[e]++;\n  queue<int>q;\n  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n\
-    \  while(!q.empty()){\n    int u=q.front();q.pop();\n    for(auto &e:g[u]){\n\
-    \      deg[e]--;\n      if(deg[e]==0)q.push(e);\n    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return\
-    \ true;\n  return false;\n}\n/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\
-    \u51FA)\n*/\n#line 4 \"test/aoj/GRL/GRL_4_A.test.cpp\"\nint main(){\n  int v,e;\n\
-    \  cin>>v>>e;\n  graph<int>g(v);\n  g.read(e,0,false,true);\n  cout<<detect_cycle(g)<<endl;\n\
-    }\n"
+    \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
+    \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/others/detect_cycle.hpp\"\
+    \ntemplate<typename T>\nbool detect_cycle(const graph<T>&g){\n  const int n=g.size();\n\
+    \  vector<int>deg(n,0);\n  for(int i=0;i<n;i++)for(auto &e:g[i])deg[e]++;\n  queue<int>q;\n\
+    \  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n  while(!q.empty()){\n    int\
+    \ u=q.front();q.pop();\n    for(auto &e:g[u]){\n      deg[e]--;\n      if(deg[e]==0)q.push(e);\n\
+    \    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return true;\n  return false;\n\
+    }\n/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\u51FA)\n*/\n#line 4 \"test/aoj/GRL/GRL_4_A.test.cpp\"\
+    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  graph<int>g(v);\n  g.read(e,0,false,true);\n\
+    \  cout<<detect_cycle(g)<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/others/detect_cycle.hpp\"\
     \nint main(){\n  int v,e;\n  cin>>v>>e;\n  graph<int>g(v);\n  g.read(e,0,false,true);\n\
@@ -125,7 +125,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_4_A.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 22:17:45+01:00'
+  timestamp: '2022-07-12 23:15:38+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_4_A.test.cpp
