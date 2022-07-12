@@ -4,7 +4,7 @@
 int main(){
   int n;
   cin>>n;
-  TreeDiameter<int>g(n);
+  TreeDiameter g(n);
   g.read(n-1,0,true);
   cout<<g.build()<<endl;
 }

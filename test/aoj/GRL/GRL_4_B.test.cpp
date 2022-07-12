@@ -4,7 +4,7 @@
 int main(){
   int v,e;
   cin>>v>>e;
-  graph<int>g(v);
+  graph g(v);
   g.read(e,0,false,true);
   for(auto i:topological_sort<int>(g).get())cout<<i<<endl;
 }

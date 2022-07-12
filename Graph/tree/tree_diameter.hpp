@@ -2,9 +2,8 @@
 #include"../graph_template.hpp"
 template<typename T=int>
 struct TreeDiameter:graph<T>{
-  using graph<T>::graph;
   using graph<T>::g;
-  vector<edge<T>>path;
+  edges<T>path;
   T build(){
     to.assign(g.size(),-1);
     auto p=dfs(0,-1);
@@ -18,6 +17,8 @@ struct TreeDiameter:graph<T>{
     }
     return q.first;
   }
+  TreeDiameter(){}
+  TreeDiameter(int n):graph<T>(n){}
   TreeDiameter(const graph<T>&g):graph<T>(g){}
   private:
   vector<int>to;

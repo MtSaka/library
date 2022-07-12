@@ -8,7 +8,7 @@ int main(){
   for(int i=1;i<n;i++){
     int u;
     cin>>u;
-    g.add_edge(u,i);
+    g.add_edge(u,i,false);
   }
   g.build();
   while(q--){

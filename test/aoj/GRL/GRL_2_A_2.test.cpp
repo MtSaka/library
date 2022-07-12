@@ -4,7 +4,7 @@
 int main(){
   int v,e;
   cin>>v>>e;
-  graph<>g(v);
+  graph g(v);
   g.read(e,0,true);
   cout<<prim(g).cost<<endl;
 }

@@ -11,7 +11,7 @@ int main(){
     while(k--){
       int j;
       cin>>j;
-      g.add_edge(i,j);
+      g.add_edge(i,j,false);
     }
   }
   int q;

@@ -3,15 +3,15 @@
 template<typename T>
 struct mst{
   T cost;
-  edges<T>edges;
+  edges<T>es;
 };
 template<typename T>
-mst<T>kruskal(edges<T>&edges,int v){
-  sort(edges.begin(),edges.end());
+mst<T>kruskal(edges<T>&ed,int v){
+  sort(ed.begin(),ed.end());
   dsu d(v);
   T total=0;
   edges<T>es;
-  for(auto &e:edges){
+  for(auto &e:ed){
     if(!d.same(e.to,e.from)){
       d.merge(e.to,e.from);
       es.emplace_back(e);
