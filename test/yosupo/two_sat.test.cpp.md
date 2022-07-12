@@ -1,24 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/others/scc.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/others/two_sat.hpp
     title: Tow Satisfiability(2-SAT)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/two_sat
@@ -137,13 +137,13 @@ data:
     \ main(){\n  string s;\n  int n,m;\n  cin>>s>>s>>n>>m;\n  two_sat ts(n);\n  while(m--){\n\
     \    int a,b;\n    cin>>a>>b>>s;\n    ts.add_clause(abs(a)-1,a>0,abs(b)-1,b>0);\n\
     \  }\n  auto ans=ts.calc();\n  if(ans.empty())fin(\"s UNSATISFIABLE\");\n  print(\"\
-    S SATISFIABLE\");\n  cout<<\"v \";\n  rep(i,n)cout<<(ans[i]?i+1:-i-1)<<\" \";\n\
+    s SATISFIABLE\");\n  cout<<\"v \";\n  rep(i,n)cout<<(ans[i]?i+1:-i-1)<<\" \";\n\
     \  cout<<0<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/two_sat\"\n#include\"../../template/template.hpp\"\
     \n#include\"../../Graph/others/two_sat.hpp\"\nint main(){\n  string s;\n  int\
     \ n,m;\n  cin>>s>>s>>n>>m;\n  two_sat ts(n);\n  while(m--){\n    int a,b;\n  \
     \  cin>>a>>b>>s;\n    ts.add_clause(abs(a)-1,a>0,abs(b)-1,b>0);\n  }\n  auto ans=ts.calc();\n\
-    \  if(ans.empty())fin(\"s UNSATISFIABLE\");\n  print(\"S SATISFIABLE\");\n  cout<<\"\
+    \  if(ans.empty())fin(\"s UNSATISFIABLE\");\n  print(\"s SATISFIABLE\");\n  cout<<\"\
     v \";\n  rep(i,n)cout<<(ans[i]?i+1:-i-1)<<\" \";\n  cout<<0<<endl;\n}"
   dependsOn:
   - template/template.hpp
@@ -153,8 +153,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/two_sat.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 20:33:39+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-12 20:37:45+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/two_sat.test.cpp
 layout: document

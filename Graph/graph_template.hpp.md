@@ -11,7 +11,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/others/detect_cycle.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/others/scc.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
@@ -19,7 +19,7 @@ data:
     path: Graph/others/topological_sort.hpp
     title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
       )"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/others/two_sat.hpp
     title: Tow Satisfiability(2-SAT)
   - icon: ':heavy_check_mark:'
@@ -96,12 +96,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/two_sat.test.cpp
     title: test/yosupo/two_sat.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
       \u30C8)"
@@ -158,7 +158,7 @@ data:
   - Graph/mst/kruskal.hpp
   - Graph/mst/prim.hpp
   timestamp: '2022-01-22 22:12:05+00:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_1_B.test.cpp
   - test/aoj/GRL/GRL_2_A.test.cpp

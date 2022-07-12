@@ -91,7 +91,7 @@ data:
       title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: Graph
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Graph/graph_template.hpp
       title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
         )"
@@ -108,7 +108,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/others/detect_cycle.hpp
       title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Graph/others/scc.hpp
       title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
@@ -116,7 +116,7 @@ data:
       path: Graph/others/topological_sort.hpp
       title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
         )"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/others/two_sat.hpp
       title: Tow Satisfiability(2-SAT)
   - name: Graph/shortest_path
@@ -270,7 +270,7 @@ data:
       title: String/run_length.hpp
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -536,7 +536,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/tree_diameter.test.cpp
       title: test/yosupo/tree_diameter.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/two_sat.test.cpp
       title: test/yosupo/two_sat.test.cpp
     - icon: ':heavy_check_mark:'
