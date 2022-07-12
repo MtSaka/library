@@ -1,17 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Data_Structure/dsu.hpp
     title: Disjoint Set Union(Union Find)
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_2_A.test.cpp
+    title: test/aoj/GRL/GRL_2_A.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
     links: []
@@ -62,8 +65,9 @@ data:
   path: Graph/mst/kruskal.hpp
   requiredBy: []
   timestamp: '2022-07-12 21:46:57+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/aoj/GRL/GRL_2_A.test.cpp
 documentation_of: Graph/mst/kruskal.hpp
 layout: document
 redirect_from:

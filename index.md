@@ -15,7 +15,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/disjoint_sparse_table.hpp
       title: Disjoint Sparse Table
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Data_Structure/dsu.hpp
       title: Disjoint Set Union(Union Find)
     - icon: ':heavy_check_mark:'
@@ -54,7 +54,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/segtree_monoids.hpp
       title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Data_Structure/sparse_table.hpp
       title: Sparse Table
     - icon: ':heavy_check_mark:'
@@ -83,73 +83,73 @@ data:
       title: Geometry/geometry.hpp
   - name: Graph/flow
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Graph/flow/dinic.hpp
       title: "Dinic(\u6700\u5927\u6D41)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Graph/flow/ford_fulkerson.hpp
       title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: Graph
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/graph_template.hpp
       title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
         )"
   - name: Graph/mst
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/mst/kruskal.hpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/mst/prim.hpp
       title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - name: Graph/others
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/others/detect_cycle.hpp
       title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/others/scc.hpp
       title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/others/topological_sort.hpp
       title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
         )"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/others/two_sat.hpp
       title: Tow Satisfiability(2-SAT)
   - name: Graph/shortest_path
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/shortest_path/bellman_ford.hpp
       title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/shortest_path/dijkstra.hpp
       title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/shortest_path/dijkstra_path.hpp
       title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
         \u77ED\u8DEF)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/shortest_path/warshall_floyd.hpp
       title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - name: Graph/tree
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/tree/RMQ_lowest_common_ancestor.hpp
       title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':warning:'
       path: Graph/tree/centroid.hpp
       title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/tree/doubling_lowest_common_ancestor.hpp
       title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Graph/tree/tree_diameter.hpp
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: Math/convolution
@@ -270,7 +270,7 @@ data:
       title: String/run_length.hpp
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -392,7 +392,7 @@ data:
     - icon: ':x:'
       path: test/aoj/GRL/GRL_5_A.test.cpp
       title: test/aoj/GRL/GRL_5_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_B.test.cpp
       title: test/aoj/GRL/GRL_5_B.test.cpp
     - icon: ':x:'
@@ -401,10 +401,10 @@ data:
     - icon: ':x:'
       path: test/aoj/GRL/GRL_5_C_2.test.cpp
       title: test/aoj/GRL/GRL_5_C_2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_6_A.test.cpp
       title: test/aoj/GRL/GRL_6_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_6_A_2.test.cpp
       title: test/aoj/GRL/GRL_6_A_2.test.cpp
   - name: test/aoj/ITP1
