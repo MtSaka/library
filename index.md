@@ -91,7 +91,7 @@ data:
       title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: Graph
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: Graph/graph_template.hpp
       title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
         )"
@@ -105,14 +105,14 @@ data:
       title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - name: Graph/others
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/others/detect_cycle.hpp
       title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
     - icon: ':x:'
       path: Graph/others/scc.hpp
       title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/others/topological_sort.hpp
       title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
         )"
@@ -121,17 +121,17 @@ data:
       title: Tow Satisfiability(2-SAT)
   - name: Graph/shortest_path
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/shortest_path/bellman_ford.hpp
       title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/shortest_path/dijkstra.hpp
       title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/shortest_path/dijkstra_path.hpp
       title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
         \u77ED\u8DEF)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/shortest_path/warshall_floyd.hpp
       title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - name: Graph/tree
@@ -365,13 +365,13 @@ data:
       title: test/aoj/DSL/DSL_2_I.test.cpp
   - name: test/aoj/GRL
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_1_A.test.cpp
       title: test/aoj/GRL/GRL_1_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_1_B.test.cpp
       title: test/aoj/GRL/GRL_1_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_1_C.test.cpp
       title: test/aoj/GRL/GRL_1_C.test.cpp
     - icon: ':x:'
@@ -383,10 +383,10 @@ data:
     - icon: ':x:'
       path: test/aoj/GRL/GRL_3_C.test.cpp
       title: test/aoj/GRL/GRL_3_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_4_A.test.cpp
       title: test/aoj/GRL/GRL_4_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_4_B.test.cpp
       title: test/aoj/GRL/GRL_4_B.test.cpp
     - icon: ':x:'
@@ -515,7 +515,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/sharp_p_subset_sum.test.cpp
       title: test/yosupo/sharp_p_subset_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
     - icon: ':heavy_check_mark:'

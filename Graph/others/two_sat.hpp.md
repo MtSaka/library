@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':x:'
@@ -33,7 +33,7 @@ data:
     \ idx){return g[idx];}\n  inline const vector<edge<T>>&operator[](int idx)const{return\
     \ g[idx];}\n  void read(int m,int padding=-1,bool weighed=false,bool direct=false){\n\
     \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
-    \    a+=padding;\n      b+=padding;\n      if(weighed)cin>>c;\n      add_edge(a,b,c,dierct);\n\
+    \    a+=padding;\n      b+=padding;\n      if(weighed)cin>>c;\n      add_edge(a,b,c,direct);\n\
     \    }\n  }\n};\nstruct unweighted_edge{\n  template<class... Args>unweighted_edge(const\
     \ Args&...){}\n  operator int()const{return 1;}\n};\nusing unweighted_graph=graph<unweighted_edge>;\n\
     /**\n * @brief graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
@@ -81,7 +81,7 @@ data:
   isVerificationFile: false
   path: Graph/others/two_sat.hpp
   requiredBy: []
-  timestamp: '2022-07-12 21:46:57+01:00'
+  timestamp: '2022-07-12 22:17:45+01:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/two_sat.test.cpp
