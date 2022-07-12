@@ -217,15 +217,15 @@ data:
     }\nusing monoid_dual_segtree::RUQ;\nusing monoid_dual_segtree::RChminQ;\nusing\
     \ monoid_dual_segtree::RChmaxQ;\nusing monoid_dual_segtree::RAQ;\n/**\n * @brief\
     \ Monoids(\u30E2\u30CE\u30A4\u30C9)\n */\n#line 4 \"test/aoj/DSL/DSL_2_G.test.cpp\"\
-    \nint main(){\n  int n,q;cin>>n>>q;\n  RAQRSQ<ll>seg(vector<monoid_lazy_segtree::S<ll>>(n,{0,1}));\n\
-    \  while(q--){\n    INT(t);\n    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n  \
-    \    seg.apply(l-1,r,x);\n    }\n    else{\n      int l,r;cin>>l>>r;\n      cout<<seg.query(l-1,r)<<endl;\n\
+    \nint main(){\n  int n,q;cin>>n>>q;\n  RAQRSQ<ll>seg(n);\n  while(q--){\n    INT(t);\n\
+    \    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n      seg.apply(l-1,r,x);\n   \
+    \ }\n    else{\n      int l,r;cin>>l>>r;\n      cout<<seg.query(l-1,r)<<endl;\n\
     \    }\n  }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_G\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../Data_Structure/segtree_monoids.hpp\"\
-    \nint main(){\n  int n,q;cin>>n>>q;\n  RAQRSQ<ll>seg(vector<monoid_lazy_segtree::S<ll>>(n,{0,1}));\n\
-    \  while(q--){\n    INT(t);\n    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n  \
-    \    seg.apply(l-1,r,x);\n    }\n    else{\n      int l,r;cin>>l>>r;\n      cout<<seg.query(l-1,r)<<endl;\n\
+    \nint main(){\n  int n,q;cin>>n>>q;\n  RAQRSQ<ll>seg(n);\n  while(q--){\n    INT(t);\n\
+    \    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n      seg.apply(l-1,r,x);\n   \
+    \ }\n    else{\n      int l,r;cin>>l>>r;\n      cout<<seg.query(l-1,r)<<endl;\n\
     \    }\n  }\n}"
   dependsOn:
   - template/template.hpp
@@ -236,7 +236,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_G.test.cpp
   requiredBy: []
-  timestamp: '2022-07-11 02:29:10+01:00'
+  timestamp: '2022-07-12 21:46:57+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_G.test.cpp

@@ -217,16 +217,16 @@ data:
     }\nusing monoid_dual_segtree::RUQ;\nusing monoid_dual_segtree::RChminQ;\nusing\
     \ monoid_dual_segtree::RChmaxQ;\nusing monoid_dual_segtree::RAQ;\n/**\n * @brief\
     \ Monoids(\u30E2\u30CE\u30A4\u30C9)\n */\n#line 4 \"test/aoj/DSL/DSL_2_I.test.cpp\"\
-    \nint main(){\n  int n,q;cin>>n>>q;\n  RUQRSQ<int>seg(vector<monoid_lazy_segtree::S<int>>(n,{0,1}));\n\
-    \  while(q--){\n    int t;cin>>t;\n    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n\
-    \      seg.apply(l,r+1,x);\n    }\n    else{\n      int l,r;cin>>l>>r;\n     \
-    \ cout<<seg.query(l,r+1)<<endl;\n    }\n  }\n}\n"
+    \nint main(){\n  int n,q;cin>>n>>q;\n  RUQRSQ<int>seg(n);\n  while(q--){\n   \
+    \ int t;cin>>t;\n    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n      seg.apply(l,r+1,x);\n\
+    \    }\n    else{\n      int l,r;cin>>l>>r;\n      cout<<seg.query(l,r+1)<<endl;\n\
+    \    }\n  }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../Data_Structure/segtree_monoids.hpp\"\
-    \nint main(){\n  int n,q;cin>>n>>q;\n  RUQRSQ<int>seg(vector<monoid_lazy_segtree::S<int>>(n,{0,1}));\n\
-    \  while(q--){\n    int t;cin>>t;\n    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n\
-    \      seg.apply(l,r+1,x);\n    }\n    else{\n      int l,r;cin>>l>>r;\n     \
-    \ cout<<seg.query(l,r+1)<<endl;\n    }\n  }\n}"
+    \nint main(){\n  int n,q;cin>>n>>q;\n  RUQRSQ<int>seg(n);\n  while(q--){\n   \
+    \ int t;cin>>t;\n    if(t==0){\n      int l,r,x;cin>>l>>r>>x;\n      seg.apply(l,r+1,x);\n\
+    \    }\n    else{\n      int l,r;cin>>l>>r;\n      cout<<seg.query(l,r+1)<<endl;\n\
+    \    }\n  }\n}"
   dependsOn:
   - template/template.hpp
   - Data_Structure/segtree_monoids.hpp
@@ -236,7 +236,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_I.test.cpp
   requiredBy: []
-  timestamp: '2022-07-11 02:29:10+01:00'
+  timestamp: '2022-07-12 21:46:57+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_I.test.cpp
