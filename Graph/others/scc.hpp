@@ -6,6 +6,9 @@ struct SCC:Graph<T>{
   using Graph<T>::g;
   vector<vector<int>>group;
   Graph<T>dag;
+  SCC(){}
+  SCC(int n):Graph<T>(n){}
+  SCC(const Graph<T>&g):Graph<T>(g){}
   void build(){
     rg=Graph<T>(g.size());
     for(size_t i=0;i<g.size();i++){
@@ -28,7 +31,7 @@ struct SCC:Graph<T>{
     group.resize(cnt);
     for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);
   }
-  void add(int u,int v){g.add_directed_edge(u,v);}
+  void add(int u,int v){Graph<T>::add_directed_edge(u,v);}
   int operator[](int k)const{return comp[k];}
   vector<vector<int>>scc()const{return group;}
   Graph<T>DAG()const{return dag;}
