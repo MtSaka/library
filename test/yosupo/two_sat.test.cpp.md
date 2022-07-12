@@ -4,23 +4,27 @@ data:
   - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':heavy_check_mark:'
-    path: Graph/others/detect_cycle.hpp
-    title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
+  - icon: ':question:'
+    path: Graph/others/scc.hpp
+    title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
+      )"
+  - icon: ':x:'
+    path: Graph/others/two_sat.hpp
+    title: Tow Satisfiability(2-SAT)
   - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_A
+    PROBLEM: https://judge.yosupo.jp/problem/two_sat
     links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_A
-  bundledCode: "#line 1 \"test/aoj/GRL/GRL_4_A.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_A\"\
+    - https://judge.yosupo.jp/problem/two_sat
+  bundledCode: "#line 1 \"test/yosupo/two_sat.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/two_sat\"\
     \n#line 2 \"template/template.hpp\"\n//#pragma GCC target(\"avx\")\n//#pragma\
     \ GCC optimize(\"O3\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n\
     #define overload4(a,b,c,d,e,...) e\n#define overload3(a,b,c,d,...) d\n#define\
@@ -102,33 +106,60 @@ data:
     \      b+=padding;\n      c=1;\n      if(weighed)cin>>c;\n      if(direct)add_directed_edge(a,b,c);\n\
     \      else add_edge(a,b,c);\n    }\n  }\n};\ntemplate<typename T=int>\nusing\
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
-    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/others/detect_cycle.hpp\"\
-    \ntemplate<typename T>\nbool detect_cycle(const Graph<T>&g){\n  const int n=g.size();\n\
-    \  vector<int>deg(n,0);\n  for(int i=0;i<n;i++)for(auto &e:g[i])deg[e]++;\n  queue<int>q;\n\
-    \  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n  while(!q.empty()){\n    int\
-    \ u=q.front();q.pop();\n    for(auto &e:g[u]){\n      deg[e]--;\n      if(deg[e]==0)q.push(e);\n\
-    \    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return true;\n  return false;\n\
-    }\n/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\u51FA)\n*/\n#line 4 \"test/aoj/GRL/GRL_4_A.test.cpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<int>g(v);\n  g.read(e,0,false,true);\n\
-    \  cout<<detect_cycle(g)<<endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_A\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/others/detect_cycle.hpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<int>g(v);\n  g.read(e,0,false,true);\n\
-    \  cout<<detect_cycle(g)<<endl;\n}"
+    \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/others/scc.hpp\"\ntemplate<typename\
+    \ T=int>\nstruct SCC:Graph<T>{\n  public:\n  using Graph<T>::Graph;\n  using Graph<T>::g;\n\
+    \  vector<vector<int>>group;\n  Graph<T>dag;\n  SCC(){}\n  SCC(int n):Graph<T>(n){}\n\
+    \  SCC(const Graph<T>&g):Graph<T>(g){}\n  void build(){\n    rg=Graph<T>(g.size());\n\
+    \    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n        rg.add_directed_edge(e.to,i,e.cost);\n\
+    \      }\n    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n\
+    \    for(size_t i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n\
+    \    int cnt=0;\n    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n    dag=Graph<T>(cnt);\n\
+    \    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n        if(comp[i]!=comp[e.to])dag.add_directed_edge(comp[i],comp[e.to],e.cost);\n\
+    \      }\n    }\n    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
+    \  }\n  void add(int u,int v){Graph<T>::add_directed_edge(u,v);}\n  int operator[](int\
+    \ k)const{return comp[k];}\n  vector<vector<int>>scc()const{return group;}\n \
+    \ Graph<T>DAG()const{return dag;}\n  private:\n  Graph<T>rg;\n  vector<int>comp,ord;\n\
+    \  vector<bool>used;\n  void dfs(int idx){\n    if(used[idx])return;\n    used[idx]=true;\n\
+    \    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n  }\n  void rdfs(int\
+    \ idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n    for(auto&to:rg.g[idx])rdfs(to,k);\n\
+    \  }\n};\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\
+    \u5206\u5206\u89E3)\n*/\n#line 3 \"Graph/others/two_sat.hpp\"\nstruct two_sat{\n\
+    \  private:\n  int n;\n  SCC<int>scc;\n  vector<bool>ans;\n  public:\n  two_sat(){}\n\
+    \  two_sat(int n):n(n),scc(2*n),ans(n){}\n  void add_clause(int i,bool f,int j,bool\
+    \ g){    \n    scc.add(i+(f?n:0),j+(g?0:n));\n    scc.add(j+(g?n:0),i+(f?0:n));\n\
+    \  }\n  void add_equal(int i,int j){\n    add_clause(i,true,j,false);\n    add_clause(i,false,j,true);\n\
+    \  }\n  void add_neq(int i,int j){\n    add_clause(i,true,j,true);\n    add_clause(i,false,j,false);\n\
+    \  }\n  void add_true(int i){\n    scc.add(i+n,i);\n  }\n  void add_false(int\
+    \ i){\n    scc.add(i,i+n);\n  }\n  vector<bool>calc(){\n    scc.build();\n   \
+    \ for(int i=0;i<n;i++){\n      if(scc[i]==scc[i+n])return vector<bool>();\n  \
+    \    ans[i]=scc[i+n]<scc[i];\n    }\n    return ans;\n  }\n};\n/**\n * @brief\
+    \ Tow Satisfiability(2-SAT)\n*/\n#line 4 \"test/yosupo/two_sat.test.cpp\"\nint\
+    \ main(){\n  string s;\n  int n,m;\n  cin>>s>>s>>n>>m;\n  two_sat ts(n);\n  while(m--){\n\
+    \    int a,b;\n    cin>>a>>b>>s;\n    ts.add_clause(abs(a)-1,a>0,abs(b)-1,b>0);\n\
+    \  }\n  auto ans=ts.calc();\n  if(ans.empty())fin(\"s UNSATISFIABLE\");\n  print(\"\
+    S SATISFIABLE\");\n  cout<<\"v \";\n  rep(i,n)cout<<(ans[i]?i+1:-i-1)<<\" \";\n\
+    \  cout<<0<<endl;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/two_sat\"\n#include\"../../template/template.hpp\"\
+    \n#include\"../../Graph/others/two_sat.hpp\"\nint main(){\n  string s;\n  int\
+    \ n,m;\n  cin>>s>>s>>n>>m;\n  two_sat ts(n);\n  while(m--){\n    int a,b;\n  \
+    \  cin>>a>>b>>s;\n    ts.add_clause(abs(a)-1,a>0,abs(b)-1,b>0);\n  }\n  auto ans=ts.calc();\n\
+    \  if(ans.empty())fin(\"s UNSATISFIABLE\");\n  print(\"S SATISFIABLE\");\n  cout<<\"\
+    v \";\n  rep(i,n)cout<<(ans[i]?i+1:-i-1)<<\" \";\n  cout<<0<<endl;\n}"
   dependsOn:
   - template/template.hpp
-  - Graph/others/detect_cycle.hpp
+  - Graph/others/two_sat.hpp
+  - Graph/others/scc.hpp
   - Graph/graph_template.hpp
   isVerificationFile: true
-  path: test/aoj/GRL/GRL_4_A.test.cpp
+  path: test/yosupo/two_sat.test.cpp
   requiredBy: []
-  timestamp: '2022-07-03 21:11:59+01:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-12 20:33:39+01:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/aoj/GRL/GRL_4_A.test.cpp
+documentation_of: test/yosupo/two_sat.test.cpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL/GRL_4_A.test.cpp
-- /verify/test/aoj/GRL/GRL_4_A.test.cpp.html
-title: test/aoj/GRL/GRL_4_A.test.cpp
+- /verify/test/yosupo/two_sat.test.cpp
+- /verify/test/yosupo/two_sat.test.cpp.html
+title: test/yosupo/two_sat.test.cpp
 ---
