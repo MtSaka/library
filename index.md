@@ -116,6 +116,9 @@ data:
       path: Graph/others/topological_sort.hpp
       title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
         )"
+    - icon: ':warning:'
+      path: Graph/others/two_sat.hpp
+      title: Tow Satisfiability(2-SAT)
   - name: Graph/shortest_path
     pages:
     - icon: ':heavy_check_mark:'

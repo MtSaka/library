@@ -105,14 +105,15 @@ data:
     \ Edges=vector<Edge<T>>;\n/**\n * @brief Graph Template(\u30B0\u30E9\u30D5\u30C6\
     \u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/others/scc.hpp\"\ntemplate<typename\
     \ T=int>\nstruct SCC:Graph<T>{\n  public:\n  using Graph<T>::Graph;\n  using Graph<T>::g;\n\
-    \  vector<vector<int>>group;\n  Graph<T>dag;\n  void build(){\n    rg=Graph<T>(g.size());\n\
+    \  vector<vector<int>>group;\n  Graph<T>dag;\n  SCC(){}\n  SCC(int n):Graph<T>(n){}\n\
+    \  SCC(const Graph<T>&g):Graph<T>(g){}\n  void build(){\n    rg=Graph<T>(g.size());\n\
     \    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n        rg.add_directed_edge(e.to,i,e.cost);\n\
     \      }\n    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n\
     \    for(size_t i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n\
     \    int cnt=0;\n    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n    dag=Graph<T>(cnt);\n\
     \    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n        if(comp[i]!=comp[e.to])dag.add_directed_edge(comp[i],comp[e.to],e.cost);\n\
     \      }\n    }\n    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
-    \  }\n  void add(int u,int v){g.add_directed_edge(u,v);}\n  int operator[](int\
+    \  }\n  void add(int u,int v){Graph<T>::add_directed_edge(u,v);}\n  int operator[](int\
     \ k)const{return comp[k];}\n  vector<vector<int>>scc()const{return group;}\n \
     \ Graph<T>DAG()const{return dag;}\n  private:\n  Graph<T>rg;\n  vector<int>comp,ord;\n\
     \  vector<bool>used;\n  void dfs(int idx){\n    if(used[idx])return;\n    used[idx]=true;\n\
@@ -134,7 +135,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '2022-07-03 21:11:59+01:00'
+  timestamp: '2022-07-12 18:04:30+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp

@@ -311,15 +311,15 @@ data:
   timestamp: '2022-07-11 02:29:10+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/point_add_range_sum1.test.cpp
-  - test/aoj/DSL/DSL_2_D.test.cpp
   - test/aoj/DSL/DSL_2_E.test.cpp
-  - test/aoj/DSL/DSL_2_I.test.cpp
-  - test/aoj/DSL/DSL_2_B2.test.cpp
-  - test/aoj/DSL/DSL_2_G.test.cpp
-  - test/aoj/DSL/DSL_2_H.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
   - test/aoj/DSL/DSL_2_F.test.cpp
+  - test/aoj/DSL/DSL_2_H.test.cpp
+  - test/aoj/DSL/DSL_2_G.test.cpp
+  - test/aoj/DSL/DSL_2_D.test.cpp
+  - test/aoj/DSL/DSL_2_B2.test.cpp
+  - test/aoj/DSL/DSL_2_I.test.cpp
+  - test/yosupo/point_add_range_sum1.test.cpp
 documentation_of: Data_Structure/segtree_monoids.hpp
 layout: document
 redirect_from:

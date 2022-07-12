@@ -81,8 +81,8 @@ data:
   timestamp: '2022-07-02 01:33:27+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/lca2.test.cpp
   - test/aoj/GRL/GRL_5_C_2.test.cpp
+  - test/yosupo/lca2.test.cpp
 documentation_of: Graph/tree/RMQ_lowest_common_ancestor.hpp
 layout: document
 redirect_from:
