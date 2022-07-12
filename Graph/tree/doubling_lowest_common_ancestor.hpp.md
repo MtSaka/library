@@ -9,6 +9,9 @@ data:
   - icon: ':x:'
     path: test/aoj/GRL/GRL_5_C_1.test.cpp
     title: test/aoj/GRL/GRL_5_C_1.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/lca1.test.cpp
+    title: test/yosupo/lca1.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -77,6 +80,7 @@ data:
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/GRL/GRL_5_C_1.test.cpp
+  - test/yosupo/lca1.test.cpp
 documentation_of: Graph/tree/doubling_lowest_common_ancestor.hpp
 layout: document
 redirect_from:

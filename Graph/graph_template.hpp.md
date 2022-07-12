@@ -82,6 +82,9 @@ data:
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
   - icon: ':x:'
+    path: test/yosupo/lca1.test.cpp
+    title: test/yosupo/lca1.test.cpp
+  - icon: ':x:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
   - icon: ':x:'
@@ -175,6 +178,7 @@ data:
   - test/aoj/GRL/GRL_5_C_2.test.cpp
   - test/yosupo/two_sat.test.cpp
   - test/yosupo/lca2.test.cpp
+  - test/yosupo/lca1.test.cpp
   - test/yosupo/scc.test.cpp
   - test/yosupo/shortest_path.test.cpp
   - test/yosupo/tree_diameter.test.cpp

@@ -172,6 +172,9 @@ data:
     path: test/yosupo/kth_root_integer.test.cpp
     title: test/yosupo/kth_root_integer.test.cpp
   - icon: ':x:'
+    path: test/yosupo/lca1.test.cpp
+    title: test/yosupo/lca1.test.cpp
+  - icon: ':x:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -461,6 +464,7 @@ data:
   - test/yosupo/two_sat.test.cpp
   - test/yosupo/polynomial_interpolation.test.cpp
   - test/yosupo/lca2.test.cpp
+  - test/yosupo/lca1.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/scc.test.cpp
