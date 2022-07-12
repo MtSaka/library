@@ -1,9 +1,9 @@
 #pragma once
 #include"../graph_template.hpp"
 template<typename T=int>
-struct TreeDiameter:Graph<T>{
-  using Graph<T>::Graph;
-  using Graph<T>::g;
+struct TreeDiameter:graph<T>{
+  using graph<T>::graph;
+  using graph<T>::g;
   vector<Edge<T>>path;
   T build(){
     to.assign(g.size(),-1);
@@ -18,7 +18,7 @@ struct TreeDiameter:Graph<T>{
     }
     return q.first;
   }
-  TreeDiameter(const Graph<T>&g):Graph<T>(g){}
+  TreeDiameter(const graph<T>&g):graph<T>(g){}
   private:
   vector<int>to;
   pair<T,int>dfs(int idx,int par){

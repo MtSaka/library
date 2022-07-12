@@ -1,47 +1,52 @@
 #pragma once
 template<typename T=int>
-struct Edge{
+struct edge{
   int from,to;
   T cost;
   int idx;
-  Edge(){}
-  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}
+  edge(){}
+  edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}
   operator int()const{return to;}
-  bool operator<(const Edge&e)const{return cost<e.cost;}
+  bool operator<(const edge&e)const{return cost<e.cost;}
 };
 template<typename T=int>
-struct Graph{
-  vector<vector<Edge<T>>>g;
+using edges=vector<edge<T>>;
+template<typename T=int>
+struct graph{
+  vector<vector<edge<T>>>g;
   int es;
-  Graph(){}
-  explicit Graph(int n):g(n),es(0){}
+  graph(){}
+  explicit graph(int n):g(n),es(0){}
   size_t size()const{return g.size();}
   size_t edge_size()const{return es;}
-  void add_directed_edge(int from,int to,T cost=1){
-    g[from].emplace_back(from,to,cost,es++);
-  }
-  void add_edge(int from,int to,T cost=1){
+  void add_edge(int from,int to,T cost=1,bool direct=false){
     g[from].emplace_back(from,to,cost,es);
-    g[to].emplace_back(to,from,cost,es++);
+    if(!direct)g[to].emplace_back(to,from,cost,es);
+    es++;
   }
-  inline vector<Edge<T>>&operator[](int idx){return g[idx];}
-  inline const vector<Edge<T>>&operator[](int idx)const{return g[idx];}
+  void add_edge(int from,int to,bool direct=false){
+    g[from].emplace_back(from,to,1,es);
+    if(!direct)g[to].emplace_back(to,from,1,es);
+  }
+  inline vector<edge<T>>&operator[](int idx){return g[idx];}
+  inline const vector<edge<T>>&operator[](int idx)const{return g[idx];}
   void read(int m,int padding=-1,bool weighed=false,bool direct=false){
     int a,b;
-    T c;
+    T c=T(1);
     for(int i=0;i<m;i++){
       cin>>a>>b;
       a+=padding;
       b+=padding;
-      c=1;
       if(weighed)cin>>c;
-      if(direct)add_directed_edge(a,b,c);
-      else add_edge(a,b,c);
+      add_edge(a,b,c,dierct);
     }
   }
 };
-template<typename T=int>
-using Edges=vector<Edge<T>>;
+struct unweighted_edge{
+  template<class... Args>unweighted_edge(const Args&...){}
+  operator int()const{return 1;}
+};
+using unweighted_graph=graph<unweighted_edge>;
 /**
- * @brief Graph Template(グラフテンプレート)
+ * @brief graph Template(グラフテンプレート)
 */

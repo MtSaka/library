@@ -2,12 +2,12 @@
 #include"../graph_template.hpp"
 #include"../../Data_Structure/sparse_table.hpp"
 template<typename T=int>
-struct RMQ_LCA:Graph<T>{
-  using Graph<T>::g;
+struct RMQ_LCA:graph<T>{
+  using graph<T>::g;
   using F=function<int(int,int)>;
   vector<int>ord,dep,in;
-  RMQ_LCA(int n):Graph<T>(n){}
-  RMQ_LCA(const Graph<T>&g):Graph<T>(g){}
+  RMQ_LCA(int n):graph<T>(n){}
+  RMQ_LCA(const graph<T>&g):graph<T>(g){}
   void build(int root=0){
     in.resize(g.size());
     dfs(root,-1,0);

@@ -1,10 +1,10 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C"
 #include"../../../template/template.hpp"
-#include"../../../Graph/shortest_path/warshall_floyd.hpp"
+#include"../../../graph/shortest_path/warshall_floyd.hpp"
 int main(){
   int v,e;
   cin>>v>>e;
-  Graph<long long>g(v);
+  graph<long long>g(v);
   g.read(e,0,true,true);
   auto d=warshall_floyd(g);
   for(int i=0;i<v;i++){

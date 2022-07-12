@@ -1,6 +1,6 @@
 #include"../graph_template.hpp"
 template<typename T>
-bool detect_cycle(const Graph<T>&g){
+bool detect_cycle(const graph<T>&g){
   const int n=g.size();
   vector<int>deg(n,0);
   for(int i=0;i<n;i++)for(auto &e:g[i])deg[e]++;

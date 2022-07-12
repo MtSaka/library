@@ -1,19 +1,17 @@
 #include"../graph_template.hpp"
-template<typename T=int>
-struct SCC:Graph<T>{
+struct SCC:unweighted_graph{
   public:
-  using Graph<T>::Graph;
-  using Graph<T>::g;
+  using unweighted_graph::g;
   vector<vector<int>>group;
-  Graph<T>dag;
+  unweighted_graph dag;
   SCC(){}
-  SCC(int n):Graph<T>(n){}
-  SCC(const Graph<T>&g):Graph<T>(g){}
+  SCC(int n):unweighted_graph(n){}
+  SCC(const unweighted_graph&g):unweighted_graph(g){}
   void build(){
-    rg=Graph<T>(g.size());
+    rg=unweighted_graph(g.size());
     for(size_t i=0;i<g.size();i++){
       for(auto&e:g[i]){
-        rg.add_directed_edge(e.to,i,e.cost);
+        rg.add_edge(e.to,i,e.cost,true);
       }
     }
     comp.assign(g.size(),-1);
@@ -22,21 +20,21 @@ struct SCC:Graph<T>{
     reverse(ord.begin(),ord.end());
     int cnt=0;
     for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;
-    dag=Graph<T>(cnt);
+    dag=unweighted_graph(cnt);
     for(size_t i=0;i<g.size();i++){
       for(auto&e:g[i]){
-        if(comp[i]!=comp[e.to])dag.add_directed_edge(comp[i],comp[e.to],e.cost);
+        if(comp[i]!=comp[e.to])dag.add_edge(comp[i],comp[e.to],true);
       }
     }
     group.resize(cnt);
     for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);
   }
-  void add(int u,int v){Graph<T>::add_directed_edge(u,v);}
+  void add(int u,int v){unweighted_graph::add_edge(u,v,true);}
   int operator[](int k)const{return comp[k];}
   vector<vector<int>>scc()const{return group;}
-  Graph<T>DAG()const{return dag;}
+  unweighted_graph DAG()const{return dag;}
   private:
-  Graph<T>rg;
+  unweighted_graph rg;
   vector<int>comp,ord;
   vector<bool>used;
   void dfs(int idx){

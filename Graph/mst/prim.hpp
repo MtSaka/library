@@ -5,7 +5,7 @@ struct mst{
   Edges<T>edges;
 };
 template<typename T>
-mst<T>prim(const Graph<T>&g){
+mst<T>prim(const graph<T>&g){
   T sum=T();
   vector<bool>used(g.size(),false);
   vector<Edge<T>>dist(g.size());

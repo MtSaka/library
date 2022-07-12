@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/two_sat"
 #include"../../template/template.hpp"
-#include"../../Graph/others/two_sat.hpp"
+#include"../../graph/others/two_sat.hpp"
 int main(){
   string s;
   int n,m;

@@ -2,7 +2,7 @@
 template<typename T>
 struct topological_sort{
   int n;
-  const Graph<T>&g;
+  const graph<T>&g;
   vector<int>order;
   vector<bool>seen;
   void dfs(int v){
@@ -17,7 +17,7 @@ struct topological_sort{
     for(int i=0;i<n;i++)if(!seen[i])dfs(i);
     reverse(order.begin(),order.end());
   }
-  topological_sort(const Graph<T>&g):g(g){init();}
+  topological_sort(const graph<T>&g):g(g){init();}
   const vector<int>&get()const&{return order;}
   vector<int>get()&&{return move(order);}
 };

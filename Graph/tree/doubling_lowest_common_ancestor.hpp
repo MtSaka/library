@@ -1,14 +1,14 @@
 #pragma once
 #include"../graph_template.hpp"
 template<typename T=int>
-struct Doubling_LCA:Graph<T>{
-  using Graph<T>::g;
+struct Doubling_LCA:graph<T>{
+  using graph<T>::g;
   const int lg;
   vector<int>dep;
   vector<T>sum;
   vector<vector<int>>table;
-  Doubling_LCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}
-  Doubling_LCA(const Graph<T>&g):Graph<T>(g),lg(32-__builtin_clz(g.size())){}
+  Doubling_LCA(int n):graph<T>(n),lg(32-__builtin_clz(n)){}
+  Doubling_LCA(const graph<T>&g):graph<T>(g),lg(32-__builtin_clz(g.size())){}
   void build(int root=0){
     dep.assign(g.size(),0);
     sum.assign(g.size(),0);
