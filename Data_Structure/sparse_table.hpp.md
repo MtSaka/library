@@ -2,22 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Sparse Table
     links: []
@@ -47,7 +47,7 @@ data:
   requiredBy:
   - Graph/tree/RMQ_lowest_common_ancestor.hpp
   timestamp: '2022-06-02 20:57:01+01:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_5_C_2.test.cpp
   - test/yosupo/lca2.test.cpp

@@ -5,7 +5,7 @@ data:
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/others/two_sat.hpp
     title: Tow Satisfiability(2-SAT)
   _extendedVerifiedWith:
@@ -15,12 +15,12 @@ data:
   - icon: ':x:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/two_sat.test.cpp
     title: test/yosupo/two_sat.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\
       \u89E3)"
@@ -86,7 +86,7 @@ data:
   requiredBy:
   - Graph/others/two_sat.hpp
   timestamp: '2022-07-12 22:17:45+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/GRL/GRL_3_C.test.cpp
   - test/yosupo/two_sat.test.cpp

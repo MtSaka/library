@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/dsu.hpp
     title: Disjoint Set Union(Union Find)
   - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
@@ -118,19 +118,17 @@ data:
     \ Args&...){}\n  operator int()const{return 1;}\n};\nusing unweighted_graph=graph<unweighted_edge>;\n\
     /**\n * @brief graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
     \u30C8)\n*/\n#line 3 \"Graph/mst/kruskal.hpp\"\ntemplate<typename T>\nstruct mst{\n\
-    \  T cost;\n  edges<T>edges;\n};\ntemplate<typename T>\nmst<T>kruskal(edges<T>&edges,int\
-    \ v){\n  sort(edges.begin(),edges.end());\n  dsu d(v);\n  T total=0;\n  edges<T>es;\n\
-    \  for(auto &e:edges){\n    if(!d.same(e.to,e.from)){\n      d.merge(e.to,e.from);\n\
+    \  T cost;\n  edges<T>es;\n};\ntemplate<typename T>\nmst<T>kruskal(edges<T>&ed,int\
+    \ v){\n  sort(ed.begin(),ed.end());\n  dsu d(v);\n  T total=0;\n  edges<T>es;\n\
+    \  for(auto &e:ed){\n    if(!d.same(e.to,e.from)){\n      d.merge(e.to,e.from);\n\
     \      es.emplace_back(e);\n      total+=e.cost;\n    }\n  }\n  return {total,es};\n\
     }\n/**\n * @brief Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)\n*/\n#line 4 \"test/aoj/GRL/GRL_2_A.test.cpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  edges<long long>edges(e);\n  for(auto\
-    \ &i:edges)cin>>i.from>>i.to>>i.cost;\n  auto ans=kruskal(edges,v);\n  cout<<ans.cost<<endl;\n\
-    }\n"
+    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  edges<long long>ed(e);\n  for(auto\
+    \ &i:ed)cin>>i.from>>i.to>>i.cost;\n  cout<<kruskal(ed,v).cost<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/mst/kruskal.hpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  edges<long long>edges(e);\n  for(auto\
-    \ &i:edges)cin>>i.from>>i.to>>i.cost;\n  auto ans=kruskal(edges,v);\n  cout<<ans.cost<<endl;\n\
-    }"
+    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  edges<long long>ed(e);\n  for(auto\
+    \ &i:ed)cin>>i.from>>i.to>>i.cost;\n  cout<<kruskal(ed,v).cost<<endl;\n}"
   dependsOn:
   - template/template.hpp
   - Graph/mst/kruskal.hpp
@@ -139,8 +137,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 22:30:34+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-12 22:55:32+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_2_A.test.cpp
 layout: document

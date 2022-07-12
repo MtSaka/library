@@ -4,18 +4,18 @@ data:
   - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: Graph/others/scc.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/two_sat.test.cpp
     title: test/yosupo/two_sat.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Tow Satisfiability(2-SAT)
     links: []
@@ -55,7 +55,7 @@ data:
     \  }\n  void rdfs(int idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n\
     \    for(auto&to:rg.g[idx])rdfs(to,k);\n  }\n};\n/**\n * @brief Strongly Connected\
     \ Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n*/\n#line 3 \"Graph/others/two_sat.hpp\"\
-    \nstruct two_sat{\n  private:\n  int n;\n  SCCscc;\n  vector<bool>ans;\n  public:\n\
+    \nstruct two_sat{\n  private:\n  int n;\n  SCC scc;\n  vector<bool>ans;\n  public:\n\
     \  two_sat(){}\n  two_sat(int n):n(n),scc(2*n),ans(n){}\n  void add_clause(int\
     \ i,bool f,int j,bool g){    \n    scc.add(i+(f?n:0),j+(g?0:n));\n    scc.add(j+(g?n:0),i+(f?0:n));\n\
     \  }\n  void add_equal(int i,int j){\n    add_clause(i,true,j,false);\n    add_clause(i,false,j,true);\n\
@@ -66,7 +66,7 @@ data:
     \    ans[i]=scc[i+n]<scc[i];\n    }\n    return ans;\n  }\n};\n/**\n * @brief\
     \ Tow Satisfiability(2-SAT)\n*/\n"
   code: "#pragma once\n#include\"scc.hpp\"\nstruct two_sat{\n  private:\n  int n;\n\
-    \  SCCscc;\n  vector<bool>ans;\n  public:\n  two_sat(){}\n  two_sat(int n):n(n),scc(2*n),ans(n){}\n\
+    \  SCC scc;\n  vector<bool>ans;\n  public:\n  two_sat(){}\n  two_sat(int n):n(n),scc(2*n),ans(n){}\n\
     \  void add_clause(int i,bool f,int j,bool g){    \n    scc.add(i+(f?n:0),j+(g?0:n));\n\
     \    scc.add(j+(g?n:0),i+(f?0:n));\n  }\n  void add_equal(int i,int j){\n    add_clause(i,true,j,false);\n\
     \    add_clause(i,false,j,true);\n  }\n  void add_neq(int i,int j){\n    add_clause(i,true,j,true);\n\
@@ -81,8 +81,8 @@ data:
   isVerificationFile: false
   path: Graph/others/two_sat.hpp
   requiredBy: []
-  timestamp: '2022-07-12 22:30:34+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-07-12 22:55:32+01:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/two_sat.test.cpp
 documentation_of: Graph/others/two_sat.hpp

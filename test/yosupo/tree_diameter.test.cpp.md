@@ -106,18 +106,19 @@ data:
     \ Args&...){}\n  operator int()const{return 1;}\n};\nusing unweighted_graph=graph<unweighted_edge>;\n\
     /**\n * @brief graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
     \u30C8)\n*/\n#line 3 \"Graph/tree/tree_diameter.hpp\"\ntemplate<typename T=int>\n\
-    struct TreeDiameter:graph<T>{\n  using graph<T>::graph;\n  using graph<T>::g;\n\
-    \  vector<edge<T>>path;\n  T build(){\n    to.assign(g.size(),-1);\n    auto p=dfs(0,-1);\n\
-    \    auto q=dfs(p.second,-1);\n    int now=p.second;\n    while(now!=q.second){\n\
-    \      for(auto &e:g[now]){\n        if(to[now]==e.to)path.emplace_back(e);\n\
-    \      }\n      now=to[now];\n    }\n    return q.first;\n  }\n  TreeDiameter(const\
-    \ graph<T>&g):graph<T>(g){}\n  private:\n  vector<int>to;\n  pair<T,int>dfs(int\
-    \ idx,int par){\n    pair<T,int>res(0,idx);\n    for(auto &e:g[idx])if(e.to!=par){\n\
-    \      auto cost=dfs(e.to,idx);\n      cost.first+=e.cost;\n      if(res<cost)res=cost,to[idx]=e.to;\n\
-    \    }\n    return res;\n  }\n};\n/**\n * @brief Tree Diameter(\u6728\u306E\u76F4\
-    \u5F84)\n*/\n#line 4 \"test/yosupo/tree_diameter.test.cpp\"\nint main(){\n  int\
-    \ n;\n  cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n  cout<<g.build()<<\"\
-    \ \"<<g.path.size()+1<<endl;\n  cout<<g.path[0].from<<\" \"<<g.path<<endl;\n}\n"
+    struct TreeDiameter:graph<T>{\n  using graph<T>::g;\n  edges<T>path;\n  T build(){\n\
+    \    to.assign(g.size(),-1);\n    auto p=dfs(0,-1);\n    auto q=dfs(p.second,-1);\n\
+    \    int now=p.second;\n    while(now!=q.second){\n      for(auto &e:g[now]){\n\
+    \        if(to[now]==e.to)path.emplace_back(e);\n      }\n      now=to[now];\n\
+    \    }\n    return q.first;\n  }\n  TreeDiameter(){}\n  TreeDiameter(int n):graph<T>(n){}\n\
+    \  TreeDiameter(const graph<T>&g):graph<T>(g){}\n  private:\n  vector<int>to;\n\
+    \  pair<T,int>dfs(int idx,int par){\n    pair<T,int>res(0,idx);\n    for(auto\
+    \ &e:g[idx])if(e.to!=par){\n      auto cost=dfs(e.to,idx);\n      cost.first+=e.cost;\n\
+    \      if(res<cost)res=cost,to[idx]=e.to;\n    }\n    return res;\n  }\n};\n/**\n\
+    \ * @brief Tree Diameter(\u6728\u306E\u76F4\u5F84)\n*/\n#line 4 \"test/yosupo/tree_diameter.test.cpp\"\
+    \nint main(){\n  int n;\n  cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n\
+    \  cout<<g.build()<<\" \"<<g.path.size()+1<<endl;\n  cout<<g.path[0].from<<\"\
+    \ \"<<g.path<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n#include\"\
     ../../template/template.hpp\"\n#include\"../../Graph/tree/tree_diameter.hpp\"\n\
     int main(){\n  int n;\n  cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n\
@@ -130,7 +131,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 22:30:34+01:00'
+  timestamp: '2022-07-12 22:55:32+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/tree_diameter.test.cpp

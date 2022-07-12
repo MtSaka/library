@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/mst/prim.hpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
@@ -106,19 +106,19 @@ data:
     \ Args&...){}\n  operator int()const{return 1;}\n};\nusing unweighted_graph=graph<unweighted_edge>;\n\
     /**\n * @brief graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
     \u30C8)\n*/\n#line 2 \"Graph/mst/prim.hpp\"\ntemplate<typename T>\nstruct mst{\n\
-    \  T cost;\n  edges<T>edges;\n};\ntemplate<typename T>\nmst<T>prim(const graph<T>&g){\n\
+    \  T cost;\n  edges<T>es;\n};\ntemplate<typename T>\nmst<T>prim(const graph<T>&g){\n\
     \  T sum=T();\n  vector<bool>used(g.size(),false);\n  vector<edge<T>>dist(g.size());\n\
     \  using pi=pair<T,int>;\n  priority_queue<pi,vector<pi>,greater<>>q;\n  q.emplace(T(),0);\n\
-    \  edges<T>edges;\n  while(!q.empty()){\n    auto p=q.top();q.pop();\n    if(used[p.second])continue;\n\
-    \    used[p.second]=true;\n    sum+=p.first;\n    if(dist[p.second])edges.emplace_back(dist[p.second]);\n\
+    \  edges<T>es;\n  while(!q.empty()){\n    auto p=q.top();q.pop();\n    if(used[p.second])continue;\n\
+    \    used[p.second]=true;\n    sum+=p.first;\n    if(dist[p.second])es.emplace_back(dist[p.second]);\n\
     \    for(auto &e:g[p.second]){\n      if(used[e]||(dist[e]&&dist[e].cost<=e.cost))continue;\n\
-    \      q.emplace(e.cost,e.to);\n    }\n  }\n  return {sum,edges};\n}\n/**\n *\
-    \ @brief Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n*/\n#line 4 \"test/aoj/GRL/GRL_2_A_2.test.cpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  graph<>g(v);\n  g.read(e,0,true);\n\
+    \      q.emplace(e.cost,e.to);\n    }\n  }\n  return {sum,es};\n}\n/**\n * @brief\
+    \ Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n*/\n#line 4 \"test/aoj/GRL/GRL_2_A_2.test.cpp\"\
+    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  graph g(v);\n  g.read(e,0,true);\n\
     \  cout<<prim(g).cost<<endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/mst/prim.hpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  graph<>g(v);\n  g.read(e,0,true);\n\
+    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  graph g(v);\n  g.read(e,0,true);\n\
     \  cout<<prim(g).cost<<endl;\n}"
   dependsOn:
   - template/template.hpp
@@ -127,8 +127,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_2_A_2.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 22:30:34+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-12 22:55:32+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_2_A_2.test.cpp
 layout: document

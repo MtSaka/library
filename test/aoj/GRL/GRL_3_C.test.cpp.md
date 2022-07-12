@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: Graph/others/scc.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
@@ -124,12 +124,12 @@ data:
     \  }\n  void rdfs(int idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n\
     \    for(auto&to:rg.g[idx])rdfs(to,k);\n  }\n};\n/**\n * @brief Strongly Connected\
     \ Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n*/\n#line 4 \"test/aoj/GRL/GRL_3_C.test.cpp\"\
-    \nint main(){\n  int v,e,q;\n  cin>>v>>e;\n  SCCscc(v);\n  scc.read(e,0,false,true);\n\
+    \nint main(){\n  int v,e,q;\n  cin>>v>>e;\n  SCC scc(v);\n  scc.read(e,0,false,true);\n\
     \  scc.build();\n  cin>>q;\n  while(q--){\n    int a,b;\n    cin>>a>>b;\n    cout<<(scc[a]==scc[b])<<endl;\n\
     \  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/others/scc.hpp\"\
-    \nint main(){\n  int v,e,q;\n  cin>>v>>e;\n  SCCscc(v);\n  scc.read(e,0,false,true);\n\
+    \nint main(){\n  int v,e,q;\n  cin>>v>>e;\n  SCC scc(v);\n  scc.read(e,0,false,true);\n\
     \  scc.build();\n  cin>>q;\n  while(q--){\n    int a,b;\n    cin>>a>>b;\n    cout<<(scc[a]==scc[b])<<endl;\n\
     \  }\n}"
   dependsOn:
@@ -139,7 +139,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_3_C.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 22:30:34+01:00'
+  timestamp: '2022-07-12 22:55:32+01:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_3_C.test.cpp

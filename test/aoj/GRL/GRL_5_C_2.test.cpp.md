@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/sparse_table.hpp
     title: Sparse Table
   - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
@@ -131,13 +131,13 @@ data:
     \ Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_C_2.test.cpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n\
     \    int k;\n    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n     \
-    \ g.add_edge(i,j);\n    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n\
+    \ g.add_edge(i,j,false);\n    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n\
     \    int a,b;\n    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/tree/RMQ_lowest_common_ancestor.hpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n\
     \    int k;\n    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n     \
-    \ g.add_edge(i,j);\n    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n\
+    \ g.add_edge(i,j,false);\n    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n\
     \    int a,b;\n    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}"
   dependsOn:
   - template/template.hpp
@@ -147,8 +147,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_C_2.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 22:17:45+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-12 22:55:32+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_C_2.test.cpp
 layout: document

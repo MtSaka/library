@@ -96,10 +96,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_C.test.cpp
     title: test/aoj/GRL/GRL_1_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_2_A.test.cpp
     title: test/aoj/GRL/GRL_2_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_2_A_2.test.cpp
     title: test/aoj/GRL/GRL_2_A_2.test.cpp
   - icon: ':x:'
@@ -117,10 +117,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_B.test.cpp
     title: test/aoj/GRL/GRL_5_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_1.test.cpp
     title: test/aoj/GRL/GRL_5_C_1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -171,10 +171,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/kth_root_integer.test.cpp
     title: test/yosupo/kth_root_integer.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca1.test.cpp
     title: test/yosupo/lca1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -252,7 +252,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/two_sat.test.cpp
     title: test/yosupo/two_sat.test.cpp
   - icon: ':heavy_check_mark:'

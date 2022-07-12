@@ -2,16 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/mst/prim.hpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':heavy_check_mark:'
     path: Graph/others/detect_cycle.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: Graph/others/scc.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
@@ -19,7 +19,7 @@ data:
     path: Graph/others/topological_sort.hpp
     title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
       )"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/others/two_sat.hpp
     title: Tow Satisfiability(2-SAT)
   - icon: ':heavy_check_mark:'
@@ -35,13 +35,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: Graph/shortest_path/warshall_floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':warning:'
     path: Graph/tree/centroid.hpp
     title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Graph/tree/doubling_lowest_common_ancestor.hpp
     title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':heavy_check_mark:'
@@ -57,10 +57,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_C.test.cpp
     title: test/aoj/GRL/GRL_1_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_2_A.test.cpp
     title: test/aoj/GRL/GRL_2_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_2_A_2.test.cpp
     title: test/aoj/GRL/GRL_2_A_2.test.cpp
   - icon: ':x:'
@@ -75,16 +75,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_A.test.cpp
     title: test/aoj/GRL/GRL_5_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_1.test.cpp
     title: test/aoj/GRL/GRL_5_C_1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca1.test.cpp
     title: test/yosupo/lca1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
   - icon: ':x:'
@@ -96,7 +96,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/two_sat.test.cpp
     title: test/yosupo/two_sat.test.cpp
   _isVerificationFailed: true

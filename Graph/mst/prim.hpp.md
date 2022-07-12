@@ -6,12 +6,12 @@ data:
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_2_A_2.test.cpp
     title: test/aoj/GRL/GRL_2_A_2.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
     links: []
@@ -34,30 +34,30 @@ data:
     \ Args&...){}\n  operator int()const{return 1;}\n};\nusing unweighted_graph=graph<unweighted_edge>;\n\
     /**\n * @brief graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
     \u30C8)\n*/\n#line 2 \"Graph/mst/prim.hpp\"\ntemplate<typename T>\nstruct mst{\n\
-    \  T cost;\n  edges<T>edges;\n};\ntemplate<typename T>\nmst<T>prim(const graph<T>&g){\n\
+    \  T cost;\n  edges<T>es;\n};\ntemplate<typename T>\nmst<T>prim(const graph<T>&g){\n\
     \  T sum=T();\n  vector<bool>used(g.size(),false);\n  vector<edge<T>>dist(g.size());\n\
     \  using pi=pair<T,int>;\n  priority_queue<pi,vector<pi>,greater<>>q;\n  q.emplace(T(),0);\n\
-    \  edges<T>edges;\n  while(!q.empty()){\n    auto p=q.top();q.pop();\n    if(used[p.second])continue;\n\
-    \    used[p.second]=true;\n    sum+=p.first;\n    if(dist[p.second])edges.emplace_back(dist[p.second]);\n\
+    \  edges<T>es;\n  while(!q.empty()){\n    auto p=q.top();q.pop();\n    if(used[p.second])continue;\n\
+    \    used[p.second]=true;\n    sum+=p.first;\n    if(dist[p.second])es.emplace_back(dist[p.second]);\n\
     \    for(auto &e:g[p.second]){\n      if(used[e]||(dist[e]&&dist[e].cost<=e.cost))continue;\n\
-    \      q.emplace(e.cost,e.to);\n    }\n  }\n  return {sum,edges};\n}\n/**\n *\
-    \ @brief Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n*/\n"
+    \      q.emplace(e.cost,e.to);\n    }\n  }\n  return {sum,es};\n}\n/**\n * @brief\
+    \ Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n*/\n"
   code: "#include\"../graph_template.hpp\"\ntemplate<typename T>\nstruct mst{\n  T\
-    \ cost;\n  edges<T>edges;\n};\ntemplate<typename T>\nmst<T>prim(const graph<T>&g){\n\
+    \ cost;\n  edges<T>es;\n};\ntemplate<typename T>\nmst<T>prim(const graph<T>&g){\n\
     \  T sum=T();\n  vector<bool>used(g.size(),false);\n  vector<edge<T>>dist(g.size());\n\
     \  using pi=pair<T,int>;\n  priority_queue<pi,vector<pi>,greater<>>q;\n  q.emplace(T(),0);\n\
-    \  edges<T>edges;\n  while(!q.empty()){\n    auto p=q.top();q.pop();\n    if(used[p.second])continue;\n\
-    \    used[p.second]=true;\n    sum+=p.first;\n    if(dist[p.second])edges.emplace_back(dist[p.second]);\n\
+    \  edges<T>es;\n  while(!q.empty()){\n    auto p=q.top();q.pop();\n    if(used[p.second])continue;\n\
+    \    used[p.second]=true;\n    sum+=p.first;\n    if(dist[p.second])es.emplace_back(dist[p.second]);\n\
     \    for(auto &e:g[p.second]){\n      if(used[e]||(dist[e]&&dist[e].cost<=e.cost))continue;\n\
-    \      q.emplace(e.cost,e.to);\n    }\n  }\n  return {sum,edges};\n}\n/**\n *\
-    \ @brief Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n*/"
+    \      q.emplace(e.cost,e.to);\n    }\n  }\n  return {sum,es};\n}\n/**\n * @brief\
+    \ Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n*/"
   dependsOn:
   - Graph/graph_template.hpp
   isVerificationFile: false
   path: Graph/mst/prim.hpp
   requiredBy: []
-  timestamp: '2022-07-12 22:30:34+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-07-12 22:55:32+01:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_2_A_2.test.cpp
 documentation_of: Graph/mst/prim.hpp
