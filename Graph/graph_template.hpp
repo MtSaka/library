@@ -38,7 +38,7 @@ struct graph{
       a+=padding;
       b+=padding;
       if(weighed)cin>>c;
-      add_edge(a,b,c,dierct);
+      add_edge(a,b,c,direct);
     }
   }
 };
