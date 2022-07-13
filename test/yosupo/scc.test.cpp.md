@@ -107,30 +107,34 @@ data:
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
     \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
     \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/others/scc.hpp\"\
-    \nstruct SCC:unweighted_graph{\n  public:\n  using unweighted_graph::g;\n  vector<vector<int>>group;\n\
-    \  unweighted_graph dag;\n  SCC(){}\n  SCC(int n):unweighted_graph(n){}\n  SCC(const\
-    \ unweighted_graph&g):unweighted_graph(g){}\n  void build(){\n    rg=unweighted_graph(g.size());\n\
-    \    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n        rg.add_edge(e.to,i,e.cost,true);\n\
-    \      }\n    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n\
-    \    for(size_t i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n\
-    \    int cnt=0;\n    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n    dag=unweighted_graph(cnt);\n\
-    \    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n        if(comp[i]!=comp[e.to])dag.add_edge(comp[i],comp[e.to],true);\n\
-    \      }\n    }\n    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
-    \  }\n  void add(int u,int v){unweighted_graph::add_edge(u,v,true);}\n  int operator[](int\
-    \ k)const{return comp[k];}\n  vector<vector<int>>scc()const{return group;}\n \
-    \ unweighted_graph DAG()const{return dag;}\n  private:\n  unweighted_graph rg;\n\
-    \  vector<int>comp,ord;\n  vector<bool>used;\n  void dfs(int idx){\n    if(used[idx])return;\n\
-    \    used[idx]=true;\n    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n\
-    \  }\n  void rdfs(int idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n\
-    \    for(auto&to:rg.g[idx])rdfs(to,k);\n  }\n};\n/**\n * @brief Strongly Connected\
-    \ Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)\n*/\n#line 4 \"test/yosupo/scc.test.cpp\"\
-    \nint main(){\n  int n,m;\n  cin>>n>>m;\n  SCC scc(n);\n  scc.read(m,0,false,true);\n\
-    \  scc.build();\n  cout<<scc.group.size()<<endl;\n  for(auto&p:scc.group)cout<<p.size()<<\"\
+    \nstruct SCC:unweighted_graph{\n  public:\n  using unweighted_graph::g;\n  SCC(){}\n\
+    \  SCC(int n):unweighted_graph(n){}\n  SCC(const unweighted_graph&g):unweighted_graph(g){}\n\
+    \  void build(){\n    rg=unweighted_graph(g.size());\n    for(size_t i=0;i<g.size();i++){\n\
+    \      for(auto&e:g[i]){\n        rg.add_edge(e.to,i,e.cost,true);\n      }\n\
+    \    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n    for(size_t\
+    \ i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n    cnt=0;\n\
+    \    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n  }\n  void add(int u,int\
+    \ v){unweighted_graph::add_edge(u,v,true);}\n  int operator[](int k)const{return\
+    \ comp[k];}\n  vector<vector<int>>scc(){\n    if(!group.empty())return group;\n\
+    \    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
+    \    return group;\n  }\n  unweighted_graph DAG(){\n    if(dag.size())return dag;\n\
+    \    dag=unweighted_graph(cnt);\n    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n\
+    \        if(comp[i]!=comp[e.to])dag.add_edge(comp[i],comp[e.to],true);\n     \
+    \ }\n    }\n    return dag;\n  }\n  private:\n  unweighted_graph rg;\n  vector<int>comp,ord;\n\
+    \  vector<bool>used;\n  int cnt;\n  vector<vector<int>>group;\n  unweighted_graph\
+    \ dag;\n  void dfs(int idx){\n    if(used[idx])return;\n    used[idx]=true;\n\
+    \    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n  }\n  void rdfs(int\
+    \ idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n    for(auto&to:rg[idx])rdfs(to,k);\n\
+    \  }\n};\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\
+    \u5206\u5206\u89E3)\n*/\n#line 4 \"test/yosupo/scc.test.cpp\"\nint main(){\n \
+    \ int n,m;\n  cin>>n>>m;\n  SCC scc(n);\n  scc.read(m,0,false,true);\n  scc.build();\n\
+    \  auto ret=scc.scc();\n  cout<<ret.size()<<endl;\n  for(auto&p:ret)cout<<p.size()<<\"\
     \ \"<<p<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n#include\"../../template/template.hpp\"\
     \n#include\"../../Graph/others/scc.hpp\"\nint main(){\n  int n,m;\n  cin>>n>>m;\n\
-    \  SCC scc(n);\n  scc.read(m,0,false,true);\n  scc.build();\n  cout<<scc.group.size()<<endl;\n\
-    \  for(auto&p:scc.group)cout<<p.size()<<\" \"<<p<<endl;\n}"
+    \  SCC scc(n);\n  scc.read(m,0,false,true);\n  scc.build();\n  auto ret=scc.scc();\n\
+    \  cout<<ret.size()<<endl;\n  for(auto&p:ret)cout<<p.size()<<\" \"<<p<<endl;\n\
+    }"
   dependsOn:
   - template/template.hpp
   - Graph/others/scc.hpp
@@ -138,7 +142,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 23:30:53+01:00'
+  timestamp: '2022-07-13 13:47:02+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp
