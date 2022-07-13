@@ -7,6 +7,7 @@ int main(){
   SCC scc(n);
   scc.read(m,0,false,true);
   scc.build();
-  cout<<scc.group.size()<<endl;
-  for(auto&p:scc.group)cout<<p.size()<<" "<<p<<endl;
+  auto ret=scc.scc();
+  cout<<ret.size()<<endl;
+  for(auto&p:ret)cout<<p.size()<<" "<<p<<endl;
 }
