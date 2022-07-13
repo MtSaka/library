@@ -5,6 +5,7 @@ struct BIT{
   int N;
   vector<T>bit;
   public:
+  BIT(){}
   BIT(int n){
     N=1;
     while(N<n)N<<=1;
