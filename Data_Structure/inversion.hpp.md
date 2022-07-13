@@ -19,14 +19,14 @@ data:
     document_title: "Inversion Number(\u8EE2\u5012\u6570)"
     links: []
   bundledCode: "#line 2 \"Data_Structure/BIT.hpp\"\ntemplate<typename T>\nstruct BIT{\n\
-    \  private:\n  int N;\n  vector<T>bit;\n  public:\n  BIT(int n){\n    N=1;\n \
-    \   while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n  }\n  void add(int i,T x){\n\
-    \    i++;\n    while(i<=N){\n      bit[i]+=x;\n      i+=i&-i;    \n    }\n  }\n\
-    \  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n    return\
-    \ ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n};\n/**\n\
-    \ * @brief Binary Indexed Tree(BIT)\n*/\n#line 2 \"Others/compressor.hpp\"\ntemplate<class\
-    \ T,class comp=less<T>>\nclass compressor{\n  private:\n  vector<T>data;\n  comp\
-    \ cmp;\n  bool sorted=false;\n  public:\n  compressor():compressor(comp()){}\n\
+    \  private:\n  int N;\n  vector<T>bit;\n  public:\n  BIT(){}\n  BIT(int n){\n\
+    \    N=1;\n    while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n  }\n  void add(int\
+    \ i,T x){\n    i++;\n    while(i<=N){\n      bit[i]+=x;\n      i+=i&-i;    \n\
+    \    }\n  }\n  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n\
+    \    return ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n\
+    };\n/**\n * @brief Binary Indexed Tree(BIT)\n*/\n#line 2 \"Others/compressor.hpp\"\
+    \ntemplate<class T,class comp=less<T>>\nclass compressor{\n  private:\n  vector<T>data;\n\
+    \  comp cmp;\n  bool sorted=false;\n  public:\n  compressor():compressor(comp()){}\n\
     \  compressor(const comp&cmp):cmp(cmp){}\n  compressor(const vector<T>&dat,const\
     \ comp&cmp=comp()):data(dat),cmp(cmp){}\n  compressor(vector<T>&&dat,const comp&cmp=comp()):data(move(dat)),cmp(cmp){}\n\
     \  compressor(initializer_list<T>li,const comp&cmp=comp()):data(li.begin(),li.end()),cmp(cmp){}\n\
@@ -59,7 +59,7 @@ data:
   isVerificationFile: false
   path: Data_Structure/inversion.hpp
   requiredBy: []
-  timestamp: '2022-07-01 22:17:42+01:00'
+  timestamp: '2022-07-13 21:05:02+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp

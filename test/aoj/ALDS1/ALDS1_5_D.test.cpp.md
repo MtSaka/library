@@ -91,7 +91,7 @@ data:
     \ operator()(Args&&...args)const{return f(*this, std::forward<Args>(args)...);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
     Data_Structure/BIT.hpp\"\ntemplate<typename T>\nstruct BIT{\n  private:\n  int\
-    \ N;\n  vector<T>bit;\n  public:\n  BIT(int n){\n    N=1;\n    while(N<n)N<<=1;\n\
+    \ N;\n  vector<T>bit;\n  public:\n  BIT(){}\n  BIT(int n){\n    N=1;\n    while(N<n)N<<=1;\n\
     \    bit=vector<T>(N+1,0);\n  }\n  void add(int i,T x){\n    i++;\n    while(i<=N){\n\
     \      bit[i]+=x;\n      i+=i&-i;    \n    }\n  }\n  T sum(int i){\n    T ans=0;\n\
     \    while(i>0)ans+=bit[i],i-=i&-i;\n    return ans;\n  }\n  T query(int l,int\
@@ -133,7 +133,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   requiredBy: []
-  timestamp: '2022-07-03 21:11:59+01:00'
+  timestamp: '2022-07-13 21:05:02+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_5_D.test.cpp
