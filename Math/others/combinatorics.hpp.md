@@ -5,19 +5,19 @@ data:
     path: Math/modular/modint.hpp
     title: modint
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/taylor_shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - icon: ':warning:'
     path: Math/others/lagrange.hpp
     title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
     links: []
@@ -61,7 +61,7 @@ data:
     \    return dat[n];\n  }\n  template<typename T>\n  static inline mint finv(T\
     \ n){\n    if(n<0)return mint();\n    extend(n);\n    return idat[n];\n  }\n \
     \ template<typename T,typename U>\n  static mint com(T n,U k){\n    if(k<0||n<k)return\
-    \ mint();\n    return fac(n)*finv(k)*finv(n-k);\n  }\n  template<typenaem T,typename\
+    \ mint();\n    return fac(n)*finv(k)*finv(n-k);\n  }\n  template<typename T,typename\
     \ U>\n  static mint hom(T n,U k){\n    if(n<0||k<0)return mint();\n    return\
     \ k==0?1:com(n+k-1,k);\n  }\n  template<typename T,typename U>\n  static mint\
     \ per(T n,U k){\n    if(k<0||n<k)return mint();\n    return fac(n)*finv(n-k);\n\
@@ -86,7 +86,7 @@ data:
     \  }\n  template<typename T>\n  static inline mint finv(T n){\n    if(n<0)return\
     \ mint();\n    extend(n);\n    return idat[n];\n  }\n  template<typename T,typename\
     \ U>\n  static mint com(T n,U k){\n    if(k<0||n<k)return mint();\n    return\
-    \ fac(n)*finv(k)*finv(n-k);\n  }\n  template<typenaem T,typename U>\n  static\
+    \ fac(n)*finv(k)*finv(n-k);\n  }\n  template<typename T,typename U>\n  static\
     \ mint hom(T n,U k){\n    if(n<0||k<0)return mint();\n    return k==0?1:com(n+k-1,k);\n\
     \  }\n  template<typename T,typename U>\n  static mint per(T n,U k){\n    if(k<0||n<k)return\
     \ mint();\n    return fac(n)*finv(n-k);\n  }\n};\ntemplate<int m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
@@ -106,8 +106,8 @@ data:
   requiredBy:
   - Math/others/lagrange.hpp
   - Math/fps/taylor_shift.hpp
-  timestamp: '2022-07-18 21:42:11+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-07-18 22:46:16+01:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/polynomial_taylor_shift.test.cpp
 documentation_of: Math/others/combinatorics.hpp

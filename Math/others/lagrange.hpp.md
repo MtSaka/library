@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   _extendedRequiredBy: []
@@ -55,7 +55,7 @@ data:
     \    return dat[n];\n  }\n  template<typename T>\n  static inline mint finv(T\
     \ n){\n    if(n<0)return mint();\n    extend(n);\n    return idat[n];\n  }\n \
     \ template<typename T,typename U>\n  static mint com(T n,U k){\n    if(k<0||n<k)return\
-    \ mint();\n    return fac(n)*finv(k)*finv(n-k);\n  }\n  template<typenaem T,typename\
+    \ mint();\n    return fac(n)*finv(k)*finv(n-k);\n  }\n  template<typename T,typename\
     \ U>\n  static mint hom(T n,U k){\n    if(n<0||k<0)return mint();\n    return\
     \ k==0?1:com(n+k-1,k);\n  }\n  template<typename T,typename U>\n  static mint\
     \ per(T n,U k){\n    if(k<0||n<k)return mint();\n    return fac(n)*finv(n-k);\n\
@@ -90,7 +90,7 @@ data:
   isVerificationFile: false
   path: Math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2022-07-18 21:42:11+01:00'
+  timestamp: '2022-07-18 22:46:16+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Math/others/lagrange.hpp
