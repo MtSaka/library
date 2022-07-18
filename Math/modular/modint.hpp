@@ -1,38 +1,54 @@
 #pragma once
-template<long long m>
+template<int m>
 struct modint{
   private:
-  long long x;
+  unsigned int x;
+  static constexpr unsigned int umod(){return m;}
   public:
-  constexpr modint():x(0){}
-  constexpr modint(long long y):x(y>=0?y%m:(m-(-y)%m)%m){}
-  modint inv()const{
-    long long a=x,b=m,u=1,v=0,t;
-    while(b){
-      t=a/b;
-      swap(a-=t*b,b);
-      swap(u-=t*v,v);
-    }
-    return modint(u);
+  static modint raw(int v){
+    modint ret;
+    ret.x=v;
+    return ret;
   }
-  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return *this;}
-  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}
-  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}
-  modint &operator/=(const modint&p){*this*=p.inv();return *this;}
-  friend modint operator+(const modint&l,const modint&r){return modint(l)+=r;}
-  friend modint operator-(const modint&l,const modint&r){return modint(l)-=r;}
-  friend modint operator*(const modint&l,const modint&r){return modint(l)*=r;}
-  friend modint operator/(const modint&l,const modint&r){return modint(l)/=r;}
-  modint operator-()const{return modint(-x);}
+  constexpr modint():x(0){}
+  constexpr modint(int y){
+    int v=y%m;
+    if(v<0)v+=m;
+    x=(unsigned int)v;
+  }
+  constexpr modint(long long y){
+    long long v=y%(long long)m;
+    if(v<0)v+=m;
+    x=(unsigned int)v;
+  }
+  constexpr modint(unsigned int y){
+    x=(unsigned int)(y%umod());
+  }
+  modint& operator++(){x++;if(x==umod())x=0;return *this;}
+  modint& operator--(){if(x==0)x=umod();x--;return *this;}
+  mint operator++(int){
+    mint ret=*this;
+    ++*this;
+    return ret;
+  }
+  mint operator--(int){
+    mint ret=*this;
+    --*this;
+    return ret;
+  }
+  modint& operator+=(const modint&p){if((x+=p.x)>=umod())x-=umod();return *this;}
+  modint& operator-=(const modint&p){if((x-=p.x)>=umod())x+=umod();return *this;}
+  modint& operator*=(const modint&p){
+    unsigned long long y=x;
+    y*=p.x;
+    x=(unsigned int)(y%umod());
+    return *this;
+  }
+  modint& operator/=(const modint&p){return *this*=p.inv();}
   modint operator+()const{return *this;}
-  modint &operator++(){x++;if(x==m)x=0;return *this;}
-  modint &operator--(){if(x==0)x=m;x--;return *this;}
-  modint operator++(int){modint ret(*this);++*this;return ret;}
-  modint operator--(int){modint ret(*this);--*this;return ret;}
-  friend bool operator==(const modint&l,const modint&r){return l.x==r.x;}
-  friend bool operator!=(const modint&l,const modint&r){return l.x!=r.x;}
+  modint operator-()const{return mint()-*this;}
   modint pow(long long n)const{
-    modint ret(1),mul(x);
+    modint ret(1),mul=*this;
     while(n){
       if(n&1)ret*=mul;
       mul*=mul;
@@ -40,6 +56,21 @@ struct modint{
     }
     return ret;
   }
+  modint inv()const{
+    long long a=x,b=m,u=1,v=0;
+    while(b){
+      long long t=a/b;
+      swap(a-=t*b,b);
+      swap(u-=t*v,v);
+    }
+    return modint(u);
+  }
+  friend modint operator+(const modint&l,const modint&r){return modint(l)+=r;}
+  friend modint operator-(const modint&l,const modint&r){return modint(l)-=r;}
+  friend modint operator*(const modint&l,const modint&r){return modint(l)*=r;}
+  friend modint operator/(const modint&l,const modint&r){return modint(l)/=r;}
+  friend bool operator==(const modint&l,const modint&r){return l.x==r.x;}
+  friend bool operator!=(const modint&l,const modint&r){return l.x!=r.x;}
   friend ostream &operator<<(ostream &os,const modint&p) {
     return os<<p.val();
   }
@@ -49,8 +80,8 @@ struct modint{
     a=modint(t);
     return (is);
   }
-  static long long get_mod(){return m;}
-  long long val()const{return x;}
+  static constexpr int get_mod(){return m;}
+  int val()const{return (int)x;}
 };
 /**
  * @brief modint
