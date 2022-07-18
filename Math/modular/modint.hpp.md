@@ -45,9 +45,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/gcd_convolution.test.cpp
+    title: test/yosupo/gcd_convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/lcm_convolution.test.cpp
+    title: test/yosupo/lcm_convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
@@ -81,9 +87,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: modint
     links: []
@@ -162,12 +168,14 @@ data:
   - Math/fps/multipoint_evaluation.hpp
   - Math/fps/fps.hpp
   timestamp: '2022-07-18 21:10:31+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/matrix_product.test.cpp
   - test/yosupo/polynomial_interpolation.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
+  - test/yosupo/lcm_convolution.test.cpp
+  - test/yosupo/gcd_convolution.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/matrix_det.test.cpp
   - test/yosupo/multipoint_evaluation.test.cpp

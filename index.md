@@ -161,6 +161,12 @@ data:
       path: Math/convolution/fft.hpp
       title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB\
         )"
+    - icon: ':x:'
+      path: Math/convolution/gcd_convolution.hpp
+      title: Math/convolution/gcd_convolution.hpp
+    - icon: ':x:'
+      path: Math/convolution/lcm_convolution.hpp
+      title: Math/convolution/lcm_convolution.hpp
     - icon: ':heavy_check_mark:'
       path: Math/convolution/mod_ntt.hpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
@@ -192,7 +198,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/modular/mod_sqrt.hpp
       title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/modular/modint.hpp
       title: modint
     - icon: ':warning:'
@@ -270,7 +276,7 @@ data:
       title: String/run_length.hpp
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -449,6 +455,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/factorize.test.cpp
       title: test/yosupo/factorize.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/gcd_convolution.test.cpp
+      title: test/yosupo/gcd_convolution.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/inv_of_formal_power_series.test.cpp
       title: test/yosupo/inv_of_formal_power_series.test.cpp
@@ -461,6 +470,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/lca2.test.cpp
       title: test/yosupo/lca2.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/lcm_convolution.test.cpp
+      title: test/yosupo/lcm_convolution.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/log_of_formal_power_series.test.cpp
       title: test/yosupo/log_of_formal_power_series.test.cpp

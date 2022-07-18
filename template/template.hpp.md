@@ -165,6 +165,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/factorize.test.cpp
     title: test/yosupo/factorize.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/gcd_convolution.test.cpp
+    title: test/yosupo/gcd_convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
@@ -177,6 +180,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/lcm_convolution.test.cpp
+    title: test/yosupo/lcm_convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
@@ -264,9 +270,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1469.test.cpp
     title: test/yukicoder/1469.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -407,7 +413,7 @@ data:
   requiredBy:
   - Data_Structure/segtree_monoids.hpp
   timestamp: '2022-07-03 21:11:59+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1469.test.cpp
   - test/yukicoder/1236.test.cpp
@@ -467,7 +473,9 @@ data:
   - test/yosupo/lca1.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
+  - test/yosupo/lcm_convolution.test.cpp
   - test/yosupo/scc.test.cpp
+  - test/yosupo/gcd_convolution.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/matrix_det.test.cpp
   - test/yosupo/multipoint_evaluation.test.cpp

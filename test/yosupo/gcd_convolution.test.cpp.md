@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Data_Structure/lazy_segtree.hpp
-    title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  - icon: ':x:'
+    path: Math/convolution/gcd_convolution.hpp
+    title: Math/convolution/gcd_convolution.hpp
   - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
@@ -12,16 +12,15 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/range_affine_range_sum
     links:
-    - https://judge.yosupo.jp/problem/range_affine_range_sum
-  bundledCode: "#line 1 \"test/yosupo/range_affine_range_sum.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\n#line 2 \"template/template.hpp\"\
+    - https://judge.yosupo.jp/problem/gcd_convolution
+  bundledCode: "#line 1 \"test/yosupo/gcd_convolution.test.cpp\"\n#define PRBOLEM\
+    \ \"https://judge.yosupo.jp/problem/gcd_convolution\"\n#line 2 \"template/template.hpp\"\
     \n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC\
     \ optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define overload4(a,b,c,d,e,...)\
     \ e\n#define overload3(a,b,c,d,...) d\n#define rep1(a) for(ll i=0;i<(ll)(a);i++)\n\
@@ -117,66 +116,36 @@ data:
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
     \    is>>t;\n    a=modint(t);\n    return (is);\n  }\n  static constexpr int get_mod(){return\
     \ m;}\n  int val()const{return (int)x;}\n};\n/**\n * @brief modint\n*/\n#line\
-    \ 2 \"Data_Structure/lazy_segtree.hpp\"\ntemplate<class S,S (*op)(S,S),S (*e)(),class\
-    \ F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>\nstruct lazy_segtree{\n\
-    \  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  vector<F>lazy;\n  void\
-    \ update(int k){seq[k]=op(seq[k<<1],seq[k<<1^1]);}\n  void all_apply(int k,F f){\n\
-    \    seq[k]=mapping(f,seq[k]);\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
-    \  }\n  void eval(int k){\n    all_apply(k<<1,lazy[k]);\n    all_apply(k<<1^1,lazy[k]);\n\
-    \    lazy[k]=id();\n  }\n  public:\n  lazy_segtree():lazy_segtree(0){}\n  lazy_segtree(int\
-    \ n):lazy_segtree(vector<S>(n,e())){}\n  lazy_segtree(const vector<S>&v):_n(int(v.size())){\n\
-    \    while(size<_n)size<<=1,idx++;\n    seq=vector<S>(size<<1,e());\n    lazy=vector<F>(size,id());\n\
-    \    for(int i=0;i<_n;i++)seq[size+i]=v[i];\n    for(int i=size-1;i>=1;i--)update(i);\n\
-    \  }\n  void set(int p,S x){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
-    \    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n  }\n  S operator[](int\
-    \ p){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n    return seq[p];\n\
-    \  }\n  S query(int l,int r){\n    if(l==r)return e();\n    S sml=e(),smr=e();\n\
-    \    l+=size,r+=size;\n    for(int i=idx;i>=1;i--){\n      if(((l>>i)<<i)!=l)eval(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)eval(r>>i);\n    }\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n\
-    \      if(r&1)smr=op(seq[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n\
-    \  }\n  S all_query()const{return seq[1];}\n  void apply(int p,F f){\n    p+=size;\n\
-    \    for(int i=idx;i>=1;i--)eval(p>>i);\n    seq[p]=mapping(f,seq[p]);\n    for(int\
-    \ i=1;i<=idx;i++)update(p>>i);\n  }\n  void apply(int l,int r,F f){\n    if(l==r)return\
-    \ ;\n    l+=size;\n    r+=size;\n    for(int i=idx;i>=1;i--){\n      if(((l>>i)<<i)!=l)eval(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)eval(r>>i);\n    }\n    int l2=l,r2=r;\n    while(l<r){\n\
-    \      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n      l>>=1;\n\
-    \      r>>=1;\n    }\n    l=l2,r=r2;\n    for(int i=1;i<=idx;i++){\n      if(((l>>i)<<i)!=l)update(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)update(r>>i);\n    }\n  }\n};\n/**\n * @brief Lazy Segment\
-    \ Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 5 \"test/yosupo/range_affine_range_sum.test.cpp\"\
-    \nusing mint=modint<mod>;\nusing Pi=pair<mint,int >;\nusing qi=pair<mint,mint>;\n\
-    Pi op(Pi a,Pi b){return {a.first+b.first,a.second+b.second};}\nPi mapping(qi a,Pi\
-    \ b){return {a.first*b.first+a.second*mint(b.second),b.second};}\nqi composition(qi\
-    \ b,qi a){return {a.first*b.first,a.second*b.first+b.second};}\nPi e(){return\
-    \ Pi(0,0);}\nqi id(){return qi(1,0);}\nint main(){\n  INT(n,q);\n  vector<Pi>a(n,{0,1});\n\
-    \  rep(i,n)cin>>a[i].first;\n  lazy_segtree<Pi,op,e,qi,mapping,composition,id>s(a);\n\
-    \  while(q--){\n    LL(t);\n    if(t){\n      INT(l,r);\n      print(s.query(l,r).first);\n\
-    \    }\n    else{\n      INT(l,r);\n      mint b,c;\n      scan(b,c);\n      s.apply(l,r,qi(b,c));\n\
-    \    }\n  }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
-    \n#include\"../../template/template.hpp\"\n#include\"../../Math/modular/modint.hpp\"\
-    \n#include\"../../Data_Structure/lazy_segtree.hpp\"\nusing mint=modint<mod>;\n\
-    using Pi=pair<mint,int >;\nusing qi=pair<mint,mint>;\nPi op(Pi a,Pi b){return\
-    \ {a.first+b.first,a.second+b.second};}\nPi mapping(qi a,Pi b){return {a.first*b.first+a.second*mint(b.second),b.second};}\n\
-    qi composition(qi b,qi a){return {a.first*b.first,a.second*b.first+b.second};}\n\
-    Pi e(){return Pi(0,0);}\nqi id(){return qi(1,0);}\nint main(){\n  INT(n,q);\n\
-    \  vector<Pi>a(n,{0,1});\n  rep(i,n)cin>>a[i].first;\n  lazy_segtree<Pi,op,e,qi,mapping,composition,id>s(a);\n\
-    \  while(q--){\n    LL(t);\n    if(t){\n      INT(l,r);\n      print(s.query(l,r).first);\n\
-    \    }\n    else{\n      INT(l,r);\n      mint b,c;\n      scan(b,c);\n      s.apply(l,r,qi(b,c));\n\
-    \    }\n  }\n}"
+    \ 2 \"Math/convolution/gcd_convolution.hpp\"\ntemplate<typename T>\nvector<T>gcd_convolution(vector<T>a,vector<T>b){\n\
+    \  const int n=a.size();\n  vector<bool>sieve(n,true);\n  for(int p=2;p<n;p++)if(sieve[p]){\n\
+    \    for(int i=(n-1)/p;i>0;i--)a[i]+=a[i*p],sieve[i*p]=false;\n    sieve[p]=1;\n\
+    \  }\n  for(int p=2;p<n;p++)if(sieve[p])for(int i=(n-1)/p;i>0;i--)b[i]+=b[i*p];\n\
+    \  for(int i=0;i<n;i++)a[i]*=b[i];\n  for(int p=2;p<n;p++)if(sieve[p]){\n    for(int\
+    \ i=1;i*p<n;i++)a[i]-=a[i*p];\n  }\n  return a;\n}\n#line 5 \"test/yosupo/gcd_convolution.test.cpp\"\
+    \nusing mint=modint<mod>;\nint main(){\n  int n;cin>>n;\n  vector<mint>a(n+1),b(n+1);\n\
+    \  for(int i=1;i<=n;i++)cin>>a[i];\n  for(int i=1;i<=n;i++)cin>>b[i];\n  auto\
+    \ ans=gcd_convolution(a,b);\n  for(int i=1;i<=n;i++)cout<<ans[i]<<\" \\n\"[i==n];\n\
+    }\n"
+  code: "#define PRBOLEM \"https://judge.yosupo.jp/problem/gcd_convolution\"\n#include\"\
+    ../../template/template.hpp\"\n#include\"../../Math/modular/modint.hpp\"\n#include\"\
+    ../../Math/convolution/gcd_convolution.hpp\"\nusing mint=modint<mod>;\nint main(){\n\
+    \  int n;cin>>n;\n  vector<mint>a(n+1),b(n+1);\n  for(int i=1;i<=n;i++)cin>>a[i];\n\
+    \  for(int i=1;i<=n;i++)cin>>b[i];\n  auto ans=gcd_convolution(a,b);\n  for(int\
+    \ i=1;i<=n;i++)cout<<ans[i]<<\" \\n\"[i==n];\n}"
   dependsOn:
   - template/template.hpp
   - Math/modular/modint.hpp
-  - Data_Structure/lazy_segtree.hpp
+  - Math/convolution/gcd_convolution.hpp
   isVerificationFile: true
-  path: test/yosupo/range_affine_range_sum.test.cpp
+  path: test/yosupo/gcd_convolution.test.cpp
   requiredBy: []
-  timestamp: '2022-07-18 21:10:31+01:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-18 23:04:26+01:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/yosupo/range_affine_range_sum.test.cpp
+documentation_of: test/yosupo/gcd_convolution.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/range_affine_range_sum.test.cpp
-- /verify/test/yosupo/range_affine_range_sum.test.cpp.html
-title: test/yosupo/range_affine_range_sum.test.cpp
+- /verify/test/yosupo/gcd_convolution.test.cpp
+- /verify/test/yosupo/gcd_convolution.test.cpp.html
+title: test/yosupo/gcd_convolution.test.cpp
 ---
