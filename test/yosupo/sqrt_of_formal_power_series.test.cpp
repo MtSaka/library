@@ -8,7 +8,7 @@ int main(){
   cin>>n;
   FPS<mod>f(n);
   cin>>f;
-  auto get_sqrt=[&](mint x){return mint(mod_sqrt(x.val(),x.get_mod()));};
+  auto get_sqrt=[&](mint x){return mint(mod_sqrt((ll)x.val(),mod));};
   f=f.sqrt(-1,get_sqrt);
   if(f.empty())print(-1);
   else{
