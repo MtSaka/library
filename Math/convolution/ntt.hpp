@@ -16,17 +16,16 @@ struct NTT{
     return mint();
   }
   static void init(){
-    if(root.empty()){
-      g=primitive_root(m);
-      long long now=m-1;
-      while(!(now&1))now>>=1,limit++;
-      root.resize(limit+1,1),inv_root.resize(limit+1,1);
-      root[limit]=g.pow(now);
-      inv_root[limit]/=root[limit];
-      for(int i=limit-1;i>=0;i--){
-        root[i]=root[i+1]*root[i+1];
-        inv_root[i]=inv_root[i+1]*inv_root[i+1];
-      }
+    if(!root.empty())return;
+    g=primitive_root(m);
+    long long now=m-1;
+    while(!(now&1))now>>=1,limit++;
+    root.resize(limit+1,1),inv_root.resize(limit+1,1);
+    root[limit]=g.pow(now);
+    inv_root[limit]/=root[limit];
+    for(int i=limit-1;i>=0;i--){
+      root[i]=root[i+1]*root[i+1];
+      inv_root[i]=inv_root[i+1]*inv_root[i+1];
     }
   }
   public:

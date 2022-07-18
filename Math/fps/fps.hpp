@@ -16,7 +16,7 @@ struct FPS:vector<modint<m>>{
       FPS g(res);
       f.resize(2*sz),g.resize(2*sz);
       ntt.dft(f,1),ntt.dft(g,1);
-      for(int i=0;i<2*m;i++)f[i]*=g[i];
+      for(int i=0;i<2*sz;i++)f[i]*=g[i];
       ntt.dft(f,-1);
       f.erase(f.begin(),f.begin()+sz);
       f.resize(2*sz);ntt.dft(f,1);
