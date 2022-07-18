@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':x:'
     path: Math/fps/taylor_shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
   - icon: ':x:'
@@ -103,15 +103,15 @@ data:
     \    x=(unsigned int)v;\n  }\n  constexpr modint(long long y){\n    long long\
     \ v=y%(long long)m;\n    if(v<0)v+=m;\n    x=(unsigned int)v;\n  }\n  constexpr\
     \ modint(unsigned int y){\n    x=(unsigned int)(y%umod());\n  }\n  modint& operator++(){x++;if(x==umod())x=0;return\
-    \ *this;}\n  modint& operator--(){if(x==0)x=umod();x--;return *this;}\n  mint\
-    \ operator++(int){\n    mint ret=*this;\n    ++*this;\n    return ret;\n  }\n\
-    \  mint operator--(int){\n    mint ret=*this;\n    --*this;\n    return ret;\n\
+    \ *this;}\n  modint& operator--(){if(x==0)x=umod();x--;return *this;}\n  modint\
+    \ operator++(int){\n    modint ret=*this;\n    ++*this;\n    return ret;\n  }\n\
+    \  modint operator--(int){\n    modint ret=*this;\n    --*this;\n    return ret;\n\
     \  }\n  modint& operator+=(const modint&p){if((x+=p.x)>=umod())x-=umod();return\
     \ *this;}\n  modint& operator-=(const modint&p){if((x-=p.x)>=umod())x+=umod();return\
     \ *this;}\n  modint& operator*=(const modint&p){\n    unsigned long long y=x;\n\
     \    y*=p.x;\n    x=(unsigned int)(y%umod());\n    return *this;\n  }\n  modint&\
     \ operator/=(const modint&p){return *this*=p.inv();}\n  modint operator+()const{return\
-    \ *this;}\n  modint operator-()const{return mint()-*this;}\n  modint pow(long\
+    \ *this;}\n  modint operator-()const{return modint()-*this;}\n  modint pow(long\
     \ long n)const{\n    modint ret(1),mul=*this;\n    while(n){\n      if(n&1)ret*=mul;\n\
     \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  modint inv()const{\n\
     \    long long a=x,b=m,u=1,v=0;\n    while(b){\n      long long t=a/b;\n     \
@@ -270,7 +270,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2022-07-18 20:52:58+01:00'
+  timestamp: '2022-07-18 21:10:31+01:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/polynomial_taylor_shift.test.cpp

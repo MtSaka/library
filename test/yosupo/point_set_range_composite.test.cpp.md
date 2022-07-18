@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Data_Structure/segtree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_range_composite
@@ -116,15 +116,15 @@ data:
     \ int)v;\n  }\n  constexpr modint(long long y){\n    long long v=y%(long long)m;\n\
     \    if(v<0)v+=m;\n    x=(unsigned int)v;\n  }\n  constexpr modint(unsigned int\
     \ y){\n    x=(unsigned int)(y%umod());\n  }\n  modint& operator++(){x++;if(x==umod())x=0;return\
-    \ *this;}\n  modint& operator--(){if(x==0)x=umod();x--;return *this;}\n  mint\
-    \ operator++(int){\n    mint ret=*this;\n    ++*this;\n    return ret;\n  }\n\
-    \  mint operator--(int){\n    mint ret=*this;\n    --*this;\n    return ret;\n\
+    \ *this;}\n  modint& operator--(){if(x==0)x=umod();x--;return *this;}\n  modint\
+    \ operator++(int){\n    modint ret=*this;\n    ++*this;\n    return ret;\n  }\n\
+    \  modint operator--(int){\n    modint ret=*this;\n    --*this;\n    return ret;\n\
     \  }\n  modint& operator+=(const modint&p){if((x+=p.x)>=umod())x-=umod();return\
     \ *this;}\n  modint& operator-=(const modint&p){if((x-=p.x)>=umod())x+=umod();return\
     \ *this;}\n  modint& operator*=(const modint&p){\n    unsigned long long y=x;\n\
     \    y*=p.x;\n    x=(unsigned int)(y%umod());\n    return *this;\n  }\n  modint&\
     \ operator/=(const modint&p){return *this*=p.inv();}\n  modint operator+()const{return\
-    \ *this;}\n  modint operator-()const{return mint()-*this;}\n  modint pow(long\
+    \ *this;}\n  modint operator-()const{return modint()-*this;}\n  modint pow(long\
     \ long n)const{\n    modint ret(1),mul=*this;\n    while(n){\n      if(n&1)ret*=mul;\n\
     \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  modint inv()const{\n\
     \    long long a=x,b=m,u=1,v=0;\n    while(b){\n      long long t=a/b;\n     \
@@ -162,8 +162,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-07-18 20:52:58+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-18 21:10:31+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_set_range_composite.test.cpp
 layout: document
