@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/others/matrix.hpp
     title: "Matrix(\u884C\u5217)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/matrix_det
@@ -87,29 +87,36 @@ data:
     template<class F>struct REC{F f;REC(F&&f_):f(std::forward<F>(f_)){}template<class...Args>auto\
     \ operator()(Args&&...args)const{return f(*this, std::forward<Args>(args)...);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Math/modular/modint.hpp\"\ntemplate<long long m>\nstruct modint{\n  private:\n\
-    \  long long x;\n  public:\n  constexpr modint():x(0){}\n  constexpr modint(long\
-    \ long y):x(y>=0?y%m:(m-(-y)%m)%m){}\n  modint inv()const{\n    long long a=x,b=m,u=1,v=0,t;\n\
-    \    while(b){\n      t=a/b;\n      swap(a-=t*b,b);\n      swap(u-=t*v,v);\n \
-    \   }\n    return modint(u);\n  }\n  modint &operator+=(const modint&p){if((x+=p.x)>=m)x-=m;return\
-    \ *this;}\n  modint &operator-=(const modint&p){if((x+=m-p.x)>=m)x-=m;return *this;}\n\
-    \  modint &operator*=(const modint&p){x=x*p.x;if(x>=m)x%=m;return *this;}\n  modint\
-    \ &operator/=(const modint&p){*this*=p.inv();return *this;}\n  friend modint operator+(const\
-    \ modint&l,const modint&r){return modint(l)+=r;}\n  friend modint operator-(const\
-    \ modint&l,const modint&r){return modint(l)-=r;}\n  friend modint operator*(const\
-    \ modint&l,const modint&r){return modint(l)*=r;}\n  friend modint operator/(const\
-    \ modint&l,const modint&r){return modint(l)/=r;}\n  modint operator-()const{return\
-    \ modint(-x);}\n  modint operator+()const{return *this;}\n  modint &operator++(){x++;if(x==m)x=0;return\
-    \ *this;}\n  modint &operator--(){if(x==0)x=m;x--;return *this;}\n  modint operator++(int){modint\
-    \ ret(*this);++*this;return ret;}\n  modint operator--(int){modint ret(*this);--*this;return\
-    \ ret;}\n  friend bool operator==(const modint&l,const modint&r){return l.x==r.x;}\n\
-    \  friend bool operator!=(const modint&l,const modint&r){return l.x!=r.x;}\n \
-    \ modint pow(long long n)const{\n    modint ret(1),mul(x);\n    while(n){\n  \
-    \    if(n&1)ret*=mul;\n      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n\
-    \  }\n  friend ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.val();\n\
+    Math/modular/modint.hpp\"\ntemplate<int m>\nstruct modint{\n  private:\n  unsigned\
+    \ int x;\n  static constexpr unsigned int umod(){return m;}\n  public:\n  static\
+    \ modint raw(int v){\n    modint ret;\n    ret.x=v;\n    return ret;\n  }\n  constexpr\
+    \ modint():x(0){}\n  constexpr modint(int y){\n    int v=y%m;\n    if(v<0)v+=m;\n\
+    \    x=(unsigned int)v;\n  }\n  constexpr modint(long long y){\n    long long\
+    \ v=y%(long long)m;\n    if(v<0)v+=m;\n    x=(unsigned int)v;\n  }\n  constexpr\
+    \ modint(unsigned int y){\n    x=(unsigned int)(y%umod());\n  }\n  modint& operator++(){x++;if(x==umod())x=0;return\
+    \ *this;}\n  modint& operator--(){if(x==0)x=umod();x--;return *this;}\n  mint\
+    \ operator++(int){\n    mint ret=*this;\n    ++*this;\n    return ret;\n  }\n\
+    \  mint operator--(int){\n    mint ret=*this;\n    --*this;\n    return ret;\n\
+    \  }\n  modint& operator+=(const modint&p){if((x+=p.x)>=umod())x-=umod();return\
+    \ *this;}\n  modint& operator-=(const modint&p){if((x-=p.x)>=umod())x+=umod();return\
+    \ *this;}\n  modint& operator*=(const modint&p){\n    unsigned long long y=x;\n\
+    \    y*=p.x;\n    x=(unsigned int)(y%umod());\n    return *this;\n  }\n  modint&\
+    \ operator/=(const modint&p){return *this*=p.inv();}\n  modint operator+()const{return\
+    \ *this;}\n  modint operator-()const{return mint()-*this;}\n  modint pow(long\
+    \ long n)const{\n    modint ret(1),mul=*this;\n    while(n){\n      if(n&1)ret*=mul;\n\
+    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  modint inv()const{\n\
+    \    long long a=x,b=m,u=1,v=0;\n    while(b){\n      long long t=a/b;\n     \
+    \ swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return modint(u);\n  }\n\
+    \  friend modint operator+(const modint&l,const modint&r){return modint(l)+=r;}\n\
+    \  friend modint operator-(const modint&l,const modint&r){return modint(l)-=r;}\n\
+    \  friend modint operator*(const modint&l,const modint&r){return modint(l)*=r;}\n\
+    \  friend modint operator/(const modint&l,const modint&r){return modint(l)/=r;}\n\
+    \  friend bool operator==(const modint&l,const modint&r){return l.x==r.x;}\n \
+    \ friend bool operator!=(const modint&l,const modint&r){return l.x!=r.x;}\n  friend\
+    \ ostream &operator<<(ostream &os,const modint&p) {\n    return os<<p.val();\n\
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
-    \    is>>t;\n    a=modint(t);\n    return (is);\n  }\n  static long long get_mod(){return\
-    \ m;}\n  long long val()const{return x;}\n};\n/**\n * @brief modint\n*/\n#line\
+    \    is>>t;\n    a=modint(t);\n    return (is);\n  }\n  static constexpr int get_mod(){return\
+    \ m;}\n  int val()const{return (int)x;}\n};\n/**\n * @brief modint\n*/\n#line\
     \ 1 \"Math/others/matrix.hpp\"\ntemplate<typename T>\nstruct Matrix{\n  private:\n\
     \  vector<vector<T>>A;\n  public:\n  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n\
     \  Matrix(size_t n):A(n,vector<T>(n,0)){};\n  Matrix(const vector<vector<T>>&a):A(a){}\n\
@@ -153,8 +160,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix_det.test.cpp
   requiredBy: []
-  timestamp: '2022-07-09 21:27:31+01:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-18 20:52:58+01:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/matrix_det.test.cpp
 layout: document

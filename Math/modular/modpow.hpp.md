@@ -5,7 +5,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/modular/mod_log.hpp
     title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modular/mod_sqrt.hpp
     title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
   _extendedVerifiedWith:
@@ -18,12 +18,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Mod Pow(\u3079\u304D\u4E57)"
     links: []
@@ -41,7 +41,7 @@ data:
   - Math/modular/mod_sqrt.hpp
   - Math/modular/mod_log.hpp
   timestamp: '2022-01-29 16:22:31+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/NTL/NTL_1_B.test.cpp
   - test/yosupo/sqrt_mod.test.cpp
