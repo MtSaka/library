@@ -26,13 +26,13 @@ struct modint{
   }
   modint& operator++(){x++;if(x==umod())x=0;return *this;}
   modint& operator--(){if(x==0)x=umod();x--;return *this;}
-  mint operator++(int){
-    mint ret=*this;
+  modint operator++(int){
+    modint ret=*this;
     ++*this;
     return ret;
   }
-  mint operator--(int){
-    mint ret=*this;
+  modint operator--(int){
+    modint ret=*this;
     --*this;
     return ret;
   }
@@ -46,7 +46,7 @@ struct modint{
   }
   modint& operator/=(const modint&p){return *this*=p.inv();}
   modint operator+()const{return *this;}
-  modint operator-()const{return mint()-*this;}
+  modint operator-()const{return modint()-*this;}
   modint pow(long long n)const{
     modint ret(1),mul=*this;
     while(n){
