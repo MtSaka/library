@@ -14,3 +14,6 @@ vector<T>gcd_convolution(vector<T>a,vector<T>b){
   }
   return a;
 }
+/**
+ * @brief GCD Convolution
+*/

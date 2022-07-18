@@ -12,3 +12,6 @@ vector<T>lcm_convolution(vector<T>a,vector<T>b){
   for(int p=2;p<n;p++)if(sieve[p])for(int i=(n-1)/p;i>0;i--)a[i*p]-=a[i];
   return a;
 }
+/**
+ * @brief LCM Convolution
+*/
