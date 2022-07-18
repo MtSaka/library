@@ -1,4 +1,4 @@
-#define PRBOLEM "https://judge.yosupo.jp/problem/gcd_convolution"
+#define PROBLEM "https://judge.yosupo.jp/problem/gcd_convolution"
 #include"../../template/template.hpp"
 #include"../../Math/modular/modint.hpp"
 #include"../../Math/convolution/gcd_convolution.hpp"
