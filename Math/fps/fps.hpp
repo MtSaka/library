@@ -88,12 +88,12 @@ struct FPS:vector<modint<m>>{
     return *this;
   }
   FPS &operator/=(FPS r){
-    const int n=(*this).size(),m=r.size();
-    if(n<m){
+    const int n=(*this).size(),n1=r.size();
+    if(n<n1){
       (*this).clear();
       return *this;
     }
-    const int sz=n-m+1;
+    const int sz=n-n1+1;
     reverse((*this).begin(),(*this).end());
     reverse(r.begin(),r.end());
     (*this).resize(sz);
