@@ -34,7 +34,7 @@ struct combination{
     if(k<0||n<k)return mint();
     return fac(n)*finv(k)*finv(n-k);
   }
-  template<typenaem T,typename U>
+  template<typename T,typename U>
   static mint hom(T n,U k){
     if(n<0||k<0)return mint();
     return k==0?1:com(n+k-1,k);
