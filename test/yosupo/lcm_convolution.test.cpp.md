@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: Math/convolution/lcm_convolution.hpp
-    title: Math/convolution/lcm_convolution.hpp
+    title: LCM Convolution
   - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
@@ -122,11 +122,11 @@ data:
     \    for(int i=1;i*p<n;i++)a[i*p]+=a[i],sieve[i*p]=false;\n    sieve[p]=true;\n\
     \  }\n  for(int p=2;p<n;p++)if(sieve[p])for(int i=1;i*p<n;i++)b[i*p]+=b[i];\n\
     \  for(int i=0;i<n;i++)a[i]*=b[i];\n  for(int p=2;p<n;p++)if(sieve[p])for(int\
-    \ i=(n-1)/p;i>0;i--)a[i*p]-=a[i];\n  return a;\n}\n#line 5 \"test/yosupo/lcm_convolution.test.cpp\"\
-    \nusing mint=modint<mod>;\nint main(){\n  int n;cin>>n;\n  vector<mint>a(n+1),b(n+1);\n\
-    \  for(int i=1;i<=n;i++)cin>>a[i];\n  for(int i=1;i<=n;i++)cin>>b[i];\n  auto\
-    \ ans=lcm_convolution(a,b);\n  for(int i=1;i<=n;i++)cout<<ans[i]<<\" \\n\"[i==n];\n\
-    }\n"
+    \ i=(n-1)/p;i>0;i--)a[i*p]-=a[i];\n  return a;\n}\n/**\n * @brief LCM Convolution\n\
+    */\n#line 5 \"test/yosupo/lcm_convolution.test.cpp\"\nusing mint=modint<mod>;\n\
+    int main(){\n  int n;cin>>n;\n  vector<mint>a(n+1),b(n+1);\n  for(int i=1;i<=n;i++)cin>>a[i];\n\
+    \  for(int i=1;i<=n;i++)cin>>b[i];\n  auto ans=lcm_convolution(a,b);\n  for(int\
+    \ i=1;i<=n;i++)cout<<ans[i]<<\" \\n\"[i==n];\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lcm_convolution\"\n#include\"\
     ../../template/template.hpp\"\n#include\"../../Math/modular/modint.hpp\"\n#include\"\
     ../../Math/convolution/lcm_convolution.hpp\"\nusing mint=modint<mod>;\nint main(){\n\
@@ -140,7 +140,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/lcm_convolution.test.cpp
   requiredBy: []
-  timestamp: '2022-07-18 23:09:28+01:00'
+  timestamp: '2022-07-18 23:14:31+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lcm_convolution.test.cpp

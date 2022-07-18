@@ -163,10 +163,10 @@ data:
         )"
     - icon: ':heavy_check_mark:'
       path: Math/convolution/gcd_convolution.hpp
-      title: Math/convolution/gcd_convolution.hpp
+      title: GCD Convolution
     - icon: ':heavy_check_mark:'
       path: Math/convolution/lcm_convolution.hpp
-      title: Math/convolution/lcm_convolution.hpp
+      title: LCM Convolution
     - icon: ':heavy_check_mark:'
       path: Math/convolution/mod_ntt.hpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
