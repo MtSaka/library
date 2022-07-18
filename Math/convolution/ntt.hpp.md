@@ -11,16 +11,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/convolution/mod_ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/multipoint_evaluation.hpp
     title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/polynomial_interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/subset_sum.hpp
     title: Count Subset Sum
   - icon: ':x:'
@@ -33,31 +33,31 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/division_of_polynomials.test.cpp
     title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial_interpolation.test.cpp
   - icon: ':x:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sharp_p_subset_sum.test.cpp
     title: test/yosupo/sharp_p_subset_sum.test.cpp
   - icon: ':x:'
@@ -104,15 +104,14 @@ data:
     \  static constexpr mint primitive_root(const int&mo){\n    if(mo==167772161)return\
     \ mint(3);\n    if(mo==469762049)return mint(3);\n    if(mo==754974721)return\
     \ mint(11);\n    if(mo==998244353)return mint(3);\n    if(mo==1224736769)return\
-    \ mint(3);\n    return mint();\n  }\n  static void init(){\n    if(root.empty()){\n\
-    \      g=primitive_root(m);\n      long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n\
-    \      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n      root[limit]=g.pow(now);\n\
-    \      inv_root[limit]/=root[limit];\n      for(int i=limit-1;i>=0;i--){\n   \
-    \     root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
-    \      }\n    }\n  }\n  public:\n  NTT(){init();};\n  static void dft(vector<mint>&a,int\
-    \ inv){\n    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const\
-    \ int mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n \
-    \     int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
+    \ mint(3);\n    return mint();\n  }\n  static void init(){\n    if(!root.empty())return;\n\
+    \    g=primitive_root(m);\n    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n\
+    \    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n    root[limit]=g.pow(now);\n\
+    \    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n      root[i]=root[i+1]*root[i+1];\n\
+    \      inv_root[i]=inv_root[i+1]*inv_root[i+1];\n    }\n  }\n  public:\n  NTT(){init();};\n\
+    \  static void dft(vector<mint>&a,int inv){\n    init();\n    const int sz=a.size();\n\
+    \    if(sz==1)return;\n    const int mask=sz-1;\n    vector<mint>b(sz);\n    for(int\
+    \ i=sz>>1;i>=1;i>>=1){\n      int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
     \      for(int j=0;j<sz;j+=i){\n        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
     \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  static vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
     \    int sz=1;\n    const int mxsiz=a.size()+b.size()-1;\n    while(sz<mxsiz)sz<<=1;\n\
@@ -133,11 +132,11 @@ data:
     \ int&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
     \ mint(3);\n    if(mo==754974721)return mint(11);\n    if(mo==998244353)return\
     \ mint(3);\n    if(mo==1224736769)return mint(3);\n    return mint();\n  }\n \
-    \ static void init(){\n    if(root.empty()){\n      g=primitive_root(m);\n   \
-    \   long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
-    \      root[limit]=g.pow(now);\n      inv_root[limit]/=root[limit];\n      for(int\
-    \ i=limit-1;i>=0;i--){\n        root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
-    \      }\n    }\n  }\n  public:\n  NTT(){init();};\n  static void dft(vector<mint>&a,int\
+    \ static void init(){\n    if(!root.empty())return;\n    g=primitive_root(m);\n\
+    \    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
+    \    root[limit]=g.pow(now);\n    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n\
+    \      root[i]=root[i+1]*root[i+1];\n      inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
+    \    }\n  }\n  public:\n  NTT(){init();};\n  static void dft(vector<mint>&a,int\
     \ inv){\n    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const\
     \ int mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n \
     \     int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
@@ -167,7 +166,7 @@ data:
   - Math/fps/polynomial_interpolation.hpp
   - Math/fps/multipoint_evaluation.hpp
   - Math/fps/fps.hpp
-  timestamp: '2022-07-18 21:42:11+01:00'
+  timestamp: '2022-07-18 22:26:09+01:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/polynomial_interpolation.test.cpp
