@@ -11,20 +11,20 @@ struct FPS:vector<modint<m>>{
     const int n=(*this).size();
     if(d==-1)d=n;
     FPS res{(*this)[0].inv()};
-    for(int m=1;m<d;m<<=1){
-      FPS f((*this).begin(),(*this).begin()+min(n,2*m));
+    for(int sz=1;sz<d;sz<<=1){
+      FPS f((*this).begin(),(*this).begin()+min(n,2*sz));
       FPS g(res);
-      f.resize(2*m),g.resize(2*m);
+      f.resize(2*sz),g.resize(2*sz);
       ntt.dft(f,1),ntt.dft(g,1);
       for(int i=0;i<2*m;i++)f[i]*=g[i];
       ntt.dft(f,-1);
-      f.erase(f.begin(),f.begin()+m);
-      f.resize(2*m);ntt.dft(f,1);
-      for(int i=0;i<2*m;i++)f[i]*=g[i];
+      f.erase(f.begin(),f.begin()+sz);
+      f.resize(2*sz);ntt.dft(f,1);
+      for(int i=0;i<2*sz;i++)f[i]*=g[i];
       ntt.dft(f,-1);
-      mint iz=mint(2*m).inv();iz*=-iz;
-      for(int i=0;i<m;i++)f[i]*=iz;
-      res.insert(res.end(),f.begin(),f.begin()+m);
+      mint iz=mint(2*sz).inv();iz*=-iz;
+      for(int i=0;i<sz;i++)f[i]*=iz;
+      res.insert(res.end(),f.begin(),f.begin()+sz);
     }
     res.resize(d);
     return res;
@@ -64,15 +64,15 @@ struct FPS:vector<modint<m>>{
     return *this;
   }
   FPS &operator+=(const FPS&r){
-    const int n=(*this).size(),m=r.size();
-    (*this).resize(max(n,m));
-    for(int i=0;i<m;i++)(*this)[i]+=r[i];
+    const int n=(*this).size(),sz=r.size();
+    (*this).resize(max(n,sz));
+    for(int i=0;i<sz;i++)(*this)[i]+=r[i];
     return *this;
   }
   FPS &operator-=(const FPS&r){
-    const int n=(*this).size(),m=r.size();
-    (*this).resize(max(n,m));
-    for(int i=0;i<m;i++)(*this)[i]-=r[i];
+    const int n=(*this).size(),sz=r.size();
+    (*this).resize(max(n,sz));
+    for(int i=0;i<sz;i++)(*this)[i]-=r[i];
     return *this;
   }
   FPS &operator<<=(const long long&d){
@@ -103,10 +103,10 @@ struct FPS:vector<modint<m>>{
     return (*this);
   }
   FPS &operator%=(const FPS&r){
-    const int n=(*this).size(),m=r.size();
-    if(n<m)return (*this);
+    const int n=(*this).size(),sz=r.size();
+    if(n<sz)return (*this);
     (*this)-=(*this)/r*r;
-    (*this).resize(m-1);
+    (*this).resize(sz-1);
     shrink();
     return (*this);
   }
@@ -149,11 +149,11 @@ struct FPS:vector<modint<m>>{
     const int n=(*this).size();
     if(d==-1)d=n;
     FPS f={mint(1)+(*this)[0],(*this)[1]},res{1,1<n?(*this)[1]:0};
-    for(int m=2;m<d;m<<=1){
-      f.insert(f.end(),(*this).begin()+min(m,n),(*this).begin()+min(n,2*m));
-      if((int)f.size()<2*m)f.resize(2*m);
-      res=res*(f-res.log(2*m));
-      res.resize(2*m);
+    for(int sz=2;sz<d;sz<<=1){
+      f.insert(f.end(),(*this).begin()+min(sz,n),(*this).begin()+min(n,2*sz));
+      if((int)f.size()<2*sz)f.resize(2*sz);
+      res=res*(f-res.log(2*sz));
+      res.resize(2*sz);
     }
     res.resize(d);
     return res;
