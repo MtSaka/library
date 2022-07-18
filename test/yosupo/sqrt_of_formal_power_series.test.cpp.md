@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/mod_sqrt.hpp
     title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
@@ -237,13 +237,13 @@ data:
     \  }\n  return r;\n}\n/**\n * @brief Mod Square Root(\u5E73\u65B9\u5270\u4F59\
     )\n*/\n#line 5 \"test/yosupo/sqrt_of_formal_power_series.test.cpp\"\nusing mint=modint<mod>;\n\
     int main(){\n  int n;\n  cin>>n;\n  FPS<mod>f(n);\n  cin>>f;\n  auto get_sqrt=[&](mint\
-    \ x){return mint(mod_sqrt(x.val(),x.get_mod()));};\n  f=f.sqrt(-1,get_sqrt);\n\
-    \  if(f.empty())print(-1);\n  else{\n    print(f);\n  }\n}\n"
+    \ x){return mint(mod_sqrt((ll)x.val(),mod));};\n  f=f.sqrt(-1,get_sqrt);\n  if(f.empty())print(-1);\n\
+    \  else{\n    print(f);\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../Math/fps/fps.hpp\"\n\
     #include\"../../Math/modular/mod_sqrt.hpp\"\nusing mint=modint<mod>;\nint main(){\n\
     \  int n;\n  cin>>n;\n  FPS<mod>f(n);\n  cin>>f;\n  auto get_sqrt=[&](mint x){return\
-    \ mint(mod_sqrt(x.val(),x.get_mod()));};\n  f=f.sqrt(-1,get_sqrt);\n  if(f.empty())print(-1);\n\
+    \ mint(mod_sqrt((ll)x.val(),mod));};\n  f=f.sqrt(-1,get_sqrt);\n  if(f.empty())print(-1);\n\
     \  else{\n    print(f);\n  }\n}"
   dependsOn:
   - template/template.hpp
@@ -255,8 +255,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/sqrt_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-07-18 22:26:09+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-18 22:50:10+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/sqrt_of_formal_power_series.test.cpp
 layout: document

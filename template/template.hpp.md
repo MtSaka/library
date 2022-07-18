@@ -237,7 +237,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -264,9 +264,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1469.test.cpp
     title: test/yukicoder/1469.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
     links: []
@@ -407,7 +407,7 @@ data:
   requiredBy:
   - Data_Structure/segtree_monoids.hpp
   timestamp: '2022-07-03 21:11:59+01:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1469.test.cpp
   - test/yukicoder/1236.test.cpp
