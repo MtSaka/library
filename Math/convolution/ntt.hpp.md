@@ -11,7 +11,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/convolution/mod_ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':x:'
@@ -33,16 +33,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/division_of_polynomials.test.cpp
     title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
   - icon: ':x:'
@@ -54,7 +54,7 @@ data:
   - icon: ':x:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':x:'
@@ -99,16 +99,16 @@ data:
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
     \    is>>t;\n    a=modint(t);\n    return (is);\n  }\n  static constexpr int get_mod(){return\
     \ m;}\n  int val()const{return (int)x;}\n};\n/**\n * @brief modint\n*/\n#line\
-    \ 3 \"Math/convolution/ntt.hpp\"\ntemplate<long long m>\nstruct NTT{\n  using\
-    \ mint=modint<m>;\n  private:\n  static modint<m> g;\n  static int limit;\n  static\
-    \ vector<modint<m>>root,inv_root;\n  static mint primitive_root(const long long&mo){\n\
-    \    if(mo==167772161)return mint(3);\n    if(mo==469762049)return mint(3);\n\
-    \    if(mo==754974721)return mint(11);\n    if(mo==998244353)return mint(3);\n\
-    \    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n  static void\
-    \ init(){\n    if(root.empty()){\n      g=primitive_root(m);\n      long long\
-    \ now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
-    \      root[limit]=g.pow(now);\n      inv_root[limit]/=root[limit];\n      for(int\
-    \ i=limit-1;i>=0;i--){\n        root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
+    \ 3 \"Math/convolution/ntt.hpp\"\ntemplate<int m>\nstruct NTT{\n  using mint=modint<m>;\n\
+    \  private:\n  static modint<m> g;\n  static int limit;\n  static vector<modint<m>>root,inv_root;\n\
+    \  static constexpr mint primitive_root(const int&mo){\n    if(mo==167772161)return\
+    \ mint(3);\n    if(mo==469762049)return mint(3);\n    if(mo==754974721)return\
+    \ mint(11);\n    if(mo==998244353)return mint(3);\n    if(mo==1224736769)return\
+    \ mint(3);\n    return mint();\n  }\n  static void init(){\n    if(root.empty()){\n\
+    \      g=primitive_root(m);\n      long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n\
+    \      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n      root[limit]=g.pow(now);\n\
+    \      inv_root[limit]/=root[limit];\n      for(int i=limit-1;i>=0;i--){\n   \
+    \     root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
     \      }\n    }\n  }\n  public:\n  NTT(){init();};\n  static void dft(vector<mint>&a,int\
     \ inv){\n    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const\
     \ int mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n \
@@ -120,22 +120,21 @@ data:
     \    dft(a,-1);\n    a.resize(mxsiz);\n    mint iz=mint(sz).inv();\n    for(int\
     \ i=0;i<mxsiz;i++)a[i]*=iz;\n    return a;\n  }\n  template<typename T,std::enable_if_t<is_integral<T>::value>*\
     \ = nullptr>\n  static vector<T>multiply(const vector<T>&a,const vector<T>&b){\n\
-    \    using mint=modint<m>;\n    vector<mint>a2(a.size()),b2(b.size());\n    for(int\
-    \ i=0;i<(int)a.size();i++)a2[i]=a[i];\n    for(int i=0;i<(int)b.size();i++)b2[i]=b[i];\n\
-    \    auto c2=multiply(a2,b2);\n    vector<T>c(c2.size());\n    for(int i=0;i<(int)c.size();i++)c[i]=c2[i].val();\n\
-    \    return c;\n  }\n};\ntemplate<long long m>\nint NTT<m>::limit=0;\ntemplate<long\
-    \ long m>\nvector<modint<m>>NTT<m>::root=vector<modint<m>>();\ntemplate<long long\
-    \ m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\ntemplate<long long\
-    \ m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic Transform(\u6570\
-    \u8AD6\u5909\u63DB)\n*/\n"
-  code: "#pragma once\n#include\"../modular/modint.hpp\"\ntemplate<long long m>\n\
-    struct NTT{\n  using mint=modint<m>;\n  private:\n  static modint<m> g;\n  static\
-    \ int limit;\n  static vector<modint<m>>root,inv_root;\n  static mint primitive_root(const\
-    \ long long&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
+    \    vector<mint>a2(a.size()),b2(b.size());\n    for(int i=0;i<(int)a.size();i++)a2[i]=a[i];\n\
+    \    for(int i=0;i<(int)b.size();i++)b2[i]=b[i];\n    auto c2=multiply(a2,b2);\n\
+    \    vector<T>c(c2.size());\n    for(int i=0;i<(int)c.size();i++)c[i]=c2[i].val();\n\
+    \    return c;\n  }\n};\ntemplate<int m>\nint NTT<m>::limit=0;\ntemplate<int m>\n\
+    vector<modint<m>>NTT<m>::root=vector<modint<m>>();\ntemplate<int m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\n\
+    template<int m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic\
+    \ Transform(\u6570\u8AD6\u5909\u63DB)\n*/\n"
+  code: "#pragma once\n#include\"../modular/modint.hpp\"\ntemplate<int m>\nstruct\
+    \ NTT{\n  using mint=modint<m>;\n  private:\n  static modint<m> g;\n  static int\
+    \ limit;\n  static vector<modint<m>>root,inv_root;\n  static constexpr mint primitive_root(const\
+    \ int&mo){\n    if(mo==167772161)return mint(3);\n    if(mo==469762049)return\
     \ mint(3);\n    if(mo==754974721)return mint(11);\n    if(mo==998244353)return\
-    \ mint(3);\n    if(mo==1224736769)return mint(3);\n    return mint(0);\n  }\n\
-    \  static void init(){\n    if(root.empty()){\n      g=primitive_root(m);\n  \
-    \    long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
+    \ mint(3);\n    if(mo==1224736769)return mint(3);\n    return mint();\n  }\n \
+    \ static void init(){\n    if(root.empty()){\n      g=primitive_root(m);\n   \
+    \   long long now=m-1;\n      while(!(now&1))now>>=1,limit++;\n      root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
     \      root[limit]=g.pow(now);\n      inv_root[limit]/=root[limit];\n      for(int\
     \ i=limit-1;i>=0;i--){\n        root[i]=root[i+1]*root[i+1];\n        inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
     \      }\n    }\n  }\n  public:\n  NTT(){init();};\n  static void dft(vector<mint>&a,int\
@@ -149,14 +148,13 @@ data:
     \    dft(a,-1);\n    a.resize(mxsiz);\n    mint iz=mint(sz).inv();\n    for(int\
     \ i=0;i<mxsiz;i++)a[i]*=iz;\n    return a;\n  }\n  template<typename T,std::enable_if_t<is_integral<T>::value>*\
     \ = nullptr>\n  static vector<T>multiply(const vector<T>&a,const vector<T>&b){\n\
-    \    using mint=modint<m>;\n    vector<mint>a2(a.size()),b2(b.size());\n    for(int\
-    \ i=0;i<(int)a.size();i++)a2[i]=a[i];\n    for(int i=0;i<(int)b.size();i++)b2[i]=b[i];\n\
-    \    auto c2=multiply(a2,b2);\n    vector<T>c(c2.size());\n    for(int i=0;i<(int)c.size();i++)c[i]=c2[i].val();\n\
-    \    return c;\n  }\n};\ntemplate<long long m>\nint NTT<m>::limit=0;\ntemplate<long\
-    \ long m>\nvector<modint<m>>NTT<m>::root=vector<modint<m>>();\ntemplate<long long\
-    \ m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\ntemplate<long long\
-    \ m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic Transform(\u6570\
-    \u8AD6\u5909\u63DB)\n*/"
+    \    vector<mint>a2(a.size()),b2(b.size());\n    for(int i=0;i<(int)a.size();i++)a2[i]=a[i];\n\
+    \    for(int i=0;i<(int)b.size();i++)b2[i]=b[i];\n    auto c2=multiply(a2,b2);\n\
+    \    vector<T>c(c2.size());\n    for(int i=0;i<(int)c.size();i++)c[i]=c2[i].val();\n\
+    \    return c;\n  }\n};\ntemplate<int m>\nint NTT<m>::limit=0;\ntemplate<int m>\n\
+    vector<modint<m>>NTT<m>::root=vector<modint<m>>();\ntemplate<int m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\n\
+    template<int m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic\
+    \ Transform(\u6570\u8AD6\u5909\u63DB)\n*/"
   dependsOn:
   - Math/modular/modint.hpp
   isVerificationFile: false
@@ -169,7 +167,7 @@ data:
   - Math/fps/polynomial_interpolation.hpp
   - Math/fps/multipoint_evaluation.hpp
   - Math/fps/fps.hpp
-  timestamp: '2022-07-18 21:10:31+01:00'
+  timestamp: '2022-07-18 21:42:11+01:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/polynomial_interpolation.test.cpp
