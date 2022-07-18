@@ -1,19 +1,19 @@
 #pragma once
 #include"../modular/modint.hpp"
-template<long long m>
+template<int m>
 struct NTT{
   using mint=modint<m>;
   private:
   static modint<m> g;
   static int limit;
   static vector<modint<m>>root,inv_root;
-  static mint primitive_root(const long long&mo){
+  static constexpr mint primitive_root(const int&mo){
     if(mo==167772161)return mint(3);
     if(mo==469762049)return mint(3);
     if(mo==754974721)return mint(11);
     if(mo==998244353)return mint(3);
     if(mo==1224736769)return mint(3);
-    return mint(0);
+    return mint();
   }
   static void init(){
     if(root.empty()){
@@ -62,7 +62,6 @@ struct NTT{
   }
   template<typename T,std::enable_if_t<is_integral<T>::value>* = nullptr>
   static vector<T>multiply(const vector<T>&a,const vector<T>&b){
-    using mint=modint<m>;
     vector<mint>a2(a.size()),b2(b.size());
     for(int i=0;i<(int)a.size();i++)a2[i]=a[i];
     for(int i=0;i<(int)b.size();i++)b2[i]=b[i];
@@ -72,13 +71,13 @@ struct NTT{
     return c;
   }
 };
-template<long long m>
+template<int m>
 int NTT<m>::limit=0;
-template<long long m>
+template<int m>
 vector<modint<m>>NTT<m>::root=vector<modint<m>>();
-template<long long m>
+template<int m>
 vector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();
-template<long long m>
+template<int m>
 modint<m>NTT<m>::g=modint<m>();
 /**
  * @brief Number Theoretic Transform(数論変換)

@@ -1,6 +1,6 @@
 #pragma once
 #include"../modular/modint.hpp"
-template<long long m>
+template<int m>
 struct combination{
   using mint=modint<m>;
   private:
@@ -17,32 +17,37 @@ struct combination{
   }
   public:
   combination(int sz=0){extend(sz);}
-  static inline mint fac(long long n){
-    if(n<0)return mint(0);
+  template<typename T>
+  static inline mint fac(T n){
+    if(n<0)return mint();
     extend(n);
     return dat[n];
   }
-  static inline mint finv(long long n){
-    if(n<0)return mint(0);
+  template<typename T>
+  static inline mint finv(T n){
+    if(n<0)return mint();
     extend(n);
     return idat[n];
   }
-  static mint com(long long n,long long k){
-    if(k<0||n<k)return mint(0);
+  template<typename T,typename U>
+  static mint com(T n,U k){
+    if(k<0||n<k)return mint();
     return fac(n)*finv(k)*finv(n-k);
   }
-  static mint hom(long long n,long long k){
-    if(n<0||k<0)return mint(0);
+  template<typenaem T,typename U>
+  static mint hom(T n,U k){
+    if(n<0||k<0)return mint();
     return k==0?1:com(n+k-1,k);
   }
-  static mint per(long long n,long long k){
-    if(k<0||n<k)return mint(0);
+  template<typename T,typename U>
+  static mint per(T n,U k){
+    if(k<0||n<k)return mint();
     return fac(n)*finv(n-k);
   }
 };
-template<long long m>
+template<int m>
 vector<modint<m>>combination<m>::dat=vector<modint<m>>();
-template<long long m>
+template<int m>
 vector<modint<m>>combination<m>::idat=vector<modint<m>>();
 template<long long p>
 struct COMB{

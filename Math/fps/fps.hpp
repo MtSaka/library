@@ -1,13 +1,13 @@
 #pragma once
 #include"../convolution/ntt.hpp"
-template<long long Mod>
-struct FPS:vector<modint<Mod>>{
-  using mint=modint<Mod>;
+template<int m>
+struct FPS:vector<modint<m>>{
+  using mint=modint<m>;
   using vector<mint>::vector;
   using vector<mint>::operator=;
   void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}
   FPS inv(int d=-1)const{
-    NTT<Mod>ntt;
+    NTT<m>ntt;
     const int n=(*this).size();
     if(d==-1)d=n;
     FPS res{(*this)[0].inv()};
@@ -84,7 +84,7 @@ struct FPS:vector<modint<Mod>>{
     return *this;
   }
   FPS &operator*=(const FPS&r){
-    (*this)=NTT<Mod>::multiply((*this),r);
+    (*this)=NTT<m>::multiply((*this),r);
     return *this;
   }
   FPS &operator/=(FPS r){
@@ -133,7 +133,7 @@ struct FPS:vector<modint<Mod>>{
     const int n=(*this).size();
     vector<mint>inv(n+1);
     inv[1]=mint(1);
-    for(int i=2;i<=n;i++)inv[i]=-inv[Mod%i]*mint(Mod/i);
+    for(int i=2;i<=n;i++)inv[i]=-inv[m%i]*mint(m/i);
     FPS ret(n+1);
     for(int i=0;i<n;i++)ret[i+1]=(*this)[i]*inv[i+1];
     return ret;

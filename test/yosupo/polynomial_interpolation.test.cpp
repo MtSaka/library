@@ -4,7 +4,7 @@
 #include"../../Math/fps/polynomial_interpolation.hpp"
 using mint=modint<mod>;
 int main(){
-  int n,m;
+  int n;
   cin>>n;
   vector<mint>xs(n),ys(n);
   cin>>xs>>ys;
