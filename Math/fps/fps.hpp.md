@@ -147,9 +147,9 @@ data:
     \ long long&d){\n    (*this).insert((*this).begin(),d,mint(0));\n    return *this;\n\
     \  }\n  FPS &operator>>=(const long long&d){\n    (*this).erase((*this).begin(),(*this).begin()+d);\n\
     \    return *this;\n  }\n  FPS &operator*=(const FPS&r){\n    (*this)=NTT<m>::multiply((*this),r);\n\
-    \    return *this;\n  }\n  FPS &operator/=(FPS r){\n    const int n=(*this).size(),m=r.size();\n\
-    \    if(n<m){\n      (*this).clear();\n      return *this;\n    }\n    const int\
-    \ sz=n-m+1;\n    reverse((*this).begin(),(*this).end());\n    reverse(r.begin(),r.end());\n\
+    \    return *this;\n  }\n  FPS &operator/=(FPS r){\n    const int n=(*this).size(),n1=r.size();\n\
+    \    if(n<n1){\n      (*this).clear();\n      return *this;\n    }\n    const\
+    \ int sz=n-n1+1;\n    reverse((*this).begin(),(*this).end());\n    reverse(r.begin(),r.end());\n\
     \    (*this).resize(sz);\n    (*this)*=r.inv(sz);\n    (*this).resize(sz);\n \
     \   reverse((*this).begin(),(*this).end());\n    return (*this);\n  }\n  FPS &operator%=(const\
     \ FPS&r){\n    const int n=(*this).size(),sz=r.size();\n    if(n<sz)return (*this);\n\
@@ -219,9 +219,9 @@ data:
     \ long long&d){\n    (*this).insert((*this).begin(),d,mint(0));\n    return *this;\n\
     \  }\n  FPS &operator>>=(const long long&d){\n    (*this).erase((*this).begin(),(*this).begin()+d);\n\
     \    return *this;\n  }\n  FPS &operator*=(const FPS&r){\n    (*this)=NTT<m>::multiply((*this),r);\n\
-    \    return *this;\n  }\n  FPS &operator/=(FPS r){\n    const int n=(*this).size(),m=r.size();\n\
-    \    if(n<m){\n      (*this).clear();\n      return *this;\n    }\n    const int\
-    \ sz=n-m+1;\n    reverse((*this).begin(),(*this).end());\n    reverse(r.begin(),r.end());\n\
+    \    return *this;\n  }\n  FPS &operator/=(FPS r){\n    const int n=(*this).size(),n1=r.size();\n\
+    \    if(n<n1){\n      (*this).clear();\n      return *this;\n    }\n    const\
+    \ int sz=n-n1+1;\n    reverse((*this).begin(),(*this).end());\n    reverse(r.begin(),r.end());\n\
     \    (*this).resize(sz);\n    (*this)*=r.inv(sz);\n    (*this).resize(sz);\n \
     \   reverse((*this).begin(),(*this).end());\n    return (*this);\n  }\n  FPS &operator%=(const\
     \ FPS&r){\n    const int n=(*this).size(),sz=r.size();\n    if(n<sz)return (*this);\n\
@@ -268,7 +268,7 @@ data:
   - Math/fps/taylor_shift.hpp
   - Math/fps/polynomial_interpolation.hpp
   - Math/fps/multipoint_evaluation.hpp
-  timestamp: '2022-07-18 21:51:03+01:00'
+  timestamp: '2022-07-18 21:59:18+01:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/polynomial_interpolation.test.cpp
