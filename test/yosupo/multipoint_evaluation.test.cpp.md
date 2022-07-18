@@ -10,10 +10,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/fps/multipoint_evaluation.hpp
     title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []

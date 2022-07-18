@@ -1,25 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/convolution/lcm_convolution.hpp
     title: Math/convolution/lcm_convolution.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/lcm_convolution
     links:
     - https://judge.yosupo.jp/problem/lcm_convolution
-  bundledCode: "#line 1 \"test/yosupo/lcm_convolution.test.cpp\"\n#define PRBOLEM\
+  bundledCode: "#line 1 \"test/yosupo/lcm_convolution.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/lcm_convolution\"\n#line 2 \"template/template.hpp\"\
     \n//#pragma GCC target(\"avx\")\n//#pragma GCC optimize(\"O3\")\n//#pragma GCC\
     \ optimize(\"unroll-loops\")\n#include<bits/stdc++.h>\n#define overload4(a,b,c,d,e,...)\
@@ -126,7 +127,7 @@ data:
     \  for(int i=1;i<=n;i++)cin>>a[i];\n  for(int i=1;i<=n;i++)cin>>b[i];\n  auto\
     \ ans=lcm_convolution(a,b);\n  for(int i=1;i<=n;i++)cout<<ans[i]<<\" \\n\"[i==n];\n\
     }\n"
-  code: "#define PRBOLEM \"https://judge.yosupo.jp/problem/lcm_convolution\"\n#include\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lcm_convolution\"\n#include\"\
     ../../template/template.hpp\"\n#include\"../../Math/modular/modint.hpp\"\n#include\"\
     ../../Math/convolution/lcm_convolution.hpp\"\nusing mint=modint<mod>;\nint main(){\n\
     \  int n;cin>>n;\n  vector<mint>a(n+1),b(n+1);\n  for(int i=1;i<=n;i++)cin>>a[i];\n\
@@ -139,8 +140,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/lcm_convolution.test.cpp
   requiredBy: []
-  timestamp: '2022-07-18 23:04:26+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-18 23:09:28+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lcm_convolution.test.cpp
 layout: document
