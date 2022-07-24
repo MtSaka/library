@@ -264,22 +264,22 @@ data:
   path: Math/fps/fps.hpp
   requiredBy:
   - Math/fps/subset_sum.hpp
-  - Math/fps/taylor_shift.hpp
-  - Math/fps/polynomial_interpolation.hpp
   - Math/fps/multipoint_evaluation.hpp
+  - Math/fps/polynomial_interpolation.hpp
+  - Math/fps/taylor_shift.hpp
   timestamp: '2022-07-18 22:26:09+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/polynomial_interpolation.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/polynomial_taylor_shift.test.cpp
+  - test/yosupo/multipoint_evaluation.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/sharp_p_subset_sum.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial_interpolation.test.cpp
+  - test/yosupo/log_of_formal_power_series.test.cpp
 documentation_of: Math/fps/fps.hpp
 layout: document
 redirect_from:

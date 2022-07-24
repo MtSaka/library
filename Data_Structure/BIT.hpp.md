@@ -46,8 +46,8 @@ data:
   timestamp: '2022-07-13 21:05:02+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - test/aoj/DSL/DSL_2_B.test.cpp
+  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - test/yosupo/point_add_range_sum2.test.cpp
   - test/yosupo/static_range_inversions_query.test.cpp
 documentation_of: Data_Structure/BIT.hpp
