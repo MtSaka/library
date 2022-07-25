@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/tree/tree_diameter.hpp
     title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A
@@ -117,10 +117,10 @@ data:
     \ cost.first+=e.cost;\n      if(res<cost)res=cost,to[idx]=e.to;\n    }\n    return\
     \ res;\n  }\n};\n/**\n * @brief Tree Diameter(\u6728\u306E\u76F4\u5F84)\n*/\n\
     #line 4 \"test/aoj/GRL/GRL_5_A.test.cpp\"\nint main(){\n  int n;\n  cin>>n;\n\
-    \  TreeDiameter g(n);\n  g.read(n-1,0,true);\n  cout<<g.build()<<endl;\n}\n"
+    \  TreeDiameter<int>g(n);\n  g.read(n-1,0,true);\n  cout<<g.build()<<endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/tree/tree_diameter.hpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  TreeDiameter g(n);\n  g.read(n-1,0,true);\n\
+    \nint main(){\n  int n;\n  cin>>n;\n  TreeDiameter<int>g(n);\n  g.read(n-1,0,true);\n\
     \  cout<<g.build()<<endl;\n}"
   dependsOn:
   - template/template.hpp
@@ -129,8 +129,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_A.test.cpp
   requiredBy: []
-  timestamp: '2022-07-25 23:15:57+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-25 23:25:06+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_A.test.cpp
 layout: document

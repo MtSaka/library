@@ -88,7 +88,7 @@ data:
       title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: Graph
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Graph/graph_template.hpp
       title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
         )"
@@ -146,7 +146,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Graph/tree/tree_diameter.hpp
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: Math/convolution
@@ -273,7 +273,7 @@ data:
       title: String/run_length.hpp
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   verificationCategories:
@@ -392,7 +392,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_4_B.test.cpp
       title: test/aoj/GRL/GRL_4_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_A.test.cpp
       title: test/aoj/GRL/GRL_5_A.test.cpp
     - icon: ':heavy_check_mark:'
