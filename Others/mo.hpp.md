@@ -16,10 +16,10 @@ data:
     \  Mo(int n):n(n){}\n  void add(int l,int r){\n    left.push_back(l);\n    right.push_back(r);\n\
     \  }\n  template<typename AL,typename AR,typename DL,typename DR,typename REM>\n\
     \  void run(const AL&add_left,const AR&add_right,const DL&delete_left,const DR&delete_right,const\
-    \ REM&rem){\n    int q=left.size(),width=max<int>(1,n/sqrt(q));\n    vector<int>order(q);\n\
-    \    iota(order.begin(),order.end(),0);\n    sort(order.begin(),order.end(),[&](int\
-    \ a,int b){\n      int ablock=left[a]/width,bblock=left[b]/width;\n      if(ablock!=bblock)return\
-    \ ablock<bblock;\n      return (ablock&1)?(right[a]>right[b]):(right[a]<right[b]);\n\
+    \ REM&rem){\n    const int q=left.size(),width=max<int>(1,int(sqrt(3)*n/sqrt(max(1,2*q))));\n\
+    \    vector<int>order(q);\n    iota(order.begin(),order.end(),0);\n    sort(order.begin(),order.end(),[&](int\
+    \ a,int b){\n      const int ablock=left[a]/width,bblock=left[b]/width;\n    \
+    \  if(ablock!=bblock)return ablock<bblock;\n      return (ablock&1)?(right[a]>right[b]):(right[a]<right[b]);\n\
     \    });\n    int l=0,r=0;\n    for(auto idx:order){\n      while(l>left[idx])add_left(--l);\n\
     \      while(r<right[idx])add_right(r++);\n      while(l<left[idx])delete_left(l++);\n\
     \      while(r>right[idx])delete_right(--r); \n      rem(idx);\n    }\n  }\n \
@@ -30,10 +30,10 @@ data:
     \  void add(int l,int r){\n    left.push_back(l);\n    right.push_back(r);\n \
     \ }\n  template<typename AL,typename AR,typename DL,typename DR,typename REM>\n\
     \  void run(const AL&add_left,const AR&add_right,const DL&delete_left,const DR&delete_right,const\
-    \ REM&rem){\n    int q=left.size(),width=max<int>(1,n/sqrt(q));\n    vector<int>order(q);\n\
-    \    iota(order.begin(),order.end(),0);\n    sort(order.begin(),order.end(),[&](int\
-    \ a,int b){\n      int ablock=left[a]/width,bblock=left[b]/width;\n      if(ablock!=bblock)return\
-    \ ablock<bblock;\n      return (ablock&1)?(right[a]>right[b]):(right[a]<right[b]);\n\
+    \ REM&rem){\n    const int q=left.size(),width=max<int>(1,int(sqrt(3)*n/sqrt(max(1,2*q))));\n\
+    \    vector<int>order(q);\n    iota(order.begin(),order.end(),0);\n    sort(order.begin(),order.end(),[&](int\
+    \ a,int b){\n      const int ablock=left[a]/width,bblock=left[b]/width;\n    \
+    \  if(ablock!=bblock)return ablock<bblock;\n      return (ablock&1)?(right[a]>right[b]):(right[a]<right[b]);\n\
     \    });\n    int l=0,r=0;\n    for(auto idx:order){\n      while(l>left[idx])add_left(--l);\n\
     \      while(r<right[idx])add_right(r++);\n      while(l<left[idx])delete_left(l++);\n\
     \      while(r>right[idx])delete_right(--r); \n      rem(idx);\n    }\n  }\n \
@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: Others/mo.hpp
   requiredBy: []
-  timestamp: '2022-03-05 17:45:16+00:00'
+  timestamp: '2022-07-25 12:39:55+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/static_range_inversions_query.test.cpp
