@@ -9,7 +9,7 @@ struct Mo{
   }
   template<typename AL,typename AR,typename DL,typename DR,typename REM>
   void run(const AL&add_left,const AR&add_right,const DL&delete_left,const DR&delete_right,const REM&rem){
-    int q=left.size(),width=max<int>(1,n/sqrt(q));
+    const int q=left.size(),width=max<int>(1,int(sqrt(3)*n/sqrt(max(1,2*q))));
     vector<int>order(q);
     iota(order.begin(),order.end(),0);
     sort(order.begin(),order.end(),[&](int a,int b){
