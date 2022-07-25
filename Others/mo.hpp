@@ -13,7 +13,7 @@ struct Mo{
     vector<int>order(q);
     iota(order.begin(),order.end(),0);
     sort(order.begin(),order.end(),[&](int a,int b){
-      int ablock=left[a]/width,bblock=left[b]/width;
+      const int ablock=left[a]/width,bblock=left[b]/width;
       if(ablock!=bblock)return ablock<bblock;
       return (ablock&1)?(right[a]>right[b]):(right[a]<right[b]);
     });
