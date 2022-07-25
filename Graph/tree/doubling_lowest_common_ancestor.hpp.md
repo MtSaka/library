@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -38,8 +38,8 @@ data:
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
     \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
     \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/tree/doubling_lowest_common_ancestor.hpp\"\
-    \ntemplate<typename T=int>\nstruct Doubling_LCA:graph<T>{\n  using graph<T>::g;\n\
-    \  const int lg;\n  vector<int>dep;\n  vector<T>sum;\n  vector<vector<int>>table;\n\
+    \ntemplate<typename T=unweighted_edge>\nstruct Doubling_LCA:graph<T>{\n  using\
+    \ graph<T>::g;\n  const int lg;\n  vector<int>dep;\n  vector<T>sum;\n  vector<vector<int>>table;\n\
     \  Doubling_LCA(int n):graph<T>(n),lg(32-__builtin_clz(n)){}\n  Doubling_LCA(const\
     \ graph<T>&g):graph<T>(g),lg(32-__builtin_clz(g.size())){}\n  void build(int root=0){\n\
     \    dep.assign(g.size(),0);\n    sum.assign(g.size(),0);\n    table.assign(lg,vector<int>(g.size(),-1));\n\
@@ -54,7 +54,7 @@ data:
     \    for(auto &e:g[idx])if(e!=par){\n      sum[e]=sum[idx]+e.cost;\n      dfs(e,idx,d+1);\n\
     \    }\n  }\n};\n/**\n * @brief Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\
     \u901A\u7956\u5148)\n*/\n"
-  code: "#pragma once\n#include\"../graph_template.hpp\"\ntemplate<typename T=int>\n\
+  code: "#pragma once\n#include\"../graph_template.hpp\"\ntemplate<typename T=unweighted_edge>\n\
     struct Doubling_LCA:graph<T>{\n  using graph<T>::g;\n  const int lg;\n  vector<int>dep;\n\
     \  vector<T>sum;\n  vector<vector<int>>table;\n  Doubling_LCA(int n):graph<T>(n),lg(32-__builtin_clz(n)){}\n\
     \  Doubling_LCA(const graph<T>&g):graph<T>(g),lg(32-__builtin_clz(g.size())){}\n\
@@ -76,7 +76,7 @@ data:
   isVerificationFile: false
   path: Graph/tree/doubling_lowest_common_ancestor.hpp
   requiredBy: []
-  timestamp: '2022-07-12 23:30:53+01:00'
+  timestamp: '2022-07-25 23:15:57+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_5_C_1.test.cpp

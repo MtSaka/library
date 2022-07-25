@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL/GRL_5_A.test.cpp
     title: test/aoj/GRL/GRL_5_A.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/tree_diameter.test.cpp
     title: test/yosupo/tree_diameter.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
     links: []
@@ -37,17 +37,17 @@ data:
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
     \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
     \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/tree/tree_diameter.hpp\"\
-    \ntemplate<typename T=int>\nstruct TreeDiameter:graph<T>{\n  using graph<T>::g;\n\
-    \  edges<T>path;\n  T build(){\n    to.assign(g.size(),-1);\n    auto p=dfs(0,-1);\n\
-    \    auto q=dfs(p.second,-1);\n    int now=p.second;\n    while(now!=q.second){\n\
-    \      for(auto &e:g[now]){\n        if(to[now]==e.to)path.emplace_back(e);\n\
+    \ntemplate<typename T=unweighted_edge>\nstruct TreeDiameter:graph<T>{\n  using\
+    \ graph<T>::g;\n  edges<T>path;\n  T build(){\n    to.assign(g.size(),-1);\n \
+    \   auto p=dfs(0,-1);\n    auto q=dfs(p.second,-1);\n    int now=p.second;\n \
+    \   while(now!=q.second){\n      for(auto &e:g[now]){\n        if(to[now]==e.to)path.emplace_back(e);\n\
     \      }\n      now=to[now];\n    }\n    return q.first;\n  }\n  TreeDiameter(){}\n\
     \  TreeDiameter(int n):graph<T>(n){}\n  TreeDiameter(const graph<T>&g):graph<T>(g){}\n\
     \  private:\n  vector<int>to;\n  pair<T,int>dfs(int idx,int par){\n    pair<T,int>res(0,idx);\n\
     \    for(auto &e:g[idx])if(e.to!=par){\n      auto cost=dfs(e.to,idx);\n     \
     \ cost.first+=e.cost;\n      if(res<cost)res=cost,to[idx]=e.to;\n    }\n    return\
     \ res;\n  }\n};\n/**\n * @brief Tree Diameter(\u6728\u306E\u76F4\u5F84)\n*/\n"
-  code: "#pragma once\n#include\"../graph_template.hpp\"\ntemplate<typename T=int>\n\
+  code: "#pragma once\n#include\"../graph_template.hpp\"\ntemplate<typename T=unweighted_edge>\n\
     struct TreeDiameter:graph<T>{\n  using graph<T>::g;\n  edges<T>path;\n  T build(){\n\
     \    to.assign(g.size(),-1);\n    auto p=dfs(0,-1);\n    auto q=dfs(p.second,-1);\n\
     \    int now=p.second;\n    while(now!=q.second){\n      for(auto &e:g[now]){\n\
@@ -63,8 +63,8 @@ data:
   isVerificationFile: false
   path: Graph/tree/tree_diameter.hpp
   requiredBy: []
-  timestamp: '2022-07-12 23:30:53+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-07-25 23:15:57+01:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/GRL/GRL_5_A.test.cpp
   - test/yosupo/tree_diameter.test.cpp

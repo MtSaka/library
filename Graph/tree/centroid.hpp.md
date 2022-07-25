@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -31,19 +31,19 @@ data:
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
     \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
     \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/tree/centroid.hpp\"\
-    \ntemplate<typename T>\nvector<int>centroid(const graph<T>&g){\n  cont int n=g.size();\n\
-    \  stack<pair<int,int>>s;\n  s.emplace(0,-1);\n  vector<int>sz(n),par(n);\n  while(!s.empty()){\n\
-    \    auto p=s.top();\n    if(sz[p.first]==0){\n      sz[p.first]=1;\n      for(auto\
-    \ &to:g[p.first])if(to!=p.second)s.emplace(to,p.first);\n    }\n    else{\n  \
-    \    for(auto &to:g[p.first])if(to!=p.second)sz[p.first]+=sz[to];\n      par[p.first]=p.second;\n\
-    \      s.pop();\n    }\n  }\n  vector<int>res;\n  int siz=n;\n  for(int i=0;i<n;i++){\n\
-    \    int val=n-sz[i];\n    for(auto &to:g[i])if(to!=par[i])val=max(val,sz[to]);\n\
+    \ntemplate<typename T=unweighted_edge>\nvector<int>centroid(const graph<T>&g){\n\
+    \  cont int n=g.size();\n  stack<pair<int,int>>s;\n  s.emplace(0,-1);\n  vector<int>sz(n),par(n);\n\
+    \  while(!s.empty()){\n    auto p=s.top();\n    if(sz[p.first]==0){\n      sz[p.first]=1;\n\
+    \      for(auto &to:g[p.first])if(to!=p.second)s.emplace(to,p.first);\n    }\n\
+    \    else{\n      for(auto &to:g[p.first])if(to!=p.second)sz[p.first]+=sz[to];\n\
+    \      par[p.first]=p.second;\n      s.pop();\n    }\n  }\n  vector<int>res;\n\
+    \  int siz=n;\n  for(int i=0;i<n;i++){\n    int val=n-sz[i];\n    for(auto &to:g[i])if(to!=par[i])val=max(val,sz[to]);\n\
     \    if(val<siz)size=val,res.clear();\n    if(val==siz)res.emplace_back(i);\n\
     \  }\n  return res;\n}\n/**\n * @brief Centroid(\u6728\u306E\u91CD\u5FC3)\n*/\n"
-  code: "#pragma once\n#include\"../graph_template.hpp\"\ntemplate<typename T>\nvector<int>centroid(const\
-    \ graph<T>&g){\n  cont int n=g.size();\n  stack<pair<int,int>>s;\n  s.emplace(0,-1);\n\
-    \  vector<int>sz(n),par(n);\n  while(!s.empty()){\n    auto p=s.top();\n    if(sz[p.first]==0){\n\
-    \      sz[p.first]=1;\n      for(auto &to:g[p.first])if(to!=p.second)s.emplace(to,p.first);\n\
+  code: "#pragma once\n#include\"../graph_template.hpp\"\ntemplate<typename T=unweighted_edge>\n\
+    vector<int>centroid(const graph<T>&g){\n  cont int n=g.size();\n  stack<pair<int,int>>s;\n\
+    \  s.emplace(0,-1);\n  vector<int>sz(n),par(n);\n  while(!s.empty()){\n    auto\
+    \ p=s.top();\n    if(sz[p.first]==0){\n      sz[p.first]=1;\n      for(auto &to:g[p.first])if(to!=p.second)s.emplace(to,p.first);\n\
     \    }\n    else{\n      for(auto &to:g[p.first])if(to!=p.second)sz[p.first]+=sz[to];\n\
     \      par[p.first]=p.second;\n      s.pop();\n    }\n  }\n  vector<int>res;\n\
     \  int siz=n;\n  for(int i=0;i<n;i++){\n    int val=n-sz[i];\n    for(auto &to:g[i])if(to!=par[i])val=max(val,sz[to]);\n\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: false
   path: Graph/tree/centroid.hpp
   requiredBy: []
-  timestamp: '2022-07-12 23:30:53+01:00'
+  timestamp: '2022-07-25 23:15:57+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Graph/tree/centroid.hpp

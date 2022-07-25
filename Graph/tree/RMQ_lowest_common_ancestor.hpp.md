@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Data_Structure/sparse_table.hpp
     title: Sparse Table
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -51,20 +51,20 @@ data:
     \  }\n};\ntemplate<typename T,typename F>\nsparse_table<T,F>make_sparse_table(const\
     \ vector<T>&v,const F&f){\n  return sparse_table<T,F>(v,f);\n} \n/**\n * @brief\
     \ Sparse Table\n*/\n#line 4 \"Graph/tree/RMQ_lowest_common_ancestor.hpp\"\ntemplate<typename\
-    \ T=int>\nstruct RMQ_LCA:graph<T>{\n  using graph<T>::g;\n  using F=function<int(int,int)>;\n\
-    \  vector<int>ord,dep,in;\n  RMQ_LCA(int n):graph<T>(n){}\n  RMQ_LCA(const graph<T>&g):graph<T>(g){}\n\
-    \  void build(int root=0){\n    in.resize(g.size());\n    dfs(root,-1,0);\n  \
-    \  vector<int>v(g.size()*2-1);\n    iota(v.begin(),v.end(),0);\n    F f=[&](int\
-    \ a,int b){return dep[a]<dep[b]?a:b;};\n    st=sparse_table<int,F>(v,f);\n  }\n\
-    \  int lca(int u,int v){\n    if(in[u]>in[v])swap(u,v);\n    return u==v?u:ord[st.query(in[u],in[v])];\n\
+    \ T=unweighted_edge>\nstruct RMQ_LCA:graph<T>{\n  using graph<T>::g;\n  using\
+    \ F=function<int(int,int)>;\n  vector<int>ord,dep,in;\n  RMQ_LCA(int n):graph<T>(n){}\n\
+    \  RMQ_LCA(const graph<T>&g):graph<T>(g){}\n  void build(int root=0){\n    in.resize(g.size());\n\
+    \    dfs(root,-1,0);\n    vector<int>v(g.size()*2-1);\n    iota(v.begin(),v.end(),0);\n\
+    \    F f=[&](int a,int b){return dep[a]<dep[b]?a:b;};\n    st=sparse_table<int,F>(v,f);\n\
+    \  }\n  int lca(int u,int v){\n    if(in[u]>in[v])swap(u,v);\n    return u==v?u:ord[st.query(in[u],in[v])];\n\
     \  }\n  private:\n  sparse_table<int,F>st;\n  void dfs(int idx,int par,int d){\n\
     \    in[idx]=(int)ord.size();\n    ord.emplace_back(idx);\n    dep.emplace_back(d);\n\
     \    for(auto &e:g[idx])if(e!=par){\n      dfs(e,idx,d+1);\n      ord.emplace_back(idx);\n\
     \      dep.emplace_back(d);\n    }\n  }\n};\n/**\n * @brief RMQ Lowest Common\
     \ Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)\n*/\n"
   code: "#pragma once\n#include\"../graph_template.hpp\"\n#include\"../../Data_Structure/sparse_table.hpp\"\
-    \ntemplate<typename T=int>\nstruct RMQ_LCA:graph<T>{\n  using graph<T>::g;\n \
-    \ using F=function<int(int,int)>;\n  vector<int>ord,dep,in;\n  RMQ_LCA(int n):graph<T>(n){}\n\
+    \ntemplate<typename T=unweighted_edge>\nstruct RMQ_LCA:graph<T>{\n  using graph<T>::g;\n\
+    \  using F=function<int(int,int)>;\n  vector<int>ord,dep,in;\n  RMQ_LCA(int n):graph<T>(n){}\n\
     \  RMQ_LCA(const graph<T>&g):graph<T>(g){}\n  void build(int root=0){\n    in.resize(g.size());\n\
     \    dfs(root,-1,0);\n    vector<int>v(g.size()*2-1);\n    iota(v.begin(),v.end(),0);\n\
     \    F f=[&](int a,int b){return dep[a]<dep[b]?a:b;};\n    st=sparse_table<int,F>(v,f);\n\
@@ -80,7 +80,7 @@ data:
   isVerificationFile: false
   path: Graph/tree/RMQ_lowest_common_ancestor.hpp
   requiredBy: []
-  timestamp: '2022-07-12 23:30:53+01:00'
+  timestamp: '2022-07-25 23:15:57+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_5_C_2.test.cpp

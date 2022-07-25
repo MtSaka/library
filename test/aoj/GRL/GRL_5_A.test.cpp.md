@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/tree/tree_diameter.hpp
     title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A
@@ -106,10 +106,10 @@ data:
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
     \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
     \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"Graph/tree/tree_diameter.hpp\"\
-    \ntemplate<typename T=int>\nstruct TreeDiameter:graph<T>{\n  using graph<T>::g;\n\
-    \  edges<T>path;\n  T build(){\n    to.assign(g.size(),-1);\n    auto p=dfs(0,-1);\n\
-    \    auto q=dfs(p.second,-1);\n    int now=p.second;\n    while(now!=q.second){\n\
-    \      for(auto &e:g[now]){\n        if(to[now]==e.to)path.emplace_back(e);\n\
+    \ntemplate<typename T=unweighted_edge>\nstruct TreeDiameter:graph<T>{\n  using\
+    \ graph<T>::g;\n  edges<T>path;\n  T build(){\n    to.assign(g.size(),-1);\n \
+    \   auto p=dfs(0,-1);\n    auto q=dfs(p.second,-1);\n    int now=p.second;\n \
+    \   while(now!=q.second){\n      for(auto &e:g[now]){\n        if(to[now]==e.to)path.emplace_back(e);\n\
     \      }\n      now=to[now];\n    }\n    return q.first;\n  }\n  TreeDiameter(){}\n\
     \  TreeDiameter(int n):graph<T>(n){}\n  TreeDiameter(const graph<T>&g):graph<T>(g){}\n\
     \  private:\n  vector<int>to;\n  pair<T,int>dfs(int idx,int par){\n    pair<T,int>res(0,idx);\n\
@@ -129,8 +129,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_A.test.cpp
   requiredBy: []
-  timestamp: '2022-07-12 23:30:53+01:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-25 23:15:57+01:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_A.test.cpp
 layout: document
