@@ -24,7 +24,7 @@ struct binary_trie{
   int make(){v.emplace_back(node());return sz++;}
   public:
   binary_trie():v(1){}
-  void reserve(int n){v.reserve(n*B+1);}
+  void reserve(int n){v.reserve(n*4+1);}
   void insert(S x,S xor_val=0){add(x,1,xor_val);}
   void erase(S x,S xor_val=0){add(x,-1,xor_val);}
   void add(S x,int a,S xor_val=0){
