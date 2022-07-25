@@ -1,6 +1,6 @@
 #pragma once
 #include"../graph_template.hpp"
-template<typename T>
+template<typename T=unweighted_edge>
 vector<int>centroid(const graph<T>&g){
   cont int n=g.size();
   stack<pair<int,int>>s;

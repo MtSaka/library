@@ -1,6 +1,6 @@
 #pragma once
 #include"../graph_template.hpp"
-template<typename T=int>
+template<typename T=unweighted_edge>
 struct TreeDiameter:graph<T>{
   using graph<T>::g;
   edges<T>path;

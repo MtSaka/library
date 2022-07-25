@@ -1,7 +1,7 @@
 #pragma once
 #include"../graph_template.hpp"
 #include"../../Data_Structure/sparse_table.hpp"
-template<typename T=int>
+template<typename T=unweighted_edge>
 struct RMQ_LCA:graph<T>{
   using graph<T>::g;
   using F=function<int(int,int)>;

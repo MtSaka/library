@@ -1,6 +1,6 @@
 #pragma once
 #include"../graph_template.hpp"
-template<typename T=int>
+template<typename T=unweighted_edge>
 struct Doubling_LCA:graph<T>{
   using graph<T>::g;
   const int lg;
