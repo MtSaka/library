@@ -91,7 +91,7 @@ data:
     \  for(int i=B-1;i>=0;i--){\n      int b=(x>>i)&1;\n      if((xor_val>>i)&1)b^=1;\n\
     \      if(v[idx].ch[b]==-1)return -1;\n      idx=v[idx].ch[b];\n    }\n    return\
     \ idx;\n  }\n  int make(){v.emplace_back(node());return sz++;}\n  public:\n  binary_trie():v(1){}\n\
-    \  void reserve(int n){v.reserve(n*B+1);}\n  void insert(S x,S xor_val=0){add(x,1,xor_val);}\n\
+    \  void reserve(int n){v.reserve(n*4+1);}\n  void insert(S x,S xor_val=0){add(x,1,xor_val);}\n\
     \  void erase(S x,S xor_val=0){add(x,-1,xor_val);}\n  void add(S x,int a,S xor_val=0){\n\
     \    xor_val^=xor_all;\n    int idx=0;\n    v[idx].count+=a;\n    for(int i=B-1;i>=0;i--){\n\
     \      int b=(x>>i)&1;\n      if((xor_val>>i)&1)b^=1;\n      if(v[idx].ch[b]==-1)v[idx].ch[b]=make();\n\
@@ -154,7 +154,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/set_xor_min.test.cpp
   requiredBy: []
-  timestamp: '2022-07-05 16:50:54+01:00'
+  timestamp: '2022-07-26 00:54:51+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/set_xor_min.test.cpp
