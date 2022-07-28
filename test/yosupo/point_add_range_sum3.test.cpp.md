@@ -111,22 +111,22 @@ data:
     test/yosupo/point_add_range_sum3.test.cpp\"\nlong long op(long long a,long long\
     \ b){return a+b;}\nlong long e(){return 0;}\nint main(){\n  int n,q;cin>>n>>q;\n\
     \  dynamic_segtree<long long,op,e>seg(n);\n  vi a(n);cin>>a;\n  for(int i=0;i<n;i++)seg.set(i,a[i]);\n\
-    \  while(q--){\n    int t,l,r;cin>>t>>l>>r;\n    debug(t,l,r);\n    if(t)cout<<seg.query(l,r)<<endl;\n\
+    \  while(q--){\n    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.query(l,r)<<endl;\n\
     \    else seg.set(l,seg[l]+r);\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
     #include\"../../template/template.hpp\"\n#include\"../../Data_Structure/dynamic_segtree.hpp\"\
     \nlong long op(long long a,long long b){return a+b;}\nlong long e(){return 0;}\n\
     int main(){\n  int n,q;cin>>n>>q;\n  dynamic_segtree<long long,op,e>seg(n);\n\
     \  vi a(n);cin>>a;\n  for(int i=0;i<n;i++)seg.set(i,a[i]);\n  while(q--){\n  \
-    \  int t,l,r;cin>>t>>l>>r;\n    debug(t,l,r);\n    if(t)cout<<seg.query(l,r)<<endl;\n\
-    \    else seg.set(l,seg[l]+r);\n  }\n}"
+    \  int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.query(l,r)<<endl;\n    else seg.set(l,seg[l]+r);\n\
+    \  }\n}"
   dependsOn:
   - template/template.hpp
   - Data_Structure/dynamic_segtree.hpp
   isVerificationFile: true
   path: test/yosupo/point_add_range_sum3.test.cpp
   requiredBy: []
-  timestamp: '2022-07-29 00:43:22+01:00'
+  timestamp: '2022-07-29 00:47:59+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_add_range_sum3.test.cpp
