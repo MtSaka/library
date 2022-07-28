@@ -18,8 +18,8 @@ struct dynamic_segtree{
     ptr l,r;
     node(const S&val):val(val),l(nullptr),r(nullptr){}
   };
-  ptr root;
   const long long n;
+  ptr root;
   void inner_set(ptr&nd,long long l,long long r,long long p,const S&x){
     if(!nd)nd=make_unique<node>(e());
     if(r-l==1){nd->val=x;return;}
