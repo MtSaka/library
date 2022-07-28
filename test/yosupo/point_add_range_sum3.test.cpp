@@ -10,7 +10,6 @@ int main(){
   for(int i=0;i<n;i++)seg.set(i,a[i]);
   while(q--){
     int t,l,r;cin>>t>>l>>r;
-    debug(t,l,r);
     if(t)cout<<seg.query(l,r)<<endl;
     else seg.set(l,seg[l]+r);
   }
