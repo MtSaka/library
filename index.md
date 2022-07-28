@@ -21,7 +21,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data_Structure/dual_segtree.hpp
       title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Data_Structure/dynamic_segtree.hpp
       title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
     - icon: ':heavy_check_mark:'
@@ -497,6 +497,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum2.test.cpp
       title: test/yosupo/point_add_range_sum2.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/point_add_range_sum3.test.cpp
+      title: test/yosupo/point_add_range_sum3.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp

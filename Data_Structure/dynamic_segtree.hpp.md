@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_add_range_sum3.test.cpp
+    title: test/yosupo/point_add_range_sum3.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
     links: []
@@ -18,7 +21,7 @@ data:
     \  S all_query()const{return root?root->val:e();}\n  void reset(long long l,long\
     \ long r){inner_reset(root,0,n,l,r);}\n  private:\n  struct node;\n  using ptr=unique_ptr<node>;\n\
     \  struct node{\n    S val;\n    ptr l,r;\n    node(const S&val):val(val),l(nullptr),r(nullptr){}\n\
-    \  };\n  ptr root;\n  const long long n;\n  void inner_set(ptr&nd,long long l,long\
+    \  };\n  const long long n;\n  ptr root;\n  void inner_set(ptr&nd,long long l,long\
     \ long r,long long p,const S&x){\n    if(!nd)nd=make_unique<node>(e());\n    if(r-l==1){nd->val=x;return;}\n\
     \    long long m=(l+r)>>1;\n    if(p<m)inner_set(nd->l,l,m,p,x);\n    else inner_set(nd->r,m,r,p,x);\n\
     \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n  S inner_get(const\
@@ -42,7 +45,7 @@ data:
     \  void reset(long long l,long long r){inner_reset(root,0,n,l,r);}\n  private:\n\
     \  struct node;\n  using ptr=unique_ptr<node>;\n  struct node{\n    S val;\n \
     \   ptr l,r;\n    node(const S&val):val(val),l(nullptr),r(nullptr){}\n  };\n \
-    \ ptr root;\n  const long long n;\n  void inner_set(ptr&nd,long long l,long long\
+    \ const long long n;\n  ptr root;\n  void inner_set(ptr&nd,long long l,long long\
     \ r,long long p,const S&x){\n    if(!nd)nd=make_unique<node>(e());\n    if(r-l==1){nd->val=x;return;}\n\
     \    long long m=(l+r)>>1;\n    if(p<m)inner_set(nd->l,l,m,p,x);\n    else inner_set(nd->r,m,r,p,x);\n\
     \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n  S inner_get(const\
@@ -61,9 +64,10 @@ data:
   isVerificationFile: false
   path: Data_Structure/dynamic_segtree.hpp
   requiredBy: []
-  timestamp: '2022-07-26 16:32:20+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2022-07-29 00:43:22+01:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/point_add_range_sum3.test.cpp
 documentation_of: Data_Structure/dynamic_segtree.hpp
 layout: document
 redirect_from:

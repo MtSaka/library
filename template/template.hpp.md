@@ -208,6 +208,9 @@ data:
     path: test/yosupo/point_add_range_sum2.test.cpp
     title: test/yosupo/point_add_range_sum2.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_add_range_sum3.test.cpp
+    title: test/yosupo/point_add_range_sum3.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -471,6 +474,7 @@ data:
   - test/yosupo/discrete-logarithm-mod.test.cpp
   - test/yosupo/lca2.test.cpp
   - test/yosupo/matrix_product.test.cpp
+  - test/yosupo/point_add_range_sum3.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/point_add_range_sum2.test.cpp
   - test/yosupo/persistent_unionfind.test.cpp
