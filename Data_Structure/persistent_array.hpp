@@ -42,5 +42,5 @@ struct persistent_array{
   }
 };
 /**
- * @breif 永続配列(Persistent Array)
+ * @brief 永続配列(Persistent Array)
 */
