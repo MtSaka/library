@@ -47,9 +47,9 @@ data:
   timestamp: '2022-07-02 02:22:41+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yosupo/unionfind.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp
   - test/aoj/GRL/GRL_2_A.test.cpp
-  - test/yosupo/unionfind.test.cpp
 documentation_of: Data_Structure/dsu.hpp
 layout: document
 redirect_from:

@@ -38,7 +38,7 @@ data:
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
       path: Data_Structure/persistent_array.hpp
-      title: Data_Structure/persistent_array.hpp
+      title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
     - icon: ':heavy_check_mark:'
       path: Data_Structure/persistent_dsu.hpp
       title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"

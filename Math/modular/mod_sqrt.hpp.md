@@ -49,8 +49,8 @@ data:
   timestamp: '2022-07-07 12:48:34+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_mod.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
 documentation_of: Math/modular/mod_sqrt.hpp
 layout: document
 redirect_from:

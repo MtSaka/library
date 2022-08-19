@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: Data_Structure/persistent_array.hpp
-    title: Data_Structure/persistent_array.hpp
+    title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
   - icon: ':heavy_check_mark:'
     path: Data_Structure/persistent_dsu.hpp
     title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
@@ -99,7 +99,7 @@ data:
     \    }\n    if(idx==0){\n      ret->val=val;\n    }\n    else{\n      ret->ch[idx&15]=set(idx>>4,val,ret->ch[idx&15]);\n\
     \    }\n    return ret;\n  }\n  T get(int idx, node*t){\n    if(!t)return 0;\n\
     \    if(idx==0)return t->val;\n    return get(idx>>4,t->ch[idx&15]);\n  }\n};\n\
-    /**\n * @breif \u6C38\u7D9A\u914D\u5217(Persistent Array)\n*/\n#line 3 \"Data_Structure/persistent_dsu.hpp\"\
+    /**\n * @brief \u6C38\u7D9A\u914D\u5217(Persistent Array)\n*/\n#line 3 \"Data_Structure/persistent_dsu.hpp\"\
     \nstruct persistent_dsu{\n  private:\n  using pa=persistent_array<int>;\n  pa\
     \ p;\n  public:\n  using node=pa::node;\n  persistent_dsu(){}\n  persistent_dsu(int\
     \ n){\n    p.build(vector<int>(n,-1));\n  }\n  int root(int x,node*t){\n    if(p.get(x,t)<0)return\
@@ -129,7 +129,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/persistent_unionfind.test.cpp
   requiredBy: []
-  timestamp: '2022-07-03 21:11:59+01:00'
+  timestamp: '2022-08-19 20:35:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/persistent_unionfind.test.cpp
