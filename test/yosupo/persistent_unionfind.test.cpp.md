@@ -87,20 +87,20 @@ data:
     template<class F>struct REC{F f;REC(F&&f_):f(std::forward<F>(f_)){}template<class...Args>auto\
     \ operator()(Args&&...args)const{return f(*this, std::forward<Args>(args)...);}};\n\
     /**\n * @brief Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"\
-    Data_Structure/persistent_array.hpp\"\ntemplate<typename T>\nstruct persistent_array{\n\
-    \  struct node{\n    T val;\n    node*ch[16]={};\n  };\n  node*root=nullptr;\n\
-    \  persistent_array(){}\n  persistent_array(const vector<T>&a){\n    build(a);\n\
-    \  }\n  void build(const vector<T>&a){\n    for(int i=0;i<(int)a.size();i++){\n\
-    \      destructive_set(i,a[i],root);\n    }\n  }\n  node*get_root(){return root;}\n\
-    \  void destructive_set(int idx,T val,node*&t){\n    if(!t)t=new node();\n   \
-    \ if(idx==0)t->val=val;\n    else destructive_set(idx>>4,val,t->ch[idx&15]);\n\
+    Data_Structure/persistent_array.hpp\"\ntemplate<typename T,int N=1>\nstruct persistent_array{\n\
+    \  struct node{\n    T val;\n    node*ch[1<<N]={};\n  };\n  node*root=nullptr;\n\
+    \  static constexpr int bit=(1<<N)-1;\n  persistent_array(){}\n  persistent_array(const\
+    \ vector<T>&a){\n    build(a);\n  }\n  void build(const vector<T>&a){\n    for(int\
+    \ i=0;i<(int)a.size();i++){\n      destructive_set(i,a[i],root);\n    }\n  }\n\
+    \  node*get_root(){return root;}\n  void destructive_set(int idx,T val,node*&t){\n\
+    \    if(!t)t=new node();\n    if(idx==0)t->val=val;\n    else destructive_set(idx>>N,val,t->ch[idx&bit]);\n\
     \  }\n  node*set(int idx,T val,node*const& t){\n    node*ret=new node();\n   \
     \ if(t){\n      memcpy(ret->ch,t->ch,sizeof(t->ch));\n      ret->val=t->val;\n\
-    \    }\n    if(idx==0){\n      ret->val=val;\n    }\n    else{\n      ret->ch[idx&15]=set(idx>>4,val,ret->ch[idx&15]);\n\
+    \    }\n    if(idx==0){\n      ret->val=val;\n    }\n    else{\n      ret->ch[idx&bit]=set(idx>>N,val,ret->ch[idx&bit]);\n\
     \    }\n    return ret;\n  }\n  T get(int idx, node*t){\n    if(!t)return 0;\n\
-    \    if(idx==0)return t->val;\n    return get(idx>>4,t->ch[idx&15]);\n  }\n};\n\
+    \    if(idx==0)return t->val;\n    return get(idx>>N,t->ch[idx&bit]);\n  }\n};\n\
     /**\n * @brief \u6C38\u7D9A\u914D\u5217(Persistent Array)\n*/\n#line 3 \"Data_Structure/persistent_dsu.hpp\"\
-    \nstruct persistent_dsu{\n  private:\n  using pa=persistent_array<int>;\n  pa\
+    \nstruct persistent_dsu{\n  private:\n  using pa=persistent_array<int,2>;\n  pa\
     \ p;\n  public:\n  using node=pa::node;\n  persistent_dsu(){}\n  persistent_dsu(int\
     \ n){\n    p.build(vector<int>(n,-1));\n  }\n  int root(int x,node*t){\n    if(p.get(x,t)<0)return\
     \ x;\n    return root(p.get(x,t),t);\n  }\n  bool same(int x,int y,node*t){\n\
@@ -129,7 +129,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/persistent_unionfind.test.cpp
   requiredBy: []
-  timestamp: '2022-08-19 20:35:51+09:00'
+  timestamp: '2022-08-23 09:51:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/persistent_unionfind.test.cpp
