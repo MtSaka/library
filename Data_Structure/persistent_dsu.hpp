@@ -2,7 +2,7 @@
 #include"persistent_array.hpp"
 struct persistent_dsu{
   private:
-  using pa=persistent_array<int>;
+  using pa=persistent_array<int,2>;
   pa p;
   public:
   using node=pa::node;

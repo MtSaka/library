@@ -1,11 +1,12 @@
 #pragma once
-template<typename T>
+template<typename T,int N=1>
 struct persistent_array{
   struct node{
     T val;
-    node*ch[16]={};
+    node*ch[1<<N]={};
   };
   node*root=nullptr;
+  static constexpr int bit=(1<<N)-1;
   persistent_array(){}
   persistent_array(const vector<T>&a){
     build(a);
@@ -19,7 +20,7 @@ struct persistent_array{
   void destructive_set(int idx,T val,node*&t){
     if(!t)t=new node();
     if(idx==0)t->val=val;
-    else destructive_set(idx>>4,val,t->ch[idx&15]);
+    else destructive_set(idx>>N,val,t->ch[idx&bit]);
   }
   node*set(int idx,T val,node*const& t){
     node*ret=new node();
@@ -31,14 +32,14 @@ struct persistent_array{
       ret->val=val;
     }
     else{
-      ret->ch[idx&15]=set(idx>>4,val,ret->ch[idx&15]);
+      ret->ch[idx&bit]=set(idx>>N,val,ret->ch[idx&bit]);
     }
     return ret;
   }
   T get(int idx, node*t){
     if(!t)return 0;
     if(idx==0)return t->val;
-    return get(idx>>4,t->ch[idx&15]);
+    return get(idx>>N,t->ch[idx&bit]);
   }
 };
 /**
