@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Data_Structure/hash_map.hpp
     title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
   _extendedRequiredBy: []

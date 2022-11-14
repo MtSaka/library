@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/number/fast_prime.hpp
     title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/number/primitive_root.hpp
     title: Math/number/primitive_root.hpp
   _extendedRequiredBy:
@@ -23,7 +23,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/fps/polynomial_interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/fps/subset_sum.hpp
     title: Count Subset Sum
   - icon: ':heavy_check_mark:'
@@ -54,15 +54,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sharp_p_subset_sum.test.cpp
     title: test/yosupo/sharp_p_subset_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -158,7 +158,7 @@ data:
     template<int m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic\
     \ Transform(\u6570\u8AD6\u5909\u63DB)\n*/\n#line 3 \"Math/fps/fps.hpp\"\ntemplate<int\
     \ m>\nstruct FPS:vector<modint<m>>{\n  using mint=modint<m>;\n  using vector<mint>::vector;\n\
-    \  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}\n\
+    \  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
     \  FPS inv(int d=-1)const{\n    NTT<m>ntt;\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res{(*this)[0].inv()};\n    for(int sz=1;sz<d;sz<<=1){\n\
     \      FPS f((*this).begin(),(*this).begin()+min(n,2*sz));\n      FPS g(res);\n\
@@ -230,7 +230,7 @@ data:
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n"
   code: "#pragma once\n#include\"../convolution/ntt.hpp\"\ntemplate<int m>\nstruct\
     \ FPS:vector<modint<m>>{\n  using mint=modint<m>;\n  using vector<mint>::vector;\n\
-    \  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}\n\
+    \  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
     \  FPS inv(int d=-1)const{\n    NTT<m>ntt;\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res{(*this)[0].inv()};\n    for(int sz=1;sz<d;sz<<=1){\n\
     \      FPS f((*this).begin(),(*this).begin()+min(n,2*sz));\n      FPS g(res);\n\
@@ -313,8 +313,8 @@ data:
   - Math/fps/polynomial_interpolation.hpp
   - Math/fps/taylor_shift.hpp
   - Math/fps/multipoint_evaluation.hpp
-  timestamp: '2022-11-14 23:10:41+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-11-14 14:26:59+00:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp

@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/convolution/gcd_convolution.hpp
     title: GCD Convolution
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []

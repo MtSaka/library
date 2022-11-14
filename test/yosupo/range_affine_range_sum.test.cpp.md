@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Data_Structure/lazy_segtree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
