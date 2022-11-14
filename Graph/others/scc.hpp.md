@@ -93,9 +93,9 @@ data:
   timestamp: '2022-07-13 13:47:02+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/GRL/GRL_3_C.test.cpp
   - test/yosupo/two_sat.test.cpp
   - test/yosupo/scc.test.cpp
-  - test/aoj/GRL/GRL_3_C.test.cpp
 documentation_of: Graph/others/scc.hpp
 layout: document
 redirect_from:

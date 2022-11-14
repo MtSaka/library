@@ -1,23 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
+  - icon: ':question:'
+    path: Math/modular/modpow.hpp
+    title: "Mod Pow(\u3079\u304D\u4E57)"
+  - icon: ':question:'
+    path: Math/number/fast_prime.hpp
+    title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
+  - icon: ':question:'
+    path: Math/number/primitive_root.hpp
+    title: Math/number/primitive_root.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/sharp_p_subset_sum.test.cpp
     title: test/yosupo/sharp_p_subset_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: Count Subset Sum
     links: []
@@ -51,12 +60,46 @@ data:
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
     \    is>>t;\n    a=modint(t);\n    return (is);\n  }\n  static constexpr int get_mod(){return\
     \ m;}\n  int val()const{return (int)x;}\n};\n/**\n * @brief modint\n*/\n#line\
-    \ 3 \"Math/convolution/ntt.hpp\"\ntemplate<int m>\nstruct NTT{\n  using mint=modint<m>;\n\
-    \  private:\n  static modint<m> g;\n  static int limit;\n  static vector<modint<m>>root,inv_root;\n\
-    \  static constexpr mint primitive_root(const int&mo){\n    if(mo==167772161)return\
-    \ mint(3);\n    if(mo==469762049)return mint(3);\n    if(mo==754974721)return\
-    \ mint(11);\n    if(mo==998244353)return mint(3);\n    if(mo==1224736769)return\
-    \ mint(3);\n    return mint();\n  }\n  static void init(){\n    if(!root.empty())return;\n\
+    \ 1 \"Math/number/fast_prime.hpp\"\nnamespace fastprime{\n  using i128=__uint128_t;\n\
+    \  long long inner_modmul(const long long&x,const long long&y,const long long&p){\n\
+    \    return i128(x)*y%p;\n  }\n  long long inner_modpow(long long n,long long\
+    \ m,const long long&p){\n    long long res=1;\n    while(m){\n      if(m&1)res=inner_modmul(res,n,p);\n\
+    \      n=inner_modmul(n,n,p);\n      m>>=1;\n    }\n    return res;\n  }\n  bool\
+    \ miller_rabin(const long long&n,const vector<long long>&p){\n    long long s=__builtin_ctzll(n-1),d=n>>s;\n\
+    \    for(long long a:p){\n      if(n<=a)break;\n      long long t=d,y=inner_modpow(a,t,n);\n\
+    \      while(t!=n-1&&y!=1&&y!=n-1){\n        y=inner_modmul(y,y,n);\n        t=inner_modmul(t,2,n);\n\
+    \      }\n      if(y!=n-1&&!(t&1))return false;\n    }\n    return true;\n  }\n\
+    \  bool is_prime(const long long&n){\n    if(n<=2)return n==2;\n    if(!(n&1))return\
+    \ false;\n    if(n<=4759123141)return miller_rabin(n,{2,7,61});\n    return miller_rabin(n,{2,325,9375,28178,450775,9780504,1795265022});\n\
+    \  }\n  long long factor(const long long&n){\n    if(!(n&1))return 2;\n    else\
+    \ if(is_prime(n))return n;\n    int c=2;\n    while(true){\n      auto f=[&](long\
+    \ long x){\n        x=inner_modmul(x,x,n)+c;\n        if(x>=n)x-=n;\n        return\
+    \ x;\n      };\n      long long x=c,g=1,q=1,xs,y;\n      int m=128;\n      int\
+    \ l=1;\n      while(g==1){\n        y=x;\n        for(int i=1;i<l;i++)x=f(x);\n\
+    \        int k=0;\n        while(k<l&&g==1){\n          xs=x;\n          for(int\
+    \ i=0;i<m&&i<l-k;i++){\n            x=f(x);\n            q=inner_modmul(q,llabs(y-x),n);\n\
+    \          }\n          g=__gcd(q,n);\n          k+=m;\n        }\n        l*=2;\n\
+    \      }\n      if(g==n){\n        do{\n          xs=f(xs);\n          g=__gcd(llabs(xs-y),n);\n\
+    \        }while(g==1);\n      }\n      if(g!=n)return g;\n      c++;\n    }\n\
+    \  }\n  vector<long long>factorize_sub(const long long&n){\n    if(n==1)return\
+    \ {};\n    long long p=factor(n);\n    if(p==n)return {p};\n    vector<long long>l=factorize_sub(n/p);\n\
+    \    vector<long long>r=factorize_sub(p);\n    l.insert(l.end(),r.begin(),r.end());\n\
+    \    return l;\n  }\n  vector<long long>factorize(const long long&n,const bool&sorted=true){\n\
+    \    vector<long long>res=factorize_sub(n);\n    if(sorted)sort(res.begin(),res.end());\n\
+    \    return res;\n  }\n} // namespace fastprime\n/**\n * @brief Fast Prime Factorization(\u9AD8\
+    \u901F\u7D20\u56E0\u6570\u5206\u89E3)\n*/\n#line 2 \"Math/modular/modpow.hpp\"\
+    \ntemplate<typename T,typename S>\nT modpow(T a,S b,T m){\n  T ret=1;\n  while(b){\n\
+    \    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n  }\n  return ret;\n}\n/**\n\
+    \ * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line 3 \"Math/number/primitive_root.hpp\"\
+    \nint primitive_root(int n){\n  if(n==2)return 1;\n  if(n==167772161)return 3;\n\
+    \  if(n==469762049)return 3;\n  if(n==754974721)return 11;\n  if(n==998244353)return\
+    \ 3;\n  if(n==1224736769)return 3;\n  auto divs=fastprime::factorize(n-1);\n \
+    \ divs.erase(unique(divs.begin(),divs.end()),divs.end());\n  for(int g=2;;g++){\n\
+    \    bool ok=true;\n    for(int d:divs){\n      if(modpow(g,(n-1)/d,n)==1){\n\
+    \        ok=false;\n        break;\n      }\n    }\n    if(ok)return g;\n  }\n\
+    }\n#line 4 \"Math/convolution/ntt.hpp\"\ntemplate<int m>\nstruct NTT{\n  using\
+    \ mint=modint<m>;\n  private:\n  static modint<m> g;\n  static int limit;\n  static\
+    \ vector<modint<m>>root,inv_root;\n  static void init(){\n    if(!root.empty())return;\n\
     \    g=primitive_root(m);\n    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n\
     \    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n    root[limit]=g.pow(now);\n\
     \    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n      root[i]=root[i+1]*root[i+1];\n\
@@ -164,11 +207,14 @@ data:
   - Math/fps/fps.hpp
   - Math/convolution/ntt.hpp
   - Math/modular/modint.hpp
+  - Math/number/primitive_root.hpp
+  - Math/number/fast_prime.hpp
+  - Math/modular/modpow.hpp
   isVerificationFile: false
   path: Math/fps/subset_sum.hpp
   requiredBy: []
-  timestamp: '2022-07-18 22:26:09+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-11-14 23:10:41+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/sharp_p_subset_sum.test.cpp
 documentation_of: Math/fps/subset_sum.hpp

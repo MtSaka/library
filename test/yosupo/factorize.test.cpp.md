@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/number/fast_prime.hpp
     title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
@@ -110,8 +110,8 @@ data:
     \    vector<long long>r=factorize_sub(p);\n    l.insert(l.end(),r.begin(),r.end());\n\
     \    return l;\n  }\n  vector<long long>factorize(const long long&n,const bool&sorted=true){\n\
     \    vector<long long>res=factorize_sub(n);\n    if(sorted)sort(res.begin(),res.end());\n\
-    \    return res;\n  }\n};\n/**\n * @brief Fast Prime Factorization(\u9AD8\u901F\
-    \u7D20\u56E0\u6570\u5206\u89E3)\n*/\n#line 4 \"test/yosupo/factorize.test.cpp\"\
+    \    return res;\n  }\n} // namespace fastprime\n/**\n * @brief Fast Prime Factorization(\u9AD8\
+    \u901F\u7D20\u56E0\u6570\u5206\u89E3)\n*/\n#line 4 \"test/yosupo/factorize.test.cpp\"\
     \nint main(){\n  int q;\n  cin>>q;\n  while(q--){\n    long long x;\n    cin>>x;\n\
     \    auto ret=fastprime::factorize(x);\n    print(ret.size(),ret);\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/factorize\"\n#include\"\
@@ -124,7 +124,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/factorize.test.cpp
   requiredBy: []
-  timestamp: '2022-07-03 21:11:59+01:00'
+  timestamp: '2022-11-14 23:10:41+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/factorize.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
   _extendedRequiredBy:
@@ -104,8 +104,8 @@ data:
   isVerificationFile: false
   path: Math/others/combinatorics.hpp
   requiredBy:
-  - Math/others/lagrange.hpp
   - Math/fps/taylor_shift.hpp
+  - Math/others/lagrange.hpp
   timestamp: '2022-07-18 22:46:16+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
