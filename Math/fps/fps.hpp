@@ -5,7 +5,7 @@ struct FPS:vector<modint<m>>{
   using mint=modint<m>;
   using vector<mint>::vector;
   using vector<mint>::operator=;
-  void shrink(){while(!(*this).empty()&&(*this).back()==mint(0))(*this).pop_back();}
+  void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}
   FPS inv(int d=-1)const{
     NTT<m>ntt;
     const int n=(*this).size();
