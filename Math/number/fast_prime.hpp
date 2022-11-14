@@ -83,7 +83,7 @@ namespace fastprime{
     if(sorted)sort(res.begin(),res.end());
     return res;
   }
-};
+} // namespace fastprime
 /**
  * @brief Fast Prime Factorization(高速素因数分解)
 */

@@ -1,5 +1,6 @@
 #pragma once
 #include"../modular/modint.hpp"
+#include"../number/primitive_root.hpp"
 template<int m>
 struct NTT{
   using mint=modint<m>;
@@ -7,14 +8,6 @@ struct NTT{
   static modint<m> g;
   static int limit;
   static vector<modint<m>>root,inv_root;
-  static constexpr mint primitive_root(const int&mo){
-    if(mo==167772161)return mint(3);
-    if(mo==469762049)return mint(3);
-    if(mo==754974721)return mint(11);
-    if(mo==998244353)return mint(3);
-    if(mo==1224736769)return mint(3);
-    return mint();
-  }
   static void init(){
     if(!root.empty())return;
     g=primitive_root(m);
