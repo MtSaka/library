@@ -20,3 +20,6 @@ int primitive_root(int n){
     if(ok)return g;
   }
 }
+/**
+ * @brief Primitive Root(原始根)
+*/
