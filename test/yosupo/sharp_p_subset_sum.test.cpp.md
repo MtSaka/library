@@ -1,35 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/fps/subset_sum.hpp
     title: Count Subset Sum
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modular/modint.hpp
     title: modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/number/fast_prime.hpp
     title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/number/primitive_root.hpp
-    title: Math/number/primitive_root.hpp
-  - icon: ':heavy_check_mark:'
+    title: "Primitive Root(\u539F\u59CB\u6839)"
+  - icon: ':question:'
     path: template/template.hpp
     title: "Template(\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sharp_p_subset_sum
@@ -169,16 +169,17 @@ data:
     \ divs.erase(unique(divs.begin(),divs.end()),divs.end());\n  for(int g=2;;g++){\n\
     \    bool ok=true;\n    for(int d:divs){\n      if(modpow(g,(n-1)/d,n)==1){\n\
     \        ok=false;\n        break;\n      }\n    }\n    if(ok)return g;\n  }\n\
-    }\n#line 4 \"Math/convolution/ntt.hpp\"\ntemplate<int m>\nstruct NTT{\n  using\
-    \ mint=modint<m>;\n  private:\n  static modint<m> g;\n  static int limit;\n  static\
-    \ vector<modint<m>>root,inv_root;\n  static void init(){\n    if(!root.empty())return;\n\
-    \    g=primitive_root(m);\n    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n\
-    \    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n    root[limit]=g.pow(now);\n\
-    \    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n      root[i]=root[i+1]*root[i+1];\n\
-    \      inv_root[i]=inv_root[i+1]*inv_root[i+1];\n    }\n  }\n  public:\n  NTT(){init();};\n\
-    \  static void dft(vector<mint>&a,int inv){\n    init();\n    const int sz=a.size();\n\
-    \    if(sz==1)return;\n    const int mask=sz-1;\n    vector<mint>b(sz);\n    for(int\
-    \ i=sz>>1;i>=1;i>>=1){\n      int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
+    }\n/**\n * @brief Primitive Root(\u539F\u59CB\u6839)\n*/\n#line 4 \"Math/convolution/ntt.hpp\"\
+    \ntemplate<int m>\nstruct NTT{\n  using mint=modint<m>;\n  private:\n  static\
+    \ modint<m> g;\n  static int limit;\n  static vector<modint<m>>root,inv_root;\n\
+    \  static void init(){\n    if(!root.empty())return;\n    g=primitive_root(m);\n\
+    \    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
+    \    root[limit]=g.pow(now);\n    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n\
+    \      root[i]=root[i+1]*root[i+1];\n      inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
+    \    }\n  }\n  public:\n  NTT(){init();};\n  static void dft(vector<mint>&a,int\
+    \ inv){\n    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const\
+    \ int mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n \
+    \     int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
     \      for(int j=0;j<sz;j+=i){\n        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
     \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  static vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
     \    int sz=1;\n    const int mxsiz=a.size()+b.size()-1;\n    while(sz<mxsiz)sz<<=1;\n\
@@ -290,8 +291,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/sharp_p_subset_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-11-14 14:26:59+00:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-11-17 17:23:32+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/sharp_p_subset_sum.test.cpp
 layout: document

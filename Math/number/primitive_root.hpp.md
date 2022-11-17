@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/number/fast_prime.hpp
     title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
   _extendedRequiredBy:
@@ -14,10 +14,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/convolution/mod_ntt.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
@@ -26,7 +26,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/fps/polynomial_interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/fps/subset_sum.hpp
     title: Count Subset Sum
   - icon: ':heavy_check_mark:'
@@ -63,16 +63,17 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/sharp_p_subset_sum.test.cpp
     title: test/yosupo/sharp_p_subset_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
+    document_title: "Primitive Root(\u539F\u59CB\u6839)"
     links: []
   bundledCode: "#line 1 \"Math/number/fast_prime.hpp\"\nnamespace fastprime{\n  using\
     \ i128=__uint128_t;\n  long long inner_modmul(const long long&x,const long long&y,const\
@@ -112,14 +113,14 @@ data:
     \ divs.erase(unique(divs.begin(),divs.end()),divs.end());\n  for(int g=2;;g++){\n\
     \    bool ok=true;\n    for(int d:divs){\n      if(modpow(g,(n-1)/d,n)==1){\n\
     \        ok=false;\n        break;\n      }\n    }\n    if(ok)return g;\n  }\n\
-    }\n"
+    }\n/**\n * @brief Primitive Root(\u539F\u59CB\u6839)\n*/\n"
   code: "#include\"fast_prime.hpp\"\n#include\"../modular/modpow.hpp\"\nint primitive_root(int\
     \ n){\n  if(n==2)return 1;\n  if(n==167772161)return 3;\n  if(n==469762049)return\
     \ 3;\n  if(n==754974721)return 11;\n  if(n==998244353)return 3;\n  if(n==1224736769)return\
     \ 3;\n  auto divs=fastprime::factorize(n-1);\n  divs.erase(unique(divs.begin(),divs.end()),divs.end());\n\
     \  for(int g=2;;g++){\n    bool ok=true;\n    for(int d:divs){\n      if(modpow(g,(n-1)/d,n)==1){\n\
     \        ok=false;\n        break;\n      }\n    }\n    if(ok)return g;\n  }\n\
-    }"
+    }\n/**\n * @brief Primitive Root(\u539F\u59CB\u6839)\n*/"
   dependsOn:
   - Math/number/fast_prime.hpp
   - Math/modular/modpow.hpp
@@ -134,8 +135,8 @@ data:
   - Math/convolution/mod_ntt.hpp
   - Math/convolution/ntt.hpp
   - Math/convolution/convolution.hpp
-  timestamp: '2022-11-14 23:10:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-11-17 17:23:32+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/inv_of_formal_power_series.test.cpp
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
@@ -154,5 +155,5 @@ layout: document
 redirect_from:
 - /library/Math/number/primitive_root.hpp
 - /library/Math/number/primitive_root.hpp.html
-title: Math/number/primitive_root.hpp
+title: "Primitive Root(\u539F\u59CB\u6839)"
 ---
