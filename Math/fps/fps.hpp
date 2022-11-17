@@ -178,7 +178,7 @@ struct FPS:vector<modint<m>>{
     }
     return FPS(d,mint(0));
   }
-  FPS sqrt(int d=-1,const function<mint(mint)>&get_sqrt=[](mint){return mint(1);})const{
+  FPS sqrt(int d=-1,const function<mint(mint)>&get_sqrt)const{
     const int n=(*this).size();
     if(d==-1)d=n;
     if((*this)[0]==mint(0)){
