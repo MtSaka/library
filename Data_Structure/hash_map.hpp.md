@@ -178,8 +178,8 @@ data:
   timestamp: '2022-06-11 22:45:22+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/associative_array.test.cpp
   - test/yosupo/discrete-logarithm-mod.test.cpp
+  - test/yosupo/associative_array.test.cpp
 documentation_of: Data_Structure/hash_map.hpp
 layout: document
 redirect_from:

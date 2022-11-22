@@ -6,7 +6,7 @@ data:
     path: Math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
   - icon: ':heavy_check_mark:'
-    path: Math/convolution/mod_ntt.hpp
+    path: Math/convolution/convolution_mod.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':heavy_check_mark:'
     path: Math/convolution/ntt.hpp
@@ -98,35 +98,35 @@ data:
   isVerificationFile: false
   path: Math/modular/modpow.hpp
   requiredBy:
-  - Math/fps/subset_sum.hpp
-  - Math/fps/polynomial_interpolation.hpp
-  - Math/fps/taylor_shift.hpp
-  - Math/fps/fps.hpp
-  - Math/fps/multipoint_evaluation.hpp
-  - Math/convolution/mod_ntt.hpp
+  - Math/modular/mod_sqrt.hpp
+  - Math/modular/mod_log.hpp
+  - Math/convolution/convolution_mod.hpp
   - Math/convolution/ntt.hpp
   - Math/convolution/convolution.hpp
   - Math/number/primitive_root.hpp
-  - Math/modular/mod_log.hpp
-  - Math/modular/mod_sqrt.hpp
+  - Math/fps/multipoint_evaluation.hpp
+  - Math/fps/polynomial_interpolation.hpp
+  - Math/fps/subset_sum.hpp
+  - Math/fps/fps.hpp
+  - Math/fps/taylor_shift.hpp
   timestamp: '2022-01-29 16:22:31+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/NTL/NTL_1_B.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial_taylor_shift.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/convolution_mod.test.cpp
+  - test/yosupo/polynomial_taylor_shift.test.cpp
   - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/polynomial_interpolation.test.cpp
-  - test/yosupo/convolution_mod_1000000007.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
+  - test/yosupo/pow_of_formal_power_series.test.cpp
+  - test/yosupo/sharp_p_subset_sum.test.cpp
   - test/yosupo/discrete-logarithm-mod.test.cpp
   - test/yosupo/sqrt_mod.test.cpp
+  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/division_of_polynomials.test.cpp
+  - test/yosupo/polynomial_interpolation.test.cpp
+  - test/yosupo/convolution_mod.test.cpp
+  - test/yosupo/convolution_mod_1000000007.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/exp_of_formal_power_series.test.cpp
+  - test/aoj/NTL/NTL_1_B.test.cpp
 documentation_of: Math/modular/modpow.hpp
 layout: document
 redirect_from:

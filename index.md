@@ -157,6 +157,9 @@ data:
     - icon: ':warning:'
       path: Math/convolution/convolution.hpp
       title: "Convolution(\u7573\u307F\u8FBC\u307F)"
+    - icon: ':heavy_check_mark:'
+      path: Math/convolution/convolution_mod.hpp
+      title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
     - icon: ':warning:'
       path: Math/convolution/fft.hpp
       title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB\
@@ -167,9 +170,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: Math/convolution/lcm_convolution.hpp
       title: LCM Convolution
-    - icon: ':heavy_check_mark:'
-      path: Math/convolution/mod_ntt.hpp
-      title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
     - icon: ':heavy_check_mark:'
       path: Math/convolution/ntt.hpp
       title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"

@@ -95,16 +95,16 @@ data:
   timestamp: '2022-07-03 22:49:08+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DSL/DSL_2_B2.test.cpp
-  - test/aoj/DSL/DSL_2_H.test.cpp
-  - test/aoj/DSL/DSL_2_F.test.cpp
-  - test/aoj/DSL/DSL_2_A.test.cpp
-  - test/aoj/DSL/DSL_2_G.test.cpp
-  - test/aoj/DSL/DSL_2_I.test.cpp
-  - test/aoj/DSL/DSL_2_E.test.cpp
-  - test/aoj/DSL/DSL_2_D.test.cpp
   - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/point_add_range_sum1.test.cpp
+  - test/aoj/DSL/DSL_2_D.test.cpp
+  - test/aoj/DSL/DSL_2_I.test.cpp
+  - test/aoj/DSL/DSL_2_F.test.cpp
+  - test/aoj/DSL/DSL_2_A.test.cpp
+  - test/aoj/DSL/DSL_2_H.test.cpp
+  - test/aoj/DSL/DSL_2_E.test.cpp
+  - test/aoj/DSL/DSL_2_B2.test.cpp
+  - test/aoj/DSL/DSL_2_G.test.cpp
 documentation_of: Data_Structure/segtree.hpp
 layout: document
 redirect_from:

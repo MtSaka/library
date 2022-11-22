@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Math/convolution/mod_ntt.hpp
+    path: Math/convolution/convolution_mod.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
   - icon: ':heavy_check_mark:'
     path: Math/convolution/ntt.hpp
@@ -190,7 +190,7 @@ data:
     \    return c;\n  }\n};\ntemplate<int m>\nint NTT<m>::limit=0;\ntemplate<int m>\n\
     vector<modint<m>>NTT<m>::root=vector<modint<m>>();\ntemplate<int m>\nvector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();\n\
     template<int m>\nmodint<m>NTT<m>::g=modint<m>();\n/**\n * @brief Number Theoretic\
-    \ Transform(\u6570\u8AD6\u5909\u63DB)\n*/\n#line 2 \"Math/convolution/mod_ntt.hpp\"\
+    \ Transform(\u6570\u8AD6\u5909\u63DB)\n*/\n#line 2 \"Math/convolution/convolution_mod.hpp\"\
     \nvector<long long>mod_convolution(const vector<long long>&a,const vector<long\
     \ long>&b,const long long&m){\n  static constexpr long long m1=167772161,m2=469762049,m3=1224736769,m1_inv_m2=104391568,m12_inv_m3=721017874;\n\
     \  const long long m12_mod=78812994116517889%m;\n  auto x=NTT<m1>::multiply(a,b);\n\
@@ -203,12 +203,12 @@ data:
     \nint main(){\n  int n,m;\n  cin>>n>>m;\n  vector<long long>a(n),b(m);\n  scan(a,b);\n\
     \  print(mod_convolution(a,b,MOD));\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod_1000000007\"\
-    \n#include\"../../template/template.hpp\"\n#include\"../../Math/convolution/mod_ntt.hpp\"\
+    \n#include\"../../template/template.hpp\"\n#include\"../../Math/convolution/convolution_mod.hpp\"\
     \nint main(){\n  int n,m;\n  cin>>n>>m;\n  vector<long long>a(n),b(m);\n  scan(a,b);\n\
     \  print(mod_convolution(a,b,MOD));\n}"
   dependsOn:
   - template/template.hpp
-  - Math/convolution/mod_ntt.hpp
+  - Math/convolution/convolution_mod.hpp
   - Math/convolution/ntt.hpp
   - Math/modular/modint.hpp
   - Math/number/primitive_root.hpp
@@ -217,7 +217,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/convolution_mod_1000000007.test.cpp
   requiredBy: []
-  timestamp: '2022-11-17 17:23:32+09:00'
+  timestamp: '2022-11-22 20:10:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/convolution_mod_1000000007.test.cpp
