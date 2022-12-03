@@ -16,14 +16,16 @@ struct weighted_dsu{
   }
   bool same(int x,int y){return root(x)==root(y);}
   int size(int x){return -p[root(x)];}
-  void merge(int x,int y,T w){
+  bool merge(int x,int y,T w){
+    int xx=x,yy=y;T ww=w;
     w+=weight(x),w-=weight(y);
     x=root(x),y=root(y);
-    if(x==y)return ;
+    if(x==y)return dist(xx,yy)==ww;
     if(p[x]>p[y])swap(x,y),w=-w;
     p[x]+=p[y];
     p[y]=x;
     diff[y]=w;
+    return true;
   }
   T dist(int x,int y){
     return weight(y)-weight(x);
