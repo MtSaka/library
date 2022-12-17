@@ -5,9 +5,9 @@
 template<typename T,typename=void>
 struct is_specialize:std::false_type{};
 template<typename T>
-struct is_specialize<T,typename std::conditional<false,typename T::iterator, void>::type>:true_type{};
+struct is_specialize<T,typename std::conditional<false,typename T::iterator, void>::type>:std::true_type{};
 template<typename T>
-struct is_specialize<T,typename std::conditional<false,decltype(T::first),void>::type>:true_type{};
+struct is_specialize<T,typename std::conditional<false,decltype(T::first),void>::type>:std::true_type{};
 template<typename T>
 struct is_specialize<T,std::enable_if_t<std::is_integral<T>::value,void>>:true_type{};
 inline void dump(const char&t){std::cerr<<t;}
