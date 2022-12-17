@@ -18,7 +18,7 @@ struct REC{
   F f;
   public:
   explicit constexpr REC(F&&f_):f(std::forward<F>(f_)){}
-  template<typename...Args>
+  template<typename... Args>
   constexpr auto operator()(Args&&...args)const{
     return f(*this, std::forward<Args>(args)...);
   }
@@ -34,11 +34,11 @@ struct compressor{
   compressor(const Comp&cmp):cmp(cmp){}
   compressor(const std::vector<T>&dat,const Comp&cmp=Comp()):data(dat),cmp(cmp){}
   compressor(std::vector<T>&&dat,const Comp&cmp=Comp()):data(move(dat)),cmp(cmp){}
-  compressor(initializer_list<T>li,const Comp&cmp=Comp()):data(li.begin(),li.end()),cmp(cmp){}
+  compressor(std::initializer_list<T>li,const Comp&cmp=Comp()):data(li.begin(),li.end()),cmp(cmp){}
   void push_back(const T&v){assert(!sorted);data.push_back(v);}
   void push_back(T&&v){assert(!sorted);data.push_back(move(v));}
-  template<typename..Args>void emplace_back(Args&&...args){assert(!sorted);data.emplace_back(std::forward<Args>(args)...);}
-  void push(const vector<T>&v){
+  template<typename... Args>void emplace_back(Args&&...args){assert(!sorted);data.emplace_back(std::forward<Args>(args)...);}
+  void push(const std::vector<T>&v){
     assert(!sorted);
     const int n=data.size();
     data.resize(v.size()+n);
