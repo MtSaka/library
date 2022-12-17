@@ -4,7 +4,7 @@
 #include"alias.hpp"
 
 struct IOSetup{
-  constexpr IOSetup(){
+  IOSetup(){
     std::cin.tie(nullptr);
     std::ios::sync_with_stdio(false);
     std::cout.tie(0);
