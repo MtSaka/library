@@ -61,7 +61,7 @@ struct compressor{
     assert(sorted);
     for(auto&&i:v)i=get_index(i);
   }
-  std::vector<int>pressed(const vector<T>&v)const {
+  std::vector<int>pressed(const std::vector<T>&v)const {
     assert(sorted);
     std::vector<int>ret(v.size());
     for(int i=0;i<(int)v.size();i++)ret[i]=get_index(v[i]);
