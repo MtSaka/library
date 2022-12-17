@@ -9,7 +9,7 @@ struct is_specialize<T,typename std::conditional<false,typename T::iterator, voi
 template<typename T>
 struct is_specialize<T,typename std::conditional<false,decltype(T::first),void>::type>:std::true_type{};
 template<typename T>
-struct is_specialize<T,std::enable_if_t<std::is_integral<T>::value,void>>:true_type{};
+struct is_specialize<T,std::enable_if_t<std::is_integral<T>::value,void>>:std::true_type{};
 inline void dump(const char&t){std::cerr<<t;}
 inline void dump(const std::string&t){std::cerr<<t;}
 inline void dump(const bool&t){std::cerr<<(t?"true":"false");}
