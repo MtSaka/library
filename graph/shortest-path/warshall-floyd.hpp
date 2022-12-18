@@ -1,6 +1,6 @@
 #pragma once
 #include"../../template/template.hpp"
-#include"../Graph-template.hpp"
+#include"../graph-template.hpp"
 
 template<typename T>
 vector<vector<T>>warshall_floyd(const Graph<T>&g){
