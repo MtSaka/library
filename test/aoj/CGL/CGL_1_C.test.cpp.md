@@ -108,7 +108,7 @@ data:
     struct is_specialize:std::false_type{};\ntemplate<typename T>\nstruct is_specialize<T,typename\
     \ std::conditional<false,typename T::iterator, void>::type>:std::true_type{};\n\
     template<typename T>\nstruct is_specialize<T,typename std::conditional<false,decltype(T::first),void>::type>:std::true_type{};\n\
-    template<typename T>\nstruct is_specialize<T,std::enable_if_t<std::is_integral<T>::value,void>>:true_type{};\n\
+    template<typename T>\nstruct is_specialize<T,std::enable_if_t<std::is_integral<T>::value,void>>:std::true_type{};\n\
     inline void dump(const char&t){std::cerr<<t;}\ninline void dump(const std::string&t){std::cerr<<t;}\n\
     inline void dump(const bool&t){std::cerr<<(t?\"true\":\"false\");}\ntemplate <typename\
     \ T,std::enable_if_t<!is_specialize<T>::value,nullptr_t> =nullptr>\ninline void\
@@ -253,7 +253,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL/CGL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 05:43:47+09:00'
+  timestamp: '2022-12-18 05:56:32+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/CGL/CGL_1_C.test.cpp
