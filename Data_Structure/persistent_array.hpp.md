@@ -2,16 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Data_Structure/persistent_dsu.hpp
     title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/persistent_unionfind.test.cpp
     title: test/yosupo/persistent_unionfind.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
     links: []
@@ -48,7 +48,7 @@ data:
   requiredBy:
   - Data_Structure/persistent_dsu.hpp
   timestamp: '2022-08-23 09:51:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/persistent_unionfind.test.cpp
 documentation_of: Data_Structure/persistent_array.hpp

@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL/GRL_6_A_2.test.cpp
     title: test/aoj/GRL/GRL_6_A_2.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Ford Fulkerson(\u6700\u5927\u6D41)"
     links: []
@@ -43,7 +43,7 @@ data:
   path: Graph/flow/ford_fulkerson.hpp
   requiredBy: []
   timestamp: '2022-01-29 09:50:16+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/GRL/GRL_6_A_2.test.cpp
 documentation_of: Graph/flow/ford_fulkerson.hpp

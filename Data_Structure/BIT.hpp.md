@@ -2,25 +2,25 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Data_Structure/inversion.hpp
     title: "Inversion Number(\u8EE2\u5012\u6570)"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
     title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/point_add_range_sum2.test.cpp
     title: test/yosupo/point_add_range_sum2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/static_range_inversions_query.test.cpp
     title: test/yosupo/static_range_inversions_query.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: Binary Indexed Tree(BIT)
     links: []
@@ -44,12 +44,12 @@ data:
   requiredBy:
   - Data_Structure/inversion.hpp
   timestamp: '2022-07-13 21:05:02+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/static_range_inversions_query.test.cpp
-  - test/yosupo/point_add_range_sum2.test.cpp
-  - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
+  - test/aoj/DSL/DSL_2_B.test.cpp
+  - test/yosupo/point_add_range_sum2.test.cpp
+  - test/yosupo/static_range_inversions_query.test.cpp
 documentation_of: Data_Structure/BIT.hpp
 layout: document
 redirect_from:

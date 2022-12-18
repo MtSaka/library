@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/DSL/DSL_1_B.test.cpp
     title: test/aoj/DSL/DSL_1_B.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
     links: []
@@ -39,7 +39,7 @@ data:
   path: Data_Structure/weighted_dsu.hpp
   requiredBy: []
   timestamp: '2022-12-03 23:45:27+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/DSL/DSL_1_B.test.cpp
 documentation_of: Data_Structure/weighted_dsu.hpp

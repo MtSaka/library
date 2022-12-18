@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
     title: test/aoj/ALDS1/ALDS1_10_C.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\
       \u5217)"
@@ -41,7 +41,7 @@ data:
   path: Dynamic_Programming/longest_common-subsequence.hpp
   requiredBy: []
   timestamp: '2022-01-12 16:26:09+00:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/ALDS1/ALDS1_10_C.test.cpp
 documentation_of: Dynamic_Programming/longest_common-subsequence.hpp
