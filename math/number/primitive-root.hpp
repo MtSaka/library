@@ -1,5 +1,5 @@
 #pragma once
-#include"../fast-prime/factorize.hpp"
+#include"../../template/template.hpp"
 #include"fast-prime.hpp"
 #include"../modular/modpow.hpp"
 
