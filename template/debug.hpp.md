@@ -307,7 +307,7 @@ data:
     \ T,std::enable_if_t<!is_specialize<T>::value,nullptr_t> =nullptr>\ninline void\
     \ dump(const T&t){std::cerr<<t;}\ntemplate<typename T>\ninline void dump(const\
     \ T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp=\"\
-    inf\";if(is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp=\"\
+    inf\";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp=\"\
     -inf\";if(tmp.empty())tmp=to_string(t);std::cerr<<tmp;}\ntemplate<typename T,typename\
     \ U>\ninline void dump(const std::pair<T,U>&);\ntemplate<typename T>\ninline void\
     \ dump(const T&t,std::enable_if_t<!std::is_void<typename T::iterator>::value>*\
@@ -355,7 +355,7 @@ data:
     template<typename T>
 
     inline void dump(const T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string
-    tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp="inf";if(is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp="-inf";if(tmp.empty())tmp=to_string(t);std::cerr<<tmp;}
+    tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp="inf";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp="-inf";if(tmp.empty())tmp=to_string(t);std::cerr<<tmp;}
 
     template<typename T,typename U>
 
@@ -392,7 +392,7 @@ data:
   requiredBy:
   - template/template.hpp
   - Data_Structure/segtree_monoids.hpp
-  timestamp: '2022-12-18 05:17:30+09:00'
+  timestamp: '2022-12-18 05:31:10+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/CGL/CGL_2_C.test.cpp

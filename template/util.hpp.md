@@ -333,7 +333,7 @@ data:
     \ k)const& {\n    assert(sorted);\n    return data[k];\n  }\n  int get_index(const\
     \ T&v)const {\n    assert(sorted);\n    return int(lower_bound(data.begin(),data.end(),v,cmp)-data.begin());\n\
     \  }\n  void press(std::vector<T>&v)const {\n    assert(sorted);\n    for(auto&&i:v)i=get_index(i);\n\
-    \  }\n  std::vector<int>pressed(const vector<T>&v)const {\n    assert(sorted);\n\
+    \  }\n  std::vector<int>pressed(const std::vector<T>&v)const {\n    assert(sorted);\n\
     \    std::vector<int>ret(v.size());\n    for(int i=0;i<(int)v.size();i++)ret[i]=get_index(v[i]);\n\
     \    return ret;\n  }\n  int size()const {\n    assert(sorted);\n    return data.size();\n\
     \  }\n};\n"
@@ -360,7 +360,7 @@ data:
     \ k)const& {\n    assert(sorted);\n    return data[k];\n  }\n  int get_index(const\
     \ T&v)const {\n    assert(sorted);\n    return int(lower_bound(data.begin(),data.end(),v,cmp)-data.begin());\n\
     \  }\n  void press(std::vector<T>&v)const {\n    assert(sorted);\n    for(auto&&i:v)i=get_index(i);\n\
-    \  }\n  std::vector<int>pressed(const vector<T>&v)const {\n    assert(sorted);\n\
+    \  }\n  std::vector<int>pressed(const std::vector<T>&v)const {\n    assert(sorted);\n\
     \    std::vector<int>ret(v.size());\n    for(int i=0;i<(int)v.size();i++)ret[i]=get_index(v[i]);\n\
     \    return ret;\n  }\n  int size()const {\n    assert(sorted);\n    return data.size();\n\
     \  }\n};"
@@ -372,7 +372,7 @@ data:
   requiredBy:
   - template/template.hpp
   - Data_Structure/segtree_monoids.hpp
-  timestamp: '2022-12-18 05:17:30+09:00'
+  timestamp: '2022-12-18 05:31:10+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/CGL/CGL_2_C.test.cpp

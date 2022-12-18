@@ -361,7 +361,7 @@ data:
     \ k)const& {\n    assert(sorted);\n    return data[k];\n  }\n  int get_index(const\
     \ T&v)const {\n    assert(sorted);\n    return int(lower_bound(data.begin(),data.end(),v,cmp)-data.begin());\n\
     \  }\n  void press(std::vector<T>&v)const {\n    assert(sorted);\n    for(auto&&i:v)i=get_index(i);\n\
-    \  }\n  std::vector<int>pressed(const vector<T>&v)const {\n    assert(sorted);\n\
+    \  }\n  std::vector<int>pressed(const std::vector<T>&v)const {\n    assert(sorted);\n\
     \    std::vector<int>ret(v.size());\n    for(int i=0;i<(int)v.size();i++)ret[i]=get_index(v[i]);\n\
     \    return ret;\n  }\n  int size()const {\n    assert(sorted);\n    return data.size();\n\
     \  }\n};\n#line 4 \"template/debug.hpp\"\n\ntemplate<typename T,typename=void>\n\
@@ -374,7 +374,7 @@ data:
     \ T,std::enable_if_t<!is_specialize<T>::value,nullptr_t> =nullptr>\ninline void\
     \ dump(const T&t){std::cerr<<t;}\ntemplate<typename T>\ninline void dump(const\
     \ T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp=\"\
-    inf\";if(is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp=\"\
+    inf\";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp=\"\
     -inf\";if(tmp.empty())tmp=to_string(t);std::cerr<<tmp;}\ntemplate<typename T,typename\
     \ U>\ninline void dump(const std::pair<T,U>&);\ntemplate<typename T>\ninline void\
     \ dump(const T&t,std::enable_if_t<!std::is_void<typename T::iterator>::value>*\
@@ -411,7 +411,7 @@ data:
   path: template/template.hpp
   requiredBy:
   - Data_Structure/segtree_monoids.hpp
-  timestamp: '2022-12-18 05:17:30+09:00'
+  timestamp: '2022-12-18 05:31:10+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/CGL/CGL_2_C.test.cpp
