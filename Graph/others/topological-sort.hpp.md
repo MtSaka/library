@@ -22,17 +22,14 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Graph/others/two-sat.hpp
-    title: Tow Satisfiability(2-SAT)
+  _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    document_title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\
-      \u89E3)"
+    document_title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\
+      \u30C8)"
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -145,48 +142,24 @@ data:
     \    }\n  }\n};\nstruct UnweightedEdge{\n  template<class... Args>UnweightedEdge(const\
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
     \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 4 \"Graph/others/scc.hpp\"\
-    \n\nstruct SCC:UnweightedGraph{\n  public:\n  using UnweightedGraph::g;\n  SCC(){}\n\
-    \  SCC(int n):UnweightedGraph(n){}\n  SCC(const UnweightedGraph&g):UnweightedGraph(g){}\n\
-    \  void build(){\n    rg=UnweightedGraph(g.size());\n    for(size_t i=0;i<g.size();i++){\n\
-    \      for(auto&e:g[i]){\n        rg.add_edge(e.to,i,e.cost,true);\n      }\n\
-    \    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n    for(size_t\
-    \ i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n    cnt=0;\n\
-    \    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n  }\n  void add(int u,int\
-    \ v){UnweightedGraph::add_edge(u,v,true);}\n  int operator[](int k)const{return\
-    \ comp[k];}\n  vector<vector<int>>scc(){\n    if(!group.empty())return group;\n\
-    \    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
-    \    return group;\n  }\n  UnweightedGraph DAG(){\n    if(dag.size())return dag;\n\
-    \    dag=UnweightedGraph(cnt);\n    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n\
-    \        if(comp[i]!=comp[e.to])dag.add_edge(comp[i],comp[e.to],true);\n     \
-    \ }\n    }\n    return dag;\n  }\n  private:\n  UnweightedGraph rg;\n  vector<int>comp,ord;\n\
-    \  vector<bool>used;\n  int cnt;\n  vector<vector<int>>group;\n  UnweightedGraph\
-    \ dag;\n  void dfs(int idx){\n    if(used[idx])return;\n    used[idx]=true;\n\
-    \    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n  }\n  void rdfs(int\
-    \ idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n    for(auto&to:rg[idx])rdfs(to,k);\n\
-    \  }\n};\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\
-    \u5206\u5206\u89E3)\n*/\n"
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 4 \"Graph/others/topological-sort.hpp\"\
+    \n\ntemplate<typename T>\nstruct TopologicalSort{\n  private:\n  int n;\n  const\
+    \ Graph<T>&g;\n  vector<int>order;\n  vector<bool>seen;\n  void dfs(int v){\n\
+    \    seen[v]=true;\n    for(auto &e:g[v])if(!seen[e])dfs(e);\n    order.push_back(v);\n\
+    \  }\n  void init(){\n    n=g.size();\n    seen.assign(n,false);\n    order.reserve(n);\n\
+    \    for(int i=0;i<n;i++)if(!seen[i])dfs(i);\n    reverse(order.begin(),order.end());\n\
+    \  }\n  public:\n  TopologicalSort(const Graph<T>&g):g(g){init();}\n  const vector<int>&get()const&{return\
+    \ order;}\n  vector<int>get()&&{return move(order);}\n};\n/**\n * @brief Topological\
+    \ Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8)\n*/\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"../graph-template.hpp\"\
-    \n\nstruct SCC:UnweightedGraph{\n  public:\n  using UnweightedGraph::g;\n  SCC(){}\n\
-    \  SCC(int n):UnweightedGraph(n){}\n  SCC(const UnweightedGraph&g):UnweightedGraph(g){}\n\
-    \  void build(){\n    rg=UnweightedGraph(g.size());\n    for(size_t i=0;i<g.size();i++){\n\
-    \      for(auto&e:g[i]){\n        rg.add_edge(e.to,i,e.cost,true);\n      }\n\
-    \    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n    for(size_t\
-    \ i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n    cnt=0;\n\
-    \    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n  }\n  void add(int u,int\
-    \ v){UnweightedGraph::add_edge(u,v,true);}\n  int operator[](int k)const{return\
-    \ comp[k];}\n  vector<vector<int>>scc(){\n    if(!group.empty())return group;\n\
-    \    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
-    \    return group;\n  }\n  UnweightedGraph DAG(){\n    if(dag.size())return dag;\n\
-    \    dag=UnweightedGraph(cnt);\n    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n\
-    \        if(comp[i]!=comp[e.to])dag.add_edge(comp[i],comp[e.to],true);\n     \
-    \ }\n    }\n    return dag;\n  }\n  private:\n  UnweightedGraph rg;\n  vector<int>comp,ord;\n\
-    \  vector<bool>used;\n  int cnt;\n  vector<vector<int>>group;\n  UnweightedGraph\
-    \ dag;\n  void dfs(int idx){\n    if(used[idx])return;\n    used[idx]=true;\n\
-    \    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n  }\n  void rdfs(int\
-    \ idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n    for(auto&to:rg[idx])rdfs(to,k);\n\
-    \  }\n};\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\
-    \u5206\u5206\u89E3)\n*/"
+    \n\ntemplate<typename T>\nstruct TopologicalSort{\n  private:\n  int n;\n  const\
+    \ Graph<T>&g;\n  vector<int>order;\n  vector<bool>seen;\n  void dfs(int v){\n\
+    \    seen[v]=true;\n    for(auto &e:g[v])if(!seen[e])dfs(e);\n    order.push_back(v);\n\
+    \  }\n  void init(){\n    n=g.size();\n    seen.assign(n,false);\n    order.reserve(n);\n\
+    \    for(int i=0;i<n;i++)if(!seen[i])dfs(i);\n    reverse(order.begin(),order.end());\n\
+    \  }\n  public:\n  TopologicalSort(const Graph<T>&g):g(g){init();}\n  const vector<int>&get()const&{return\
+    \ order;}\n  vector<int>get()&&{return move(order);}\n};\n/**\n * @brief Topological\
+    \ Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8)\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -196,16 +169,15 @@ data:
   - template/debug.hpp
   - Graph/graph-template.hpp
   isVerificationFile: false
-  path: Graph/others/scc.hpp
-  requiredBy:
-  - Graph/others/two-sat.hpp
+  path: Graph/others/topological-sort.hpp
+  requiredBy: []
   timestamp: '2022-12-18 18:39:45+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Graph/others/scc.hpp
+documentation_of: Graph/others/topological-sort.hpp
 layout: document
 redirect_from:
-- /library/Graph/others/scc.hpp
-- /library/Graph/others/scc.hpp.html
-title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)"
+- /library/Graph/others/topological-sort.hpp
+- /library/Graph/others/topological-sort.hpp.html
+title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8)"
 ---

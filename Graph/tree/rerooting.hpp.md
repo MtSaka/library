@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/aoj/GRL/GRL_5_B.test.cpp
-    title: test/aoj/GRL/GRL_5_B.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     document_title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
     links: []
@@ -50,9 +47,8 @@ data:
   path: Graph/tree/rerooting.hpp
   requiredBy: []
   timestamp: '2022-04-12 14:25:17+01:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/aoj/GRL/GRL_5_B.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: Graph/tree/rerooting.hpp
 layout: document
 redirect_from:

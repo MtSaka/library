@@ -2,22 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/aoj/GRL/GRL_6_A_2.test.cpp
-    title: test/aoj/GRL/GRL_6_A_2.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     document_title: "Ford Fulkerson(\u6700\u5927\u6D41)"
     links: []
-  bundledCode: "#line 2 \"Graph/flow/ford_fulkerson.hpp\"\ntemplate<typename T>\n\
-    struct FordFulkerson{\n  struct edge{\n    int to;\n    T cap;\n    int rev;\n\
-    \    bool isrev;\n    int idx;\n  };\n  const T INF;\n  vector<vector<edge>>g;\n\
+  bundledCode: "#line 2 \"Graph/flow/ford-fulkerson.hpp\"\ntemplate<typename T>\n\
+    struct FordFulkerson{\n  struct Edge{\n    int to;\n    T cap;\n    int rev;\n\
+    \    bool isrev;\n    int idx;\n  };\n  const T INF;\n  vector<vector<Edge>>g;\n\
     \  vector<int>used;\n  int timer;\n  FordFulkerson(int v):INF(numeric_limits<T>::max()/2),g(v),used(v,-1),timer(0){}\n\
-    \  void add_edge(int from,int to,T cap,int idx=-1){\n    g[from].emplace_back(edge{to,cap,(int)g[to].size(),false,idx});\n\
-    \    g[to].emplace_back(edge{from,0,(int)g[from].size()-1,true,idx});\n  }\n \
+    \  void add_edge(int from,int to,T cap,int idx=-1){\n    g[from].emplace_back(Edge{to,cap,(int)g[to].size(),false,idx});\n\
+    \    g[to].emplace_back(Edge{from,0,(int)g[from].size()-1,true,idx});\n  }\n \
     \ T find_path(int idx,const int t,T flow){\n    if(idx==t)return flow;\n    used[idx]=timer;\n\
     \    for(auto&e:g[idx]){\n      if(e.cap>0&&used[e.to]!=timer){\n        T d=find_path(e.to,t,min(flow,e.cap));\n\
     \        if(d>0){\n          e.cap-=d;\n          g[e.to][e.rev].cap+=d;\n   \
@@ -25,12 +22,12 @@ data:
     \ s,int t){\n    T flow=0;\n    for(T f;(f=find_path(s,t,INF));timer++)flow+=f;\n\
     \    return flow;\n  }\n};\n/**\n * @brief Ford Fulkerson(\u6700\u5927\u6D41)\n\
     */\n"
-  code: "#pragma once\ntemplate<typename T>\nstruct FordFulkerson{\n  struct edge{\n\
+  code: "#pragma once\ntemplate<typename T>\nstruct FordFulkerson{\n  struct Edge{\n\
     \    int to;\n    T cap;\n    int rev;\n    bool isrev;\n    int idx;\n  };\n\
-    \  const T INF;\n  vector<vector<edge>>g;\n  vector<int>used;\n  int timer;\n\
+    \  const T INF;\n  vector<vector<Edge>>g;\n  vector<int>used;\n  int timer;\n\
     \  FordFulkerson(int v):INF(numeric_limits<T>::max()/2),g(v),used(v,-1),timer(0){}\n\
-    \  void add_edge(int from,int to,T cap,int idx=-1){\n    g[from].emplace_back(edge{to,cap,(int)g[to].size(),false,idx});\n\
-    \    g[to].emplace_back(edge{from,0,(int)g[from].size()-1,true,idx});\n  }\n \
+    \  void add_edge(int from,int to,T cap,int idx=-1){\n    g[from].emplace_back(Edge{to,cap,(int)g[to].size(),false,idx});\n\
+    \    g[to].emplace_back(Edge{from,0,(int)g[from].size()-1,true,idx});\n  }\n \
     \ T find_path(int idx,const int t,T flow){\n    if(idx==t)return flow;\n    used[idx]=timer;\n\
     \    for(auto&e:g[idx]){\n      if(e.cap>0&&used[e.to]!=timer){\n        T d=find_path(e.to,t,min(flow,e.cap));\n\
     \        if(d>0){\n          e.cap-=d;\n          g[e.to][e.rev].cap+=d;\n   \
@@ -40,16 +37,15 @@ data:
     */"
   dependsOn: []
   isVerificationFile: false
-  path: Graph/flow/ford_fulkerson.hpp
+  path: Graph/flow/ford-fulkerson.hpp
   requiredBy: []
-  timestamp: '2022-01-29 09:50:16+00:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/aoj/GRL/GRL_6_A_2.test.cpp
-documentation_of: Graph/flow/ford_fulkerson.hpp
+  timestamp: '2022-12-18 18:39:45+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: Graph/flow/ford-fulkerson.hpp
 layout: document
 redirect_from:
-- /library/Graph/flow/ford_fulkerson.hpp
-- /library/Graph/flow/ford_fulkerson.hpp.html
+- /library/Graph/flow/ford-fulkerson.hpp
+- /library/Graph/flow/ford-fulkerson.hpp.html
 title: "Ford Fulkerson(\u6700\u5927\u6D41)"
 ---

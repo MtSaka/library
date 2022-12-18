@@ -1,9 +1,6 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
-    path: Graph/graph-template.hpp
-    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -24,15 +21,51 @@ data:
     title: template/util.hpp
   _extendedRequiredBy:
   - icon: ':warning:'
+    path: Graph/mst/kruskal.hpp
+    title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
+  - icon: ':warning:'
+    path: Graph/others/detect-cycle.hpp
+    title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
+  - icon: ':warning:'
+    path: Graph/others/scc.hpp
+    title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
+      )"
+  - icon: ':warning:'
+    path: Graph/others/topological-sort.hpp
+    title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
+      )"
+  - icon: ':warning:'
     path: Graph/others/two-sat.hpp
     title: Tow Satisfiability(2-SAT)
+  - icon: ':warning:'
+    path: Graph/shortest-path/bellman-ford.hpp
+    title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
+  - icon: ':warning:'
+    path: Graph/shortest-path/dijkstra-path.hpp
+    title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
+      \u77ED\u8DEF)"
+  - icon: ':warning:'
+    path: Graph/shortest-path/dijkstra.hpp
+    title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
+  - icon: ':warning:'
+    path: Graph/tree/RMQ_lowest_common_ancestor.hpp
+    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+  - icon: ':warning:'
+    path: Graph/tree/centroid.hpp
+    title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
+  - icon: ':warning:'
+    path: Graph/tree/doubling_lowest_common_ancestor.hpp
+    title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+  - icon: ':warning:'
+    path: Graph/tree/tree_diameter.hpp
+    title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    document_title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\
-      \u89E3)"
+    document_title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
+      \u30C8)"
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -145,48 +178,26 @@ data:
     \    }\n  }\n};\nstruct UnweightedEdge{\n  template<class... Args>UnweightedEdge(const\
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
     \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 4 \"Graph/others/scc.hpp\"\
-    \n\nstruct SCC:UnweightedGraph{\n  public:\n  using UnweightedGraph::g;\n  SCC(){}\n\
-    \  SCC(int n):UnweightedGraph(n){}\n  SCC(const UnweightedGraph&g):UnweightedGraph(g){}\n\
-    \  void build(){\n    rg=UnweightedGraph(g.size());\n    for(size_t i=0;i<g.size();i++){\n\
-    \      for(auto&e:g[i]){\n        rg.add_edge(e.to,i,e.cost,true);\n      }\n\
-    \    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n    for(size_t\
-    \ i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n    cnt=0;\n\
-    \    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n  }\n  void add(int u,int\
-    \ v){UnweightedGraph::add_edge(u,v,true);}\n  int operator[](int k)const{return\
-    \ comp[k];}\n  vector<vector<int>>scc(){\n    if(!group.empty())return group;\n\
-    \    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
-    \    return group;\n  }\n  UnweightedGraph DAG(){\n    if(dag.size())return dag;\n\
-    \    dag=UnweightedGraph(cnt);\n    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n\
-    \        if(comp[i]!=comp[e.to])dag.add_edge(comp[i],comp[e.to],true);\n     \
-    \ }\n    }\n    return dag;\n  }\n  private:\n  UnweightedGraph rg;\n  vector<int>comp,ord;\n\
-    \  vector<bool>used;\n  int cnt;\n  vector<vector<int>>group;\n  UnweightedGraph\
-    \ dag;\n  void dfs(int idx){\n    if(used[idx])return;\n    used[idx]=true;\n\
-    \    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n  }\n  void rdfs(int\
-    \ idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n    for(auto&to:rg[idx])rdfs(to,k);\n\
-    \  }\n};\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\
-    \u5206\u5206\u89E3)\n*/\n"
-  code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"../graph-template.hpp\"\
-    \n\nstruct SCC:UnweightedGraph{\n  public:\n  using UnweightedGraph::g;\n  SCC(){}\n\
-    \  SCC(int n):UnweightedGraph(n){}\n  SCC(const UnweightedGraph&g):UnweightedGraph(g){}\n\
-    \  void build(){\n    rg=UnweightedGraph(g.size());\n    for(size_t i=0;i<g.size();i++){\n\
-    \      for(auto&e:g[i]){\n        rg.add_edge(e.to,i,e.cost,true);\n      }\n\
-    \    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n    for(size_t\
-    \ i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n    cnt=0;\n\
-    \    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n  }\n  void add(int u,int\
-    \ v){UnweightedGraph::add_edge(u,v,true);}\n  int operator[](int k)const{return\
-    \ comp[k];}\n  vector<vector<int>>scc(){\n    if(!group.empty())return group;\n\
-    \    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
-    \    return group;\n  }\n  UnweightedGraph DAG(){\n    if(dag.size())return dag;\n\
-    \    dag=UnweightedGraph(cnt);\n    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n\
-    \        if(comp[i]!=comp[e.to])dag.add_edge(comp[i],comp[e.to],true);\n     \
-    \ }\n    }\n    return dag;\n  }\n  private:\n  UnweightedGraph rg;\n  vector<int>comp,ord;\n\
-    \  vector<bool>used;\n  int cnt;\n  vector<vector<int>>group;\n  UnweightedGraph\
-    \ dag;\n  void dfs(int idx){\n    if(used[idx])return;\n    used[idx]=true;\n\
-    \    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n  }\n  void rdfs(int\
-    \ idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n    for(auto&to:rg[idx])rdfs(to,k);\n\
-    \  }\n};\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\
-    \u5206\u5206\u89E3)\n*/"
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename T=int>\n\
+    struct Edge{\n  int from,to;\n  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int\
+    \ to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n  operator\
+    \ int()const{return to;}\n  bool operator<(const Edge&e)const{return cost<e.cost;}\n\
+    };\ntemplate<typename T=int>\nusing Edges=vector<Edge<T>>;\ntemplate<typename\
+    \ T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n  int es;\n  Graph(){}\n\
+    \  explicit Graph(int n):g(n),es(0){}\n  size_t size()const{return g.size();}\n\
+    \  size_t edge_size()const{return es;}\n  void add_edge(int from,int to,T cost=1,bool\
+    \ direct=false){\n    g[from].emplace_back(from,to,cost,es);\n    if(!direct)g[to].emplace_back(to,from,cost,es);\n\
+    \    es++;\n  }\n  void add_edge(int from,int to,bool direct=false){\n    g[from].emplace_back(from,to,1,es);\n\
+    \    if(!direct)g[to].emplace_back(to,from,1,es);\n  }\n  inline vector<Edge<T>>&operator[](int\
+    \ idx){return g[idx];}\n  inline const vector<Edge<T>>&operator[](int idx)const{return\
+    \ g[idx];}\n  void read(int m,int padding=-1,bool weighted=false,bool direct=false){\n\
+    \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
+    \    a+=padding;\n      b+=padding;\n      if(weighted)cin>>c;\n      add_edge(a,b,c,direct);\n\
+    \    }\n  }\n};\nstruct UnweightedEdge{\n  template<class... Args>UnweightedEdge(const\
+    \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
+    \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -194,18 +205,28 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Graph/graph-template.hpp
   isVerificationFile: false
-  path: Graph/others/scc.hpp
+  path: Graph/graph-template.hpp
   requiredBy:
+  - Graph/mst/kruskal.hpp
   - Graph/others/two-sat.hpp
+  - Graph/others/scc.hpp
+  - Graph/others/topological-sort.hpp
+  - Graph/others/detect-cycle.hpp
+  - Graph/tree/RMQ_lowest_common_ancestor.hpp
+  - Graph/tree/centroid.hpp
+  - Graph/tree/doubling_lowest_common_ancestor.hpp
+  - Graph/tree/tree_diameter.hpp
+  - Graph/shortest-path/dijkstra-path.hpp
+  - Graph/shortest-path/dijkstra.hpp
+  - Graph/shortest-path/bellman-ford.hpp
   timestamp: '2022-12-18 18:39:45+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Graph/others/scc.hpp
+documentation_of: Graph/graph-template.hpp
 layout: document
 redirect_from:
-- /library/Graph/others/scc.hpp
-- /library/Graph/others/scc.hpp.html
-title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3)"
+- /library/Graph/graph-template.hpp
+- /library/Graph/graph-template.hpp.html
+title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
 ---

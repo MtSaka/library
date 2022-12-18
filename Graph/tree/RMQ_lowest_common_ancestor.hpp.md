@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
-    path: Graph/graph_template.hpp
-    title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  - icon: ':warning:'
+    path: Graph/graph-template.hpp
+    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':x:'
     path: data-structure/sparse-table.hpp
     title: Sparse Table
@@ -26,46 +26,21 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/aoj/GRL/GRL_5_C_2.test.cpp
-    title: test/aoj/GRL/GRL_5_C_2.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/lca2.test.cpp
-    title: test/yosupo/lca2.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     document_title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
       )"
     links: []
-  bundledCode: "#line 2 \"Graph/graph_template.hpp\"\ntemplate<typename T=int>\nstruct\
-    \ edge{\n  int from,to;\n  T cost;\n  int idx;\n  edge(){}\n  edge(int from,int\
-    \ to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n  operator\
-    \ int()const{return to;}\n  bool operator<(const edge&e)const{return cost<e.cost;}\n\
-    };\ntemplate<typename T=int>\nusing edges=vector<edge<T>>;\ntemplate<typename\
-    \ T=int>\nstruct graph{\n  vector<vector<edge<T>>>g;\n  int es;\n  graph(){}\n\
-    \  explicit graph(int n):g(n),es(0){}\n  size_t size()const{return g.size();}\n\
-    \  size_t edge_size()const{return es;}\n  void add_edge(int from,int to,T cost=1,bool\
-    \ direct=false){\n    g[from].emplace_back(from,to,cost,es);\n    if(!direct)g[to].emplace_back(to,from,cost,es);\n\
-    \    es++;\n  }\n  void add_edge(int from,int to,bool direct=false){\n    g[from].emplace_back(from,to,1,es);\n\
-    \    if(!direct)g[to].emplace_back(to,from,1,es);\n  }\n  inline vector<edge<T>>&operator[](int\
-    \ idx){return g[idx];}\n  inline const vector<edge<T>>&operator[](int idx)const{return\
-    \ g[idx];}\n  void read(int m,int padding=-1,bool weighted=false,bool direct=false){\n\
-    \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
-    \    a+=padding;\n      b+=padding;\n      if(weighted)cin>>c;\n      add_edge(a,b,c,direct);\n\
-    \    }\n  }\n};\nstruct unweighted_edge{\n  template<class... Args>unweighted_edge(const\
-    \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
-    \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"template/template.hpp\"\
-    \n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...)\
-    \ e\n#define SELECT3(a,b,c,d,...) d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n\
-    #define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n#define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n\
-    #define REP4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...)\
-    \ SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n#define RREP1(a) for(ll\
-    \ i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define\
-    \ RREP3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);--i)\n#define rrep(...) SELECT3(__VA_ARGS__,RREP3,RREP2,RREP1)(__VA_ARGS__)\n\
+  bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
+    \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
+    \ d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
+    #define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n#define REP4(i,a,b,c) for(ll\
+    \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n\
+    #define RREP1(a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n\
+    #define RREP3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);--i)\n#define rrep(...) SELECT3(__VA_ARGS__,RREP3,RREP2,RREP1)(__VA_ARGS__)\n\
     #define all(v) std::begin(v),std::end(v)\n#define rall(v) std::rbegin(v),std::rend(v)\n\
     #define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)\n#define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n\
@@ -151,7 +126,26 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/sparse-table.hpp\"\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"Graph/graph-template.hpp\"\
+    \n\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n  int idx;\n\
+    \  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
+    \  operator int()const{return to;}\n  bool operator<(const Edge&e)const{return\
+    \ cost<e.cost;}\n};\ntemplate<typename T=int>\nusing Edges=vector<Edge<T>>;\n\
+    template<typename T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n  int es;\n\
+    \  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n  size_t size()const{return\
+    \ g.size();}\n  size_t edge_size()const{return es;}\n  void add_edge(int from,int\
+    \ to,T cost=1,bool direct=false){\n    g[from].emplace_back(from,to,cost,es);\n\
+    \    if(!direct)g[to].emplace_back(to,from,cost,es);\n    es++;\n  }\n  void add_edge(int\
+    \ from,int to,bool direct=false){\n    g[from].emplace_back(from,to,1,es);\n \
+    \   if(!direct)g[to].emplace_back(to,from,1,es);\n  }\n  inline vector<Edge<T>>&operator[](int\
+    \ idx){return g[idx];}\n  inline const vector<Edge<T>>&operator[](int idx)const{return\
+    \ g[idx];}\n  void read(int m,int padding=-1,bool weighted=false,bool direct=false){\n\
+    \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
+    \    a+=padding;\n      b+=padding;\n      if(weighted)cin>>c;\n      add_edge(a,b,c,direct);\n\
+    \    }\n  }\n};\nstruct UnweightedEdge{\n  template<class... Args>UnweightedEdge(const\
+    \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
+    \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"data-structure/sparse-table.hpp\"\
     \n\ntemplate<typename T,typename F>\nstruct SparseTable{\n  F f;\n  vector<vector<T>>table;\n\
     \  vector<int>log_table;\n  SparseTable()=default;\n  SparseTable(const vector<T>&v,const\
     \ F&f):f(f){\n    const int n=(int)v.size();\n    const int lg=32-__builtin_clz(n);\n\
@@ -162,21 +156,21 @@ data:
     \  }\n};\ntemplate<typename T,typename F>\nSparseTable<T,F>MakeSparseTable(const\
     \ vector<T>&v,const F&f){\n  return SparseTable<T,F>(v,f);\n} \n/**\n * @brief\
     \ Sparse Table\n*/\n#line 4 \"Graph/tree/RMQ_lowest_common_ancestor.hpp\"\ntemplate<typename\
-    \ T=unweighted_edge>\nstruct RMQ_LCA:graph<T>{\n  using graph<T>::g;\n  using\
-    \ F=function<int(int,int)>;\n  vector<int>ord,dep,in;\n  RMQ_LCA(int n):graph<T>(n){}\n\
-    \  RMQ_LCA(const graph<T>&g):graph<T>(g){}\n  void build(int root=0){\n    in.resize(g.size());\n\
-    \    dfs(root,-1,0);\n    vector<int>v(g.size()*2-1);\n    iota(v.begin(),v.end(),0);\n\
-    \    F f=[&](int a,int b){return dep[a]<dep[b]?a:b;};\n    st=SparseTable<int,F>(v,f);\n\
-    \  }\n  int lca(int u,int v){\n    if(in[u]>in[v])swap(u,v);\n    return u==v?u:ord[st.query(in[u],in[v])];\n\
+    \ T=UnweightedEdge>\nstruct RMQ_LCA:Graph<T>{\n  using Graph<T>::g;\n  using F=function<int(int,int)>;\n\
+    \  vector<int>ord,dep,in;\n  RMQ_LCA(int n):Graph<T>(n){}\n  RMQ_LCA(const Graph<T>&g):Graph<T>(g){}\n\
+    \  void build(int root=0){\n    in.resize(g.size());\n    dfs(root,-1,0);\n  \
+    \  vector<int>v(g.size()*2-1);\n    iota(v.begin(),v.end(),0);\n    F f=[&](int\
+    \ a,int b){return dep[a]<dep[b]?a:b;};\n    st=SparseTable<int,F>(v,f);\n  }\n\
+    \  int lca(int u,int v){\n    if(in[u]>in[v])swap(u,v);\n    return u==v?u:ord[st.query(in[u],in[v])];\n\
     \  }\n  private:\n  SparseTable<int,F>st;\n  void dfs(int idx,int par,int d){\n\
     \    in[idx]=(int)ord.size();\n    ord.emplace_back(idx);\n    dep.emplace_back(d);\n\
     \    for(auto &e:g[idx])if(e!=par){\n      dfs(e,idx,d+1);\n      ord.emplace_back(idx);\n\
     \      dep.emplace_back(d);\n    }\n  }\n};\n/**\n * @brief RMQ Lowest Common\
     \ Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)\n*/\n"
-  code: "#pragma once\n#include\"../graph_template.hpp\"\n#include\"../../data-structure/sparse-table.hpp\"\
-    \ntemplate<typename T=unweighted_edge>\nstruct RMQ_LCA:graph<T>{\n  using graph<T>::g;\n\
-    \  using F=function<int(int,int)>;\n  vector<int>ord,dep,in;\n  RMQ_LCA(int n):graph<T>(n){}\n\
-    \  RMQ_LCA(const graph<T>&g):graph<T>(g){}\n  void build(int root=0){\n    in.resize(g.size());\n\
+  code: "#pragma once\n#include\"../graph-template.hpp\"\n#include\"../../data-structure/sparse-table.hpp\"\
+    \ntemplate<typename T=UnweightedEdge>\nstruct RMQ_LCA:Graph<T>{\n  using Graph<T>::g;\n\
+    \  using F=function<int(int,int)>;\n  vector<int>ord,dep,in;\n  RMQ_LCA(int n):Graph<T>(n){}\n\
+    \  RMQ_LCA(const Graph<T>&g):Graph<T>(g){}\n  void build(int root=0){\n    in.resize(g.size());\n\
     \    dfs(root,-1,0);\n    vector<int>v(g.size()*2-1);\n    iota(v.begin(),v.end(),0);\n\
     \    F f=[&](int a,int b){return dep[a]<dep[b]?a:b;};\n    st=SparseTable<int,F>(v,f);\n\
     \  }\n  int lca(int u,int v){\n    if(in[u]>in[v])swap(u,v);\n    return u==v?u:ord[st.query(in[u],in[v])];\n\
@@ -186,22 +180,20 @@ data:
     \      dep.emplace_back(d);\n    }\n  }\n};\n/**\n * @brief RMQ Lowest Common\
     \ Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)\n*/"
   dependsOn:
-  - Graph/graph_template.hpp
-  - data-structure/sparse-table.hpp
+  - Graph/graph-template.hpp
   - template/template.hpp
   - template/macro.hpp
   - template/alias.hpp
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
+  - data-structure/sparse-table.hpp
   isVerificationFile: false
   path: Graph/tree/RMQ_lowest_common_ancestor.hpp
   requiredBy: []
-  timestamp: '2022-12-18 17:08:11+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/aoj/GRL/GRL_5_C_2.test.cpp
-  - test/yosupo/lca2.test.cpp
+  timestamp: '2022-12-18 18:39:45+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: Graph/tree/RMQ_lowest_common_ancestor.hpp
 layout: document
 redirect_from:
