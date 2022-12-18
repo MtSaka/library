@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/lca"
 #include"../../template/template.hpp"
-#include"../../Graph/tree/doubling_lowest_common_ancestor.hpp"
+#include"../../graph/tree/doubling_lowest_common_ancestor.hpp"
 int main(){
   int n,q;
   cin>>n>>q;

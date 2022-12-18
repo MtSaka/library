@@ -1,13 +1,13 @@
 #pragma once
-#include"../graph_template.hpp"
+#include"../graph-template.hpp"
 #include"../../data-structure/sparse-table.hpp"
-template<typename T=unweighted_edge>
-struct RMQ_LCA:graph<T>{
-  using graph<T>::g;
+template<typename T=UnweightedEdge>
+struct RMQ_LCA:Graph<T>{
+  using Graph<T>::g;
   using F=function<int(int,int)>;
   vector<int>ord,dep,in;
-  RMQ_LCA(int n):graph<T>(n){}
-  RMQ_LCA(const graph<T>&g):graph<T>(g){}
+  RMQ_LCA(int n):Graph<T>(n){}
+  RMQ_LCA(const Graph<T>&g):Graph<T>(g){}
   void build(int root=0){
     in.resize(g.size());
     dfs(root,-1,0);

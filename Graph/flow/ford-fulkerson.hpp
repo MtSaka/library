@@ -1,7 +1,7 @@
 #pragma once
 template<typename T>
 struct FordFulkerson{
-  struct edge{
+  struct Edge{
     int to;
     T cap;
     int rev;
@@ -9,13 +9,13 @@ struct FordFulkerson{
     int idx;
   };
   const T INF;
-  vector<vector<edge>>g;
+  vector<vector<Edge>>g;
   vector<int>used;
   int timer;
   FordFulkerson(int v):INF(numeric_limits<T>::max()/2),g(v),used(v,-1),timer(0){}
   void add_edge(int from,int to,T cap,int idx=-1){
-    g[from].emplace_back(edge{to,cap,(int)g[to].size(),false,idx});
-    g[to].emplace_back(edge{from,0,(int)g[from].size()-1,true,idx});
+    g[from].emplace_back(Edge{to,cap,(int)g[to].size(),false,idx});
+    g[to].emplace_back(Edge{from,0,(int)g[from].size()-1,true,idx});
   }
   T find_path(int idx,const int t,T flow){
     if(idx==t)return flow;

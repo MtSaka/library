@@ -1,16 +1,19 @@
+#pragma once
+#include"../../template/template.hpp"
 #include"../../data-structure/union-find.hpp"
-#include"../graph_template.hpp"
+#include"../graph-template.hpp"
+
 template<typename T>
 struct mst{
   T cost;
-  edges<T>es;
+  Edges<T>es;
 };
 template<typename T>
-mst<T>kruskal(edges<T>&ed,int v){
+mst<T>kruskal(Edges<T>&ed,int v){
   sort(ed.begin(),ed.end());
   UnionFind d(v);
   T total=0;
-  edges<T>es;
+  Edges<T>es;
   for(auto &e:ed){
     if(!d.same(e.to,e.from)){
       d.merge(e.to,e.from);

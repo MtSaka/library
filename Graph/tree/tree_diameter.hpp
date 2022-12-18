@@ -1,9 +1,9 @@
 #pragma once
-#include"../graph_template.hpp"
-template<typename T=unweighted_edge>
-struct TreeDiameter:graph<T>{
-  using graph<T>::g;
-  edges<T>path;
+#include"../graph-template.hpp"
+template<typename T=UnweightedEdge>
+struct TreeDiameter:Graph<T>{
+  using Graph<T>::g;
+  Edges<T>path;
   T build(){
     to.assign(g.size(),-1);
     auto p=dfs(0,-1);
@@ -18,8 +18,8 @@ struct TreeDiameter:graph<T>{
     return q.first;
   }
   TreeDiameter(){}
-  TreeDiameter(int n):graph<T>(n){}
-  TreeDiameter(const graph<T>&g):graph<T>(g){}
+  TreeDiameter(int n):Graph<T>(n){}
+  TreeDiameter(const Graph<T>&g):Graph<T>(g){}
   private:
   vector<int>to;
   pair<T,int>dfs(int idx,int par){

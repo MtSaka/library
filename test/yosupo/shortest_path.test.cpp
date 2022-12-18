@@ -1,10 +1,10 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/shortest_path"
+#define PROBLEM "https://judge.yosupo.jp/problem/shortest-path"
 #include"../../template/template.hpp"
-#include"../../Graph/shortest_path/dijkstra_path.hpp"
+#include"../../graph/shortest-path/dijkstra-path.hpp"
 int main(){
   int n,m,s,t;
   cin>>n>>m>>s>>t;
-  graph<long long>g(n);
+  Graph<long long>g(n);
   g.read(m,0,true,true);
   auto d=dijkstra_path(g,s,t);
   if(d.first==-1){

@@ -1,7 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_2_D"
 #define ERROR 1e-6
 #include"../../../template/template.hpp"
-#include"../../../Geometry/geometry.hpp"
+#include"../../../geometry/geometry.hpp"
 int main(){
   cout<<fixed<<setprecision(15);
   int q;

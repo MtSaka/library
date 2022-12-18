@@ -1,8 +1,12 @@
-#include"../graph_template.hpp"
+#pragma once
+#include"../../template/template.hpp"
+#include"../graph-template.hpp"
+
 template<typename T>
-struct topological_sort{
+struct TopologicalSort{
+  private:
   int n;
-  const graph<T>&g;
+  const Graph<T>&g;
   vector<int>order;
   vector<bool>seen;
   void dfs(int v){
@@ -17,7 +21,8 @@ struct topological_sort{
     for(int i=0;i<n;i++)if(!seen[i])dfs(i);
     reverse(order.begin(),order.end());
   }
-  topological_sort(const graph<T>&g):g(g){init();}
+  public:
+  TopologicalSort(const Graph<T>&g):g(g){init();}
   const vector<int>&get()const&{return order;}
   vector<int>get()&&{return move(order);}
 };

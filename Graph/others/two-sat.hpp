@@ -1,13 +1,15 @@
 #pragma once
+#include"../../template/template.hpp"
 #include"scc.hpp"
-struct two_sat{
+
+struct TwoSat{
   private:
   int n;
   SCC scc;
   vector<bool>ans;
   public:
-  two_sat(){}
-  two_sat(int n):n(n),scc(2*n),ans(n){}
+  TwoSat(){}
+  TwoSat(int n):n(n),scc(2*n),ans(n){}
   void add_clause(int i,bool f,int j,bool g){    
     scc.add(i+(f?n:0),j+(g?0:n));
     scc.add(j+(g?n:0),i+(f?0:n));

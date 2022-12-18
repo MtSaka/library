@@ -1,22 +1,24 @@
 #pragma once
+#include"../template/template.hpp"
+
 template<typename T=int>
-struct edge{
+struct Edge{
   int from,to;
   T cost;
   int idx;
-  edge(){}
-  edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}
+  Edge(){}
+  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}
   operator int()const{return to;}
-  bool operator<(const edge&e)const{return cost<e.cost;}
+  bool operator<(const Edge&e)const{return cost<e.cost;}
 };
 template<typename T=int>
-using edges=vector<edge<T>>;
+using Edges=vector<Edge<T>>;
 template<typename T=int>
-struct graph{
-  vector<vector<edge<T>>>g;
+struct Graph{
+  vector<vector<Edge<T>>>g;
   int es;
-  graph(){}
-  explicit graph(int n):g(n),es(0){}
+  Graph(){}
+  explicit Graph(int n):g(n),es(0){}
   size_t size()const{return g.size();}
   size_t edge_size()const{return es;}
   void add_edge(int from,int to,T cost=1,bool direct=false){
@@ -28,8 +30,8 @@ struct graph{
     g[from].emplace_back(from,to,1,es);
     if(!direct)g[to].emplace_back(to,from,1,es);
   }
-  inline vector<edge<T>>&operator[](int idx){return g[idx];}
-  inline const vector<edge<T>>&operator[](int idx)const{return g[idx];}
+  inline vector<Edge<T>>&operator[](int idx){return g[idx];}
+  inline const vector<Edge<T>>&operator[](int idx)const{return g[idx];}
   void read(int m,int padding=-1,bool weighted=false,bool direct=false){
     int a,b;
     T c=T(1);
@@ -42,12 +44,12 @@ struct graph{
     }
   }
 };
-struct unweighted_edge{
-  template<class... Args>unweighted_edge(const Args&...){}
+struct UnweightedEdge{
+  template<class... Args>UnweightedEdge(const Args&...){}
   operator int()const{return 1;}
 };
-istream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return is;}
-using unweighted_graph=graph<unweighted_edge>;
+istream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return is;}
+using UnweightedGraph=Graph<UnweightedEdge>;
 /**
- * @brief graph Template(グラフテンプレート)
+ * @brief Graph Template(グラフテンプレート)
 */

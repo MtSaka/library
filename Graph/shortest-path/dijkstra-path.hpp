@@ -1,6 +1,9 @@
-#include"../graph_template.hpp"
+#pragma once
+#include"../../template/template.hpp"
+#include"../graph-template.hpp"
+
 template<typename T=int>
-pair<T,vector<int>>dijkstra_path(const graph<T>&g,int s,int t){
+pair<T,vector<int>>dijkstra_path(const Graph<T>&g,int s,int t){
   const int n=g.size();
   const T MAX=numeric_limits<T>::max()/2;
   vector<T>d(n,MAX);

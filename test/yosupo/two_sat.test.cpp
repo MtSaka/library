@@ -1,11 +1,11 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/two_sat"
+#define PROBLEM "https://judge.yosupo.jp/problem/TwoSat"
 #include"../../template/template.hpp"
-#include"../../Graph/others/two_sat.hpp"
+#include"../../graph/others/two-sat.hpp"
 int main(){
   string s;
   int n,m;
   cin>>s>>s>>n>>m;
-  two_sat ts(n);
+  TwoSat ts(n);
   while(m--){
     int a,b;
     cin>>a>>b>>s;

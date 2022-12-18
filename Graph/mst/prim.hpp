@@ -1,18 +1,21 @@
-#include"../graph_template.hpp"
+#pragma once
+#include"../template/template.hpp"
+#include"../graph-template.hpp"
+
 template<typename T>
 struct mst{
   T cost;
-  edges<T>es;
+  Edges<T>es;
 };
 template<typename T>
-mst<T>prim(const graph<T>&g){
+mst<T>prim(const Graph<T>&g){
   T sum=T();
   vector<bool>used(g.size(),false);
-  vector<edge<T>>dist(g.size());
+  vector<Edge<T>>dist(g.size());
   using pi=pair<T,int>;
   priority_queue<pi,vector<pi>,greater<>>q;
   q.emplace(T(),0);
-  edges<T>es;
+  Edges<T>es;
   while(!q.empty()){
     auto p=q.top();q.pop();
     if(used[p.second])continue;

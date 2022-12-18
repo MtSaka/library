@@ -1,4 +1,6 @@
 #pragma once
+#include"../template/template.hpp"
+
 namespace geometry{
   const long double eps=1e-9;
   const long double pi=acos(-1.0);
@@ -207,4 +209,4 @@ namespace geometry{
     }
     return in;
   }
-};
+}//namespace geometry
