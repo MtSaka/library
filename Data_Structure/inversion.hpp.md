@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: Data_Structure/BIT.hpp
     title: Binary Indexed Tree(BIT)
   - icon: ':x:'

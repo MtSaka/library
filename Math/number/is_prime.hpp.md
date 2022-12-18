@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
     title: test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
     links: []
@@ -24,7 +24,7 @@ data:
   path: Math/number/is_prime.hpp
   requiredBy: []
   timestamp: '2022-01-29 16:22:31+00:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
 documentation_of: Math/number/is_prime.hpp

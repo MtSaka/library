@@ -1,34 +1,34 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: Data_Structure/dual_segtree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: Data_Structure/lazy_segtree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: Data_Structure/segtree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: Data_Structure/segtree_monoids.hpp
     title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -89,19 +89,19 @@ data:
     template<class T>\ninline void print(const T &t){std::cout<<t<<'\\n';}\ntemplate<class\
     \ Head, class... Tail>\ninline void print(const Head &head, const Tail &... tail){std::cout<<head<<'\
     \ ';print(tail...);}\ntemplate<class... T>\ninline void fin(const T &... a){print(a...);exit(0);}\n\
-    #line 5 \"template/util.hpp\"\n\nstruct IOSetup{\n  constexpr IOSetup(){\n   \
-    \ std::cin.tie(nullptr);\n    std::ios::sync_with_stdio(false);\n    std::cout.tie(0);\n\
-    \    std::cout<<std::fixed<<std::setprecision(12);\n    std::cerr<<std::fixed<<std::setprecision(12);\n\
-    \  }\n};\ntemplate<typename F>\nstruct REC{\n  private:\n  F f;\n  public:\n \
-    \ explicit constexpr REC(F&&f_):f(std::forward<F>(f_)){}\n  template<typename...\
-    \ Args>\n  constexpr auto operator()(Args&&...args)const{\n    return f(*this,\
-    \ std::forward<Args>(args)...);\n  }\n};\ntemplate<typename T,typename Comp=std::less<T>>\n\
-    struct compressor{\n  private:\n  std::vector<T>data;\n  Comp cmp;\n  bool sorted=false;\n\
-    \  public:\n  compressor():compressor(Comp()){}\n  compressor(const Comp&cmp):cmp(cmp){}\n\
-    \  compressor(const std::vector<T>&dat,const Comp&cmp=Comp()):data(dat),cmp(cmp){}\n\
-    \  compressor(std::vector<T>&&dat,const Comp&cmp=Comp()):data(move(dat)),cmp(cmp){}\n\
-    \  compressor(std::initializer_list<T>li,const Comp&cmp=Comp()):data(li.begin(),li.end()),cmp(cmp){}\n\
-    \  void push_back(const T&v){assert(!sorted);data.push_back(v);}\n  void push_back(T&&v){assert(!sorted);data.push_back(move(v));}\n\
+    #line 5 \"template/util.hpp\"\n\nstruct IOSetup{\n  IOSetup(){\n    std::cin.tie(nullptr);\n\
+    \    std::ios::sync_with_stdio(false);\n    std::cout.tie(0);\n    std::cout<<std::fixed<<std::setprecision(12);\n\
+    \    std::cerr<<std::fixed<<std::setprecision(12);\n  }\n};\ntemplate<typename\
+    \ F>\nstruct REC{\n  private:\n  F f;\n  public:\n  explicit constexpr REC(F&&f_):f(std::forward<F>(f_)){}\n\
+    \  template<typename... Args>\n  constexpr auto operator()(Args&&...args)const{\n\
+    \    return f(*this, std::forward<Args>(args)...);\n  }\n};\ntemplate<typename\
+    \ T,typename Comp=std::less<T>>\nstruct compressor{\n  private:\n  std::vector<T>data;\n\
+    \  Comp cmp;\n  bool sorted=false;\n  public:\n  compressor():compressor(Comp()){}\n\
+    \  compressor(const Comp&cmp):cmp(cmp){}\n  compressor(const std::vector<T>&dat,const\
+    \ Comp&cmp=Comp()):data(dat),cmp(cmp){}\n  compressor(std::vector<T>&&dat,const\
+    \ Comp&cmp=Comp()):data(move(dat)),cmp(cmp){}\n  compressor(std::initializer_list<T>li,const\
+    \ Comp&cmp=Comp()):data(li.begin(),li.end()),cmp(cmp){}\n  void push_back(const\
+    \ T&v){assert(!sorted);data.push_back(v);}\n  void push_back(T&&v){assert(!sorted);data.push_back(move(v));}\n\
     \  template<typename... Args>void emplace_back(Args&&...args){assert(!sorted);data.emplace_back(std::forward<Args>(args)...);}\n\
     \  void push(const std::vector<T>&v){\n    assert(!sorted);\n    const int n=data.size();\n\
     \    data.resize(v.size()+n);\n    for(int i=0;i<(int)v.size();i++)data[i+n]=v[i];\n\
@@ -121,8 +121,8 @@ data:
     template<typename T>\nstruct is_specialize<T,std::enable_if_t<std::is_integral<T>::value,void>>:std::true_type{};\n\
     inline void dump(const char&t){std::cerr<<t;}\ninline void dump(const std::string&t){std::cerr<<t;}\n\
     inline void dump(const bool&t){std::cerr<<(t?\"true\":\"false\");}\ntemplate <typename\
-    \ T,std::enable_if_t<!is_specialize<T>::value,nullptr_t> =nullptr>\ninline void\
-    \ dump(const T&t){std::cerr<<t;}\ntemplate<typename T>\ninline void dump(const\
+    \ T,std::enable_if_t<!is_specialize<T>::value,std::nullptr_t> =nullptr>\ninline\
+    \ void dump(const T&t){std::cerr<<t;}\ntemplate<typename T>\ninline void dump(const\
     \ T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp=\"\
     inf\";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp=\"\
     -inf\";if(tmp.empty())tmp=to_string(t);std::cerr<<tmp;}\ntemplate<typename T,typename\
@@ -282,7 +282,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_add_range_sum1.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 05:56:32+09:00'
+  timestamp: '2022-12-18 06:09:27+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/point_add_range_sum1.test.cpp

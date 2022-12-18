@@ -9,7 +9,7 @@ data:
   - icon: ':x:'
     path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
     title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
   - icon: ':x:'
@@ -20,7 +20,7 @@ data:
     title: test/yosupo/static_range_inversions_query.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: Binary Indexed Tree(BIT)
     links: []
@@ -44,7 +44,7 @@ data:
   requiredBy:
   - Data_Structure/inversion.hpp
   timestamp: '2022-07-13 21:05:02+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - test/aoj/DSL/DSL_2_B.test.cpp
