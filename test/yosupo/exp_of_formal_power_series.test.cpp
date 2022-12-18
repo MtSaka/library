@@ -4,7 +4,7 @@
 int main(){
   int n;
   cin>>n;
-  FPS<mod>f(n);
+  FPS<998244353>f(n);
   cin>>f;
   cout<<f.exp()<<endl;
 }

@@ -1,3 +1,6 @@
+#pragma once
+#include"../../template/template.hpp"
+
 vector<pair<long long,int>>factorize(long long N){
   vector<pair<long long,int>>ans;
   for(long long i=2;i*i<=N;i++){

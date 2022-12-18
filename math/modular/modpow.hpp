@@ -1,4 +1,6 @@
 #pragma once
+#include"../../template/template.hpp"
+
 template<typename T,typename S>
 T modpow(T a,S b,T m){
   T ret=1;

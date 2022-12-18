@@ -1,5 +1,8 @@
+#pragma once
+#include"../../template/template.hpp"
 #include"modpow.hpp"
 #include"../../data-structure/hash-map.hpp"
+
 template<typename T>
 T discrete_logarithm(T x,T y,T m){
   x%=m,y%=m;

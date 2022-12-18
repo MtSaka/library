@@ -5,7 +5,7 @@
 int main(){
   int n,m,k;
   cin>>n>>m>>k;
-  Matrix<modint<mod>>a(n,m),b(m,k);
+  Matrix<modint<998244353>>a(n,m),b(m,k);
   for(int i=0;i<n;i++){
     for(int j=0;j<m;j++){
       cin>>a[i][j];

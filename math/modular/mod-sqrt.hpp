@@ -1,5 +1,7 @@
 #pragma once
+#include"../../template/template.hpp"
 #include"modpow.hpp"
+
 template<typename T,typename S>
 S mod_sqrt(T a,const S&p){
   a%=p;

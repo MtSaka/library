@@ -1,4 +1,6 @@
 #pragma once
+#include"../../template/template.hpp"
+
 template<typename T>
 vector<T>gcd_convolution(vector<T>a,vector<T>b){
   const int n=a.size();

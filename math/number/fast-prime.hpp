@@ -1,3 +1,6 @@
+#pragma once
+#include"../../template/template.hpp"
+
 namespace fastprime{
   using i128=__uint128_t;
   long long inner_modmul(const long long&x,const long long&y,const long long&p){

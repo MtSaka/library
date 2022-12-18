@@ -25,7 +25,5 @@ template<typename T>constexpr T INF=infinity<T>::value;
 constexpr ll inf=INF<ll>;
 constexpr ld EPS=1e-8;
 constexpr ld PI=3.1415926535897932384626;
-constexpr ll mod=998244353;
-constexpr ll MOD=1000000007;
 constexpr int dx[8]={1,0,-1,0,1,-1,-1,1};
 constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};

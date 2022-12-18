@@ -1,3 +1,6 @@
+#pragma once
+#include"../../template/template.hpp"
+
 bool is_prime(long long N){
   if(N<2)return 0;
   if(N==2)return 1;

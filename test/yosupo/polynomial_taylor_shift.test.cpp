@@ -1,11 +1,11 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/polynomial_taylor_shift"
 #include"../../template/template.hpp"
-#include"../../math/fps/taylor_shift.hpp"
-using mint=modint<mod>;
+#include"../../math/fps/taylor-shift.hpp"
+using mint=modint<998244353>;
 int main(){
   int n,c;
   cin>>n>>c;
-  FPS<mod>f(n);
+  FPS<998244353>f(n);
   cin>>f;
   print(taylor_shift(f,mint(c)));
 }

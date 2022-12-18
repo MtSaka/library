@@ -1,5 +1,8 @@
-#include"fast_prime.hpp"
+#pragma once
+#include"../fast-prime/factorize.hpp"
+#include"fast-prime.hpp"
 #include"../modular/modpow.hpp"
+
 int primitive_root(int n){
   if(n==2)return 1;
   if(n==167772161)return 3;

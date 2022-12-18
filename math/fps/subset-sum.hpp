@@ -1,5 +1,7 @@
 #pragma once
+#include"../../template/template.hpp"
 #include"fps.hpp"
+
 template<int m>
 FPS<m>subset_sum(vector<modint<m>>&count){
   const int n=(int)count.size();

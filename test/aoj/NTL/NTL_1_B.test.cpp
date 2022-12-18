@@ -4,5 +4,5 @@
 int main(){
   long long m,n;
   cin>>m>>n;
-  print(modpow(m,n,(long long)MOD));
+  print(modpow(m,n,(long long)1000000007));
 }

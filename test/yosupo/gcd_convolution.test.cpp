@@ -1,8 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/gcd_convolution"
 #include"../../template/template.hpp"
 #include"../../math/modular/modint.hpp"
-#include"../../math/convolution/gcd_convolution.hpp"
-using mint=modint<mod>;
+#include"../../math/convolution/gcd-convolution.hpp"
+using mint=modint<998244353>;
 int main(){
   int n;cin>>n;
   vector<mint>a(n+1),b(n+1);

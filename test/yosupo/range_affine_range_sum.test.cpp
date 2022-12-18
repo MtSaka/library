@@ -2,7 +2,7 @@
 #include"../../template/template.hpp"
 #include"../../math/modular/modint.hpp"
 #include"../../data-structure/lazy-segment-tree.hpp"
-using mint=modint<mod>;
+using mint=modint<998244353>;
 using Pi=pair<mint,int >;
 using qi=pair<mint,mint>;
 Pi op(Pi a,Pi b){return {a.first+b.first,a.second+b.second};}

@@ -1,5 +1,7 @@
 #pragma once
+#include"../../template/template.hpp"
 #include"../modular/modint.hpp"
+
 template<int m>
 struct combination{
   using mint=modint<m>;

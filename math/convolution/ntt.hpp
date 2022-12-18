@@ -1,6 +1,8 @@
 #pragma once
+#include"../../template/template.hpp"
 #include"../modular/modint.hpp"
-#include"../number/primitive_root.hpp"
+#include"../number/primitive-root.hpp"
+
 template<int m>
 struct NTT{
   using mint=modint<m>;

@@ -1,5 +1,7 @@
 #pragma once
+#include"../../template/template.hpp"
 #include"../convolution/ntt.hpp"
+
 template<int m>
 struct FPS:vector<modint<m>>{
   using mint=modint<m>;

@@ -1,3 +1,6 @@
+#pragma once
+#include"../../template/template.hpp"
+
 template<typename T>
 vector<pair<T,pair<T,T>>>quotient_ranges(T n){
   vector<pair<T,pair<T,T>>>ans;

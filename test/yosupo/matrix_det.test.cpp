@@ -2,7 +2,7 @@
 #include"../../template/template.hpp"
 #include"../../math/modular/modint.hpp"
 #include"../../math/others/matrix.hpp"
-using mint=modint<mod>;
+using mint=modint<998244353>;
 int main(){
   INT(n);
   Matrix<mint>mat(n);

@@ -1,3 +1,6 @@
+#pragma once
+#include"../../template/template.hpp"
+
 vector<long long>factor(long long N){
   vector<long long>ans;
   for(long long i=1;i*i<=N;i++){

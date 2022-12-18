@@ -1,5 +1,7 @@
 #pragma once
+#include"../../template/template.hpp"
 #include"fps.hpp"
+
 template<int m>
 vector<modint<m>>multipoint_evaluation(const FPS<m>&f,const vector<modint<m>>&xs){
   const int n=xs.size();

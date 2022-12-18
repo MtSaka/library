@@ -1,4 +1,6 @@
 #pragma once
+#include"../../template/template.hpp"
+
 template<int m>
 struct modint{
   private:

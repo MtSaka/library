@@ -1,6 +1,9 @@
+#pragma once
+#include"../../template/template.hpp"
 #include"combinatorics.hpp"
+
 template<long long m>
-modint<m>lagrange_polynominal(const vector<modint<m>>&y,const long long&t){
+modint<m>lagrange_polynomial(const vector<modint<m>>&y,const long long&t){
   using mint=modint<m>;
   const int n=y.size()-1;
   combination<m>c(n);

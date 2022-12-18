@@ -1,3 +1,6 @@
+#pragma once
+#include"../../template/template.hpp"
+
 void dft(vector<complex<double>>&a,double inv){
   const int sz=a.size();
   if(sz==1)return;

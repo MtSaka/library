@@ -1,3 +1,6 @@
+#pragma once
+#include"../../template/template.hpp"
+
 template<typename T>
 int factor_cnt(T N){
   int ans=1;

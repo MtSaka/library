@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C"
 #include"../../../template/template.hpp"
-#include"../../../math/number/prime_sieve.hpp"
+#include"../../../math/number/prime-sieve.hpp"
 int main(){
   int n;
   cin>>n;

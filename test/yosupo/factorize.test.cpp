@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/factorize"
 #include"../../template/template.hpp"
-#include"../../math/number/fast_prime.hpp"
+#include"../../math/number/fast-prime.hpp"
 int main(){
   int q;
   cin>>q;

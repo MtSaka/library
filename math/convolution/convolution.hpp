@@ -1,4 +1,7 @@
+#pragma once
+#include"../../template/template.hpp"
 #include"ntt.hpp"
+
 template<typename T>
 vector<T>convolution(const vector<T>&a,const vector<T>&b){
   const int n=a.size(),m=b.size();

@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/sqrt_mod"
 #include"../../template/template.hpp"
-#include"../../math/modular/mod_sqrt.hpp"
+#include"../../math/modular/mod-sqrt.hpp"
 int main(){
   int t;
   cin>>t;

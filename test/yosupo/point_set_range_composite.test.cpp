@@ -2,7 +2,7 @@
 #include"../../template/template.hpp"
 #include"../../data-structure/segment-tree.hpp"
 #include"../../math/modular/modint.hpp"
-using mint=modint<mod>;
+using mint=modint<998244353>;
 using S=pair<mint,mint>;
 S op(S a,S b){return S{a.first*b.first,a.second*b.first+b.second};}
 S e(){return S{mint(1),mint(0)};}

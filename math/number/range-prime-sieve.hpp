@@ -1,3 +1,6 @@
+#pragma once
+#include"../../template/template.hpp"
+
 template<typename T>
 struct range_prime_sieve{
   T l,r,m;

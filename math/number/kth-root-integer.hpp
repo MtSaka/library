@@ -1,3 +1,6 @@
+#pragma once
+#include"../../template/template.hpp"
+
 uint64_t kth_root_integer(uint64_t a,int k){
   if(k==1)return a;
   auto check=[&](uint64_t x){

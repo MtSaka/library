@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/kth_root_integer"
 #include"../../template/template.hpp"
-#include"../../math/number/kth_root_integer.hpp"
+#include"../../math/number/kth-root-integer.hpp"
 int main(){
   int t;
   cin>>t;

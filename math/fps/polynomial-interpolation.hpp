@@ -1,7 +1,9 @@
 #pragma once
+#include"../../template/template.hpp"
 #include"fps.hpp"
+
 template<int m>
-FPS<m>polynominal_interpolation(const vector<modint<m>>&xs,const vector<modint<m>>&ys){
+FPS<m>polynomial_interpolation(const vector<modint<m>>&xs,const vector<modint<m>>&ys){
   const int n=xs.size();
   int sz=1;
   while(sz<n)sz<<=1;

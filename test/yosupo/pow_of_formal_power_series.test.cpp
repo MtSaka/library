@@ -4,7 +4,7 @@
 int main(){
   long long n,m;
   cin>>n>>m;
-  FPS<mod>f(n);
+  FPS<998244353>f(n);
   cin>>f;
   cout<<f.pow(m)<<endl;
 }
