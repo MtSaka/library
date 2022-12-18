@@ -20,7 +20,7 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data-structure/segment-tree-monoids.hpp
     title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
   _extendedVerifiedWith:
@@ -48,12 +48,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_I.test.cpp
     title: test/aoj/DSL/DSL_2_I.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/point_add_range_sum1.test.cpp
     title: test/yosupo/point_add_range_sum1.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yosupo/point_set_range_composite.test.cpp
+    title: test/yosupo/point_set_range_composite.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     links: []
@@ -207,7 +210,7 @@ data:
   requiredBy:
   - data-structure/segment-tree-monoids.hpp
   timestamp: '2022-12-18 17:08:11+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DSL/DSL_2_G.test.cpp
   - test/aoj/DSL/DSL_2_B2.test.cpp
@@ -217,6 +220,7 @@ data:
   - test/aoj/DSL/DSL_2_I.test.cpp
   - test/aoj/DSL/DSL_2_H.test.cpp
   - test/aoj/DSL/DSL_2_D.test.cpp
+  - test/yosupo/point_set_range_composite.test.cpp
   - test/yosupo/point_add_range_sum1.test.cpp
 documentation_of: data-structure/segment-tree.hpp
 layout: document
