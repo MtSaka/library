@@ -1,4 +1,7 @@
-long long subcount(const string&s){
+#pragma once
+#include"../template/template.hpp"
+
+long long CountSubsequences(const string&s){
   int n=s.size();
   vector<vector<int>>next(n+1,vector<int>(26,0));
   for(int i=n-1;i>=0;i--){
