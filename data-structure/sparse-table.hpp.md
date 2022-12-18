@@ -19,10 +19,7 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Graph/tree/RMQ_lowest_common_ancestor.hpp
-    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/yosupo/staticrmq.test.cpp
@@ -155,8 +152,7 @@ data:
   - template/debug.hpp
   isVerificationFile: false
   path: data-structure/sparse-table.hpp
-  requiredBy:
-  - Graph/tree/RMQ_lowest_common_ancestor.hpp
+  requiredBy: []
   timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:

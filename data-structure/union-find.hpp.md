@@ -19,10 +19,7 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Graph/mst/kruskal.hpp
-    title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_1_A.test.cpp
@@ -157,8 +154,7 @@ data:
   - template/debug.hpp
   isVerificationFile: false
   path: data-structure/union-find.hpp
-  requiredBy:
-  - Graph/mst/kruskal.hpp
+  requiredBy: []
   timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
