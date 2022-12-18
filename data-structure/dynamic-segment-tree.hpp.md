@@ -2,15 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: Graph/graph_template.hpp
-    title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
-    path: Graph/tree/RMQ_lowest_common_ancestor.hpp
-    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':x:'
-    path: data-structure/sparse-table.hpp
-    title: Sparse Table
-  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
   - icon: ':question:'
@@ -29,19 +20,19 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yosupo/point_add_range_sum3.test.cpp
+    title: test/yosupo/point_add_range_sum3.test.cpp
   _isVerificationFailed: true
-  _pathExtension: cpp
+  _pathExtension: hpp
   _verificationStatusIcon: ':x:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
-    links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
-  bundledCode: "#line 1 \"test/aoj/GRL/GRL_5_C_2.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
-    \n#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\
-    \n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...) d\n#define\
-    \ REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
+    document_title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
+    links: []
+  bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
+    \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
+    \ d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
     #define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n#define REP4(i,a,b,c) for(ll\
     \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n\
     #define RREP1(a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n\
@@ -131,57 +122,55 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 2 \"Graph/graph_template.hpp\"\
-    \ntemplate<typename T=int>\nstruct edge{\n  int from,to;\n  T cost;\n  int idx;\n\
-    \  edge(){}\n  edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
-    \  operator int()const{return to;}\n  bool operator<(const edge&e)const{return\
-    \ cost<e.cost;}\n};\ntemplate<typename T=int>\nusing edges=vector<edge<T>>;\n\
-    template<typename T=int>\nstruct graph{\n  vector<vector<edge<T>>>g;\n  int es;\n\
-    \  graph(){}\n  explicit graph(int n):g(n),es(0){}\n  size_t size()const{return\
-    \ g.size();}\n  size_t edge_size()const{return es;}\n  void add_edge(int from,int\
-    \ to,T cost=1,bool direct=false){\n    g[from].emplace_back(from,to,cost,es);\n\
-    \    if(!direct)g[to].emplace_back(to,from,cost,es);\n    es++;\n  }\n  void add_edge(int\
-    \ from,int to,bool direct=false){\n    g[from].emplace_back(from,to,1,es);\n \
-    \   if(!direct)g[to].emplace_back(to,from,1,es);\n  }\n  inline vector<edge<T>>&operator[](int\
-    \ idx){return g[idx];}\n  inline const vector<edge<T>>&operator[](int idx)const{return\
-    \ g[idx];}\n  void read(int m,int padding=-1,bool weighted=false,bool direct=false){\n\
-    \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
-    \    a+=padding;\n      b+=padding;\n      if(weighted)cin>>c;\n      add_edge(a,b,c,direct);\n\
-    \    }\n  }\n};\nstruct unweighted_edge{\n  template<class... Args>unweighted_edge(const\
-    \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
-    \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"data-structure/sparse-table.hpp\"\
-    \n\ntemplate<typename T,typename F>\nstruct SparseTable{\n  F f;\n  vector<vector<T>>table;\n\
-    \  vector<int>log_table;\n  SparseTable()=default;\n  SparseTable(const vector<T>&v,const\
-    \ F&f):f(f){\n    const int n=(int)v.size();\n    const int lg=32-__builtin_clz(n);\n\
-    \    table.assign(lg,vector<T>(n));\n    for(int i=0;i<n;i++)table[0][i]=v[i];\n\
-    \    for(int i=1;i<lg;i++)for(int j=0;j+(1<<i)<=n;j++)table[i][j]=f(table[i-1][j],table[i-1][j+(1<<(i-1))]);\n\
-    \    log_table.resize(n+1);\n    for(int i=2;i<=n;i++)log_table[i]=1+log_table[i>>1];\n\
-    \  }\n  T query(int l,int r){\n    int a=log_table[r-l];\n    return f(table[a][l],table[a][r-(1<<a)]);\n\
-    \  }\n};\ntemplate<typename T,typename F>\nSparseTable<T,F>MakeSparseTable(const\
-    \ vector<T>&v,const F&f){\n  return SparseTable<T,F>(v,f);\n} \n/**\n * @brief\
-    \ Sparse Table\n*/\n#line 4 \"Graph/tree/RMQ_lowest_common_ancestor.hpp\"\ntemplate<typename\
-    \ T=unweighted_edge>\nstruct RMQ_LCA:graph<T>{\n  using graph<T>::g;\n  using\
-    \ F=function<int(int,int)>;\n  vector<int>ord,dep,in;\n  RMQ_LCA(int n):graph<T>(n){}\n\
-    \  RMQ_LCA(const graph<T>&g):graph<T>(g){}\n  void build(int root=0){\n    in.resize(g.size());\n\
-    \    dfs(root,-1,0);\n    vector<int>v(g.size()*2-1);\n    iota(v.begin(),v.end(),0);\n\
-    \    F f=[&](int a,int b){return dep[a]<dep[b]?a:b;};\n    st=SparseTable<int,F>(v,f);\n\
-    \  }\n  int lca(int u,int v){\n    if(in[u]>in[v])swap(u,v);\n    return u==v?u:ord[st.query(in[u],in[v])];\n\
-    \  }\n  private:\n  SparseTable<int,F>st;\n  void dfs(int idx,int par,int d){\n\
-    \    in[idx]=(int)ord.size();\n    ord.emplace_back(idx);\n    dep.emplace_back(d);\n\
-    \    for(auto &e:g[idx])if(e!=par){\n      dfs(e,idx,d+1);\n      ord.emplace_back(idx);\n\
-    \      dep.emplace_back(d);\n    }\n  }\n};\n/**\n * @brief RMQ Lowest Common\
-    \ Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_C_2.test.cpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n\
-    \    int k;\n    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n     \
-    \ g.add_edge(i,j,false);\n    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n\
-    \    int a,b;\n    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/tree/RMQ_lowest_common_ancestor.hpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n\
-    \    int k;\n    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n     \
-    \ g.add_edge(i,j,false);\n    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n\
-    \    int a,b;\n    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}"
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/dynamic-segment-tree.hpp\"\
+    \n\ntemplate<typename S,S (*op)(S,S),S (*e)()>\nstruct DynamicSegmentTree{\n \
+    \ public:\n  DynamicSegmentTree():DynamicSegmentTree(numeric_limits<long long>::max()>>1){}\n\
+    \  DynamicSegmentTree(long long n):n(n),root(nullptr){}\n  void set(int p,const\
+    \ S&x){inner_set(root,0,n,p,x);}\n  S get(long long p)const{return inner_get(root,0,n,p);}\n\
+    \  S operator[](long long p)const{return inner_get(root,0,n,p);}\n  S query(long\
+    \ long l,long long r)const{return inner_query(root,0,n,l,r);}\n  S all_query()const{return\
+    \ root?root->val:e();}\n  void reset(long long l,long long r){inner_reset(root,0,n,l,r);}\n\
+    \  private:\n  struct node;\n  using ptr=unique_ptr<node>;\n  struct node{\n \
+    \   S val;\n    ptr l,r;\n    node(const S&val):val(val),l(nullptr),r(nullptr){}\n\
+    \  };\n  const long long n;\n  ptr root;\n  void inner_set(ptr&nd,long long l,long\
+    \ long r,long long p,const S&x){\n    if(!nd)nd=make_unique<node>(e());\n    if(r-l==1){nd->val=x;return;}\n\
+    \    long long m=(l+r)>>1;\n    if(p<m)inner_set(nd->l,l,m,p,x);\n    else inner_set(nd->r,m,r,p,x);\n\
+    \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n  S inner_get(const\
+    \ ptr&nd,long long l,long long r,long long p)const{\n    if(!nd)return e();\n\
+    \    if(r-l==1)return nd->val;\n    long long m=(l+r)>>1;\n    if(p<m)return inner_get(nd->l,l,m,p);\n\
+    \    return inner_get(nd->r,m,r,p);\n  }\n  S inner_query(const ptr&nd,long long\
+    \ nl,long long nr,long long l,long long r)const{\n    if(!nd||nr<=l||r<=nl)return\
+    \ e();\n    if(l<=nl&&nr<=r)return nd->val;\n    long long m=(nl+nr)>>1;\n   \
+    \ return op(inner_query(nd->l,nl,m,l,r),inner_query(nd->r,m,nr,l,r));\n  }\n \
+    \ void inner_reset(ptr&nd,long long nl,long long nr,long long l,long long r){\n\
+    \    if(!nd||nr<=l||r<=nl)return;\n    if(l<=nl&&nr<=r){\n      nd.reset();return;\n\
+    \    }\n    long long m=(l+r)>>1;\n    inner_reset(nd->l,nl,m,l,r);\n    inner_reset(nd->r,m,nr,l,r);\n\
+    \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n};\n/**\n *\
+    \ @brief Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)\n */\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename S,S\
+    \ (*op)(S,S),S (*e)()>\nstruct DynamicSegmentTree{\n  public:\n  DynamicSegmentTree():DynamicSegmentTree(numeric_limits<long\
+    \ long>::max()>>1){}\n  DynamicSegmentTree(long long n):n(n),root(nullptr){}\n\
+    \  void set(int p,const S&x){inner_set(root,0,n,p,x);}\n  S get(long long p)const{return\
+    \ inner_get(root,0,n,p);}\n  S operator[](long long p)const{return inner_get(root,0,n,p);}\n\
+    \  S query(long long l,long long r)const{return inner_query(root,0,n,l,r);}\n\
+    \  S all_query()const{return root?root->val:e();}\n  void reset(long long l,long\
+    \ long r){inner_reset(root,0,n,l,r);}\n  private:\n  struct node;\n  using ptr=unique_ptr<node>;\n\
+    \  struct node{\n    S val;\n    ptr l,r;\n    node(const S&val):val(val),l(nullptr),r(nullptr){}\n\
+    \  };\n  const long long n;\n  ptr root;\n  void inner_set(ptr&nd,long long l,long\
+    \ long r,long long p,const S&x){\n    if(!nd)nd=make_unique<node>(e());\n    if(r-l==1){nd->val=x;return;}\n\
+    \    long long m=(l+r)>>1;\n    if(p<m)inner_set(nd->l,l,m,p,x);\n    else inner_set(nd->r,m,r,p,x);\n\
+    \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n  S inner_get(const\
+    \ ptr&nd,long long l,long long r,long long p)const{\n    if(!nd)return e();\n\
+    \    if(r-l==1)return nd->val;\n    long long m=(l+r)>>1;\n    if(p<m)return inner_get(nd->l,l,m,p);\n\
+    \    return inner_get(nd->r,m,r,p);\n  }\n  S inner_query(const ptr&nd,long long\
+    \ nl,long long nr,long long l,long long r)const{\n    if(!nd||nr<=l||r<=nl)return\
+    \ e();\n    if(l<=nl&&nr<=r)return nd->val;\n    long long m=(nl+nr)>>1;\n   \
+    \ return op(inner_query(nd->l,nl,m,l,r),inner_query(nd->r,m,nr,l,r));\n  }\n \
+    \ void inner_reset(ptr&nd,long long nl,long long nr,long long l,long long r){\n\
+    \    if(!nd||nr<=l||r<=nl)return;\n    if(l<=nl&&nr<=r){\n      nd.reset();return;\n\
+    \    }\n    long long m=(l+r)>>1;\n    inner_reset(nd->l,nl,m,l,r);\n    inner_reset(nd->r,m,nr,l,r);\n\
+    \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n};\n/**\n *\
+    \ @brief Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)\n */"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -189,19 +178,17 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Graph/tree/RMQ_lowest_common_ancestor.hpp
-  - Graph/graph_template.hpp
-  - data-structure/sparse-table.hpp
-  isVerificationFile: true
-  path: test/aoj/GRL/GRL_5_C_2.test.cpp
+  isVerificationFile: false
+  path: data-structure/dynamic-segment-tree.hpp
   requiredBy: []
   timestamp: '2022-12-18 17:08:11+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
-  verifiedWith: []
-documentation_of: test/aoj/GRL/GRL_5_C_2.test.cpp
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yosupo/point_add_range_sum3.test.cpp
+documentation_of: data-structure/dynamic-segment-tree.hpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL/GRL_5_C_2.test.cpp
-- /verify/test/aoj/GRL/GRL_5_C_2.test.cpp.html
-title: test/aoj/GRL/GRL_5_C_2.test.cpp
+- /library/data-structure/dynamic-segment-tree.hpp
+- /library/data-structure/dynamic-segment-tree.hpp.html
+title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
 ---

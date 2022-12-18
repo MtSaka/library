@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
-    path: Data_Structure/disjoint_sparse_table.hpp
+    path: data-structure/disjoint-sparse-table.hpp
     title: Disjoint Sparse Table
   - icon: ':question:'
     path: template/alias.hpp
@@ -125,9 +125,9 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 2 \"Data_Structure/disjoint_sparse_table.hpp\"\
-    \ntemplate<class S,S (*op)(S,S),S (*e)()>\nstruct disjoint_sparse_table{\n  private:\n\
-    \  vector<vector<S>>table;\n  vector<int>log_table;\n  public:\n  disjoint_sparse_table(const\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/disjoint-sparse-table.hpp\"\
+    \n\ntemplate<class S,S (*op)(S,S),S (*e)()>\nstruct DisjointSparseTable{\n  private:\n\
+    \  vector<vector<S>>table;\n  vector<int>log_table;\n  public:\n  DisjointSparseTable(const\
     \ vector<S>&v){\n    int bit=0,sz=1;\n    while(sz<=(int)v.size())sz<<=1,bit++;\n\
     \    table.resize(bit,vector<S>(v.size(),e()));\n    for(size_t i=0;i<v.size();i++)table[0][i]=v[i];\n\
     \    int shift=1;\n    for(int i=1;i<bit;i++){\n      shift<<=1;\n      for(int\
@@ -140,13 +140,13 @@ data:
     \    int pos=log_table[l^r];\n    return op(table[pos][l],table[pos][r]);\n  }\n\
     };\n/**\n * @brief Disjoint Sparse Table\n */\n#line 4 \"test/yosupo/staticrmq2.test.cpp\"\
     \nint op(int a,int b){return min(a,b);}\nint e(){return INF<int>;}\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  disjoint_sparse_table<int,op,e>st(a);\n\
+    \  int n,q;\n  cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  DisjointSparseTable<int,op,e>st(a);\n\
     \  while(q--){\n    int l,r;\n    cin>>l>>r;\n    cout<<st.query(l,r)<<endl;\n\
     \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../Data_Structure/disjoint_sparse_table.hpp\"\
+    ../../template/template.hpp\"\n#include\"../../data-structure/disjoint-sparse-table.hpp\"\
     \nint op(int a,int b){return min(a,b);}\nint e(){return INF<int>;}\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  disjoint_sparse_table<int,op,e>st(a);\n\
+    \  int n,q;\n  cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  DisjointSparseTable<int,op,e>st(a);\n\
     \  while(q--){\n    int l,r;\n    cin>>l>>r;\n    cout<<st.query(l,r)<<endl;\n\
     \  }\n}"
   dependsOn:
@@ -156,11 +156,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Data_Structure/disjoint_sparse_table.hpp
+  - data-structure/disjoint-sparse-table.hpp
   isVerificationFile: true
   path: test/yosupo/staticrmq2.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 06:09:27+09:00'
+  timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/staticrmq2.test.cpp

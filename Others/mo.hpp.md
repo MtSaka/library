@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/yosupo/static_range_inversions_query.test.cpp
-    title: test/yosupo/static_range_inversions_query.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     document_title: Mo's Algorithm
     links: []
@@ -45,9 +42,8 @@ data:
   path: Others/mo.hpp
   requiredBy: []
   timestamp: '2022-07-25 12:39:55+01:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/yosupo/static_range_inversions_query.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: Others/mo.hpp
 layout: document
 redirect_from:

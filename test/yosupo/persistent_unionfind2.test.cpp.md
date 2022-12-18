@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
-    path: Data_Structure/rollback_dsu.hpp
+    path: data-structure/rollback-union-find.hpp
     title: Rollback Disjoint Set Union(Union Find)
   - icon: ':question:'
     path: template/alias.hpp
@@ -126,13 +126,14 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"Data_Structure/rollback_dsu.hpp\"\
-    \nusing namespace std;\nstruct rollback_dsu{\n  private:\n  vector<int>p;\n  stack<pair<int,int>>history;\n\
-    \  public:\n  rollback_dsu(int sz):p(sz,-1){}\n  int root(int x)const{return p[x]<0?x:root(p[x]);}\n\
-    \  bool same(int x,int y)const{return root(x)==root(y);}\n  int size(int x)const{return\
-    \ -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n    history.emplace(x,p[x]);\n\
-    \    history.emplace(y,p[y]);\n    if(x==y)return x;\n    if(p[x]>p[y])swap(x,y);\n\
-    \    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n  void undo(){\n    p[history.top().first]=history.top().second;history.pop();\n\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/rollback-union-find.hpp\"\
+    \n\nstruct RollbackUnionFind{\n  private:\n  vector<int>p;\n  stack<pair<int,int>>history;\n\
+    \  public:\n  RollbackUnionFind(int sz):p(sz,-1){}\n  int root(int x)const{return\
+    \ p[x]<0?x:root(p[x]);}\n  bool same(int x,int y)const{return root(x)==root(y);}\n\
+    \  int size(int x)const{return -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n\
+    \    history.emplace(x,p[x]);\n    history.emplace(y,p[y]);\n    if(x==y)return\
+    \ x;\n    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n\
+    \  void undo(){\n    p[history.top().first]=history.top().second;history.pop();\n\
     \    p[history.top().first]=history.top().second;history.pop();\n  }\n  void snapshot(){while(!history.empty())history.pop();}\n\
     \  void rollback(){\n    while(!history.empty())undo();\n  }\n  vector<vector<int>>groups()const{\n\
     \    const int n=p.size();\n    vector<vector<int>>result(n);\n    for(int i=0;i<n;i++)result[root(i)].push_back(i);\n\
@@ -142,18 +143,18 @@ data:
     \nint main(){\n  int n,q;cin>>n>>q;\n  vector<vector<array<int,3>>>g(q+1);\n \
     \ vector<vector<array<int,3>>>a(q+1);\n  rep(i,q){\n    int t,k,u,v;cin>>t>>k>>u>>v;\n\
     \    if(t==0)g[k+1].eb(array<int,3>{(int)i+1,u,v});\n    else a[k+1].eb(array<int,3>{(int)i,u,v});\n\
-    \  }\n  vector<int>ans(q,-1);\n  rollback_dsu dsu(n);\n  REC([&](auto&&f,int v)->void{\n\
-    \    for(auto&b:a[v])ans[b[0]]=dsu.same(b[1],b[2]);\n    for(auto&e:g[v]){\n \
-    \     dsu.merge(e[1],e[2]);\n      f(e[0]);\n      dsu.undo();\n    }\n  })(0);\n\
+    \  }\n  vector<int>ans(q,-1);\n  RollbackUnionFind dsu(n);\n  REC([&](auto&&f,int\
+    \ v)->void{\n    for(auto&b:a[v])ans[b[0]]=dsu.same(b[1],b[2]);\n    for(auto&e:g[v]){\n\
+    \      dsu.merge(e[1],e[2]);\n      f(e[0]);\n      dsu.undo();\n    }\n  })(0);\n\
     \  for(auto&i:ans)if(i!=-1)print(i);\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/persistent_unionfind\"\n\
-    #include\"../../template/template.hpp\"\n#include\"../../Data_Structure/rollback_dsu.hpp\"\
+    #include\"../../template/template.hpp\"\n#include\"../../data-structure/rollback-union-find.hpp\"\
     \nint main(){\n  int n,q;cin>>n>>q;\n  vector<vector<array<int,3>>>g(q+1);\n \
     \ vector<vector<array<int,3>>>a(q+1);\n  rep(i,q){\n    int t,k,u,v;cin>>t>>k>>u>>v;\n\
     \    if(t==0)g[k+1].eb(array<int,3>{(int)i+1,u,v});\n    else a[k+1].eb(array<int,3>{(int)i,u,v});\n\
-    \  }\n  vector<int>ans(q,-1);\n  rollback_dsu dsu(n);\n  REC([&](auto&&f,int v)->void{\n\
-    \    for(auto&b:a[v])ans[b[0]]=dsu.same(b[1],b[2]);\n    for(auto&e:g[v]){\n \
-    \     dsu.merge(e[1],e[2]);\n      f(e[0]);\n      dsu.undo();\n    }\n  })(0);\n\
+    \  }\n  vector<int>ans(q,-1);\n  RollbackUnionFind dsu(n);\n  REC([&](auto&&f,int\
+    \ v)->void{\n    for(auto&b:a[v])ans[b[0]]=dsu.same(b[1],b[2]);\n    for(auto&e:g[v]){\n\
+    \      dsu.merge(e[1],e[2]);\n      f(e[0]);\n      dsu.undo();\n    }\n  })(0);\n\
     \  for(auto&i:ans)if(i!=-1)print(i);\n}\n"
   dependsOn:
   - template/template.hpp
@@ -162,11 +163,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Data_Structure/rollback_dsu.hpp
+  - data-structure/rollback-union-find.hpp
   isVerificationFile: true
   path: test/yosupo/persistent_unionfind2.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 06:09:27+09:00'
+  timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/persistent_unionfind2.test.cpp

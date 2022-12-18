@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: Data_Structure/dsu.hpp
-    title: Disjoint Set Union(Union Find)
+    path: data-structure/union-find.hpp
+    title: Union Find(Disjoint Set Union)
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -125,22 +125,23 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 2 \"Data_Structure/dsu.hpp\"\
-    \nstruct dsu{\n  private:\n  vector<int>p;\n  public:\n  dsu(int n):p(n,-1){}\n\
-    \  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n  bool same(int x,int y){return\
-    \ root(x)==root(y);}\n  int size(int x){return -p[root(x)];}\n  int merge(int\
-    \ x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return x;\n    if(p[x]>p[y])swap(x,y);\n\
-    \    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n  vector<vector<int>>groups(){\n\
-    \    const int n=p.size();\n    vector<vector<int>>result(n);\n    for(int i=0;i<n;i++)result[root(i)].push_back(i);\n\
-    \    result.erase(remove_if(result.begin(),result.end(),[](const vector<int>&v){return\
-    \ v.empty();}),result.end());\n    return result;\n  }\n};\n/**\n * @brief Disjoint\
-    \ Set Union(Union Find)\n*/\n#line 4 \"test/aoj/DSL/DSL_1_A.test.cpp\"\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  dsu d(n);\n  while(q--){\n    int t,x,y;\n    cin>>t>>x>>y;\n\
-    \    if(t==0)d.merge(x,y);\n    else print(d.same(x,y));\n  }\n}\n"
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/union-find.hpp\"\
+    \n\nstruct UnionFind{\n  private:\n  int n;\n  vector<int>p;\n  public:\n  UnionFind():UnionFind(0){}\n\
+    \  UnionFind(int n):n(n),p(n,-1){}\n  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n\
+    \  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
+    \ -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return\
+    \ x;\n    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n\
+    \  vector<vector<int>>groups(){\n    vector<vector<int>>result(n);\n    for(int\
+    \ i=0;i<n;i++)result[root(i)].push_back(i);\n    result.erase(remove_if(result.begin(),result.end(),[](const\
+    \ vector<int>&v){return v.empty();}),result.end());\n    return result;\n  }\n\
+    };\n/**\n * @brief Union Find(Disjoint Set Union)\n*/\n#line 4 \"test/aoj/DSL/DSL_1_A.test.cpp\"\
+    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  UnionFind d(n);\n  while(q--){\n  \
+    \  int t,x,y;\n    cin>>t>>x>>y;\n    if(t==0)d.merge(x,y);\n    else print(d.same(x,y));\n\
+    \  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Data_Structure/dsu.hpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  dsu d(n);\n  while(q--){\n    int t,x,y;\n\
-    \    cin>>t>>x>>y;\n    if(t==0)d.merge(x,y);\n    else print(d.same(x,y));\n\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../data-structure/union-find.hpp\"\
+    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  UnionFind d(n);\n  while(q--){\n  \
+    \  int t,x,y;\n    cin>>t>>x>>y;\n    if(t==0)d.merge(x,y);\n    else print(d.same(x,y));\n\
     \  }\n}"
   dependsOn:
   - template/template.hpp
@@ -149,11 +150,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Data_Structure/dsu.hpp
+  - data-structure/union-find.hpp
   isVerificationFile: true
   path: test/aoj/DSL/DSL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 06:09:27+09:00'
+  timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_1_A.test.cpp

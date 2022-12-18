@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
-    path: Data_Structure/sparse_table.hpp
+    path: data-structure/sparse-table.hpp
     title: Sparse Table
   - icon: ':question:'
     path: template/alias.hpp
@@ -125,25 +125,25 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 1 \"Data_Structure/sparse_table.hpp\"\
-    \ntemplate<typename T,typename F>\nstruct sparse_table{\n  F f;\n  vector<vector<T>>table;\n\
-    \  vector<int>log_table;\n  sparse_table()=default;\n  sparse_table(const vector<T>&v,const\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/sparse-table.hpp\"\
+    \n\ntemplate<typename T,typename F>\nstruct SparseTable{\n  F f;\n  vector<vector<T>>table;\n\
+    \  vector<int>log_table;\n  SparseTable()=default;\n  SparseTable(const vector<T>&v,const\
     \ F&f):f(f){\n    const int n=(int)v.size();\n    const int lg=32-__builtin_clz(n);\n\
     \    table.assign(lg,vector<T>(n));\n    for(int i=0;i<n;i++)table[0][i]=v[i];\n\
     \    for(int i=1;i<lg;i++)for(int j=0;j+(1<<i)<=n;j++)table[i][j]=f(table[i-1][j],table[i-1][j+(1<<(i-1))]);\n\
     \    log_table.resize(n+1);\n    for(int i=2;i<=n;i++)log_table[i]=1+log_table[i>>1];\n\
     \  }\n  T query(int l,int r){\n    int a=log_table[r-l];\n    return f(table[a][l],table[a][r-(1<<a)]);\n\
-    \  }\n};\ntemplate<typename T,typename F>\nsparse_table<T,F>make_sparse_table(const\
-    \ vector<T>&v,const F&f){\n  return sparse_table<T,F>(v,f);\n} \n/**\n * @brief\
+    \  }\n};\ntemplate<typename T,typename F>\nSparseTable<T,F>MakeSparseTable(const\
+    \ vector<T>&v,const F&f){\n  return SparseTable<T,F>(v,f);\n} \n/**\n * @brief\
     \ Sparse Table\n*/\n#line 4 \"test/yosupo/staticrmq.test.cpp\"\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  vector<int>a(n);\n  cin>>a;\n  auto st=make_sparse_table(a,[](int\
+    \  int n,q;\n  cin>>n>>q;\n  vector<int>a(n);\n  cin>>a;\n  auto st=MakeSparseTable(a,[](int\
     \ a,int b){return min(a,b);});\n  while(q--){\n    int l,r;\n    cin>>l>>r;\n\
     \    cout<<st.query(l,r)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../Data_Structure/sparse_table.hpp\"\
+    ../../template/template.hpp\"\n#include\"../../data-structure/sparse-table.hpp\"\
     \nint main(){\n  int n,q;\n  cin>>n>>q;\n  vector<int>a(n);\n  cin>>a;\n  auto\
-    \ st=make_sparse_table(a,[](int a,int b){return min(a,b);});\n  while(q--){\n\
-    \    int l,r;\n    cin>>l>>r;\n    cout<<st.query(l,r)<<endl;\n  }\n}"
+    \ st=MakeSparseTable(a,[](int a,int b){return min(a,b);});\n  while(q--){\n  \
+    \  int l,r;\n    cin>>l>>r;\n    cout<<st.query(l,r)<<endl;\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -151,11 +151,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Data_Structure/sparse_table.hpp
+  - data-structure/sparse-table.hpp
   isVerificationFile: true
   path: test/yosupo/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 06:09:27+09:00'
+  timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/staticrmq.test.cpp

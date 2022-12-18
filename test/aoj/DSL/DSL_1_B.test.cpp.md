@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Data_Structure/weighted_dsu.hpp
+    path: data-structure/weighted-union-find.hpp
     title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
   - icon: ':question:'
     path: template/alias.hpp
@@ -125,10 +125,10 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 2 \"Data_Structure/weighted_dsu.hpp\"\
-    \ntemplate<typename T>\nstruct weighted_dsu{\n  vector<int>p;vector<T>diff;\n\
-    \  weighted_dsu(){}\n  weighted_dsu(int n,T s=0):p(n,-1),diff(n,s){}\n  int root(int\
-    \ x){\n    if(p[x]<0)return x;\n    int r=root(p[x]);\n    diff[x]+=diff[p[x]];\n\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/weighted-union-find.hpp\"\
+    \n\ntemplate<typename T>\nstruct WeightedUnionFind{\n  vector<int>p;vector<T>diff;\n\
+    \  WeightedUnionFind(){}\n  WeightedUnionFind(int n,T s=0):p(n,-1),diff(n,s){}\n\
+    \  int root(int x){\n    if(p[x]<0)return x;\n    int r=root(p[x]);\n    diff[x]+=diff[p[x]];\n\
     \    return p[x]=r;\n  }\n  T weight(int x){\n    root(x);\n    return diff[x];\n\
     \  }\n  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
     \ -p[root(x)];}\n  bool merge(int x,int y,T w){\n    int xx=x,yy=y;T ww=w;\n \
@@ -137,13 +137,13 @@ data:
     \    return true;\n  }\n  T dist(int x,int y){\n    return weight(y)-weight(x);\n\
     \  }\n};\n/**\n * @brief Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304D\
     Union Find)\n*/ \n#line 4 \"test/aoj/DSL/DSL_1_B.test.cpp\"\nint main(){\n  int\
-    \ n,m;\n  cin>>n>>m;\n  weighted_dsu<int>tree(n);\n  while(m--){\n    int a,b,c,d;\n\
-    \    cin>>a>>b>>c;\n    if(a==0){\n      cin>>d;\n      tree.merge(b,c,d);\n \
-    \   }\n    else{\n      if(tree.same(b,c)){\n        print(tree.dist(b,c));\n\
+    \ n,m;\n  cin>>n>>m;\n  WeightedUnionFind<int>tree(n);\n  while(m--){\n    int\
+    \ a,b,c,d;\n    cin>>a>>b>>c;\n    if(a==0){\n      cin>>d;\n      tree.merge(b,c,d);\n\
+    \    }\n    else{\n      if(tree.same(b,c)){\n        print(tree.dist(b,c));\n\
     \      }\n      else{\n        print('?');\n      }\n    }\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Data_Structure/weighted_dsu.hpp\"\
-    \nint main(){\n  int n,m;\n  cin>>n>>m;\n  weighted_dsu<int>tree(n);\n  while(m--){\n\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../data-structure/weighted-union-find.hpp\"\
+    \nint main(){\n  int n,m;\n  cin>>n>>m;\n  WeightedUnionFind<int>tree(n);\n  while(m--){\n\
     \    int a,b,c,d;\n    cin>>a>>b>>c;\n    if(a==0){\n      cin>>d;\n      tree.merge(b,c,d);\n\
     \    }\n    else{\n      if(tree.same(b,c)){\n        print(tree.dist(b,c));\n\
     \      }\n      else{\n        print('?');\n      }\n    }\n  }\n}"
@@ -154,11 +154,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Data_Structure/weighted_dsu.hpp
+  - data-structure/weighted-union-find.hpp
   isVerificationFile: true
   path: test/aoj/DSL/DSL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 06:09:27+09:00'
+  timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_1_B.test.cpp

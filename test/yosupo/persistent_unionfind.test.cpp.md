@@ -2,10 +2,10 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
-    path: Data_Structure/persistent_array.hpp
+    path: data-structure/persistent-array.hpp
     title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
   - icon: ':x:'
-    path: Data_Structure/persistent_dsu.hpp
+    path: data-structure/persistent-union-find.hpp
     title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
   - icon: ':question:'
     path: template/alias.hpp
@@ -129,10 +129,10 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 2 \"Data_Structure/persistent_array.hpp\"\
-    \ntemplate<typename T,int N=1>\nstruct persistent_array{\n  struct node{\n   \
-    \ T val;\n    node*ch[1<<N]={};\n  };\n  node*root=nullptr;\n  static constexpr\
-    \ int bit=(1<<N)-1;\n  persistent_array(){}\n  persistent_array(const vector<T>&a){\n\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/persistent-array.hpp\"\
+    \n\ntemplate<typename T,int N=1>\nstruct PersistentArray{\n  struct node{\n  \
+    \  T val;\n    node*ch[1<<N]={};\n  };\n  node*root=nullptr;\n  static constexpr\
+    \ int bit=(1<<N)-1;\n  PersistentArray(){}\n  PersistentArray(const vector<T>&a){\n\
     \    build(a);\n  }\n  void build(const vector<T>&a){\n    for(int i=0;i<(int)a.size();i++){\n\
     \      destructive_set(i,a[i],root);\n    }\n  }\n  node*get_root(){return root;}\n\
     \  void destructive_set(int idx,T val,node*&t){\n    if(!t)t=new node();\n   \
@@ -142,9 +142,9 @@ data:
     \    }\n    if(idx==0){\n      ret->val=val;\n    }\n    else{\n      ret->ch[idx&bit]=set(idx>>N,val,ret->ch[idx&bit]);\n\
     \    }\n    return ret;\n  }\n  T get(int idx, node*t){\n    if(!t)return 0;\n\
     \    if(idx==0)return t->val;\n    return get(idx>>N,t->ch[idx&bit]);\n  }\n};\n\
-    /**\n * @brief \u6C38\u7D9A\u914D\u5217(Persistent Array)\n*/\n#line 3 \"Data_Structure/persistent_dsu.hpp\"\
-    \nstruct persistent_dsu{\n  private:\n  using pa=persistent_array<int,2>;\n  pa\
-    \ p;\n  public:\n  using node=pa::node;\n  persistent_dsu(){}\n  persistent_dsu(int\
+    /**\n * @brief \u6C38\u7D9A\u914D\u5217(Persistent Array)\n*/\n#line 4 \"data-structure/persistent-union-find.hpp\"\
+    \n\nstruct PersistentUnionFind{\n  private:\n  using pa=PersistentArray<int,2>;\n\
+    \  pa p;\n  public:\n  using node=pa::node;\n  PersistentUnionFind(){}\n  PersistentUnionFind(int\
     \ n){\n    p.build(vector<int>(n,-1));\n  }\n  int root(int x,node*t){\n    if(p.get(x,t)<0)return\
     \ x;\n    return root(p.get(x,t),t);\n  }\n  bool same(int x,int y,node*t){\n\
     \    return root(x,t)==root(y,t);\n  }\n  int size(int x,node*t){\n    return\
@@ -153,17 +153,17 @@ data:
     \    node*ret=p.set(y,x,p.set(x,p.get(x,t)+p.get(y,t),t));\n    return {x,ret};\n\
     \  }\n  node*get_root(){return p.get_root();}\n};\n/**\n * @brief Persistent Disjoint\
     \ Set Union(\u6C38\u7D9AUnion-Find)\n*/\n#line 4 \"test/yosupo/persistent_unionfind.test.cpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  using node=persistent_dsu::node;\n\
-    \  persistent_dsu d(n);\n  vector<node*>g(q+1);\n  g[0]=d.get_root();\n  for(int\
-    \ i=1;i<=q;i++){\n    int t,k,u,v;\n    cin>>t>>k>>u>>v;\n    k++;\n    if(t==0){\n\
-    \      g[i]=d.merge(u,v,g[k]).second;\n    }\n    else{\n      cout<<d.same(u,v,g[k])<<endl;\n\
+    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  using node=PersistentUnionFind::node;\n\
+    \  PersistentUnionFind d(n);\n  vector<node*>g(q+1);\n  g[0]=d.get_root();\n \
+    \ for(int i=1;i<=q;i++){\n    int t,k,u,v;\n    cin>>t>>k>>u>>v;\n    k++;\n \
+    \   if(t==0){\n      g[i]=d.merge(u,v,g[k]).second;\n    }\n    else{\n      cout<<d.same(u,v,g[k])<<endl;\n\
     \    }\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/persistent_unionfind\"\n\
-    #include\"../../template/template.hpp\"\n#include\"../../Data_Structure/persistent_dsu.hpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  using node=persistent_dsu::node;\n\
-    \  persistent_dsu d(n);\n  vector<node*>g(q+1);\n  g[0]=d.get_root();\n  for(int\
-    \ i=1;i<=q;i++){\n    int t,k,u,v;\n    cin>>t>>k>>u>>v;\n    k++;\n    if(t==0){\n\
-    \      g[i]=d.merge(u,v,g[k]).second;\n    }\n    else{\n      cout<<d.same(u,v,g[k])<<endl;\n\
+    #include\"../../template/template.hpp\"\n#include\"../../data-structure/persistent-union-find.hpp\"\
+    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  using node=PersistentUnionFind::node;\n\
+    \  PersistentUnionFind d(n);\n  vector<node*>g(q+1);\n  g[0]=d.get_root();\n \
+    \ for(int i=1;i<=q;i++){\n    int t,k,u,v;\n    cin>>t>>k>>u>>v;\n    k++;\n \
+    \   if(t==0){\n      g[i]=d.merge(u,v,g[k]).second;\n    }\n    else{\n      cout<<d.same(u,v,g[k])<<endl;\n\
     \    }\n  }\n}"
   dependsOn:
   - template/template.hpp
@@ -172,12 +172,12 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Data_Structure/persistent_dsu.hpp
-  - Data_Structure/persistent_array.hpp
+  - data-structure/persistent-union-find.hpp
+  - data-structure/persistent-array.hpp
   isVerificationFile: true
   path: test/yosupo/persistent_unionfind.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 06:09:27+09:00'
+  timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/persistent_unionfind.test.cpp

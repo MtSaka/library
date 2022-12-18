@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
-    path: Data_Structure/hash_map.hpp
+    path: data-structure/hash-map.hpp
     title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
   - icon: ':question:'
     path: template/alias.hpp
@@ -126,8 +126,8 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 1 \"Data_Structure/hash_map.hpp\"\
-    \ntemplate<typename Key,typename Val>\nstruct hash_map{\n  using u32=uint32_t;\n\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/hash-map.hpp\"\
+    \n\ntemplate<typename Key,typename Val>\nstruct HashMap{\n  using u32=uint32_t;\n\
     \  using u64=uint64_t;\n  using Data=pair<Key,Val>;\n  protected:\n  template\
     \ <typename K>\n  inline u64 randomized(const K&key)const{\n    return u64(key)^r;\n\
     \  }\n  template<typename K,enable_if_t<is_integral<K>::value,nullptr_t> = nullptr>\n\
@@ -153,11 +153,11 @@ data:
     \ should_shrink(u32 x)const{return 4<cap&&x*10<=cap;}\n  inline void extend(){reallocate(cap<<1);}\n\
     \  inline void shrink(){reallocate(cap>>1);}\n  public:\n  u32 cap,s;\n  vector<Data>data;\n\
     \  vector<bool>flag,dflag;\n  u32 shift;\n  static u64 r;\n  static constexpr\
-    \ uint32_t DEFAULT_SIZE=4;\n  struct iterator{\n    u32 i;\n    hash_map<Key,Val>*p;\n\
+    \ uint32_t DEFAULT_SIZE=4;\n  struct iterator{\n    u32 i;\n    HashMap<Key,Val>*p;\n\
     \    explicit constexpr iterator():i(0),p(nullptr){}\n    explicit constexpr iterator(u32\
-    \ i,hash_map<Key,Val>*p):i(i),p(p){}\n    explicit constexpr iterator(u32 i,const\
-    \ hash_map<Key,Val>*p):i(i),p(const_cast<hash_map<Key,Val>*>(p)){}\n    const\
-    \ Data& operator*()const{\n      return const_cast<hash_map<Key,Val>*>(p)->data[i];\n\
+    \ i,HashMap<Key,Val>*p):i(i),p(p){}\n    explicit constexpr iterator(u32 i,const\
+    \ HashMap<Key,Val>*p):i(i),p(const_cast<HashMap<Key,Val>*>(p)){}\n    const Data&\
+    \ operator*()const{\n      return const_cast<HashMap<Key,Val>*>(p)->data[i];\n\
     \    }\n    Data& operator*(){return p->data[i];}\n    Data* operator->(){return\
     \ &(p->data[i]);}\n    friend void swap(iterator&a,iterator&b){swap(a.i,b.i);swap(a.p,b.p);}\n\
     \    friend bool operator==(const iterator&a,const iterator&b){return a.i==b.i;}\n\
@@ -170,11 +170,11 @@ data:
     \        assert(i!=0&&\"iterator underflow\");\n      }while(true);\n      return\
     \ *this;\n    }\n    iterator operator--(int){\n      iterator tmp(*this);\n \
     \     --(*this);\n      return tmp;\n    }\n  };\n  using itr=iterator;\n  explicit\
-    \ hash_map():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}\n\
+    \ HashMap():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}\n\
     \  itr begin()const{\n    u32 h=0;\n    while(h!=cap){\n      if(flag[h]&&!dflag[h])break;\n\
     \      h++;\n    }\n    return itr(h,this);\n  }\n  itr end()const{return itr(this->cap,this);}\
-    \    \n  friend itr begin(hash_map<Key,Val>&a){return a.begin();}\n  friend itr\
-    \ end(hash_map<Key,Val>&a){return a.end();}\n  itr find(const Key&key)const{\n\
+    \    \n  friend itr begin(HashMap<Key,Val>&a){return a.begin();}\n  friend itr\
+    \ end(HashMap<Key,Val>&a){return a.end();}\n  itr find(const Key&key)const{\n\
     \    u32 h=hash(key);\n    while(true){\n      if(!flag[h])return this->end();\n\
     \      if(data[h].first==key){\n        if(dflag[h])return this->end();\n    \
     \    return itr(h,this);\n      }\n      h=(h+1)&(cap-1);\n    }\n  }\n  bool\
@@ -201,15 +201,15 @@ data:
     \      if(data[h].first==key){\n        if(dflag[h])data[h].second=Val();\n  \
     \      return data[h].second;\n      }\n      h=(h+1)&(cap-1);\n    }\n  }\n \
     \ bool emplace(const Key&key,const Val&val){\n    return insert(Data(key,val));\n\
-    \  }\n};\ntemplate<typename Key,typename Val>uint64_t hash_map<Key,Val>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();\n\
+    \  }\n};\ntemplate<typename Key,typename Val>uint64_t HashMap<Key,Val>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();\n\
     /**\n * @brief HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)\n*/\n#line\
     \ 4 \"test/yosupo/associative_array.test.cpp\"\nint main(){\n  int q;cin>>q;\n\
-    \  hash_map<ll,ll>mp;\n  while(q--){\n    int t;cin>>t;\n    if(t){\n      ll\
-    \ k;cin>>k;\n      print(mp[k]);\n    }\n    else{\n      ll k,v;cin>>k>>v;\n\
-    \      mp[k]=v;\n    }\n  }\n}\n"
+    \  HashMap<ll,ll>mp;\n  while(q--){\n    int t;cin>>t;\n    if(t){\n      ll k;cin>>k;\n\
+    \      print(mp[k]);\n    }\n    else{\n      ll k,v;cin>>k>>v;\n      mp[k]=v;\n\
+    \    }\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/associative_array\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../Data_Structure/hash_map.hpp\"\n\
-    int main(){\n  int q;cin>>q;\n  hash_map<ll,ll>mp;\n  while(q--){\n    int t;cin>>t;\n\
+    ../../template/template.hpp\"\n#include\"../../data-structure/hash-map.hpp\"\n\
+    int main(){\n  int q;cin>>q;\n  HashMap<ll,ll>mp;\n  while(q--){\n    int t;cin>>t;\n\
     \    if(t){\n      ll k;cin>>k;\n      print(mp[k]);\n    }\n    else{\n     \
     \ ll k,v;cin>>k>>v;\n      mp[k]=v;\n    }\n  }\n}"
   dependsOn:
@@ -219,11 +219,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Data_Structure/hash_map.hpp
+  - data-structure/hash-map.hpp
   isVerificationFile: true
   path: test/yosupo/associative_array.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 06:09:27+09:00'
+  timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/associative_array.test.cpp

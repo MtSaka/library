@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
-    path: Data_Structure/dynamic_segtree.hpp
+    path: data-structure/dynamic-segment-tree.hpp
     title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
   - icon: ':question:'
     path: template/alias.hpp
@@ -126,18 +126,18 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 2 \"Data_Structure/dynamic_segtree.hpp\"\
-    \ntemplate<typename S,S (*op)(S,S),S (*e)()>\nstruct dynamic_segtree{\n  public:\n\
-    \  dynamic_segtree():dynamic_segtree(numeric_limits<long long>::max()>>1){}\n\
-    \  dynamic_segtree(long long n):n(n),root(nullptr){}\n  void set(int p,const S&x){inner_set(root,0,n,p,x);}\n\
-    \  S get(long long p)const{return inner_get(root,0,n,p);}\n  S operator[](long\
-    \ long p)const{return inner_get(root,0,n,p);}\n  S query(long long l,long long\
-    \ r)const{return inner_query(root,0,n,l,r);}\n  S all_query()const{return root?root->val:e();}\n\
-    \  void reset(long long l,long long r){inner_reset(root,0,n,l,r);}\n  private:\n\
-    \  struct node;\n  using ptr=unique_ptr<node>;\n  struct node{\n    S val;\n \
-    \   ptr l,r;\n    node(const S&val):val(val),l(nullptr),r(nullptr){}\n  };\n \
-    \ const long long n;\n  ptr root;\n  void inner_set(ptr&nd,long long l,long long\
-    \ r,long long p,const S&x){\n    if(!nd)nd=make_unique<node>(e());\n    if(r-l==1){nd->val=x;return;}\n\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/dynamic-segment-tree.hpp\"\
+    \n\ntemplate<typename S,S (*op)(S,S),S (*e)()>\nstruct DynamicSegmentTree{\n \
+    \ public:\n  DynamicSegmentTree():DynamicSegmentTree(numeric_limits<long long>::max()>>1){}\n\
+    \  DynamicSegmentTree(long long n):n(n),root(nullptr){}\n  void set(int p,const\
+    \ S&x){inner_set(root,0,n,p,x);}\n  S get(long long p)const{return inner_get(root,0,n,p);}\n\
+    \  S operator[](long long p)const{return inner_get(root,0,n,p);}\n  S query(long\
+    \ long l,long long r)const{return inner_query(root,0,n,l,r);}\n  S all_query()const{return\
+    \ root?root->val:e();}\n  void reset(long long l,long long r){inner_reset(root,0,n,l,r);}\n\
+    \  private:\n  struct node;\n  using ptr=unique_ptr<node>;\n  struct node{\n \
+    \   S val;\n    ptr l,r;\n    node(const S&val):val(val),l(nullptr),r(nullptr){}\n\
+    \  };\n  const long long n;\n  ptr root;\n  void inner_set(ptr&nd,long long l,long\
+    \ long r,long long p,const S&x){\n    if(!nd)nd=make_unique<node>(e());\n    if(r-l==1){nd->val=x;return;}\n\
     \    long long m=(l+r)>>1;\n    if(p<m)inner_set(nd->l,l,m,p,x);\n    else inner_set(nd->r,m,r,p,x);\n\
     \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n  S inner_get(const\
     \ ptr&nd,long long l,long long r,long long p)const{\n    if(!nd)return e();\n\
@@ -153,13 +153,13 @@ data:
     \ @brief Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)\n */\n#line 4 \"\
     test/yosupo/point_add_range_sum3.test.cpp\"\nlong long op(long long a,long long\
     \ b){return a+b;}\nlong long e(){return 0;}\nint main(){\n  int n,q;cin>>n>>q;\n\
-    \  dynamic_segtree<long long,op,e>seg(n);\n  vi a(n);cin>>a;\n  for(int i=0;i<n;i++)seg.set(i,a[i]);\n\
+    \  DynamicSegmentTree<long long,op,e>seg(n);\n  vi a(n);cin>>a;\n  for(int i=0;i<n;i++)seg.set(i,a[i]);\n\
     \  while(q--){\n    int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.query(l,r)<<endl;\n\
     \    else seg.set(l,seg[l]+r);\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
-    #include\"../../template/template.hpp\"\n#include\"../../Data_Structure/dynamic_segtree.hpp\"\
+    #include\"../../template/template.hpp\"\n#include\"../../data-structure/dynamic-segment-tree.hpp\"\
     \nlong long op(long long a,long long b){return a+b;}\nlong long e(){return 0;}\n\
-    int main(){\n  int n,q;cin>>n>>q;\n  dynamic_segtree<long long,op,e>seg(n);\n\
+    int main(){\n  int n,q;cin>>n>>q;\n  DynamicSegmentTree<long long,op,e>seg(n);\n\
     \  vi a(n);cin>>a;\n  for(int i=0;i<n;i++)seg.set(i,a[i]);\n  while(q--){\n  \
     \  int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.query(l,r)<<endl;\n    else seg.set(l,seg[l]+r);\n\
     \  }\n}"
@@ -170,11 +170,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Data_Structure/dynamic_segtree.hpp
+  - data-structure/dynamic-segment-tree.hpp
   isVerificationFile: true
   path: test/yosupo/point_add_range_sum3.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 06:09:27+09:00'
+  timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/point_add_range_sum3.test.cpp

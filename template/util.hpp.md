@@ -8,9 +8,75 @@ data:
     path: template/macro.hpp
     title: template/macro.hpp
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: Graph/mst/kruskal.hpp
+    title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
+  - icon: ':x:'
+    path: Graph/tree/RMQ_lowest_common_ancestor.hpp
+    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+  - icon: ':x:'
+    path: Math/modular/mod_log.hpp
+    title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
+  - icon: ':heavy_check_mark:'
+    path: data-structure/binary-indexed-tree.hpp
+    title: Binary Indexed Tree(Fenwick Tree, BIT)
+  - icon: ':x:'
+    path: data-structure/binary-trie.hpp
+    title: Binary Trie
+  - icon: ':x:'
+    path: data-structure/bit-vector.hpp
+    title: Bit Vector
+  - icon: ':x:'
+    path: data-structure/disjoint-sparse-table.hpp
+    title: Disjoint Sparse Table
   - icon: ':question:'
-    path: Data_Structure/segtree_monoids.hpp
+    path: data-structure/dual-segment-tree.hpp
+    title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  - icon: ':x:'
+    path: data-structure/dynamic-segment-tree.hpp
+    title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
+  - icon: ':x:'
+    path: data-structure/hash-map.hpp
+    title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
+  - icon: ':warning:'
+    path: data-structure/hash-set.hpp
+    title: "HashSet(\u30CF\u30C3\u30B7\u30E5\u30BB\u30C3\u30C8)"
+  - icon: ':heavy_check_mark:'
+    path: data-structure/inversion.hpp
+    title: "Inversion Number(\u8EE2\u5012\u6570)"
+  - icon: ':question:'
+    path: data-structure/lazy-segment-tree.hpp
+    title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  - icon: ':x:'
+    path: data-structure/persistent-array.hpp
+    title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
+  - icon: ':x:'
+    path: data-structure/persistent-union-find.hpp
+    title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
+  - icon: ':x:'
+    path: data-structure/rollback-union-find.hpp
+    title: Rollback Disjoint Set Union(Union Find)
+  - icon: ':x:'
+    path: data-structure/segment-tree-beats.hpp
+    title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
+  - icon: ':question:'
+    path: data-structure/segment-tree-monoids.hpp
     title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
+  - icon: ':question:'
+    path: data-structure/segment-tree.hpp
+    title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  - icon: ':x:'
+    path: data-structure/sparse-table.hpp
+    title: Sparse Table
+  - icon: ':question:'
+    path: data-structure/union-find.hpp
+    title: Union Find(Disjoint Set Union)
+  - icon: ':x:'
+    path: data-structure/wavelet-matrix.hpp
+    title: Wavelet Matrix
+  - icon: ':heavy_check_mark:'
+    path: data-structure/weighted-union-find.hpp
+    title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
   - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
@@ -27,7 +93,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
     title: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
     title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -72,9 +138,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL/DSL_2_B.test.cpp
-    title: test/aoj/DSL/DSL_2_B.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B2.test.cpp
     title: test/aoj/DSL/DSL_2_B2.test.cpp
@@ -123,7 +186,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_A.test.cpp
     title: test/aoj/GRL/GRL_5_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_B.test.cpp
     title: test/aoj/GRL/GRL_5_B.test.cpp
   - icon: ':x:'
@@ -214,9 +277,6 @@ data:
     path: test/yosupo/point_add_range_sum1.test.cpp
     title: test/yosupo/point_add_range_sum1.test.cpp
   - icon: ':x:'
-    path: test/yosupo/point_add_range_sum2.test.cpp
-    title: test/yosupo/point_add_range_sum2.test.cpp
-  - icon: ':x:'
     path: test/yosupo/point_add_range_sum3.test.cpp
     title: test/yosupo/point_add_range_sum3.test.cpp
   - icon: ':x:'
@@ -258,9 +318,6 @@ data:
   - icon: ':x:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/static_range_inversions_query.test.cpp
-    title: test/yosupo/static_range_inversions_query.test.cpp
   - icon: ':x:'
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
@@ -371,7 +428,29 @@ data:
   path: template/util.hpp
   requiredBy:
   - template/template.hpp
-  - Data_Structure/segtree_monoids.hpp
+  - Graph/mst/kruskal.hpp
+  - Graph/tree/RMQ_lowest_common_ancestor.hpp
+  - Math/modular/mod_log.hpp
+  - data-structure/binary-trie.hpp
+  - data-structure/segment-tree-monoids.hpp
+  - data-structure/hash-set.hpp
+  - data-structure/segment-tree-beats.hpp
+  - data-structure/wavelet-matrix.hpp
+  - data-structure/inversion.hpp
+  - data-structure/segment-tree.hpp
+  - data-structure/hash-map.hpp
+  - data-structure/disjoint-sparse-table.hpp
+  - data-structure/lazy-segment-tree.hpp
+  - data-structure/persistent-array.hpp
+  - data-structure/binary-indexed-tree.hpp
+  - data-structure/union-find.hpp
+  - data-structure/weighted-union-find.hpp
+  - data-structure/persistent-union-find.hpp
+  - data-structure/rollback-union-find.hpp
+  - data-structure/sparse-table.hpp
+  - data-structure/bit-vector.hpp
+  - data-structure/dynamic-segment-tree.hpp
+  - data-structure/dual-segment-tree.hpp
   timestamp: '2022-12-18 06:09:27+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
@@ -411,7 +490,6 @@ data:
   - test/aoj/DSL/DSL_2_E.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
   - test/aoj/DSL/DSL_2_F.test.cpp
-  - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/DSL/DSL_2_I.test.cpp
   - test/aoj/DSL/DSL_2_H.test.cpp
   - test/aoj/DSL/DSL_2_D.test.cpp
@@ -444,7 +522,6 @@ data:
   - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   - test/yosupo/lca2.test.cpp
-  - test/yosupo/point_add_range_sum2.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/matrix_det.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp
@@ -458,7 +535,6 @@ data:
   - test/yosupo/sqrt_of_formal_power_series.test.cpp
   - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/lcm_convolution.test.cpp
-  - test/yosupo/static_range_inversions_query.test.cpp
   - test/yosupo/polynomial_interpolation.test.cpp
   - test/yosupo/range_kth_smallest.test.cpp
   - test/yosupo/two_sat.test.cpp

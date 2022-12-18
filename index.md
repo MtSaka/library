@@ -1,68 +1,6 @@
 ---
 data:
   libraryCategories:
-  - name: Data_Structure
-    pages:
-    - icon: ':question:'
-      path: Data_Structure/BIT.hpp
-      title: Binary Indexed Tree(BIT)
-    - icon: ':x:'
-      path: Data_Structure/binary_trie.hpp
-      title: Binary Trie
-    - icon: ':x:'
-      path: Data_Structure/bit_vector.hpp
-      title: Bit Vector
-    - icon: ':x:'
-      path: Data_Structure/disjoint_sparse_table.hpp
-      title: Disjoint Sparse Table
-    - icon: ':question:'
-      path: Data_Structure/dsu.hpp
-      title: Disjoint Set Union(Union Find)
-    - icon: ':question:'
-      path: Data_Structure/dual_segtree.hpp
-      title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':x:'
-      path: Data_Structure/dynamic_segtree.hpp
-      title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
-    - icon: ':x:'
-      path: Data_Structure/hash_map.hpp
-      title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
-    - icon: ':warning:'
-      path: Data_Structure/hash_set.hpp
-      title: "HashSet(\u30CF\u30C3\u30B7\u30E5\u30BB\u30C3\u30C8)"
-    - icon: ':x:'
-      path: Data_Structure/inversion.hpp
-      title: "Inversion Number(\u8EE2\u5012\u6570)"
-    - icon: ':question:'
-      path: Data_Structure/lazy_segtree.hpp
-      title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':x:'
-      path: Data_Structure/persistent_array.hpp
-      title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
-    - icon: ':x:'
-      path: Data_Structure/persistent_dsu.hpp
-      title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
-    - icon: ':x:'
-      path: Data_Structure/rollback_dsu.hpp
-      title: Rollback Disjoint Set Union(Union Find)
-    - icon: ':question:'
-      path: Data_Structure/segtree.hpp
-      title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':x:'
-      path: Data_Structure/segtree_beats.hpp
-      title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
-    - icon: ':question:'
-      path: Data_Structure/segtree_monoids.hpp
-      title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
-    - icon: ':x:'
-      path: Data_Structure/sparse_table.hpp
-      title: Sparse Table
-    - icon: ':x:'
-      path: Data_Structure/wavelet_matrix.hpp
-      title: Wavelet Matrix
-    - icon: ':heavy_check_mark:'
-      path: Data_Structure/weighted_dsu.hpp
-      title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
   - name: Dynamic_Programming
     pages:
     - icon: ':warning:'
@@ -146,7 +84,7 @@ data:
       path: Graph/tree/doubling_lowest_common_ancestor.hpp
       title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
     - icon: ':question:'
@@ -260,10 +198,7 @@ data:
       title: "Matrix(\u884C\u5217)"
   - name: Others
     pages:
-    - icon: ':x:'
-      path: Others/compressor.hpp
-      title: Others/compressor.hpp
-    - icon: ':x:'
+    - icon: ':warning:'
       path: Others/mo.hpp
       title: Mo's Algorithm
     - icon: ':warning:'
@@ -277,6 +212,68 @@ data:
     - icon: ':x:'
       path: String/run_length.hpp
       title: String/run_length.hpp
+  - name: data-structure
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: data-structure/binary-indexed-tree.hpp
+      title: Binary Indexed Tree(Fenwick Tree, BIT)
+    - icon: ':x:'
+      path: data-structure/binary-trie.hpp
+      title: Binary Trie
+    - icon: ':x:'
+      path: data-structure/bit-vector.hpp
+      title: Bit Vector
+    - icon: ':x:'
+      path: data-structure/disjoint-sparse-table.hpp
+      title: Disjoint Sparse Table
+    - icon: ':question:'
+      path: data-structure/dual-segment-tree.hpp
+      title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+    - icon: ':x:'
+      path: data-structure/dynamic-segment-tree.hpp
+      title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
+    - icon: ':x:'
+      path: data-structure/hash-map.hpp
+      title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
+    - icon: ':warning:'
+      path: data-structure/hash-set.hpp
+      title: "HashSet(\u30CF\u30C3\u30B7\u30E5\u30BB\u30C3\u30C8)"
+    - icon: ':heavy_check_mark:'
+      path: data-structure/inversion.hpp
+      title: "Inversion Number(\u8EE2\u5012\u6570)"
+    - icon: ':question:'
+      path: data-structure/lazy-segment-tree.hpp
+      title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+    - icon: ':x:'
+      path: data-structure/persistent-array.hpp
+      title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
+    - icon: ':x:'
+      path: data-structure/persistent-union-find.hpp
+      title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
+    - icon: ':x:'
+      path: data-structure/rollback-union-find.hpp
+      title: Rollback Disjoint Set Union(Union Find)
+    - icon: ':x:'
+      path: data-structure/segment-tree-beats.hpp
+      title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
+    - icon: ':question:'
+      path: data-structure/segment-tree-monoids.hpp
+      title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
+    - icon: ':question:'
+      path: data-structure/segment-tree.hpp
+      title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+    - icon: ':x:'
+      path: data-structure/sparse-table.hpp
+      title: Sparse Table
+    - icon: ':question:'
+      path: data-structure/union-find.hpp
+      title: Union Find(Disjoint Set Union)
+    - icon: ':x:'
+      path: data-structure/wavelet-matrix.hpp
+      title: Wavelet Matrix
+    - icon: ':heavy_check_mark:'
+      path: data-structure/weighted-union-find.hpp
+      title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
   - name: template
     pages:
     - icon: ':question:'
@@ -312,7 +309,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
       title: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
       title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - name: test/aoj/CGL
@@ -363,7 +360,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_A.test.cpp
       title: test/aoj/DSL/DSL_2_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL/DSL_2_B.test.cpp
       title: test/aoj/DSL/DSL_2_B.test.cpp
     - icon: ':heavy_check_mark:'
@@ -416,7 +413,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_A.test.cpp
       title: test/aoj/GRL/GRL_5_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_B.test.cpp
       title: test/aoj/GRL/GRL_5_B.test.cpp
     - icon: ':x:'

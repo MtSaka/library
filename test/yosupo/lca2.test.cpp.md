@@ -1,15 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: Data_Structure/sparse_table.hpp
-    title: Sparse Table
   - icon: ':question:'
     path: Graph/graph_template.hpp
     title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':x:'
     path: Graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+  - icon: ':x:'
+    path: data-structure/sparse-table.hpp
+    title: Sparse Table
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -150,24 +150,24 @@ data:
     \    }\n  }\n};\nstruct unweighted_edge{\n  template<class... Args>unweighted_edge(const\
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
     \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 1 \"Data_Structure/sparse_table.hpp\"\
-    \ntemplate<typename T,typename F>\nstruct sparse_table{\n  F f;\n  vector<vector<T>>table;\n\
-    \  vector<int>log_table;\n  sparse_table()=default;\n  sparse_table(const vector<T>&v,const\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"data-structure/sparse-table.hpp\"\
+    \n\ntemplate<typename T,typename F>\nstruct SparseTable{\n  F f;\n  vector<vector<T>>table;\n\
+    \  vector<int>log_table;\n  SparseTable()=default;\n  SparseTable(const vector<T>&v,const\
     \ F&f):f(f){\n    const int n=(int)v.size();\n    const int lg=32-__builtin_clz(n);\n\
     \    table.assign(lg,vector<T>(n));\n    for(int i=0;i<n;i++)table[0][i]=v[i];\n\
     \    for(int i=1;i<lg;i++)for(int j=0;j+(1<<i)<=n;j++)table[i][j]=f(table[i-1][j],table[i-1][j+(1<<(i-1))]);\n\
     \    log_table.resize(n+1);\n    for(int i=2;i<=n;i++)log_table[i]=1+log_table[i>>1];\n\
     \  }\n  T query(int l,int r){\n    int a=log_table[r-l];\n    return f(table[a][l],table[a][r-(1<<a)]);\n\
-    \  }\n};\ntemplate<typename T,typename F>\nsparse_table<T,F>make_sparse_table(const\
-    \ vector<T>&v,const F&f){\n  return sparse_table<T,F>(v,f);\n} \n/**\n * @brief\
+    \  }\n};\ntemplate<typename T,typename F>\nSparseTable<T,F>MakeSparseTable(const\
+    \ vector<T>&v,const F&f){\n  return SparseTable<T,F>(v,f);\n} \n/**\n * @brief\
     \ Sparse Table\n*/\n#line 4 \"Graph/tree/RMQ_lowest_common_ancestor.hpp\"\ntemplate<typename\
     \ T=unweighted_edge>\nstruct RMQ_LCA:graph<T>{\n  using graph<T>::g;\n  using\
     \ F=function<int(int,int)>;\n  vector<int>ord,dep,in;\n  RMQ_LCA(int n):graph<T>(n){}\n\
     \  RMQ_LCA(const graph<T>&g):graph<T>(g){}\n  void build(int root=0){\n    in.resize(g.size());\n\
     \    dfs(root,-1,0);\n    vector<int>v(g.size()*2-1);\n    iota(v.begin(),v.end(),0);\n\
-    \    F f=[&](int a,int b){return dep[a]<dep[b]?a:b;};\n    st=sparse_table<int,F>(v,f);\n\
+    \    F f=[&](int a,int b){return dep[a]<dep[b]?a:b;};\n    st=SparseTable<int,F>(v,f);\n\
     \  }\n  int lca(int u,int v){\n    if(in[u]>in[v])swap(u,v);\n    return u==v?u:ord[st.query(in[u],in[v])];\n\
-    \  }\n  private:\n  sparse_table<int,F>st;\n  void dfs(int idx,int par,int d){\n\
+    \  }\n  private:\n  SparseTable<int,F>st;\n  void dfs(int idx,int par,int d){\n\
     \    in[idx]=(int)ord.size();\n    ord.emplace_back(idx);\n    dep.emplace_back(d);\n\
     \    for(auto &e:g[idx])if(e!=par){\n      dfs(e,idx,d+1);\n      ord.emplace_back(idx);\n\
     \      dep.emplace_back(d);\n    }\n  }\n};\n/**\n * @brief RMQ Lowest Common\
@@ -189,11 +189,11 @@ data:
   - template/debug.hpp
   - Graph/tree/RMQ_lowest_common_ancestor.hpp
   - Graph/graph_template.hpp
-  - Data_Structure/sparse_table.hpp
+  - data-structure/sparse-table.hpp
   isVerificationFile: true
   path: test/yosupo/lca2.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 06:09:27+09:00'
+  timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/lca2.test.cpp
