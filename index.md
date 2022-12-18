@@ -1,112 +1,6 @@
 ---
 data:
   libraryCategories:
-  - name: Math/convolution
-    pages:
-    - icon: ':warning:'
-      path: Math/convolution/convolution.hpp
-      title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-    - icon: ':heavy_check_mark:'
-      path: Math/convolution/convolution_mod.hpp
-      title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':warning:'
-      path: Math/convolution/fft.hpp
-      title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB\
-        )"
-    - icon: ':heavy_check_mark:'
-      path: Math/convolution/gcd_convolution.hpp
-      title: GCD Convolution
-    - icon: ':heavy_check_mark:'
-      path: Math/convolution/lcm_convolution.hpp
-      title: LCM Convolution
-    - icon: ':question:'
-      path: Math/convolution/ntt.hpp
-      title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - name: Math/fps
-    pages:
-    - icon: ':question:'
-      path: Math/fps/fps.hpp
-      title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':heavy_check_mark:'
-      path: Math/fps/multipoint_evaluation.hpp
-      title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-    - icon: ':heavy_check_mark:'
-      path: Math/fps/polynomial_interpolation.hpp
-      title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
-    - icon: ':x:'
-      path: Math/fps/subset_sum.hpp
-      title: Count Subset Sum
-    - icon: ':heavy_check_mark:'
-      path: Math/fps/taylor_shift.hpp
-      title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
-  - name: Math/modular
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: Math/modular/mod_log.hpp
-      title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
-    - icon: ':x:'
-      path: Math/modular/mod_sqrt.hpp
-      title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-    - icon: ':question:'
-      path: Math/modular/modint.hpp
-      title: modint
-    - icon: ':warning:'
-      path: Math/modular/modinv.hpp
-      title: "Mod Inv(\u9006\u5143)"
-    - icon: ':question:'
-      path: Math/modular/modpow.hpp
-      title: "Mod Pow(\u3079\u304D\u4E57)"
-  - name: Math/number
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: Math/number/factor.hpp
-      title: "Factor Enumeration(\u7D04\u6570\u5217\u6319)"
-    - icon: ':warning:'
-      path: Math/number/factor_cnt.hpp
-      title: "Factor Count(\u7D04\u6570\u500B\u6570)"
-    - icon: ':heavy_check_mark:'
-      path: Math/number/factorize.hpp
-      title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
-    - icon: ':question:'
-      path: Math/number/fast_prime.hpp
-      title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
-    - icon: ':heavy_check_mark:'
-      path: Math/number/is_prime.hpp
-      title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
-    - icon: ':heavy_check_mark:'
-      path: Math/number/kth_root_integer.hpp
-      title: Kth Root Integer
-    - icon: ':heavy_check_mark:'
-      path: Math/number/phi.hpp
-      title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
-        )"
-    - icon: ':heavy_check_mark:'
-      path: Math/number/prime_sieve.hpp
-      title: "Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
-    - icon: ':question:'
-      path: Math/number/primitive_root.hpp
-      title: "Primitive Root(\u539F\u59CB\u6839)"
-    - icon: ':warning:'
-      path: Math/number/quotient_ranges.hpp
-      title: "Quotient Ranges(\u5546\u5217\u6319)"
-    - icon: ':warning:'
-      path: Math/number/range_prime_sieve.hpp
-      title: "Range Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u533A\
-        \u9593\u7BE9)"
-  - name: Math/others
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: Math/others/combinatorics.hpp
-      title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
-    - icon: ':x:'
-      path: Math/others/fraction.hpp
-      title: "Fraction(\u6709\u7406\u6570\u578B)"
-    - icon: ':warning:'
-      path: Math/others/lagrange.hpp
-      title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
-    - icon: ':heavy_check_mark:'
-      path: Math/others/matrix.hpp
-      title: "Matrix(\u884C\u5217)"
   - name: Others
     pages:
     - icon: ':warning:'
@@ -140,7 +34,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data-structure/dual-segment-tree.hpp
       title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: data-structure/dynamic-segment-tree.hpp
       title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
     - icon: ':heavy_check_mark:'
@@ -152,7 +46,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data-structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data-structure/lazy-segment-tree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
@@ -173,7 +67,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data-structure/segment-tree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: data-structure/sparse-table.hpp
       title: Sparse Table
     - icon: ':question:'
@@ -198,6 +92,82 @@ data:
       path: dynamic-programming/longest-increasing-subsequence.hpp
       title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
         )"
+  - name: geometry
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: geometry/geometry.hpp
+      title: geometry/geometry.hpp
+  - name: graph/flow
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/flow/dinic.hpp
+      title: "Dinic(\u6700\u5927\u6D41)"
+    - icon: ':warning:'
+      path: graph/flow/ford-fulkerson.hpp
+      title: "Ford Fulkerson(\u6700\u5927\u6D41)"
+  - name: graph
+    pages:
+    - icon: ':question:'
+      path: graph/graph-template.hpp
+      title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
+        )"
+  - name: graph/mst
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/mst/kruskal.hpp
+      title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
+    - icon: ':warning:'
+      path: graph/mst/prim.hpp
+      title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
+  - name: graph/others
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/others/detect-cycle.hpp
+      title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
+    - icon: ':question:'
+      path: graph/others/scc.hpp
+      title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
+        )"
+    - icon: ':heavy_check_mark:'
+      path: graph/others/topological-sort.hpp
+      title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
+        )"
+    - icon: ':x:'
+      path: graph/others/two-sat.hpp
+      title: Tow Satisfiability(2-SAT)
+  - name: graph/shortest-path
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/shortest-path/bellman-ford.hpp
+      title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
+    - icon: ':x:'
+      path: graph/shortest-path/dijkstra-path.hpp
+      title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
+        \u77ED\u8DEF)"
+    - icon: ':heavy_check_mark:'
+      path: graph/shortest-path/dijkstra.hpp
+      title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
+    - icon: ':warning:'
+      path: graph/shortest-path/warshall-floyd.hpp
+      title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
+  - name: graph/tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/tree/RMQ_lowest_common_ancestor.hpp
+      title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
+    - icon: ':warning:'
+      path: graph/tree/centroid.hpp
+      title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
+    - icon: ':heavy_check_mark:'
+      path: graph/tree/doubling_lowest_common_ancestor.hpp
+      title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
+        )"
+    - icon: ':heavy_check_mark:'
+      path: graph/tree/rerooting.hpp
+      title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
+    - icon: ':question:'
+      path: graph/tree/tree_diameter.hpp
+      title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: template
     pages:
     - icon: ':question:'
@@ -227,10 +197,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_14_B.test.cpp
       title: test/aoj/ALDS1/ALDS1_14_B.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
       title: test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
       title: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
     - icon: ':heavy_check_mark:'
@@ -238,34 +208,34 @@ data:
       title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - name: test/aoj/CGL
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_1_A.test.cpp
       title: test/aoj/CGL/CGL_1_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_1_B.test.cpp
       title: test/aoj/CGL/CGL_1_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_1_C.test.cpp
       title: test/aoj/CGL/CGL_1_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_2_A.test.cpp
       title: test/aoj/CGL/CGL_2_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_2_B.test.cpp
       title: test/aoj/CGL/CGL_2_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_2_C.test.cpp
       title: test/aoj/CGL/CGL_2_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_2_D.test.cpp
       title: test/aoj/CGL/CGL_2_D.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_3_A.test.cpp
       title: test/aoj/CGL/CGL_3_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_3_B.test.cpp
       title: test/aoj/CGL/CGL_3_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_3_C.test.cpp
       title: test/aoj/CGL/CGL_3_C.test.cpp
   - name: test/aoj/DPL
@@ -310,43 +280,43 @@ data:
       title: test/aoj/DSL/DSL_2_I.test.cpp
   - name: test/aoj/GRL
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_1_A.test.cpp
       title: test/aoj/GRL/GRL_1_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_1_B.test.cpp
       title: test/aoj/GRL/GRL_1_B.test.cpp
     - icon: ':x:'
       path: test/aoj/GRL/GRL_1_C.test.cpp
       title: test/aoj/GRL/GRL_1_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_2_A.test.cpp
       title: test/aoj/GRL/GRL_2_A.test.cpp
     - icon: ':x:'
       path: test/aoj/GRL/GRL_2_A_2.test.cpp
       title: test/aoj/GRL/GRL_2_A_2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_3_C.test.cpp
       title: test/aoj/GRL/GRL_3_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_4_A.test.cpp
       title: test/aoj/GRL/GRL_4_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_4_B.test.cpp
       title: test/aoj/GRL/GRL_4_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_A.test.cpp
       title: test/aoj/GRL/GRL_5_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_B.test.cpp
       title: test/aoj/GRL/GRL_5_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_C_1.test.cpp
       title: test/aoj/GRL/GRL_5_C_1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_C_2.test.cpp
       title: test/aoj/GRL/GRL_5_C_2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_6_A.test.cpp
       title: test/aoj/GRL/GRL_6_A.test.cpp
     - icon: ':x:'
@@ -354,21 +324,21 @@ data:
       title: test/aoj/GRL/GRL_6_A_2.test.cpp
   - name: test/aoj/ITP1
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/ITP1/ITP1_3_D.test.cpp
       title: test/aoj/ITP1/ITP1_3_D.test.cpp
   - name: test/aoj/NTL
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/NTL/NTL_1_A.test.cpp
       title: test/aoj/NTL/NTL_1_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/NTL/NTL_1_B.test.cpp
       title: test/aoj/NTL/NTL_1_B.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_C.test.cpp
       title: test/aoj/NTL/NTL_1_C.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/NTL/NTL_1_D.test.cpp
       title: test/aoj/NTL/NTL_1_D.test.cpp
   - name: test/yosupo
@@ -376,52 +346,52 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/associative_array.test.cpp
       title: test/yosupo/associative_array.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/convolution_mod.test.cpp
       title: test/yosupo/convolution_mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution_mod_1000000007.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/discrete-logarithm-mod.test.cpp
       title: test/yosupo/discrete-logarithm-mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/division_of_polynomials.test.cpp
       title: test/yosupo/division_of_polynomials.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/exp_of_formal_power_series.test.cpp
       title: test/yosupo/exp_of_formal_power_series.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/factorize.test.cpp
       title: test/yosupo/factorize.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/gcd_convolution.test.cpp
       title: test/yosupo/gcd_convolution.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/inv_of_formal_power_series.test.cpp
       title: test/yosupo/inv_of_formal_power_series.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/kth_root_integer.test.cpp
       title: test/yosupo/kth_root_integer.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/lca1.test.cpp
       title: test/yosupo/lca1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/lca2.test.cpp
       title: test/yosupo/lca2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/lcm_convolution.test.cpp
       title: test/yosupo/lcm_convolution.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/log_of_formal_power_series.test.cpp
       title: test/yosupo/log_of_formal_power_series.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/matrix_det.test.cpp
       title: test/yosupo/matrix_det.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/matrix_product.test.cpp
       title: test/yosupo/matrix_product.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/multipoint_evaluation.test.cpp
       title: test/yosupo/multipoint_evaluation.test.cpp
     - icon: ':heavy_check_mark:'
@@ -436,19 +406,19 @@ data:
     - icon: ':x:'
       path: test/yosupo/point_add_range_sum2.test.cpp
       title: test/yosupo/point_add_range_sum2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/point_add_range_sum3.test.cpp
       title: test/yosupo/point_add_range_sum3.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/polynomial_interpolation.test.cpp
       title: test/yosupo/polynomial_interpolation.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/polynomial_taylor_shift.test.cpp
       title: test/yosupo/polynomial_taylor_shift.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
     - icon: ':x:'

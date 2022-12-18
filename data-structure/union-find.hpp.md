@@ -19,11 +19,17 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: graph/mst/kruskal.hpp
+    title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_1_A.test.cpp
     title: test/aoj/DSL/DSL_1_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL/GRL_2_A.test.cpp
+    title: test/aoj/GRL/GRL_2_A.test.cpp
   - icon: ':x:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
@@ -154,10 +160,12 @@ data:
   - template/debug.hpp
   isVerificationFile: false
   path: data-structure/union-find.hpp
-  requiredBy: []
+  requiredBy:
+  - graph/mst/kruskal.hpp
   timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/aoj/GRL/GRL_2_A.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp
   - test/yosupo/unionfind.test.cpp
 documentation_of: data-structure/union-find.hpp

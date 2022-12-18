@@ -19,17 +19,11 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: Math/modular/mod_log.hpp
-    title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/associative_array.test.cpp
     title: test/yosupo/associative_array.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/discrete-logarithm-mod.test.cpp
-    title: test/yosupo/discrete-logarithm-mod.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -290,13 +284,11 @@ data:
   - template/debug.hpp
   isVerificationFile: false
   path: data-structure/hash-map.hpp
-  requiredBy:
-  - Math/modular/mod_log.hpp
+  requiredBy: []
   timestamp: '2022-12-18 17:08:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/associative_array.test.cpp
-  - test/yosupo/discrete-logarithm-mod.test.cpp
 documentation_of: data-structure/hash-map.hpp
 layout: document
 redirect_from:
