@@ -77,6 +77,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/weighted-union-find.hpp
     title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
+  - icon: ':warning:'
+    path: dynamic-programming/count-subsequences.hpp
+    title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
+  - icon: ':heavy_check_mark:'
+    path: dynamic-programming/longest-common-subsequence.hpp
+    title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)"
+  - icon: ':heavy_check_mark:'
+    path: dynamic-programming/longest-increasing-subsequence.hpp
+    title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
+      )"
   - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
@@ -139,6 +149,9 @@ data:
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_B.test.cpp
+    title: test/aoj/DSL/DSL_2_B.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B2.test.cpp
     title: test/aoj/DSL/DSL_2_B2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -177,16 +190,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_3_C.test.cpp
     title: test/aoj/GRL/GRL_3_C.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL/GRL_4_A.test.cpp
     title: test/aoj/GRL/GRL_4_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL/GRL_4_B.test.cpp
     title: test/aoj/GRL/GRL_4_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL/GRL_5_A.test.cpp
     title: test/aoj/GRL/GRL_5_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL/GRL_5_B.test.cpp
     title: test/aoj/GRL/GRL_5_B.test.cpp
   - icon: ':x:'
@@ -430,6 +443,9 @@ data:
   - template/template.hpp
   - Graph/mst/kruskal.hpp
   - Graph/tree/RMQ_lowest_common_ancestor.hpp
+  - dynamic-programming/count-subsequences.hpp
+  - dynamic-programming/longest-increasing-subsequence.hpp
+  - dynamic-programming/longest-common-subsequence.hpp
   - Math/modular/mod_log.hpp
   - data-structure/binary-trie.hpp
   - data-structure/segment-tree-monoids.hpp
@@ -490,6 +506,7 @@ data:
   - test/aoj/DSL/DSL_2_E.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
   - test/aoj/DSL/DSL_2_F.test.cpp
+  - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/DSL/DSL_2_I.test.cpp
   - test/aoj/DSL/DSL_2_H.test.cpp
   - test/aoj/DSL/DSL_2_D.test.cpp

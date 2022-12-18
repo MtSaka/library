@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Dynamic_Programming/longest_common-subsequence.hpp
+    path: dynamic-programming/longest-common-subsequence.hpp
     title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)"
   - icon: ':question:'
     path: template/alias.hpp
@@ -126,13 +126,10 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 1 \"Dynamic_Programming/longest_common-subsequence.hpp\"\
-    \ntemplate<typename T>\nint lcsl(const vector<T>&a,const vector<T>&b){\n  vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,0));\n\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"dynamic-programming/longest-common-subsequence.hpp\"\
+    \n\ntemplate<typename T>\nvector<T>LongestCommonSubsequence(const vector<T>&a,const\
+    \ vector<T>&b){\n  vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,0));\n\
     \  for(int i=0;i<a.size();i++){\n    for(int j=0;j<b.size();j++){\n      if(a[i]==b[j])dp[i+1][j+1]=dp[i][j]+1;\n\
-    \      else dp[i+1][j+1]=max(dp[i][j+1],dp[i+1][j]);\n    }\n  }\n  return dp[a.size()][b.size()];\n\
-    }\ntemplate<typename T>\nvector<T>lcs(const vector<T>&a,const vector<T>&b){\n\
-    \  vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,0));\n  for(int i=0;i<a.size();i++){\n\
-    \    for(int j=0;j<b.size();j++){\n      if(a[i]==b[j])dp[i+1][j+1]=dp[i][j]+1;\n\
     \      else dp[i+1][j+1]=max(dp[i][j+1],dp[i+1][j]);\n    }\n  }\n  vector<T>ans;\n\
     \  int i=a.size(),j=b.size();\n  while(dp[i][j]){\n    if(dp[i-1][j]==dp[i][j])i--;\n\
     \    else if(dp[i][j-1]==dp[i][j])j--;\n    else i--,j--,ans.push_back(a[i]);\n\
@@ -140,11 +137,11 @@ data:
     \ Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)\n*/\n#line 4\
     \ \"test/aoj/ALDS1/ALDS1_10_C.test.cpp\"\nint main(){\n  int q;\n  cin>>q;\n \
     \ while(q--){\n    string s,t;\n    cin>>s>>t;\n    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n\
-    \    cout<<lcsl(a,b)<<endl;\n  }\n}\n"
+    \    cout<<LongestCommonSubsequence(a,b).size()<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_C\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Dynamic_Programming/longest_common-subsequence.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../dynamic-programming/longest-common-subsequence.hpp\"\
     \nint main(){\n  int q;\n  cin>>q;\n  while(q--){\n    string s,t;\n    cin>>s>>t;\n\
-    \    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n    cout<<lcsl(a,b)<<endl;\n\
+    \    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n    cout<<LongestCommonSubsequence(a,b).size()<<endl;\n\
     \  }\n}"
   dependsOn:
   - template/template.hpp
@@ -153,11 +150,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Dynamic_Programming/longest_common-subsequence.hpp
+  - dynamic-programming/longest-common-subsequence.hpp
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 06:09:27+09:00'
+  timestamp: '2022-12-18 17:31:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_10_C.test.cpp

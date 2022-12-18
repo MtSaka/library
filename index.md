@@ -1,19 +1,6 @@
 ---
 data:
   libraryCategories:
-  - name: Dynamic_Programming
-    pages:
-    - icon: ':warning:'
-      path: Dynamic_Programming/count_subsequences.hpp
-      title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
-    - icon: ':heavy_check_mark:'
-      path: Dynamic_Programming/longest_common-subsequence.hpp
-      title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217\
-        )"
-    - icon: ':heavy_check_mark:'
-      path: Dynamic_Programming/longest_increasing_subsequence.hpp
-      title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
-        )"
   - name: Geometry
     pages:
     - icon: ':heavy_check_mark:'
@@ -43,14 +30,14 @@ data:
       title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - name: Graph/others
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Graph/others/detect_cycle.hpp
       title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
     - icon: ':question:'
       path: Graph/others/scc.hpp
       title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Graph/others/topological_sort.hpp
       title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
         )"
@@ -84,10 +71,10 @@ data:
       path: Graph/tree/doubling_lowest_common_ancestor.hpp
       title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
-    - icon: ':question:'
+    - icon: ':x:'
       path: Graph/tree/tree_diameter.hpp
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: Math/convolution
@@ -274,6 +261,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: data-structure/weighted-union-find.hpp
       title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
+  - name: dynamic-programming
+    pages:
+    - icon: ':warning:'
+      path: dynamic-programming/count-subsequences.hpp
+      title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
+    - icon: ':heavy_check_mark:'
+      path: dynamic-programming/longest-common-subsequence.hpp
+      title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217\
+        )"
+    - icon: ':heavy_check_mark:'
+      path: dynamic-programming/longest-increasing-subsequence.hpp
+      title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
+        )"
   - name: template
     pages:
     - icon: ':question:'
@@ -360,7 +360,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_A.test.cpp
       title: test/aoj/DSL/DSL_2_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_B.test.cpp
       title: test/aoj/DSL/DSL_2_B.test.cpp
     - icon: ':heavy_check_mark:'
@@ -404,16 +404,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_3_C.test.cpp
       title: test/aoj/GRL/GRL_3_C.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_4_A.test.cpp
       title: test/aoj/GRL/GRL_4_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_4_B.test.cpp
       title: test/aoj/GRL/GRL_4_B.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_5_A.test.cpp
       title: test/aoj/GRL/GRL_5_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_5_B.test.cpp
       title: test/aoj/GRL/GRL_5_B.test.cpp
     - icon: ':x:'

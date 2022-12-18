@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Dynamic_Programming/longest_increasing_subsequence.hpp
+    path: dynamic-programming/longest-increasing-subsequence.hpp
     title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
       )"
   - icon: ':question:'
@@ -126,16 +126,16 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 1 \"Dynamic_Programming/longest_increasing_subsequence.hpp\"\
-    \ntemplate<typename T>\nint lis(const vector<T>&a){\n  int n=a.size();\n  vector<long\
-    \ long>dp(n,2e18);\n  for(int i=0;i<n;i++)*lower_bound(dp.begin(),dp.end(),a[i])=a[i];\n\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"dynamic-programming/longest-increasing-subsequence.hpp\"\
+    \n\ntemplate<typename T>\nint LongestIncreasingSubsequence(const vector<T>&a){\n\
+    \  int n=a.size();\n  vector<long long>dp(n,2e18);\n  for(int i=0;i<n;i++)*lower_bound(dp.begin(),dp.end(),a[i])=a[i];\n\
     \  return lower_bound(dp.begin(),dp.end(),2e18)-dp.begin();\n}\n/**\n * @brief\
     \ Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217)\n\
     */\n#line 4 \"test/aoj/DPL/DPL_1_D.test.cpp\"\nint main(){\n  int n;\n  cin>>n;\n\
-    \  vector<int>a(n);\n  cin>>a;\n  print(lis(a));\n}\n"
+    \  vector<int>a(n);\n  cin>>a;\n  print(LongestIncreasingSubsequence(a));\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Dynamic_Programming/longest_increasing_subsequence.hpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  print(lis(a));\n\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../dynamic-programming/longest-increasing-subsequence.hpp\"\
+    \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  print(LongestIncreasingSubsequence(a));\n\
     }"
   dependsOn:
   - template/template.hpp
@@ -144,11 +144,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Dynamic_Programming/longest_increasing_subsequence.hpp
+  - dynamic-programming/longest-increasing-subsequence.hpp
   isVerificationFile: true
   path: test/aoj/DPL/DPL_1_D.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 06:09:27+09:00'
+  timestamp: '2022-12-18 17:31:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DPL/DPL_1_D.test.cpp

@@ -2,12 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: Graph/graph_template.hpp
-    title: "graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
-    path: Graph/others/detect_cycle.hpp
-    title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
   - icon: ':question:'
@@ -26,19 +20,20 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: true
-  _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
+    title: test/aoj/ALDS1/ALDS1_10_C.test.cpp
+  _isVerificationFailed: false
+  _pathExtension: hpp
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_A
-    links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_A
-  bundledCode: "#line 1 \"test/aoj/GRL/GRL_4_A.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_A\"\
-    \n#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\
-    \n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...) d\n#define\
-    \ REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
+    document_title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\
+      \u5217)"
+    links: []
+  bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
+    \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
+    \ d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
     #define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n#define REP4(i,a,b,c) for(ll\
     \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n\
     #define RREP1(a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n\
@@ -128,38 +123,23 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 2 \"Graph/graph_template.hpp\"\
-    \ntemplate<typename T=int>\nstruct edge{\n  int from,to;\n  T cost;\n  int idx;\n\
-    \  edge(){}\n  edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
-    \  operator int()const{return to;}\n  bool operator<(const edge&e)const{return\
-    \ cost<e.cost;}\n};\ntemplate<typename T=int>\nusing edges=vector<edge<T>>;\n\
-    template<typename T=int>\nstruct graph{\n  vector<vector<edge<T>>>g;\n  int es;\n\
-    \  graph(){}\n  explicit graph(int n):g(n),es(0){}\n  size_t size()const{return\
-    \ g.size();}\n  size_t edge_size()const{return es;}\n  void add_edge(int from,int\
-    \ to,T cost=1,bool direct=false){\n    g[from].emplace_back(from,to,cost,es);\n\
-    \    if(!direct)g[to].emplace_back(to,from,cost,es);\n    es++;\n  }\n  void add_edge(int\
-    \ from,int to,bool direct=false){\n    g[from].emplace_back(from,to,1,es);\n \
-    \   if(!direct)g[to].emplace_back(to,from,1,es);\n  }\n  inline vector<edge<T>>&operator[](int\
-    \ idx){return g[idx];}\n  inline const vector<edge<T>>&operator[](int idx)const{return\
-    \ g[idx];}\n  void read(int m,int padding=-1,bool weighted=false,bool direct=false){\n\
-    \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
-    \    a+=padding;\n      b+=padding;\n      if(weighted)cin>>c;\n      add_edge(a,b,c,direct);\n\
-    \    }\n  }\n};\nstruct unweighted_edge{\n  template<class... Args>unweighted_edge(const\
-    \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,unweighted_edge&c){c=unweighted_edge();return\
-    \ is;}\nusing unweighted_graph=graph<unweighted_edge>;\n/**\n * @brief graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 2 \"Graph/others/detect_cycle.hpp\"\
-    \ntemplate<typename T>\nbool detect_cycle(const graph<T>&g){\n  const int n=g.size();\n\
-    \  vector<int>deg(n,0);\n  for(int i=0;i<n;i++)for(auto &e:g[i])deg[e]++;\n  queue<int>q;\n\
-    \  for(int i=0;i<n;i++)if(deg[i]==0)q.push(i);\n  while(!q.empty()){\n    int\
-    \ u=q.front();q.pop();\n    for(auto &e:g[u]){\n      deg[e]--;\n      if(deg[e]==0)q.push(e);\n\
-    \    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return true;\n  return false;\n\
-    }\n/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\u51FA)\n*/\n#line 4 \"test/aoj/GRL/GRL_4_A.test.cpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  graph<int>g(v);\n  g.read(e,0,false,true);\n\
-    \  cout<<detect_cycle(g)<<endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_A\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../Graph/others/detect_cycle.hpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  graph<int>g(v);\n  g.read(e,0,false,true);\n\
-    \  cout<<detect_cycle(g)<<endl;\n}"
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"dynamic-programming/longest-common-subsequence.hpp\"\
+    \n\ntemplate<typename T>\nvector<T>LongestCommonSubsequence(const vector<T>&a,const\
+    \ vector<T>&b){\n  vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,0));\n\
+    \  for(int i=0;i<a.size();i++){\n    for(int j=0;j<b.size();j++){\n      if(a[i]==b[j])dp[i+1][j+1]=dp[i][j]+1;\n\
+    \      else dp[i+1][j+1]=max(dp[i][j+1],dp[i+1][j]);\n    }\n  }\n  vector<T>ans;\n\
+    \  int i=a.size(),j=b.size();\n  while(dp[i][j]){\n    if(dp[i-1][j]==dp[i][j])i--;\n\
+    \    else if(dp[i][j-1]==dp[i][j])j--;\n    else i--,j--,ans.push_back(a[i]);\n\
+    \  }\n  reverse(ans.begin(),ans.end());\n  return ans;\n}\n/**\n * @brief Longest\
+    \ Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)\n*/\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename T>\n\
+    vector<T>LongestCommonSubsequence(const vector<T>&a,const vector<T>&b){\n  vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,0));\n\
+    \  for(int i=0;i<a.size();i++){\n    for(int j=0;j<b.size();j++){\n      if(a[i]==b[j])dp[i+1][j+1]=dp[i][j]+1;\n\
+    \      else dp[i+1][j+1]=max(dp[i][j+1],dp[i+1][j]);\n    }\n  }\n  vector<T>ans;\n\
+    \  int i=a.size(),j=b.size();\n  while(dp[i][j]){\n    if(dp[i-1][j]==dp[i][j])i--;\n\
+    \    else if(dp[i][j-1]==dp[i][j])j--;\n    else i--,j--,ans.push_back(a[i]);\n\
+    \  }\n  reverse(ans.begin(),ans.end());\n  return ans;\n}\n/**\n * @brief Longest\
+    \ Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -167,18 +147,17 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - Graph/others/detect_cycle.hpp
-  - Graph/graph_template.hpp
-  isVerificationFile: true
-  path: test/aoj/GRL/GRL_4_A.test.cpp
+  isVerificationFile: false
+  path: dynamic-programming/longest-common-subsequence.hpp
   requiredBy: []
-  timestamp: '2022-12-18 06:09:27+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
-  verifiedWith: []
-documentation_of: test/aoj/GRL/GRL_4_A.test.cpp
+  timestamp: '2022-12-18 17:31:26+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/ALDS1/ALDS1_10_C.test.cpp
+documentation_of: dynamic-programming/longest-common-subsequence.hpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL/GRL_4_A.test.cpp
-- /verify/test/aoj/GRL/GRL_4_A.test.cpp.html
-title: test/aoj/GRL/GRL_4_A.test.cpp
+- /library/dynamic-programming/longest-common-subsequence.hpp
+- /library/dynamic-programming/longest-common-subsequence.hpp.html
+title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)"
 ---
