@@ -1,6 +1,8 @@
 #pragma once
+#include"../template/template.hpp"
+
 template<class S,int B=(sizeof(S)*8-1)>
-struct binary_trie{
+struct BinaryTrie{
   private:
   struct node{
     int ch[2];
@@ -23,8 +25,7 @@ struct binary_trie{
   }
   int make(){v.emplace_back(node());return sz++;}
   public:
-  binary_trie():v(1){}
-  void reserve(int n){v.reserve(n*4+1);}
+  BinaryTrie():v(1){}
   void insert(S x,S xor_val=0){add(x,1,xor_val);}
   void erase(S x,S xor_val=0){add(x,-1,xor_val);}
   void add(S x,int a,S xor_val=0){
@@ -91,7 +92,7 @@ struct binary_trie{
 };
 /*
 template<class S,int B=(sizeof(S)*8-1)>
-struct binary_trie{
+struct BinaryTrie{
   private:
   struct node{
     node*ch[2];
@@ -112,7 +113,7 @@ struct binary_trie{
     return u;
   }
   public:
-  binary_trie():root(new node()){}
+  BinaryTrie():root(new node()){}
   void insert(S x,S xor_val=0){add(x,1,xor_val);}
   void erase(S x,S xor_val=0){add(x,-1,xor_val);}
   void add(S x,int a,S xor_val=0){

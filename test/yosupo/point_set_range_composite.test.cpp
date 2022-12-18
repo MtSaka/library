@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 #include"../../template/template.hpp"
-#include"../../Data_Structure/segtree.hpp"
+#include"../../data-structure/segment-tree.hpp"
 #include"../../Math/modular/modint.hpp"
 using mint=modint<mod>;
 using S=pair<mint,mint>;
@@ -11,7 +11,7 @@ int main(){
   cin>>n>>q;
   vector<S>a(n);
   cin>>a;
-  segtree<S,op,e>s(a);
+  SegmentTree<S,op,e>s(a);
   while(q--){
     int t;
     cin>>t;

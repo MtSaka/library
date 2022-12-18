@@ -1,11 +1,13 @@
 #pragma once
+#include"../template/template.hpp"
+
 template<class S,S (*op)(S,S),S (*e)()>
-struct disjoint_sparse_table{
+struct DisjointSparseTable{
   private:
   vector<vector<S>>table;
   vector<int>log_table;
   public:
-  disjoint_sparse_table(const vector<S>&v){
+  DisjointSparseTable(const vector<S>&v){
     int bit=0,sz=1;
     while(sz<=(int)v.size())sz<<=1,bit++;
     table.resize(bit,vector<S>(v.size(),e()));

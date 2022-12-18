@@ -1,17 +1,19 @@
 #pragma once
-#include"bit_vector.hpp"
+#include"../template/template.hpp"
+#include"bit-vector.hpp"
+
 template<typename T,int LOG>
-struct wavelet_matrix{
+struct WaveletMatrix{
   private:
   size_t size;
-  bit_vector matrix[LOG];
+  BitVector matrix[LOG];
   int mid[LOG];
   public:
-  wavelet_matrix(){}
-  wavelet_matrix(vector<T>v):size(v.size()){
+  WaveletMatrix(){}
+  WaveletMatrix(vector<T>v):size(v.size()){
     vector<T>left(size),right(size);
     for(int level=LOG-1;level>=0;level--){
-      matrix[level]=bit_vector(size+1);
+      matrix[level]=BitVector(size+1);
       int l=0,r=0;
       for(size_t i=0;i<size;i++){
         if((v[i]>>level)&1)right[r++]=v[i],matrix[level].set(i);
@@ -78,19 +80,19 @@ struct wavelet_matrix{
 };
 
 template<typename T,int LOG>
-struct compressed_wavelet_matrix{
+struct CompressedWaveletMatrix{
   private:
-  wavelet_matrix<int,LOG>w;
+  WaveletMatrix<int,LOG>w;
   vector<T>v;
   int get(const T&x)const{return lower_bound(v.begin(),v.end(),x)-v.begin();}
   public:
-  compressed_wavelet_matrix(){}
-  compressed_wavelet_matrix(const vector<T>&x):v(x){
+  CompressedWaveletMatrix(){}
+  CompressedWaveletMatrix(const vector<T>&x):v(x){
     sort(v.begin(),v.end());
     v.erase(unique(v.begin(),v.end()),v.end());
     vector<int>t(x.size());
     for(int i=0;i<(int)x.size();i++)t[i]=get(x[i]);
-    w=wavelet_matrix<int,LOG>(t);
+    w=WaveletMatrix<int,LOG>(t);
   }
   T access(int i)const{return v[w.access(i)];}
   T operator[](int i)const{return access(i);}

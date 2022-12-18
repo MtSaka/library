@@ -1,9 +1,13 @@
 #pragma once
-struct dsu{
+#include"../template/template.hpp"
+
+struct UnionFind{
   private:
+  int n;
   vector<int>p;
   public:
-  dsu(int n):p(n,-1){}
+  UnionFind():UnionFind(0){}
+  UnionFind(int n):n(n),p(n,-1){}
   int root(int x){return p[x]<0?x:p[x]=root(p[x]);}
   bool same(int x,int y){return root(x)==root(y);}
   int size(int x){return -p[root(x)];}
@@ -15,7 +19,6 @@ struct dsu{
     return x;
   }
   vector<vector<int>>groups(){
-    const int n=p.size();
     vector<vector<int>>result(n);
     for(int i=0;i<n;i++)result[root(i)].push_back(i);
     result.erase(remove_if(result.begin(),result.end(),[](const vector<int>&v){return v.empty();}),result.end());
@@ -23,5 +26,5 @@ struct dsu{
   }
 };
 /**
- * @brief Disjoint Set Union(Union Find)
+ * @brief Union Find(Disjoint Set Union)
 */

@@ -1,14 +1,16 @@
 #pragma once
+#include"../template/template.hpp"
+
 template<typename T,int N=1>
-struct persistent_array{
+struct PersistentArray{
   struct node{
     T val;
     node*ch[1<<N]={};
   };
   node*root=nullptr;
   static constexpr int bit=(1<<N)-1;
-  persistent_array(){}
-  persistent_array(const vector<T>&a){
+  PersistentArray(){}
+  PersistentArray(const vector<T>&a){
     build(a);
   }
   void build(const vector<T>&a){

@@ -1,8 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/set_xor_min"
 #include"../../template/template.hpp"
-#include"../../Data_Structure/binary_trie.hpp"
+#include"../../data-structure/binary-trie.hpp"
 int main(){
-  binary_trie<int>bt;
+  BinaryTrie<int>bt;
   int q;cin>>q;
   bt.reserve(q);
   while(q--){

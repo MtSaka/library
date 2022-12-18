@@ -1,4 +1,4 @@
-#include"../../Data_Structure/dsu.hpp"
+#include"../../data-structure/union-find.hpp"
 #include"../graph_template.hpp"
 template<typename T>
 struct mst{
@@ -8,7 +8,7 @@ struct mst{
 template<typename T>
 mst<T>kruskal(edges<T>&ed,int v){
   sort(ed.begin(),ed.end());
-  dsu d(v);
+  UnionFind d(v);
   T total=0;
   edges<T>es;
   for(auto &e:ed){

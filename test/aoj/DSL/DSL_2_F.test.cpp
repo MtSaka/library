@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_F"
 #include"../../../template/template.hpp"
-#include"../../../Data_Structure/segtree_monoids.hpp"
+#include"../../../data-structure/segment-tree-monoids.hpp"
 int main(){
   int n,q;cin>>n>>q;
   RUQRmQ<int>seg(vector<int>(n,INT_MAX));

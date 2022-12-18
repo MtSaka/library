@@ -1,9 +1,11 @@
 #pragma once
+#include"../template/template.hpp"
+
 template<typename S,S (*op)(S,S),S (*e)()>
-struct dynamic_segtree{
+struct DynamicSegmentTree{
   public:
-  dynamic_segtree():dynamic_segtree(numeric_limits<long long>::max()>>1){}
-  dynamic_segtree(long long n):n(n),root(nullptr){}
+  DynamicSegmentTree():DynamicSegmentTree(numeric_limits<long long>::max()>>1){}
+  DynamicSegmentTree(long long n):n(n),root(nullptr){}
   void set(int p,const S&x){inner_set(root,0,n,p,x);}
   S get(long long p)const{return inner_get(root,0,n,p);}
   S operator[](long long p)const{return inner_get(root,0,n,p);}

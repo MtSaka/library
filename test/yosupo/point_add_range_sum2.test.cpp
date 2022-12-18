@@ -1,10 +1,10 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include"../../template/template.hpp"
-#include"../../Data_Structure/BIT.hpp"
+#include"../../data-structure/binay-indexed-tree.hpp"
 int main(){
   int n,q;
   cin>>n>>q;
-  BIT<long long>bit(n);
+  BinaryIndexedTree<long long>bit(n);
   for(int i=0;i<n;i++){
     int a;
     cin>>a;

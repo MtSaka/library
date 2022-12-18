@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I"
 #include"../../../template/template.hpp"
-#include"../../../Data_Structure/segtree_monoids.hpp"
+#include"../../../data-structure/segment-tree-monoids.hpp"
 int main(){
   int n,q;cin>>n>>q;
   RUQRSQ<int>seg(n);

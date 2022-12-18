@@ -1,6 +1,6 @@
 #pragma once
 #include"../graph_template.hpp"
-#include"../../Data_Structure/sparse_table.hpp"
+#include"../../data-structure/sparse-table.hpp"
 template<typename T=unweighted_edge>
 struct RMQ_LCA:graph<T>{
   using graph<T>::g;
@@ -14,14 +14,14 @@ struct RMQ_LCA:graph<T>{
     vector<int>v(g.size()*2-1);
     iota(v.begin(),v.end(),0);
     F f=[&](int a,int b){return dep[a]<dep[b]?a:b;};
-    st=sparse_table<int,F>(v,f);
+    st=SparseTable<int,F>(v,f);
   }
   int lca(int u,int v){
     if(in[u]>in[v])swap(u,v);
     return u==v?u:ord[st.query(in[u],in[v])];
   }
   private:
-  sparse_table<int,F>st;
+  SparseTable<int,F>st;
   void dfs(int idx,int par,int d){
     in[idx]=(int)ord.size();
     ord.emplace_back(idx);

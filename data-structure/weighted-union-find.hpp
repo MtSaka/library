@@ -1,9 +1,11 @@
 #pragma once
+#include"../template/template.hpp"
+
 template<typename T>
-struct weighted_dsu{
+struct WeightedUnionFind{
   vector<int>p;vector<T>diff;
-  weighted_dsu(){}
-  weighted_dsu(int n,T s=0):p(n,-1),diff(n,s){}
+  WeightedUnionFind(){}
+  WeightedUnionFind(int n,T s=0):p(n,-1),diff(n,s){}
   int root(int x){
     if(p[x]<0)return x;
     int r=root(p[x]);

@@ -1,5 +1,8 @@
+#pragma once
+#include"../template/template.hpp"
+
 template<typename Key,typename Val>
-struct hash_map{
+struct HashMap{
   using u32=uint32_t;
   using u64=uint64_t;
   using Data=pair<Key,Val>;
@@ -67,12 +70,12 @@ struct hash_map{
   static constexpr uint32_t DEFAULT_SIZE=4;
   struct iterator{
     u32 i;
-    hash_map<Key,Val>*p;
+    HashMap<Key,Val>*p;
     explicit constexpr iterator():i(0),p(nullptr){}
-    explicit constexpr iterator(u32 i,hash_map<Key,Val>*p):i(i),p(p){}
-    explicit constexpr iterator(u32 i,const hash_map<Key,Val>*p):i(i),p(const_cast<hash_map<Key,Val>*>(p)){}
+    explicit constexpr iterator(u32 i,HashMap<Key,Val>*p):i(i),p(p){}
+    explicit constexpr iterator(u32 i,const HashMap<Key,Val>*p):i(i),p(const_cast<HashMap<Key,Val>*>(p)){}
     const Data& operator*()const{
-      return const_cast<hash_map<Key,Val>*>(p)->data[i];
+      return const_cast<HashMap<Key,Val>*>(p)->data[i];
     }
     Data& operator*(){return p->data[i];}
     Data* operator->(){return &(p->data[i]);}
@@ -108,7 +111,7 @@ struct hash_map{
     }
   };
   using itr=iterator;
-  explicit hash_map():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}
+  explicit HashMap():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}
   itr begin()const{
     u32 h=0;
     while(h!=cap){
@@ -118,8 +121,8 @@ struct hash_map{
     return itr(h,this);
   }
   itr end()const{return itr(this->cap,this);}    
-  friend itr begin(hash_map<Key,Val>&a){return a.begin();}
-  friend itr end(hash_map<Key,Val>&a){return a.end();}
+  friend itr begin(HashMap<Key,Val>&a){return a.begin();}
+  friend itr end(HashMap<Key,Val>&a){return a.end();}
   itr find(const Key&key)const{
     u32 h=hash(key);
     while(true){
@@ -213,7 +216,7 @@ struct hash_map{
     return insert(Data(key,val));
   }
 };
-template<typename Key,typename Val>uint64_t hash_map<Key,Val>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();
+template<typename Key,typename Val>uint64_t HashMap<Key,Val>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();
 /**
  * @brief HashMap(ハッシュマップ)
 */

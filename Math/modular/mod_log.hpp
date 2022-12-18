@@ -1,5 +1,5 @@
 #include"modpow.hpp"
-#include"../../Data_Structure/hash_map.hpp"
+#include"../../data-structure/hash-map.hpp"
 template<typename T>
 T discrete_logarithm(T x,T y,T m){
   x%=m,y%=m;
@@ -14,7 +14,7 @@ T discrete_logarithm(T x,T y,T m){
   }
   T n=sqrt(m)+1;
   T tmp=modpow(x,n,m);
-  hash_map<T,T>mp;
+  HashMap<T,T>mp;
   for(T i=0,now=y;i<=n;i++){
     mp[now]=i;
     now=(now*x)%m;

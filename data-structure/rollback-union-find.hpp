@@ -1,12 +1,12 @@
 #pragma once
-#include<bits/stdc++.h>
-using namespace std;
-struct rollback_dsu{
+#include"../template/template.hpp"
+
+struct RollbackUnionFind{
   private:
   vector<int>p;
   stack<pair<int,int>>history;
   public:
-  rollback_dsu(int sz):p(sz,-1){}
+  RollbackUnionFind(int sz):p(sz,-1){}
   int root(int x)const{return p[x]<0?x:root(p[x]);}
   bool same(int x,int y)const{return root(x)==root(y);}
   int size(int x)const{return -p[root(x)];}

@@ -1,10 +1,10 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 #include"../../../template/template.hpp"
-#include"../../../Data_Structure/weighted_dsu.hpp"
+#include"../../../data-structure/weighted-union-find.hpp"
 int main(){
   int n,m;
   cin>>n>>m;
-  weighted_dsu<int>tree(n);
+  WeightedUnionFind<int>tree(n);
   while(m--){
     int a,b,c,d;
     cin>>a>>b>>c;

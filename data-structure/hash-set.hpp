@@ -1,5 +1,8 @@
+#pragma once
+#include"../template/template.hpp"
+
 template<typename Key>
-struct hash_set{
+struct HashSet{
   using u32=uint32_t;
   using u64=uint64_t;
   protected:
@@ -66,12 +69,12 @@ struct hash_set{
   static constexpr uint32_t DEFAULT_SIZE=4;
   struct iterator{
     u32 i;
-    hash_set<Key>*p;
+    HashSetKey>*p;
     explicit constexpr iterator():i(0),p(nullptr){}
-    explicit constexpr iterator(u32 i,hash_set<Key>*p):i(i),p(p){}
-    explicit constexpr iterator(u32 i,const hash_set<Key>*p):i(i),p(const_cast<hash_set<Key>*>(p)){}
+    explicit constexpr iterator(u32 i,HashSet<Key>*p):i(i),p(p){}
+    explicit constexpr iterator(u32 i,const HashSet<Key>*p):i(i),p(const_cast<HashSet<Key>*>(p)){}
     const Key& operator*()const{
-      return const_cast<hash_set<Key>*>(p)->data[i];
+      return const_cast<HashSet<Key>*>(p)->data[i];
     }
     Key& operator*(){return p->data[i];}
     Key* operator->(){return &(p->data[i]);}
@@ -107,7 +110,7 @@ struct hash_set{
     }
   };
   using itr=iterator;
-  explicit hash_set():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}
+  explicit HashSet():cap(DEFAULT_SIZE),s(0),data(cap),flag(cap),dflag(cap),shift(62){}
   itr begin(){
     u32 h=0;
     while(h!=cap){
@@ -117,8 +120,8 @@ struct hash_set{
     return itr(h,this);
   }
   itr end(){return itr(cap,this);}    
-  friend itr begin(hash_set<Key>&a){return a.begin();}
-  friend itr end(hash_set<Key>&a){return a.end();}
+  friend itr begin(HashSet<Key>&a){return a.begin();}
+  friend itr end(HashSet<Key>&a){return a.end();}
   itr find(const Key&key){
     u32 h=hash(key);
     while(true){
@@ -188,7 +191,7 @@ struct hash_set{
     if(cap<u32(n))reallocate(n);
   }
 };
-template<typename Key>uint64_t hash_set<Key>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();
+template<typename Key>uint64_t HashSet<Key>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();
 /**
  * @brief HashSet(ハッシュセット)
 */

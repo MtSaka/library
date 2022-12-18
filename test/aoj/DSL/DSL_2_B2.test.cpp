@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 #include"../../../template/template.hpp"
-#include"../../../Data_Structure/segtree_monoids.hpp"
+#include"../../../data-structure/segment-tree-monoids.hpp"
 int main(){
   INT(n,q);
   RSQ<int>seg(n);

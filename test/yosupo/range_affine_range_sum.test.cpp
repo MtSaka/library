@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 #include"../../template/template.hpp"
 #include"../../Math/modular/modint.hpp"
-#include"../../Data_Structure/lazy_segtree.hpp"
+#include"../../data-structure/lazy-segment-tree.hpp"
 using mint=modint<mod>;
 using Pi=pair<mint,int >;
 using qi=pair<mint,mint>;
@@ -14,7 +14,7 @@ int main(){
   INT(n,q);
   vector<Pi>a(n,{0,1});
   rep(i,n)cin>>a[i].first;
-  lazy_segtree<Pi,op,e,qi,mapping,composition,id>s(a);
+  LazySegmentTree<Pi,op,e,qi,mapping,composition,id>s(a);
   while(q--){
     LL(t);
     if(t){

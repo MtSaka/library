@@ -1,13 +1,15 @@
 #pragma once
-#include"persistent_array.hpp"
-struct persistent_dsu{
+#include"../template/template.hpp"
+#include"persistent-array.hpp"
+
+struct PersistentUnionFind{
   private:
-  using pa=persistent_array<int,2>;
+  using pa=PersistentArray<int,2>;
   pa p;
   public:
   using node=pa::node;
-  persistent_dsu(){}
-  persistent_dsu(int n){
+  PersistentUnionFind(){}
+  PersistentUnionFind(int n){
     p.build(vector<int>(n,-1));
   }
   int root(int x,node*t){

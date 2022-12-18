@@ -1,6 +1,8 @@
 #pragma once
+#include"../template/template.hpp"
+
 template<class S,S (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>
-struct lazy_segtree{
+struct LazySegmentTree{
   private:
   int _n,size=1,idx=0;
   vector<S>seq;
@@ -16,9 +18,9 @@ struct lazy_segtree{
     lazy[k]=id();
   }
   public:
-  lazy_segtree():lazy_segtree(0){}
-  lazy_segtree(int n):lazy_segtree(vector<S>(n,e())){}
-  lazy_segtree(const vector<S>&v):_n(int(v.size())){
+  LazySegmentTree():LazySegmentTree(0){}
+  LazySegmentTree(int n):LazySegmentTree(vector<S>(n,e())){}
+  LazySegmentTree(const vector<S>&v):_n(int(v.size())){
     while(size<_n)size<<=1,idx++;
     seq=vector<S>(size<<1,e());
     lazy=vector<F>(size,id());

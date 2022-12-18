@@ -1,12 +1,14 @@
 #pragma once
+#include"../template/template.hpp"
+
 template<typename T>
-struct BIT{
+struct BinaryIndexedTree{
   private:
   int N;
   vector<T>bit;
   public:
-  BIT(){}
-  BIT(int n){
+  BinaryIndexedTree(){}
+  BinaryIndexedTree(int n){
     N=1;
     while(N<n)N<<=1;
     bit=vector<T>(N+1,0);
@@ -28,5 +30,5 @@ struct BIT{
   }
 };
 /**
- * @brief Binary Indexed Tree(BIT)
+ * @brief Binary Indexed Tree(Fenwick Tree, BIT)
 */

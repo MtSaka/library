@@ -1,14 +1,16 @@
 #pragma once
+#include"../template/template.hpp"
+
 template<class S,S (*op)(S,S),S (*e)()>
-struct segtree{
+struct SegmentTree{
   private:
   int _n,size=1,idx=0;
   vector<S>seq;
   void update(int k){seq[k]=op(seq[k<<1],seq[k<<1^1]);}
   public:
-  segtree():segtree(0){};
-  segtree(int n):segtree(vector<S>(n,e())){}
-  segtree(const vector<S>&v):_n(int(v.size())){
+  SegmentTree():SegmentTree(0){};
+  SegmentTree(int n):SegmentTree(vector<S>(n,e())){}
+  SegmentTree(const vector<S>&v):_n(int(v.size())){
     while(size<_n)size<<=1,idx++;
     seq=vector<S>(size<<1,e());
     for(int i=0;i<_n;i++)seq[size+i]=v[i];
@@ -71,5 +73,4 @@ struct segtree{
 };
 /**
  * @brief Segment Tree(セグメント木)
- * @docs docs/segtree.md
 */

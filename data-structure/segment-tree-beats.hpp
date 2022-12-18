@@ -1,6 +1,8 @@
 #pragma once
+#include"../template/template.hpp"
+
 template<class T>
-struct segtree_beats{
+struct SegmentTreeBeats{
   private:
   static constexpr T INF=numeric_limits<T>::max();
   struct S{
@@ -218,9 +220,9 @@ struct segtree_beats{
     return sml+smr;
   }
   public:
-  segtree_beats(){}
-  segtree_beats(int n):segtree_beats(vector<T>(n)){}
-  segtree_beats(const vector<T>&v){
+  SegmentTreeBeats(){}
+  SegmentTreeBeats(int n):SegmentTreeBeats(vector<T>(n)){}
+  SegmentTreeBeats(const vector<T>&v){
     const int n=v.size();
     while(size<n)size<<=1,idx++;
     seq.resize(2*size);

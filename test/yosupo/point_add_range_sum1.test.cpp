@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include"../../template/template.hpp"
-#include"../../Data_Structure/segtree_monoids.hpp"
+#include"../../data-structure/segment-tree-monoids.hpp"
 int main(){
   int n,q;
   cin>>n>>q;

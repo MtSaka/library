@@ -1,11 +1,11 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/persistent_unionfind"
 #include"../../template/template.hpp"
-#include"../../Data_Structure/persistent_dsu.hpp"
+#include"../../data-structure/persistent-union-find.hpp"
 int main(){
   int n,q;
   cin>>n>>q;
-  using node=persistent_dsu::node;
-  persistent_dsu d(n);
+  using node=PersistentUnionFind::node;
+  PersistentUnionFind d(n);
   vector<node*>g(q+1);
   g[0]=d.get_root();
   for(int i=1;i<=q;i++){

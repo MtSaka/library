@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_inversions_query"
 #include"../../template/template.hpp"
-#include"../../Data_Structure/BIT.hpp"
+#include"../../data-structure/binay-indexed-tree.hpp"
 #include"../../Others/mo.hpp"
 int main(){
   int n,q;
@@ -16,7 +16,7 @@ int main(){
   sort(b.begin(),b.end());
   b.erase(unique(b.begin(),b.end()),b.end());
   for(auto&i:a)i=lower_bound(b.begin(),b.end(),i)-b.begin();
-  BIT<int>bit(b.size()+1);
+  BinaryIndexedTree<int>bit(b.size()+1);
   ll inv=0,sum=0;
   vector<ll>ans(q);
   auto add_left=[&](int idx){

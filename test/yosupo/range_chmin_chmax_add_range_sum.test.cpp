@@ -1,10 +1,10 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum"
 #include"../../template/template.hpp"
-#include"../../Data_Structure/segtree_beats.hpp"
+#include"../../data-structure/segment-tree-beats.hpp"
 int main(){
   int n,q;cin>>n>>q;
   vl a(n);cin>>a;
-  segtree_beats<ll>seg(a);
+  SegmentTreeBeats<ll>seg(a);
   while(q--){
     int t;cin>>t;
     if(t==0){

@@ -1,10 +1,13 @@
+#pragma once
+#include"../template/template.hpp"
+
 template<typename T,typename F>
-struct sparse_table{
+struct SparseTable{
   F f;
   vector<vector<T>>table;
   vector<int>log_table;
-  sparse_table()=default;
-  sparse_table(const vector<T>&v,const F&f):f(f){
+  SparseTable()=default;
+  SparseTable(const vector<T>&v,const F&f):f(f){
     const int n=(int)v.size();
     const int lg=32-__builtin_clz(n);
     table.assign(lg,vector<T>(n));
@@ -19,8 +22,8 @@ struct sparse_table{
   }
 };
 template<typename T,typename F>
-sparse_table<T,F>make_sparse_table(const vector<T>&v,const F&f){
-  return sparse_table<T,F>(v,f);
+SparseTable<T,F>MakeSparseTable(const vector<T>&v,const F&f){
+  return SparseTable<T,F>(v,f);
 } 
 /**
  * @brief Sparse Table
