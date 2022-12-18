@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: data-structure/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/modular/modint.hpp
     title: modint
   - icon: ':question:'
@@ -58,10 +58,9 @@ data:
     \  static constexpr T value=std::numeric_limits<T>::max()/2;\n  static constexpr\
     \ T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr\
     \ T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\n\
-    constexpr ld PI=3.1415926535897932384626;\nconstexpr ll mod=998244353;\nconstexpr\
-    \ ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr int\
-    \ dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline constexpr\
-    \ int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
+    constexpr ld PI=3.1415926535897932384626;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\n\
+    constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline\
+    \ constexpr int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
     \  if(x&0xffff0000ffff0000)x&=0xffff0000ffff0000,res+=16;\n  if(x&0xff00ff00ff00ff00)x&=0xff00ff00ff00ff00,res+=8;\n\
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
@@ -151,7 +150,7 @@ data:
     \          (r<<=1)++;\n          if(f(op(seq[r],sum)))sum=op(seq[r--],sum);\n\
     \        }\n        return r+1-size;\n      }\n      sum=op(seq[r],sum);\n   \
     \ }while((r&-r)!=r);\n    return 0;\n  }\n};\n/**\n * @brief Segment Tree(\u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 2 \"math/modular/modint.hpp\"\ntemplate<int\
+    \u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 3 \"math/modular/modint.hpp\"\n\ntemplate<int\
     \ m>\nstruct modint{\n  private:\n  unsigned int x;\n  static constexpr unsigned\
     \ int umod(){return m;}\n  public:\n  static modint raw(int v){\n    modint ret;\n\
     \    ret.x=v;\n    return ret;\n  }\n  constexpr modint():x(0){}\n  constexpr\
@@ -181,7 +180,7 @@ data:
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
     \    is>>t;\n    a=modint(t);\n    return (is);\n  }\n  static constexpr int get_mod(){return\
     \ m;}\n  int val()const{return (int)x;}\n};\n/**\n * @brief modint\n*/\n#line\
-    \ 5 \"test/yosupo/point_set_range_composite.test.cpp\"\nusing mint=modint<mod>;\n\
+    \ 5 \"test/yosupo/point_set_range_composite.test.cpp\"\nusing mint=modint<998244353>;\n\
     using S=pair<mint,mint>;\nS op(S a,S b){return S{a.first*b.first,a.second*b.first+b.second};}\n\
     S e(){return S{mint(1),mint(0)};}\nint main(){\n  int n,q;\n  cin>>n>>q;\n  vector<S>a(n);\n\
     \  cin>>a;\n  SegmentTree<S,op,e>s(a);\n  while(q--){\n    int t;\n    cin>>t;\n\
@@ -190,9 +189,9 @@ data:
     \      mint c,d;\n      cin>>c>>d;\n      s.set(p,S{c,d});\n    }\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../data-structure/segment-tree.hpp\"\
-    \n#include\"../../math/modular/modint.hpp\"\nusing mint=modint<mod>;\nusing S=pair<mint,mint>;\n\
-    S op(S a,S b){return S{a.first*b.first,a.second*b.first+b.second};}\nS e(){return\
-    \ S{mint(1),mint(0)};}\nint main(){\n  int n,q;\n  cin>>n>>q;\n  vector<S>a(n);\n\
+    \n#include\"../../math/modular/modint.hpp\"\nusing mint=modint<998244353>;\nusing\
+    \ S=pair<mint,mint>;\nS op(S a,S b){return S{a.first*b.first,a.second*b.first+b.second};}\n\
+    S e(){return S{mint(1),mint(0)};}\nint main(){\n  int n,q;\n  cin>>n>>q;\n  vector<S>a(n);\n\
     \  cin>>a;\n  SegmentTree<S,op,e>s(a);\n  while(q--){\n    int t;\n    cin>>t;\n\
     \    if(t){\n      int l,r,x;\n      cin>>l>>r>>x;\n      auto [n,m]=s.query(l,r);\n\
     \      cout<<n*mint(x)+m<<endl;\n    }\n    else{\n      int p;\n      cin>>p;\n\
@@ -209,7 +208,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 22:44:40+09:00'
+  timestamp: '2022-12-18 23:26:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/point_set_range_composite.test.cpp

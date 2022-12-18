@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data-structure/hash-map.hpp
     title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
-  - icon: ':heavy_check_mark:'
-    path: math/modular/mod_log.hpp
+  - icon: ':x:'
+    path: math/modular/mod-log.hpp
     title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
   - icon: ':question:'
@@ -30,9 +30,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/discrete_logarithm_mod
@@ -61,10 +61,9 @@ data:
     \  static constexpr T value=std::numeric_limits<T>::max()/2;\n  static constexpr\
     \ T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr\
     \ T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\n\
-    constexpr ld PI=3.1415926535897932384626;\nconstexpr ll mod=998244353;\nconstexpr\
-    \ ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr int\
-    \ dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline constexpr\
-    \ int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
+    constexpr ld PI=3.1415926535897932384626;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\n\
+    constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline\
+    \ constexpr int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
     \  if(x&0xffff0000ffff0000)x&=0xffff0000ffff0000,res+=16;\n  if(x&0xff00ff00ff00ff00)x&=0xff00ff00ff00ff00,res+=8;\n\
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
@@ -132,8 +131,8 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 2 \"math/modular/modpow.hpp\"\
-    \ntemplate<typename T,typename S>\nT modpow(T a,S b,T m){\n  T ret=1;\n  while(b){\n\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/modular/modpow.hpp\"\
+    \n\ntemplate<typename T,typename S>\nT modpow(T a,S b,T m){\n  T ret=1;\n  while(b){\n\
     \    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n  }\n  return ret;\n}\n/**\n\
     \ * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line 3 \"data-structure/hash-map.hpp\"\
     \n\ntemplate<typename Key,typename Val>\nstruct HashMap{\n  using u32=uint32_t;\n\
@@ -212,7 +211,7 @@ data:
     \ bool emplace(const Key&key,const Val&val){\n    return insert(Data(key,val));\n\
     \  }\n};\ntemplate<typename Key,typename Val>uint64_t HashMap<Key,Val>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();\n\
     /**\n * @brief HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)\n*/\n#line\
-    \ 3 \"math/modular/mod_log.hpp\"\ntemplate<typename T>\nT discrete_logarithm(T\
+    \ 5 \"math/modular/mod-log.hpp\"\n\ntemplate<typename T>\nT discrete_logarithm(T\
     \ x,T y,T m){\n  x%=m,y%=m;\n  if(y==1||m==1)return 0;\n  if(x==0)return y==0?1:-1;\n\
     \  T add=0,g,k=1%m;\n  while((g=gcd(x,m))>1){\n    if(y==k)return add;\n    if(y%g)return\
     \ -1;\n    y/=g,m/=g,add++;\n    k=(k*(x/g))%m;\n  }\n  T n=sqrt(m)+1;\n  T tmp=modpow(x,n,m);\n\
@@ -223,7 +222,7 @@ data:
     \  int t;\n  cin>>t;\n  while(t--){\n    ll x,y,m;\n    cin>>x>>y>>m;\n    print(discrete_logarithm(x,y,m));\n\
     \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/discrete_logarithm_mod\"\
-    \ \n#include\"../../template/template.hpp\"\n#include\"../../math/modular/mod_log.hpp\"\
+    \ \n#include\"../../template/template.hpp\"\n#include\"../../math/modular/mod-log.hpp\"\
     \nint main(){\n  int t;\n  cin>>t;\n  while(t--){\n    ll x,y,m;\n    cin>>x>>y>>m;\n\
     \    print(discrete_logarithm(x,y,m));\n  }\n}"
   dependsOn:
@@ -233,14 +232,14 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - math/modular/mod_log.hpp
+  - math/modular/mod-log.hpp
   - math/modular/modpow.hpp
   - data-structure/hash-map.hpp
   isVerificationFile: true
   path: test/yosupo/discrete-logarithm-mod.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 22:44:40+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-18 23:26:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/discrete-logarithm-mod.test.cpp
 layout: document

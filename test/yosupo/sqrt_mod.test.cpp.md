@@ -2,9 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
-    path: math/modular/mod_sqrt.hpp
+    path: math/modular/mod-sqrt.hpp
     title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
   - icon: ':question:'
@@ -57,10 +57,9 @@ data:
     \  static constexpr T value=std::numeric_limits<T>::max()/2;\n  static constexpr\
     \ T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr\
     \ T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\n\
-    constexpr ld PI=3.1415926535897932384626;\nconstexpr ll mod=998244353;\nconstexpr\
-    \ ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr int\
-    \ dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline constexpr\
-    \ int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
+    constexpr ld PI=3.1415926535897932384626;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\n\
+    constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline\
+    \ constexpr int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
     \  if(x&0xffff0000ffff0000)x&=0xffff0000ffff0000,res+=16;\n  if(x&0xff00ff00ff00ff00)x&=0xff00ff00ff00ff00,res+=8;\n\
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
@@ -128,11 +127,11 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 2 \"math/modular/modpow.hpp\"\
-    \ntemplate<typename T,typename S>\nT modpow(T a,S b,T m){\n  T ret=1;\n  while(b){\n\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/modular/modpow.hpp\"\
+    \n\ntemplate<typename T,typename S>\nT modpow(T a,S b,T m){\n  T ret=1;\n  while(b){\n\
     \    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n  }\n  return ret;\n}\n/**\n\
-    \ * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line 3 \"math/modular/mod_sqrt.hpp\"\
-    \ntemplate<typename T,typename S>\nS mod_sqrt(T a,const S&p){\n  a%=p;\n  if(a==0)return\
+    \ * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line 4 \"math/modular/mod-sqrt.hpp\"\
+    \n\ntemplate<typename T,typename S>\nS mod_sqrt(T a,const S&p){\n  a%=p;\n  if(a==0)return\
     \ 0;\n  if(p==2)return a;\n  if(modpow(a,(p-1)/2,p)!=1)return -1;\n  if((p&3)==3)return\
     \ modpow(a,(p+1)/4,p);\n  S q=p-1,s=0,z=2;\n  while(!(q&1))q>>=1,s++;\n  while(modpow(z,(p-1)/2,p)==1)z++;\n\
     \  S m=s,c=modpow(z,q,p),t=modpow(a,q,p),r=modpow(a,(q+1)/2,p);\n  while(t!=1){\n\
@@ -143,7 +142,7 @@ data:
     )\n*/\n#line 4 \"test/yosupo/sqrt_mod.test.cpp\"\nint main(){\n  int t;\n  cin>>t;\n\
     \  while(t--){\n    LL(y,p);\n    print(mod_sqrt(y,p));\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_mod\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../math/modular/mod_sqrt.hpp\"\nint\
+    ../../template/template.hpp\"\n#include\"../../math/modular/mod-sqrt.hpp\"\nint\
     \ main(){\n  int t;\n  cin>>t;\n  while(t--){\n    LL(y,p);\n    print(mod_sqrt(y,p));\n\
     \  }\n}"
   dependsOn:
@@ -153,12 +152,12 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - math/modular/mod_sqrt.hpp
+  - math/modular/mod-sqrt.hpp
   - math/modular/modpow.hpp
   isVerificationFile: true
   path: test/yosupo/sqrt_mod.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 22:44:40+09:00'
+  timestamp: '2022-12-18 23:26:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/sqrt_mod.test.cpp

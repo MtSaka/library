@@ -21,7 +21,7 @@ data:
     - icon: ':x:'
       path: data-structure/dynamic-segment-tree.hpp
       title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: data-structure/hash-map.hpp
       title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
     - icon: ':warning:'
@@ -83,7 +83,7 @@ data:
       title: geometry/geometry.hpp
   - name: graph/flow
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/flow/dinic.hpp
       title: "Dinic(\u6700\u5927\u6D41)"
     - icon: ':warning:'
@@ -157,96 +157,96 @@ data:
     - icon: ':warning:'
       path: math/convolution/convolution.hpp
       title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-    - icon: ':heavy_check_mark:'
-      path: math/convolution/convolution_mod.hpp
-      title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
     - icon: ':warning:'
       path: math/convolution/fft.hpp
       title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB\
         )"
     - icon: ':x:'
-      path: math/convolution/gcd_convolution.hpp
+      path: math/convolution/gcd-convolution.hpp
       title: GCD Convolution
     - icon: ':x:'
-      path: math/convolution/lcm_convolution.hpp
+      path: math/convolution/lcm-convolution.hpp
       title: LCM Convolution
-    - icon: ':question:'
+    - icon: ':warning:'
+      path: math/convolution/mod-convolution.hpp
+      title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
+    - icon: ':warning:'
       path: math/convolution/ntt.hpp
       title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - name: math/fps
     pages:
-    - icon: ':question:'
+    - icon: ':warning:'
       path: math/fps/fps.hpp
       title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':x:'
-      path: math/fps/multipoint_evaluation.hpp
+    - icon: ':warning:'
+      path: math/fps/multipoint-evaluation.hpp
       title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-    - icon: ':x:'
-      path: math/fps/polynomial_interpolation.hpp
+    - icon: ':warning:'
+      path: math/fps/polynomial-interpolation.hpp
       title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
-    - icon: ':x:'
-      path: math/fps/subset_sum.hpp
+    - icon: ':warning:'
+      path: math/fps/subset-sum.hpp
       title: Count Subset Sum
-    - icon: ':x:'
-      path: math/fps/taylor_shift.hpp
+    - icon: ':warning:'
+      path: math/fps/taylor-shift.hpp
       title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - name: math/modular
     pages:
-    - icon: ':heavy_check_mark:'
-      path: math/modular/mod_log.hpp
+    - icon: ':x:'
+      path: math/modular/mod-log.hpp
       title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
     - icon: ':x:'
-      path: math/modular/mod_sqrt.hpp
+      path: math/modular/mod-sqrt.hpp
       title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-    - icon: ':question:'
+    - icon: ':x:'
       path: math/modular/modint.hpp
       title: modint
     - icon: ':warning:'
       path: math/modular/modinv.hpp
       title: "Mod Inv(\u9006\u5143)"
-    - icon: ':question:'
+    - icon: ':x:'
       path: math/modular/modpow.hpp
       title: "Mod Pow(\u3079\u304D\u4E57)"
   - name: math/number
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
+      path: math/number/factor-cnt.hpp
+      title: "Factor Count(\u7D04\u6570\u500B\u6570)"
+    - icon: ':x:'
       path: math/number/factor.hpp
       title: "Factor Enumeration(\u7D04\u6570\u5217\u6319)"
-    - icon: ':warning:'
-      path: math/number/factor_cnt.hpp
-      title: "Factor Count(\u7D04\u6570\u500B\u6570)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/number/factorize.hpp
       title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
-    - icon: ':question:'
-      path: math/number/fast_prime.hpp
+    - icon: ':x:'
+      path: math/number/fast-prime.hpp
       title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
-      path: math/number/is_prime.hpp
+      path: math/number/is-prime.hpp
       title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
     - icon: ':x:'
-      path: math/number/kth_root_integer.hpp
+      path: math/number/kth-root-integer.hpp
       title: Kth Root Integer
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/number/phi.hpp
       title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
         )"
     - icon: ':heavy_check_mark:'
-      path: math/number/prime_sieve.hpp
+      path: math/number/prime-sieve.hpp
       title: "Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
-    - icon: ':question:'
-      path: math/number/primitive_root.hpp
+    - icon: ':warning:'
+      path: math/number/primitive-root.hpp
       title: "Primitive Root(\u539F\u59CB\u6839)"
     - icon: ':warning:'
-      path: math/number/quotient_ranges.hpp
+      path: math/number/quotient-ranges.hpp
       title: "Quotient Ranges(\u5546\u5217\u6319)"
     - icon: ':warning:'
-      path: math/number/range_prime_sieve.hpp
+      path: math/number/range-prime-sieve.hpp
       title: "Range Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u533A\
         \u9593\u7BE9)"
   - name: math/others
     pages:
-    - icon: ':x:'
+    - icon: ':warning:'
       path: math/others/combinatorics.hpp
       title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
     - icon: ':x:'
@@ -406,7 +406,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_C_2.test.cpp
       title: test/aoj/GRL/GRL_5_C_2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_6_A.test.cpp
       title: test/aoj/GRL/GRL_6_A.test.cpp
     - icon: ':x:'
@@ -414,38 +414,38 @@ data:
       title: test/aoj/GRL/GRL_6_A_2.test.cpp
   - name: test/aoj/ITP1
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/ITP1/ITP1_3_D.test.cpp
       title: test/aoj/ITP1/ITP1_3_D.test.cpp
   - name: test/aoj/NTL
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/NTL/NTL_1_A.test.cpp
       title: test/aoj/NTL/NTL_1_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/NTL/NTL_1_B.test.cpp
       title: test/aoj/NTL/NTL_1_B.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/NTL/NTL_1_C.test.cpp
       title: test/aoj/NTL/NTL_1_C.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/NTL/NTL_1_D.test.cpp
       title: test/aoj/NTL/NTL_1_D.test.cpp
   - name: test/yosupo
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/associative_array.test.cpp
       title: test/yosupo/associative_array.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/convolution_mod.test.cpp
       title: test/yosupo/convolution_mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution_mod_1000000007.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/discrete-logarithm-mod.test.cpp
       title: test/yosupo/discrete-logarithm-mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/division_of_polynomials.test.cpp
       title: test/yosupo/division_of_polynomials.test.cpp
     - icon: ':x:'

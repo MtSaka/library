@@ -2,9 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
-    path: math/convolution/gcd_convolution.hpp
+    path: math/convolution/gcd-convolution.hpp
     title: GCD Convolution
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/modular/modint.hpp
     title: modint
   - icon: ':question:'
@@ -58,10 +58,9 @@ data:
     \  static constexpr T value=std::numeric_limits<T>::max()/2;\n  static constexpr\
     \ T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr\
     \ T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\n\
-    constexpr ld PI=3.1415926535897932384626;\nconstexpr ll mod=998244353;\nconstexpr\
-    \ ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr int\
-    \ dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline constexpr\
-    \ int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
+    constexpr ld PI=3.1415926535897932384626;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\n\
+    constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline\
+    \ constexpr int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
     \  if(x&0xffff0000ffff0000)x&=0xffff0000ffff0000,res+=16;\n  if(x&0xff00ff00ff00ff00)x&=0xff00ff00ff00ff00,res+=8;\n\
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
@@ -129,8 +128,8 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 2 \"math/modular/modint.hpp\"\
-    \ntemplate<int m>\nstruct modint{\n  private:\n  unsigned int x;\n  static constexpr\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/modular/modint.hpp\"\
+    \n\ntemplate<int m>\nstruct modint{\n  private:\n  unsigned int x;\n  static constexpr\
     \ unsigned int umod(){return m;}\n  public:\n  static modint raw(int v){\n   \
     \ modint ret;\n    ret.x=v;\n    return ret;\n  }\n  constexpr modint():x(0){}\n\
     \  constexpr modint(int y){\n    int v=y%m;\n    if(v<0)v+=m;\n    x=(unsigned\
@@ -160,20 +159,20 @@ data:
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
     \    is>>t;\n    a=modint(t);\n    return (is);\n  }\n  static constexpr int get_mod(){return\
     \ m;}\n  int val()const{return (int)x;}\n};\n/**\n * @brief modint\n*/\n#line\
-    \ 2 \"math/convolution/gcd_convolution.hpp\"\ntemplate<typename T>\nvector<T>gcd_convolution(vector<T>a,vector<T>b){\n\
+    \ 3 \"math/convolution/gcd-convolution.hpp\"\n\ntemplate<typename T>\nvector<T>gcd_convolution(vector<T>a,vector<T>b){\n\
     \  const int n=a.size();\n  vector<bool>sieve(n,true);\n  for(int p=2;p<n;p++)if(sieve[p]){\n\
     \    for(int i=(n-1)/p;i>0;i--)a[i]+=a[i*p],sieve[i*p]=false;\n    sieve[p]=1;\n\
     \  }\n  for(int p=2;p<n;p++)if(sieve[p])for(int i=(n-1)/p;i>0;i--)b[i]+=b[i*p];\n\
     \  for(int i=0;i<n;i++)a[i]*=b[i];\n  for(int p=2;p<n;p++)if(sieve[p]){\n    for(int\
     \ i=1;i*p<n;i++)a[i]-=a[i*p];\n  }\n  return a;\n}\n/**\n * @brief GCD Convolution\n\
-    */\n#line 5 \"test/yosupo/gcd_convolution.test.cpp\"\nusing mint=modint<mod>;\n\
+    */\n#line 5 \"test/yosupo/gcd_convolution.test.cpp\"\nusing mint=modint<998244353>;\n\
     int main(){\n  int n;cin>>n;\n  vector<mint>a(n+1),b(n+1);\n  for(int i=1;i<=n;i++)cin>>a[i];\n\
     \  for(int i=1;i<=n;i++)cin>>b[i];\n  auto ans=gcd_convolution(a,b);\n  for(int\
     \ i=1;i<=n;i++)cout<<ans[i]<<\" \\n\"[i==n];\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/gcd_convolution\"\n#include\"\
     ../../template/template.hpp\"\n#include\"../../math/modular/modint.hpp\"\n#include\"\
-    ../../math/convolution/gcd_convolution.hpp\"\nusing mint=modint<mod>;\nint main(){\n\
-    \  int n;cin>>n;\n  vector<mint>a(n+1),b(n+1);\n  for(int i=1;i<=n;i++)cin>>a[i];\n\
+    ../../math/convolution/gcd-convolution.hpp\"\nusing mint=modint<998244353>;\n\
+    int main(){\n  int n;cin>>n;\n  vector<mint>a(n+1),b(n+1);\n  for(int i=1;i<=n;i++)cin>>a[i];\n\
     \  for(int i=1;i<=n;i++)cin>>b[i];\n  auto ans=gcd_convolution(a,b);\n  for(int\
     \ i=1;i<=n;i++)cout<<ans[i]<<\" \\n\"[i==n];\n}"
   dependsOn:
@@ -184,11 +183,11 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - math/modular/modint.hpp
-  - math/convolution/gcd_convolution.hpp
+  - math/convolution/gcd-convolution.hpp
   isVerificationFile: true
   path: test/yosupo/gcd_convolution.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 22:44:40+09:00'
+  timestamp: '2022-12-18 23:26:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/gcd_convolution.test.cpp

@@ -20,7 +20,7 @@ data:
   - icon: ':x:'
     path: data-structure/dynamic-segment-tree.hpp
     title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data-structure/hash-map.hpp
     title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
   - icon: ':warning:'
@@ -75,7 +75,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: geometry/geometry.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/flow/dinic.hpp
     title: "Dinic(\u6700\u5927\u6D41)"
   - icon: ':question:'
@@ -120,9 +120,75 @@ data:
   - icon: ':question:'
     path: graph/tree/tree_diameter.hpp
     title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
-  - icon: ':heavy_check_mark:'
-    path: math/modular/mod_log.hpp
+  - icon: ':warning:'
+    path: math/convolution/fft.hpp
+    title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB\
+      )"
+  - icon: ':x:'
+    path: math/convolution/gcd-convolution.hpp
+    title: GCD Convolution
+  - icon: ':x:'
+    path: math/convolution/lcm-convolution.hpp
+    title: LCM Convolution
+  - icon: ':x:'
+    path: math/modular/mod-log.hpp
     title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
+  - icon: ':x:'
+    path: math/modular/mod-sqrt.hpp
+    title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
+  - icon: ':x:'
+    path: math/modular/modint.hpp
+    title: modint
+  - icon: ':warning:'
+    path: math/modular/modinv.hpp
+    title: "Mod Inv(\u9006\u5143)"
+  - icon: ':x:'
+    path: math/modular/modpow.hpp
+    title: "Mod Pow(\u3079\u304D\u4E57)"
+  - icon: ':warning:'
+    path: math/number/factor-cnt.hpp
+    title: "Factor Count(\u7D04\u6570\u500B\u6570)"
+  - icon: ':x:'
+    path: math/number/factor.hpp
+    title: "Factor Enumeration(\u7D04\u6570\u5217\u6319)"
+  - icon: ':x:'
+    path: math/number/factorize.hpp
+    title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
+  - icon: ':x:'
+    path: math/number/fast-prime.hpp
+    title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
+  - icon: ':heavy_check_mark:'
+    path: math/number/is-prime.hpp
+    title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
+  - icon: ':x:'
+    path: math/number/kth-root-integer.hpp
+    title: Kth Root Integer
+  - icon: ':x:'
+    path: math/number/phi.hpp
+    title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
+      )"
+  - icon: ':heavy_check_mark:'
+    path: math/number/prime-sieve.hpp
+    title: "Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
+  - icon: ':warning:'
+    path: math/number/quotient-ranges.hpp
+    title: "Quotient Ranges(\u5546\u5217\u6319)"
+  - icon: ':warning:'
+    path: math/number/range-prime-sieve.hpp
+    title: "Range Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u533A\
+      \u9593\u7BE9)"
+  - icon: ':warning:'
+    path: math/others/combinatorics.hpp
+    title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
+  - icon: ':x:'
+    path: math/others/fraction.hpp
+    title: "Fraction(\u6709\u7406\u6570\u578B)"
+  - icon: ':warning:'
+    path: math/others/lagrange.hpp
+    title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
+  - icon: ':x:'
+    path: math/others/matrix.hpp
+    title: "Matrix(\u884C\u5217)"
   - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
@@ -241,51 +307,36 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL/GRL_6_A.test.cpp
     title: test/aoj/GRL/GRL_6_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/ITP1/ITP1_3_D.test.cpp
     title: test/aoj/ITP1/ITP1_3_D.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/NTL/NTL_1_A.test.cpp
     title: test/aoj/NTL/NTL_1_A.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/NTL/NTL_1_B.test.cpp
     title: test/aoj/NTL/NTL_1_B.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/NTL/NTL_1_C.test.cpp
     title: test/aoj/NTL/NTL_1_C.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/NTL/NTL_1_D.test.cpp
     title: test/aoj/NTL/NTL_1_D.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/associative_array.test.cpp
     title: test/yosupo/associative_array.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/convolution_mod.test.cpp
-    title: test/yosupo/convolution_mod.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/convolution_mod_1000000007.test.cpp
-    title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/discrete-logarithm-mod.test.cpp
     title: test/yosupo/discrete-logarithm-mod.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/division_of_polynomials.test.cpp
-    title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/exp_of_formal_power_series.test.cpp
-    title: test/yosupo/exp_of_formal_power_series.test.cpp
   - icon: ':x:'
     path: test/yosupo/factorize.test.cpp
     title: test/yosupo/factorize.test.cpp
   - icon: ':x:'
     path: test/yosupo/gcd_convolution.test.cpp
     title: test/yosupo/gcd_convolution.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/inv_of_formal_power_series.test.cpp
-    title: test/yosupo/inv_of_formal_power_series.test.cpp
   - icon: ':x:'
     path: test/yosupo/kth_root_integer.test.cpp
     title: test/yosupo/kth_root_integer.test.cpp
@@ -299,17 +350,11 @@ data:
     path: test/yosupo/lcm_convolution.test.cpp
     title: test/yosupo/lcm_convolution.test.cpp
   - icon: ':x:'
-    path: test/yosupo/log_of_formal_power_series.test.cpp
-    title: test/yosupo/log_of_formal_power_series.test.cpp
-  - icon: ':x:'
     path: test/yosupo/matrix_det.test.cpp
     title: test/yosupo/matrix_det.test.cpp
   - icon: ':x:'
     path: test/yosupo/matrix_product.test.cpp
     title: test/yosupo/matrix_product.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/multipoint_evaluation.test.cpp
-    title: test/yosupo/multipoint_evaluation.test.cpp
   - icon: ':x:'
     path: test/yosupo/persistent_unionfind.test.cpp
     title: test/yosupo/persistent_unionfind.test.cpp
@@ -326,15 +371,6 @@ data:
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
   - icon: ':x:'
-    path: test/yosupo/polynomial_interpolation.test.cpp
-    title: test/yosupo/polynomial_interpolation.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/polynomial_taylor_shift.test.cpp
-    title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/pow_of_formal_power_series.test.cpp
-    title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
   - icon: ':x:'
@@ -350,17 +386,11 @@ data:
     path: test/yosupo/set_xor_min.test.cpp
     title: test/yosupo/set_xor_min.test.cpp
   - icon: ':x:'
-    path: test/yosupo/sharp_p_subset_sum.test.cpp
-    title: test/yosupo/sharp_p_subset_sum.test.cpp
-  - icon: ':x:'
     path: test/yosupo/shortest_path.test.cpp
     title: test/yosupo/shortest_path.test.cpp
   - icon: ':x:'
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/sqrt_of_formal_power_series.test.cpp
-    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   - icon: ':x:'
     path: test/yosupo/staticrmq.test.cpp
     title: test/yosupo/staticrmq.test.cpp
@@ -503,7 +533,28 @@ data:
   - graph/shortest-path/dijkstra.hpp
   - graph/shortest-path/bellman-ford.hpp
   - graph/flow/dinic.hpp
-  - math/modular/mod_log.hpp
+  - math/others/fraction.hpp
+  - math/others/lagrange.hpp
+  - math/others/combinatorics.hpp
+  - math/others/matrix.hpp
+  - math/number/phi.hpp
+  - math/number/prime-sieve.hpp
+  - math/number/factorize.hpp
+  - math/number/range-prime-sieve.hpp
+  - math/number/kth-root-integer.hpp
+  - math/number/fast-prime.hpp
+  - math/number/quotient-ranges.hpp
+  - math/number/is-prime.hpp
+  - math/number/factor-cnt.hpp
+  - math/number/factor.hpp
+  - math/modular/mod-sqrt.hpp
+  - math/modular/modinv.hpp
+  - math/modular/modint.hpp
+  - math/modular/modpow.hpp
+  - math/modular/mod-log.hpp
+  - math/convolution/gcd-convolution.hpp
+  - math/convolution/fft.hpp
+  - math/convolution/lcm-convolution.hpp
   - data-structure/binary-trie.hpp
   - data-structure/segment-tree-monoids.hpp
   - data-structure/hash-set.hpp
@@ -570,18 +621,14 @@ data:
   - test/aoj/NTL/NTL_1_B.test.cpp
   - test/aoj/ITP1/ITP1_3_D.test.cpp
   - test/yukicoder/1236.test.cpp
-  - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/associative_array.test.cpp
   - test/yosupo/factorize.test.cpp
   - test/yosupo/kth_root_integer.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
   - test/yosupo/gcd_convolution.test.cpp
   - test/yosupo/persistent_unionfind.test.cpp
   - test/yosupo/sqrt_mod.test.cpp
-  - test/yosupo/convolution_mod.test.cpp
   - test/yosupo/lca1.test.cpp
   - test/yosupo/persistent_unionfind2.test.cpp
-  - test/yosupo/polynomial_taylor_shift.test.cpp
   - test/yosupo/staticrmq.test.cpp
   - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/staticrmq2.test.cpp
@@ -591,24 +638,16 @@ data:
   - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   - test/yosupo/lca2.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/matrix_det.test.cpp
-  - test/yosupo/convolution_mod_1000000007.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
   - test/yosupo/shortest_path.test.cpp
   - test/yosupo/scc.test.cpp
   - test/yosupo/discrete-logarithm-mod.test.cpp
   - test/yosupo/point_add_range_sum3.test.cpp
   - test/yosupo/set_xor_min.test.cpp
   - test/yosupo/point_add_range_sum1.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
   - test/yosupo/lcm_convolution.test.cpp
-  - test/yosupo/polynomial_interpolation.test.cpp
   - test/yosupo/range_kth_smallest.test.cpp
   - test/yosupo/two_sat.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
 documentation_of: template/macro.hpp
 layout: document
 redirect_from:

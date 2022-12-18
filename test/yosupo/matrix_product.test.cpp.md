@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/modular/modint.hpp
     title: modint
   - icon: ':x:'
@@ -58,10 +58,9 @@ data:
     \  static constexpr T value=std::numeric_limits<T>::max()/2;\n  static constexpr\
     \ T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr\
     \ T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\n\
-    constexpr ld PI=3.1415926535897932384626;\nconstexpr ll mod=998244353;\nconstexpr\
-    \ ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr int\
-    \ dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline constexpr\
-    \ int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
+    constexpr ld PI=3.1415926535897932384626;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\n\
+    constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline\
+    \ constexpr int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
     \  if(x&0xffff0000ffff0000)x&=0xffff0000ffff0000,res+=16;\n  if(x&0xff00ff00ff00ff00)x&=0xff00ff00ff00ff00,res+=8;\n\
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
@@ -129,11 +128,11 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 1 \"math/others/matrix.hpp\"\
-    \ntemplate<typename T>\nstruct Matrix{\n  private:\n  vector<vector<T>>A;\n  public:\n\
-    \  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n  Matrix(size_t\
-    \ n):A(n,vector<T>(n,0)){};\n  Matrix(const vector<vector<T>>&a):A(a){}\n  size_t\
-    \ height()const{return (A.size());}\n  size_t width()const{return (A[0].size());}\n\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/others/matrix.hpp\"\
+    \n\ntemplate<typename T>\nstruct Matrix{\n  private:\n  vector<vector<T>>A;\n\
+    \  public:\n  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n\
+    \  Matrix(size_t n):A(n,vector<T>(n,0)){};\n  Matrix(const vector<vector<T>>&a):A(a){}\n\
+    \  size_t height()const{return (A.size());}\n  size_t width()const{return (A[0].size());}\n\
     \  inline const vector<T>&operator[](int k)const{return A.at(k);}\n  inline vector<T>&operator[](int\
     \ k){return A.at(k);}\n  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(size_t\
     \ i=0;i<n;i++)mat[i][i]=1;\n    return mat;\n  }\n  Matrix &operator+=(const Matrix&B){\n\
@@ -158,7 +157,7 @@ data:
     \     for(int j=0;j<(int)width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<(int)width();j++){\n\
     \        T now=b[j][i];\n        for(int k=0;k<(int)width();k++)b[j][k]-=b[i][k]*now;\n\
     \      }\n    }\n    return ret;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
-    )\n*/\n#line 2 \"math/modular/modint.hpp\"\ntemplate<int m>\nstruct modint{\n\
+    )\n*/\n#line 3 \"math/modular/modint.hpp\"\n\ntemplate<int m>\nstruct modint{\n\
     \  private:\n  unsigned int x;\n  static constexpr unsigned int umod(){return\
     \ m;}\n  public:\n  static modint raw(int v){\n    modint ret;\n    ret.x=v;\n\
     \    return ret;\n  }\n  constexpr modint():x(0){}\n  constexpr modint(int y){\n\
@@ -189,17 +188,17 @@ data:
     \    is>>t;\n    a=modint(t);\n    return (is);\n  }\n  static constexpr int get_mod(){return\
     \ m;}\n  int val()const{return (int)x;}\n};\n/**\n * @brief modint\n*/\n#line\
     \ 5 \"test/yosupo/matrix_product.test.cpp\"\nint main(){\n  int n,m,k;\n  cin>>n>>m>>k;\n\
-    \  Matrix<modint<mod>>a(n,m),b(m,k);\n  for(int i=0;i<n;i++){\n    for(int j=0;j<m;j++){\n\
-    \      cin>>a[i][j];\n    }\n  }\n  for(int i=0;i<m;i++){\n    for(int j=0;j<k;j++){\n\
-    \      cin>>b[i][j];\n    }\n  }\n  a*=b;\n  for(int i=0;i<n;i++){\n    cout<<a[i]<<endl;\n\
-    \  }\n}\n"
+    \  Matrix<modint<998244353>>a(n,m),b(m,k);\n  for(int i=0;i<n;i++){\n    for(int\
+    \ j=0;j<m;j++){\n      cin>>a[i][j];\n    }\n  }\n  for(int i=0;i<m;i++){\n  \
+    \  for(int j=0;j<k;j++){\n      cin>>b[i][j];\n    }\n  }\n  a*=b;\n  for(int\
+    \ i=0;i<n;i++){\n    cout<<a[i]<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#include\"\
     ../../template/template.hpp\"\n#include\"../../math/others/matrix.hpp\"\n#include\"\
     ../../math/modular/modint.hpp\"\nint main(){\n  int n,m,k;\n  cin>>n>>m>>k;\n\
-    \  Matrix<modint<mod>>a(n,m),b(m,k);\n  for(int i=0;i<n;i++){\n    for(int j=0;j<m;j++){\n\
-    \      cin>>a[i][j];\n    }\n  }\n  for(int i=0;i<m;i++){\n    for(int j=0;j<k;j++){\n\
-    \      cin>>b[i][j];\n    }\n  }\n  a*=b;\n  for(int i=0;i<n;i++){\n    cout<<a[i]<<endl;\n\
-    \  }\n}"
+    \  Matrix<modint<998244353>>a(n,m),b(m,k);\n  for(int i=0;i<n;i++){\n    for(int\
+    \ j=0;j<m;j++){\n      cin>>a[i][j];\n    }\n  }\n  for(int i=0;i<m;i++){\n  \
+    \  for(int j=0;j<k;j++){\n      cin>>b[i][j];\n    }\n  }\n  a*=b;\n  for(int\
+    \ i=0;i<n;i++){\n    cout<<a[i]<<endl;\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -212,7 +211,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 22:44:40+09:00'
+  timestamp: '2022-12-18 23:26:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/matrix_product.test.cpp

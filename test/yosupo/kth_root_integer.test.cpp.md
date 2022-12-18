@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
-    path: math/number/kth_root_integer.hpp
+    path: math/number/kth-root-integer.hpp
     title: Kth Root Integer
   - icon: ':question:'
     path: template/alias.hpp
@@ -55,10 +55,9 @@ data:
     \  static constexpr T value=std::numeric_limits<T>::max()/2;\n  static constexpr\
     \ T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr\
     \ T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\n\
-    constexpr ld PI=3.1415926535897932384626;\nconstexpr ll mod=998244353;\nconstexpr\
-    \ ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr int\
-    \ dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline constexpr\
-    \ int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
+    constexpr ld PI=3.1415926535897932384626;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\n\
+    constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline\
+    \ constexpr int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
     \  if(x&0xffff0000ffff0000)x&=0xffff0000ffff0000,res+=16;\n  if(x&0xff00ff00ff00ff00)x&=0xff00ff00ff00ff00,res+=8;\n\
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
@@ -126,16 +125,16 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 1 \"math/number/kth_root_integer.hpp\"\
-    \nuint64_t kth_root_integer(uint64_t a,int k){\n  if(k==1)return a;\n  auto check=[&](uint64_t\
-    \ x){\n    uint64_t mul=1;\n    for(int j=0;j<k;j++){\n      if(__builtin_mul_overflow(mul,x,&mul))return\
-    \ false;\n    }\n    return mul<=a;\n  };\n  uint64_t ret=0;\n  for(int i=31;i>=0;i--){\n\
-    \    if(check(ret|(1u<<i)))ret|=1u<<i;\n  }\n  return ret;\n}\n/**\n * @brief\
-    \ Kth Root Integer\n*/\n#line 4 \"test/yosupo/kth_root_integer.test.cpp\"\nint\
-    \ main(){\n  int t;\n  cin>>t;\n  while(t--){\n    uint64_t a;\n    int k;\n \
-    \   cin>>a>>k;\n    cout<<kth_root_integer(a,k)<<endl;\n  }\n}\n"
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/number/kth-root-integer.hpp\"\
+    \n\nuint64_t kth_root_integer(uint64_t a,int k){\n  if(k==1)return a;\n  auto\
+    \ check=[&](uint64_t x){\n    uint64_t mul=1;\n    for(int j=0;j<k;j++){\n   \
+    \   if(__builtin_mul_overflow(mul,x,&mul))return false;\n    }\n    return mul<=a;\n\
+    \  };\n  uint64_t ret=0;\n  for(int i=31;i>=0;i--){\n    if(check(ret|(1u<<i)))ret|=1u<<i;\n\
+    \  }\n  return ret;\n}\n/**\n * @brief Kth Root Integer\n*/\n#line 4 \"test/yosupo/kth_root_integer.test.cpp\"\
+    \nint main(){\n  int t;\n  cin>>t;\n  while(t--){\n    uint64_t a;\n    int k;\n\
+    \    cin>>a>>k;\n    cout<<kth_root_integer(a,k)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/kth_root_integer\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../math/number/kth_root_integer.hpp\"\
+    ../../template/template.hpp\"\n#include\"../../math/number/kth-root-integer.hpp\"\
     \nint main(){\n  int t;\n  cin>>t;\n  while(t--){\n    uint64_t a;\n    int k;\n\
     \    cin>>a>>k;\n    cout<<kth_root_integer(a,k)<<endl;\n  }\n}"
   dependsOn:
@@ -145,11 +144,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - math/number/kth_root_integer.hpp
+  - math/number/kth-root-integer.hpp
   isVerificationFile: true
   path: test/yosupo/kth_root_integer.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 22:44:40+09:00'
+  timestamp: '2022-12-18 23:26:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/kth_root_integer.test.cpp

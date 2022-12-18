@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: math/number/is_prime.hpp
+    path: math/number/is-prime.hpp
     title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
   - icon: ':question:'
     path: template/alias.hpp
@@ -55,10 +55,9 @@ data:
     \  static constexpr T value=std::numeric_limits<T>::max()/2;\n  static constexpr\
     \ T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr\
     \ T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\n\
-    constexpr ld PI=3.1415926535897932384626;\nconstexpr ll mod=998244353;\nconstexpr\
-    \ ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr int\
-    \ dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline constexpr\
-    \ int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
+    constexpr ld PI=3.1415926535897932384626;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\n\
+    constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline\
+    \ constexpr int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
     \  if(x&0xffff0000ffff0000)x&=0xffff0000ffff0000,res+=16;\n  if(x&0xff00ff00ff00ff00)x&=0xff00ff00ff00ff00,res+=8;\n\
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
@@ -126,15 +125,15 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 1 \"math/number/is_prime.hpp\"\
-    \nbool is_prime(long long N){\n  if(N<2)return 0;\n  if(N==2)return 1;\n  if(N%2==0)return\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/number/is-prime.hpp\"\
+    \n\nbool is_prime(long long N){\n  if(N<2)return 0;\n  if(N==2)return 1;\n  if(N%2==0)return\
     \ 0;\n  for(long long i=3;i*i<=N;i+=2){\n    if(N%i==0)return 0;\n  }\n  return\
     \ 1;\n}\n/**\n * @brief Prime Determination(\u7D20\u6570\u5224\u5B9A)\n*/\n#line\
     \ 4 \"test/aoj/ALDS1/ALDS1_1_C_1.test.cpp\"\nint main(){\n  int q;\n  cin>>q;\n\
     \  int ans=0;\n  while(q--){\n    int x;\n    cin>>x;\n    ans+=is_prime(x);\n\
     \  }\n  print(ans);\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../math/number/is_prime.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../math/number/is-prime.hpp\"\
     \nint main(){\n  int q;\n  cin>>q;\n  int ans=0;\n  while(q--){\n    int x;\n\
     \    cin>>x;\n    ans+=is_prime(x);\n  }\n  print(ans);\n}"
   dependsOn:
@@ -144,11 +143,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - math/number/is_prime.hpp
+  - math/number/is-prime.hpp
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 22:44:40+09:00'
+  timestamp: '2022-12-18 23:26:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
