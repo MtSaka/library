@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C"
 #include"../../../template/template.hpp"
-#include"../../../Math/number/is_prime.hpp"
+#include"../../../math/number/is_prime.hpp"
 int main(){
   int q;
   cin>>q;

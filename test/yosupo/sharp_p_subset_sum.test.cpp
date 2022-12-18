@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/sharp_p_subset_sum"
 #include"../../template/template.hpp"
-#include"../../Math/fps/subset_sum.hpp"
+#include"../../math/fps/subset_sum.hpp"
 int main(){
   int n,t;
   cin>>n>>t;

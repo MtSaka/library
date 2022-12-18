@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/matrix_det"
 #include"../../template/template.hpp"
-#include"../../Math/modular/modint.hpp"
-#include"../../Math/others/matrix.hpp"
+#include"../../math/modular/modint.hpp"
+#include"../../math/others/matrix.hpp"
 using mint=modint<mod>;
 int main(){
   INT(n);

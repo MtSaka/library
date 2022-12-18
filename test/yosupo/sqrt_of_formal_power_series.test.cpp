@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/sqrt_of_formal_power_series"
 #include"../../template/template.hpp"
-#include"../../Math/fps/fps.hpp"
-#include"../../Math/modular/mod_sqrt.hpp"
+#include"../../math/fps/fps.hpp"
+#include"../../math/modular/mod_sqrt.hpp"
 using mint=modint<mod>;
 int main(){
   int n;

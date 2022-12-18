@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
 #include"../../template/template.hpp"
-#include"../../Math/convolution/ntt.hpp"
+#include"../../math/convolution/ntt.hpp"
 int main(){
   INT(n,m);
   vector<modint<mod>>a(n),b(m);

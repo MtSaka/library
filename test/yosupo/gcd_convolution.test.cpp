@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/gcd_convolution"
 #include"../../template/template.hpp"
-#include"../../Math/modular/modint.hpp"
-#include"../../Math/convolution/gcd_convolution.hpp"
+#include"../../math/modular/modint.hpp"
+#include"../../math/convolution/gcd_convolution.hpp"
 using mint=modint<mod>;
 int main(){
   int n;cin>>n;

@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/division_of_polynomials"
 #include"../../template/template.hpp"
-#include"../../Math/fps/fps.hpp"
+#include"../../math/fps/fps.hpp"
 int main(){
   int n,m;
   cin>>n>>m;

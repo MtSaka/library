@@ -1,6 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1236"
 #include"../../template/template.hpp"
-#include"../../Math/others/fraction.hpp"
+#include"../../math/others/fraction.hpp"
 int main(){
   string s,t;
   cin>>s>>t;

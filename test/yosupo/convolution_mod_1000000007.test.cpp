@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod_1000000007"
 #include"../../template/template.hpp"
-#include"../../Math/convolution/convolution_mod.hpp"
+#include"../../math/convolution/convolution_mod.hpp"
 int main(){
   int n,m;
   cin>>n>>m;
