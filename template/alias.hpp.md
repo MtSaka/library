@@ -295,21 +295,21 @@ data:
     using pl=std::pair<ll,ll>;\nusing vi=std::vector<int>;\nusing vl=std::vector<ll>;\n\
     using vs=std::vector<std::string>;\nusing vc=std::vector<char>;\nusing vvl=std::vector<vl>;\n\
     using vd=std::vector<double>;\nusing vp=std::vector<pl>;\nusing vb=std::vector<bool>;\n\
-    template<typename T>\nstruct infinity{\n  static constexpr T MAX=numeric_limits<T>::max();\n\
-    \  static constexpr T MIN=numeric_limits<T>::min();\n  static constexpr T value=numeric_limits<T>::max()/2;\n\
-    \  static constexpr T mvalue=numeric_limits<T>::min()/2;\n};\ntemplate<typename\
-    \ T>constexpr T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr\
-    \ ld EPS=1e-8;\nconstexpr ld PI=3.1415926535897932384626;\nconstexpr ll mod=998244353;\n\
-    constexpr ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr\
-    \ int dy[8]={0,1,0,-1,1,1,-1,-1};\n"
+    template<typename T>\nstruct infinity{\n  static constexpr T MAX=std::numeric_limits<T>::max();\n\
+    \  static constexpr T MIN=std::numeric_limits<T>::min();\n  static constexpr T\
+    \ value=std::numeric_limits<T>::max()/2;\n  static constexpr T mvalue=std::numeric_limits<T>::min()/2;\n\
+    };\ntemplate<typename T>constexpr T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\n\
+    constexpr ld EPS=1e-8;\nconstexpr ld PI=3.1415926535897932384626;\nconstexpr ll\
+    \ mod=998244353;\nconstexpr ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\n\
+    constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n"
   code: "#pragma once\n#include<bits/stdc++.h>\n\nusing ll=long long;\nusing ull=unsigned\
     \ long long;\nusing ld=long double;\nusing pi=std::pair<int,int>;\nusing pl=std::pair<ll,ll>;\n\
     using vi=std::vector<int>;\nusing vl=std::vector<ll>;\nusing vs=std::vector<std::string>;\n\
     using vc=std::vector<char>;\nusing vvl=std::vector<vl>;\nusing vd=std::vector<double>;\n\
     using vp=std::vector<pl>;\nusing vb=std::vector<bool>;\ntemplate<typename T>\n\
-    struct infinity{\n  static constexpr T MAX=numeric_limits<T>::max();\n  static\
-    \ constexpr T MIN=numeric_limits<T>::min();\n  static constexpr T value=numeric_limits<T>::max()/2;\n\
-    \  static constexpr T mvalue=numeric_limits<T>::min()/2;\n};\ntemplate<typename\
+    struct infinity{\n  static constexpr T MAX=std::numeric_limits<T>::max();\n  static\
+    \ constexpr T MIN=std::numeric_limits<T>::min();\n  static constexpr T value=std::numeric_limits<T>::max()/2;\n\
+    \  static constexpr T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename\
     \ T>constexpr T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr\
     \ ld EPS=1e-8;\nconstexpr ld PI=3.1415926535897932384626;\nconstexpr ll mod=998244353;\n\
     constexpr ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr\
@@ -323,7 +323,7 @@ data:
   - template/template.hpp
   - template/util.hpp
   - Data_Structure/segtree_monoids.hpp
-  timestamp: '2022-12-18 04:50:26+09:00'
+  timestamp: '2022-12-18 05:17:30+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/CGL/CGL_2_C.test.cpp

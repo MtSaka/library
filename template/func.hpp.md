@@ -304,13 +304,14 @@ data:
     using vl=std::vector<ll>;\nusing vs=std::vector<std::string>;\nusing vc=std::vector<char>;\n\
     using vvl=std::vector<vl>;\nusing vd=std::vector<double>;\nusing vp=std::vector<pl>;\n\
     using vb=std::vector<bool>;\ntemplate<typename T>\nstruct infinity{\n  static\
-    \ constexpr T MAX=numeric_limits<T>::max();\n  static constexpr T MIN=numeric_limits<T>::min();\n\
-    \  static constexpr T value=numeric_limits<T>::max()/2;\n  static constexpr T\
-    \ mvalue=numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr T INF=infinity<T>::value;\n\
-    constexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\nconstexpr ld PI=3.1415926535897932384626;\n\
-    constexpr ll mod=998244353;\nconstexpr ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\n\
-    constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline\
-    \ constexpr int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
+    \ constexpr T MAX=std::numeric_limits<T>::max();\n  static constexpr T MIN=std::numeric_limits<T>::min();\n\
+    \  static constexpr T value=std::numeric_limits<T>::max()/2;\n  static constexpr\
+    \ T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr\
+    \ T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\n\
+    constexpr ld PI=3.1415926535897932384626;\nconstexpr ll mod=998244353;\nconstexpr\
+    \ ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr int\
+    \ dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline constexpr\
+    \ int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
     \  if(x&0xffff0000ffff0000)x&=0xffff0000ffff0000,res+=16;\n  if(x&0xff00ff00ff00ff00)x&=0xff00ff00ff00ff00,res+=8;\n\
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
@@ -363,7 +364,7 @@ data:
   requiredBy:
   - template/template.hpp
   - Data_Structure/segtree_monoids.hpp
-  timestamp: '2022-12-18 04:50:26+09:00'
+  timestamp: '2022-12-18 05:17:30+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/CGL/CGL_2_C.test.cpp

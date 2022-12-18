@@ -290,22 +290,23 @@ data:
     using vi=std::vector<int>;\nusing vl=std::vector<ll>;\nusing vs=std::vector<std::string>;\n\
     using vc=std::vector<char>;\nusing vvl=std::vector<vl>;\nusing vd=std::vector<double>;\n\
     using vp=std::vector<pl>;\nusing vb=std::vector<bool>;\ntemplate<typename T>\n\
-    struct infinity{\n  static constexpr T MAX=numeric_limits<T>::max();\n  static\
-    \ constexpr T MIN=numeric_limits<T>::min();\n  static constexpr T value=numeric_limits<T>::max()/2;\n\
-    \  static constexpr T mvalue=numeric_limits<T>::min()/2;\n};\ntemplate<typename\
+    struct infinity{\n  static constexpr T MAX=std::numeric_limits<T>::max();\n  static\
+    \ constexpr T MIN=std::numeric_limits<T>::min();\n  static constexpr T value=std::numeric_limits<T>::max()/2;\n\
+    \  static constexpr T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename\
     \ T>constexpr T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr\
     \ ld EPS=1e-8;\nconstexpr ld PI=3.1415926535897932384626;\nconstexpr ll mod=998244353;\n\
     constexpr ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr\
     \ int dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 4 \"template/debug.hpp\"\n\ntemplate<typename\
-    \ T,typename=void>\nstruct is_specialize:false_type{};\ntemplate<typename T>\n\
-    struct is_specialize<T,typename std::conditional<false,typename T::iterator, void>::type>:true_type{};\n\
-    template<typename T>\nstruct is_specialize<T,typename std::conditional<false,decltype(T::first),void>::type>:true_type{};\n\
-    template<typename T>\nstruct is_specialize<T,std::enable_if_t<std::is_integral<T>::value,void>>:true_type{};\n\
+    \ T,typename=void>\nstruct is_specialize:std::false_type{};\ntemplate<typename\
+    \ T>\nstruct is_specialize<T,typename std::conditional<false,typename T::iterator,\
+    \ void>::type>:true_type{};\ntemplate<typename T>\nstruct is_specialize<T,typename\
+    \ std::conditional<false,decltype(T::first),void>::type>:true_type{};\ntemplate<typename\
+    \ T>\nstruct is_specialize<T,std::enable_if_t<std::is_integral<T>::value,void>>:true_type{};\n\
     inline void dump(const char&t){std::cerr<<t;}\ninline void dump(const std::string&t){std::cerr<<t;}\n\
     inline void dump(const bool&t){std::cerr<<(t?\"true\":\"false\");}\ntemplate <typename\
     \ T,std::enable_if_t<!is_specialize<T>::value,nullptr_t> =nullptr>\ninline void\
     \ dump(const T&t){std::cerr<<t;}\ntemplate<typename T>\ninline void dump(const\
-    \ T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp=\"\
+    \ T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp=\"\
     inf\";if(is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp=\"\
     -inf\";if(tmp.empty())tmp=to_string(t);std::cerr<<tmp;}\ntemplate<typename T,typename\
     \ U>\ninline void dump(const std::pair<T,U>&);\ntemplate<typename T>\ninline void\
@@ -315,8 +316,8 @@ data:
     \ std::pair<T,U>&t){std::cerr<<\"(\";dump(t.first);std::cerr<<\",\";dump(t.second);std::cerr<<\"\
     )\";}\ninline void trace(){std::cerr<<std::endl;}\ntemplate<typename Head,typename...\
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
-    ,\";trace(forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...) (void(0))\n\
-    #else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
+    ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
+    \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\n"
   code: '#pragma once
 
@@ -327,7 +328,7 @@ data:
 
     template<typename T,typename=void>
 
-    struct is_specialize:false_type{};
+    struct is_specialize:std::false_type{};
 
     template<typename T>
 
@@ -353,7 +354,7 @@ data:
 
     template<typename T>
 
-    inline void dump(const T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){string
+    inline void dump(const T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string
     tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp="inf";if(is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp="-inf";if(tmp.empty())tmp=to_string(t);std::cerr<<tmp;}
 
     template<typename T,typename U>
@@ -373,7 +374,7 @@ data:
 
     template<typename Head,typename... Tail>
 
-    inline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<",";trace(forward<Tail>(tail)...);}
+    inline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<",";trace(std::forward<Tail>(tail)...);}
 
     #ifdef ONLINE_JUDGE
 
@@ -391,7 +392,7 @@ data:
   requiredBy:
   - template/template.hpp
   - Data_Structure/segtree_monoids.hpp
-  timestamp: '2022-12-18 04:50:26+09:00'
+  timestamp: '2022-12-18 05:17:30+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/CGL/CGL_2_C.test.cpp

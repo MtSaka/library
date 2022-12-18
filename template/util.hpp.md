@@ -304,27 +304,28 @@ data:
     using vl=std::vector<ll>;\nusing vs=std::vector<std::string>;\nusing vc=std::vector<char>;\n\
     using vvl=std::vector<vl>;\nusing vd=std::vector<double>;\nusing vp=std::vector<pl>;\n\
     using vb=std::vector<bool>;\ntemplate<typename T>\nstruct infinity{\n  static\
-    \ constexpr T MAX=numeric_limits<T>::max();\n  static constexpr T MIN=numeric_limits<T>::min();\n\
-    \  static constexpr T value=numeric_limits<T>::max()/2;\n  static constexpr T\
-    \ mvalue=numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr T INF=infinity<T>::value;\n\
-    constexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\nconstexpr ld PI=3.1415926535897932384626;\n\
-    constexpr ll mod=998244353;\nconstexpr ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\n\
-    constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/util.hpp\"\n\nstruct\
-    \ IOSetup{\n  constexpr IOSetup(){\n    std::cin.tie(nullptr);\n    std::ios::sync_with_stdio(false);\n\
+    \ constexpr T MAX=std::numeric_limits<T>::max();\n  static constexpr T MIN=std::numeric_limits<T>::min();\n\
+    \  static constexpr T value=std::numeric_limits<T>::max()/2;\n  static constexpr\
+    \ T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr\
+    \ T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\n\
+    constexpr ld PI=3.1415926535897932384626;\nconstexpr ll mod=998244353;\nconstexpr\
+    \ ll MOD=1000000007;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\nconstexpr int\
+    \ dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/util.hpp\"\n\nstruct IOSetup{\n\
+    \  constexpr IOSetup(){\n    std::cin.tie(nullptr);\n    std::ios::sync_with_stdio(false);\n\
     \    std::cout.tie(0);\n    std::cout<<std::fixed<<std::setprecision(12);\n  \
     \  std::cerr<<std::fixed<<std::setprecision(12);\n  }\n};\ntemplate<typename F>\n\
     struct REC{\n  private:\n  F f;\n  public:\n  explicit constexpr REC(F&&f_):f(std::forward<F>(f_)){}\n\
-    \  template<typename...Args>\n  constexpr auto operator()(Args&&...args)const{\n\
+    \  template<typename... Args>\n  constexpr auto operator()(Args&&...args)const{\n\
     \    return f(*this, std::forward<Args>(args)...);\n  }\n};\ntemplate<typename\
     \ T,typename Comp=std::less<T>>\nstruct compressor{\n  private:\n  std::vector<T>data;\n\
     \  Comp cmp;\n  bool sorted=false;\n  public:\n  compressor():compressor(Comp()){}\n\
     \  compressor(const Comp&cmp):cmp(cmp){}\n  compressor(const std::vector<T>&dat,const\
     \ Comp&cmp=Comp()):data(dat),cmp(cmp){}\n  compressor(std::vector<T>&&dat,const\
-    \ Comp&cmp=Comp()):data(move(dat)),cmp(cmp){}\n  compressor(initializer_list<T>li,const\
+    \ Comp&cmp=Comp()):data(move(dat)),cmp(cmp){}\n  compressor(std::initializer_list<T>li,const\
     \ Comp&cmp=Comp()):data(li.begin(),li.end()),cmp(cmp){}\n  void push_back(const\
     \ T&v){assert(!sorted);data.push_back(v);}\n  void push_back(T&&v){assert(!sorted);data.push_back(move(v));}\n\
-    \  template<typename..Args>void emplace_back(Args&&...args){assert(!sorted);data.emplace_back(std::forward<Args>(args)...);}\n\
-    \  void push(const vector<T>&v){\n    assert(!sorted);\n    const int n=data.size();\n\
+    \  template<typename... Args>void emplace_back(Args&&...args){assert(!sorted);data.emplace_back(std::forward<Args>(args)...);}\n\
+    \  void push(const std::vector<T>&v){\n    assert(!sorted);\n    const int n=data.size();\n\
     \    data.resize(v.size()+n);\n    for(int i=0;i<(int)v.size();i++)data[i+n]=v[i];\n\
     \  }\n  void build(){\n    assert(!sorted);sorted=1;\n    std::sort(data.begin(),data.end(),cmp);\n\
     \    data.erase(unique(data.begin(),data.end(),[&](const T&l,const T&r)->bool\
@@ -341,17 +342,17 @@ data:
     \    std::ios::sync_with_stdio(false);\n    std::cout.tie(0);\n    std::cout<<std::fixed<<std::setprecision(12);\n\
     \    std::cerr<<std::fixed<<std::setprecision(12);\n  }\n};\ntemplate<typename\
     \ F>\nstruct REC{\n  private:\n  F f;\n  public:\n  explicit constexpr REC(F&&f_):f(std::forward<F>(f_)){}\n\
-    \  template<typename...Args>\n  constexpr auto operator()(Args&&...args)const{\n\
+    \  template<typename... Args>\n  constexpr auto operator()(Args&&...args)const{\n\
     \    return f(*this, std::forward<Args>(args)...);\n  }\n};\ntemplate<typename\
     \ T,typename Comp=std::less<T>>\nstruct compressor{\n  private:\n  std::vector<T>data;\n\
     \  Comp cmp;\n  bool sorted=false;\n  public:\n  compressor():compressor(Comp()){}\n\
     \  compressor(const Comp&cmp):cmp(cmp){}\n  compressor(const std::vector<T>&dat,const\
     \ Comp&cmp=Comp()):data(dat),cmp(cmp){}\n  compressor(std::vector<T>&&dat,const\
-    \ Comp&cmp=Comp()):data(move(dat)),cmp(cmp){}\n  compressor(initializer_list<T>li,const\
+    \ Comp&cmp=Comp()):data(move(dat)),cmp(cmp){}\n  compressor(std::initializer_list<T>li,const\
     \ Comp&cmp=Comp()):data(li.begin(),li.end()),cmp(cmp){}\n  void push_back(const\
     \ T&v){assert(!sorted);data.push_back(v);}\n  void push_back(T&&v){assert(!sorted);data.push_back(move(v));}\n\
-    \  template<typename..Args>void emplace_back(Args&&...args){assert(!sorted);data.emplace_back(std::forward<Args>(args)...);}\n\
-    \  void push(const vector<T>&v){\n    assert(!sorted);\n    const int n=data.size();\n\
+    \  template<typename... Args>void emplace_back(Args&&...args){assert(!sorted);data.emplace_back(std::forward<Args>(args)...);}\n\
+    \  void push(const std::vector<T>&v){\n    assert(!sorted);\n    const int n=data.size();\n\
     \    data.resize(v.size()+n);\n    for(int i=0;i<(int)v.size();i++)data[i+n]=v[i];\n\
     \  }\n  void build(){\n    assert(!sorted);sorted=1;\n    std::sort(data.begin(),data.end(),cmp);\n\
     \    data.erase(unique(data.begin(),data.end(),[&](const T&l,const T&r)->bool\
@@ -371,7 +372,7 @@ data:
   requiredBy:
   - template/template.hpp
   - Data_Structure/segtree_monoids.hpp
-  timestamp: '2022-12-18 04:50:26+09:00'
+  timestamp: '2022-12-18 05:17:30+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/CGL/CGL_2_C.test.cpp
