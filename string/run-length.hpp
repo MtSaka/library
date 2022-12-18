@@ -1,5 +1,5 @@
 #pragma once
-#include"../../template/template.hpp"
+#include"../template/template.hpp"
 
 template<typename Cont,typename Cmp>
 vector<pair<typename Cont::value_type,int>>run_length(const Cont&c,const Cmp&cmp){

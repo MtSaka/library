@@ -1,5 +1,5 @@
 #pragma once
-#include"../string/rolling_hash.hpp"
+#include"../template/template.hpp"
 
 struct rolling_hash{
   using ull=unsigned long long;

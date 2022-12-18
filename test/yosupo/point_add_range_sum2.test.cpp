@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include"../../template/template.hpp"
-#include"../../data-structure/binay-indexed-tree.hpp"
+#include"../../data-structure/binary-indexed-tree.hpp"
 int main(){
   int n,q;
   cin>>n>>q;
