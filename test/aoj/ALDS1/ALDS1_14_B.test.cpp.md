@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: string/rolling_hash.hpp
+    path: string/rolling-hash.hpp
     title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
   - icon: ':question:'
     path: template/alias.hpp
@@ -125,7 +125,7 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"string/rolling_hash.hpp\"\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"string/rolling-hash.hpp\"\
     \n\nstruct rolling_hash{\n  using ull=unsigned long long;\n  using i128=__uint128_t;\n\
     \  private:\n  static constexpr ull MOD=(1ull<<61)-1;\n  static constexpr ull\
     \ MASK31=(1ull<<31)-1;\n  static ull calc_mod(ull a){\n    ull ret=(a&MOD)+(a>>61);\n\
@@ -147,7 +147,7 @@ data:
     \  auto rh2=rh.get_hash(p);\n  for(int i=0;i+p.size()<=t.size();i++){\n    if(rh1.get_hash(i,i+p.size())==rh2.get_all()){\n\
     \      cout<<i<<endl;\n    }\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../string/rolling_hash.hpp\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../string/rolling-hash.hpp\"\
     \nint main(){\n  string t,p;\n  cin>>t>>p;\n  rolling_hash rh;\n  auto rh1=rh.get_hash(t);\n\
     \  auto rh2=rh.get_hash(p);\n  for(int i=0;i+p.size()<=t.size();i++){\n    if(rh1.get_hash(i,i+p.size())==rh2.get_all()){\n\
     \      cout<<i<<endl;\n    }\n  }\n}"
@@ -158,11 +158,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - string/rolling_hash.hpp
+  - string/rolling-hash.hpp
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_14_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-19 04:31:23+09:00'
+  timestamp: '2022-12-19 07:05:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_14_B.test.cpp

@@ -20,10 +20,10 @@ data:
   - icon: ':x:'
     path: data-structure/disjoint-sparse-table.hpp
     title: Disjoint Sparse Table
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/dual-segment-tree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/dynamic-segment-tree.hpp
     title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
   - icon: ':heavy_check_mark:'
@@ -38,22 +38,22 @@ data:
   - icon: ':question:'
     path: data-structure/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/persistent-array.hpp
     title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/persistent-union-find.hpp
     title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/rollback-union-find.hpp
     title: Rollback Disjoint Set Union(Union Find)
   - icon: ':x:'
     path: data-structure/segment-tree-beats.hpp
     title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/segment-tree-monoids.hpp
     title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':question:'
@@ -120,13 +120,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/shortest-path/warshall-floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':warning:'
     path: graph/tree/centroid.hpp
     title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/doubling_lowest_common_ancestor.hpp
     title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':question:'
@@ -142,7 +142,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/convolution/gcd-convolution.hpp
     title: GCD Convolution
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/lcm-convolution.hpp
     title: LCM Convolution
   - icon: ':heavy_check_mark:'
@@ -154,7 +154,7 @@ data:
   - icon: ':question:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/multipoint-evaluation.hpp
     title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
   - icon: ':x:'
@@ -196,7 +196,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/number/is-prime.hpp
     title: "Prime Determination(\u7D20\u6570\u5224\u5B9A)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/number/kth-root-integer.hpp
     title: Kth Root Integer
   - icon: ':heavy_check_mark:'
@@ -225,12 +225,18 @@ data:
   - icon: ':warning:'
     path: math/others/lagrange.hpp
     title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/others/matrix.hpp
     title: "Matrix(\u884C\u5217)"
   - icon: ':warning:'
     path: others/timer.hpp
     title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
+  - icon: ':heavy_check_mark:'
+    path: string/rolling-hash.hpp
+    title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
+  - icon: ':x:'
+    path: string/run-length.hpp
+    title: string/run-length.hpp
   - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
@@ -356,6 +362,9 @@ data:
     path: test/aoj/GRL/GRL_6_A.test.cpp
     title: test/aoj/GRL/GRL_6_A.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL/GRL_6_A_2.test.cpp
+    title: test/aoj/GRL/GRL_6_A_2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/ITP1/ITP1_3_D.test.cpp
     title: test/aoj/ITP1/ITP1_3_D.test.cpp
   - icon: ':heavy_check_mark:'
@@ -397,43 +406,46 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/kth_root_integer.test.cpp
     title: test/yosupo/kth_root_integer.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca1.test.cpp
     title: test/yosupo/lca1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca2.test.cpp
     title: test/yosupo/lca2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lcm_convolution.test.cpp
     title: test/yosupo/lcm_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix_det.test.cpp
     title: test/yosupo/matrix_det.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix_product.test.cpp
     title: test/yosupo/matrix_product.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/persistent_unionfind.test.cpp
     title: test/yosupo/persistent_unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/persistent_unionfind2.test.cpp
     title: test/yosupo/persistent_unionfind2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum1.test.cpp
     title: test/yosupo/point_add_range_sum1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_add_range_sum2.test.cpp
+    title: test/yosupo/point_add_range_sum2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum3.test.cpp
     title: test/yosupo/point_add_range_sum3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
   - icon: ':x:'
@@ -490,6 +502,9 @@ data:
   - icon: ':x:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/1469.test.cpp
+    title: test/yukicoder/1469.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -630,6 +645,8 @@ data:
   - math/convolution/mod-convolution.hpp
   - math/convolution/ntt.hpp
   - math/convolution/lcm-convolution.hpp
+  - string/run-length.hpp
+  - string/rolling-hash.hpp
   - data-structure/binary-trie.hpp
   - data-structure/segment-tree-monoids.hpp
   - data-structure/hash-set.hpp
@@ -681,6 +698,7 @@ data:
   - test/aoj/GRL/GRL_1_A.test.cpp
   - test/aoj/GRL/GRL_5_C_1.test.cpp
   - test/aoj/GRL/GRL_5_B.test.cpp
+  - test/aoj/GRL/GRL_6_A_2.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
   - test/aoj/DSL/DSL_2_G.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp
@@ -698,6 +716,7 @@ data:
   - test/aoj/NTL/NTL_1_A.test.cpp
   - test/aoj/NTL/NTL_1_B.test.cpp
   - test/aoj/ITP1/ITP1_3_D.test.cpp
+  - test/yukicoder/1469.test.cpp
   - test/yukicoder/1236.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/associative_array.test.cpp
@@ -720,6 +739,7 @@ data:
   - test/yosupo/tree_diameter.test.cpp
   - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
   - test/yosupo/lca2.test.cpp
+  - test/yosupo/point_add_range_sum2.test.cpp
   - test/yosupo/pow_of_formal_power_series.test.cpp
   - test/yosupo/matrix_det.test.cpp
   - test/yosupo/convolution_mod_1000000007.test.cpp

@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/persistent-array.hpp
     title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/persistent-union-find.hpp
     title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
   - icon: ':question:'
@@ -27,9 +27,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/persistent_unionfind
@@ -177,7 +177,7 @@ data:
   path: test/yosupo/persistent_unionfind.test.cpp
   requiredBy: []
   timestamp: '2022-12-18 23:26:35+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/persistent_unionfind.test.cpp
 layout: document

@@ -21,14 +21,13 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/point_add_range_sum3.test.cpp
-    title: test/yosupo/point_add_range_sum3.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yukicoder/1469.test.cpp
+    title: test/yukicoder/1469.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    document_title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -121,55 +120,22 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/dynamic-segment-tree.hpp\"\
-    \n\ntemplate<typename S,S (*op)(S,S),S (*e)()>\nstruct DynamicSegmentTree{\n \
-    \ public:\n  DynamicSegmentTree():DynamicSegmentTree(numeric_limits<long long>::max()>>1){}\n\
-    \  DynamicSegmentTree(long long n):n(n),root(nullptr){}\n  void set(int p,const\
-    \ S&x){inner_set(root,0,n,p,x);}\n  S get(long long p)const{return inner_get(root,0,n,p);}\n\
-    \  S operator[](long long p)const{return inner_get(root,0,n,p);}\n  S query(long\
-    \ long l,long long r)const{return inner_query(root,0,n,l,r);}\n  S all_query()const{return\
-    \ root?root->val:e();}\n  void reset(long long l,long long r){inner_reset(root,0,n,l,r);}\n\
-    \  private:\n  struct node;\n  using ptr=unique_ptr<node>;\n  struct node{\n \
-    \   S val;\n    ptr l,r;\n    node(const S&val):val(val),l(nullptr),r(nullptr){}\n\
-    \  };\n  const long long n;\n  ptr root;\n  void inner_set(ptr&nd,long long l,long\
-    \ long r,long long p,const S&x){\n    if(!nd)nd=make_unique<node>(e());\n    if(r-l==1){nd->val=x;return;}\n\
-    \    long long m=(l+r)>>1;\n    if(p<m)inner_set(nd->l,l,m,p,x);\n    else inner_set(nd->r,m,r,p,x);\n\
-    \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n  S inner_get(const\
-    \ ptr&nd,long long l,long long r,long long p)const{\n    if(!nd)return e();\n\
-    \    if(r-l==1)return nd->val;\n    long long m=(l+r)>>1;\n    if(p<m)return inner_get(nd->l,l,m,p);\n\
-    \    return inner_get(nd->r,m,r,p);\n  }\n  S inner_query(const ptr&nd,long long\
-    \ nl,long long nr,long long l,long long r)const{\n    if(!nd||nr<=l||r<=nl)return\
-    \ e();\n    if(l<=nl&&nr<=r)return nd->val;\n    long long m=(nl+nr)>>1;\n   \
-    \ return op(inner_query(nd->l,nl,m,l,r),inner_query(nd->r,m,nr,l,r));\n  }\n \
-    \ void inner_reset(ptr&nd,long long nl,long long nr,long long l,long long r){\n\
-    \    if(!nd||nr<=l||r<=nl)return;\n    if(l<=nl&&nr<=r){\n      nd.reset();return;\n\
-    \    }\n    long long m=(l+r)>>1;\n    inner_reset(nd->l,nl,m,l,r);\n    inner_reset(nd->r,m,nr,l,r);\n\
-    \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n};\n/**\n *\
-    \ @brief Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)\n */\n"
-  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename S,S\
-    \ (*op)(S,S),S (*e)()>\nstruct DynamicSegmentTree{\n  public:\n  DynamicSegmentTree():DynamicSegmentTree(numeric_limits<long\
-    \ long>::max()>>1){}\n  DynamicSegmentTree(long long n):n(n),root(nullptr){}\n\
-    \  void set(int p,const S&x){inner_set(root,0,n,p,x);}\n  S get(long long p)const{return\
-    \ inner_get(root,0,n,p);}\n  S operator[](long long p)const{return inner_get(root,0,n,p);}\n\
-    \  S query(long long l,long long r)const{return inner_query(root,0,n,l,r);}\n\
-    \  S all_query()const{return root?root->val:e();}\n  void reset(long long l,long\
-    \ long r){inner_reset(root,0,n,l,r);}\n  private:\n  struct node;\n  using ptr=unique_ptr<node>;\n\
-    \  struct node{\n    S val;\n    ptr l,r;\n    node(const S&val):val(val),l(nullptr),r(nullptr){}\n\
-    \  };\n  const long long n;\n  ptr root;\n  void inner_set(ptr&nd,long long l,long\
-    \ long r,long long p,const S&x){\n    if(!nd)nd=make_unique<node>(e());\n    if(r-l==1){nd->val=x;return;}\n\
-    \    long long m=(l+r)>>1;\n    if(p<m)inner_set(nd->l,l,m,p,x);\n    else inner_set(nd->r,m,r,p,x);\n\
-    \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n  S inner_get(const\
-    \ ptr&nd,long long l,long long r,long long p)const{\n    if(!nd)return e();\n\
-    \    if(r-l==1)return nd->val;\n    long long m=(l+r)>>1;\n    if(p<m)return inner_get(nd->l,l,m,p);\n\
-    \    return inner_get(nd->r,m,r,p);\n  }\n  S inner_query(const ptr&nd,long long\
-    \ nl,long long nr,long long l,long long r)const{\n    if(!nd||nr<=l||r<=nl)return\
-    \ e();\n    if(l<=nl&&nr<=r)return nd->val;\n    long long m=(nl+nr)>>1;\n   \
-    \ return op(inner_query(nd->l,nl,m,l,r),inner_query(nd->r,m,nr,l,r));\n  }\n \
-    \ void inner_reset(ptr&nd,long long nl,long long nr,long long l,long long r){\n\
-    \    if(!nd||nr<=l||r<=nl)return;\n    if(l<=nl&&nr<=r){\n      nd.reset();return;\n\
-    \    }\n    long long m=(l+r)>>1;\n    inner_reset(nd->l,nl,m,l,r);\n    inner_reset(nd->r,m,nr,l,r);\n\
-    \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n};\n/**\n *\
-    \ @brief Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)\n */"
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"string/run-length.hpp\"\
+    \n\ntemplate<typename Cont,typename Cmp>\nvector<pair<typename Cont::value_type,int>>run_length(const\
+    \ Cont&c,const Cmp&cmp){\n  vector<pair<typename Cont::value_type,int>> ret;\n\
+    \  if(c.empty())return ret;\n  ret.emplace_back(c.front(),1);\n  for(int i=1;i<(int)c.size();i++){\n\
+    \    if(cmp(c[i],ret.back().first)){\n      ret.back().second++;\n    }else{\n\
+    \      ret.emplace_back(c[i],1);\n    }\n  }\n  return ret;\n}\ntemplate<typename\
+    \ Cont>vector<pair<typename Cont::value_type,int>>run_length(const Cont&c){return\
+    \ run_length(c,equal_to<typename Cont::value_type>());}\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename Cont,typename\
+    \ Cmp>\nvector<pair<typename Cont::value_type,int>>run_length(const Cont&c,const\
+    \ Cmp&cmp){\n  vector<pair<typename Cont::value_type,int>> ret;\n  if(c.empty())return\
+    \ ret;\n  ret.emplace_back(c.front(),1);\n  for(int i=1;i<(int)c.size();i++){\n\
+    \    if(cmp(c[i],ret.back().first)){\n      ret.back().second++;\n    }else{\n\
+    \      ret.emplace_back(c[i],1);\n    }\n  }\n  return ret;\n}\ntemplate<typename\
+    \ Cont>vector<pair<typename Cont::value_type,int>>run_length(const Cont&c){return\
+    \ run_length(c,equal_to<typename Cont::value_type>());}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -178,16 +144,16 @@ data:
   - template/util.hpp
   - template/debug.hpp
   isVerificationFile: false
-  path: data-structure/dynamic-segment-tree.hpp
+  path: string/run-length.hpp
   requiredBy: []
-  timestamp: '2022-12-18 23:26:35+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-12-19 07:05:51+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/point_add_range_sum3.test.cpp
-documentation_of: data-structure/dynamic-segment-tree.hpp
+  - test/yukicoder/1469.test.cpp
+documentation_of: string/run-length.hpp
 layout: document
 redirect_from:
-- /library/data-structure/dynamic-segment-tree.hpp
-- /library/data-structure/dynamic-segment-tree.hpp.html
-title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
+- /library/string/run-length.hpp
+- /library/string/run-length.hpp.html
+title: string/run-length.hpp
 ---

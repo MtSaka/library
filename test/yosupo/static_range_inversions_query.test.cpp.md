@@ -14,13 +14,15 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.11.1/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../data-structure/binay-indexed-tree.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../template/template.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
-    \n#include\"../../template/template.hpp\"\n#include\"../../data-structure/binay-indexed-tree.hpp\"\
+    \n#include\"../../template/template.hpp\"\n#include\"../../data-structure/binary-indexed-tree.hpp\"\
     \n#include\"../../others/mo.hpp\"\nint main(){\n  int n,q;\n  cin>>n>>q;\n  vector<int>a(n);\n\
     \  cin>>a;\n  Mo mo(n);\n  for(int i=0;i<q;i++){\n    int l,r;cin>>l>>r;\n   \
     \ mo.add(l,r);\n  }\n  vector<int>b{a};\n  sort(b.begin(),b.end());\n  b.erase(unique(b.begin(),b.end()),b.end());\n\

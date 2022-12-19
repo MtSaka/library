@@ -22,13 +22,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/point_add_range_sum3.test.cpp
-    title: test/yosupo/point_add_range_sum3.test.cpp
+    path: test/aoj/ALDS1/ALDS1_14_B.test.cpp
+    title: test/aoj/ALDS1/ALDS1_14_B.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
+    document_title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\
+      \u30E5)"
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -121,55 +122,41 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/dynamic-segment-tree.hpp\"\
-    \n\ntemplate<typename S,S (*op)(S,S),S (*e)()>\nstruct DynamicSegmentTree{\n \
-    \ public:\n  DynamicSegmentTree():DynamicSegmentTree(numeric_limits<long long>::max()>>1){}\n\
-    \  DynamicSegmentTree(long long n):n(n),root(nullptr){}\n  void set(int p,const\
-    \ S&x){inner_set(root,0,n,p,x);}\n  S get(long long p)const{return inner_get(root,0,n,p);}\n\
-    \  S operator[](long long p)const{return inner_get(root,0,n,p);}\n  S query(long\
-    \ long l,long long r)const{return inner_query(root,0,n,l,r);}\n  S all_query()const{return\
-    \ root?root->val:e();}\n  void reset(long long l,long long r){inner_reset(root,0,n,l,r);}\n\
-    \  private:\n  struct node;\n  using ptr=unique_ptr<node>;\n  struct node{\n \
-    \   S val;\n    ptr l,r;\n    node(const S&val):val(val),l(nullptr),r(nullptr){}\n\
-    \  };\n  const long long n;\n  ptr root;\n  void inner_set(ptr&nd,long long l,long\
-    \ long r,long long p,const S&x){\n    if(!nd)nd=make_unique<node>(e());\n    if(r-l==1){nd->val=x;return;}\n\
-    \    long long m=(l+r)>>1;\n    if(p<m)inner_set(nd->l,l,m,p,x);\n    else inner_set(nd->r,m,r,p,x);\n\
-    \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n  S inner_get(const\
-    \ ptr&nd,long long l,long long r,long long p)const{\n    if(!nd)return e();\n\
-    \    if(r-l==1)return nd->val;\n    long long m=(l+r)>>1;\n    if(p<m)return inner_get(nd->l,l,m,p);\n\
-    \    return inner_get(nd->r,m,r,p);\n  }\n  S inner_query(const ptr&nd,long long\
-    \ nl,long long nr,long long l,long long r)const{\n    if(!nd||nr<=l||r<=nl)return\
-    \ e();\n    if(l<=nl&&nr<=r)return nd->val;\n    long long m=(nl+nr)>>1;\n   \
-    \ return op(inner_query(nd->l,nl,m,l,r),inner_query(nd->r,m,nr,l,r));\n  }\n \
-    \ void inner_reset(ptr&nd,long long nl,long long nr,long long l,long long r){\n\
-    \    if(!nd||nr<=l||r<=nl)return;\n    if(l<=nl&&nr<=r){\n      nd.reset();return;\n\
-    \    }\n    long long m=(l+r)>>1;\n    inner_reset(nd->l,nl,m,l,r);\n    inner_reset(nd->r,m,nr,l,r);\n\
-    \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n};\n/**\n *\
-    \ @brief Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)\n */\n"
-  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename S,S\
-    \ (*op)(S,S),S (*e)()>\nstruct DynamicSegmentTree{\n  public:\n  DynamicSegmentTree():DynamicSegmentTree(numeric_limits<long\
-    \ long>::max()>>1){}\n  DynamicSegmentTree(long long n):n(n),root(nullptr){}\n\
-    \  void set(int p,const S&x){inner_set(root,0,n,p,x);}\n  S get(long long p)const{return\
-    \ inner_get(root,0,n,p);}\n  S operator[](long long p)const{return inner_get(root,0,n,p);}\n\
-    \  S query(long long l,long long r)const{return inner_query(root,0,n,l,r);}\n\
-    \  S all_query()const{return root?root->val:e();}\n  void reset(long long l,long\
-    \ long r){inner_reset(root,0,n,l,r);}\n  private:\n  struct node;\n  using ptr=unique_ptr<node>;\n\
-    \  struct node{\n    S val;\n    ptr l,r;\n    node(const S&val):val(val),l(nullptr),r(nullptr){}\n\
-    \  };\n  const long long n;\n  ptr root;\n  void inner_set(ptr&nd,long long l,long\
-    \ long r,long long p,const S&x){\n    if(!nd)nd=make_unique<node>(e());\n    if(r-l==1){nd->val=x;return;}\n\
-    \    long long m=(l+r)>>1;\n    if(p<m)inner_set(nd->l,l,m,p,x);\n    else inner_set(nd->r,m,r,p,x);\n\
-    \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n  S inner_get(const\
-    \ ptr&nd,long long l,long long r,long long p)const{\n    if(!nd)return e();\n\
-    \    if(r-l==1)return nd->val;\n    long long m=(l+r)>>1;\n    if(p<m)return inner_get(nd->l,l,m,p);\n\
-    \    return inner_get(nd->r,m,r,p);\n  }\n  S inner_query(const ptr&nd,long long\
-    \ nl,long long nr,long long l,long long r)const{\n    if(!nd||nr<=l||r<=nl)return\
-    \ e();\n    if(l<=nl&&nr<=r)return nd->val;\n    long long m=(nl+nr)>>1;\n   \
-    \ return op(inner_query(nd->l,nl,m,l,r),inner_query(nd->r,m,nr,l,r));\n  }\n \
-    \ void inner_reset(ptr&nd,long long nl,long long nr,long long l,long long r){\n\
-    \    if(!nd||nr<=l||r<=nl)return;\n    if(l<=nl&&nr<=r){\n      nd.reset();return;\n\
-    \    }\n    long long m=(l+r)>>1;\n    inner_reset(nd->l,nl,m,l,r);\n    inner_reset(nd->r,m,nr,l,r);\n\
-    \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n};\n/**\n *\
-    \ @brief Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)\n */"
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"string/rolling-hash.hpp\"\
+    \n\nstruct rolling_hash{\n  using ull=unsigned long long;\n  using i128=__uint128_t;\n\
+    \  private:\n  static constexpr ull MOD=(1ull<<61)-1;\n  static constexpr ull\
+    \ MASK31=(1ull<<31)-1;\n  static ull calc_mod(ull a){\n    ull ret=(a&MOD)+(a>>61);\n\
+    \    if(ret>=MOD)ret-=MOD;\n    return ret;\n  }\n  static ull calc_mul(ull a,ull\
+    \ b){\n    i128 c=(i128)a*b;\n    return calc_add(c&MOD,c>>61);\n  }\n  static\
+    \ ull calc_add(ull a,ull b){\n    ull ret=a+b;\n    if(ret>=MOD)ret-=MOD;\n  \
+    \  return ret;\n  }\n  ull BASE;\n  void init(){\n    BASE=(1ull<<31)+(random_device()()&MASK31);\n\
+    \  }\n  public:\n  struct hash{\n    private:\n    int n;\n    ull BASE;\n   \
+    \ vector<ull>inner_hash,power;\n    public:\n    template<typename T>\n    hash(ull\
+    \ base,const T&s):BASE(base){\n      n=s.size();\n      inner_hash.resize(n+1);\n\
+    \      for(int i=0;i<n;i++)inner_hash[i+1]=calc_add(s[i],calc_mul(BASE,inner_hash[i]));\n\
+    \      power.resize(n+1);power[0]=1;\n      for(int i=0;i<n;i++)power[i+1]=calc_mul(power[i],BASE);\n\
+    \    }\n    ull get_hash(int l,int r)const{\n      return calc_add(inner_hash[r],MOD-calc_mul(inner_hash[l],power[r-l]));\n\
+    \    }\n    ull get_all()const{\n      return inner_hash[n];\n    }\n  };\n  rolling_hash(){init();}\n\
+    \  template<typename T>\n  hash get_hash(const T&s)const{return hash(BASE,s);}\n\
+    \  ull get_base()const{return BASE;}\n};\n/**\n * @brief Rolling Hash(\u30ED\u30FC\
+    \u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)\n*/\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\nstruct rolling_hash{\n\
+    \  using ull=unsigned long long;\n  using i128=__uint128_t;\n  private:\n  static\
+    \ constexpr ull MOD=(1ull<<61)-1;\n  static constexpr ull MASK31=(1ull<<31)-1;\n\
+    \  static ull calc_mod(ull a){\n    ull ret=(a&MOD)+(a>>61);\n    if(ret>=MOD)ret-=MOD;\n\
+    \    return ret;\n  }\n  static ull calc_mul(ull a,ull b){\n    i128 c=(i128)a*b;\n\
+    \    return calc_add(c&MOD,c>>61);\n  }\n  static ull calc_add(ull a,ull b){\n\
+    \    ull ret=a+b;\n    if(ret>=MOD)ret-=MOD;\n    return ret;\n  }\n  ull BASE;\n\
+    \  void init(){\n    BASE=(1ull<<31)+(random_device()()&MASK31);\n  }\n  public:\n\
+    \  struct hash{\n    private:\n    int n;\n    ull BASE;\n    vector<ull>inner_hash,power;\n\
+    \    public:\n    template<typename T>\n    hash(ull base,const T&s):BASE(base){\n\
+    \      n=s.size();\n      inner_hash.resize(n+1);\n      for(int i=0;i<n;i++)inner_hash[i+1]=calc_add(s[i],calc_mul(BASE,inner_hash[i]));\n\
+    \      power.resize(n+1);power[0]=1;\n      for(int i=0;i<n;i++)power[i+1]=calc_mul(power[i],BASE);\n\
+    \    }\n    ull get_hash(int l,int r)const{\n      return calc_add(inner_hash[r],MOD-calc_mul(inner_hash[l],power[r-l]));\n\
+    \    }\n    ull get_all()const{\n      return inner_hash[n];\n    }\n  };\n  rolling_hash(){init();}\n\
+    \  template<typename T>\n  hash get_hash(const T&s)const{return hash(BASE,s);}\n\
+    \  ull get_base()const{return BASE;}\n};\n/**\n * @brief Rolling Hash(\u30ED\u30FC\
+    \u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -178,16 +165,16 @@ data:
   - template/util.hpp
   - template/debug.hpp
   isVerificationFile: false
-  path: data-structure/dynamic-segment-tree.hpp
+  path: string/rolling-hash.hpp
   requiredBy: []
-  timestamp: '2022-12-18 23:26:35+09:00'
+  timestamp: '2022-12-19 07:05:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/point_add_range_sum3.test.cpp
-documentation_of: data-structure/dynamic-segment-tree.hpp
+  - test/aoj/ALDS1/ALDS1_14_B.test.cpp
+documentation_of: string/rolling-hash.hpp
 layout: document
 redirect_from:
-- /library/data-structure/dynamic-segment-tree.hpp
-- /library/data-structure/dynamic-segment-tree.hpp.html
-title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
+- /library/string/rolling-hash.hpp
+- /library/string/rolling-hash.hpp.html
+title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
 ---

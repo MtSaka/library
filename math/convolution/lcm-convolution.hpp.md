@@ -21,12 +21,12 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lcm_convolution.test.cpp
     title: test/yosupo/lcm_convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: LCM Convolution
     links: []
@@ -147,7 +147,7 @@ data:
   path: math/convolution/lcm-convolution.hpp
   requiredBy: []
   timestamp: '2022-12-18 23:26:35+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/lcm_convolution.test.cpp
 documentation_of: math/convolution/lcm-convolution.hpp
