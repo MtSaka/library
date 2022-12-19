@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: math/modular/modint.hpp
     title: modint
-  - icon: ':warning:'
+  - icon: ':x:'
     path: math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   - icon: ':question:'

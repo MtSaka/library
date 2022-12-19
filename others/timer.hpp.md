@@ -1,9 +1,6 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: graph/tree/rerooting.hpp
-    title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -24,18 +21,15 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
-  _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _isVerificationFailed: false
+  _pathExtension: hpp
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_B
-    links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_B
-  bundledCode: "#line 1 \"test/aoj/GRL/GRL_5_B.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_B\"\
-    \n#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\
-    \n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...) d\n#define\
-    \ REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
+    document_title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
+    links: []
+  bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
+    \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
+    \ d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
     #define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n#define REP4(i,a,b,c) for(ll\
     \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n\
     #define RREP1(a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n\
@@ -124,35 +118,23 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 1 \"graph/tree/rerooting.hpp\"\
-    \ntemplate<typename S,typename T=S>\nstruct ReRooting{\n  struct Edge{\n    int\
-    \ from,to;\n    S cost;\n    T dp,ndp;\n  };\n  using F=function<T(T,T)>;\n  using\
-    \ G=function<T(T,Edge)>;\n  vector<vector<Edge>>graph;\n  const F f;\n  const\
-    \ G g;\n  const T id;\n  vector<T>subdp,dp;\n  void add_edge(int u,int v,const\
-    \ S&d) {\n    graph[u].emplace_back(Edge{u,v,d,id,id});\n    graph[v].emplace_back(Edge{v,u,d,id,id});\n\
-    \  }\n  void add_directed_edge(int u,int v,const S&d) {\n    graph[u].emplace_back(Edge{u,v,d,id,id});\n\
-    \  }\n  ReRooting(int n,const F&f,const G&g,const T&id=T{}):graph(n),f(f),g(g),id(id),subdp(n,id),dp(n,id){}\n\
-    \  void dfs_sub(int x,int p){\n    for(auto&e:graph[x])if(e.to!=p){\n      dfs_sub(e.to,x);\n\
-    \      e.dp=g(subdp[e.to],e);\n      subdp[x]=f(subdp[x],e.dp);\n    }\n  }\n\
-    \  void dfs_all(int x,int p,T top) {\n    T now=id;\n    for(auto&e:graph[x]){\n\
-    \      e.ndp=now;\n      if(e.to==p)e.dp=g(top,e);\n      now=f(now,e.dp);\n \
-    \   }\n    dp[x]=now;\n    now=id;\n    for(int i=(int)graph[x].size()-1;i>=0;i--){\n\
-    \      auto&e=graph[x][i];\n      if(e.to!=p)dfs_all(e.to,x,f(e.ndp,now));\n \
-    \     now=f(e.dp,now);\n    }\n  }\n  vector<T>solve(){\n    dfs_sub(0,-1);\n\
-    \    dfs_all(0,-1,id);\n    return dp;\n  }\n};\n/**\n * @brief ReRooting(\u5168\
-    \u65B9\u4F4D\u6728DP)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_B.test.cpp\"\nlong long\
-    \ f(long long a,long long b){\n  return max(a,b);\n}\nlong long g(long long a,ReRooting<long\
-    \ long>::Edge b){\n  return a+b.cost;\n}\nint main(){\n  int n;\n  cin>>n;\n \
-    \ ReRooting<long long>r(n,f,g);\n  for(int i=0;i<n-1;i++){\n    int s,t;\n   \
-    \ long long w;\n    cin>>s>>t>>w;\n    r.add_edge(s,t,w);\n  }\n  auto ans=r.solve();\n\
-    \  for(auto i:ans)cout<<i<<endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_B\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/tree/rerooting.hpp\"\
-    \nlong long f(long long a,long long b){\n  return max(a,b);\n}\nlong long g(long\
-    \ long a,ReRooting<long long>::Edge b){\n  return a+b.cost;\n}\nint main(){\n\
-    \  int n;\n  cin>>n;\n  ReRooting<long long>r(n,f,g);\n  for(int i=0;i<n-1;i++){\n\
-    \    int s,t;\n    long long w;\n    cin>>s>>t>>w;\n    r.add_edge(s,t,w);\n \
-    \ }\n  auto ans=r.solve();\n  for(auto i:ans)cout<<i<<endl;\n}"
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/timer.hpp\"\
+    \n\nclass Timer{\n  chrono::high_resolution_clock::time_point start,end;\n  double\
+    \ limit;\n  public:\n  Timer(){start=chrono::high_resolution_clock::now();}\n\
+    \  Timer(double l){start=chrono::high_resolution_clock::now();limit=l;}\n  double\
+    \ get_time(){end=chrono::high_resolution_clock::now();return chrono::duration<double>(end-start).count();}\n\
+    \  bool is_over(){return get_time()>limit;}\n  bool is_under(){return get_time()<=limit;}\n\
+    \  double get_limit(){return limit;}\n  void set_limit(double l){limit=l;}\n \
+    \ void set_start(){start=chrono::high_resolution_clock::now();}\n};\n/**\n * @brief\
+    \ Timer(\u30BF\u30A4\u30DE\u30FC)\n*/\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\nclass Timer{\n  chrono::high_resolution_clock::time_point\
+    \ start,end;\n  double limit;\n  public:\n  Timer(){start=chrono::high_resolution_clock::now();}\n\
+    \  Timer(double l){start=chrono::high_resolution_clock::now();limit=l;}\n  double\
+    \ get_time(){end=chrono::high_resolution_clock::now();return chrono::duration<double>(end-start).count();}\n\
+    \  bool is_over(){return get_time()>limit;}\n  bool is_under(){return get_time()<=limit;}\n\
+    \  double get_limit(){return limit;}\n  void set_limit(double l){limit=l;}\n \
+    \ void set_start(){start=chrono::high_resolution_clock::now();}\n};\n/**\n * @brief\
+    \ Timer(\u30BF\u30A4\u30DE\u30FC)\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -160,17 +142,16 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - graph/tree/rerooting.hpp
-  isVerificationFile: true
-  path: test/aoj/GRL/GRL_5_B.test.cpp
+  isVerificationFile: false
+  path: others/timer.hpp
   requiredBy: []
-  timestamp: '2022-12-18 23:26:35+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-19 04:31:23+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/aoj/GRL/GRL_5_B.test.cpp
+documentation_of: others/timer.hpp
 layout: document
 redirect_from:
-- /verify/test/aoj/GRL/GRL_5_B.test.cpp
-- /verify/test/aoj/GRL/GRL_5_B.test.cpp.html
-title: test/aoj/GRL/GRL_5_B.test.cpp
+- /library/others/timer.hpp
+- /library/others/timer.hpp.html
+title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
 ---

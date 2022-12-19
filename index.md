@@ -51,7 +51,7 @@ data:
     - icon: ':question:'
       path: data-structure/segment-tree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':question:'
+    - icon: ':x:'
       path: data-structure/sparse-table.hpp
       title: Sparse Table
     - icon: ':question:'
@@ -136,20 +136,20 @@ data:
       title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - name: graph/tree
     pages:
-    - icon: ':question:'
+    - icon: ':x:'
       path: graph/tree/RMQ_lowest_common_ancestor.hpp
       title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':warning:'
       path: graph/tree/centroid.hpp
       title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
-    - icon: ':question:'
+    - icon: ':x:'
       path: graph/tree/doubling_lowest_common_ancestor.hpp
       title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
-    - icon: ':question:'
+    - icon: ':x:'
       path: graph/tree/tree_diameter.hpp
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: math/convolution
@@ -167,27 +167,27 @@ data:
     - icon: ':x:'
       path: math/convolution/lcm-convolution.hpp
       title: LCM Convolution
-    - icon: ':warning:'
+    - icon: ':x:'
       path: math/convolution/mod-convolution.hpp
       title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: math/convolution/ntt.hpp
       title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - name: math/fps
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: math/fps/fps.hpp
       title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: math/fps/multipoint-evaluation.hpp
       title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: math/fps/polynomial-interpolation.hpp
       title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: math/fps/subset-sum.hpp
       title: Count Subset Sum
-    - icon: ':warning:'
+    - icon: ':x:'
       path: math/fps/taylor-shift.hpp
       title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - name: math/modular
@@ -234,7 +234,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/number/prime-sieve.hpp
       title: "Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: math/number/primitive-root.hpp
       title: "Primitive Root(\u539F\u59CB\u6839)"
     - icon: ':warning:'
@@ -246,7 +246,7 @@ data:
         \u9593\u7BE9)"
   - name: math/others
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: math/others/combinatorics.hpp
       title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
     - icon: ':x:'
@@ -258,6 +258,22 @@ data:
     - icon: ':x:'
       path: math/others/matrix.hpp
       title: "Matrix(\u884C\u5217)"
+  - name: others
+    pages:
+    - icon: ':warning:'
+      path: others/mo.hpp
+      title: Mo's Algorithm
+    - icon: ':warning:'
+      path: others/timer.hpp
+      title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
+  - name: string
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: string/rolling_hash.hpp
+      title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
+    - icon: ':warning:'
+      path: string/run_length.hpp
+      title: string/run_length.hpp
   - name: template
     pages:
     - icon: ':question:'
@@ -284,7 +300,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
       title: test/aoj/ALDS1/ALDS1_10_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_14_B.test.cpp
       title: test/aoj/ALDS1/ALDS1_14_B.test.cpp
     - icon: ':heavy_check_mark:'
@@ -394,16 +410,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_4_B.test.cpp
       title: test/aoj/GRL/GRL_4_B.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_5_A.test.cpp
       title: test/aoj/GRL/GRL_5_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_5_B.test.cpp
       title: test/aoj/GRL/GRL_5_B.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_5_C_1.test.cpp
       title: test/aoj/GRL/GRL_5_C_1.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_5_C_2.test.cpp
       title: test/aoj/GRL/GRL_5_C_2.test.cpp
     - icon: ':x:'

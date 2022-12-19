@@ -21,7 +21,7 @@ data:
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
     \n#include\"../../template/template.hpp\"\n#include\"../../data-structure/binay-indexed-tree.hpp\"\
-    \n#include\"../../Others/mo.hpp\"\nint main(){\n  int n,q;\n  cin>>n>>q;\n  vector<int>a(n);\n\
+    \n#include\"../../others/mo.hpp\"\nint main(){\n  int n,q;\n  cin>>n>>q;\n  vector<int>a(n);\n\
     \  cin>>a;\n  Mo mo(n);\n  for(int i=0;i<q;i++){\n    int l,r;cin>>l>>r;\n   \
     \ mo.add(l,r);\n  }\n  vector<int>b{a};\n  sort(b.begin(),b.end());\n  b.erase(unique(b.begin(),b.end()),b.end());\n\
     \  for(auto&i:a)i=lower_bound(b.begin(),b.end(),i)-b.begin();\n  BinaryIndexedTree<int>bit(b.size()+1);\n\
