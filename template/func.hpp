@@ -32,11 +32,11 @@ inline constexpr ll gcd(ll a,ll b){
   if(a<0)a=-a;
   if(b<0)b=-b;
   while(b){
-    tie(a,b)={b,a%b};
+    std::tie(a,b)={b,a%b};
   }
   return a;
 }
-inline constepxr ll lcm(ll a,ll b){return a/gcd(a,b)*b;}
+inline constexpr ll lcm(ll a,ll b){return a/gcd(a,b)*b;}
 inline constexpr bool is_prime(ll n){
   if(n<=1)return false;
   for(ll i=2;i*i<=n;i++){
