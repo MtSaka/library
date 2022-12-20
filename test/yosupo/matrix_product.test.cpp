@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/matrix_product"
 #include"../../template/template.hpp"
 #include"../../math/others/matrix.hpp"
-#include"../../math/modular/ModInt.hpp"
+#include"../../math/modular/modint.hpp"
 int main(){
   int n,m,k;
   cin>>n>>m>>k;

@@ -3,9 +3,9 @@
 
 template<typename Engine>
 struct Random{
-private:
+  private:
   Engine rnd;
-public:
+  public:
   using result_type=typename Engine::result_type;
   Random():Random(random_device{}()){}
   result_type operator()(){return rnd();}

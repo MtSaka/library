@@ -1,6 +1,6 @@
 #pragma once
 #include"../../template/template.hpp"
-#include"../modular/ModInt.hpp"
+#include"../modular/modint.hpp"
 #include"../number/primitive-root.hpp"
 
 template<int m>
