@@ -3,7 +3,7 @@
 #include"../modular/modint.hpp"
 
 template<int m>
-struct combination{
+struct Combinatorics{
   using mint=modint<m>;
   private:
   static vector<mint>dat,idat;
@@ -18,7 +18,7 @@ struct combination{
     }
   }
   public:
-  combination(int sz=0){extend(sz);}
+  Combinatorics(int sz=0){extend(sz);}
   template<typename T>
   static inline mint fac(T n){
     if(n<0)return mint();
@@ -48,9 +48,9 @@ struct combination{
   }
 };
 template<int m>
-vector<modint<m>>combination<m>::dat=vector<modint<m>>();
+vector<modint<m>>Combinatorics<m>::dat=vector<modint<m>>();
 template<int m>
-vector<modint<m>>combination<m>::idat=vector<modint<m>>();
+vector<modint<m>>Combinatorics<m>::idat=vector<modint<m>>();
 template<long long p>
 struct COMB{
   private:

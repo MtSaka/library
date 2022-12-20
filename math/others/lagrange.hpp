@@ -6,7 +6,7 @@ template<long long m>
 modint<m>lagrange_polynomial(const vector<modint<m>>&y,const long long&t){
   using mint=modint<m>;
   const int n=y.size()-1;
-  combination<m>c(n);
+  Combinatorics<m>c(n);
   if(t<=n)return y[t];
   mint ret;
   vector<mint>dp(n+1,1),pd(n+1,1);

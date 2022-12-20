@@ -4,7 +4,7 @@
 int main(){
   int n,m;
   cin>>n>>m;
-  FPS<998244353>f(n),g(m);
+  FormalPowerSeries<998244353>f(n),g(m);
   cin>>f>>g;
   auto [q,r]=f.div_mod(g);
   cout<<q.size()<<" "<<r.size()<<endl;

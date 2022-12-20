@@ -6,7 +6,7 @@ using mint=modint<998244353>;
 int main(){
   int n;
   cin>>n;
-  FPS<998244353>f(n);
+  FormalPowerSeries<998244353>f(n);
   cin>>f;
   auto get_sqrt=[&](mint x){return mint(mod_sqrt((ll)x.val(),998244353));};
   f=f.sqrt(-1,get_sqrt);

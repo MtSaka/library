@@ -4,7 +4,7 @@
 int main(){
   long long n,m;
   cin>>n>>m;
-  FPS<998244353>f(n);
+  FormalPowerSeries<998244353>f(n);
   cin>>f;
   cout<<f.pow(m)<<endl;
 }

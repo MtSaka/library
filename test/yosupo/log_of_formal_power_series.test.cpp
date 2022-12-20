@@ -4,7 +4,7 @@
 int main(){
   int n;
   cin>>n;
-  FPS<998244353>fps(n);
+  FormalPowerSeries<998244353>fps(n);
   cin>>fps;
   print(fps.log());
 }

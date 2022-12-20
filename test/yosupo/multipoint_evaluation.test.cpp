@@ -6,7 +6,7 @@ using mint=modint<998244353>;
 int main(){
   int n,m;
   cin>>n>>m;
-  FPS<998244353>f(n);
+  FormalPowerSeries<998244353>f(n);
   vector<mint>xs(m);
   cin>>f>>xs;
   cout<<multipoint_evaluation(f,xs)<<endl;

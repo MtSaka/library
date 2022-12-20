@@ -1,7 +1,7 @@
 #pragma once
 #include"../template/template.hpp"
 
-struct rolling_hash{
+struct RollingHash{
   using ull=unsigned long long;
   using i128=__uint128_t;
   private:
@@ -47,7 +47,7 @@ struct rolling_hash{
       return inner_hash[n];
     }
   };
-  rolling_hash(){init();}
+  RollingHash(){init();}
   template<typename T>
   hash get_hash(const T&s)const{return hash(BASE,s);}
   ull get_base()const{return BASE;}
