@@ -1,10 +1,10 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/lca"
 #include"../../template/template.hpp"
-#include"../../graph/tree/doubling_lowest_common_ancestor.hpp"
+#include"../../graph/tree/doubling-lowest-common-ancestor.hpp"
 int main(){
   int n,q;
   cin>>n>>q;
-  Doubling_LCA g(n);
+  DoublingLCA g(n);
   for(int i=1;i<n;i++){
     int u;
     cin>>u;

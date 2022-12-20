@@ -1,3 +1,6 @@
+#pragma once
+#include"../../template/template.hpp"
+
 template<typename S,typename T=S>
 struct ReRooting{
   struct Edge{

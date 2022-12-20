@@ -1,14 +1,16 @@
 #pragma once
+#include"../../template/template.hpp"
 #include"../graph-template.hpp"
+
 template<typename T=UnweightedEdge>
-struct Doubling_LCA:Graph<T>{
+struct DoublingLCA:Graph<T>{
   using Graph<T>::g;
   const int lg;
   vector<int>dep;
   vector<T>sum;
   vector<vector<int>>table;
-  Doubling_LCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}
-  Doubling_LCA(const Graph<T>&g):Graph<T>(g),lg(32-__builtin_clz(g.size())){}
+  DoublingLCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}
+  DoublingLCA(const Graph<T>&g):Graph<T>(g),lg(32-__builtin_clz(g.size())){}
   void build(int root=0){
     dep.assign(g.size(),0);
     sum.assign(g.size(),0);
