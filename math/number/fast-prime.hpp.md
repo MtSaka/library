@@ -21,75 +21,15 @@ data:
     title: template/util.hpp
   _extendedRequiredBy:
   - icon: ':warning:'
-    path: math/convolution/convolution.hpp
-    title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
-    path: math/convolution/mod-convolution.hpp
-    title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
-    path: math/convolution/ntt.hpp
-    title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
-    path: math/fps/fps.hpp
-    title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
-    path: math/fps/multipoint-evaluation.hpp
-    title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-  - icon: ':heavy_check_mark:'
-    path: math/fps/polynomial-interpolation.hpp
-    title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':x:'
-    path: math/fps/subset-sum.hpp
-    title: Count Subset Sum
-  - icon: ':heavy_check_mark:'
-    path: math/fps/taylor-shift.hpp
-    title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
-  - icon: ':question:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/convolution_mod.test.cpp
-    title: test/yosupo/convolution_mod.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/convolution_mod_1000000007.test.cpp
-    title: test/yosupo/convolution_mod_1000000007.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/division_of_polynomials.test.cpp
-    title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/exp_of_formal_power_series.test.cpp
-    title: test/yosupo/exp_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/yosupo/factorize.test.cpp
     title: test/yosupo/factorize.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/inv_of_formal_power_series.test.cpp
-    title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/log_of_formal_power_series.test.cpp
-    title: test/yosupo/log_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/multipoint_evaluation.test.cpp
-    title: test/yosupo/multipoint_evaluation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/polynomial_interpolation.test.cpp
-    title: test/yosupo/polynomial_interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/polynomial_taylor_shift.test.cpp
-    title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/pow_of_formal_power_series.test.cpp
-    title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/sharp_p_subset_sum.test.cpp
-    title: test/yosupo/sharp_p_subset_sum.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/sqrt_of_formal_power_series.test.cpp
-    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\
       \u89E3)"
@@ -254,30 +194,10 @@ data:
   path: math/number/fast-prime.hpp
   requiredBy:
   - math/number/primitive-root.hpp
-  - math/fps/subset-sum.hpp
-  - math/fps/fps.hpp
-  - math/fps/polynomial-interpolation.hpp
-  - math/fps/taylor-shift.hpp
-  - math/fps/multipoint-evaluation.hpp
-  - math/convolution/convolution.hpp
-  - math/convolution/mod-convolution.hpp
-  - math/convolution/ntt.hpp
   timestamp: '2022-12-18 23:26:35+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/factorize.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/convolution_mod.test.cpp
-  - test/yosupo/polynomial_taylor_shift.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/convolution_mod_1000000007.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial_interpolation.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
 documentation_of: math/number/fast-prime.hpp
 layout: document
 redirect_from:

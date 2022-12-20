@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/modular/mod-log.hpp
     title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
   - icon: ':question:'

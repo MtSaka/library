@@ -1,9 +1,6 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: string/run-length.hpp
-    title: string/run-length.hpp
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -25,17 +22,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _pathExtension: hpp
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/1469
-    links:
-    - https://yukicoder.me/problems/no/1469
-  bundledCode: "#line 1 \"test/yukicoder/1469.test.cpp\"\n#define PROBLEM \"https://yukicoder.me/problems/no/1469\"\
-    \n#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\
-    \n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...) d\n#define\
-    \ REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
+    document_title: "Random(\u4E71\u6570)"
+    links: []
+  bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
+    \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
+    \ d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
     #define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n#define REP4(i,a,b,c) for(ll\
     \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n\
     #define RREP1(a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n\
@@ -124,19 +118,44 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"string/run-length.hpp\"\
-    \n\ntemplate<typename Cont,typename Cmp>\nvector<pair<typename Cont::value_type,int>>run_length(const\
-    \ Cont&c,const Cmp&cmp){\n  vector<pair<typename Cont::value_type,int>> ret;\n\
-    \  if(c.empty())return ret;\n  ret.emplace_back(c.front(),1);\n  for(int i=1;i<(int)c.size();i++){\n\
-    \    if(cmp(c[i],ret.back().first)){\n      ret.back().second++;\n    }else{\n\
-    \      ret.emplace_back(c[i],1);\n    }\n  }\n  return ret;\n}\ntemplate<typename\
-    \ Cont>vector<pair<typename Cont::value_type,int>>run_length(const Cont&c){return\
-    \ run_length(c,equal_to<typename Cont::value_type>());}\n#line 4 \"test/yukicoder/1469.test.cpp\"\
-    \nint main(){\n  string s;\n  cin>>s;\n  for(auto&&p:run_length(s)){\n    cout<<p.first;\n\
-    \  }\n  cout<<endl;\n}\n"
-  code: "#define PROBLEM \"https://yukicoder.me/problems/no/1469\"\n#include\"../../template/template.hpp\"\
-    \n#include\"../../string/run-length.hpp\"\nint main(){\n  string s;\n  cin>>s;\n\
-    \  for(auto&&p:run_length(s)){\n    cout<<p.first;\n  }\n  cout<<endl;\n}"
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/random.hpp\"\
+    \n\ntemplate<typename Engine>\nstruct Random{\nprivate:\n  Engine rnd;\npublic:\n\
+    \  using result_type=typename Engine::result_type;\n  Random():Random(random_device{}()){}\n\
+    \  result_type operator()(){return rnd();}\n  template<typename IntType=ll>\n\
+    \  IntType uniform(IntType l,IntType r){\n    static_assert(is_integral<IntType>::value,\"\
+    template argument must be an integral type\");\n    return uniform_int_distribution<IntType>{l,r}(rnd);\n\
+    \  }\n  template<typename RealType=double>\n  RealType uniform(RealType l,RealType\
+    \ r){\n    static_assert(is_floating_point<RealType>::value,\"template argument\
+    \ must be a floating point type\");\n    return uniform_real_distribution<RealType>{l,r}(rnd);\n\
+    \  }\n  bool uniform_bool(){return uniform<int>(0,1);}\n  template<typename T=ll>\n\
+    \  pair<T,T> uniform_pair(T l,T r){\n    T a,b;\n    do{\n      a=uniform<T>(l,r);\n\
+    \      b=uniform<T>(l,r);\n    }while(a==b);\n    if(a>b)swap(a,b);\n    return\
+    \ {a,b};\n  }\n  template<typename Iter>\n  void shuffle(const Iter&first,const\
+    \ Iter&last){\n    shuffle(first,last,rnd);\n  }\n  template<class T>\n  vector<T>permutalion(T\
+    \ n){\n    static_assert(is_integral<T>::value,\"template argument must be an\
+    \ integral type\");\n    vector<T>res(n);\n    iota(res.begin(),res.end(),T());\n\
+    \    shuffle(all(res));\n    return res;\n  }\n};\nusing Random32=Random<mt19937>;\n\
+    using Random64=Random<mt19937_64>;\nRandom32 rand32;\nRandom64 rand64;\n/**\n\
+    \ * @brief Random(\u4E71\u6570)\n*/\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename Engine>\n\
+    struct Random{\nprivate:\n  Engine rnd;\npublic:\n  using result_type=typename\
+    \ Engine::result_type;\n  Random():Random(random_device{}()){}\n  result_type\
+    \ operator()(){return rnd();}\n  template<typename IntType=ll>\n  IntType uniform(IntType\
+    \ l,IntType r){\n    static_assert(is_integral<IntType>::value,\"template argument\
+    \ must be an integral type\");\n    return uniform_int_distribution<IntType>{l,r}(rnd);\n\
+    \  }\n  template<typename RealType=double>\n  RealType uniform(RealType l,RealType\
+    \ r){\n    static_assert(is_floating_point<RealType>::value,\"template argument\
+    \ must be a floating point type\");\n    return uniform_real_distribution<RealType>{l,r}(rnd);\n\
+    \  }\n  bool uniform_bool(){return uniform<int>(0,1);}\n  template<typename T=ll>\n\
+    \  pair<T,T> uniform_pair(T l,T r){\n    T a,b;\n    do{\n      a=uniform<T>(l,r);\n\
+    \      b=uniform<T>(l,r);\n    }while(a==b);\n    if(a>b)swap(a,b);\n    return\
+    \ {a,b};\n  }\n  template<typename Iter>\n  void shuffle(const Iter&first,const\
+    \ Iter&last){\n    shuffle(first,last,rnd);\n  }\n  template<class T>\n  vector<T>permutalion(T\
+    \ n){\n    static_assert(is_integral<T>::value,\"template argument must be an\
+    \ integral type\");\n    vector<T>res(n);\n    iota(res.begin(),res.end(),T());\n\
+    \    shuffle(all(res));\n    return res;\n  }\n};\nusing Random32=Random<mt19937>;\n\
+    using Random64=Random<mt19937_64>;\nRandom32 rand32;\nRandom64 rand64;\n/**\n\
+    \ * @brief Random(\u4E71\u6570)\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -144,17 +163,16 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - string/run-length.hpp
-  isVerificationFile: true
-  path: test/yukicoder/1469.test.cpp
+  isVerificationFile: false
+  path: others/random.hpp
   requiredBy: []
-  timestamp: '2022-12-19 07:05:51+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-20 23:59:26+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/yukicoder/1469.test.cpp
+documentation_of: others/random.hpp
 layout: document
 redirect_from:
-- /verify/test/yukicoder/1469.test.cpp
-- /verify/test/yukicoder/1469.test.cpp.html
-title: test/yukicoder/1469.test.cpp
+- /library/others/random.hpp
+- /library/others/random.hpp.html
+title: "Random(\u4E71\u6570)"
 ---
