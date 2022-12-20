@@ -1,6 +1,5 @@
 #pragma once
 #include"../../template/template.hpp"
-#include"modpow.hpp"
 #include"../../data-structure/hash-map.hpp"
 
 template<typename T>
@@ -16,7 +15,7 @@ T discrete_logarithm(T x,T y,T m){
     k=(k*(x/g))%m;
   }
   T n=sqrt(m)+1;
-  T tmp=modpow(x,n,m);
+  T tmp=mod_pow(x,n,m);
   HashMap<T,T>mp;
   for(T i=0,now=y;i<=n;i++){
     mp[now]=i;

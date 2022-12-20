@@ -16,7 +16,7 @@ inline void dump(const bool&t){std::cerr<<(t?"true":"false");}
 template <typename T,std::enable_if_t<!is_specialize<T>::value,std::nullptr_t> =nullptr>
 inline void dump(const T&t){std::cerr<<t;}
 template<typename T>
-inline void dump(const T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp="inf";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp="-inf";if(tmp.empty())tmp=to_string(t);std::cerr<<tmp;}
+inline void dump(const T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp="inf";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp="-inf";if(tmp.empty())tmp=std::to_string(t);std::cerr<<tmp;}
 template<typename T,typename U>
 inline void dump(const std::pair<T,U>&);
 template<typename T>

@@ -28,6 +28,52 @@ template<typename T,typename U>
 inline constexpr bool chmin(T&a,U b){return a>b&&(a=b,true);}
 template<typename T,typename U>
 inline constexpr bool chmax(T&a,U b){return a<b&&(a=b,true);}
+inline constexpr ll gcd(ll a,ll b){
+  if(a<0)a=-a;
+  if(b<0)b=-b;
+  while(b){
+    tie(a,b)={b,a%b};
+  }
+  return a;
+}
+inline constepxr ll lcm(ll a,ll b){return a/gcd(a,b)*b;}
+inline constexpr bool is_prime(ll n){
+  if(n<=1)return false;
+  for(ll i=2;i*i<=n;i++){
+    if(n%i==0)return false;
+  }
+  return true;
+}
+inline constexpr ll my_pow(ll a,ll b){
+  ll res=1;
+  while(b){
+    if(b&1)res*=a;
+    a*=a;
+    b>>=1;
+  }
+  return res;
+}
+inline constexpr ll mod_pow(ll a,ll b,const ll&mod){
+  if(mod==1)return 0;
+  a%=mod;
+  ll res=1;
+  while(b){
+    if(b&1)(res*=a)%=mod;
+    (a*=a)%=mod;
+    b>>=1;
+  }
+  return res;
+}
+inline ll mod_inv(ll a,const ll&mod){
+  ll b=mod,x=1,u=0,t;
+  while(b){
+    t=a/b;
+    std::swap(a-=t*b,b);
+    std::swap(x-=t*u,u);
+  }
+  if(x<0)x+=mod;
+  return x;
+}
 template<typename T,typename U>
 std::ostream &operator<<(std::ostream&os,const std::pair<T,U>&p){os<<p.first<<" "<<p.second;return os;}
 template<typename T,typename U>

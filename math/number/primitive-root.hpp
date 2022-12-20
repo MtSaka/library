@@ -1,7 +1,6 @@
 #pragma once
 #include"../../template/template.hpp"
 #include"fast-prime.hpp"
-#include"../modular/modpow.hpp"
 
 int primitive_root(int n){
   if(n==2)return 1;
@@ -15,7 +14,7 @@ int primitive_root(int n){
   for(int g=2;;g++){
     bool ok=true;
     for(int d:divs){
-      if(modpow(g,(n-1)/d,n)==1){
+      if(mod_pow(g,(n-1)/d,n)==1){
         ok=false;
         break;
       }
