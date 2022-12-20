@@ -51,9 +51,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum1.test.cpp
     title: test/yosupo/point_add_range_sum1.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yosupo/range_affine_range_sum.test.cpp
+    title: test/yosupo/range_affine_range_sum.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
       )"
@@ -215,7 +218,7 @@ data:
   requiredBy:
   - data-structure/segment-tree-monoids.hpp
   timestamp: '2022-12-18 23:26:35+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DSL/DSL_2_G.test.cpp
   - test/aoj/DSL/DSL_2_B2.test.cpp
@@ -225,6 +228,7 @@ data:
   - test/aoj/DSL/DSL_2_I.test.cpp
   - test/aoj/DSL/DSL_2_H.test.cpp
   - test/aoj/DSL/DSL_2_D.test.cpp
+  - test/yosupo/range_affine_range_sum.test.cpp
   - test/yosupo/point_add_range_sum1.test.cpp
 documentation_of: data-structure/lazy-segment-tree.hpp
 layout: document

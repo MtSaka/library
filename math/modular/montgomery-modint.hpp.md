@@ -1,12 +1,6 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: math/convolution/gcd-convolution.hpp
-    title: GCD Convolution
-  - icon: ':question:'
-    path: math/modular/modint.hpp
-    title: ModInt
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -28,22 +22,17 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _pathExtension: hpp
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/gcd_convolution
-    links:
-    - https://judge.yosupo.jp/problem/gcd_convolution
-  bundledCode: "#line 1 \"test/yosupo/gcd_convolution.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/gcd_convolution\"\n#line 2 \"template/template.hpp\"\
-    \n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...)\
-    \ e\n#define SELECT3(a,b,c,d,...) d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n\
-    #define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n#define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n\
-    #define REP4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...)\
-    \ SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n#define RREP1(a) for(ll\
-    \ i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define\
-    \ RREP3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);--i)\n#define rrep(...) SELECT3(__VA_ARGS__,RREP3,RREP2,RREP1)(__VA_ARGS__)\n\
+    links: []
+  bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
+    \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
+    \ d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
+    #define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n#define REP4(i,a,b,c) for(ll\
+    \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n\
+    #define RREP1(a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n\
+    #define RREP3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);--i)\n#define rrep(...) SELECT3(__VA_ARGS__,RREP3,RREP2,RREP1)(__VA_ARGS__)\n\
     #define all(v) std::begin(v),std::end(v)\n#define rall(v) std::rbegin(v),std::rend(v)\n\
     #define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)\n#define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n\
@@ -128,53 +117,14 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/modular/modint.hpp\"\
-    \n\ntemplate<int m>\nstruct ModInt{\n  private:\n  unsigned int x;\n  static constexpr\
-    \ unsigned int umod(){return m;}\n  public:\n  static ModInt raw(int v){\n   \
-    \ ModInt ret;\n    ret.x=v;\n    return ret;\n  }\n  constexpr ModInt():x(0){}\n\
-    \  constexpr ModInt(int y){\n    int v=y%m;\n    if(v<0)v+=m;\n    x=(unsigned\
-    \ int)v;\n  }\n  constexpr ModInt(long long y){\n    long long v=y%(long long)m;\n\
-    \    if(v<0)v+=m;\n    x=(unsigned int)v;\n  }\n  constexpr ModInt(unsigned int\
-    \ y){\n    x=(unsigned int)(y%umod());\n  }\n  ModInt& operator++(){x++;if(x==umod())x=0;return\
-    \ *this;}\n  ModInt& operator--(){if(x==0)x=umod();x--;return *this;}\n  ModInt\
-    \ operator++(int){\n    ModInt ret=*this;\n    ++*this;\n    return ret;\n  }\n\
-    \  ModInt operator--(int){\n    ModInt ret=*this;\n    --*this;\n    return ret;\n\
-    \  }\n  ModInt& operator+=(const ModInt&p){if((x+=p.x)>=umod())x-=umod();return\
-    \ *this;}\n  ModInt& operator-=(const ModInt&p){if((x-=p.x)>=umod())x+=umod();return\
-    \ *this;}\n  ModInt& operator*=(const ModInt&p){\n    unsigned long long y=x;\n\
-    \    y*=p.x;\n    x=(unsigned int)(y%umod());\n    return *this;\n  }\n  ModInt&\
-    \ operator/=(const ModInt&p){return *this*=p.inv();}\n  ModInt operator+()const{return\
-    \ *this;}\n  ModInt operator-()const{return ModInt()-*this;}\n  ModInt pow(long\
-    \ long n)const{\n    ModInt ret(1),mul=*this;\n    while(n){\n      if(n&1)ret*=mul;\n\
-    \      mul*=mul;\n      n>>=1;\n    }\n    return ret;\n  }\n  ModInt inv()const{\n\
-    \    long long a=x,b=m,u=1,v=0;\n    while(b){\n      long long t=a/b;\n     \
-    \ swap(a-=t*b,b);\n      swap(u-=t*v,v);\n    }\n    return ModInt(u);\n  }\n\
-    \  friend ModInt operator+(const ModInt&l,const ModInt&r){return ModInt(l)+=r;}\n\
-    \  friend ModInt operator-(const ModInt&l,const ModInt&r){return ModInt(l)-=r;}\n\
-    \  friend ModInt operator*(const ModInt&l,const ModInt&r){return ModInt(l)*=r;}\n\
-    \  friend ModInt operator/(const ModInt&l,const ModInt&r){return ModInt(l)/=r;}\n\
-    \  friend bool operator==(const ModInt&l,const ModInt&r){return l.x==r.x;}\n \
-    \ friend bool operator!=(const ModInt&l,const ModInt&r){return l.x!=r.x;}\n  friend\
-    \ ostream &operator<<(ostream &os,const ModInt&p) {\n    return os<<p.val();\n\
-    \  }\n  friend istream &operator>>(istream &is, ModInt &a) {\n    long long t;\n\
-    \    is>>t;\n    a=ModInt(t);\n    return (is);\n  }\n  static constexpr int get_mod(){return\
-    \ m;}\n  int val()const{return (int)x;}\n};\n/**\n * @brief ModInt\n*/\n#line\
-    \ 3 \"math/convolution/gcd-convolution.hpp\"\n\ntemplate<typename T>\nvector<T>gcd_convolution(vector<T>a,vector<T>b){\n\
-    \  const int n=a.size();\n  vector<bool>sieve(n,true);\n  for(int p=2;p<n;p++)if(sieve[p]){\n\
-    \    for(int i=(n-1)/p;i>0;i--)a[i]+=a[i*p],sieve[i*p]=false;\n    sieve[p]=1;\n\
-    \  }\n  for(int p=2;p<n;p++)if(sieve[p])for(int i=(n-1)/p;i>0;i--)b[i]+=b[i*p];\n\
-    \  for(int i=0;i<n;i++)a[i]*=b[i];\n  for(int p=2;p<n;p++)if(sieve[p]){\n    for(int\
-    \ i=1;i*p<n;i++)a[i]-=a[i*p];\n  }\n  return a;\n}\n/**\n * @brief GCD Convolution\n\
-    */\n#line 5 \"test/yosupo/gcd_convolution.test.cpp\"\nusing mint=ModInt<998244353>;\n\
-    int main(){\n  int n;cin>>n;\n  vector<mint>a(n+1),b(n+1);\n  for(int i=1;i<=n;i++)cin>>a[i];\n\
-    \  for(int i=1;i<=n;i++)cin>>b[i];\n  auto ans=gcd_convolution(a,b);\n  for(int\
-    \ i=1;i<=n;i++)cout<<ans[i]<<\" \\n\"[i==n];\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/gcd_convolution\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../math/modular/modint.hpp\"\n#include\"\
-    ../../math/convolution/gcd-convolution.hpp\"\nusing mint=ModInt<998244353>;\n\
-    int main(){\n  int n;cin>>n;\n  vector<mint>a(n+1),b(n+1);\n  for(int i=1;i<=n;i++)cin>>a[i];\n\
-    \  for(int i=1;i<=n;i++)cin>>b[i];\n  auto ans=gcd_convolution(a,b);\n  for(int\
-    \ i=1;i<=n;i++)cout<<ans[i]<<\" \\n\"[i==n];\n}"
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/modular/montgomery-modint.hpp\"\
+    \n\ntemplate<typename T>\nstruct MontgomeryReduction{\n  static_assert(is_integral<T>::value,\"\
+    template argument must be integral\");\n  static_assert(is_unsigned<T>::value,\"\
+    template argument must be unsigned\");\n  private:\n  \n  public:\n\n};\n"
+  code: "#pragma once\n#include\"../../template/template.hpp\"\n\ntemplate<typename\
+    \ T>\nstruct MontgomeryReduction{\n  static_assert(is_integral<T>::value,\"template\
+    \ argument must be integral\");\n  static_assert(is_unsigned<T>::value,\"template\
+    \ argument must be unsigned\");\n  private:\n  \n  public:\n\n};"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -182,18 +132,16 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - math/modular/modint.hpp
-  - math/convolution/gcd-convolution.hpp
-  isVerificationFile: true
-  path: test/yosupo/gcd_convolution.test.cpp
+  isVerificationFile: false
+  path: math/modular/montgomery-modint.hpp
   requiredBy: []
   timestamp: '2022-12-21 00:30:41+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/yosupo/gcd_convolution.test.cpp
+documentation_of: math/modular/montgomery-modint.hpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/gcd_convolution.test.cpp
-- /verify/test/yosupo/gcd_convolution.test.cpp.html
-title: test/yosupo/gcd_convolution.test.cpp
+- /library/math/modular/montgomery-modint.hpp
+- /library/math/modular/montgomery-modint.hpp.html
+title: math/modular/montgomery-modint.hpp
 ---

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modular/modpow.hpp
     title: "Mod Pow(\u3079\u304D\u4E57)"
   - icon: ':question:'
@@ -27,9 +27,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yosupo/sqrt_of_formal_power_series.test.cpp
+    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
     links: []
@@ -159,9 +162,10 @@ data:
   path: math/modular/mod-sqrt.hpp
   requiredBy: []
   timestamp: '2022-12-18 23:26:35+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/sqrt_mod.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
 documentation_of: math/modular/mod-sqrt.hpp
 layout: document
 redirect_from:

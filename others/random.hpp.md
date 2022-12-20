@@ -119,7 +119,7 @@ data:
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/random.hpp\"\
-    \n\ntemplate<typename Engine>\nstruct Random{\nprivate:\n  Engine rnd;\npublic:\n\
+    \n\ntemplate<typename Engine>\nstruct Random{\n  private:\n  Engine rnd;\n  public:\n\
     \  using result_type=typename Engine::result_type;\n  Random():Random(random_device{}()){}\n\
     \  result_type operator()(){return rnd();}\n  template<typename IntType=ll>\n\
     \  IntType uniform(IntType l,IntType r){\n    static_assert(is_integral<IntType>::value,\"\
@@ -138,7 +138,7 @@ data:
     using Random64=Random<mt19937_64>;\nRandom32 rand32;\nRandom64 rand64;\n/**\n\
     \ * @brief Random(\u4E71\u6570)\n*/\n"
   code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename Engine>\n\
-    struct Random{\nprivate:\n  Engine rnd;\npublic:\n  using result_type=typename\
+    struct Random{\n  private:\n  Engine rnd;\n  public:\n  using result_type=typename\
     \ Engine::result_type;\n  Random():Random(random_device{}()){}\n  result_type\
     \ operator()(){return rnd();}\n  template<typename IntType=ll>\n  IntType uniform(IntType\
     \ l,IntType r){\n    static_assert(is_integral<IntType>::value,\"template argument\
@@ -166,7 +166,7 @@ data:
   isVerificationFile: false
   path: others/random.hpp
   requiredBy: []
-  timestamp: '2022-12-20 23:59:26+09:00'
+  timestamp: '2022-12-21 00:30:41+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: others/random.hpp
