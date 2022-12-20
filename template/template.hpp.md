@@ -44,7 +44,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/inversion.hpp
     title: "Inversion Number(\u8EE2\u5012\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':heavy_check_mark:'
@@ -166,13 +166,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/multipoint-evaluation.hpp
     title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':x:'
     path: math/fps/subset-sum.hpp
     title: Count Subset Sum
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/taylor-shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - icon: ':heavy_check_mark:'
@@ -225,18 +225,18 @@ data:
     path: math/number/range-prime-sieve.hpp
     title: "Range Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u533A\
       \u9593\u7BE9)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
-  - icon: ':x:'
-    path: math/others/fraction.hpp
-    title: "Fraction(\u6709\u7406\u6570\u578B)"
   - icon: ':warning:'
     path: math/others/lagrange.hpp
     title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':heavy_check_mark:'
     path: math/others/matrix.hpp
     title: "Matrix(\u884C\u5217)"
+  - icon: ':x:'
+    path: math/others/rational.hpp
+    title: "Fraction(\u6709\u7406\u6570\u578B)"
   - icon: ':warning:'
     path: others/timer.hpp
     title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
@@ -454,16 +454,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial_interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/range_affine_range_sum.test.cpp
     title: test/yosupo/range_affine_range_sum.test.cpp
   - icon: ':x:'
@@ -653,10 +653,10 @@ data:
   - graph/shortest-path/dijkstra.hpp
   - graph/shortest-path/bellman-ford.hpp
   - graph/flow/dinic.hpp
-  - math/others/fraction.hpp
   - math/others/lagrange.hpp
   - math/others/combinatorics.hpp
   - math/others/matrix.hpp
+  - math/others/rational.hpp
   - math/number/phi.hpp
   - math/number/prime-sieve.hpp
   - math/number/factorize.hpp

@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: math/modular/modint.hpp
     title: modint
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   - icon: ':question:'
@@ -155,12 +155,12 @@ data:
     \  }\n  friend istream &operator>>(istream &is, modint &a) {\n    long long t;\n\
     \    is>>t;\n    a=modint(t);\n    return (is);\n  }\n  static constexpr int get_mod(){return\
     \ m;}\n  int val()const{return (int)x;}\n};\n/**\n * @brief modint\n*/\n#line\
-    \ 4 \"math/others/combinatorics.hpp\"\n\ntemplate<int m>\nstruct combination{\n\
+    \ 4 \"math/others/combinatorics.hpp\"\n\ntemplate<int m>\nstruct Combinatorics{\n\
     \  using mint=modint<m>;\n  private:\n  static vector<mint>dat,idat;\n  inline\
     \ static void extend(int sz){\n    if((int)dat.size()<sz+1){\n      int pre_sz=max<int>(1,dat.size());\n\
     \      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n\
     \      idat[sz]=1/dat[sz];\n      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n\
-    \    }\n  }\n  public:\n  combination(int sz=0){extend(sz);}\n  template<typename\
+    \    }\n  }\n  public:\n  Combinatorics(int sz=0){extend(sz);}\n  template<typename\
     \ T>\n  static inline mint fac(T n){\n    if(n<0)return mint();\n    extend(n);\n\
     \    return dat[n];\n  }\n  template<typename T>\n  static inline mint finv(T\
     \ n){\n    if(n<0)return mint();\n    extend(n);\n    return idat[n];\n  }\n \
@@ -169,8 +169,8 @@ data:
     \ U>\n  static mint hom(T n,U k){\n    if(n<0||k<0)return mint();\n    return\
     \ k==0?1:com(n+k-1,k);\n  }\n  template<typename T,typename U>\n  static mint\
     \ per(T n,U k){\n    if(k<0||n<k)return mint();\n    return fac(n)*finv(n-k);\n\
-    \  }\n};\ntemplate<int m>\nvector<modint<m>>combination<m>::dat=vector<modint<m>>();\n\
-    template<int m>\nvector<modint<m>>combination<m>::idat=vector<modint<m>>();\n\
+    \  }\n};\ntemplate<int m>\nvector<modint<m>>Combinatorics<m>::dat=vector<modint<m>>();\n\
+    template<int m>\nvector<modint<m>>Combinatorics<m>::idat=vector<modint<m>>();\n\
     template<long long p>\nstruct COMB{\n  private:\n  static vector<vector<modint<p>>>comb;\n\
     \  static void init(){\n    if(!comb.empty())return;\n    comb.assign(p,vector<modint<p>>(p));\n\
     \    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int\
@@ -180,7 +180,7 @@ data:
     \    n/=p;k/=p;\n    }\n    return ret;\n  }\n};\ntemplate<long long p>\nvector<vector<modint<p>>>COMB<p>::comb=vector<vector<modint<p>>>();\n\
     /**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n#line 4 \"math/others/lagrange.hpp\"\
     \n\ntemplate<long long m>\nmodint<m>lagrange_polynomial(const vector<modint<m>>&y,const\
-    \ long long&t){\n  using mint=modint<m>;\n  const int n=y.size()-1;\n  combination<m>c(n);\n\
+    \ long long&t){\n  using mint=modint<m>;\n  const int n=y.size()-1;\n  Combinatorics<m>c(n);\n\
     \  if(t<=n)return y[t];\n  mint ret;\n  vector<mint>dp(n+1,1),pd(n+1,1);\n  for(int\
     \ i=0;i<n;i++)dp[i+1]=dp[i]*(t-i);\n  for(int i=n;i>0;i--)pd[i-1]=pd[i]*(t-i);\n\
     \  for(int i=0;i<=n;i++){\n    mint tmp=y[i]*dp[i]*pd[i]*c.finv(i)*c.finv(n-i);\n\
@@ -188,7 +188,7 @@ data:
     \ @brief Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)\n*/\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"combinatorics.hpp\"\
     \n\ntemplate<long long m>\nmodint<m>lagrange_polynomial(const vector<modint<m>>&y,const\
-    \ long long&t){\n  using mint=modint<m>;\n  const int n=y.size()-1;\n  combination<m>c(n);\n\
+    \ long long&t){\n  using mint=modint<m>;\n  const int n=y.size()-1;\n  Combinatorics<m>c(n);\n\
     \  if(t<=n)return y[t];\n  mint ret;\n  vector<mint>dp(n+1,1),pd(n+1,1);\n  for(int\
     \ i=0;i<n;i++)dp[i+1]=dp[i]*(t-i);\n  for(int i=n;i>0;i--)pd[i-1]=pd[i]*(t-i);\n\
     \  for(int i=0;i<=n;i++){\n    mint tmp=y[i]*dp[i]*pd[i]*c.finv(i)*c.finv(n-i);\n\
@@ -206,7 +206,7 @@ data:
   isVerificationFile: false
   path: math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2022-12-18 23:26:35+09:00'
+  timestamp: '2022-12-20 23:25:21+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/others/lagrange.hpp

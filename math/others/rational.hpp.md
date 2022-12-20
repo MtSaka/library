@@ -121,51 +121,51 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/others/fraction.hpp\"\
-    \n\nstruct fraction{\n  static long long gcd(long long a,long long b){return b?gcd(b,a%b):a;}\n\
-    \  long long num,den;\n  fraction():num(0),den(1){}\n  fraction(long long n):num(n),den(1){}\n\
-    \  fraction(long long n,long long d):num(n),den(d){normalize();}\n  void normalize(){\n\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/others/rational.hpp\"\
+    \n\nstruct Rational{\n  static long long gcd(long long a,long long b){return b?gcd(b,a%b):a;}\n\
+    \  long long num,den;\n  Rational():num(0),den(1){}\n  Rational(long long n):num(n),den(1){}\n\
+    \  Rational(long long n,long long d):num(n),den(d){normalize();}\n  void normalize(){\n\
     \    long long g=gcd(num,den);\n    num/=g;den/=g;\n    if(den<0){num=-num;den=-den;}\n\
-    \  }\n  bool operator>(const fraction &f)const{return num*f.den>den*f.num;}\n\
-    \  bool operator<(const fraction &f)const{return num*f.den<den*f.num;}\n  bool\
-    \ operator>=(const fraction &f)const{return num*f.den>=den*f.num;}\n  bool operator<=(const\
-    \ fraction &f)const{return num*f.den<=den*f.num;}\n  bool operator==(const fraction\
-    \ &f)const{return num*f.den==den*f.num;}\n  bool operator!=(const fraction &f)const{return\
-    \ num*f.den!=den*f.num;}\n  fraction operator-()const{return fraction(-num,den);}\n\
-    \  fraction &operator-=(const fraction &f){num=num*f.den-den*f.num;den*=f.den;normalize();return\
-    \ *this;}\n  fraction &operator+=(const fraction &f){num=num*f.den+den*f.num;den*=f.den;normalize();return\
-    \ *this;}\n  fraction &operator*=(const fraction &f){num*=f.num;den*=f.den;normalize();return\
-    \ *this;}\n  fraction &operator/=(const fraction &f){num*=f.den;den*=f.num;normalize();return\
-    \ *this;}\n  friend fraction operator+(const fraction&lhs,const fraction&rhs){return\
-    \ fraction(lhs)+=rhs;}\n  friend fraction operator-(const fraction&lhs,const fraction&rhs){return\
-    \ fraction(lhs)-=rhs;}\n  friend fraction operator*(const fraction&lhs,const fraction&rhs){return\
-    \ fraction(lhs)*=rhs;}\n  friend fraction operator/(const fraction&lhs,const fraction&rhs){return\
-    \ fraction(lhs)/=rhs;}\n  friend ostream& operator<<(ostream& os, const fraction&\
+    \  }\n  bool operator>(const Rational &f)const{return num*f.den>den*f.num;}\n\
+    \  bool operator<(const Rational &f)const{return num*f.den<den*f.num;}\n  bool\
+    \ operator>=(const Rational &f)const{return num*f.den>=den*f.num;}\n  bool operator<=(const\
+    \ Rational &f)const{return num*f.den<=den*f.num;}\n  bool operator==(const Rational\
+    \ &f)const{return num*f.den==den*f.num;}\n  bool operator!=(const Rational &f)const{return\
+    \ num*f.den!=den*f.num;}\n  Rational operator-()const{return Rational(-num,den);}\n\
+    \  Rational &operator-=(const Rational &f){num=num*f.den-den*f.num;den*=f.den;normalize();return\
+    \ *this;}\n  Rational &operator+=(const Rational &f){num=num*f.den+den*f.num;den*=f.den;normalize();return\
+    \ *this;}\n  Rational &operator*=(const Rational &f){num*=f.num;den*=f.den;normalize();return\
+    \ *this;}\n  Rational &operator/=(const Rational &f){num*=f.den;den*=f.num;normalize();return\
+    \ *this;}\n  friend Rational operator+(const Rational&lhs,const Rational&rhs){return\
+    \ Rational(lhs)+=rhs;}\n  friend Rational operator-(const Rational&lhs,const Rational&rhs){return\
+    \ Rational(lhs)-=rhs;}\n  friend Rational operator*(const Rational&lhs,const Rational&rhs){return\
+    \ Rational(lhs)*=rhs;}\n  friend Rational operator/(const Rational&lhs,const Rational&rhs){return\
+    \ Rational(lhs)/=rhs;}\n  friend ostream& operator<<(ostream& os, const Rational&\
     \ f){os<<f.num<<\"/\"<<f.den;return os;}\n  friend istream& operator>>(istream&\
-    \ is, fraction& f){is>>f.num>>f.den;return is;}\n};\n/**\n * @brief Fraction(\u6709\
+    \ is, Rational& f){is>>f.num>>f.den;return is;}\n};\n/**\n * @brief Fraction(\u6709\
     \u7406\u6570\u578B)\n*/\n"
-  code: "#pragma once\n#include\"../../template/template.hpp\"\n\nstruct fraction{\n\
+  code: "#pragma once\n#include\"../../template/template.hpp\"\n\nstruct Rational{\n\
     \  static long long gcd(long long a,long long b){return b?gcd(b,a%b):a;}\n  long\
-    \ long num,den;\n  fraction():num(0),den(1){}\n  fraction(long long n):num(n),den(1){}\n\
-    \  fraction(long long n,long long d):num(n),den(d){normalize();}\n  void normalize(){\n\
+    \ long num,den;\n  Rational():num(0),den(1){}\n  Rational(long long n):num(n),den(1){}\n\
+    \  Rational(long long n,long long d):num(n),den(d){normalize();}\n  void normalize(){\n\
     \    long long g=gcd(num,den);\n    num/=g;den/=g;\n    if(den<0){num=-num;den=-den;}\n\
-    \  }\n  bool operator>(const fraction &f)const{return num*f.den>den*f.num;}\n\
-    \  bool operator<(const fraction &f)const{return num*f.den<den*f.num;}\n  bool\
-    \ operator>=(const fraction &f)const{return num*f.den>=den*f.num;}\n  bool operator<=(const\
-    \ fraction &f)const{return num*f.den<=den*f.num;}\n  bool operator==(const fraction\
-    \ &f)const{return num*f.den==den*f.num;}\n  bool operator!=(const fraction &f)const{return\
-    \ num*f.den!=den*f.num;}\n  fraction operator-()const{return fraction(-num,den);}\n\
-    \  fraction &operator-=(const fraction &f){num=num*f.den-den*f.num;den*=f.den;normalize();return\
-    \ *this;}\n  fraction &operator+=(const fraction &f){num=num*f.den+den*f.num;den*=f.den;normalize();return\
-    \ *this;}\n  fraction &operator*=(const fraction &f){num*=f.num;den*=f.den;normalize();return\
-    \ *this;}\n  fraction &operator/=(const fraction &f){num*=f.den;den*=f.num;normalize();return\
-    \ *this;}\n  friend fraction operator+(const fraction&lhs,const fraction&rhs){return\
-    \ fraction(lhs)+=rhs;}\n  friend fraction operator-(const fraction&lhs,const fraction&rhs){return\
-    \ fraction(lhs)-=rhs;}\n  friend fraction operator*(const fraction&lhs,const fraction&rhs){return\
-    \ fraction(lhs)*=rhs;}\n  friend fraction operator/(const fraction&lhs,const fraction&rhs){return\
-    \ fraction(lhs)/=rhs;}\n  friend ostream& operator<<(ostream& os, const fraction&\
+    \  }\n  bool operator>(const Rational &f)const{return num*f.den>den*f.num;}\n\
+    \  bool operator<(const Rational &f)const{return num*f.den<den*f.num;}\n  bool\
+    \ operator>=(const Rational &f)const{return num*f.den>=den*f.num;}\n  bool operator<=(const\
+    \ Rational &f)const{return num*f.den<=den*f.num;}\n  bool operator==(const Rational\
+    \ &f)const{return num*f.den==den*f.num;}\n  bool operator!=(const Rational &f)const{return\
+    \ num*f.den!=den*f.num;}\n  Rational operator-()const{return Rational(-num,den);}\n\
+    \  Rational &operator-=(const Rational &f){num=num*f.den-den*f.num;den*=f.den;normalize();return\
+    \ *this;}\n  Rational &operator+=(const Rational &f){num=num*f.den+den*f.num;den*=f.den;normalize();return\
+    \ *this;}\n  Rational &operator*=(const Rational &f){num*=f.num;den*=f.den;normalize();return\
+    \ *this;}\n  Rational &operator/=(const Rational &f){num*=f.den;den*=f.num;normalize();return\
+    \ *this;}\n  friend Rational operator+(const Rational&lhs,const Rational&rhs){return\
+    \ Rational(lhs)+=rhs;}\n  friend Rational operator-(const Rational&lhs,const Rational&rhs){return\
+    \ Rational(lhs)-=rhs;}\n  friend Rational operator*(const Rational&lhs,const Rational&rhs){return\
+    \ Rational(lhs)*=rhs;}\n  friend Rational operator/(const Rational&lhs,const Rational&rhs){return\
+    \ Rational(lhs)/=rhs;}\n  friend ostream& operator<<(ostream& os, const Rational&\
     \ f){os<<f.num<<\"/\"<<f.den;return os;}\n  friend istream& operator>>(istream&\
-    \ is, fraction& f){is>>f.num>>f.den;return is;}\n};\n/**\n * @brief Fraction(\u6709\
+    \ is, Rational& f){is>>f.num>>f.den;return is;}\n};\n/**\n * @brief Fraction(\u6709\
     \u7406\u6570\u578B)\n*/"
   dependsOn:
   - template/template.hpp
@@ -175,16 +175,16 @@ data:
   - template/util.hpp
   - template/debug.hpp
   isVerificationFile: false
-  path: math/others/fraction.hpp
+  path: math/others/rational.hpp
   requiredBy: []
-  timestamp: '2022-12-18 23:26:35+09:00'
+  timestamp: '2022-12-20 23:25:21+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/1236.test.cpp
-documentation_of: math/others/fraction.hpp
+documentation_of: math/others/rational.hpp
 layout: document
 redirect_from:
-- /library/math/others/fraction.hpp
-- /library/math/others/fraction.hpp.html
+- /library/math/others/rational.hpp
+- /library/math/others/rational.hpp.html
 title: "Fraction(\u6709\u7406\u6570\u578B)"
 ---

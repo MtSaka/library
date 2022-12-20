@@ -123,7 +123,7 @@ data:
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
     #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"string/rolling-hash.hpp\"\
-    \n\nstruct rolling_hash{\n  using ull=unsigned long long;\n  using i128=__uint128_t;\n\
+    \n\nstruct RollingHash{\n  using ull=unsigned long long;\n  using i128=__uint128_t;\n\
     \  private:\n  static constexpr ull MOD=(1ull<<61)-1;\n  static constexpr ull\
     \ MASK31=(1ull<<31)-1;\n  static ull calc_mod(ull a){\n    ull ret=(a&MOD)+(a>>61);\n\
     \    if(ret>=MOD)ret-=MOD;\n    return ret;\n  }\n  static ull calc_mul(ull a,ull\
@@ -136,11 +136,11 @@ data:
     \      for(int i=0;i<n;i++)inner_hash[i+1]=calc_add(s[i],calc_mul(BASE,inner_hash[i]));\n\
     \      power.resize(n+1);power[0]=1;\n      for(int i=0;i<n;i++)power[i+1]=calc_mul(power[i],BASE);\n\
     \    }\n    ull get_hash(int l,int r)const{\n      return calc_add(inner_hash[r],MOD-calc_mul(inner_hash[l],power[r-l]));\n\
-    \    }\n    ull get_all()const{\n      return inner_hash[n];\n    }\n  };\n  rolling_hash(){init();}\n\
+    \    }\n    ull get_all()const{\n      return inner_hash[n];\n    }\n  };\n  RollingHash(){init();}\n\
     \  template<typename T>\n  hash get_hash(const T&s)const{return hash(BASE,s);}\n\
     \  ull get_base()const{return BASE;}\n};\n/**\n * @brief Rolling Hash(\u30ED\u30FC\
     \u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)\n*/\n"
-  code: "#pragma once\n#include\"../template/template.hpp\"\n\nstruct rolling_hash{\n\
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\nstruct RollingHash{\n\
     \  using ull=unsigned long long;\n  using i128=__uint128_t;\n  private:\n  static\
     \ constexpr ull MOD=(1ull<<61)-1;\n  static constexpr ull MASK31=(1ull<<31)-1;\n\
     \  static ull calc_mod(ull a){\n    ull ret=(a&MOD)+(a>>61);\n    if(ret>=MOD)ret-=MOD;\n\
@@ -153,7 +153,7 @@ data:
     \      n=s.size();\n      inner_hash.resize(n+1);\n      for(int i=0;i<n;i++)inner_hash[i+1]=calc_add(s[i],calc_mul(BASE,inner_hash[i]));\n\
     \      power.resize(n+1);power[0]=1;\n      for(int i=0;i<n;i++)power[i+1]=calc_mul(power[i],BASE);\n\
     \    }\n    ull get_hash(int l,int r)const{\n      return calc_add(inner_hash[r],MOD-calc_mul(inner_hash[l],power[r-l]));\n\
-    \    }\n    ull get_all()const{\n      return inner_hash[n];\n    }\n  };\n  rolling_hash(){init();}\n\
+    \    }\n    ull get_all()const{\n      return inner_hash[n];\n    }\n  };\n  RollingHash(){init();}\n\
     \  template<typename T>\n  hash get_hash(const T&s)const{return hash(BASE,s);}\n\
     \  ull get_base()const{return BASE;}\n};\n/**\n * @brief Rolling Hash(\u30ED\u30FC\
     \u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)\n*/"
@@ -167,7 +167,7 @@ data:
   isVerificationFile: false
   path: string/rolling-hash.hpp
   requiredBy: []
-  timestamp: '2022-12-19 07:05:51+09:00'
+  timestamp: '2022-12-20 23:25:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1/ALDS1_14_B.test.cpp
