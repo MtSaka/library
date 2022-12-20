@@ -2,7 +2,7 @@
 #include"../../template/template.hpp"
 #include"../../math/fps/fps.hpp"
 #include"../../math/modular/mod-sqrt.hpp"
-using mint=modint<998244353>;
+using mint=ModInt<998244353>;
 int main(){
   int n;
   cin>>n;

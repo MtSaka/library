@@ -2,7 +2,7 @@
 #include"../../template/template.hpp"
 #include"../../math/fps/fps.hpp"
 #include"../../math/fps/multipoint-evaluation.hpp"
-using mint=modint<998244353>;
+using mint=ModInt<998244353>;
 int main(){
   int n,m;
   cin>>n>>m;

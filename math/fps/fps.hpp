@@ -3,8 +3,8 @@
 #include"../convolution/ntt.hpp"
 
 template<int m>
-struct FormalPowerSeries:vector<modint<m>>{
-  using mint=modint<m>;
+struct FormalPowerSeries:vector<ModInt<m>>{
+  using mint=ModInt<m>;
   using vector<mint>::vector;
   using vector<mint>::operator=;
   void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}

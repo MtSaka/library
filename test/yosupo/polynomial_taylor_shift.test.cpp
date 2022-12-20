@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/polynomial_taylor_shift"
 #include"../../template/template.hpp"
 #include"../../math/fps/taylor-shift.hpp"
-using mint=modint<998244353>;
+using mint=ModInt<998244353>;
 int main(){
   int n,c;
   cin>>n>>c;

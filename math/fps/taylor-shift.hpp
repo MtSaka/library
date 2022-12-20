@@ -4,7 +4,7 @@
 #include"../others/combinatorics.hpp"
 
 template<int m>
-FormalPowerSeries<m>taylor_shift(FormalPowerSeries<m>f,modint<m>a){
+FormalPowerSeries<m>taylor_shift(FormalPowerSeries<m>f,ModInt<m>a){
   const int n=f.size();
   Combinatorics<m>c(n);
   for(int i=0;i<n;i++)f[i]*=c.fac(i);

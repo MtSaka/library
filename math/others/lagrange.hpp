@@ -3,8 +3,8 @@
 #include"combinatorics.hpp"
 
 template<long long m>
-modint<m>lagrange_polynomial(const vector<modint<m>>&y,const long long&t){
-  using mint=modint<m>;
+ModInt<m>lagrange_polynomial(const vector<ModInt<m>>&y,const long long&t){
+  using mint=ModInt<m>;
   const int n=y.size()-1;
   Combinatorics<m>c(n);
   if(t<=n)return y[t];

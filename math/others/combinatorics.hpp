@@ -1,10 +1,10 @@
 #pragma once
 #include"../../template/template.hpp"
-#include"../modular/modint.hpp"
+#include"../modular/ModInt.hpp"
 
 template<int m>
 struct Combinatorics{
-  using mint=modint<m>;
+  using mint=ModInt<m>;
   private:
   static vector<mint>dat,idat;
   inline static void extend(int sz){
@@ -48,16 +48,16 @@ struct Combinatorics{
   }
 };
 template<int m>
-vector<modint<m>>Combinatorics<m>::dat=vector<modint<m>>();
+vector<ModInt<m>>Combinatorics<m>::dat=vector<ModInt<m>>();
 template<int m>
-vector<modint<m>>Combinatorics<m>::idat=vector<modint<m>>();
+vector<ModInt<m>>Combinatorics<m>::idat=vector<ModInt<m>>();
 template<long long p>
 struct COMB{
   private:
-  static vector<vector<modint<p>>>comb;
+  static vector<vector<ModInt<p>>>comb;
   static void init(){
     if(!comb.empty())return;
-    comb.assign(p,vector<modint<p>>(p));
+    comb.assign(p,vector<ModInt<p>>(p));
     comb[0][0]=1;
     for(int i=1;i<p;i++){
       comb[i][0]=1;
@@ -68,9 +68,9 @@ struct COMB{
   COMB(){
     init();
   }
-  modint<p>com(int n,int k){
+  ModInt<p>com(int n,int k){
     init();
-    modint<p>ret=1;
+    ModInt<p>ret=1;
     while(n>0||k>0){
       int ni=n%p,ki=k%p;
       ret*=comb[ni][ki];
@@ -80,7 +80,7 @@ struct COMB{
   }
 };
 template<long long p>
-vector<vector<modint<p>>>COMB<p>::comb=vector<vector<modint<p>>>();
+vector<vector<ModInt<p>>>COMB<p>::comb=vector<vector<ModInt<p>>>();
 /**
  * @brief Combinatorics(組み合わせ)
 */

@@ -1,8 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/lcm_convolution"
 #include"../../template/template.hpp"
-#include"../../math/modular/modint.hpp"
+#include"../../math/modular/ModInt.hpp"
 #include"../../math/convolution/lcm-convolution.hpp"
-using mint=modint<998244353>;
+using mint=ModInt<998244353>;
 int main(){
   int n;cin>>n;
   vector<mint>a(n+1),b(n+1);

@@ -1,8 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 #include"../../template/template.hpp"
-#include"../../math/modular/modint.hpp"
+#include"../../math/modular/ModInt.hpp"
 #include"../../data-structure/lazy-segment-tree.hpp"
-using mint=modint<998244353>;
+using mint=ModInt<998244353>;
 using Pi=pair<mint,int >;
 using qi=pair<mint,mint>;
 Pi op(Pi a,Pi b){return {a.first+b.first,a.second+b.second};}

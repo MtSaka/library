@@ -4,7 +4,7 @@
 int main(){
   int n,t;
   cin>>n>>t;
-  vector<modint<998244353>>cnt(t+1);
+  vector<ModInt<998244353>>cnt(t+1);
   while(n--){
     int s;cin>>s;
     cnt[s]+=1;

@@ -3,9 +3,9 @@
 #include"fps.hpp"
 
 template<int m>
-FormalPowerSeries<m>subset_sum(vector<modint<m>>&count){
+FormalPowerSeries<m>subset_sum(vector<ModInt<m>>&count){
   const int n=(int)count.size();
-  vector<modint<m>>inv_table(n);
+  vector<ModInt<m>>inv_table(n);
   inv_table[1]=1;
   for(int i=2;i<n;i++)inv_table[i]=-inv_table[mod%i]*(mod/i);
   FormalPowerSeries<m>f(n);

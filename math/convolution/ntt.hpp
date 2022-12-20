@@ -1,15 +1,15 @@
 #pragma once
 #include"../../template/template.hpp"
-#include"../modular/modint.hpp"
+#include"../modular/ModInt.hpp"
 #include"../number/primitive-root.hpp"
 
 template<int m>
 struct NTT{
-  using mint=modint<m>;
+  using mint=ModInt<m>;
   private:
-  static modint<m> g;
+  static ModInt<m> g;
   static int limit;
-  static vector<modint<m>>root,inv_root;
+  static vector<ModInt<m>>root,inv_root;
   static void init(){
     if(!root.empty())return;
     g=primitive_root(m);
@@ -68,11 +68,11 @@ struct NTT{
 template<int m>
 int NTT<m>::limit=0;
 template<int m>
-vector<modint<m>>NTT<m>::root=vector<modint<m>>();
+vector<ModInt<m>>NTT<m>::root=vector<ModInt<m>>();
 template<int m>
-vector<modint<m>>NTT<m>::inv_root=vector<modint<m>>();
+vector<ModInt<m>>NTT<m>::inv_root=vector<ModInt<m>>();
 template<int m>
-modint<m>NTT<m>::g=modint<m>();
+ModInt<m>NTT<m>::g=ModInt<m>();
 /**
  * @brief Number Theoretic Transform(数論変換)
 */
