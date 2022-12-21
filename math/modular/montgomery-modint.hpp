@@ -9,6 +9,7 @@ struct MontgomeryReduction{
   using large_t=typename double_size_uint<T>::type;
   static constexpr int lg=numeric_limits<T>::digits;
   T mod;
+  T r;
   T r2;
   T minv;
   T calc_inv()const{
@@ -30,9 +31,11 @@ struct MontgomeryReduction{
     assert(x&1);
     assert(x<=INF<T>);
     mod=x;
+    r=(-static_cast<T>(mod))%mod;
     r2=(-static_cast<large_t>(mod))%mod;
     minv=calc_inv();
   }
+  inline T get_r()const{return r;}
   inline T get_mod()const{return mod;}
   T reduce(large_t x)const{
     large_t tmp=(x+static_cast<large_t>(static_cast<T>(x)*minv)*mod)>>lg;
@@ -61,7 +64,7 @@ struct MontgomeryModInt{
   static T get_mod(){return reduction.get_mod();}
   static void set_mod(T x){reduction.set_mod(x);}
   MontgomeryModInt& operator++(){
-    val+=MontgomeryModInt(1).val;
+    val+=redution.get_r();
     if(val>=reduction.get_mod())val-=reduction.get_mod();
     return *this;
   }
@@ -71,8 +74,8 @@ struct MontgomeryModInt{
     return res;
   }
   MontgomeryModInt& operator--(){
-    if(val==0)val=reduction.get_mod();
-    val-=MontgomeryModInt(1).val;
+    if(val<reduction.get_r())val+=reduction.get_mod();
+    val-=reduction.get_r();
     return *this;
   }
   MontgomeryModInt operator--(int){
