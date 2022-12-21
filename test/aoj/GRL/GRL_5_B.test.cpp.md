@@ -124,12 +124,12 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 1 \"graph/tree/rerooting.hpp\"\
-    \ntemplate<typename S,typename T=S>\nstruct ReRooting{\n  struct Edge{\n    int\
-    \ from,to;\n    S cost;\n    T dp,ndp;\n  };\n  using F=function<T(T,T)>;\n  using\
-    \ G=function<T(T,Edge)>;\n  vector<vector<Edge>>graph;\n  const F f;\n  const\
-    \ G g;\n  const T id;\n  vector<T>subdp,dp;\n  void add_edge(int u,int v,const\
-    \ S&d) {\n    graph[u].emplace_back(Edge{u,v,d,id,id});\n    graph[v].emplace_back(Edge{v,u,d,id,id});\n\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"graph/tree/rerooting.hpp\"\
+    \n\ntemplate<typename S,typename T=S>\nstruct ReRooting{\n  struct Edge{\n   \
+    \ int from,to;\n    S cost;\n    T dp,ndp;\n  };\n  using F=function<T(T,T)>;\n\
+    \  using G=function<T(T,Edge)>;\n  vector<vector<Edge>>graph;\n  const F f;\n\
+    \  const G g;\n  const T id;\n  vector<T>subdp,dp;\n  void add_edge(int u,int\
+    \ v,const S&d) {\n    graph[u].emplace_back(Edge{u,v,d,id,id});\n    graph[v].emplace_back(Edge{v,u,d,id,id});\n\
     \  }\n  void add_directed_edge(int u,int v,const S&d) {\n    graph[u].emplace_back(Edge{u,v,d,id,id});\n\
     \  }\n  ReRooting(int n,const F&f,const G&g,const T&id=T{}):graph(n),f(f),g(g),id(id),subdp(n,id),dp(n,id){}\n\
     \  void dfs_sub(int x,int p){\n    for(auto&e:graph[x])if(e.to!=p){\n      dfs_sub(e.to,x);\n\
@@ -164,7 +164,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 23:26:35+09:00'
+  timestamp: '2022-12-21 04:00:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_B.test.cpp

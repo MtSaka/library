@@ -33,6 +33,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum2.test.cpp
     title: test/yosupo/point_add_range_sum2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/static_range_inversions_query.test.cpp
+    title: test/yosupo/static_range_inversions_query.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -163,6 +166,7 @@ data:
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - test/aoj/DSL/DSL_2_B.test.cpp
   - test/yosupo/point_add_range_sum2.test.cpp
+  - test/yosupo/static_range_inversions_query.test.cpp
 documentation_of: data-structure/binary-indexed-tree.hpp
 layout: document
 redirect_from:

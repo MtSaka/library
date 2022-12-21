@@ -5,7 +5,7 @@ data:
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':heavy_check_mark:'
-    path: graph/tree/tree_diameter.hpp
+    path: graph/tree/tree-diameter.hpp
     title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - icon: ':question:'
     path: template/alias.hpp
@@ -147,7 +147,7 @@ data:
     \    }\n  }\n};\nstruct UnweightedEdge{\n  template<class... Args>UnweightedEdge(const\
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
     \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"graph/tree/tree_diameter.hpp\"\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"graph/tree/tree-diameter.hpp\"\
     \ntemplate<typename T=UnweightedEdge>\nstruct TreeDiameter:Graph<T>{\n  using\
     \ Graph<T>::g;\n  Edges<T>path;\n  T build(){\n    to.assign(g.size(),-1);\n \
     \   auto p=dfs(0,-1);\n    auto q=dfs(p.second,-1);\n    int now=p.second;\n \
@@ -162,7 +162,7 @@ data:
     \  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n  cout<<g.build()<<\" \"<<g.path.size()+1<<endl;\n\
     \  cout<<g.path[0].from<<\" \"<<g.path<<endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n#include\"\
-    ../../template/template.hpp\"\n#include\"../../graph/tree/tree_diameter.hpp\"\n\
+    ../../template/template.hpp\"\n#include\"../../graph/tree/tree-diameter.hpp\"\n\
     int main(){\n  int n;\n  cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n\
     \  cout<<g.build()<<\" \"<<g.path.size()+1<<endl;\n  cout<<g.path[0].from<<\"\
     \ \"<<g.path<<endl;\n}"
@@ -173,12 +173,12 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - graph/tree/tree_diameter.hpp
+  - graph/tree/tree-diameter.hpp
   - graph/graph-template.hpp
   isVerificationFile: true
   path: test/yosupo/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 23:26:35+09:00'
+  timestamp: '2022-12-21 04:00:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/tree_diameter.test.cpp

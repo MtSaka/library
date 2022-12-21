@@ -5,7 +5,7 @@ data:
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':heavy_check_mark:'
-    path: graph/tree/doubling_lowest_common_ancestor.hpp
+    path: graph/tree/doubling-lowest-common-ancestor.hpp
     title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':question:'
     path: template/alias.hpp
@@ -146,10 +146,10 @@ data:
     \    }\n  }\n};\nstruct UnweightedEdge{\n  template<class... Args>UnweightedEdge(const\
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
     \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"graph/tree/doubling_lowest_common_ancestor.hpp\"\
-    \ntemplate<typename T=UnweightedEdge>\nstruct Doubling_LCA:Graph<T>{\n  using\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 4 \"graph/tree/doubling-lowest-common-ancestor.hpp\"\
+    \n\ntemplate<typename T=UnweightedEdge>\nstruct DoublingLCA:Graph<T>{\n  using\
     \ Graph<T>::g;\n  const int lg;\n  vector<int>dep;\n  vector<T>sum;\n  vector<vector<int>>table;\n\
-    \  Doubling_LCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}\n  Doubling_LCA(const\
+    \  DoublingLCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}\n  DoublingLCA(const\
     \ Graph<T>&g):Graph<T>(g),lg(32-__builtin_clz(g.size())){}\n  void build(int root=0){\n\
     \    dep.assign(g.size(),0);\n    sum.assign(g.size(),0);\n    table.assign(lg,vector<int>(g.size(),-1));\n\
     \    dfs(root,-1,0);\n    for(int k=0;k+1<lg;k++){\n      for(int i=0;i<(int)table[k].size();i++){\n\
@@ -163,13 +163,13 @@ data:
     \    for(auto &e:g[idx])if(e!=par){\n      sum[e]=sum[idx]+e.cost;\n      dfs(e,idx,d+1);\n\
     \    }\n  }\n};\n/**\n * @brief Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\
     \u901A\u7956\u5148)\n*/\n#line 4 \"test/yosupo/lca1.test.cpp\"\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  Doubling_LCA g(n);\n  for(int i=1;i<n;i++){\n   \
-    \ int u;\n    cin>>u;\n    g.add_edge(u,i,false);\n  }\n  g.build();\n  while(q--){\n\
+    \  int n,q;\n  cin>>n>>q;\n  DoublingLCA g(n);\n  for(int i=1;i<n;i++){\n    int\
+    \ u;\n    cin>>u;\n    g.add_edge(u,i,false);\n  }\n  g.build();\n  while(q--){\n\
     \    int u,v;\n    cin>>u>>v;\n    cout<<g.lca(u,v)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include\"../../template/template.hpp\"\
-    \n#include\"../../graph/tree/doubling_lowest_common_ancestor.hpp\"\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  Doubling_LCA g(n);\n  for(int i=1;i<n;i++){\n   \
-    \ int u;\n    cin>>u;\n    g.add_edge(u,i,false);\n  }\n  g.build();\n  while(q--){\n\
+    \n#include\"../../graph/tree/doubling-lowest-common-ancestor.hpp\"\nint main(){\n\
+    \  int n,q;\n  cin>>n>>q;\n  DoublingLCA g(n);\n  for(int i=1;i<n;i++){\n    int\
+    \ u;\n    cin>>u;\n    g.add_edge(u,i,false);\n  }\n  g.build();\n  while(q--){\n\
     \    int u,v;\n    cin>>u>>v;\n    cout<<g.lca(u,v)<<endl;\n  }\n}"
   dependsOn:
   - template/template.hpp
@@ -178,12 +178,12 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
-  - graph/tree/doubling_lowest_common_ancestor.hpp
+  - graph/tree/doubling-lowest-common-ancestor.hpp
   - graph/graph-template.hpp
   isVerificationFile: true
   path: test/yosupo/lca1.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 23:26:35+09:00'
+  timestamp: '2022-12-21 04:00:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lca1.test.cpp

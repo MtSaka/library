@@ -146,7 +146,7 @@ data:
     \    }\n  }\n};\nstruct UnweightedEdge{\n  template<class... Args>UnweightedEdge(const\
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
     \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"graph/tree/tree_diameter.hpp\"\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"graph/tree/tree-diameter.hpp\"\
     \ntemplate<typename T=UnweightedEdge>\nstruct TreeDiameter:Graph<T>{\n  using\
     \ Graph<T>::g;\n  Edges<T>path;\n  T build(){\n    to.assign(g.size(),-1);\n \
     \   auto p=dfs(0,-1);\n    auto q=dfs(p.second,-1);\n    int now=p.second;\n \
@@ -177,17 +177,17 @@ data:
   - template/util.hpp
   - template/debug.hpp
   isVerificationFile: false
-  path: graph/tree/tree_diameter.hpp
+  path: graph/tree/tree-diameter.hpp
   requiredBy: []
-  timestamp: '2022-12-18 23:26:35+09:00'
+  timestamp: '2022-12-21 04:00:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_5_A.test.cpp
   - test/yosupo/tree_diameter.test.cpp
-documentation_of: graph/tree/tree_diameter.hpp
+documentation_of: graph/tree/tree-diameter.hpp
 layout: document
 redirect_from:
-- /library/graph/tree/tree_diameter.hpp
-- /library/graph/tree/tree_diameter.hpp.html
+- /library/graph/tree/tree-diameter.hpp
+- /library/graph/tree/tree-diameter.hpp.html
 title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
 ---

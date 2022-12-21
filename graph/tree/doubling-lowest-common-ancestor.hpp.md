@@ -147,10 +147,10 @@ data:
     \    }\n  }\n};\nstruct UnweightedEdge{\n  template<class... Args>UnweightedEdge(const\
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
     \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"graph/tree/doubling_lowest_common_ancestor.hpp\"\
-    \ntemplate<typename T=UnweightedEdge>\nstruct Doubling_LCA:Graph<T>{\n  using\
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 4 \"graph/tree/doubling-lowest-common-ancestor.hpp\"\
+    \n\ntemplate<typename T=UnweightedEdge>\nstruct DoublingLCA:Graph<T>{\n  using\
     \ Graph<T>::g;\n  const int lg;\n  vector<int>dep;\n  vector<T>sum;\n  vector<vector<int>>table;\n\
-    \  Doubling_LCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}\n  Doubling_LCA(const\
+    \  DoublingLCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}\n  DoublingLCA(const\
     \ Graph<T>&g):Graph<T>(g),lg(32-__builtin_clz(g.size())){}\n  void build(int root=0){\n\
     \    dep.assign(g.size(),0);\n    sum.assign(g.size(),0);\n    table.assign(lg,vector<int>(g.size(),-1));\n\
     \    dfs(root,-1,0);\n    for(int k=0;k+1<lg;k++){\n      for(int i=0;i<(int)table[k].size();i++){\n\
@@ -164,43 +164,43 @@ data:
     \    for(auto &e:g[idx])if(e!=par){\n      sum[e]=sum[idx]+e.cost;\n      dfs(e,idx,d+1);\n\
     \    }\n  }\n};\n/**\n * @brief Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\
     \u901A\u7956\u5148)\n*/\n"
-  code: "#pragma once\n#include\"../graph-template.hpp\"\ntemplate<typename T=UnweightedEdge>\n\
-    struct Doubling_LCA:Graph<T>{\n  using Graph<T>::g;\n  const int lg;\n  vector<int>dep;\n\
-    \  vector<T>sum;\n  vector<vector<int>>table;\n  Doubling_LCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}\n\
-    \  Doubling_LCA(const Graph<T>&g):Graph<T>(g),lg(32-__builtin_clz(g.size())){}\n\
-    \  void build(int root=0){\n    dep.assign(g.size(),0);\n    sum.assign(g.size(),0);\n\
-    \    table.assign(lg,vector<int>(g.size(),-1));\n    dfs(root,-1,0);\n    for(int\
-    \ k=0;k+1<lg;k++){\n      for(int i=0;i<(int)table[k].size();i++){\n        if(table[k][i]==-1)table[k+1][i]=-1;\n\
-    \        else table[k+1][i]=table[k][table[k][i]];\n      }\n    }\n  }\n  int\
-    \ lca(int u,int v){\n    if(dep[u]>dep[v])swap(u,v);\n    int k=dep[v]-dep[u];\n\
-    \    if(dep[v]<k)return -1;\n    for(int i=lg-1;i>=0;i--){\n      if((k>>i)&1)v=table[i][v];\n\
-    \    }\n    if(u==v)return u;\n    for(int i=lg-1;i>=0;i--){\n      if(table[i][u]!=table[i][v]){\n\
-    \        u=table[i][u];\n        v=table[i][v];\n      }\n    }\n    return table[0][u];\n\
-    \  }\n  T dist(int u,int v){return sum[u]+sum[v]-2*sum[lca(u,v)];}\n  private:\n\
-    \  void dfs(int idx,int par,int d){\n    table[0][idx]=par;\n    dep[idx]=d;\n\
+  code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"../graph-template.hpp\"\
+    \n\ntemplate<typename T=UnweightedEdge>\nstruct DoublingLCA:Graph<T>{\n  using\
+    \ Graph<T>::g;\n  const int lg;\n  vector<int>dep;\n  vector<T>sum;\n  vector<vector<int>>table;\n\
+    \  DoublingLCA(int n):Graph<T>(n),lg(32-__builtin_clz(n)){}\n  DoublingLCA(const\
+    \ Graph<T>&g):Graph<T>(g),lg(32-__builtin_clz(g.size())){}\n  void build(int root=0){\n\
+    \    dep.assign(g.size(),0);\n    sum.assign(g.size(),0);\n    table.assign(lg,vector<int>(g.size(),-1));\n\
+    \    dfs(root,-1,0);\n    for(int k=0;k+1<lg;k++){\n      for(int i=0;i<(int)table[k].size();i++){\n\
+    \        if(table[k][i]==-1)table[k+1][i]=-1;\n        else table[k+1][i]=table[k][table[k][i]];\n\
+    \      }\n    }\n  }\n  int lca(int u,int v){\n    if(dep[u]>dep[v])swap(u,v);\n\
+    \    int k=dep[v]-dep[u];\n    if(dep[v]<k)return -1;\n    for(int i=lg-1;i>=0;i--){\n\
+    \      if((k>>i)&1)v=table[i][v];\n    }\n    if(u==v)return u;\n    for(int i=lg-1;i>=0;i--){\n\
+    \      if(table[i][u]!=table[i][v]){\n        u=table[i][u];\n        v=table[i][v];\n\
+    \      }\n    }\n    return table[0][u];\n  }\n  T dist(int u,int v){return sum[u]+sum[v]-2*sum[lca(u,v)];}\n\
+    \  private:\n  void dfs(int idx,int par,int d){\n    table[0][idx]=par;\n    dep[idx]=d;\n\
     \    for(auto &e:g[idx])if(e!=par){\n      sum[e]=sum[idx]+e.cost;\n      dfs(e,idx,d+1);\n\
     \    }\n  }\n};\n/**\n * @brief Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\
     \u901A\u7956\u5148)\n*/"
   dependsOn:
-  - graph/graph-template.hpp
   - template/template.hpp
   - template/macro.hpp
   - template/alias.hpp
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
+  - graph/graph-template.hpp
   isVerificationFile: false
-  path: graph/tree/doubling_lowest_common_ancestor.hpp
+  path: graph/tree/doubling-lowest-common-ancestor.hpp
   requiredBy: []
-  timestamp: '2022-12-18 23:26:35+09:00'
+  timestamp: '2022-12-21 04:00:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_5_C_1.test.cpp
   - test/yosupo/lca1.test.cpp
-documentation_of: graph/tree/doubling_lowest_common_ancestor.hpp
+documentation_of: graph/tree/doubling-lowest-common-ancestor.hpp
 layout: document
 redirect_from:
-- /library/graph/tree/doubling_lowest_common_ancestor.hpp
-- /library/graph/tree/doubling_lowest_common_ancestor.hpp.html
+- /library/graph/tree/doubling-lowest-common-ancestor.hpp
+- /library/graph/tree/doubling-lowest-common-ancestor.hpp.html
 title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
 ---

@@ -30,7 +30,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data-structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data-structure/lazy-segment-tree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
@@ -143,14 +143,14 @@ data:
       path: graph/tree/centroid.hpp
       title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
     - icon: ':heavy_check_mark:'
-      path: graph/tree/doubling_lowest_common_ancestor.hpp
+      path: graph/tree/doubling-lowest-common-ancestor.hpp
       title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
     - icon: ':heavy_check_mark:'
       path: graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
     - icon: ':heavy_check_mark:'
-      path: graph/tree/tree_diameter.hpp
+      path: graph/tree/tree-diameter.hpp
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: math/convolution
     pages:
@@ -263,7 +263,7 @@ data:
       title: "Fraction(\u6709\u7406\u6570\u578B)"
   - name: others
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: others/mo.hpp
       title: Mo's Algorithm
     - icon: ':warning:'
@@ -530,10 +530,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_taylor_shift.test.cpp
       title: test/yosupo/polynomial_taylor_shift.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/range_affine_range_sum.test.cpp
       title: test/yosupo/range_affine_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
@@ -560,7 +560,7 @@ data:
     - icon: ':x:'
       path: test/yosupo/sqrt_of_formal_power_series.test.cpp
       title: test/yosupo/sqrt_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/static_range_inversions_query.test.cpp
       title: test/yosupo/static_range_inversions_query.test.cpp
     - icon: ':heavy_check_mark:'

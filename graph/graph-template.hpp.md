@@ -60,10 +60,10 @@ data:
     path: graph/tree/centroid.hpp
     title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
   - icon: ':heavy_check_mark:'
-    path: graph/tree/doubling_lowest_common_ancestor.hpp
+    path: graph/tree/doubling-lowest-common-ancestor.hpp
     title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':heavy_check_mark:'
-    path: graph/tree/tree_diameter.hpp
+    path: graph/tree/tree-diameter.hpp
     title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -271,9 +271,9 @@ data:
   - graph/others/topological-sort.hpp
   - graph/others/detect-cycle.hpp
   - graph/tree/RMQ_lowest_common_ancestor.hpp
+  - graph/tree/tree-diameter.hpp
   - graph/tree/centroid.hpp
-  - graph/tree/doubling_lowest_common_ancestor.hpp
-  - graph/tree/tree_diameter.hpp
+  - graph/tree/doubling-lowest-common-ancestor.hpp
   - graph/shortest-path/warshall-floyd.hpp
   - graph/shortest-path/dijkstra-path.hpp
   - graph/shortest-path/dijkstra.hpp
