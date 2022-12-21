@@ -64,7 +64,7 @@ data:
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
     \ x){return x?msb(x-1)+1:0;}\ninline constexpr int popcnt(ull x){\n#if __cplusplus>=202002L\n\
-    \  return popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
+    \  return std::popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
     \  x=(x&0x3333333333333333)+((x>>2)&0x3333333333333333);\n  x=(x&0x0f0f0f0f0f0f0f0f)+((x>>4)&0x0f0f0f0f0f0f0f0f);\n\
     \  x=(x&0x00ff00ff00ff00ff)+((x>>8)&0x00ff00ff00ff00ff);\n  x=(x&0x0000ffff0000ffff)+((x>>16)&0x0000ffff0000ffff);\n\
     \  return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);\n}\ntemplate<typename\
@@ -160,10 +160,10 @@ data:
     \    while(n%i==0){\n      res.push_back(i);\n      n/=i;\n    }\n  }\n  if(n!=1)res.push_back(n);\n\
     \  return res;\n}\n/**\n * @brief Prime Factorization(\u7D20\u56E0\u6570\u5206\
     \u89E3)\n*/\n#line 4 \"test/aoj/NTL/NTL_1_A.test.cpp\"\nint main(){\n  int n;\n\
-    \  cin>>n;\n  cout<<n<<\":\"<<prime_factor(n)<<endl;\n}\n"
+    \  cin>>n;\n  cout<<n<<\": \"<<prime_factor(n)<<endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/number/prime-factor.hpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  cout<<n<<\":\"<<prime_factor(n)<<endl;\n\
+    \nint main(){\n  int n;\n  cin>>n;\n  cout<<n<<\": \"<<prime_factor(n)<<endl;\n\
     }"
   dependsOn:
   - template/template.hpp
@@ -177,7 +177,7 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL/NTL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2022-12-22 00:05:09+09:00'
+  timestamp: '2022-12-22 00:38:16+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/NTL/NTL_1_A.test.cpp

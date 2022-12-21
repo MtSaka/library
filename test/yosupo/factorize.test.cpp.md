@@ -15,7 +15,7 @@ data:
   - icon: ':x:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: string/run-length.hpp
     title: string/run-length.hpp
   - icon: ':question:'
@@ -78,7 +78,7 @@ data:
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
     \ x){return x?msb(x-1)+1:0;}\ninline constexpr int popcnt(ull x){\n#if __cplusplus>=202002L\n\
-    \  return popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
+    \  return std::popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
     \  x=(x&0x3333333333333333)+((x>>2)&0x3333333333333333);\n  x=(x&0x0f0f0f0f0f0f0f0f)+((x>>4)&0x0f0f0f0f0f0f0f0f);\n\
     \  x=(x&0x00ff00ff00ff00ff)+((x>>8)&0x00ff00ff00ff00ff);\n  x=(x&0x0000ffff0000ffff)+((x>>16)&0x0000ffff0000ffff);\n\
     \  return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);\n}\ntemplate<typename\
@@ -172,12 +172,12 @@ data:
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/random.hpp\"\
     \n\ntemplate<typename Engine>\nstruct Random{\n  private:\n  Engine rnd;\n  public:\n\
     \  using result_type=typename Engine::result_type;\n  Random():Random(random_device{}()){}\n\
-    \  result_type operator()(){return rnd();}\n  template<typename IntType=ll>\n\
-    \  IntType uniform(IntType l,IntType r){\n    static_assert(is_integral<IntType>::value,\"\
-    template argument must be an integral type\");\n    return uniform_int_distribution<IntType>{l,r}(rnd);\n\
-    \  }\n  template<typename RealType=double>\n  RealType uniform(RealType l,RealType\
-    \ r){\n    static_assert(is_floating_point<RealType>::value,\"template argument\
-    \ must be a floating point type\");\n    return uniform_real_distribution<RealType>{l,r}(rnd);\n\
+    \  Random(result_type seed):rnd(seed){}\n  result_type operator()(){return rnd();}\n\
+    \  template<typename IntType=ll>\n  IntType uniform(IntType l,IntType r){\n  \
+    \  static_assert(is_integral<IntType>::value,\"template argument must be an integral\
+    \ type\");\n    return uniform_int_distribution<IntType>{l,r}(rnd);\n  }\n  template<typename\
+    \ RealType=double>\n  RealType uniform_real(RealType l,RealType r){\n    static_assert(is_floating_point<RealType>::value,\"\
+    template argument must be a floating point type\");\n    return uniform_real_distribution<RealType>{l,r}(rnd);\n\
     \  }\n  bool uniform_bool(){return uniform<int>(0,1);}\n  template<typename T=ll>\n\
     \  pair<T,T> uniform_pair(T l,T r){\n    T a,b;\n    do{\n      a=uniform<T>(l,r);\n\
     \      b=uniform<T>(l,r);\n    }while(a==b);\n    if(a>b)swap(a,b);\n    return\
@@ -204,15 +204,14 @@ data:
     };\ntemplate<typename T,int id>\nstruct MontgomeryModInt{\n  static_assert(is_integral<T>::value,\"\
     template argument must be integral\");\n  static_assert(is_unsigned<T>::value,\"\
     template argument must be unsigned\");\n  private:\n  using large_t=typename double_size_uint<T>::type;\n\
-    \  using signed_large_t=typename make_signed<large_t>::type;\n  T val;\n  static\
-    \ MontgomeryReduction<T>reduction;\n  public:\n  MontgomeryModInt():val(0){}\n\
+    \  T val;\n  static MontgomeryReduction<T>reduction;\n  public:\n  MontgomeryModInt():val(0){}\n\
     \  template<typename U,typename enable_if<is_integral<U>::value&&is_unsigned<U>::value>::type*\
     \ =nullptr>\n  MontgomeryModInt(U x):val(reduction.transform(x<(static_cast<large_t>(reduction.get_mod())<<reduction.get_lg())?static_cast<large_t>(x):static_cast<large_t>(x%reduction.get_mod()))){}\n\
     \  template<typename U,typename enable_if<is_integral<U>::value&&is_signed<U>::value>::type*\
     \ =nullptr>\n  MontgomeryModInt(U x):MontgomeryModInt(static_cast<typename std::make_unsigned<U>::type>(x<0?-x:x)){\n\
     \    if(x<0&&val)val=reduction.get_mod()-val;\n  }\n  T get()const{return reduction.reduce(val);}\n\
     \  static T get_mod(){return reduction.get_mod();}\n  static void set_mod(T x){reduction.set_mod(x);}\n\
-    \  MontgomeryModInt& operator++(){\n    val+=redution.get_r();\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
+    \  MontgomeryModInt& operator++(){\n    val+=reduction.get_r();\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
     \    return *this;\n  }\n  MontgomeryModInt operator++(int){\n    MontgomeryModInt\
     \ res=*this;\n    ++*this;\n    return res;\n  }\n  MontgomeryModInt& operator--(){\n\
     \    if(val<reduction.get_r())val+=reduction.get_mod();\n    val-=reduction.get_r();\n\
@@ -236,8 +235,8 @@ data:
     \ bool operator!=(const MontgomeryModInt&l,const MontgomeryModInt&r){return l.val!=r.val;}\n\
     \  friend ostream &operator<<(ostream &os,const MontgomeryModInt&x){\n    return\
     \ os<<x.get();\n  }\n  friend istream &operator>>(istream &is,MontgomeryModInt&x){\n\
-    \    signed_large_t tmp;\n    is>>tmp;\n    x=MontgomeryModInt(tmp);\n    return\
-    \ is;\n  }\n};\ntemplate<typename T,int id>\nMontgomeryReduction<T>\n  MontgomeryModInt<T,id>::reduction=MontgomeryReduction<T>(998244353);\n\
+    \    ll tmp;\n    is>>tmp;\n    x=MontgomeryModInt(tmp);\n    return is;\n  }\n\
+    };\ntemplate<typename T,int id>\nMontgomeryReduction<T>\n  MontgomeryModInt<T,id>::reduction=MontgomeryReduction<T>(998244353);\n\
     using ArbitraryModInt=MontgomeryModInt<unsigned int,-1>;\n/**\n * @brief MontgomeryModInt(\u30E2\
     \u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)\n*/\n#line 4 \"math/number/miller-rabin.hpp\"\
     \n\ntemplate<typename T>\nconstexpr bool miller_rabin(ull n,const ull base[],int\
@@ -260,7 +259,7 @@ data:
     \ run_length(c,equal_to<typename Cont::value_type>());}\n#line 7 \"math/number/pollard-rho.hpp\"\
     \n\ntemplate<typename T,typename Rand>\null pollard_rho(ull n,Rand&rand){\n  if(~n&1)return\
     \ 2;\n  if(T::get_mod()!=n)T::set_mod(n);\n  T c,e=1;\n  auto f=[&](T x)->T {return\
-    \ x*x+c};\n  constexpr int m=128;\n  while(1){\n    c=rand.uniform(1ull,n-1);\n\
+    \ x*x+c;};\n  constexpr int m=128;\n  while(1){\n    c=rand.uniform(1ull,n-1);\n\
     \    T x=rand.uniform(2ull,n-1),y=x;\n    ull g=1;\n    while(g==1){\n      T\
     \ p=e,tx=x,ty=y;\n      rep(i,m){\n        x=f(x);\n        y=f(f(y));\n     \
     \   p*=x-y;\n      }\n      g=gcd(p.get(),n);\n      if(g==1)continue;\n     \
@@ -269,15 +268,15 @@ data:
     \      }\n    }\n  }\n  return -1;\n}\ntemplate<typename T=MontgomeryModInt<ull,-3>,typename\
     \ Rand=Random64>\nvector<ull>factorize(ull n,Rand&rand=rand64){\n  if(n==1)return\
     \ {};\n  vector<ull>res;\n  vector<ull>st={n};\n  while(!st.empty()){\n    ull\
-    \ t=st.back();\n    st.pop_back();\n    if(is_prime_fast(t)){\n      res.push_back(t);\n\
-    \      st.pop_back();\n    }\n    ull p=pollard_rho<T>(t,rand);\n    st.push_back(p);\n\
-    \    st.push_back(t/p);\n  }\n  sort(all(res));\n  return res;\n}\ntemplate<typename\
-    \ T=MontgomeryModInt<ull,-3>,typename Rand=Random64>\nvector<pair<ull,int>>expfactorize(ull\
-    \ n,Rand&rand=rand64){\n  auto res=factorize<T>(n,rand);\n  return run_length(res);\n\
-    }\n/**\n * @brief Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\
-    \u30FC\u6CD5)\n*/\n#line 4 \"test/yosupo/factorize.test.cpp\"\nint main(){\n \
-    \ int q;\n  cin>>q;\n  while(q--){\n    long long x;\n    cin>>x;\n    auto ret=factorize(x);\n\
-    \    print(ret.size(),ret);\n  }\n}\n"
+    \ t=st.back();\n    st.pop_back();\n    if(t==1)continue;\n    if(is_prime_fast(t)){\n\
+    \      res.push_back(t);\n      continue;\n    }\n    ull p=pollard_rho<T>(t,rand);\n\
+    \    st.push_back(p);\n    st.push_back(t/p);\n  }\n  sort(all(res));\n  return\
+    \ res;\n}\ntemplate<typename T=MontgomeryModInt<ull,-3>,typename Rand=Random64>\n\
+    vector<pair<ull,int>>expfactorize(ull n,Rand&rand=rand64){\n  auto res=factorize<T>(n,rand);\n\
+    \  return run_length(res);\n}\n/**\n * @brief Pollard's Rho Factorization(\u30DD\
+    \u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\u6CD5)\n*/\n#line 4 \"test/yosupo/factorize.test.cpp\"\
+    \nint main(){\n  int q;\n  cin>>q;\n  while(q--){\n    long long x;\n    cin>>x;\n\
+    \    auto ret=factorize(x);\n    print(ret.size(),ret);\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/factorize\"\n#include\"\
     ../../template/template.hpp\"\n#include\"../../math/number/pollard-rho.hpp\"\n\
     int main(){\n  int q;\n  cin>>q;\n  while(q--){\n    long long x;\n    cin>>x;\n\
@@ -298,7 +297,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/factorize.test.cpp
   requiredBy: []
-  timestamp: '2022-12-22 00:05:09+09:00'
+  timestamp: '2022-12-22 00:38:16+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/factorize.test.cpp

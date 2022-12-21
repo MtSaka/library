@@ -69,7 +69,7 @@ data:
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
     \ x){return x?msb(x-1)+1:0;}\ninline constexpr int popcnt(ull x){\n#if __cplusplus>=202002L\n\
-    \  return popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
+    \  return std::popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
     \  x=(x&0x3333333333333333)+((x>>2)&0x3333333333333333);\n  x=(x&0x0f0f0f0f0f0f0f0f)+((x>>4)&0x0f0f0f0f0f0f0f0f);\n\
     \  x=(x&0x00ff00ff00ff00ff)+((x>>8)&0x00ff00ff00ff00ff);\n  x=(x&0x0000ffff0000ffff)+((x>>16)&0x0000ffff0000ffff);\n\
     \  return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);\n}\ntemplate<typename\
@@ -177,15 +177,14 @@ data:
     };\ntemplate<typename T,int id>\nstruct MontgomeryModInt{\n  static_assert(is_integral<T>::value,\"\
     template argument must be integral\");\n  static_assert(is_unsigned<T>::value,\"\
     template argument must be unsigned\");\n  private:\n  using large_t=typename double_size_uint<T>::type;\n\
-    \  using signed_large_t=typename make_signed<large_t>::type;\n  T val;\n  static\
-    \ MontgomeryReduction<T>reduction;\n  public:\n  MontgomeryModInt():val(0){}\n\
+    \  T val;\n  static MontgomeryReduction<T>reduction;\n  public:\n  MontgomeryModInt():val(0){}\n\
     \  template<typename U,typename enable_if<is_integral<U>::value&&is_unsigned<U>::value>::type*\
     \ =nullptr>\n  MontgomeryModInt(U x):val(reduction.transform(x<(static_cast<large_t>(reduction.get_mod())<<reduction.get_lg())?static_cast<large_t>(x):static_cast<large_t>(x%reduction.get_mod()))){}\n\
     \  template<typename U,typename enable_if<is_integral<U>::value&&is_signed<U>::value>::type*\
     \ =nullptr>\n  MontgomeryModInt(U x):MontgomeryModInt(static_cast<typename std::make_unsigned<U>::type>(x<0?-x:x)){\n\
     \    if(x<0&&val)val=reduction.get_mod()-val;\n  }\n  T get()const{return reduction.reduce(val);}\n\
     \  static T get_mod(){return reduction.get_mod();}\n  static void set_mod(T x){reduction.set_mod(x);}\n\
-    \  MontgomeryModInt& operator++(){\n    val+=redution.get_r();\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
+    \  MontgomeryModInt& operator++(){\n    val+=reduction.get_r();\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
     \    return *this;\n  }\n  MontgomeryModInt operator++(int){\n    MontgomeryModInt\
     \ res=*this;\n    ++*this;\n    return res;\n  }\n  MontgomeryModInt& operator--(){\n\
     \    if(val<reduction.get_r())val+=reduction.get_mod();\n    val-=reduction.get_r();\n\
@@ -209,8 +208,8 @@ data:
     \ bool operator!=(const MontgomeryModInt&l,const MontgomeryModInt&r){return l.val!=r.val;}\n\
     \  friend ostream &operator<<(ostream &os,const MontgomeryModInt&x){\n    return\
     \ os<<x.get();\n  }\n  friend istream &operator>>(istream &is,MontgomeryModInt&x){\n\
-    \    signed_large_t tmp;\n    is>>tmp;\n    x=MontgomeryModInt(tmp);\n    return\
-    \ is;\n  }\n};\ntemplate<typename T,int id>\nMontgomeryReduction<T>\n  MontgomeryModInt<T,id>::reduction=MontgomeryReduction<T>(998244353);\n\
+    \    ll tmp;\n    is>>tmp;\n    x=MontgomeryModInt(tmp);\n    return is;\n  }\n\
+    };\ntemplate<typename T,int id>\nMontgomeryReduction<T>\n  MontgomeryModInt<T,id>::reduction=MontgomeryReduction<T>(998244353);\n\
     using ArbitraryModInt=MontgomeryModInt<unsigned int,-1>;\n/**\n * @brief MontgomeryModInt(\u30E2\
     \u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)\n*/\n#line 4 \"math/number/miller-rabin.hpp\"\
     \n\ntemplate<typename T>\nconstexpr bool miller_rabin(ull n,const ull base[],int\
@@ -249,7 +248,7 @@ data:
   path: math/number/miller-rabin.hpp
   requiredBy:
   - math/number/pollard-rho.hpp
-  timestamp: '2022-12-22 00:05:09+09:00'
+  timestamp: '2022-12-22 00:38:16+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/factorize.test.cpp

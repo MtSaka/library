@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/others/matrix.hpp
     title: "Matrix(\u884C\u5217)"
   - icon: ':question:'
@@ -30,9 +30,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/matrix_product
@@ -68,7 +68,7 @@ data:
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
     \ x){return x?msb(x-1)+1:0;}\ninline constexpr int popcnt(ull x){\n#if __cplusplus>=202002L\n\
-    \  return popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
+    \  return std::popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
     \  x=(x&0x3333333333333333)+((x>>2)&0x3333333333333333);\n  x=(x&0x0f0f0f0f0f0f0f0f)+((x>>4)&0x0f0f0f0f0f0f0f0f);\n\
     \  x=(x&0x00ff00ff00ff00ff)+((x>>8)&0x00ff00ff00ff00ff);\n  x=(x&0x0000ffff0000ffff)+((x>>16)&0x0000ffff0000ffff);\n\
     \  return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);\n}\ntemplate<typename\
@@ -193,9 +193,8 @@ data:
     );\n  static_assert(is_unsigned<T>::value,\"T must be unsgined\");\n  static_assert(mod>0,\"\
     mod must be positive\");\n  static_assert(mod<=INF<T>,\"mod*2 must be less than\
     \ or equal to T::max()\");\n  private:\n  using large_t=typename double_size_uint<T>::type;\n\
-    \  using signed_large_t=typename make_signed<large_t>::type;\n  using signed_t=typename\
-    \ make_signed<T>::type;\n  T val;\n  public:\n  constexpr StaticModInt():val(0){}\n\
-    \  template<typename U,typename enable_if<is_integral<U>::value&&is_unsigned<U>::value>::type*\
+    \  using signed_t=typename make_signed<T>::type;\n  T val;\n  public:\n  constexpr\
+    \ StaticModInt():val(0){}\n  template<typename U,typename enable_if<is_integral<U>::value&&is_unsigned<U>::value>::type*\
     \ =nullptr>\n  constexpr StaticModInt(U x):val(x%mod){}\n  template<typename U,typename\
     \ enable_if<is_integral<U>::value&&is_signed<U>::value>::type* =nullptr>\n  constexpr\
     \ StaticModInt(U x):val{}{\n    x%=static_cast<signed_t>(mod);\n    if(x<0)x+=static_cast<signed_t>(mod);\n\
@@ -225,7 +224,7 @@ data:
     \ a)const{\n    StaticModInt v=*this,res=1;\n    while(a){\n      if(a&1)res*=v;\n\
     \      v*=v;\n      a>>=1;\n    }\n    return res;\n  }\n  friend ostream &operator<<(ostream\
     \ &os,const StaticModInt&x){\n    return os<<x.val;\n  }\n  friend istream &operator>>(istream\
-    \ &is,StaticModInt&x){\n    signed_large_t tmp;\n    is>>tmp;\n    x=StaticModInt(tmp);\n\
+    \ &is,StaticModInt&x){\n    ll tmp;\n    is>>tmp;\n    x=StaticModInt(tmp);\n\
     \    return is;\n  }\n};\ntemplate<unsigned int p>using ModInt=StaticModInt<unsigned\
     \ int,p>;\n/**\n * @brief ModInt\n*/\n#line 5 \"test/yosupo/matrix_product.test.cpp\"\
     \nint main(){\n  int n,m,k;\n  cin>>n>>m>>k;\n  Matrix<ModInt<998244353>>a(n,m),b(m,k);\n\
@@ -252,8 +251,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2022-12-21 20:46:46+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-22 00:38:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/matrix_product.test.cpp
 layout: document

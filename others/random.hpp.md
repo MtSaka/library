@@ -65,7 +65,7 @@ data:
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
     \ x){return x?msb(x-1)+1:0;}\ninline constexpr int popcnt(ull x){\n#if __cplusplus>=202002L\n\
-    \  return popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
+    \  return std::popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
     \  x=(x&0x3333333333333333)+((x>>2)&0x3333333333333333);\n  x=(x&0x0f0f0f0f0f0f0f0f)+((x>>4)&0x0f0f0f0f0f0f0f0f);\n\
     \  x=(x&0x00ff00ff00ff00ff)+((x>>8)&0x00ff00ff00ff00ff);\n  x=(x&0x0000ffff0000ffff)+((x>>16)&0x0000ffff0000ffff);\n\
     \  return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);\n}\ntemplate<typename\
@@ -159,12 +159,12 @@ data:
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/random.hpp\"\
     \n\ntemplate<typename Engine>\nstruct Random{\n  private:\n  Engine rnd;\n  public:\n\
     \  using result_type=typename Engine::result_type;\n  Random():Random(random_device{}()){}\n\
-    \  result_type operator()(){return rnd();}\n  template<typename IntType=ll>\n\
-    \  IntType uniform(IntType l,IntType r){\n    static_assert(is_integral<IntType>::value,\"\
-    template argument must be an integral type\");\n    return uniform_int_distribution<IntType>{l,r}(rnd);\n\
-    \  }\n  template<typename RealType=double>\n  RealType uniform(RealType l,RealType\
-    \ r){\n    static_assert(is_floating_point<RealType>::value,\"template argument\
-    \ must be a floating point type\");\n    return uniform_real_distribution<RealType>{l,r}(rnd);\n\
+    \  Random(result_type seed):rnd(seed){}\n  result_type operator()(){return rnd();}\n\
+    \  template<typename IntType=ll>\n  IntType uniform(IntType l,IntType r){\n  \
+    \  static_assert(is_integral<IntType>::value,\"template argument must be an integral\
+    \ type\");\n    return uniform_int_distribution<IntType>{l,r}(rnd);\n  }\n  template<typename\
+    \ RealType=double>\n  RealType uniform_real(RealType l,RealType r){\n    static_assert(is_floating_point<RealType>::value,\"\
+    template argument must be a floating point type\");\n    return uniform_real_distribution<RealType>{l,r}(rnd);\n\
     \  }\n  bool uniform_bool(){return uniform<int>(0,1);}\n  template<typename T=ll>\n\
     \  pair<T,T> uniform_pair(T l,T r){\n    T a,b;\n    do{\n      a=uniform<T>(l,r);\n\
     \      b=uniform<T>(l,r);\n    }while(a==b);\n    if(a>b)swap(a,b);\n    return\
@@ -177,11 +177,11 @@ data:
     \ * @brief Random(\u4E71\u6570)\n*/\n"
   code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename Engine>\n\
     struct Random{\n  private:\n  Engine rnd;\n  public:\n  using result_type=typename\
-    \ Engine::result_type;\n  Random():Random(random_device{}()){}\n  result_type\
-    \ operator()(){return rnd();}\n  template<typename IntType=ll>\n  IntType uniform(IntType\
-    \ l,IntType r){\n    static_assert(is_integral<IntType>::value,\"template argument\
-    \ must be an integral type\");\n    return uniform_int_distribution<IntType>{l,r}(rnd);\n\
-    \  }\n  template<typename RealType=double>\n  RealType uniform(RealType l,RealType\
+    \ Engine::result_type;\n  Random():Random(random_device{}()){}\n  Random(result_type\
+    \ seed):rnd(seed){}\n  result_type operator()(){return rnd();}\n  template<typename\
+    \ IntType=ll>\n  IntType uniform(IntType l,IntType r){\n    static_assert(is_integral<IntType>::value,\"\
+    template argument must be an integral type\");\n    return uniform_int_distribution<IntType>{l,r}(rnd);\n\
+    \  }\n  template<typename RealType=double>\n  RealType uniform_real(RealType l,RealType\
     \ r){\n    static_assert(is_floating_point<RealType>::value,\"template argument\
     \ must be a floating point type\");\n    return uniform_real_distribution<RealType>{l,r}(rnd);\n\
     \  }\n  bool uniform_bool(){return uniform<int>(0,1);}\n  template<typename T=ll>\n\
@@ -206,7 +206,7 @@ data:
   path: others/random.hpp
   requiredBy:
   - math/number/pollard-rho.hpp
-  timestamp: '2022-12-21 20:26:30+09:00'
+  timestamp: '2022-12-22 00:38:16+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/factorize.test.cpp
