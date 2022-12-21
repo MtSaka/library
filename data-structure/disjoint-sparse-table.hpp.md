@@ -17,6 +17,9 @@ data:
     path: template/template.hpp
     title: template/template.hpp
   - icon: ':question:'
+    path: template/type-traits.hpp
+    title: template/type-traits.hpp
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -131,7 +134,25 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/disjoint-sparse-table.hpp\"\
+    #endif\n#line 4 \"template/type-traits.hpp\"\n\ntemplate<std::size_t size>\nstruct\
+    \ int_least{\n  static_assert(size<=128,\"size must be less than or equal to 128\"\
+    );\n  using type=typename std::conditional<\n    size<=8,std::int_least8_t,\n\
+    \    typename std::conditional<\n      size<=16,std::int_least16_t,\n      typename\
+    \ std::conditional<\n        size<=32,std::int_least32_t,\n        typename std::conditional<size<=64,std::int_least64_t,__int128_t>::type>::type>::type>::type;\n\
+    };\ntemplate<std::size_t size>using int_least_t=typename int_least<size>::type;\n\
+    template<std::size_t size>\nstruct uint_least{\n  static_assert(size<=128,\"size\
+    \ must be less than or equal to 128\");\n  using type=typename std::conditional<\n\
+    \    size<=8,std::uint_least8_t,\n    typename std::conditional<\n      size<=16,std::uint_least16_t,\n\
+    \      typename std::conditional<\n        size<=32,std::uint_least32_t,\n   \
+    \     typename std::conditional<size<=64,std::uint_least64_t,__uint128_t>::type>::type>::type>::type;\n\
+    };\ntemplate<std::size_t size>using uint_least_t=typename uint_least<size>::type;\n\
+    template<typename T>\nusing double_size_int=int_least<std::numeric_limits<T>::digits*2+1>;\n\
+    template<typename T>using double_size_int_t=typename double_size_int<T>::type;\n\
+    template<typename T>\nusing double_size_uint=uint_least<std::numeric_limits<T>::digits*2>;\n\
+    template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
+    template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
+    template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/disjoint-sparse-table.hpp\"\
     \n\ntemplate<class S,S (*op)(S,S),S (*e)()>\nstruct DisjointSparseTable{\n  private:\n\
     \  vector<vector<S>>table;\n  vector<int>log_table;\n  public:\n  DisjointSparseTable(const\
     \ vector<S>&v){\n    int bit=0,sz=1;\n    while(sz<=(int)v.size())sz<<=1,bit++;\n\
@@ -166,10 +187,11 @@ data:
   - template/func.hpp
   - template/util.hpp
   - template/debug.hpp
+  - template/type-traits.hpp
   isVerificationFile: false
   path: data-structure/disjoint-sparse-table.hpp
   requiredBy: []
-  timestamp: '2022-12-21 18:18:31+09:00'
+  timestamp: '2022-12-21 20:26:30+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/staticrmq2.test.cpp

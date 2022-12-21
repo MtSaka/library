@@ -97,10 +97,10 @@ data:
         )"
   - name: graph/mst
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/mst/kruskal.hpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/mst/prim.hpp
       title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - name: graph/others
@@ -108,7 +108,7 @@ data:
     - icon: ':x:'
       path: graph/others/detect-cycle.hpp
       title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-    - icon: ':question:'
+    - icon: ':x:'
       path: graph/others/scc.hpp
       title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
@@ -289,6 +289,9 @@ data:
       path: template/template.hpp
       title: template/template.hpp
     - icon: ':question:'
+      path: template/type-traits.hpp
+      title: template/type-traits.hpp
+    - icon: ':question:'
       path: template/util.hpp
       title: template/util.hpp
   verificationCategories:
@@ -392,13 +395,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_1_C.test.cpp
       title: test/aoj/GRL/GRL_1_C.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_2_A.test.cpp
       title: test/aoj/GRL/GRL_2_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_2_A_2.test.cpp
       title: test/aoj/GRL/GRL_2_A_2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL/GRL_3_C.test.cpp
       title: test/aoj/GRL/GRL_3_C.test.cpp
     - icon: ':x:'
