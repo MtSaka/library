@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/mod-convolution.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - icon: ':question:'
@@ -21,7 +21,7 @@ data:
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
   - icon: ':question:'
@@ -53,9 +53,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/convolution_mod_1000000007
@@ -340,8 +340,8 @@ data:
     \n\ntemplate<unsigned int p,enable_if_t<is_prime_v<p>>* =nullptr>\nstruct NthRoot{\n\
     \  private:\n  static constexpr unsigned int lg=msb((p-1)&(1-p));\n  array<unsigned\
     \ int,lg+1>root,inv_root;\n  public:\n  constexpr NthRoot():root{},inv_root{}{\n\
-    \    root[lg]=mod_pow(constexpr_primitive_root(p),(p-1)>>lg,p);\n    inv_root[lg]=mod_pow(root[lg],p-2,p);\n\
-    \    rrep(i,lg){\n      root[i]=(ull)root[i+1]*root[i+1]%p\n      inv_root[i]=(ull)inv_root[i+1]*inv_root[i+1]%p;\n\
+    \    root[lg]=mod_pow(constexpr_primitive_root<p>(),(p-1)>>lg,p);\n    inv_root[lg]=mod_pow(root[lg],p-2,p);\n\
+    \    rrep(i,lg){\n      root[i]=(ull)root[i+1]*root[i+1]%p;\n      inv_root[i]=(ull)inv_root[i+1]*inv_root[i+1]%p;\n\
     \    }\n  }\n  static constexpr unsigned int get_lg(){return lg;}\n  constexpr\
     \ unsigned int get(int n){return root[n];}\n  constexpr unsigned int inv(int n){return\
     \ inv_root[n];}\n};\ntemplate<unsigned int p>constexpr NthRoot<p> nth_root;\n\
@@ -404,8 +404,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/convolution_mod_1000000007.test.cpp
   requiredBy: []
-  timestamp: '2022-12-22 01:36:22+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-22 01:50:33+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/convolution_mod_1000000007.test.cpp
 layout: document

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - icon: ':question:'
@@ -18,7 +18,7 @@ data:
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
   - icon: ':question:'
@@ -62,16 +62,16 @@ data:
     path: math/fps/taylor-shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/division_of_polynomials.test.cpp
     title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
   - icon: ':x:'
@@ -83,7 +83,7 @@ data:
   - icon: ':x:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':x:'
@@ -94,7 +94,7 @@ data:
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -375,8 +375,8 @@ data:
     \n\ntemplate<unsigned int p,enable_if_t<is_prime_v<p>>* =nullptr>\nstruct NthRoot{\n\
     \  private:\n  static constexpr unsigned int lg=msb((p-1)&(1-p));\n  array<unsigned\
     \ int,lg+1>root,inv_root;\n  public:\n  constexpr NthRoot():root{},inv_root{}{\n\
-    \    root[lg]=mod_pow(constexpr_primitive_root(p),(p-1)>>lg,p);\n    inv_root[lg]=mod_pow(root[lg],p-2,p);\n\
-    \    rrep(i,lg){\n      root[i]=(ull)root[i+1]*root[i+1]%p\n      inv_root[i]=(ull)inv_root[i+1]*inv_root[i+1]%p;\n\
+    \    root[lg]=mod_pow(constexpr_primitive_root<p>(),(p-1)>>lg,p);\n    inv_root[lg]=mod_pow(root[lg],p-2,p);\n\
+    \    rrep(i,lg){\n      root[i]=(ull)root[i+1]*root[i+1]%p;\n      inv_root[i]=(ull)inv_root[i+1]*inv_root[i+1]%p;\n\
     \    }\n  }\n  static constexpr unsigned int get_lg(){return lg;}\n  constexpr\
     \ unsigned int get(int n){return root[n];}\n  constexpr unsigned int inv(int n){return\
     \ inv_root[n];}\n};\ntemplate<unsigned int p>constexpr NthRoot<p> nth_root;\n\
@@ -592,8 +592,8 @@ data:
   - math/fps/polynomial-interpolation.hpp
   - math/fps/taylor-shift.hpp
   - math/fps/multipoint-evaluation.hpp
-  timestamp: '2022-12-22 01:36:22+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-12-22 01:50:33+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp

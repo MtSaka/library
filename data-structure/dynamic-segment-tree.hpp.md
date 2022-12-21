@@ -24,12 +24,12 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum3.test.cpp
     title: test/yosupo/point_add_range_sum3.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
     links: []
@@ -213,7 +213,7 @@ data:
   path: data-structure/dynamic-segment-tree.hpp
   requiredBy: []
   timestamp: '2022-12-22 00:38:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/point_add_range_sum3.test.cpp
 documentation_of: data-structure/dynamic-segment-tree.hpp

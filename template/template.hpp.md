@@ -32,10 +32,10 @@ data:
   - icon: ':x:'
     path: data-structure/disjoint-sparse-table.hpp
     title: Disjoint Sparse Table
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/dual-segment-tree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/dynamic-segment-tree.hpp
     title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
   - icon: ':heavy_check_mark:'
@@ -50,22 +50,22 @@ data:
   - icon: ':question:'
     path: data-structure/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/persistent-array.hpp
     title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/persistent-union-find.hpp
     title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/rollback-union-find.hpp
     title: Rollback Disjoint Set Union(Union Find)
   - icon: ':x:'
     path: data-structure/segment-tree-beats.hpp
     title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/segment-tree-monoids.hpp
     title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':question:'
@@ -160,13 +160,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/convolution/lcm-convolution.hpp
     title: LCM Convolution
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/mod-convolution.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':x:'
@@ -220,7 +220,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/number/prime-sieve.hpp
     title: "Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
   - icon: ':warning:'
@@ -399,19 +399,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/associative_array.test.cpp
     title: test/yosupo/associative_array.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod.test.cpp
     title: test/yosupo/convolution_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/discrete-logarithm-mod.test.cpp
     title: test/yosupo/discrete-logarithm-mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/division_of_polynomials.test.cpp
     title: test/yosupo/division_of_polynomials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/exp_of_formal_power_series.test.cpp
     title: test/yosupo/exp_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -420,7 +420,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/gcd_convolution.test.cpp
     title: test/yosupo/gcd_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/inv_of_formal_power_series.test.cpp
     title: test/yosupo/inv_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -435,7 +435,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/lcm_convolution.test.cpp
     title: test/yosupo/lcm_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/log_of_formal_power_series.test.cpp
     title: test/yosupo/log_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -447,22 +447,22 @@ data:
   - icon: ':x:'
     path: test/yosupo/multipoint_evaluation.test.cpp
     title: test/yosupo/multipoint_evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/persistent_unionfind.test.cpp
     title: test/yosupo/persistent_unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/persistent_unionfind2.test.cpp
     title: test/yosupo/persistent_unionfind2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum1.test.cpp
     title: test/yosupo/point_add_range_sum1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum2.test.cpp
     title: test/yosupo/point_add_range_sum2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_add_range_sum3.test.cpp
     title: test/yosupo/point_add_range_sum3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/point_set_range_composite.test.cpp
     title: test/yosupo/point_set_range_composite.test.cpp
   - icon: ':x:'
@@ -471,7 +471,7 @@ data:
   - icon: ':x:'
     path: test/yosupo/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/pow_of_formal_power_series.test.cpp
     title: test/yosupo/pow_of_formal_power_series.test.cpp
   - icon: ':x:'
