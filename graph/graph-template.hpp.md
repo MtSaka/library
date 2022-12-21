@@ -1,35 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/prim.hpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':x:'
     path: graph/others/detect-cycle.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/others/scc.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
@@ -40,17 +40,17 @@ data:
   - icon: ':x:'
     path: graph/others/two-sat.hpp
     title: Tow Satisfiability(2-SAT)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/shortest-path/bellman-ford.hpp
     title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
   - icon: ':x:'
     path: graph/shortest-path/dijkstra-path.hpp
     title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
       \u77ED\u8DEF)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/shortest-path/dijkstra.hpp
     title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/shortest-path/warshall-floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - icon: ':x:'
@@ -66,22 +66,22 @@ data:
     path: graph/tree/tree-diameter.hpp
     title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_A.test.cpp
     title: test/aoj/GRL/GRL_1_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_B.test.cpp
     title: test/aoj/GRL/GRL_1_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_C.test.cpp
     title: test/aoj/GRL/GRL_1_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_2_A.test.cpp
     title: test/aoj/GRL/GRL_2_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_2_A_2.test.cpp
     title: test/aoj/GRL/GRL_2_A_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_3_C.test.cpp
     title: test/aoj/GRL/GRL_3_C.test.cpp
   - icon: ':x:'
@@ -119,7 +119,7 @@ data:
     title: test/yosupo/two_sat.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
       \u30C8)"
@@ -159,7 +159,7 @@ data:
     \ T,typename U>\ninline constexpr bool chmin(T&a,U b){return a>b&&(a=b,true);}\n\
     template<typename T,typename U>\ninline constexpr bool chmax(T&a,U b){return a<b&&(a=b,true);}\n\
     inline constexpr ll gcd(ll a,ll b){\n  if(a<0)a=-a;\n  if(b<0)b=-b;\n  while(b){\n\
-    \    std::tie(a,b)={b,a%b};\n  }\n  return a;\n}\ninline constexpr ll lcm(ll a,ll\
+    \    std::swap(a%=b,b);\n  }\n  return a;\n}\ninline constexpr ll lcm(ll a,ll\
     \ b){return a/gcd(a,b)*b;}\ninline constexpr bool is_prime(ll n){\n  if(n<=1)return\
     \ false;\n  for(ll i=2;i*i<=n;i++){\n    if(n%i==0)return false;\n  }\n  return\
     \ true;\n}\ninline constexpr ll my_pow(ll a,ll b){\n  ll res=1;\n  while(b){\n\
@@ -288,8 +288,8 @@ data:
   - graph/shortest-path/dijkstra-path.hpp
   - graph/shortest-path/dijkstra.hpp
   - graph/shortest-path/bellman-ford.hpp
-  timestamp: '2022-12-21 08:46:39+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-12-21 18:18:31+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/GRL/GRL_2_A.test.cpp
   - test/aoj/GRL/GRL_2_A_2.test.cpp
