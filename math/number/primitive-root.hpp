@@ -1,6 +1,7 @@
 #pragma once
 #include"../../template/template.hpp"
 #include"../modular/montgomery-modint.hpp"
+#include"miller-rabin.hpp"
 #include"pollard-rho.hpp"
 
 template<typename T=MontgomeryModInt<ull,-4>,typename Rand=Random64>

@@ -1,8 +1,28 @@
 #pragma once
 #include"../../template/template.hpp"
 #include"../modular/modint.hpp"
+#include"../number/miller-rabin.hpp"
 #include"../number/primitive-root.hpp"
 
+template<unsigned int p,enable_if_t<is_prime_v<p>>* =nullptr>
+struct NthRoot{
+  private:
+  static constexpr unsigned int lg=msb((p-1)&(1-p));
+  array<unsigned int,lg+1>root,inv_root;
+  public:
+  constexpr NthRoot():root{},inv_root{}{
+    root[lg]=mod_pow(constexpr_primitive_root(p),(p-1)>>lg,p);
+    inv_root[lg]=mod_pow(root[lg],p-2,p);
+    rrep(i,lg){
+      root[i]=(ull)root[i+1]*root[i+1]%p
+      inv_root[i]=(ull)inv_root[i+1]*inv_root[i+1]%p;
+    }
+  }
+  static constexpr unsigned int get_lg(){return lg;}
+  constexpr unsigned int get(int n){return root[n];}
+  constexpr unsigned int inv(int n){return inv_root[n];}
+};
+template<unsigned int p>constexpr NthRoot<p> nth_root;
 template<int m>
 struct NTT{
   using mint=ModInt<m>;
