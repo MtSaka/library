@@ -1,6 +1,20 @@
 #pragma once
 #include"../../template/template.hpp"
 
+template<typename T,T mod>
+struct StaticModint{
+  static_assert(is_integral<T>::value,"T must be integral");
+  static_assert(is_unsigned<T>::value,"T must be unsgined");
+  static_assert(mod>0,"mod must be positive");
+  static_assert(mod<=INF<T>,"mod*2 must be less than or equal to T::max()");
+  private:
+  using large_t=typename double_size_uint<T>::type;
+  using signed_t=typename make_signed<T>::type;
+  T val;
+  public:
+  constexpr StaticModint():val(0){}
+  
+};
 template<int m>
 struct ModInt{
   private:
