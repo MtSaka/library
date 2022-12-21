@@ -46,9 +46,13 @@
 "test/aoj/NTL/NTL_1_C.test.cpp": "2022-12-22 00:38:16 +0900",
 "test/aoj/NTL/NTL_1_D.test.cpp": "2022-12-22 00:38:16 +0900",
 "test/yosupo/associative_array.test.cpp": "2022-12-22 00:38:16 +0900",
-"test/yosupo/convolution_mod.test.cpp": "2022-12-22 01:12:24 +0900",
-"test/yosupo/convolution_mod_1000000007.test.cpp": "2022-12-22 01:12:24 +0900",
 "test/yosupo/discrete-logarithm-mod.test.cpp": "2022-12-22 00:38:16 +0900",
-"test/yosupo/division_of_polynomials.test.cpp": "2022-12-22 01:12:24 +0900",
-"test/yosupo/exp_of_formal_power_series.test.cpp": "2022-12-22 01:12:24 +0900"
+"test/yosupo/factorize.test.cpp": "2022-12-22 00:38:16 +0900",
+"test/yosupo/gcd_convolution.test.cpp": "2022-12-22 00:38:16 +0900",
+"test/yosupo/kth_root_integer.test.cpp": "2022-12-22 00:38:16 +0900",
+"test/yosupo/lca1.test.cpp": "2022-12-22 00:38:16 +0900",
+"test/yosupo/lca2.test.cpp": "2022-12-22 00:38:16 +0900",
+"test/yosupo/lcm_convolution.test.cpp": "2022-12-22 00:38:16 +0900",
+"test/yosupo/matrix_det.test.cpp": "2022-12-22 00:38:16 +0900",
+"test/yosupo/matrix_product.test.cpp": "2022-12-22 00:38:16 +0900"
 }
