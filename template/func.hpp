@@ -32,7 +32,7 @@ inline constexpr ll gcd(ll a,ll b){
   if(a<0)a=-a;
   if(b<0)b=-b;
   while(b){
-    std::tie(a,b)={b,a%b};
+    std::swap(a%=b,b);
   }
   return a;
 }
