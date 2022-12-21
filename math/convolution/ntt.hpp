@@ -11,10 +11,10 @@ struct NthRoot{
   array<unsigned int,lg+1>root,inv_root;
   public:
   constexpr NthRoot():root{},inv_root{}{
-    root[lg]=mod_pow(constexpr_primitive_root(p),(p-1)>>lg,p);
+    root[lg]=mod_pow(constexpr_primitive_root<p>(),(p-1)>>lg,p);
     inv_root[lg]=mod_pow(root[lg],p-2,p);
     rrep(i,lg){
-      root[i]=(ull)root[i+1]*root[i+1]%p
+      root[i]=(ull)root[i+1]*root[i+1]%p;
       inv_root[i]=(ull)inv_root[i+1]*inv_root[i+1]%p;
     }
   }
