@@ -265,7 +265,7 @@ data:
     \ = nullptr>\n  static vector<T>multiply(const vector<T>&a,const vector<T>&b){\n\
     \    vector<mint>a2(a.size()),b2(b.size());\n    for(int i=0;i<(int)a.size();i++)a2[i]=a[i];\n\
     \    for(int i=0;i<(int)b.size();i++)b2[i]=b[i];\n    auto c2=multiply(a2,b2);\n\
-    \    vector<T>c(c2.size());\n    for(int i=0;i<(int)c.size();i++)c[i]=c2[i].val();\n\
+    \    vector<T>c(c2.size());\n    for(int i=0;i<(int)c.size();i++)c[i]=c2[i].get();\n\
     \    return c;\n  }\n};\ntemplate<int m>\nint NTT<m>::limit=0;\ntemplate<int m>\n\
     vector<ModInt<m>>NTT<m>::root=vector<ModInt<m>>();\ntemplate<int m>\nvector<ModInt<m>>NTT<m>::inv_root=vector<ModInt<m>>();\n\
     template<int m>\nModInt<m>NTT<m>::g=ModInt<m>();\n/**\n * @brief Number Theoretic\
@@ -355,7 +355,7 @@ data:
     \n\ntemplate<int m>\nFormalPowerSeries<m>subset_sum(vector<ModInt<m>>&count){\n\
     \  const int n=(int)count.size();\n  vector<ModInt<m>>inv_table(n);\n  inv_table[1]=1;\n\
     \  for(int i=2;i<n;i++)inv_table[i]=-inv_table[mod%i]*(mod/i);\n  FormalPowerSeries<m>f(n);\n\
-    \  for(int i=1;i<n;i++)if(count[i].val()){\n    for(int j=1,k=i;k<n;j++,k+=i){\n\
+    \  for(int i=1;i<n;i++)if(count[i].get()){\n    for(int j=1,k=i;k<n;j++,k+=i){\n\
     \      if(j&1)f[k]+=inv_table[j]*count[i];\n      else f[k]-=inv_table[j]*count[i];\n\
     \    }\n  }\n  return f.exp();\n}\n/**\n * @brief Count Subset Sum\n*/\n#line\
     \ 4 \"test/yosupo/sharp_p_subset_sum.test.cpp\"\nint main(){\n  int n,t;\n  cin>>n>>t;\n\
@@ -384,7 +384,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/sharp_p_subset_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-12-21 20:46:46+09:00'
+  timestamp: '2022-12-21 22:33:38+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/sharp_p_subset_sum.test.cpp
