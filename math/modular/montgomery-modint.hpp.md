@@ -22,11 +22,22 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: math/number/miller-rabin.hpp
+    title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
+      \u6570\u5224\u5B9A)"
+  - icon: ':x:'
+    path: math/number/pollard-rho.hpp
+    title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
+      \u6CD5)"
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yosupo/factorize.test.cpp
+    title: test/yosupo/factorize.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
     links: []
@@ -153,13 +164,14 @@ data:
     \n\ntemplate<typename T>\nstruct MontgomeryReduction{\n  static_assert(is_integral<T>::value,\"\
     template argument must be integral\");\n  static_assert(is_unsigned<T>::value,\"\
     template argument must be unsigned\");\n  private:\n  using large_t=typename double_size_uint<T>::type;\n\
-    \  static constexpr int lg=numeric_limits<T>::digits;\n  T mod;\n  T r2;\n  T\
-    \ minv;\n  T calc_inv()const{\n    T t=0,res=0;\n    rep(i,lg){\n      if(~t&1){\n\
+    \  static constexpr int lg=numeric_limits<T>::digits;\n  T mod;\n  T r;\n  T r2;\n\
+    \  T minv;\n  T calc_inv()const{\n    T t=0,res=0;\n    rep(i,lg){\n      if(~t&1){\n\
     \        t+=mod;\n        res+=static_cast<T>(1)<<i;\n      }\n      t>>=1;\n\
     \    }\n    return res;\n  }\n  public:\n  MontgomeryReduction(T x){set_mod(x);}\n\
     \  static constexpr int get_lg(){return lg;}\n  void set_mod(T x){\n    assert(x>0);\n\
-    \    assert(x&1);\n    assert(x<=INF<T>);\n    mod=x;\n    r2=(-static_cast<large_t>(mod))%mod;\n\
-    \    minv=calc_inv();\n  }\n  inline T get_mod()const{return mod;}\n  T reduce(large_t\
+    \    assert(x&1);\n    assert(x<=INF<T>);\n    mod=x;\n    r=(-static_cast<T>(mod))%mod;\n\
+    \    r2=(-static_cast<large_t>(mod))%mod;\n    minv=calc_inv();\n  }\n  inline\
+    \ T get_r()const{return r;}\n  inline T get_mod()const{return mod;}\n  T reduce(large_t\
     \ x)const{\n    large_t tmp=(x+static_cast<large_t>(static_cast<T>(x)*minv)*mod)>>lg;\n\
     \    return tmp>=mod?tmp-mod:tmp;\n  }\n  T transform(large_t x)const{return reduce(x*r2);}\n\
     };\ntemplate<typename T,int id>\nstruct MontgomeryModInt{\n  static_assert(is_integral<T>::value,\"\
@@ -173,11 +185,11 @@ data:
     \ =nullptr>\n  MontgomeryModInt(U x):MontgomeryModInt(static_cast<typename std::make_unsigned<U>::type>(x<0?-x:x)){\n\
     \    if(x<0&&val)val=reduction.get_mod()-val;\n  }\n  T get()const{return reduction.reduce(val);}\n\
     \  static T get_mod(){return reduction.get_mod();}\n  static void set_mod(T x){reduction.set_mod(x);}\n\
-    \  MontgomeryModInt& operator++(){\n    val+=MontgomeryModInt(1).val;\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
+    \  MontgomeryModInt& operator++(){\n    val+=redution.get_r();\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
     \    return *this;\n  }\n  MontgomeryModInt operator++(int){\n    MontgomeryModInt\
     \ res=*this;\n    ++*this;\n    return res;\n  }\n  MontgomeryModInt& operator--(){\n\
-    \    if(val==0)val=reduction.get_mod();\n    val-=MontgomeryModInt(1).val;\n \
-    \   return *this;\n  }\n  MontgomeryModInt operator--(int){\n    MontgomeryModInt\
+    \    if(val<reduction.get_r())val+=reduction.get_mod();\n    val-=reduction.get_r();\n\
+    \    return *this;\n  }\n  MontgomeryModInt operator--(int){\n    MontgomeryModInt\
     \ res=*this;\n    --*this;\n    return res;\n  }\n  MontgomeryModInt& operator+=(const\
     \ MontgomeryModInt&r){\n    val+=r.val;\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
     \    return *this;\n  }\n  MontgomeryModInt& operator-=(const MontgomeryModInt&r){\n\
@@ -205,13 +217,14 @@ data:
     \ T>\nstruct MontgomeryReduction{\n  static_assert(is_integral<T>::value,\"template\
     \ argument must be integral\");\n  static_assert(is_unsigned<T>::value,\"template\
     \ argument must be unsigned\");\n  private:\n  using large_t=typename double_size_uint<T>::type;\n\
-    \  static constexpr int lg=numeric_limits<T>::digits;\n  T mod;\n  T r2;\n  T\
-    \ minv;\n  T calc_inv()const{\n    T t=0,res=0;\n    rep(i,lg){\n      if(~t&1){\n\
+    \  static constexpr int lg=numeric_limits<T>::digits;\n  T mod;\n  T r;\n  T r2;\n\
+    \  T minv;\n  T calc_inv()const{\n    T t=0,res=0;\n    rep(i,lg){\n      if(~t&1){\n\
     \        t+=mod;\n        res+=static_cast<T>(1)<<i;\n      }\n      t>>=1;\n\
     \    }\n    return res;\n  }\n  public:\n  MontgomeryReduction(T x){set_mod(x);}\n\
     \  static constexpr int get_lg(){return lg;}\n  void set_mod(T x){\n    assert(x>0);\n\
-    \    assert(x&1);\n    assert(x<=INF<T>);\n    mod=x;\n    r2=(-static_cast<large_t>(mod))%mod;\n\
-    \    minv=calc_inv();\n  }\n  inline T get_mod()const{return mod;}\n  T reduce(large_t\
+    \    assert(x&1);\n    assert(x<=INF<T>);\n    mod=x;\n    r=(-static_cast<T>(mod))%mod;\n\
+    \    r2=(-static_cast<large_t>(mod))%mod;\n    minv=calc_inv();\n  }\n  inline\
+    \ T get_r()const{return r;}\n  inline T get_mod()const{return mod;}\n  T reduce(large_t\
     \ x)const{\n    large_t tmp=(x+static_cast<large_t>(static_cast<T>(x)*minv)*mod)>>lg;\n\
     \    return tmp>=mod?tmp-mod:tmp;\n  }\n  T transform(large_t x)const{return reduce(x*r2);}\n\
     };\ntemplate<typename T,int id>\nstruct MontgomeryModInt{\n  static_assert(is_integral<T>::value,\"\
@@ -225,11 +238,11 @@ data:
     \ =nullptr>\n  MontgomeryModInt(U x):MontgomeryModInt(static_cast<typename std::make_unsigned<U>::type>(x<0?-x:x)){\n\
     \    if(x<0&&val)val=reduction.get_mod()-val;\n  }\n  T get()const{return reduction.reduce(val);}\n\
     \  static T get_mod(){return reduction.get_mod();}\n  static void set_mod(T x){reduction.set_mod(x);}\n\
-    \  MontgomeryModInt& operator++(){\n    val+=MontgomeryModInt(1).val;\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
+    \  MontgomeryModInt& operator++(){\n    val+=redution.get_r();\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
     \    return *this;\n  }\n  MontgomeryModInt operator++(int){\n    MontgomeryModInt\
     \ res=*this;\n    ++*this;\n    return res;\n  }\n  MontgomeryModInt& operator--(){\n\
-    \    if(val==0)val=reduction.get_mod();\n    val-=MontgomeryModInt(1).val;\n \
-    \   return *this;\n  }\n  MontgomeryModInt operator--(int){\n    MontgomeryModInt\
+    \    if(val<reduction.get_r())val+=reduction.get_mod();\n    val-=reduction.get_r();\n\
+    \    return *this;\n  }\n  MontgomeryModInt operator--(int){\n    MontgomeryModInt\
     \ res=*this;\n    --*this;\n    return res;\n  }\n  MontgomeryModInt& operator+=(const\
     \ MontgomeryModInt&r){\n    val+=r.val;\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
     \    return *this;\n  }\n  MontgomeryModInt& operator-=(const MontgomeryModInt&r){\n\
@@ -263,10 +276,13 @@ data:
   - template/type-traits.hpp
   isVerificationFile: false
   path: math/modular/montgomery-modint.hpp
-  requiredBy: []
-  timestamp: '2022-12-21 22:19:19+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  requiredBy:
+  - math/number/miller-rabin.hpp
+  - math/number/pollard-rho.hpp
+  timestamp: '2022-12-22 00:05:09+09:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yosupo/factorize.test.cpp
 documentation_of: math/modular/montgomery-modint.hpp
 layout: document
 redirect_from:

@@ -22,14 +22,21 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: math/number/pollard-rho.hpp
+    title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
+      \u6CD5)"
   _extendedVerifiedWith:
   - icon: ':x:'
+    path: test/yosupo/factorize.test.cpp
+    title: test/yosupo/factorize.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1469.test.cpp
     title: test/yukicoder/1469.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
@@ -177,11 +184,13 @@ data:
   - template/type-traits.hpp
   isVerificationFile: false
   path: string/run-length.hpp
-  requiredBy: []
+  requiredBy:
+  - math/number/pollard-rho.hpp
   timestamp: '2022-12-21 20:26:30+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1469.test.cpp
+  - test/yosupo/factorize.test.cpp
 documentation_of: string/run-length.hpp
 layout: document
 redirect_from:

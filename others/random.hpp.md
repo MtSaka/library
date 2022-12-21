@@ -22,11 +22,18 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: math/number/pollard-rho.hpp
+    title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
+      \u6CD5)"
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yosupo/factorize.test.cpp
+    title: test/yosupo/factorize.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Random(\u4E71\u6570)"
     links: []
@@ -197,10 +204,12 @@ data:
   - template/type-traits.hpp
   isVerificationFile: false
   path: others/random.hpp
-  requiredBy: []
+  requiredBy:
+  - math/number/pollard-rho.hpp
   timestamp: '2022-12-21 20:26:30+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yosupo/factorize.test.cpp
 documentation_of: others/random.hpp
 layout: document
 redirect_from:

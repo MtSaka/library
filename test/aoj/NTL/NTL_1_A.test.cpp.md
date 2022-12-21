@@ -1,8 +1,8 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: math/number/factorize.hpp
+  - icon: ':x:'
+    path: math/number/prime-factor.hpp
     title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
   - icon: ':question:'
     path: template/alias.hpp
@@ -27,9 +27,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A
@@ -155,18 +155,16 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/number/factorize.hpp\"\
-    \n\nvector<pair<long long,int>>factorize(long long N){\n  vector<pair<long long,int>>ans;\n\
-    \  for(long long i=2;i*i<=N;i++){\n    if(N%i!=0)continue;\n    int idx=0;\n \
-    \   while(N%i==0){\n      idx++;\n      N/=i;\n    }\n    ans.push_back({i,idx});\n\
-    \  }\n  if(N!=1)ans.push_back({N,1});\n  return ans;\n}\n/**\n * @brief Prime\
-    \ Factorization(\u7D20\u56E0\u6570\u5206\u89E3)\n*/\n#line 4 \"test/aoj/NTL/NTL_1_A.test.cpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  cout<<n<<\":\";\n  for(auto p:factorize(n)){\n\
-    \    while(p.second--)cout<<\" \"<<p.first;\n  }\n  cout<<endl;\n}\n"
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/number/prime-factor.hpp\"\
+    \n\nvector<ll>prime_factor(ll n){\n  vector<ll>res;\n  for(ll i=2;i*i<=n;i++){\n\
+    \    while(n%i==0){\n      res.push_back(i);\n      n/=i;\n    }\n  }\n  if(n!=1)res.push_back(n);\n\
+    \  return res;\n}\n/**\n * @brief Prime Factorization(\u7D20\u56E0\u6570\u5206\
+    \u89E3)\n*/\n#line 4 \"test/aoj/NTL/NTL_1_A.test.cpp\"\nint main(){\n  int n;\n\
+    \  cin>>n;\n  cout<<n<<\":\"<<prime_factor(n)<<endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../math/number/factorize.hpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  cout<<n<<\":\";\n  for(auto p:factorize(n)){\n\
-    \    while(p.second--)cout<<\" \"<<p.first;\n  }\n  cout<<endl;\n}"
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../math/number/prime-factor.hpp\"\
+    \nint main(){\n  int n;\n  cin>>n;\n  cout<<n<<\":\"<<prime_factor(n)<<endl;\n\
+    }"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -175,12 +173,12 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
-  - math/number/factorize.hpp
+  - math/number/prime-factor.hpp
   isVerificationFile: true
   path: test/aoj/NTL/NTL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2022-12-21 20:26:30+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-22 00:05:09+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/NTL/NTL_1_A.test.cpp
 layout: document
