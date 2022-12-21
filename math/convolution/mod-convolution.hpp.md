@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - icon: ':question:'
@@ -18,7 +18,7 @@ data:
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
   - icon: ':question:'
@@ -50,12 +50,12 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution_mod_1000000007.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F\
       )"
@@ -268,8 +268,19 @@ data:
     \    ll tmp;\n    is>>tmp;\n    x=MontgomeryModInt(tmp);\n    return is;\n  }\n\
     };\ntemplate<typename T,int id>\nMontgomeryReduction<T>\n  MontgomeryModInt<T,id>::reduction=MontgomeryReduction<T>(998244353);\n\
     using ArbitraryModInt=MontgomeryModInt<unsigned int,-1>;\n/**\n * @brief MontgomeryModInt(\u30E2\
-    \u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)\n*/\n#line 3 \"others/random.hpp\"\n\ntemplate<typename\
-    \ Engine>\nstruct Random{\n  private:\n  Engine rnd;\n  public:\n  using result_type=typename\
+    \u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)\n*/\n#line 4 \"math/number/miller-rabin.hpp\"\
+    \n\ntemplate<typename T>\nconstexpr bool miller_rabin(ull n,const ull base[],int\
+    \ sz){\n  if(T::get_mod()!=n)T::set_mod(n);\n  ull d=n-1;\n  while(~d&1)d>>=1;\n\
+    \  const T e1=1,e2=n-1;\n  rep(i,sz){\n    ull a=base[i];\n    if(n<=a)return\
+    \ true;\n    ull t=d;\n    T y=T(a).pow(t);\n    while(t!=n-1&&y!=e1&&y!=e2){\n\
+    \      y*=y;\n      t<<=1;\n    }\n    if(y!=e2&&(~t&1))return false;\n  }\n \
+    \ return true;\n}\nconstexpr bool is_prime_fast(ull n){\n  constexpr ull base_int[3]={2,7,61},base_ll[7]={2,325,9375,28178,450775,9780504,1795265022};\n\
+    \  if(n==2)return true;\n  if(n<2||n%2==0)return false;\n  if(n<(1u<<31))return\
+    \ miller_rabin<MontgomeryModInt<unsigned int,-2>>(n,base_int,3);\n  return miller_rabin<MontgomeryModInt<ull,-2>>(n,base_ll,7);\n\
+    }\ntemplate<ull n>constexpr bool is_prime_v=is_prime_fast(n);\n/**\n * @brief\
+    \ Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\u6570\
+    \u5224\u5B9A)\n*/\n#line 3 \"others/random.hpp\"\n\ntemplate<typename Engine>\n\
+    struct Random{\n  private:\n  Engine rnd;\n  public:\n  using result_type=typename\
     \ Engine::result_type;\n  Random():Random(random_device{}()){}\n  Random(result_type\
     \ seed):rnd(seed){}\n  result_type operator()(){return rnd();}\n  template<typename\
     \ IntType=ll>\n  IntType uniform(IntType l,IntType r){\n    static_assert(is_integral<IntType>::value,\"\
@@ -286,21 +297,10 @@ data:
     \ integral type\");\n    vector<T>res(n);\n    iota(res.begin(),res.end(),T());\n\
     \    shuffle(all(res));\n    return res;\n  }\n};\nusing Random32=Random<mt19937>;\n\
     using Random64=Random<mt19937_64>;\nRandom32 rand32;\nRandom64 rand64;\n/**\n\
-    \ * @brief Random(\u4E71\u6570)\n*/\n#line 4 \"math/number/miller-rabin.hpp\"\n\
-    \ntemplate<typename T>\nconstexpr bool miller_rabin(ull n,const ull base[],int\
-    \ sz){\n  if(T::get_mod()!=n)T::set_mod(n);\n  ull d=n-1;\n  while(~d&1)d>>=1;\n\
-    \  const T e1=1,e2=n-1;\n  rep(i,sz){\n    ull a=base[i];\n    if(n<=a)return\
-    \ true;\n    ull t=d;\n    T y=T(a).pow(t);\n    while(t!=n-1&&y!=e1&&y!=e2){\n\
-    \      y*=y;\n      t<<=1;\n    }\n    if(y!=e2&&(~t&1))return false;\n  }\n \
-    \ return true;\n}\nconstexpr bool is_prime_fast(ull n){\n  constexpr ull base_int[3]={2,7,61},base_ll[7]={2,325,9375,28178,450775,9780504,1795265022};\n\
-    \  if(n==2)return true;\n  if(n<2||n%2==0)return false;\n  if(n<(1u<<31))return\
-    \ miller_rabin<MontgomeryModInt<unsigned int,-2>>(n,base_int,3);\n  return miller_rabin<MontgomeryModInt<ull,-2>>(n,base_ll,7);\n\
-    }\ntemplate<ull n>constexpr bool is_prime_v=is_prime_fast(n);\n/**\n * @brief\
-    \ Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\u6570\
-    \u5224\u5B9A)\n*/\n#line 3 \"string/run-length.hpp\"\n\ntemplate<typename Cont,typename\
-    \ Cmp>\nvector<pair<typename Cont::value_type,int>>run_length(const Cont&c,const\
-    \ Cmp&cmp){\n  vector<pair<typename Cont::value_type,int>> ret;\n  if(c.empty())return\
-    \ ret;\n  ret.emplace_back(c.front(),1);\n  for(int i=1;i<(int)c.size();i++){\n\
+    \ * @brief Random(\u4E71\u6570)\n*/\n#line 3 \"string/run-length.hpp\"\n\ntemplate<typename\
+    \ Cont,typename Cmp>\nvector<pair<typename Cont::value_type,int>>run_length(const\
+    \ Cont&c,const Cmp&cmp){\n  vector<pair<typename Cont::value_type,int>> ret;\n\
+    \  if(c.empty())return ret;\n  ret.emplace_back(c.front(),1);\n  for(int i=1;i<(int)c.size();i++){\n\
     \    if(cmp(c[i],ret.back().first)){\n      ret.back().second++;\n    }else{\n\
     \      ret.emplace_back(c[i],1);\n    }\n  }\n  return ret;\n}\ntemplate<typename\
     \ Cont>vector<pair<typename Cont::value_type,int>>run_length(const Cont&c){return\
@@ -322,7 +322,7 @@ data:
     \ res;\n}\ntemplate<typename T=MontgomeryModInt<ull,-3>,typename Rand=Random64>\n\
     vector<pair<ull,int>>expfactorize(ull n,Rand&rand=rand64){\n  auto res=factorize<T>(n,rand);\n\
     \  return run_length(res);\n}\n/**\n * @brief Pollard's Rho Factorization(\u30DD\
-    \u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\u6CD5)\n*/\n#line 5 \"math/number/primitive-root.hpp\"\
+    \u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\u6CD5)\n*/\n#line 6 \"math/number/primitive-root.hpp\"\
     \n\ntemplate<typename T=MontgomeryModInt<ull,-4>,typename Rand=Random64>\null\
     \ primitive_root(ull n,Rand rand=rand64){\n  assert(is_prime_fast(n));\n  if(n==2)return\
     \ 1;\n  if(T::get_mod()!=n)T::set_mod(n);\n  auto divs=factorize(n-1);\n  divs.erase(unique(divs.begin(),divs.end()),divs.end());\n\
@@ -333,11 +333,19 @@ data:
     \  if(p==167772161)return 3;\n  if(p==469762049)return 3;\n  if(p==754974721)return\
     \ 11;\n  if(p==998244353)return 3;\n  if(p==1224736769)return 3;\n  rep(g,2,p){\n\
     \    if(mod_pow(g,(p-1)>>1,p)!=1)return g;\n  }\n  return -1;\n}\n/**\n * @brief\
-    \ Primitive Root(\u539F\u59CB\u6839)\n*/\n#line 5 \"math/convolution/ntt.hpp\"\
-    \n\ntemplate<int m>\nstruct NTT{\n  using mint=ModInt<m>;\n  private:\n  static\
-    \ ModInt<m> g;\n  static int limit;\n  static vector<ModInt<m>>root,inv_root;\n\
-    \  static void init(){\n    if(!root.empty())return;\n    g=primitive_root(m);\n\
-    \    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
+    \ Primitive Root(\u539F\u59CB\u6839)\n*/\n#line 6 \"math/convolution/ntt.hpp\"\
+    \n\ntemplate<unsigned int p,enable_if_t<is_prime_v<p>>* =nullptr>\nstruct NthRoot{\n\
+    \  private:\n  static constexpr unsigned int lg=msb((p-1)&(1-p));\n  array<unsigned\
+    \ int,lg+1>root,inv_root;\n  public:\n  constexpr NthRoot():root{},inv_root{}{\n\
+    \    root[lg]=mod_pow(constexpr_primitive_root(p),(p-1)>>lg,p);\n    inv_root[lg]=mod_pow(root[lg],p-2,p);\n\
+    \    rrep(i,lg){\n      root[i]=(ull)root[i+1]*root[i+1]%p\n      inv_root[i]=(ull)inv_root[i+1]*inv_root[i+1]%p;\n\
+    \    }\n  }\n  static constexpr unsigned int get_lg(){return lg;}\n  constexpr\
+    \ unsigned int get(int n){return root[n];}\n  constexpr unsigned int inv(int n){return\
+    \ inv_root[n];}\n};\ntemplate<unsigned int p>constexpr NthRoot<p> nth_root;\n\
+    template<int m>\nstruct NTT{\n  using mint=ModInt<m>;\n  private:\n  static ModInt<m>\
+    \ g;\n  static int limit;\n  static vector<ModInt<m>>root,inv_root;\n  static\
+    \ void init(){\n    if(!root.empty())return;\n    g=primitive_root(m);\n    long\
+    \ long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
     \    root[limit]=g.pow(now);\n    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n\
     \      root[i]=root[i+1]*root[i+1];\n      inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
     \    }\n  }\n  public:\n  NTT(){init();};\n  static void dft(vector<mint>&a,int\
@@ -387,17 +395,17 @@ data:
   - template/type-traits.hpp
   - math/convolution/ntt.hpp
   - math/modular/modint.hpp
-  - math/number/primitive-root.hpp
+  - math/number/miller-rabin.hpp
   - math/modular/montgomery-modint.hpp
+  - math/number/primitive-root.hpp
   - math/number/pollard-rho.hpp
   - others/random.hpp
-  - math/number/miller-rabin.hpp
   - string/run-length.hpp
   isVerificationFile: false
   path: math/convolution/mod-convolution.hpp
   requiredBy: []
-  timestamp: '2022-12-22 01:12:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-12-22 01:36:22+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/convolution_mod_1000000007.test.cpp
 documentation_of: math/convolution/mod-convolution.hpp
