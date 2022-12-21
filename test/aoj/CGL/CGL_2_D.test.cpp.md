@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: geometry/geometry.hpp
     title: geometry/geometry.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: 1e-6
@@ -68,7 +68,17 @@ data:
     \  return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);\n}\ntemplate<typename\
     \ T,typename U>\ninline constexpr bool chmin(T&a,U b){return a>b&&(a=b,true);}\n\
     template<typename T,typename U>\ninline constexpr bool chmax(T&a,U b){return a<b&&(a=b,true);}\n\
-    template<typename T,typename U>\nstd::ostream &operator<<(std::ostream&os,const\
+    inline constexpr ll gcd(ll a,ll b){\n  if(a<0)a=-a;\n  if(b<0)b=-b;\n  while(b){\n\
+    \    tie(a,b)={b,a%b};\n  }\n  return a;\n}\ninline constepxr ll lcm(ll a,ll b){return\
+    \ a/gcd(a,b)*b;}\ninline constexpr bool is_prime(ll n){\n  if(n<=1)return false;\n\
+    \  for(ll i=2;i*i<=n;i++){\n    if(n%i==0)return false;\n  }\n  return true;\n\
+    }\ninline constexpr ll my_pow(ll a,ll b){\n  ll res=1;\n  while(b){\n    if(b&1)res*=a;\n\
+    \    a*=a;\n    b>>=1;\n  }\n  return res;\n}\ninline constexpr ll mod_pow(ll\
+    \ a,ll b,const ll&mod){\n  if(mod==1)return 0;\n  a%=mod;\n  ll res=1;\n  while(b){\n\
+    \    if(b&1)(res*=a)%=mod;\n    (a*=a)%=mod;\n    b>>=1;\n  }\n  return res;\n\
+    }\ninline ll mod_inv(ll a,const ll&mod){\n  ll b=mod,x=1,u=0,t;\n  while(b){\n\
+    \    t=a/b;\n    std::swap(a-=t*b,b);\n    std::swap(x-=t*u,u);\n  }\n  if(x<0)x+=mod;\n\
+    \  return x;\n}\ntemplate<typename T,typename U>\nstd::ostream &operator<<(std::ostream&os,const\
     \ std::pair<T,U>&p){os<<p.first<<\" \"<<p.second;return os;}\ntemplate<typename\
     \ T,typename U>\nstd::istream &operator>>(std::istream&is,std::pair<T,U>&p){is>>p.first>>p.second;return\
     \ is;}\ntemplate<typename T>\nstd::ostream &operator<<(std::ostream&os,const std::vector<T>&v){for(auto\
@@ -115,9 +125,9 @@ data:
     \ void dump(const T&t){std::cerr<<t;}\ntemplate<typename T>\ninline void dump(const\
     \ T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp=\"\
     inf\";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp=\"\
-    -inf\";if(tmp.empty())tmp=to_string(t);std::cerr<<tmp;}\ntemplate<typename T,typename\
-    \ U>\ninline void dump(const std::pair<T,U>&);\ntemplate<typename T>\ninline void\
-    \ dump(const T&t,std::enable_if_t<!std::is_void<typename T::iterator>::value>*\
+    -inf\";if(tmp.empty())tmp=std::to_string(t);std::cerr<<tmp;}\ntemplate<typename\
+    \ T,typename U>\ninline void dump(const std::pair<T,U>&);\ntemplate<typename T>\n\
+    inline void dump(const T&t,std::enable_if_t<!std::is_void<typename T::iterator>::value>*\
     \ =nullptr){std::cerr<<\"{\";for(auto it=std::begin(t);it!=std::end(t);){dump(*it);std::cerr<<(++it==t.end()?\"\
     \":\",\");}std::cerr<<\"}\";}\ntemplate<typename T,typename U>\ninline void dump(const\
     \ std::pair<T,U>&t){std::cerr<<\"(\";dump(t.first);std::cerr<<\",\";dump(t.second);std::cerr<<\"\
@@ -247,8 +257,8 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL/CGL_2_D.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 23:26:35+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-21 08:33:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/CGL/CGL_2_D.test.cpp
 layout: document

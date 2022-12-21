@@ -1,38 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data-structure/hash-map.hpp
     title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/modular/mod-log.hpp
     title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
-  - icon: ':question:'
-    path: math/modular/modpow.hpp
-    title: "Mod Pow(\u3079\u304D\u4E57)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/discrete_logarithm_mod
@@ -74,7 +71,17 @@ data:
     \  return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);\n}\ntemplate<typename\
     \ T,typename U>\ninline constexpr bool chmin(T&a,U b){return a>b&&(a=b,true);}\n\
     template<typename T,typename U>\ninline constexpr bool chmax(T&a,U b){return a<b&&(a=b,true);}\n\
-    template<typename T,typename U>\nstd::ostream &operator<<(std::ostream&os,const\
+    inline constexpr ll gcd(ll a,ll b){\n  if(a<0)a=-a;\n  if(b<0)b=-b;\n  while(b){\n\
+    \    tie(a,b)={b,a%b};\n  }\n  return a;\n}\ninline constepxr ll lcm(ll a,ll b){return\
+    \ a/gcd(a,b)*b;}\ninline constexpr bool is_prime(ll n){\n  if(n<=1)return false;\n\
+    \  for(ll i=2;i*i<=n;i++){\n    if(n%i==0)return false;\n  }\n  return true;\n\
+    }\ninline constexpr ll my_pow(ll a,ll b){\n  ll res=1;\n  while(b){\n    if(b&1)res*=a;\n\
+    \    a*=a;\n    b>>=1;\n  }\n  return res;\n}\ninline constexpr ll mod_pow(ll\
+    \ a,ll b,const ll&mod){\n  if(mod==1)return 0;\n  a%=mod;\n  ll res=1;\n  while(b){\n\
+    \    if(b&1)(res*=a)%=mod;\n    (a*=a)%=mod;\n    b>>=1;\n  }\n  return res;\n\
+    }\ninline ll mod_inv(ll a,const ll&mod){\n  ll b=mod,x=1,u=0,t;\n  while(b){\n\
+    \    t=a/b;\n    std::swap(a-=t*b,b);\n    std::swap(x-=t*u,u);\n  }\n  if(x<0)x+=mod;\n\
+    \  return x;\n}\ntemplate<typename T,typename U>\nstd::ostream &operator<<(std::ostream&os,const\
     \ std::pair<T,U>&p){os<<p.first<<\" \"<<p.second;return os;}\ntemplate<typename\
     \ T,typename U>\nstd::istream &operator>>(std::istream&is,std::pair<T,U>&p){is>>p.first>>p.second;return\
     \ is;}\ntemplate<typename T>\nstd::ostream &operator<<(std::ostream&os,const std::vector<T>&v){for(auto\
@@ -121,9 +128,9 @@ data:
     \ void dump(const T&t){std::cerr<<t;}\ntemplate<typename T>\ninline void dump(const\
     \ T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp=\"\
     inf\";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp=\"\
-    -inf\";if(tmp.empty())tmp=to_string(t);std::cerr<<tmp;}\ntemplate<typename T,typename\
-    \ U>\ninline void dump(const std::pair<T,U>&);\ntemplate<typename T>\ninline void\
-    \ dump(const T&t,std::enable_if_t<!std::is_void<typename T::iterator>::value>*\
+    -inf\";if(tmp.empty())tmp=std::to_string(t);std::cerr<<tmp;}\ntemplate<typename\
+    \ T,typename U>\ninline void dump(const std::pair<T,U>&);\ntemplate<typename T>\n\
+    inline void dump(const T&t,std::enable_if_t<!std::is_void<typename T::iterator>::value>*\
     \ =nullptr){std::cerr<<\"{\";for(auto it=std::begin(t);it!=std::end(t);){dump(*it);std::cerr<<(++it==t.end()?\"\
     \":\",\");}std::cerr<<\"}\";}\ntemplate<typename T,typename U>\ninline void dump(const\
     \ std::pair<T,U>&t){std::cerr<<\"(\";dump(t.first);std::cerr<<\",\";dump(t.second);std::cerr<<\"\
@@ -131,10 +138,7 @@ data:
     \ Tail>\ninline void trace(Head&&head,Tail&&... tail){dump(head);if(sizeof...(tail))std::cerr<<\"\
     ,\";trace(std::forward<Tail>(tail)...);}\n#ifdef ONLINE_JUDGE\n#define debug(...)\
     \ (void(0))\n#else\n#define debug(...) do{std::cerr<<#__VA_ARGS__<<\"=\";trace(__VA_ARGS__);}while(0)\n\
-    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/modular/modpow.hpp\"\
-    \n\ntemplate<typename T,typename S>\nT modpow(T a,S b,T m){\n  T ret=1;\n  while(b){\n\
-    \    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n  }\n  return ret;\n}\n/**\n\
-    \ * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line 3 \"data-structure/hash-map.hpp\"\
+    #endif\n#line 8 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/hash-map.hpp\"\
     \n\ntemplate<typename Key,typename Val>\nstruct HashMap{\n  using u32=uint32_t;\n\
     \  using u64=uint64_t;\n  using Data=pair<Key,Val>;\n  protected:\n  template\
     \ <typename K>\n  inline u64 randomized(const K&key)const{\n    return u64(key)^r;\n\
@@ -211,10 +215,10 @@ data:
     \ bool emplace(const Key&key,const Val&val){\n    return insert(Data(key,val));\n\
     \  }\n};\ntemplate<typename Key,typename Val>uint64_t HashMap<Key,Val>::r=chrono::duration_cast<chrono::nanoseconds>(chrono::system_clock::now().time_since_epoch()).count();\n\
     /**\n * @brief HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)\n*/\n#line\
-    \ 5 \"math/modular/mod-log.hpp\"\n\ntemplate<typename T>\nT discrete_logarithm(T\
+    \ 4 \"math/modular/mod-log.hpp\"\n\ntemplate<typename T>\nT discrete_logarithm(T\
     \ x,T y,T m){\n  x%=m,y%=m;\n  if(y==1||m==1)return 0;\n  if(x==0)return y==0?1:-1;\n\
     \  T add=0,g,k=1%m;\n  while((g=gcd(x,m))>1){\n    if(y==k)return add;\n    if(y%g)return\
-    \ -1;\n    y/=g,m/=g,add++;\n    k=(k*(x/g))%m;\n  }\n  T n=sqrt(m)+1;\n  T tmp=modpow(x,n,m);\n\
+    \ -1;\n    y/=g,m/=g,add++;\n    k=(k*(x/g))%m;\n  }\n  T n=sqrt(m)+1;\n  T tmp=mod_pow(x,n,m);\n\
     \  HashMap<T,T>mp;\n  for(T i=0,now=y;i<=n;i++){\n    mp[now]=i;\n    now=(now*x)%m;\n\
     \  }\n  for(T i=1,now=k;i<=n;i++){\n    now=(now*tmp)%m;\n    if(mp.contain(now))return\
     \ n*i-mp[now]+add;\n  }\n  return -1;\n}\n/**\n * @brief Mod Log(\u96E2\u6563\u5BFE\
@@ -233,13 +237,12 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - math/modular/mod-log.hpp
-  - math/modular/modpow.hpp
   - data-structure/hash-map.hpp
   isVerificationFile: true
   path: test/yosupo/discrete-logarithm-mod.test.cpp
   requiredBy: []
-  timestamp: '2022-12-18 23:26:35+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-21 08:33:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/discrete-logarithm-mod.test.cpp
 layout: document

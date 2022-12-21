@@ -1,50 +1,47 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/multipoint-evaluation.hpp
     title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':question:'
-    path: math/modular/modpow.hpp
-    title: "Mod Pow(\u3079\u304D\u4E57)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/number/fast-prime.hpp
     title: "Fast Prime Factorization(\u9AD8\u901F\u7D20\u56E0\u6570\u5206\u89E3)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':x:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/multipoint_evaluation
@@ -86,7 +83,17 @@ data:
     \  return (x&0x00000000ffffffff)+((x>>32)&0x00000000ffffffff);\n}\ntemplate<typename\
     \ T,typename U>\ninline constexpr bool chmin(T&a,U b){return a>b&&(a=b,true);}\n\
     template<typename T,typename U>\ninline constexpr bool chmax(T&a,U b){return a<b&&(a=b,true);}\n\
-    template<typename T,typename U>\nstd::ostream &operator<<(std::ostream&os,const\
+    inline constexpr ll gcd(ll a,ll b){\n  if(a<0)a=-a;\n  if(b<0)b=-b;\n  while(b){\n\
+    \    tie(a,b)={b,a%b};\n  }\n  return a;\n}\ninline constepxr ll lcm(ll a,ll b){return\
+    \ a/gcd(a,b)*b;}\ninline constexpr bool is_prime(ll n){\n  if(n<=1)return false;\n\
+    \  for(ll i=2;i*i<=n;i++){\n    if(n%i==0)return false;\n  }\n  return true;\n\
+    }\ninline constexpr ll my_pow(ll a,ll b){\n  ll res=1;\n  while(b){\n    if(b&1)res*=a;\n\
+    \    a*=a;\n    b>>=1;\n  }\n  return res;\n}\ninline constexpr ll mod_pow(ll\
+    \ a,ll b,const ll&mod){\n  if(mod==1)return 0;\n  a%=mod;\n  ll res=1;\n  while(b){\n\
+    \    if(b&1)(res*=a)%=mod;\n    (a*=a)%=mod;\n    b>>=1;\n  }\n  return res;\n\
+    }\ninline ll mod_inv(ll a,const ll&mod){\n  ll b=mod,x=1,u=0,t;\n  while(b){\n\
+    \    t=a/b;\n    std::swap(a-=t*b,b);\n    std::swap(x-=t*u,u);\n  }\n  if(x<0)x+=mod;\n\
+    \  return x;\n}\ntemplate<typename T,typename U>\nstd::ostream &operator<<(std::ostream&os,const\
     \ std::pair<T,U>&p){os<<p.first<<\" \"<<p.second;return os;}\ntemplate<typename\
     \ T,typename U>\nstd::istream &operator>>(std::istream&is,std::pair<T,U>&p){is>>p.first>>p.second;return\
     \ is;}\ntemplate<typename T>\nstd::ostream &operator<<(std::ostream&os,const std::vector<T>&v){for(auto\
@@ -133,9 +140,9 @@ data:
     \ void dump(const T&t){std::cerr<<t;}\ntemplate<typename T>\ninline void dump(const\
     \ T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp=\"\
     inf\";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp=\"\
-    -inf\";if(tmp.empty())tmp=to_string(t);std::cerr<<tmp;}\ntemplate<typename T,typename\
-    \ U>\ninline void dump(const std::pair<T,U>&);\ntemplate<typename T>\ninline void\
-    \ dump(const T&t,std::enable_if_t<!std::is_void<typename T::iterator>::value>*\
+    -inf\";if(tmp.empty())tmp=std::to_string(t);std::cerr<<tmp;}\ntemplate<typename\
+    \ T,typename U>\ninline void dump(const std::pair<T,U>&);\ntemplate<typename T>\n\
+    inline void dump(const T&t,std::enable_if_t<!std::is_void<typename T::iterator>::value>*\
     \ =nullptr){std::cerr<<\"{\";for(auto it=std::begin(t);it!=std::end(t);){dump(*it);std::cerr<<(++it==t.end()?\"\
     \":\",\");}std::cerr<<\"}\";}\ntemplate<typename T,typename U>\ninline void dump(const\
     \ std::pair<T,U>&t){std::cerr<<\"(\";dump(t.first);std::cerr<<\",\";dump(t.second);std::cerr<<\"\
@@ -201,15 +208,12 @@ data:
     \    return l;\n  }\n  vector<long long>factorize(const long long&n,const bool&sorted=true){\n\
     \    vector<long long>res=factorize_sub(n);\n    if(sorted)sort(res.begin(),res.end());\n\
     \    return res;\n  }\n} // namespace fastprime\n/**\n * @brief Fast Prime Factorization(\u9AD8\
-    \u901F\u7D20\u56E0\u6570\u5206\u89E3)\n*/\n#line 3 \"math/modular/modpow.hpp\"\
-    \n\ntemplate<typename T,typename S>\nT modpow(T a,S b,T m){\n  T ret=1;\n  while(b){\n\
-    \    if(b&1)ret=ret*a%m;\n    a=a*a%m;\n    b>>=1;\n  }\n  return ret;\n}\n/**\n\
-    \ * @brief Mod Pow(\u3079\u304D\u4E57)\n*/\n#line 5 \"math/number/primitive-root.hpp\"\
+    \u901F\u7D20\u56E0\u6570\u5206\u89E3)\n*/\n#line 4 \"math/number/primitive-root.hpp\"\
     \n\nint primitive_root(int n){\n  if(n==2)return 1;\n  if(n==167772161)return\
     \ 3;\n  if(n==469762049)return 3;\n  if(n==754974721)return 11;\n  if(n==998244353)return\
     \ 3;\n  if(n==1224736769)return 3;\n  auto divs=fastprime::factorize(n-1);\n \
     \ divs.erase(unique(divs.begin(),divs.end()),divs.end());\n  for(int g=2;;g++){\n\
-    \    bool ok=true;\n    for(int d:divs){\n      if(modpow(g,(n-1)/d,n)==1){\n\
+    \    bool ok=true;\n    for(int d:divs){\n      if(mod_pow(g,(n-1)/d,n)==1){\n\
     \        ok=false;\n        break;\n      }\n    }\n    if(ok)return g;\n  }\n\
     }\n/**\n * @brief Primitive Root(\u539F\u59CB\u6839)\n*/\n#line 5 \"math/convolution/ntt.hpp\"\
     \n\ntemplate<int m>\nstruct NTT{\n  using mint=ModInt<m>;\n  private:\n  static\
@@ -346,13 +350,12 @@ data:
   - math/modular/modint.hpp
   - math/number/primitive-root.hpp
   - math/number/fast-prime.hpp
-  - math/modular/modpow.hpp
   - math/fps/multipoint-evaluation.hpp
   isVerificationFile: true
   path: test/yosupo/multipoint_evaluation.test.cpp
   requiredBy: []
-  timestamp: '2022-12-21 00:30:41+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-21 08:33:34+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/multipoint_evaluation.test.cpp
 layout: document
