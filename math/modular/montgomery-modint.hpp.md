@@ -28,6 +28,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
+    document_title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -151,11 +152,107 @@ data:
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/modular/montgomery-modint.hpp\"\
     \n\ntemplate<typename T>\nstruct MontgomeryReduction{\n  static_assert(is_integral<T>::value,\"\
     template argument must be integral\");\n  static_assert(is_unsigned<T>::value,\"\
-    template argument must be unsigned\");\n  private:\n  \n  public:\n\n};\n"
+    template argument must be unsigned\");\n  private:\n  using large_t=typename double_size_uint<T>::type;\n\
+    \  static constexpr int lg=numeric_limits<T>::digits;\n  T mod;\n  T r2;\n  T\
+    \ minv;\n  T calc_inv()const{\n    T t=0,res=0;\n    rep(i,lg){\n      if(~t&1){\n\
+    \        t+=mod;\n        res+=static_cast<T>(1)<<i;\n      }\n      t>>=1;\n\
+    \    }\n    return res;\n  }\n  public:\n  MontgomeryReduction(T x){set_mod(x);}\n\
+    \  static constexpr int get_lg(){return lg;}\n  void set_mod(T x){\n    assert(x>0);\n\
+    \    assert(x&1);\n    assert(x<=INF<T>);\n    mod=x;\n    r2=(-static_cast<large_t>(mod))%mod;\n\
+    \    minv=calc_inv();\n  }\n  inline T get_mod()const{return mod;}\n  T reduce(large_t\
+    \ x)const{\n    large_t tmp=(x+static_cast<large_t>(static_cast<T>(x)*minv)*mod)>>lg;\n\
+    \    return tmp>=mod?tmp-mod:tmp;\n  }\n  T transform(large_t x)const{return reduce(x*r2);}\n\
+    };\ntemplate<typename T,int id>\nstruct MontgomeryModInt{\n  static_assert(is_integral<T>::value,\"\
+    template argument must be integral\");\n  static_assert(is_unsigned<T>::value,\"\
+    template argument must be unsigned\");\n  private:\n  using large_t=typename double_size_uint<T>::type;\n\
+    \  using signed_large_t=typename make_signed<large_t>::type;\n  T val;\n  static\
+    \ MontgomeryReduction<T>reduction;\n  public:\n  MontgomeryModInt():val(0){}\n\
+    \  template<typename U,typename enable_if<is_integral<U>::value&&is_unsigned<U>::value>::type*\
+    \ =nullptr>\n  MontgomeryModInt(U x):val(reduction.transform(x<(static_cast<large_t>(reduction.get_mod())<<reduction.get_lg())?static_cast<large_t>(x):static_cast<large_t>(x%reduction.get_mod()))){}\n\
+    \  template<typename U,typename enable_if<is_integral<U>::value&&is_signed<U>::value>::type*\
+    \ =nullptr>\n  MontgomeryModInt(U x):MontgomeryModInt(static_cast<typename std::make_unsigned<U>::type>(x<0?-x:x)){\n\
+    \    if(x<0&&val)val=reduction.get_mod()-val;\n  }\n  T get()const{return reduction.reduce(val);}\n\
+    \  static T get_mod(){return reduction.get_mod();}\n  static void set_mod(T x){reduction.set_mod(x);}\n\
+    \  MontgomeryModInt& operator++(){\n    val+=MontgomeryModInt(1).val;\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
+    \    return *this;\n  }\n  MontgomeryModInt operator++(int){\n    MontgomeryModInt\
+    \ res=*this;\n    ++*this;\n    return res;\n  }\n  MontgomeryModInt& operator--(){\n\
+    \    if(val==0)val=reduction.get_mod();\n    val-=MontgomeryModInt(1).val;\n \
+    \   return *this;\n  }\n  MontgomeryModInt operator--(int){\n    MontgomeryModInt\
+    \ res=*this;\n    --*this;\n    return res;\n  }\n  MontgomeryModInt& operator+=(const\
+    \ MontgomeryModInt&r){\n    val+=r.val;\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
+    \    return *this;\n  }\n  MontgomeryModInt& operator-=(const MontgomeryModInt&r){\n\
+    \    if(val<r.val)val+=reduction.get_mod();\n    val-=r.val;\n    return *this;\n\
+    \  }\n  MontgomeryModInt& operator*=(const MontgomeryModInt&r){\n    val=reduction.reduce(static_cast<large_t>(val)*r.val);\n\
+    \    return *this;\n  }\n  MontgomeryModInt pow(ull n)const{\n    MontgomeryModInt\
+    \ res=1,tmp=*this;\n    while(n){\n      if(n&1)res*=tmp;\n      tmp*=tmp;\n \
+    \     n>>=1;\n    }\n    return res;\n  }\n  MontgomeryModInt inv()const{return\
+    \ pow(reduction.get_mod()-2);}\n  MontgomeryModInt& operator/=(const MontgomeryModInt&r){return\
+    \ *this*=r.inv();}\n  friend MontgomeryModInt operator+(const MontgomeryModInt&l,const\
+    \ MontgomeryModInt&r){return MontgomeryModInt(l)+=r;}\n  friend MontgomeryModInt\
+    \ operator-(const MontgomeryModInt&l,const MontgomeryModInt&r){return MontgomeryModInt(l)-=r;}\n\
+    \  friend MontgomeryModInt operator*(const MontgomeryModInt&l,const MontgomeryModInt&r){return\
+    \ MontgomeryModInt(l)*=r;}\n  friend MontgomeryModInt operator/(const MontgomeryModInt&l,const\
+    \ MontgomeryModInt&r){return MontgomeryModInt(l)/=r;}\n  friend bool operator==(const\
+    \ MontgomeryModInt&l,const MontgomeryModInt&r){return l.val==r.val;}\n  friend\
+    \ bool operator!=(const MontgomeryModInt&l,const MontgomeryModInt&r){return l.val!=r.val;}\n\
+    \  friend ostream &operator<<(ostream &os,const MontgomeryModInt&x){\n    return\
+    \ os<<x.get();\n  }\n  friend istream &operator>>(istream &is,MontgomeryModInt&x){\n\
+    \    signed_large_t tmp;\n    is>>tmp;\n    x=MontgomeryModInt(tmp);\n    return\
+    \ is;\n  }\n};\ntemplate<typename T,int id>\nMontgomeryReduction<T>\n  MontgomeryModInt<T,id>::reduction=MontgomeryReduction<T>(998244353);\n\
+    using ArbitraryModInt=MontgomeryModInt<unsigned int,-1>;\n/**\n * @brief MontgomeryModInt(\u30E2\
+    \u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)\n*/\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n\ntemplate<typename\
     \ T>\nstruct MontgomeryReduction{\n  static_assert(is_integral<T>::value,\"template\
     \ argument must be integral\");\n  static_assert(is_unsigned<T>::value,\"template\
-    \ argument must be unsigned\");\n  private:\n  \n  public:\n\n};"
+    \ argument must be unsigned\");\n  private:\n  using large_t=typename double_size_uint<T>::type;\n\
+    \  static constexpr int lg=numeric_limits<T>::digits;\n  T mod;\n  T r2;\n  T\
+    \ minv;\n  T calc_inv()const{\n    T t=0,res=0;\n    rep(i,lg){\n      if(~t&1){\n\
+    \        t+=mod;\n        res+=static_cast<T>(1)<<i;\n      }\n      t>>=1;\n\
+    \    }\n    return res;\n  }\n  public:\n  MontgomeryReduction(T x){set_mod(x);}\n\
+    \  static constexpr int get_lg(){return lg;}\n  void set_mod(T x){\n    assert(x>0);\n\
+    \    assert(x&1);\n    assert(x<=INF<T>);\n    mod=x;\n    r2=(-static_cast<large_t>(mod))%mod;\n\
+    \    minv=calc_inv();\n  }\n  inline T get_mod()const{return mod;}\n  T reduce(large_t\
+    \ x)const{\n    large_t tmp=(x+static_cast<large_t>(static_cast<T>(x)*minv)*mod)>>lg;\n\
+    \    return tmp>=mod?tmp-mod:tmp;\n  }\n  T transform(large_t x)const{return reduce(x*r2);}\n\
+    };\ntemplate<typename T,int id>\nstruct MontgomeryModInt{\n  static_assert(is_integral<T>::value,\"\
+    template argument must be integral\");\n  static_assert(is_unsigned<T>::value,\"\
+    template argument must be unsigned\");\n  private:\n  using large_t=typename double_size_uint<T>::type;\n\
+    \  using signed_large_t=typename make_signed<large_t>::type;\n  T val;\n  static\
+    \ MontgomeryReduction<T>reduction;\n  public:\n  MontgomeryModInt():val(0){}\n\
+    \  template<typename U,typename enable_if<is_integral<U>::value&&is_unsigned<U>::value>::type*\
+    \ =nullptr>\n  MontgomeryModInt(U x):val(reduction.transform(x<(static_cast<large_t>(reduction.get_mod())<<reduction.get_lg())?static_cast<large_t>(x):static_cast<large_t>(x%reduction.get_mod()))){}\n\
+    \  template<typename U,typename enable_if<is_integral<U>::value&&is_signed<U>::value>::type*\
+    \ =nullptr>\n  MontgomeryModInt(U x):MontgomeryModInt(static_cast<typename std::make_unsigned<U>::type>(x<0?-x:x)){\n\
+    \    if(x<0&&val)val=reduction.get_mod()-val;\n  }\n  T get()const{return reduction.reduce(val);}\n\
+    \  static T get_mod(){return reduction.get_mod();}\n  static void set_mod(T x){reduction.set_mod(x);}\n\
+    \  MontgomeryModInt& operator++(){\n    val+=MontgomeryModInt(1).val;\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
+    \    return *this;\n  }\n  MontgomeryModInt operator++(int){\n    MontgomeryModInt\
+    \ res=*this;\n    ++*this;\n    return res;\n  }\n  MontgomeryModInt& operator--(){\n\
+    \    if(val==0)val=reduction.get_mod();\n    val-=MontgomeryModInt(1).val;\n \
+    \   return *this;\n  }\n  MontgomeryModInt operator--(int){\n    MontgomeryModInt\
+    \ res=*this;\n    --*this;\n    return res;\n  }\n  MontgomeryModInt& operator+=(const\
+    \ MontgomeryModInt&r){\n    val+=r.val;\n    if(val>=reduction.get_mod())val-=reduction.get_mod();\n\
+    \    return *this;\n  }\n  MontgomeryModInt& operator-=(const MontgomeryModInt&r){\n\
+    \    if(val<r.val)val+=reduction.get_mod();\n    val-=r.val;\n    return *this;\n\
+    \  }\n  MontgomeryModInt& operator*=(const MontgomeryModInt&r){\n    val=reduction.reduce(static_cast<large_t>(val)*r.val);\n\
+    \    return *this;\n  }\n  MontgomeryModInt pow(ull n)const{\n    MontgomeryModInt\
+    \ res=1,tmp=*this;\n    while(n){\n      if(n&1)res*=tmp;\n      tmp*=tmp;\n \
+    \     n>>=1;\n    }\n    return res;\n  }\n  MontgomeryModInt inv()const{return\
+    \ pow(reduction.get_mod()-2);}\n  MontgomeryModInt& operator/=(const MontgomeryModInt&r){return\
+    \ *this*=r.inv();}\n  friend MontgomeryModInt operator+(const MontgomeryModInt&l,const\
+    \ MontgomeryModInt&r){return MontgomeryModInt(l)+=r;}\n  friend MontgomeryModInt\
+    \ operator-(const MontgomeryModInt&l,const MontgomeryModInt&r){return MontgomeryModInt(l)-=r;}\n\
+    \  friend MontgomeryModInt operator*(const MontgomeryModInt&l,const MontgomeryModInt&r){return\
+    \ MontgomeryModInt(l)*=r;}\n  friend MontgomeryModInt operator/(const MontgomeryModInt&l,const\
+    \ MontgomeryModInt&r){return MontgomeryModInt(l)/=r;}\n  friend bool operator==(const\
+    \ MontgomeryModInt&l,const MontgomeryModInt&r){return l.val==r.val;}\n  friend\
+    \ bool operator!=(const MontgomeryModInt&l,const MontgomeryModInt&r){return l.val!=r.val;}\n\
+    \  friend ostream &operator<<(ostream &os,const MontgomeryModInt&x){\n    return\
+    \ os<<x.get();\n  }\n  friend istream &operator>>(istream &is,MontgomeryModInt&x){\n\
+    \    signed_large_t tmp;\n    is>>tmp;\n    x=MontgomeryModInt(tmp);\n    return\
+    \ is;\n  }\n};\ntemplate<typename T,int id>\nMontgomeryReduction<T>\n  MontgomeryModInt<T,id>::reduction=MontgomeryReduction<T>(998244353);\n\
+    using ArbitraryModInt=MontgomeryModInt<unsigned int,-1>;\n/**\n * @brief MontgomeryModInt(\u30E2\
+    \u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -167,7 +264,7 @@ data:
   isVerificationFile: false
   path: math/modular/montgomery-modint.hpp
   requiredBy: []
-  timestamp: '2022-12-21 20:26:30+09:00'
+  timestamp: '2022-12-21 22:19:19+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/modular/montgomery-modint.hpp
@@ -175,5 +272,5 @@ layout: document
 redirect_from:
 - /library/math/modular/montgomery-modint.hpp
 - /library/math/modular/montgomery-modint.hpp.html
-title: math/modular/montgomery-modint.hpp
+title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
 ---
