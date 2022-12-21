@@ -9,7 +9,6 @@ struct StaticModInt{
   static_assert(mod<=INF<T>,"mod*2 must be less than or equal to T::max()");
   private:
   using large_t=typename double_size_uint<T>::type;
-  using signed_large_t=typename make_signed<large_t>::type;
   using signed_t=typename make_signed<T>::type;
   T val;
   public:
@@ -90,7 +89,7 @@ struct StaticModInt{
     return os<<x.val;
   }
   friend istream &operator>>(istream &is,StaticModInt&x){
-    signed_large_t tmp;
+    ll tmp;
     is>>tmp;
     x=StaticModInt(tmp);
     return is;

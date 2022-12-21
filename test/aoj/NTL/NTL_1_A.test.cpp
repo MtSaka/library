@@ -4,5 +4,5 @@
 int main(){
   int n;
   cin>>n;
-  cout<<n<<":"<<prime_factor(n)<<endl;
+  cout<<n<<": "<<prime_factor(n)<<endl;
 }

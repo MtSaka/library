@@ -49,7 +49,6 @@ struct MontgomeryModInt{
   static_assert(is_unsigned<T>::value,"template argument must be unsigned");
   private:
   using large_t=typename double_size_uint<T>::type;
-  using signed_large_t=typename make_signed<large_t>::type;
   T val;
   static MontgomeryReduction<T>reduction;
   public:
@@ -64,7 +63,7 @@ struct MontgomeryModInt{
   static T get_mod(){return reduction.get_mod();}
   static void set_mod(T x){reduction.set_mod(x);}
   MontgomeryModInt& operator++(){
-    val+=redution.get_r();
+    val+=reduction.get_r();
     if(val>=reduction.get_mod())val-=reduction.get_mod();
     return *this;
   }
@@ -118,7 +117,7 @@ struct MontgomeryModInt{
     return os<<x.get();
   }
   friend istream &operator>>(istream &is,MontgomeryModInt&x){
-    signed_large_t tmp;
+    ll tmp;
     is>>tmp;
     x=MontgomeryModInt(tmp);
     return is;

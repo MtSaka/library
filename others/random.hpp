@@ -8,6 +8,7 @@ struct Random{
   public:
   using result_type=typename Engine::result_type;
   Random():Random(random_device{}()){}
+  Random(result_type seed):rnd(seed){}
   result_type operator()(){return rnd();}
   template<typename IntType=ll>
   IntType uniform(IntType l,IntType r){
@@ -15,7 +16,7 @@ struct Random{
     return uniform_int_distribution<IntType>{l,r}(rnd);
   }
   template<typename RealType=double>
-  RealType uniform(RealType l,RealType r){
+  RealType uniform_real(RealType l,RealType r){
     static_assert(is_floating_point<RealType>::value,"template argument must be a floating point type");
     return uniform_real_distribution<RealType>{l,r}(rnd);
   }

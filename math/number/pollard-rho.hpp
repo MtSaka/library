@@ -10,7 +10,7 @@ ull pollard_rho(ull n,Rand&rand){
   if(~n&1)return 2;
   if(T::get_mod()!=n)T::set_mod(n);
   T c,e=1;
-  auto f=[&](T x)->T {return x*x+c};
+  auto f=[&](T x)->T {return x*x+c;};
   constexpr int m=128;
   while(1){
     c=rand.uniform(1ull,n-1);
@@ -46,9 +46,10 @@ vector<ull>factorize(ull n,Rand&rand=rand64){
   while(!st.empty()){
     ull t=st.back();
     st.pop_back();
+    if(t==1)continue;
     if(is_prime_fast(t)){
       res.push_back(t);
-      st.pop_back();
+      continue;
     }
     ull p=pollard_rho<T>(t,rand);
     st.push_back(p);

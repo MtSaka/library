@@ -15,7 +15,7 @@ inline constexpr int msb(ull x){
 inline constexpr int ceil_log2(ull x){return x?msb(x-1)+1:0;}
 inline constexpr int popcnt(ull x){
 #if __cplusplus>=202002L
-  return popcount(x);
+  return std::popcount(x);
 #endif
   x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);
   x=(x&0x3333333333333333)+((x>>2)&0x3333333333333333);
