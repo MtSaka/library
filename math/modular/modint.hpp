@@ -2,103 +2,101 @@
 #include"../../template/template.hpp"
 
 template<typename T,T mod>
-struct StaticModint{
+struct StaticModInt{
   static_assert(is_integral<T>::value,"T must be integral");
   static_assert(is_unsigned<T>::value,"T must be unsgined");
   static_assert(mod>0,"mod must be positive");
   static_assert(mod<=INF<T>,"mod*2 must be less than or equal to T::max()");
   private:
   using large_t=typename double_size_uint<T>::type;
+  using signed_large_t=typename make_signed<large_t>::type;
   using signed_t=typename make_signed<T>::type;
   T val;
   public:
-  constexpr StaticModint():val(0){}
-  
-};
-template<int m>
-struct ModInt{
-  private:
-  unsigned int x;
-  static constexpr unsigned int umod(){return m;}
-  public:
-  static ModInt raw(int v){
-    ModInt ret;
-    ret.x=v;
-    return ret;
+  constexpr StaticModInt():val(0){}
+  template<typename U,typename enable_if<is_integral<U>::value&&is_unsigned<U>::value>::type* =nullptr>
+  constexpr StaticModInt(U x):val(x%mod){}
+  template<typename U,typename enable_if<is_integral<U>::value&&is_signed<U>::value>::type* =nullptr>
+  constexpr StaticModInt(U x):val{}{
+    x%=static_cast<signed_t>(mod);
+    if(x<0)x+=static_cast<signed_t>(mod);
+    val=static_cast<T>(x);
   }
-  constexpr ModInt():x(0){}
-  constexpr ModInt(int y){
-    int v=y%m;
-    if(v<0)v+=m;
-    x=(unsigned int)v;
+  T get()const{return val;}
+  static constexpr T get_mod(){return mod;}
+  static StaticModInt raw(T v){
+    StaticModInt res;
+    res.val=v;
+    return res;
   }
-  constexpr ModInt(long long y){
-    long long v=y%(long long)m;
-    if(v<0)v+=m;
-    x=(unsigned int)v;
+  StaticModInt inv()const{
+    return mod_inv(val,mod);
   }
-  constexpr ModInt(unsigned int y){
-    x=(unsigned int)(y%umod());
-  }
-  ModInt& operator++(){x++;if(x==umod())x=0;return *this;}
-  ModInt& operator--(){if(x==0)x=umod();x--;return *this;}
-  ModInt operator++(int){
-    ModInt ret=*this;
-    ++*this;
-    return ret;
-  }
-  ModInt operator--(int){
-    ModInt ret=*this;
-    --*this;
-    return ret;
-  }
-  ModInt& operator+=(const ModInt&p){if((x+=p.x)>=umod())x-=umod();return *this;}
-  ModInt& operator-=(const ModInt&p){if((x-=p.x)>=umod())x+=umod();return *this;}
-  ModInt& operator*=(const ModInt&p){
-    unsigned long long y=x;
-    y*=p.x;
-    x=(unsigned int)(y%umod());
+  StaticModInt& operator++(){
+    ++val;
+    if(val==mod)val=0;
     return *this;
   }
-  ModInt& operator/=(const ModInt&p){return *this*=p.inv();}
-  ModInt operator+()const{return *this;}
-  ModInt operator-()const{return ModInt()-*this;}
-  ModInt pow(long long n)const{
-    ModInt ret(1),mul=*this;
-    while(n){
-      if(n&1)ret*=mul;
-      mul*=mul;
-      n>>=1;
+  StaticModInt operator++(int){
+    StaticModInt res=*this;
+    ++*this;
+    return res;
+  }
+  StaticModInt& operator--(){
+    if(val==0)val=mod;
+    --val;
+    return *this;
+  }
+  StaticModInt operator--(int){
+    StaticModInt res=*this;
+    --*this;
+    return res;
+  }
+  StaticModInt& operator+=(const StaticModInt&x){
+    val+=x.val;
+    if(val>=mod)val-=mod;
+    return *this;
+  }
+  StaticModInt& operator-=(const StaticModInt&x){
+    if(val<x.val)val+=mod;
+    val-=x.val;
+    return *this;
+  }
+  StaticModInt& operator*=(const StaticModInt&x){
+    val=static_cast<T>((static_cast<large_t>(val)*x.val)%mod);
+    return *this;
+  }
+  StaticModInt& operator/=(const StaticModInt&x){
+    return *this*=x.inv();
+  }
+  friend StaticModInt operator+(const StaticModInt&l,const StaticModInt&r){return StaticModInt(l)+=r;}
+  friend StaticModInt operator-(const StaticModInt&l,const StaticModInt&r){return StaticModInt(l)-=r;}
+  friend StaticModInt operator*(const StaticModInt&l,const StaticModInt&r){return StaticModInt(l)*=r;}
+  friend StaticModInt operator/(const StaticModInt&l,const StaticModInt&r){return StaticModInt(l)/=r;}
+  StaticModInt operator+()const{return StaticModInt(*this);}
+  StaticModInt operator-()const{return StaticModInt()-*this;}
+  friend bool operator==(const StaticModInt&l,const StaticModInt&r){return l.val==r.val;}
+  friend bool operator!=(const StaticModInt&l,const StaticModInt&r){return l.val!=r.val;}
+  StaticModInt pow(ll a)const{
+    StaticModInt v=*this,res=1;
+    while(a){
+      if(a&1)res*=v;
+      v*=v;
+      a>>=1;
     }
-    return ret;
+    return res;
   }
-  ModInt inv()const{
-    long long a=x,b=m,u=1,v=0;
-    while(b){
-      long long t=a/b;
-      swap(a-=t*b,b);
-      swap(u-=t*v,v);
-    }
-    return ModInt(u);
+  friend ostream &operator<<(ostream &os,const StaticModInt&x){
+    return os<<x.val;
   }
-  friend ModInt operator+(const ModInt&l,const ModInt&r){return ModInt(l)+=r;}
-  friend ModInt operator-(const ModInt&l,const ModInt&r){return ModInt(l)-=r;}
-  friend ModInt operator*(const ModInt&l,const ModInt&r){return ModInt(l)*=r;}
-  friend ModInt operator/(const ModInt&l,const ModInt&r){return ModInt(l)/=r;}
-  friend bool operator==(const ModInt&l,const ModInt&r){return l.x==r.x;}
-  friend bool operator!=(const ModInt&l,const ModInt&r){return l.x!=r.x;}
-  friend ostream &operator<<(ostream &os,const ModInt&p) {
-    return os<<p.val();
+  friend istream &operator>>(istream &is,StaticModInt&x){
+    signed_large_t tmp;
+    is>>tmp;
+    x=StaticModInt(tmp);
+    return is;
   }
-  friend istream &operator>>(istream &is, ModInt &a) {
-    long long t;
-    is>>t;
-    a=ModInt(t);
-    return (is);
-  }
-  static constexpr int get_mod(){return m;}
-  int val()const{return (int)x;}
 };
+template<unsigned int p>using ModInt=StaticModInt<unsigned int,p>;
 /**
  * @brief ModInt
 */
