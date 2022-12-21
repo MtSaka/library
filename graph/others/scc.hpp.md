@@ -30,7 +30,7 @@ data:
     path: graph/others/two-sat.hpp
     title: Tow Satisfiability(2-SAT)
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_3_C.test.cpp
     title: test/aoj/GRL/GRL_3_C.test.cpp
   - icon: ':x:'
@@ -41,7 +41,7 @@ data:
     title: test/yosupo/two_sat.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\
       \u89E3)"
@@ -240,7 +240,7 @@ data:
   requiredBy:
   - graph/others/two-sat.hpp
   timestamp: '2022-12-22 00:38:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/GRL/GRL_3_C.test.cpp
   - test/yosupo/scc.test.cpp

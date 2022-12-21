@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: math/convolution/gcd-convolution.hpp
     title: GCD Convolution
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':question:'

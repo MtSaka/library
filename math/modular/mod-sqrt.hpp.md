@@ -27,6 +27,9 @@ data:
   - icon: ':x:'
     path: test/yosupo/sqrt_mod.test.cpp
     title: test/yosupo/sqrt_mod.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/sqrt_of_formal_power_series.test.cpp
+    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -187,6 +190,7 @@ data:
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/sqrt_mod.test.cpp
+  - test/yosupo/sqrt_of_formal_power_series.test.cpp
 documentation_of: math/modular/mod-sqrt.hpp
 layout: document
 redirect_from:
