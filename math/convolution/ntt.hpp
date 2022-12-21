@@ -61,7 +61,7 @@ struct NTT{
     for(int i=0;i<(int)b.size();i++)b2[i]=b[i];
     auto c2=multiply(a2,b2);
     vector<T>c(c2.size());
-    for(int i=0;i<(int)c.size();i++)c[i]=c2[i].val();
+    for(int i=0;i<(int)c.size();i++)c[i]=c2[i].get();
     return c;
   }
 };
