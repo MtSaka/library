@@ -23,6 +23,19 @@ struct NthRoot{
   constexpr unsigned int inv(int n){return inv_root[n];}
 };
 template<unsigned int p>constexpr NthRoot<p> nth_root;
+/*点検中
+template<unsigned int p,enable_if_t<is_prime_v<p>>* =nullptr>
+void ntt(vector<ModInt<p>>&a){
+  const int sz=a.size();
+  assert(sz<=((1-p)&(p-1)));
+  assert((sz&(sz-1))==0);
+  const int lg=msb(sz);
+
+}
+template<unsigned int p,enable_if_t<is_prime_v<p>>* =nullptr>
+void intt(vector<ModInt<p>>&a){
+
+}*/
 template<int m>
 struct NTT{
   using mint=ModInt<m>;
