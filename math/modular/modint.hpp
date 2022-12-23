@@ -1,8 +1,12 @@
 #pragma once
 #include"../../template/template.hpp"
 
+namespace internal{
+  struct modint_base{};
+}//naespace internal
+template<typename T>using is_modint=is_base_of<internal::modint_base,T>;
 template<typename T,T mod>
-struct StaticModInt{
+struct StaticModInt:internal::modint_base{
   static_assert(is_integral<T>::value,"T must be integral");
   static_assert(is_unsigned<T>::value,"T must be unsgined");
   static_assert(mod>0,"mod must be positive");
