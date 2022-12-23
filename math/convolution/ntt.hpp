@@ -23,19 +23,87 @@ struct NthRoot{
   constexpr unsigned int inv(int n){return inv_root[n];}
 };
 template<unsigned int p>constexpr NthRoot<p> nth_root;
-/*点検中
-template<unsigned int p,enable_if_t<is_prime_v<p>>* =nullptr>
-void ntt(vector<ModInt<p>>&a){
+template<typename T,enable_if_t<is_modint<T>::value>* =nullptr,enable_if_t<is_prime_v<T::get_mod()>>* =nullptr>
+void ntt(vector<T>&a){
   const int sz=a.size();
   assert(sz<=((1-p)&(p-1)));
   assert((sz&(sz-1))==0);
   const int lg=msb(sz);
+  rep(i,sz){
+    const int j=reverse(i,lg);
+    if(i<j)swap(a[i],a[j]);
+  }
+  rep(i,lg){
+    const T w=nth_root<T::get_mod()>.get(i+1);
+    rep(j,0,sz,1<<(i+1)){
+      T z=1;
+      rep(k,1<<i){
+        T x=a[j+k],y=a[j+k+(1<<i)]*z;
+        a[j+k]=x+y,a[j+k+(1<<i)]=x-y;
+        z*=w;
+      }
+    }
+  }
+  rep(i,sz){
+    const int j=reverse(i,lg);
+    if(i<j)swap(a[i],a[j]);
+  }
+}
+template<typename T,enable_if_t<is_modint<T>::value>* =nullptr,enable_if_t<is_prime_v<T::get_mod()>>* =nullptr>
+void intt(vector<T>&a){
+  const int sz=a.size();
+  assert(sz<=((1-p)&(p-1)));
+  assert((sz&(sz-1))==0);
+  const int lg=msb(sz);
+  rep(i,sz){
+    const int j=reverse(i,lg);
+    if(i<j)swap(a[i],a[j]);
+  }
+  rep(i,lg){
+    const T w=nth_root<T::get_mod()>.inv(i+1);
+    rep(j,0,sz,1<<(i+1)){
+      T z=1;
+      rep(k,1<<i){
+        T x=a[j+k],y=a[j+k+(1<<i)]*z;
+        a[j+k]=x+y,a[j+k+(1<<i)]=x-y;
+        z*=w;
+      }
+    }
+  }
+  rep(i,sz){
+    const int j=reverse(i,lg);
+    if(i<j)swap(a[i],a[j]);
+  }
+  const T inv_sz=T(1)/sz;
+  for(auto&x:a)x*=inv_sz;
+}
+template<typename T>
+vector<T>convolution_naive(const vector<T>&a,const vector<T>&b){
+  const int sz1=a.size(),sz2=b.size();
+  vector<T>c(sz1+sz2-1);
+  rep(i,sz1)rep(j,sz2)c[i+j]+=a[i]*b[j];
+  return c;
+}
+//TODO:実装
+template<typename T,enable_if_t<is_modint<T>::value>* =nullptr>
+vector<T>convolution_for_any_mod(const vector<T>&a,const vector<T>&b){
 
 }
-template<unsigned int p,enable_if_t<is_prime_v<p>>* =nullptr>
-void intt(vector<ModInt<p>>&a){
+template<typename T,enable_if_t<is_modint<T>::value>* =nullptr>
+vector<T>convolution(vector<T>a,vector<T>b){
 
-}*/
+}
+template<typename T,enable_if_t<is_integral<T>::value>* =nullptr,unsigned int p=998244353>
+vector<T>convolution(const vector<T>&a,const vector<T>&b){
+  const int sz1=a.size(),sz2=b.size()
+  vector<ModInt<p>>a2(sz1),b2(sz2);
+  rep(i,sz1)a2[i]=a[i];
+  rep(i,sz2)b2[i]=b[i];
+  auto c2=convolution(a2,b2);
+  vector<T>c(sz1+sz2-1);
+  rep(i,sz1+sz2-1)c[i]=c2[i].get();
+  return c;
+}
 template<int m>
 struct NTT{
   using mint=ModInt<m>;

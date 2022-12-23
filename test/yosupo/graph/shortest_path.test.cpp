@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/shortest-path"
+#define PROBLEM "https://judge.yosupo.jp/problem/shortest_path"
 #include"../../../template/template.hpp"
 #include"../../../graph/shortest-path/dijkstra-path.hpp"
 int main(){
