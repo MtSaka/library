@@ -14,11 +14,11 @@ inline constexpr int msb(ull x){
 }
 inline constexpr int ceil_log2(ull x){return x?msb(x-1)+1:0;}
 inline constexpr ull reverse(ull x){
-  x=((x&0x5555555555555555)<<1)|((x&0xaaaaaaaaaaaaaaa)>>1);
-  x=((x&0x3333333333333333)<<2)|((x&0xccccccccccccccc)>>2);
-  x=((x&0x0f0f0f0f0f0f0f0f)<<4)|((x&0xf0f0f0f0f0f0f0f)>>4);
-  x=((x&0x00ff00ff00ff00ff)<<8)|((x&0xff00ff00ff00ff)>>8);
-  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff)>>16);
+  x=((x&0x5555555555555555)<<1)|((x&0xaaaaaaaaaaaaaaaa)>>1);
+  x=((x&0x3333333333333333)<<2)|((x&0xcccccccccccccccc)>>2);
+  x=((x&0x0f0f0f0f0f0f0f0f)<<4)|((x&0xf0f0f0f0f0f0f0f0)>>4);
+  x=((x&0xff00ff00ff00ff00)>>8)|((x&0x00ff00ff00ff00ff)<<8);
+  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff0000)>>16);
   return (x<<32)|(x>>32);
 }
 inline constexpr ull reverse(ull x,int len){return reverse(x)>>(64-len);}

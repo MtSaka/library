@@ -28,7 +28,7 @@ constexpr bool is_prime_fast(ull n){
   if(n<(1u<<31))return miller_rabin<MontgomeryModInt<unsigned int,-2>>(n,base_int,3);
   return miller_rabin<MontgomeryModInt<ull,-2>>(n,base_ll,7);
 }
-template<ull n>constexpr bool is_prime_v=is_prime_fast(n);
+template<ull n>constexpr bool is_prime_v=is_prime(n);
 /**
  * @brief Miller-Rabin Primality Test(ミラーラビン素数判定)
 */

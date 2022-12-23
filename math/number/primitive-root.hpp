@@ -33,6 +33,8 @@ constexpr ull constexpr_primitive_root(){
   if(p==754974721)return 11;
   if(p==998244353)return 3;
   if(p==1224736769)return 3;
+  if(p==1811939329)return 11;
+  if(p==2013265921)return 11;
   rep(g,2,p){
     if(mod_pow(g,(p-1)>>1,p)!=1)return g;
   }
