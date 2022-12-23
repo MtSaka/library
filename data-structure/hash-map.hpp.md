@@ -27,15 +27,15 @@ data:
     path: math/modular/mod-log.hpp
     title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/associative_array.test.cpp
+    title: test/yosupo/data_strucuture/associative_array.test.cpp
   - icon: ':x:'
-    path: test/yosupo/associative_array.test.cpp
-    title: test/yosupo/associative_array.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/discrete-logarithm-mod.test.cpp
-    title: test/yosupo/discrete-logarithm-mod.test.cpp
+    path: test/yosupo/math/discrete-logarithm-mod.test.cpp
+    title: test/yosupo/math/discrete-logarithm-mod.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
     links: []
@@ -328,10 +328,10 @@ data:
   requiredBy:
   - math/modular/mod-log.hpp
   timestamp: '2022-12-23 01:43:39+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yosupo/associative_array.test.cpp
-  - test/yosupo/discrete-logarithm-mod.test.cpp
+  - test/yosupo/math/discrete-logarithm-mod.test.cpp
+  - test/yosupo/data_strucuture/associative_array.test.cpp
 documentation_of: data-structure/hash-map.hpp
 layout: document
 redirect_from:

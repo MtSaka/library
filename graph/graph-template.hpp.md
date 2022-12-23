@@ -56,13 +56,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/shortest-path/warshall-floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':warning:'
     path: graph/tree/centroid.hpp
     title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: graph/tree/doubling-lowest-common-ancestor.hpp
     title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':question:'
@@ -96,30 +96,30 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_A.test.cpp
     title: test/aoj/GRL/GRL_5_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_1.test.cpp
     title: test/aoj/GRL/GRL_5_C_1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
   - icon: ':x:'
-    path: test/yosupo/lca1.test.cpp
-    title: test/yosupo/lca1.test.cpp
+    path: test/yosupo/graph/scc.test.cpp
+    title: test/yosupo/graph/scc.test.cpp
   - icon: ':x:'
-    path: test/yosupo/lca2.test.cpp
-    title: test/yosupo/lca2.test.cpp
+    path: test/yosupo/graph/shortest_path.test.cpp
+    title: test/yosupo/graph/shortest_path.test.cpp
   - icon: ':x:'
-    path: test/yosupo/scc.test.cpp
-    title: test/yosupo/scc.test.cpp
+    path: test/yosupo/math/two_sat.test.cpp
+    title: test/yosupo/math/two_sat.test.cpp
   - icon: ':x:'
-    path: test/yosupo/shortest_path.test.cpp
-    title: test/yosupo/shortest_path.test.cpp
+    path: test/yosupo/tree/lca1.test.cpp
+    title: test/yosupo/tree/lca1.test.cpp
   - icon: ':x:'
-    path: test/yosupo/tree_diameter.test.cpp
-    title: test/yosupo/tree_diameter.test.cpp
+    path: test/yosupo/tree/lca2.test.cpp
+    title: test/yosupo/tree/lca2.test.cpp
   - icon: ':x:'
-    path: test/yosupo/two_sat.test.cpp
-    title: test/yosupo/two_sat.test.cpp
+    path: test/yosupo/tree/tree_diameter.test.cpp
+    title: test/yosupo/tree/tree_diameter.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -328,12 +328,12 @@ data:
   - test/aoj/GRL/GRL_1_A.test.cpp
   - test/aoj/GRL/GRL_5_C_1.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
-  - test/yosupo/lca1.test.cpp
-  - test/yosupo/tree_diameter.test.cpp
-  - test/yosupo/lca2.test.cpp
-  - test/yosupo/shortest_path.test.cpp
-  - test/yosupo/scc.test.cpp
-  - test/yosupo/two_sat.test.cpp
+  - test/yosupo/graph/shortest_path.test.cpp
+  - test/yosupo/graph/scc.test.cpp
+  - test/yosupo/tree/lca1.test.cpp
+  - test/yosupo/tree/tree_diameter.test.cpp
+  - test/yosupo/tree/lca2.test.cpp
+  - test/yosupo/math/two_sat.test.cpp
 documentation_of: graph/graph-template.hpp
 layout: document
 redirect_from:

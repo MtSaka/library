@@ -34,11 +34,11 @@ data:
     path: test/aoj/GRL/GRL_3_C.test.cpp
     title: test/aoj/GRL/GRL_3_C.test.cpp
   - icon: ':x:'
-    path: test/yosupo/scc.test.cpp
-    title: test/yosupo/scc.test.cpp
+    path: test/yosupo/graph/scc.test.cpp
+    title: test/yosupo/graph/scc.test.cpp
   - icon: ':x:'
-    path: test/yosupo/two_sat.test.cpp
-    title: test/yosupo/two_sat.test.cpp
+    path: test/yosupo/math/two_sat.test.cpp
+    title: test/yosupo/math/two_sat.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -247,8 +247,8 @@ data:
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/GRL/GRL_3_C.test.cpp
-  - test/yosupo/scc.test.cpp
-  - test/yosupo/two_sat.test.cpp
+  - test/yosupo/graph/scc.test.cpp
+  - test/yosupo/math/two_sat.test.cpp
 documentation_of: graph/others/scc.hpp
 layout: document
 redirect_from:

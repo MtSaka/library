@@ -25,11 +25,11 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/yosupo/matrix_det.test.cpp
-    title: test/yosupo/matrix_det.test.cpp
+    path: test/yosupo/matrix/matrix_det.test.cpp
+    title: test/yosupo/matrix/matrix_det.test.cpp
   - icon: ':x:'
-    path: test/yosupo/matrix_product.test.cpp
-    title: test/yosupo/matrix_product.test.cpp
+    path: test/yosupo/matrix/matrix_product.test.cpp
+    title: test/yosupo/matrix/matrix_product.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -233,8 +233,8 @@ data:
   timestamp: '2022-12-23 01:43:39+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/matrix_product.test.cpp
-  - test/yosupo/matrix_det.test.cpp
+  - test/yosupo/matrix/matrix_product.test.cpp
+  - test/yosupo/matrix/matrix_det.test.cpp
 documentation_of: math/others/matrix.hpp
 layout: document
 redirect_from:

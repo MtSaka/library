@@ -25,8 +25,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/yosupo/kth_root_integer.test.cpp
-    title: test/yosupo/kth_root_integer.test.cpp
+    path: test/yosupo/math/kth_root_integer.test.cpp
+    title: test/yosupo/math/kth_root_integer.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -182,7 +182,7 @@ data:
   timestamp: '2022-12-23 01:43:39+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/kth_root_integer.test.cpp
+  - test/yosupo/math/kth_root_integer.test.cpp
 documentation_of: math/number/kth-root-integer.hpp
 layout: document
 redirect_from:

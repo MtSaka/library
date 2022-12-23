@@ -25,8 +25,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/yosupo/set_xor_min.test.cpp
-    title: test/yosupo/set_xor_min.test.cpp
+    path: test/yosupo/data_strucuture/set_xor_min.test.cpp
+    title: test/yosupo/data_strucuture/set_xor_min.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -278,7 +278,7 @@ data:
   timestamp: '2022-12-23 01:43:39+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/set_xor_min.test.cpp
+  - test/yosupo/data_strucuture/set_xor_min.test.cpp
 documentation_of: data-structure/binary-trie.hpp
 layout: document
 redirect_from:

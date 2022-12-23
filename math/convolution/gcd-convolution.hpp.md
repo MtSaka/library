@@ -24,12 +24,12 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/yosupo/gcd_convolution.test.cpp
-    title: test/yosupo/gcd_convolution.test.cpp
-  _isVerificationFailed: true
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/convolution/gcd_convolution.test.cpp
+    title: test/yosupo/convolution/gcd_convolution.test.cpp
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: GCD Convolution
     links: []
@@ -183,9 +183,9 @@ data:
   path: math/convolution/gcd-convolution.hpp
   requiredBy: []
   timestamp: '2022-12-23 01:43:39+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/gcd_convolution.test.cpp
+  - test/yosupo/convolution/gcd_convolution.test.cpp
 documentation_of: math/convolution/gcd-convolution.hpp
 layout: document
 redirect_from:

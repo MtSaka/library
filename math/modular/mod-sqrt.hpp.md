@@ -25,11 +25,11 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/yosupo/sqrt_mod.test.cpp
-    title: test/yosupo/sqrt_mod.test.cpp
+    path: test/yosupo/math/sqrt_mod.test.cpp
+    title: test/yosupo/math/sqrt_mod.test.cpp
   - icon: ':x:'
-    path: test/yosupo/sqrt_of_formal_power_series.test.cpp
-    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
+    path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
+    title: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -193,8 +193,8 @@ data:
   timestamp: '2022-12-23 01:43:39+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/sqrt_mod.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/math/sqrt_mod.test.cpp
 documentation_of: math/modular/mod-sqrt.hpp
 layout: document
 redirect_from:

@@ -25,8 +25,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
-    title: test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
+    path: test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
+    title: test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -311,7 +311,7 @@ data:
   timestamp: '2022-12-23 01:43:39+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/range_chmin_chmax_add_range_sum.test.cpp
+  - test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
 documentation_of: data-structure/segment-tree-beats.hpp
 layout: document
 redirect_from:

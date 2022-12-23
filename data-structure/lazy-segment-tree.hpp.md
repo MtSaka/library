@@ -23,7 +23,7 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/segment-tree-monoids.hpp
     title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
   _extendedVerifiedWith:
@@ -51,12 +51,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_I.test.cpp
     title: test/aoj/DSL/DSL_2_I.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+    title: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
   - icon: ':x:'
-    path: test/yosupo/point_add_range_sum1.test.cpp
-    title: test/yosupo/point_add_range_sum1.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/range_affine_range_sum.test.cpp
-    title: test/yosupo/range_affine_range_sum.test.cpp
+    path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+    title: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -264,8 +264,8 @@ data:
   - test/aoj/DSL/DSL_2_I.test.cpp
   - test/aoj/DSL/DSL_2_H.test.cpp
   - test/aoj/DSL/DSL_2_D.test.cpp
-  - test/yosupo/range_affine_range_sum.test.cpp
-  - test/yosupo/point_add_range_sum1.test.cpp
+  - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
 documentation_of: data-structure/lazy-segment-tree.hpp
 layout: document
 redirect_from:

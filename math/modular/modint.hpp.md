@@ -26,10 +26,10 @@ data:
   - icon: ':warning:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/mod-convolution.hpp
     title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - icon: ':x:'
@@ -54,63 +54,63 @@ data:
     path: math/others/lagrange.hpp
     title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/convolution/convolution_mod.test.cpp
+    title: test/yosupo/convolution/convolution_mod.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
+    title: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/convolution/gcd_convolution.test.cpp
+    title: test/yosupo/convolution/gcd_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/convolution/lcm_convolution.test.cpp
+    title: test/yosupo/convolution/lcm_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+    title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
   - icon: ':x:'
-    path: test/yosupo/convolution_mod.test.cpp
-    title: test/yosupo/convolution_mod.test.cpp
+    path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+    title: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
   - icon: ':x:'
-    path: test/yosupo/convolution_mod_1000000007.test.cpp
-    title: test/yosupo/convolution_mod_1000000007.test.cpp
+    path: test/yosupo/math/sharp_p_subset_sum.test.cpp
+    title: test/yosupo/math/sharp_p_subset_sum.test.cpp
   - icon: ':x:'
-    path: test/yosupo/division_of_polynomials.test.cpp
-    title: test/yosupo/division_of_polynomials.test.cpp
+    path: test/yosupo/matrix/matrix_det.test.cpp
+    title: test/yosupo/matrix/matrix_det.test.cpp
   - icon: ':x:'
-    path: test/yosupo/exp_of_formal_power_series.test.cpp
-    title: test/yosupo/exp_of_formal_power_series.test.cpp
+    path: test/yosupo/matrix/matrix_product.test.cpp
+    title: test/yosupo/matrix/matrix_product.test.cpp
   - icon: ':x:'
-    path: test/yosupo/gcd_convolution.test.cpp
-    title: test/yosupo/gcd_convolution.test.cpp
+    path: test/yosupo/polynomial/division_of_polynomials.test.cpp
+    title: test/yosupo/polynomial/division_of_polynomials.test.cpp
   - icon: ':x:'
-    path: test/yosupo/inv_of_formal_power_series.test.cpp
-    title: test/yosupo/inv_of_formal_power_series.test.cpp
+    path: test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
+    title: test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
   - icon: ':x:'
-    path: test/yosupo/lcm_convolution.test.cpp
-    title: test/yosupo/lcm_convolution.test.cpp
+    path: test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
+    title: test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
   - icon: ':x:'
-    path: test/yosupo/log_of_formal_power_series.test.cpp
-    title: test/yosupo/log_of_formal_power_series.test.cpp
+    path: test/yosupo/polynomial/log_of_formal_power_series.test.cpp
+    title: test/yosupo/polynomial/log_of_formal_power_series.test.cpp
   - icon: ':x:'
-    path: test/yosupo/matrix_det.test.cpp
-    title: test/yosupo/matrix_det.test.cpp
+    path: test/yosupo/polynomial/multipoint_evaluation.test.cpp
+    title: test/yosupo/polynomial/multipoint_evaluation.test.cpp
   - icon: ':x:'
-    path: test/yosupo/matrix_product.test.cpp
-    title: test/yosupo/matrix_product.test.cpp
+    path: test/yosupo/polynomial/polynomial_interpolation.test.cpp
+    title: test/yosupo/polynomial/polynomial_interpolation.test.cpp
   - icon: ':x:'
-    path: test/yosupo/multipoint_evaluation.test.cpp
-    title: test/yosupo/multipoint_evaluation.test.cpp
+    path: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
+    title: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
   - icon: ':x:'
-    path: test/yosupo/point_set_range_composite.test.cpp
-    title: test/yosupo/point_set_range_composite.test.cpp
+    path: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
+    title: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
   - icon: ':x:'
-    path: test/yosupo/polynomial_interpolation.test.cpp
-    title: test/yosupo/polynomial_interpolation.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/polynomial_taylor_shift.test.cpp
-    title: test/yosupo/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/pow_of_formal_power_series.test.cpp
-    title: test/yosupo/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/range_affine_range_sum.test.cpp
-    title: test/yosupo/range_affine_range_sum.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/sharp_p_subset_sum.test.cpp
-    title: test/yosupo/sharp_p_subset_sum.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/sqrt_of_formal_power_series.test.cpp
-    title: test/yosupo/sqrt_of_formal_power_series.test.cpp
+    path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
+    title: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: ModInt
     links: []
@@ -337,26 +337,26 @@ data:
   - math/convolution/mod-convolution.hpp
   - math/convolution/ntt.hpp
   timestamp: '2022-12-23 01:43:39+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yosupo/log_of_formal_power_series.test.cpp
-  - test/yosupo/division_of_polynomials.test.cpp
-  - test/yosupo/gcd_convolution.test.cpp
-  - test/yosupo/convolution_mod.test.cpp
-  - test/yosupo/polynomial_taylor_shift.test.cpp
-  - test/yosupo/range_affine_range_sum.test.cpp
-  - test/yosupo/point_set_range_composite.test.cpp
-  - test/yosupo/matrix_product.test.cpp
-  - test/yosupo/pow_of_formal_power_series.test.cpp
-  - test/yosupo/matrix_det.test.cpp
-  - test/yosupo/convolution_mod_1000000007.test.cpp
-  - test/yosupo/sharp_p_subset_sum.test.cpp
-  - test/yosupo/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/exp_of_formal_power_series.test.cpp
-  - test/yosupo/lcm_convolution.test.cpp
-  - test/yosupo/polynomial_interpolation.test.cpp
-  - test/yosupo/multipoint_evaluation.test.cpp
-  - test/yosupo/inv_of_formal_power_series.test.cpp
+  - test/yosupo/matrix/matrix_product.test.cpp
+  - test/yosupo/matrix/matrix_det.test.cpp
+  - test/yosupo/polynomial/log_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/division_of_polynomials.test.cpp
+  - test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
+  - test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/polynomial_interpolation.test.cpp
+  - test/yosupo/polynomial/multipoint_evaluation.test.cpp
+  - test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
+  - test/yosupo/convolution/gcd_convolution.test.cpp
+  - test/yosupo/convolution/convolution_mod.test.cpp
+  - test/yosupo/convolution/convolution_mod_1000000007.test.cpp
+  - test/yosupo/convolution/lcm_convolution.test.cpp
+  - test/yosupo/math/sharp_p_subset_sum.test.cpp
+  - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+  - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
 documentation_of: math/modular/modint.hpp
 layout: document
 redirect_from:

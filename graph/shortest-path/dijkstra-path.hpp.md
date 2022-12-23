@@ -28,8 +28,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/yosupo/shortest_path.test.cpp
-    title: test/yosupo/shortest_path.test.cpp
+    path: test/yosupo/graph/shortest_path.test.cpp
+    title: test/yosupo/graph/shortest_path.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -216,7 +216,7 @@ data:
   timestamp: '2022-12-23 01:43:39+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/shortest_path.test.cpp
+  - test/yosupo/graph/shortest_path.test.cpp
 documentation_of: graph/shortest-path/dijkstra-path.hpp
 layout: document
 redirect_from:

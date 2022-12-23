@@ -31,8 +31,8 @@ data:
     path: test/aoj/GRL/GRL_5_A.test.cpp
     title: test/aoj/GRL/GRL_5_A.test.cpp
   - icon: ':x:'
-    path: test/yosupo/tree_diameter.test.cpp
-    title: test/yosupo/tree_diameter.test.cpp
+    path: test/yosupo/tree/tree_diameter.test.cpp
+    title: test/yosupo/tree/tree_diameter.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -219,7 +219,7 @@ data:
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/GRL/GRL_5_A.test.cpp
-  - test/yosupo/tree_diameter.test.cpp
+  - test/yosupo/tree/tree_diameter.test.cpp
 documentation_of: graph/tree/tree-diameter.hpp
 layout: document
 redirect_from:

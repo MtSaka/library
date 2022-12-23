@@ -25,8 +25,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/yosupo/static_range_inversions_query.test.cpp
-    title: test/yosupo/static_range_inversions_query.test.cpp
+    path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
+    title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -199,7 +199,7 @@ data:
   timestamp: '2022-12-23 01:43:39+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/static_range_inversions_query.test.cpp
+  - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
 documentation_of: others/mo.hpp
 layout: document
 redirect_from:

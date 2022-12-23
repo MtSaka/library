@@ -34,8 +34,8 @@ data:
     path: test/aoj/GRL/GRL_2_A.test.cpp
     title: test/aoj/GRL/GRL_2_A.test.cpp
   - icon: ':x:'
-    path: test/yosupo/unionfind.test.cpp
-    title: test/yosupo/unionfind.test.cpp
+    path: test/yosupo/data_strucuture/unionfind.test.cpp
+    title: test/yosupo/data_strucuture/unionfind.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -202,7 +202,7 @@ data:
   verifiedWith:
   - test/aoj/GRL/GRL_2_A.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp
-  - test/yosupo/unionfind.test.cpp
+  - test/yosupo/data_strucuture/unionfind.test.cpp
 documentation_of: data-structure/union-find.hpp
 layout: document
 redirect_from:

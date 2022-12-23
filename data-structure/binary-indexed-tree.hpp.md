@@ -33,12 +33,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
+    title: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
   - icon: ':x:'
-    path: test/yosupo/point_add_range_sum2.test.cpp
-    title: test/yosupo/point_add_range_sum2.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/static_range_inversions_query.test.cpp
-    title: test/yosupo/static_range_inversions_query.test.cpp
+    path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
+    title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -201,8 +201,8 @@ data:
   verifiedWith:
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - test/aoj/DSL/DSL_2_B.test.cpp
-  - test/yosupo/point_add_range_sum2.test.cpp
-  - test/yosupo/static_range_inversions_query.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
+  - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
 documentation_of: data-structure/binary-indexed-tree.hpp
 layout: document
 redirect_from:

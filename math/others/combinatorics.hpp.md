@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':question:'
@@ -34,8 +34,8 @@ data:
     title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/yosupo/polynomial_taylor_shift.test.cpp
-    title: test/yosupo/polynomial_taylor_shift.test.cpp
+    path: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
+    title: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -268,7 +268,7 @@ data:
   timestamp: '2022-12-23 01:43:39+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/polynomial_taylor_shift.test.cpp
+  - test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
 documentation_of: math/others/combinatorics.hpp
 layout: document
 redirect_from:

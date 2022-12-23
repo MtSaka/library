@@ -27,15 +27,15 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_1.test.cpp
     title: test/aoj/GRL/GRL_5_C_1.test.cpp
   - icon: ':x:'
-    path: test/yosupo/lca1.test.cpp
-    title: test/yosupo/lca1.test.cpp
+    path: test/yosupo/tree/lca1.test.cpp
+    title: test/yosupo/tree/lca1.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\
       \u5148)"
@@ -229,10 +229,10 @@ data:
   path: graph/tree/doubling-lowest-common-ancestor.hpp
   requiredBy: []
   timestamp: '2022-12-23 01:43:39+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/GRL/GRL_5_C_1.test.cpp
-  - test/yosupo/lca1.test.cpp
+  - test/yosupo/tree/lca1.test.cpp
 documentation_of: graph/tree/doubling-lowest-common-ancestor.hpp
 layout: document
 redirect_from:

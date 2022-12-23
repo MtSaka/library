@@ -32,8 +32,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/yosupo/two_sat.test.cpp
-    title: test/yosupo/two_sat.test.cpp
+    path: test/yosupo/math/two_sat.test.cpp
+    title: test/yosupo/math/two_sat.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -240,7 +240,7 @@ data:
   timestamp: '2022-12-23 01:43:39+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/two_sat.test.cpp
+  - test/yosupo/math/two_sat.test.cpp
 documentation_of: graph/others/two-sat.hpp
 layout: document
 redirect_from:

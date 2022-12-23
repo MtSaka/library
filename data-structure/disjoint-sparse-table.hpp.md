@@ -25,8 +25,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/yosupo/staticrmq2.test.cpp
-    title: test/yosupo/staticrmq2.test.cpp
+    path: test/yosupo/data_strucuture/staticrmq2.test.cpp
+    title: test/yosupo/data_strucuture/staticrmq2.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -198,7 +198,7 @@ data:
   timestamp: '2022-12-23 01:43:39+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/staticrmq2.test.cpp
+  - test/yosupo/data_strucuture/staticrmq2.test.cpp
 documentation_of: data-structure/disjoint-sparse-table.hpp
 layout: document
 redirect_from:

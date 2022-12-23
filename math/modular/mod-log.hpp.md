@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: data-structure/hash-map.hpp
     title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
   - icon: ':question:'
@@ -28,8 +28,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/yosupo/discrete-logarithm-mod.test.cpp
-    title: test/yosupo/discrete-logarithm-mod.test.cpp
+    path: test/yosupo/math/discrete-logarithm-mod.test.cpp
+    title: test/yosupo/math/discrete-logarithm-mod.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -268,7 +268,7 @@ data:
   timestamp: '2022-12-23 01:43:39+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/discrete-logarithm-mod.test.cpp
+  - test/yosupo/math/discrete-logarithm-mod.test.cpp
 documentation_of: math/modular/mod-log.hpp
 layout: document
 redirect_from:
