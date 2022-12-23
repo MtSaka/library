@@ -97,6 +97,9 @@ data:
   - icon: ':x:'
     path: test/yosupo/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/sqrt_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/3030.test.cpp
+    title: test/yukicoder/3030.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -323,6 +326,7 @@ data:
   timestamp: '2022-12-22 00:38:16+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/yukicoder/3030.test.cpp
   - test/yosupo/log_of_formal_power_series.test.cpp
   - test/yosupo/factorize.test.cpp
   - test/yosupo/division_of_polynomials.test.cpp

@@ -345,10 +345,14 @@ data:
     \    }\n  }\n  static constexpr unsigned int get_lg(){return lg;}\n  constexpr\
     \ unsigned int get(int n){return root[n];}\n  constexpr unsigned int inv(int n){return\
     \ inv_root[n];}\n};\ntemplate<unsigned int p>constexpr NthRoot<p> nth_root;\n\
-    template<int m>\nstruct NTT{\n  using mint=ModInt<m>;\n  private:\n  static ModInt<m>\
-    \ g;\n  static int limit;\n  static vector<ModInt<m>>root,inv_root;\n  static\
-    \ void init(){\n    if(!root.empty())return;\n    g=primitive_root(m);\n    long\
-    \ long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
+    /*\u70B9\u691C\u4E2D\ntemplate<unsigned int p,enable_if_t<is_prime_v<p>>* =nullptr>\n\
+    void ntt(vector<ModInt<p>>&a){\n  const int sz=a.size();\n  assert(sz<=((1-p)&(p-1)));\n\
+    \  assert((sz&(sz-1))==0);\n  const int lg=msb(sz);\n\n}\ntemplate<unsigned int\
+    \ p,enable_if_t<is_prime_v<p>>* =nullptr>\nvoid intt(vector<ModInt<p>>&a){\n\n\
+    }*/\ntemplate<int m>\nstruct NTT{\n  using mint=ModInt<m>;\n  private:\n  static\
+    \ ModInt<m> g;\n  static int limit;\n  static vector<ModInt<m>>root,inv_root;\n\
+    \  static void init(){\n    if(!root.empty())return;\n    g=primitive_root(m);\n\
+    \    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
     \    root[limit]=g.pow(now);\n    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n\
     \      root[i]=root[i+1]*root[i+1];\n      inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
     \    }\n  }\n  public:\n  NTT(){init();};\n  static void dft(vector<mint>&a,int\
@@ -477,7 +481,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/log_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-12-22 01:50:33+09:00'
+  timestamp: '2022-12-22 21:01:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/log_of_formal_power_series.test.cpp

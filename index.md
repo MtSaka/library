@@ -30,7 +30,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data-structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data-structure/lazy-segment-tree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
@@ -532,7 +532,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/pow_of_formal_power_series.test.cpp
       title: test/yosupo/pow_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/range_affine_range_sum.test.cpp
       title: test/yosupo/range_affine_range_sum.test.cpp
     - icon: ':x:'
@@ -585,6 +585,9 @@ data:
     - icon: ':x:'
       path: test/yukicoder/1469.test.cpp
       title: test/yukicoder/1469.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/3030.test.cpp
+      title: test/yukicoder/3030.test.cpp
 layout: toppage
 ---
 [![MtSaka](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2FMtSaka)](https://atcoder.jp/users/MtSaka)
