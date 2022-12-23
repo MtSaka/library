@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/bit-vector.hpp
     title: Bit Vector
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/wavelet-matrix.hpp
     title: Wavelet Matrix
   - icon: ':question:'
@@ -30,9 +30,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_kth_smallest
@@ -234,7 +234,7 @@ data:
   path: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
   requiredBy: []
   timestamp: '2022-12-24 00:29:08+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
 layout: document

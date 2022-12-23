@@ -69,7 +69,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
     title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
     title: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
   - icon: ':x:'
@@ -238,7 +238,9 @@ data:
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/modular/modint.hpp\"\
-    \n\ntemplate<typename T,T mod>\nstruct StaticModInt{\n  static_assert(is_integral<T>::value,\"\
+    \n\nnamespace internal{\n  struct modint_base{};\n}//naespace internal\ntemplate<typename\
+    \ T>using is_modint=is_base_of<internal::modint_base,T>;\ntemplate<typename T,T\
+    \ mod>\nstruct StaticModInt:internal::modint_base{\n  static_assert(is_integral<T>::value,\"\
     T must be integral\");\n  static_assert(is_unsigned<T>::value,\"T must be unsgined\"\
     );\n  static_assert(mod>0,\"mod must be positive\");\n  static_assert(mod<=INF<T>,\"\
     mod*2 must be less than or equal to T::max()\");\n  private:\n  using large_t=typename\
@@ -276,9 +278,10 @@ data:
     \ &is,StaticModInt&x){\n    ll tmp;\n    is>>tmp;\n    x=StaticModInt(tmp);\n\
     \    return is;\n  }\n};\ntemplate<unsigned int p>using ModInt=StaticModInt<unsigned\
     \ int,p>;\n/**\n * @brief ModInt\n*/\n"
-  code: "#pragma once\n#include\"../../template/template.hpp\"\n\ntemplate<typename\
-    \ T,T mod>\nstruct StaticModInt{\n  static_assert(is_integral<T>::value,\"T must\
-    \ be integral\");\n  static_assert(is_unsigned<T>::value,\"T must be unsgined\"\
+  code: "#pragma once\n#include\"../../template/template.hpp\"\n\nnamespace internal{\n\
+    \  struct modint_base{};\n}//naespace internal\ntemplate<typename T>using is_modint=is_base_of<internal::modint_base,T>;\n\
+    template<typename T,T mod>\nstruct StaticModInt:internal::modint_base{\n  static_assert(is_integral<T>::value,\"\
+    T must be integral\");\n  static_assert(is_unsigned<T>::value,\"T must be unsgined\"\
     );\n  static_assert(mod>0,\"mod must be positive\");\n  static_assert(mod<=INF<T>,\"\
     mod*2 must be less than or equal to T::max()\");\n  private:\n  using large_t=typename\
     \ double_size_uint<T>::type;\n  using signed_t=typename make_signed<T>::type;\n\
@@ -336,7 +339,7 @@ data:
   - math/convolution/convolution.hpp
   - math/convolution/mod-convolution.hpp
   - math/convolution/ntt.hpp
-  timestamp: '2022-12-23 01:43:39+09:00'
+  timestamp: '2022-12-24 00:53:20+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/matrix/matrix_product.test.cpp

@@ -190,7 +190,9 @@ data:
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/modular/modint.hpp\"\
-    \n\ntemplate<typename T,T mod>\nstruct StaticModInt{\n  static_assert(is_integral<T>::value,\"\
+    \n\nnamespace internal{\n  struct modint_base{};\n}//naespace internal\ntemplate<typename\
+    \ T>using is_modint=is_base_of<internal::modint_base,T>;\ntemplate<typename T,T\
+    \ mod>\nstruct StaticModInt:internal::modint_base{\n  static_assert(is_integral<T>::value,\"\
     T must be integral\");\n  static_assert(is_unsigned<T>::value,\"T must be unsgined\"\
     );\n  static_assert(mod>0,\"mod must be positive\");\n  static_assert(mod<=INF<T>,\"\
     mod*2 must be less than or equal to T::max()\");\n  private:\n  using large_t=typename\
@@ -519,7 +521,7 @@ data:
   isVerificationFile: false
   path: math/fps/taylor-shift.hpp
   requiredBy: []
-  timestamp: '2022-12-23 01:43:39+09:00'
+  timestamp: '2022-12-24 00:53:20+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/polynomial/polynomial_taylor_shift.test.cpp

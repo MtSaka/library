@@ -24,12 +24,12 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/staticrmq2.test.cpp
     title: test/yosupo/data_strucuture/staticrmq2.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Disjoint Sparse Table
     links: []
@@ -196,7 +196,7 @@ data:
   path: data-structure/disjoint-sparse-table.hpp
   requiredBy: []
   timestamp: '2022-12-23 01:43:39+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/staticrmq2.test.cpp
 documentation_of: data-structure/disjoint-sparse-table.hpp

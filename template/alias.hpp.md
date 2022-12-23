@@ -2,16 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/binary-indexed-tree.hpp
     title: Binary Indexed Tree(Fenwick Tree, BIT)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/binary-trie.hpp
     title: Binary Trie
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/bit-vector.hpp
     title: Bit Vector
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/disjoint-sparse-table.hpp
     title: Disjoint Sparse Table
   - icon: ':heavy_check_mark:'
@@ -20,7 +20,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/dynamic-segment-tree.hpp
     title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/hash-map.hpp
     title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
   - icon: ':warning:'
@@ -29,7 +29,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/inversion.hpp
     title: "Inversion Number(\u8EE2\u5012\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':heavy_check_mark:'
@@ -41,7 +41,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/rollback-union-find.hpp
     title: Rollback Disjoint Set Union(Union Find)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/segment-tree-beats.hpp
     title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
   - icon: ':heavy_check_mark:'
@@ -53,10 +53,10 @@ data:
   - icon: ':question:'
     path: data-structure/sparse-table.hpp
     title: Sparse Table
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/union-find.hpp
     title: Union Find(Disjoint Set Union)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/wavelet-matrix.hpp
     title: Wavelet Matrix
   - icon: ':heavy_check_mark:'
@@ -163,7 +163,7 @@ data:
   - icon: ':x:'
     path: math/fps/taylor-shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/mod-log.hpp
     title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
   - icon: ':x:'
@@ -224,7 +224,7 @@ data:
   - icon: ':x:'
     path: math/others/rational.hpp
     title: "Fraction(\u6709\u7406\u6570\u578B)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: others/mo.hpp
     title: Mo's Algorithm
   - icon: ':question:'
@@ -423,37 +423,37 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
     title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
     title: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
     title: test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
     title: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/set_xor_min.test.cpp
     title: test/yosupo/data_strucuture/set_xor_min.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
     title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/staticrmq.test.cpp
     title: test/yosupo/data_strucuture/staticrmq.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/staticrmq2.test.cpp
     title: test/yosupo/data_strucuture/staticrmq2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/unionfind.test.cpp
     title: test/yosupo/data_strucuture/unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/graph/scc.test.cpp
     title: test/yosupo/graph/scc.test.cpp
   - icon: ':x:'
     path: test/yosupo/graph/shortest_path.test.cpp
     title: test/yosupo/graph/shortest_path.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/math/discrete-logarithm-mod.test.cpp
     title: test/yosupo/math/discrete-logarithm-mod.test.cpp
   - icon: ':x:'

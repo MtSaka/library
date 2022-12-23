@@ -192,29 +192,30 @@ data:
     \     for(int j=0;j<(int)width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<(int)width();j++){\n\
     \        T now=b[j][i];\n        for(int k=0;k<(int)width();k++)b[j][k]-=b[i][k]*now;\n\
     \      }\n    }\n    return ret;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
-    )\n*/\n#line 3 \"math/modular/modint.hpp\"\n\ntemplate<typename T,T mod>\nstruct\
-    \ StaticModInt{\n  static_assert(is_integral<T>::value,\"T must be integral\"\
-    );\n  static_assert(is_unsigned<T>::value,\"T must be unsgined\");\n  static_assert(mod>0,\"\
-    mod must be positive\");\n  static_assert(mod<=INF<T>,\"mod*2 must be less than\
-    \ or equal to T::max()\");\n  private:\n  using large_t=typename double_size_uint<T>::type;\n\
-    \  using signed_t=typename make_signed<T>::type;\n  T val;\n  public:\n  constexpr\
-    \ StaticModInt():val(0){}\n  template<typename U,typename enable_if<is_integral<U>::value&&is_unsigned<U>::value>::type*\
-    \ =nullptr>\n  constexpr StaticModInt(U x):val(x%mod){}\n  template<typename U,typename\
-    \ enable_if<is_integral<U>::value&&is_signed<U>::value>::type* =nullptr>\n  constexpr\
-    \ StaticModInt(U x):val{}{\n    x%=static_cast<signed_t>(mod);\n    if(x<0)x+=static_cast<signed_t>(mod);\n\
-    \    val=static_cast<T>(x);\n  }\n  T get()const{return val;}\n  static constexpr\
-    \ T get_mod(){return mod;}\n  static StaticModInt raw(T v){\n    StaticModInt\
-    \ res;\n    res.val=v;\n    return res;\n  }\n  StaticModInt inv()const{\n   \
-    \ return mod_inv(val,mod);\n  }\n  StaticModInt& operator++(){\n    ++val;\n \
-    \   if(val==mod)val=0;\n    return *this;\n  }\n  StaticModInt operator++(int){\n\
-    \    StaticModInt res=*this;\n    ++*this;\n    return res;\n  }\n  StaticModInt&\
-    \ operator--(){\n    if(val==0)val=mod;\n    --val;\n    return *this;\n  }\n\
-    \  StaticModInt operator--(int){\n    StaticModInt res=*this;\n    --*this;\n\
-    \    return res;\n  }\n  StaticModInt& operator+=(const StaticModInt&x){\n   \
-    \ val+=x.val;\n    if(val>=mod)val-=mod;\n    return *this;\n  }\n  StaticModInt&\
-    \ operator-=(const StaticModInt&x){\n    if(val<x.val)val+=mod;\n    val-=x.val;\n\
-    \    return *this;\n  }\n  StaticModInt& operator*=(const StaticModInt&x){\n \
-    \   val=static_cast<T>((static_cast<large_t>(val)*x.val)%mod);\n    return *this;\n\
+    )\n*/\n#line 3 \"math/modular/modint.hpp\"\n\nnamespace internal{\n  struct modint_base{};\n\
+    }//naespace internal\ntemplate<typename T>using is_modint=is_base_of<internal::modint_base,T>;\n\
+    template<typename T,T mod>\nstruct StaticModInt:internal::modint_base{\n  static_assert(is_integral<T>::value,\"\
+    T must be integral\");\n  static_assert(is_unsigned<T>::value,\"T must be unsgined\"\
+    );\n  static_assert(mod>0,\"mod must be positive\");\n  static_assert(mod<=INF<T>,\"\
+    mod*2 must be less than or equal to T::max()\");\n  private:\n  using large_t=typename\
+    \ double_size_uint<T>::type;\n  using signed_t=typename make_signed<T>::type;\n\
+    \  T val;\n  public:\n  constexpr StaticModInt():val(0){}\n  template<typename\
+    \ U,typename enable_if<is_integral<U>::value&&is_unsigned<U>::value>::type* =nullptr>\n\
+    \  constexpr StaticModInt(U x):val(x%mod){}\n  template<typename U,typename enable_if<is_integral<U>::value&&is_signed<U>::value>::type*\
+    \ =nullptr>\n  constexpr StaticModInt(U x):val{}{\n    x%=static_cast<signed_t>(mod);\n\
+    \    if(x<0)x+=static_cast<signed_t>(mod);\n    val=static_cast<T>(x);\n  }\n\
+    \  T get()const{return val;}\n  static constexpr T get_mod(){return mod;}\n  static\
+    \ StaticModInt raw(T v){\n    StaticModInt res;\n    res.val=v;\n    return res;\n\
+    \  }\n  StaticModInt inv()const{\n    return mod_inv(val,mod);\n  }\n  StaticModInt&\
+    \ operator++(){\n    ++val;\n    if(val==mod)val=0;\n    return *this;\n  }\n\
+    \  StaticModInt operator++(int){\n    StaticModInt res=*this;\n    ++*this;\n\
+    \    return res;\n  }\n  StaticModInt& operator--(){\n    if(val==0)val=mod;\n\
+    \    --val;\n    return *this;\n  }\n  StaticModInt operator--(int){\n    StaticModInt\
+    \ res=*this;\n    --*this;\n    return res;\n  }\n  StaticModInt& operator+=(const\
+    \ StaticModInt&x){\n    val+=x.val;\n    if(val>=mod)val-=mod;\n    return *this;\n\
+    \  }\n  StaticModInt& operator-=(const StaticModInt&x){\n    if(val<x.val)val+=mod;\n\
+    \    val-=x.val;\n    return *this;\n  }\n  StaticModInt& operator*=(const StaticModInt&x){\n\
+    \    val=static_cast<T>((static_cast<large_t>(val)*x.val)%mod);\n    return *this;\n\
     \  }\n  StaticModInt& operator/=(const StaticModInt&x){\n    return *this*=x.inv();\n\
     \  }\n  friend StaticModInt operator+(const StaticModInt&l,const StaticModInt&r){return\
     \ StaticModInt(l)+=r;}\n  friend StaticModInt operator-(const StaticModInt&l,const\
@@ -255,7 +256,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2022-12-24 00:29:08+09:00'
+  timestamp: '2022-12-24 00:53:20+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/matrix/matrix_product.test.cpp
