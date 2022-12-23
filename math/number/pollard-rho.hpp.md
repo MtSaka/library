@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/modular/montgomery-modint.hpp
     title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: string/run-length.hpp
     title: string/run-length.hpp
   - icon: ':question:'
@@ -36,14 +36,8 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: math/convolution/convolution.hpp
-    title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
-    path: math/convolution/mod-convolution.hpp
-    title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
-    path: math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - icon: ':x:'
     path: math/fps/fps.hpp
@@ -70,7 +64,7 @@ data:
   - icon: ':x:'
     path: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/math/factorize.test.cpp
     title: test/yosupo/math/factorize.test.cpp
   - icon: ':x:'
@@ -105,7 +99,7 @@ data:
     title: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\
       \u30FC\u6CD5)"
@@ -137,9 +131,9 @@ data:
     \  if(x&0xffff0000ffff0000)x&=0xffff0000ffff0000,res+=16;\n  if(x&0xff00ff00ff00ff00)x&=0xff00ff00ff00ff00,res+=8;\n\
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
-    \ x){return x?msb(x-1)+1:0;}\ninline constexpr ull reverse(ull x){\n  x=((x&0x5555555555555555)<<1)|((x&0xaaaaaaaaaaaaaaa)>>1);\n\
-    \  x=((x&0x3333333333333333)<<2)|((x&0xccccccccccccccc)>>2);\n  x=((x&0x0f0f0f0f0f0f0f0f)<<4)|((x&0xf0f0f0f0f0f0f0f)>>4);\n\
-    \  x=((x&0x00ff00ff00ff00ff)<<8)|((x&0xff00ff00ff00ff)>>8);\n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff)>>16);\n\
+    \ x){return x?msb(x-1)+1:0;}\ninline constexpr ull reverse(ull x){\n  x=((x&0x5555555555555555)<<1)|((x&0xaaaaaaaaaaaaaaaa)>>1);\n\
+    \  x=((x&0x3333333333333333)<<2)|((x&0xcccccccccccccccc)>>2);\n  x=((x&0x0f0f0f0f0f0f0f0f)<<4)|((x&0xf0f0f0f0f0f0f0f0)>>4);\n\
+    \  x=((x&0xff00ff00ff00ff00)>>8)|((x&0x00ff00ff00ff00ff)<<8);\n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff0000)>>16);\n\
     \  return (x<<32)|(x>>32);\n}\ninline constexpr ull reverse(ull x,int len){return\
     \ reverse(x)>>(64-len);}\ninline constexpr int popcnt(ull x){\n#if __cplusplus>=202002L\n\
     \  return std::popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
@@ -311,34 +305,34 @@ data:
     \ return true;\n}\nconstexpr bool is_prime_fast(ull n){\n  constexpr ull base_int[3]={2,7,61},base_ll[7]={2,325,9375,28178,450775,9780504,1795265022};\n\
     \  if(n==2)return true;\n  if(n<2||n%2==0)return false;\n  if(n<(1u<<31))return\
     \ miller_rabin<MontgomeryModInt<unsigned int,-2>>(n,base_int,3);\n  return miller_rabin<MontgomeryModInt<ull,-2>>(n,base_ll,7);\n\
-    }\ntemplate<ull n>constexpr bool is_prime_v=is_prime_fast(n);\n/**\n * @brief\
-    \ Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\u6570\
-    \u5224\u5B9A)\n*/\n#line 3 \"string/run-length.hpp\"\n\ntemplate<typename Cont,typename\
-    \ Cmp>\nvector<pair<typename Cont::value_type,int>>run_length(const Cont&c,const\
-    \ Cmp&cmp){\n  vector<pair<typename Cont::value_type,int>> ret;\n  if(c.empty())return\
-    \ ret;\n  ret.emplace_back(c.front(),1);\n  for(int i=1;i<(int)c.size();i++){\n\
-    \    if(cmp(c[i],ret.back().first)){\n      ret.back().second++;\n    }else{\n\
-    \      ret.emplace_back(c[i],1);\n    }\n  }\n  return ret;\n}\ntemplate<typename\
-    \ Cont>vector<pair<typename Cont::value_type,int>>run_length(const Cont&c){return\
-    \ run_length(c,equal_to<typename Cont::value_type>());}\n#line 7 \"math/number/pollard-rho.hpp\"\
-    \n\ntemplate<typename T,typename Rand>\null pollard_rho(ull n,Rand&rand){\n  if(~n&1)return\
-    \ 2;\n  if(T::get_mod()!=n)T::set_mod(n);\n  T c,e=1;\n  auto f=[&](T x)->T {return\
-    \ x*x+c;};\n  constexpr int m=128;\n  while(1){\n    c=rand.uniform(1ull,n-1);\n\
-    \    T x=rand.uniform(2ull,n-1),y=x;\n    ull g=1;\n    while(g==1){\n      T\
-    \ p=e,tx=x,ty=y;\n      rep(i,m){\n        x=f(x);\n        y=f(f(y));\n     \
-    \   p*=x-y;\n      }\n      g=gcd(p.get(),n);\n      if(g==1)continue;\n     \
-    \ rep(i,m){\n        tx=f(tx);\n        ty=f(f(ty));\n        g=gcd((tx-ty).get(),n);\n\
-    \        if(g!=1){\n          if(g!=n)return g;\n          break;\n        }\n\
-    \      }\n    }\n  }\n  return -1;\n}\ntemplate<typename T=MontgomeryModInt<ull,-3>,typename\
-    \ Rand=Random64>\nvector<ull>factorize(ull n,Rand&rand=rand64){\n  if(n==1)return\
-    \ {};\n  vector<ull>res;\n  vector<ull>st={n};\n  while(!st.empty()){\n    ull\
-    \ t=st.back();\n    st.pop_back();\n    if(t==1)continue;\n    if(is_prime_fast(t)){\n\
-    \      res.push_back(t);\n      continue;\n    }\n    ull p=pollard_rho<T>(t,rand);\n\
-    \    st.push_back(p);\n    st.push_back(t/p);\n  }\n  sort(all(res));\n  return\
-    \ res;\n}\ntemplate<typename T=MontgomeryModInt<ull,-3>,typename Rand=Random64>\n\
-    vector<pair<ull,int>>expfactorize(ull n,Rand&rand=rand64){\n  auto res=factorize<T>(n,rand);\n\
-    \  return run_length(res);\n}\n/**\n * @brief Pollard's Rho Factorization(\u30DD\
-    \u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\u6CD5)\n*/\n"
+    }\ntemplate<ull n>constexpr bool is_prime_v=is_prime(n);\n/**\n * @brief Miller-Rabin\
+    \ Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\u6570\u5224\u5B9A\
+    )\n*/\n#line 3 \"string/run-length.hpp\"\n\ntemplate<typename Cont,typename Cmp>\n\
+    vector<pair<typename Cont::value_type,int>>run_length(const Cont&c,const Cmp&cmp){\n\
+    \  vector<pair<typename Cont::value_type,int>> ret;\n  if(c.empty())return ret;\n\
+    \  ret.emplace_back(c.front(),1);\n  for(int i=1;i<(int)c.size();i++){\n    if(cmp(c[i],ret.back().first)){\n\
+    \      ret.back().second++;\n    }else{\n      ret.emplace_back(c[i],1);\n   \
+    \ }\n  }\n  return ret;\n}\ntemplate<typename Cont>vector<pair<typename Cont::value_type,int>>run_length(const\
+    \ Cont&c){return run_length(c,equal_to<typename Cont::value_type>());}\n#line\
+    \ 7 \"math/number/pollard-rho.hpp\"\n\ntemplate<typename T,typename Rand>\null\
+    \ pollard_rho(ull n,Rand&rand){\n  if(~n&1)return 2;\n  if(T::get_mod()!=n)T::set_mod(n);\n\
+    \  T c,e=1;\n  auto f=[&](T x)->T {return x*x+c;};\n  constexpr int m=128;\n \
+    \ while(1){\n    c=rand.uniform(1ull,n-1);\n    T x=rand.uniform(2ull,n-1),y=x;\n\
+    \    ull g=1;\n    while(g==1){\n      T p=e,tx=x,ty=y;\n      rep(i,m){\n   \
+    \     x=f(x);\n        y=f(f(y));\n        p*=x-y;\n      }\n      g=gcd(p.get(),n);\n\
+    \      if(g==1)continue;\n      rep(i,m){\n        tx=f(tx);\n        ty=f(f(ty));\n\
+    \        g=gcd((tx-ty).get(),n);\n        if(g!=1){\n          if(g!=n)return\
+    \ g;\n          break;\n        }\n      }\n    }\n  }\n  return -1;\n}\ntemplate<typename\
+    \ T=MontgomeryModInt<ull,-3>,typename Rand=Random64>\nvector<ull>factorize(ull\
+    \ n,Rand&rand=rand64){\n  if(n==1)return {};\n  vector<ull>res;\n  vector<ull>st={n};\n\
+    \  while(!st.empty()){\n    ull t=st.back();\n    st.pop_back();\n    if(t==1)continue;\n\
+    \    if(is_prime_fast(t)){\n      res.push_back(t);\n      continue;\n    }\n\
+    \    ull p=pollard_rho<T>(t,rand);\n    st.push_back(p);\n    st.push_back(t/p);\n\
+    \  }\n  sort(all(res));\n  return res;\n}\ntemplate<typename T=MontgomeryModInt<ull,-3>,typename\
+    \ Rand=Random64>\nvector<pair<ull,int>>expfactorize(ull n,Rand&rand=rand64){\n\
+    \  auto res=factorize<T>(n,rand);\n  return run_length(res);\n}\n/**\n * @brief\
+    \ Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\u6CD5\
+    )\n*/\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"../../others/random.hpp\"\
     \n#include\"../modular/montgomery-modint.hpp\"\n#include\"miller-rabin.hpp\"\n\
     #include\"../../string/run-length.hpp\"\n\ntemplate<typename T,typename Rand>\n\
@@ -382,10 +376,8 @@ data:
   - math/fps/taylor-shift.hpp
   - math/fps/multipoint-evaluation.hpp
   - math/convolution/convolution.hpp
-  - math/convolution/mod-convolution.hpp
-  - math/convolution/ntt.hpp
-  timestamp: '2022-12-23 01:43:39+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-12-24 03:09:26+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/polynomial/log_of_formal_power_series.test.cpp
   - test/yosupo/polynomial/division_of_polynomials.test.cpp

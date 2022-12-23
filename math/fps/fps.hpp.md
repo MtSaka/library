@@ -2,29 +2,29 @@
 data:
   _extendedDependsOn:
   - icon: ':x:'
-    path: math/convolution/ntt.hpp
+    path: math/convolution/convolution.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/modular/montgomery-modint.hpp
     title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
   - icon: ':x:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: string/run-length.hpp
     title: string/run-length.hpp
   - icon: ':question:'
@@ -125,9 +125,9 @@ data:
     \  if(x&0xffff0000ffff0000)x&=0xffff0000ffff0000,res+=16;\n  if(x&0xff00ff00ff00ff00)x&=0xff00ff00ff00ff00,res+=8;\n\
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
-    \ x){return x?msb(x-1)+1:0;}\ninline constexpr ull reverse(ull x){\n  x=((x&0x5555555555555555)<<1)|((x&0xaaaaaaaaaaaaaaa)>>1);\n\
-    \  x=((x&0x3333333333333333)<<2)|((x&0xccccccccccccccc)>>2);\n  x=((x&0x0f0f0f0f0f0f0f0f)<<4)|((x&0xf0f0f0f0f0f0f0f)>>4);\n\
-    \  x=((x&0x00ff00ff00ff00ff)<<8)|((x&0xff00ff00ff00ff)>>8);\n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff)>>16);\n\
+    \ x){return x?msb(x-1)+1:0;}\ninline constexpr ull reverse(ull x){\n  x=((x&0x5555555555555555)<<1)|((x&0xaaaaaaaaaaaaaaaa)>>1);\n\
+    \  x=((x&0x3333333333333333)<<2)|((x&0xcccccccccccccccc)>>2);\n  x=((x&0x0f0f0f0f0f0f0f0f)<<4)|((x&0xf0f0f0f0f0f0f0f0)>>4);\n\
+    \  x=((x&0xff00ff00ff00ff00)>>8)|((x&0x00ff00ff00ff00ff)<<8);\n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff0000)>>16);\n\
     \  return (x<<32)|(x>>32);\n}\ninline constexpr ull reverse(ull x,int len){return\
     \ reverse(x)>>(64-len);}\ninline constexpr int popcnt(ull x){\n#if __cplusplus>=202002L\n\
     \  return std::popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
@@ -321,13 +321,13 @@ data:
     \ return true;\n}\nconstexpr bool is_prime_fast(ull n){\n  constexpr ull base_int[3]={2,7,61},base_ll[7]={2,325,9375,28178,450775,9780504,1795265022};\n\
     \  if(n==2)return true;\n  if(n<2||n%2==0)return false;\n  if(n<(1u<<31))return\
     \ miller_rabin<MontgomeryModInt<unsigned int,-2>>(n,base_int,3);\n  return miller_rabin<MontgomeryModInt<ull,-2>>(n,base_ll,7);\n\
-    }\ntemplate<ull n>constexpr bool is_prime_v=is_prime_fast(n);\n/**\n * @brief\
-    \ Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\u6570\
-    \u5224\u5B9A)\n*/\n#line 3 \"others/random.hpp\"\n\ntemplate<typename Engine>\n\
-    struct Random{\n  private:\n  Engine rnd;\n  public:\n  using result_type=typename\
-    \ Engine::result_type;\n  Random():Random(random_device{}()){}\n  Random(result_type\
-    \ seed):rnd(seed){}\n  result_type operator()(){return rnd();}\n  template<typename\
-    \ IntType=ll>\n  IntType uniform(IntType l,IntType r){\n    static_assert(is_integral<IntType>::value,\"\
+    }\ntemplate<ull n>constexpr bool is_prime_v=is_prime(n);\n/**\n * @brief Miller-Rabin\
+    \ Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\u6570\u5224\u5B9A\
+    )\n*/\n#line 3 \"others/random.hpp\"\n\ntemplate<typename Engine>\nstruct Random{\n\
+    \  private:\n  Engine rnd;\n  public:\n  using result_type=typename Engine::result_type;\n\
+    \  Random():Random(random_device{}()){}\n  Random(result_type seed):rnd(seed){}\n\
+    \  result_type operator()(){return rnd();}\n  template<typename IntType=ll>\n\
+    \  IntType uniform(IntType l,IntType r){\n    static_assert(is_integral<IntType>::value,\"\
     template argument must be an integral type\");\n    return uniform_int_distribution<IntType>{l,r}(rnd);\n\
     \  }\n  template<typename RealType=double>\n  RealType uniform_real(RealType l,RealType\
     \ r){\n    static_assert(is_floating_point<RealType>::value,\"template argument\
@@ -375,44 +375,60 @@ data:
     \        break;\n      }\n    }\n    if(ok)return g;\n  }\n}\ntemplate<ull p,enable_if_t<is_prime_v<p>>*\
     \ =nullptr>\nconstexpr ull constexpr_primitive_root(){\n  if(p==2)return 1;\n\
     \  if(p==167772161)return 3;\n  if(p==469762049)return 3;\n  if(p==754974721)return\
-    \ 11;\n  if(p==998244353)return 3;\n  if(p==1224736769)return 3;\n  rep(g,2,p){\n\
-    \    if(mod_pow(g,(p-1)>>1,p)!=1)return g;\n  }\n  return -1;\n}\n/**\n * @brief\
-    \ Primitive Root(\u539F\u59CB\u6839)\n*/\n#line 6 \"math/convolution/ntt.hpp\"\
-    \n\ntemplate<unsigned int p,enable_if_t<is_prime_v<p>>* =nullptr>\nstruct NthRoot{\n\
-    \  private:\n  static constexpr unsigned int lg=msb((p-1)&(1-p));\n  array<unsigned\
-    \ int,lg+1>root,inv_root;\n  public:\n  constexpr NthRoot():root{},inv_root{}{\n\
+    \ 11;\n  if(p==998244353)return 3;\n  if(p==1224736769)return 3;\n  if(p==1811939329)return\
+    \ 11;\n  if(p==2013265921)return 11;\n  rep(g,2,p){\n    if(mod_pow(g,(p-1)>>1,p)!=1)return\
+    \ g;\n  }\n  return -1;\n}\n/**\n * @brief Primitive Root(\u539F\u59CB\u6839)\n\
+    */\n#line 6 \"math/convolution/convolution.hpp\"\n\ntemplate<unsigned int p,enable_if_t<is_prime_v<p>>*\
+    \ =nullptr>\nstruct NthRoot{\n  private:\n  static constexpr unsigned int lg=msb((p-1)&(1-p));\n\
+    \  array<unsigned int,lg+1>root,inv_root;\n  public:\n  constexpr NthRoot():root{},inv_root{}{\n\
     \    root[lg]=mod_pow(constexpr_primitive_root<p>(),(p-1)>>lg,p);\n    inv_root[lg]=mod_pow(root[lg],p-2,p);\n\
     \    rrep(i,lg){\n      root[i]=(ull)root[i+1]*root[i+1]%p;\n      inv_root[i]=(ull)inv_root[i+1]*inv_root[i+1]%p;\n\
     \    }\n  }\n  static constexpr unsigned int get_lg(){return lg;}\n  constexpr\
-    \ unsigned int get(int n){return root[n];}\n  constexpr unsigned int inv(int n){return\
-    \ inv_root[n];}\n};\ntemplate<unsigned int p>constexpr NthRoot<p> nth_root;\n\
-    template<typename T,enable_if_t<is_modint<T>::value>* =nullptr,enable_if_t<is_prime_v<T::get_mod()>>*\
-    \ =nullptr>\nvoid ntt(vector<T>&a){\n  const int sz=a.size();\n  assert(sz<=((1-p)&(p-1)));\n\
-    \  assert((sz&(sz-1))==0);\n  const int lg=msb(sz);\n  rep(i,sz){\n    const int\
-    \ j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n  }\n  rep(i,lg){\n    const\
-    \ T w=nth_root<T::get_mod()>.get(i+1);\n    rep(j,0,sz,1<<(i+1)){\n      T z=1;\n\
-    \      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n        a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n\
-    \        z*=w;\n      }\n    }\n  }\n  rep(i,sz){\n    const int j=reverse(i,lg);\n\
-    \    if(i<j)swap(a[i],a[j]);\n  }\n}\ntemplate<typename T,enable_if_t<is_modint<T>::value>*\
-    \ =nullptr,enable_if_t<is_prime_v<T::get_mod()>>* =nullptr>\nvoid intt(vector<T>&a){\n\
-    \  const int sz=a.size();\n  assert(sz<=((1-p)&(p-1)));\n  assert((sz&(sz-1))==0);\n\
+    \ unsigned int get(int n)const{return root[n];}\n  constexpr unsigned int inv(int\
+    \ n)const{return inv_root[n];}\n};\ntemplate<unsigned int p>constexpr NthRoot<p>\
+    \ nth_root;\ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr,enable_if_t<is_prime_v<T::get_mod()>>*\
+    \ =nullptr>\nvoid ntt(vector<T>&a){\n  constexpr unsigned int p=T::get_mod();\n\
+    \  const int sz=a.size();\n  assert((unsigned int)sz<=((1-p)&(p-1)));\n  assert((sz&(sz-1))==0);\n\
     \  const int lg=msb(sz);\n  rep(i,sz){\n    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n\
-    \  }\n  rep(i,lg){\n    const T w=nth_root<T::get_mod()>.inv(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
+    \  }\n  rep(i,lg){\n    const T w=nth_root<p>.get(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
     \      T z=1;\n      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n   \
-    \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n  rep(i,sz){\n\
-    \    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n  }\n  const T inv_sz=T(1)/sz;\n\
-    \  for(auto&x:a)x*=inv_sz;\n}\ntemplate<typename T>\nvector<T>convolution_naive(const\
+    \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n}\ntemplate<typename\
+    \ T,enable_if_t<is_modint<T>::value>* =nullptr,enable_if_t<is_prime_v<T::get_mod()>>*\
+    \ =nullptr>\nvoid intt(vector<T>&a){\n  constexpr unsigned int p=T::get_mod();\n\
+    \  const int sz=a.size();\n  assert((unsigned int)sz<=((1-p)&(p-1)));\n  assert((sz&(sz-1))==0);\n\
+    \  const int lg=msb(sz);\n  rep(i,sz){\n    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n\
+    \  }\n  rep(i,lg){\n    const T w=nth_root<p>.inv(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
+    \      T z=1;\n      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n   \
+    \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n  const\
+    \ T inv_sz=T(1)/sz;\n  for(auto&x:a)x*=inv_sz;\n}\ntemplate<typename T>\nvector<T>convolution_naive(const\
     \ vector<T>&a,const vector<T>&b){\n  const int sz1=a.size(),sz2=b.size();\n  vector<T>c(sz1+sz2-1);\n\
-    \  rep(i,sz1)rep(j,sz2)c[i+j]+=a[i]*b[j];\n  return c;\n}\n//TODO:\u5B9F\u88C5\
-    \ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr>\nvector<T>convolution_for_any_mod(const\
-    \ vector<T>&a,const vector<T>&b){\n\n}\ntemplate<typename T,enable_if_t<is_modint<T>::value>*\
-    \ =nullptr>\nvector<T>convolution(vector<T>a,vector<T>b){\n\n}\ntemplate<typename\
-    \ T,enable_if_t<is_integral<T>::value>* =nullptr,unsigned int p=998244353>\nvector<T>convolution(const\
-    \ vector<T>&a,const vector<T>&b){\n  const int sz1=a.size(),sz2=b.size()\n  vector<ModInt<p>>a2(sz1),b2(sz2);\n\
-    \  rep(i,sz1)a2[i]=a[i];\n  rep(i,sz2)b2[i]=b[i];\n  auto c2=convolution(a2,b2);\n\
-    \  vector<T>c(sz1+sz2-1);\n  rep(i,sz1+sz2-1)c[i]=c2[i].get();\n  return c;\n\
-    }\ntemplate<int m>\nstruct NTT{\n  using mint=ModInt<m>;\n  private:\n  static\
-    \ ModInt<m> g;\n  static int limit;\n  static vector<ModInt<m>>root,inv_root;\n\
+    \  rep(i,sz1)rep(j,sz2)c[i+j]+=a[i]*b[j];\n  return c;\n}\ntemplate<unsigned int\
+    \ p>\nvector<ModInt<p>>convolution_for_any_mod(const vector<ModInt<p>>&a,const\
+    \ vector<ModInt<p>>&b);\ntemplate<typename T,enable_if_t<is_modint<T>::value>*\
+    \ =nullptr>\nvector<T>convole(vector<T>a,vector<T>b){\n  const int n=a.size()+b.size()-1;\n\
+    \  const int sz=1<<ceil_log2(n);\n  a.resize(sz),b.resize(sz);\n  ntt(a),ntt(b);\n\
+    \  rep(i,sz)a[i]*=b[i];\n  intt(a);\n  a.resize(n);\n  return a;\n}\ntemplate<typename\
+    \ T,enable_if_t<is_modint<T>::value>* =nullptr>\nvector<T>convolution(const vector<T>&a,const\
+    \ vector<T>&b){\n  constexpr unsigned int p=T::get_mod();\n  const unsigned int\
+    \ sz1=a.size(),sz2=b.size();\n  if(sz1==0||sz2==0)return {};\n  if(sz1<=64||sz2<=64)return\
+    \ convolution_naive(a,b);\n  if(sz1+sz2-1>((p-1)&(1-p)))return convolution_for_any_mod(a,b);\n\
+    \  return convole(a,b);\n}\n\ntemplate<unsigned int p=99824435>\nvector<ll>convolution(const\
+    \ vector<ll>&a,const vector<ll>&b){\n  const int sz1=a.size(),sz2=b.size();\n\
+    \  vector<ModInt<p>>a1(sz1),b1(sz2);\n  rep(i,sz1)a1[i]=a[i];\n  rep(i,sz2)b1[i]=b[i];\n\
+    \  auto c1=convolution(a1,b1);\n  vector<ll>c(sz1+sz2-1);\n  rep(i,sz1+sz2-1)c[i]=c1[i].get();\n\
+    \  return c;\n}\ntemplate<unsigned int p>\nvector<ModInt<p>>convolution_for_any_mod(const\
+    \ vector<ModInt<p>>&a,const vector<ModInt<p>>&b){\n  const int sz1=a.size(),sz2=b.size();\n\
+    \  assert(sz1+sz2-1<=(1<<26));\n  vector<ll>a1(sz1),b1(sz2);\n  rep(i,sz1)a1[i]=a[i].get();\n\
+    \  rep(i,sz2)b1[i]=b[i].get();\n  static constexpr ull MOD1=469762049;\n  static\
+    \ constexpr ull MOD2=1811939329;\n  static constexpr ull MOD3=2013265921;\n  static\
+    \ constexpr ull INV1_2=mod_pow(MOD1,MOD2-2,MOD2);\n  static constexpr ull INV1_3=mod_pow(MOD1,MOD3-2,MOD3);\n\
+    \  static constexpr ull INV2_3=mod_pow(MOD2,MOD3-2,MOD3);\n  auto c1=convolution<MOD1>(a1,b1);\n\
+    \  auto c2=convolution<MOD2>(a1,b1);\n  auto c3=convolution<MOD3>(a1,b1);\n  vector<ModInt<p>>c(sz1+sz2-1);\n\
+    \  rep(i,sz1+sz2-1){\n    ll x1=c1[i];\n    ll x2=(c2[i]-x1+MOD2)*INV1_2%MOD2;\n\
+    \    if(x2<0)x2+=MOD2;\n    ll x3=((c3[i]-x1+MOD3)*INV1_3%MOD3-x2+MOD3)*INV2_3%MOD3;\n\
+    \    if(x3<0)x3+=MOD3;\n    c[i]=ModInt<p>(x1+(x2+x3*MOD2)*MOD1);\n  }\n  return\
+    \ c;\n}\ntemplate<int m>\nstruct NTT{\n  using mint=ModInt<m>;\n  private:\n \
+    \ static ModInt<m> g;\n  static int limit;\n  static vector<ModInt<m>>root,inv_root;\n\
     \  static void init(){\n    if(!root.empty())return;\n    g=primitive_root(m);\n\
     \    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
     \    root[limit]=g.pow(now);\n    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n\
@@ -425,12 +441,12 @@ data:
     \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  static vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
     \    int sz=1;\n    const int mxsiz=a.size()+b.size()-1;\n    while(sz<mxsiz)sz<<=1;\n\
     \    a.resize(sz),b.resize(sz);\n    dft(a,1),dft(b,1);\n    for(int i=0;i<sz;i++)a[i]*=b[i];\n\
-    \    dft(a,-1);\n    a.resize(mxsiz);\n    mint iz=mint(sz).inv();\n    for(int\
-    \ i=0;i<mxsiz;i++)a[i]*=iz;\n    return a;\n  }\n  template<typename T,std::enable_if_t<is_integral<T>::value>*\
-    \ = nullptr>\n  static vector<T>multiply(const vector<T>&a,const vector<T>&b){\n\
-    \    vector<mint>a2(a.size()),b2(b.size());\n    for(int i=0;i<(int)a.size();i++)a2[i]=a[i];\n\
-    \    for(int i=0;i<(int)b.size();i++)b2[i]=b[i];\n    auto c2=multiply(a2,b2);\n\
-    \    vector<T>c(c2.size());\n    for(int i=0;i<(int)c.size();i++)c[i]=c2[i].get();\n\
+    \    print(a);\n    dft(a,-1);\n    a.resize(mxsiz);\n    mint iz=mint(sz).inv();\n\
+    \    for(int i=0;i<mxsiz;i++)a[i]*=iz;\n    return a;\n  }\n  template<typename\
+    \ T,std::enable_if_t<is_integral<T>::value>* = nullptr>\n  static vector<T>multiply(const\
+    \ vector<T>&a,const vector<T>&b){\n    vector<mint>a1(a.size()),b1(b.size());\n\
+    \    for(int i=0;i<(int)a.size();i++)a1[i]=a[i];\n    for(int i=0;i<(int)b.size();i++)b1[i]=b[i];\n\
+    \    auto c2=multiply(a1,b1);\n    vector<T>c(c2.size());\n    for(int i=0;i<(int)c.size();i++)c[i]=c2[i].get();\n\
     \    return c;\n  }\n};\ntemplate<int m>\nint NTT<m>::limit=0;\ntemplate<int m>\n\
     vector<ModInt<m>>NTT<m>::root=vector<ModInt<m>>();\ntemplate<int m>\nvector<ModInt<m>>NTT<m>::inv_root=vector<ModInt<m>>();\n\
     template<int m>\nModInt<m>NTT<m>::g=ModInt<m>();\n/**\n * @brief Number Theoretic\
@@ -517,7 +533,7 @@ data:
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      ret=(ret+f*ret.inv(i<<1))*inv2;\n\
     \    }\n    ret.resize(d);\n    return ret;\n  }\n};\n/**\n * @brief Formal Power\
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n"
-  code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"../convolution/ntt.hpp\"\
+  code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"../convolution/convolution.hpp\"\
     \n\ntemplate<int m>\nstruct FormalPowerSeries:vector<ModInt<m>>{\n  using mint=ModInt<m>;\n\
     \  using vector<mint>::vector;\n  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
     \  FormalPowerSeries inv(int d=-1)const{\n    NTT<m>ntt;\n    const int n=(*this).size();\n\
@@ -608,7 +624,7 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
-  - math/convolution/ntt.hpp
+  - math/convolution/convolution.hpp
   - math/modular/modint.hpp
   - math/number/miller-rabin.hpp
   - math/modular/montgomery-modint.hpp
@@ -623,7 +639,7 @@ data:
   - math/fps/polynomial-interpolation.hpp
   - math/fps/taylor-shift.hpp
   - math/fps/multipoint-evaluation.hpp
-  timestamp: '2022-12-24 01:32:27+09:00'
+  timestamp: '2022-12-24 03:09:26+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/polynomial/log_of_formal_power_series.test.cpp

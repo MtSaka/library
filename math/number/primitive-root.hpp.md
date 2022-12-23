@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/modular/montgomery-modint.hpp
     title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: string/run-length.hpp
     title: string/run-length.hpp
   - icon: ':question:'
@@ -40,14 +40,8 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: math/convolution/convolution.hpp
-    title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
-    path: math/convolution/mod-convolution.hpp
-    title: "Arbitrary Mod Convolution(\u4EFB\u610Fmod\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
-    path: math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - icon: ':x:'
     path: math/fps/fps.hpp
@@ -134,9 +128,9 @@ data:
     \  if(x&0xffff0000ffff0000)x&=0xffff0000ffff0000,res+=16;\n  if(x&0xff00ff00ff00ff00)x&=0xff00ff00ff00ff00,res+=8;\n\
     \  if(x&0xf0f0f0f0f0f0f0f0)x&=0xf0f0f0f0f0f0f0f0,res+=4;\n  if(x&0xcccccccccccccccc)x&=0xcccccccccccccccc,res+=2;\n\
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
-    \ x){return x?msb(x-1)+1:0;}\ninline constexpr ull reverse(ull x){\n  x=((x&0x5555555555555555)<<1)|((x&0xaaaaaaaaaaaaaaa)>>1);\n\
-    \  x=((x&0x3333333333333333)<<2)|((x&0xccccccccccccccc)>>2);\n  x=((x&0x0f0f0f0f0f0f0f0f)<<4)|((x&0xf0f0f0f0f0f0f0f)>>4);\n\
-    \  x=((x&0x00ff00ff00ff00ff)<<8)|((x&0xff00ff00ff00ff)>>8);\n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff)>>16);\n\
+    \ x){return x?msb(x-1)+1:0;}\ninline constexpr ull reverse(ull x){\n  x=((x&0x5555555555555555)<<1)|((x&0xaaaaaaaaaaaaaaaa)>>1);\n\
+    \  x=((x&0x3333333333333333)<<2)|((x&0xcccccccccccccccc)>>2);\n  x=((x&0x0f0f0f0f0f0f0f0f)<<4)|((x&0xf0f0f0f0f0f0f0f0)>>4);\n\
+    \  x=((x&0xff00ff00ff00ff00)>>8)|((x&0x00ff00ff00ff00ff)<<8);\n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff0000)>>16);\n\
     \  return (x<<32)|(x>>32);\n}\ninline constexpr ull reverse(ull x,int len){return\
     \ reverse(x)>>(64-len);}\ninline constexpr int popcnt(ull x){\n#if __cplusplus>=202002L\n\
     \  return std::popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
@@ -290,13 +284,13 @@ data:
     \ return true;\n}\nconstexpr bool is_prime_fast(ull n){\n  constexpr ull base_int[3]={2,7,61},base_ll[7]={2,325,9375,28178,450775,9780504,1795265022};\n\
     \  if(n==2)return true;\n  if(n<2||n%2==0)return false;\n  if(n<(1u<<31))return\
     \ miller_rabin<MontgomeryModInt<unsigned int,-2>>(n,base_int,3);\n  return miller_rabin<MontgomeryModInt<ull,-2>>(n,base_ll,7);\n\
-    }\ntemplate<ull n>constexpr bool is_prime_v=is_prime_fast(n);\n/**\n * @brief\
-    \ Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\u6570\
-    \u5224\u5B9A)\n*/\n#line 3 \"others/random.hpp\"\n\ntemplate<typename Engine>\n\
-    struct Random{\n  private:\n  Engine rnd;\n  public:\n  using result_type=typename\
-    \ Engine::result_type;\n  Random():Random(random_device{}()){}\n  Random(result_type\
-    \ seed):rnd(seed){}\n  result_type operator()(){return rnd();}\n  template<typename\
-    \ IntType=ll>\n  IntType uniform(IntType l,IntType r){\n    static_assert(is_integral<IntType>::value,\"\
+    }\ntemplate<ull n>constexpr bool is_prime_v=is_prime(n);\n/**\n * @brief Miller-Rabin\
+    \ Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\u6570\u5224\u5B9A\
+    )\n*/\n#line 3 \"others/random.hpp\"\n\ntemplate<typename Engine>\nstruct Random{\n\
+    \  private:\n  Engine rnd;\n  public:\n  using result_type=typename Engine::result_type;\n\
+    \  Random():Random(random_device{}()){}\n  Random(result_type seed):rnd(seed){}\n\
+    \  result_type operator()(){return rnd();}\n  template<typename IntType=ll>\n\
+    \  IntType uniform(IntType l,IntType r){\n    static_assert(is_integral<IntType>::value,\"\
     template argument must be an integral type\");\n    return uniform_int_distribution<IntType>{l,r}(rnd);\n\
     \  }\n  template<typename RealType=double>\n  RealType uniform_real(RealType l,RealType\
     \ r){\n    static_assert(is_floating_point<RealType>::value,\"template argument\
@@ -344,9 +338,10 @@ data:
     \        break;\n      }\n    }\n    if(ok)return g;\n  }\n}\ntemplate<ull p,enable_if_t<is_prime_v<p>>*\
     \ =nullptr>\nconstexpr ull constexpr_primitive_root(){\n  if(p==2)return 1;\n\
     \  if(p==167772161)return 3;\n  if(p==469762049)return 3;\n  if(p==754974721)return\
-    \ 11;\n  if(p==998244353)return 3;\n  if(p==1224736769)return 3;\n  rep(g,2,p){\n\
-    \    if(mod_pow(g,(p-1)>>1,p)!=1)return g;\n  }\n  return -1;\n}\n/**\n * @brief\
-    \ Primitive Root(\u539F\u59CB\u6839)\n*/\n"
+    \ 11;\n  if(p==998244353)return 3;\n  if(p==1224736769)return 3;\n  if(p==1811939329)return\
+    \ 11;\n  if(p==2013265921)return 11;\n  rep(g,2,p){\n    if(mod_pow(g,(p-1)>>1,p)!=1)return\
+    \ g;\n  }\n  return -1;\n}\n/**\n * @brief Primitive Root(\u539F\u59CB\u6839)\n\
+    */\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"../modular/montgomery-modint.hpp\"\
     \n#include\"miller-rabin.hpp\"\n#include\"pollard-rho.hpp\"\n\ntemplate<typename\
     \ T=MontgomeryModInt<ull,-4>,typename Rand=Random64>\null primitive_root(ull n,Rand\
@@ -357,9 +352,10 @@ data:
     \        break;\n      }\n    }\n    if(ok)return g;\n  }\n}\ntemplate<ull p,enable_if_t<is_prime_v<p>>*\
     \ =nullptr>\nconstexpr ull constexpr_primitive_root(){\n  if(p==2)return 1;\n\
     \  if(p==167772161)return 3;\n  if(p==469762049)return 3;\n  if(p==754974721)return\
-    \ 11;\n  if(p==998244353)return 3;\n  if(p==1224736769)return 3;\n  rep(g,2,p){\n\
-    \    if(mod_pow(g,(p-1)>>1,p)!=1)return g;\n  }\n  return -1;\n}\n/**\n * @brief\
-    \ Primitive Root(\u539F\u59CB\u6839)\n*/"
+    \ 11;\n  if(p==998244353)return 3;\n  if(p==1224736769)return 3;\n  if(p==1811939329)return\
+    \ 11;\n  if(p==2013265921)return 11;\n  rep(g,2,p){\n    if(mod_pow(g,(p-1)>>1,p)!=1)return\
+    \ g;\n  }\n  return -1;\n}\n/**\n * @brief Primitive Root(\u539F\u59CB\u6839)\n\
+    */"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -382,9 +378,7 @@ data:
   - math/fps/taylor-shift.hpp
   - math/fps/multipoint-evaluation.hpp
   - math/convolution/convolution.hpp
-  - math/convolution/mod-convolution.hpp
-  - math/convolution/ntt.hpp
-  timestamp: '2022-12-23 01:43:39+09:00'
+  timestamp: '2022-12-24 03:09:26+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/polynomial/log_of_formal_power_series.test.cpp
