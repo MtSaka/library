@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/convolution/ntt.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - icon: ':x:'
@@ -21,7 +21,7 @@ data:
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
   - icon: ':question:'
@@ -351,11 +351,32 @@ data:
     \    }\n  }\n  static constexpr unsigned int get_lg(){return lg;}\n  constexpr\
     \ unsigned int get(int n){return root[n];}\n  constexpr unsigned int inv(int n){return\
     \ inv_root[n];}\n};\ntemplate<unsigned int p>constexpr NthRoot<p> nth_root;\n\
-    /*\u70B9\u691C\u4E2D\ntemplate<unsigned int p,enable_if_t<is_prime_v<p>>* =nullptr>\n\
-    void ntt(vector<ModInt<p>>&a){\n  const int sz=a.size();\n  assert(sz<=((1-p)&(p-1)));\n\
-    \  assert((sz&(sz-1))==0);\n  const int lg=msb(sz);\n\n}\ntemplate<unsigned int\
-    \ p,enable_if_t<is_prime_v<p>>* =nullptr>\nvoid intt(vector<ModInt<p>>&a){\n\n\
-    }*/\ntemplate<int m>\nstruct NTT{\n  using mint=ModInt<m>;\n  private:\n  static\
+    template<typename T,enable_if_t<is_modint<T>::value>* =nullptr,enable_if_t<is_prime_v<T::get_mod()>>*\
+    \ =nullptr>\nvoid ntt(vector<T>&a){\n  const int sz=a.size();\n  assert(sz<=((1-p)&(p-1)));\n\
+    \  assert((sz&(sz-1))==0);\n  const int lg=msb(sz);\n  rep(i,sz){\n    const int\
+    \ j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n  }\n  rep(i,lg){\n    const\
+    \ T w=nth_root<T::get_mod()>.get(i+1);\n    rep(j,0,sz,1<<(i+1)){\n      T z=1;\n\
+    \      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n        a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n\
+    \        z*=w;\n      }\n    }\n  }\n  rep(i,sz){\n    const int j=reverse(i,lg);\n\
+    \    if(i<j)swap(a[i],a[j]);\n  }\n}\ntemplate<typename T,enable_if_t<is_modint<T>::value>*\
+    \ =nullptr,enable_if_t<is_prime_v<T::get_mod()>>* =nullptr>\nvoid intt(vector<T>&a){\n\
+    \  const int sz=a.size();\n  assert(sz<=((1-p)&(p-1)));\n  assert((sz&(sz-1))==0);\n\
+    \  const int lg=msb(sz);\n  rep(i,sz){\n    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n\
+    \  }\n  rep(i,lg){\n    const T w=nth_root<T::get_mod()>.inv(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
+    \      T z=1;\n      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n   \
+    \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n  rep(i,sz){\n\
+    \    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n  }\n  const T inv_sz=T(1)/sz;\n\
+    \  for(auto&x:a)x*=inv_sz;\n}\ntemplate<typename T>\nvector<T>convolution_naive(const\
+    \ vector<T>&a,const vector<T>&b){\n  const int sz1=a.size(),sz2=b.size();\n  vector<T>c(sz1+sz2-1);\n\
+    \  rep(i,sz1)rep(j,sz2)c[i+j]+=a[i]*b[j];\n  return c;\n}\n//TODO:\u5B9F\u88C5\
+    \ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr>\nvector<T>convolution_for_any_mod(const\
+    \ vector<T>&a,const vector<T>&b){\n\n}\ntemplate<typename T,enable_if_t<is_modint<T>::value>*\
+    \ =nullptr>\nvector<T>convolution(vector<T>a,vector<T>b){\n\n}\ntemplate<typename\
+    \ T,enable_if_t<is_integral<T>::value>* =nullptr,unsigned int p=998244353>\nvector<T>convolution(const\
+    \ vector<T>&a,const vector<T>&b){\n  const int sz1=a.size(),sz2=b.size()\n  vector<ModInt<p>>a2(sz1),b2(sz2);\n\
+    \  rep(i,sz1)a2[i]=a[i];\n  rep(i,sz2)b2[i]=b[i];\n  auto c2=convolution(a2,b2);\n\
+    \  vector<T>c(sz1+sz2-1);\n  rep(i,sz1+sz2-1)c[i]=c2[i].get();\n  return c;\n\
+    }\ntemplate<int m>\nstruct NTT{\n  using mint=ModInt<m>;\n  private:\n  static\
     \ ModInt<m> g;\n  static int limit;\n  static vector<ModInt<m>>root,inv_root;\n\
     \  static void init(){\n    if(!root.empty())return;\n    g=primitive_root(m);\n\
     \    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
@@ -487,7 +508,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-12-24 00:53:20+09:00'
+  timestamp: '2022-12-24 01:32:27+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
