@@ -4,11 +4,11 @@ data:
   - icon: ':question:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/scc.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/others/two-sat.hpp
     title: Tow Satisfiability(2-SAT)
   - icon: ':question:'
@@ -34,16 +34,16 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/TwoSat
+    PROBLEM: https://judge.yosupo.jp/problem/two_sat
     links:
-    - https://judge.yosupo.jp/problem/TwoSat
+    - https://judge.yosupo.jp/problem/two_sat
   bundledCode: "#line 1 \"test/yosupo/math/two_sat.test.cpp\"\n#define PROBLEM \"\
-    https://judge.yosupo.jp/problem/TwoSat\"\n#line 2 \"template/template.hpp\"\n\
+    https://judge.yosupo.jp/problem/two_sat\"\n#line 2 \"template/template.hpp\"\n\
     #include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...)\
     \ e\n#define SELECT3(a,b,c,d,...) d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n\
     #define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n#define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n\
@@ -222,7 +222,7 @@ data:
     \  }\n  auto ans=ts.calc();\n  if(ans.empty())fin(\"s UNSATISFIABLE\");\n  print(\"\
     s SATISFIABLE\");\n  cout<<\"v \";\n  rep(i,n)cout<<(ans[i]?i+1:-i-1)<<\" \";\n\
     \  cout<<0<<endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/TwoSat\"\n#include\"../../../template/template.hpp\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/two_sat\"\n#include\"../../../template/template.hpp\"\
     \n#include\"../../../graph/others/two-sat.hpp\"\nint main(){\n  string s;\n  int\
     \ n,m;\n  cin>>s>>s>>n>>m;\n  TwoSat ts(n);\n  while(m--){\n    int a,b;\n   \
     \ cin>>a>>b>>s;\n    ts.add_clause(abs(a)-1,a>0,abs(b)-1,b>0);\n  }\n  auto ans=ts.calc();\n\
@@ -242,8 +242,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/math/two_sat.test.cpp
   requiredBy: []
-  timestamp: '2022-12-24 03:09:26+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-24 20:48:11+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/math/two_sat.test.cpp
 layout: document

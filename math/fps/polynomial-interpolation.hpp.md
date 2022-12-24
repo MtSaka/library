@@ -53,12 +53,12 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial/polynomial_interpolation.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
     links: []
@@ -425,9 +425,9 @@ data:
     \ FPS&r){\n    shrink();\n    if((*this).size()<r.size())(*this).resize(r.size());\n\
     \    rep(i,r.size())(*this)[i]-=r[i];\n    return *this;\n  }\n  FPS& operator*=(const\
     \ FPS&r){\n    shrink();\n    auto ret=convolution(*this,r);\n    (*this)={ret.begin(),ret.end()};\n\
-    \    return *this;\n  }\n  FPS& operator/=(const FPS&r){\n    shrink();\n    const\
-    \ int n=(*this).size(),m=r.size();\n    if(n<m){\n      (*this).clear();\n   \
-    \   return *this;\n    }\n    const int d=n-m+1;\n    reverse((*this).begin(),(*this).end());\n\
+    \    return *this;\n  }\n  FPS& operator/=(FPS r){\n    shrink();\n    const int\
+    \ n=(*this).size(),m=r.size();\n    if(n<m){\n      (*this).clear();\n      return\
+    \ *this;\n    }\n    const int d=n-m+1;\n    reverse((*this).begin(),(*this).end());\n\
     \    reverse(r.begin(),r.end());\n    (*this).resize(d);\n    (*this)*=r.inv(d);\n\
     \    (*this).resize(d);\n    reverse((*this).begin(),(*this).end());\n    return\
     \ *this;\n  }\n  FPS& operator%=(const FPS&r){\n    shrink();\n    const int n=(*this).size(),m=r.size();\n\
@@ -524,8 +524,8 @@ data:
   isVerificationFile: false
   path: math/fps/polynomial-interpolation.hpp
   requiredBy: []
-  timestamp: '2022-12-24 12:33:13+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-12-24 20:48:11+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/polynomial/polynomial_interpolation.test.cpp
 documentation_of: math/fps/polynomial-interpolation.hpp

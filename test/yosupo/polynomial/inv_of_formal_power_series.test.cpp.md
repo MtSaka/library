@@ -426,9 +426,9 @@ data:
     \ FPS&r){\n    shrink();\n    if((*this).size()<r.size())(*this).resize(r.size());\n\
     \    rep(i,r.size())(*this)[i]-=r[i];\n    return *this;\n  }\n  FPS& operator*=(const\
     \ FPS&r){\n    shrink();\n    auto ret=convolution(*this,r);\n    (*this)={ret.begin(),ret.end()};\n\
-    \    return *this;\n  }\n  FPS& operator/=(const FPS&r){\n    shrink();\n    const\
-    \ int n=(*this).size(),m=r.size();\n    if(n<m){\n      (*this).clear();\n   \
-    \   return *this;\n    }\n    const int d=n-m+1;\n    reverse((*this).begin(),(*this).end());\n\
+    \    return *this;\n  }\n  FPS& operator/=(FPS r){\n    shrink();\n    const int\
+    \ n=(*this).size(),m=r.size();\n    if(n<m){\n      (*this).clear();\n      return\
+    \ *this;\n    }\n    const int d=n-m+1;\n    reverse((*this).begin(),(*this).end());\n\
     \    reverse(r.begin(),r.end());\n    (*this).resize(d);\n    (*this)*=r.inv(d);\n\
     \    (*this).resize(d);\n    reverse((*this).begin(),(*this).end());\n    return\
     \ *this;\n  }\n  FPS& operator%=(const FPS&r){\n    shrink();\n    const int n=(*this).size(),m=r.size();\n\
@@ -514,7 +514,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-12-24 12:08:13+09:00'
+  timestamp: '2022-12-24 20:48:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/inv_of_formal_power_series.test.cpp

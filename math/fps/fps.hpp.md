@@ -49,10 +49,10 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/multipoint-evaluation.hpp
     title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':heavy_check_mark:'
@@ -65,7 +65,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/math/sharp_p_subset_sum.test.cpp
     title: test/yosupo/math/sharp_p_subset_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/division_of_polynomials.test.cpp
     title: test/yosupo/polynomial/division_of_polynomials.test.cpp
   - icon: ':heavy_check_mark:'
@@ -77,16 +77,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/log_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/log_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/multipoint_evaluation.test.cpp
     title: test/yosupo/polynomial/multipoint_evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial/polynomial_interpolation.test.cpp
   - icon: ':x:'
     path: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
   - icon: ':x:'
@@ -461,9 +461,9 @@ data:
     \ FPS&r){\n    shrink();\n    if((*this).size()<r.size())(*this).resize(r.size());\n\
     \    rep(i,r.size())(*this)[i]-=r[i];\n    return *this;\n  }\n  FPS& operator*=(const\
     \ FPS&r){\n    shrink();\n    auto ret=convolution(*this,r);\n    (*this)={ret.begin(),ret.end()};\n\
-    \    return *this;\n  }\n  FPS& operator/=(const FPS&r){\n    shrink();\n    const\
-    \ int n=(*this).size(),m=r.size();\n    if(n<m){\n      (*this).clear();\n   \
-    \   return *this;\n    }\n    const int d=n-m+1;\n    reverse((*this).begin(),(*this).end());\n\
+    \    return *this;\n  }\n  FPS& operator/=(FPS r){\n    shrink();\n    const int\
+    \ n=(*this).size(),m=r.size();\n    if(n<m){\n      (*this).clear();\n      return\
+    \ *this;\n    }\n    const int d=n-m+1;\n    reverse((*this).begin(),(*this).end());\n\
     \    reverse(r.begin(),r.end());\n    (*this).resize(d);\n    (*this)*=r.inv(d);\n\
     \    (*this).resize(d);\n    reverse((*this).begin(),(*this).end());\n    return\
     \ *this;\n  }\n  FPS& operator%=(const FPS&r){\n    shrink();\n    const int n=(*this).size(),m=r.size();\n\
@@ -548,9 +548,9 @@ data:
     \ FPS&r){\n    shrink();\n    if((*this).size()<r.size())(*this).resize(r.size());\n\
     \    rep(i,r.size())(*this)[i]-=r[i];\n    return *this;\n  }\n  FPS& operator*=(const\
     \ FPS&r){\n    shrink();\n    auto ret=convolution(*this,r);\n    (*this)={ret.begin(),ret.end()};\n\
-    \    return *this;\n  }\n  FPS& operator/=(const FPS&r){\n    shrink();\n    const\
-    \ int n=(*this).size(),m=r.size();\n    if(n<m){\n      (*this).clear();\n   \
-    \   return *this;\n    }\n    const int d=n-m+1;\n    reverse((*this).begin(),(*this).end());\n\
+    \    return *this;\n  }\n  FPS& operator/=(FPS r){\n    shrink();\n    const int\
+    \ n=(*this).size(),m=r.size();\n    if(n<m){\n      (*this).clear();\n      return\
+    \ *this;\n    }\n    const int d=n-m+1;\n    reverse((*this).begin(),(*this).end());\n\
     \    reverse(r.begin(),r.end());\n    (*this).resize(d);\n    (*this)*=r.inv(d);\n\
     \    (*this).resize(d);\n    reverse((*this).begin(),(*this).end());\n    return\
     \ *this;\n  }\n  FPS& operator%=(const FPS&r){\n    shrink();\n    const int n=(*this).size(),m=r.size();\n\
@@ -633,7 +633,7 @@ data:
   - math/fps/polynomial-interpolation.hpp
   - math/fps/taylor-shift.hpp
   - math/fps/multipoint-evaluation.hpp
-  timestamp: '2022-12-24 12:08:13+09:00'
+  timestamp: '2022-12-24 20:48:11+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/polynomial/log_of_formal_power_series.test.cpp
