@@ -6,7 +6,7 @@
 template<typename T>
 FormalPowerSeries<T>taylor_shift(FormalPowerSeries<T>f,const T&a){
   const int n=f.size();
-  Combinatorics<mint>c(n);
+  Combinatorics<T>c(n);
   for(int i=0;i<n;i++)f[i]*=c.fac(i);
   reverse(f.begin(),f.end());
   FormalPowerSeries<T>g(n,1);

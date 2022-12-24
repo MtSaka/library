@@ -8,7 +8,7 @@ struct Combinatorics{
   static vector<T>dat,idat;
   inline static void extend(int sz){
     if((int)dat.size()<sz+1){
-      int pre_sz=max<int>(1,dat.size());
+      int pre_sz=dat.size();
       dat.resize(sz+1,1);
       idat.resize(sz+1,1);
       for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;
@@ -33,7 +33,7 @@ struct Combinatorics{
     return fac(n)*finv(k)*finv(n-k);
   }
   static T hom(ll n,ll k){
-    if(n<0||k<0)return mint();
+    if(n<0||k<0)return T();
     return k==0?1:com(n+k-1,k);
   }
   static T per(ll n,ll k){
@@ -42,9 +42,9 @@ struct Combinatorics{
   }
 };
 template<typename T>
-vector<T>Combinatorics<T>::dat=vector<T>{0,1};
+vector<T>Combinatorics<T>::dat=vector<T>{1,1};
 template<typename T>
-vector<T>Combinatorics<T>::idat=vector<T>{0,1};
+vector<T>Combinatorics<T>::idat=vector<T>{1,1};
 template<long long p>
 struct COMB{
   private:

@@ -111,7 +111,7 @@ struct FormalPowerSeries:vector<mint>{
   }
   FPS& operator>>=(ll k){
     shrink();
-    if(k>(*this).size())(*this).clear();
+    if(k>(ll)(*this).size())(*this).clear();
     else (*this).erase((*this).begin(),(*this).begin()+k);
     return *this;
   }
