@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/others/detect-cycle.hpp
     title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
   - icon: ':question:'
@@ -30,9 +30,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_A
@@ -208,7 +208,7 @@ data:
   path: test/aoj/GRL/GRL_4_A.test.cpp
   requiredBy: []
   timestamp: '2022-12-24 03:09:26+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_4_A.test.cpp
 layout: document

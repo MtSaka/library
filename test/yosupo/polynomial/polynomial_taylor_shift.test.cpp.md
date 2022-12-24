@@ -349,36 +349,46 @@ data:
     \ 11;\n  if(p==998244353)return 3;\n  if(p==1224736769)return 3;\n  if(p==1811939329)return\
     \ 11;\n  if(p==2013265921)return 11;\n  rep(g,2,p){\n    if(mod_pow(g,(p-1)>>1,p)!=1)return\
     \ g;\n  }\n  return -1;\n}\n/**\n * @brief Primitive Root(\u539F\u59CB\u6839)\n\
-    */\n#line 6 \"math/convolution/convolution.hpp\"\n\ntemplate<unsigned int p,enable_if_t<is_prime_v<p>>*\
-    \ =nullptr>\nstruct NthRoot{\n  private:\n  static constexpr unsigned int lg=msb((p-1)&(1-p));\n\
+    */\n#line 6 \"math/convolution/convolution.hpp\"\n\ntemplate<unsigned int p>\n\
+    struct NthRoot{\n  private:\n  static constexpr unsigned int lg=msb((p-1)&(1-p));\n\
     \  array<unsigned int,lg+1>root,inv_root;\n  public:\n  constexpr NthRoot():root{},inv_root{}{\n\
     \    root[lg]=mod_pow(constexpr_primitive_root<p>(),(p-1)>>lg,p);\n    inv_root[lg]=mod_pow(root[lg],p-2,p);\n\
     \    rrep(i,lg){\n      root[i]=(ull)root[i+1]*root[i+1]%p;\n      inv_root[i]=(ull)inv_root[i+1]*inv_root[i+1]%p;\n\
     \    }\n  }\n  static constexpr unsigned int get_lg(){return lg;}\n  constexpr\
     \ unsigned int get(int n)const{return root[n];}\n  constexpr unsigned int inv(int\
     \ n)const{return inv_root[n];}\n};\ntemplate<unsigned int p>constexpr NthRoot<p>\
-    \ nth_root;\ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr,enable_if_t<is_prime_v<T::get_mod()>>*\
-    \ =nullptr>\nvoid ntt(vector<T>&a){\n  constexpr unsigned int p=T::get_mod();\n\
-    \  const int sz=a.size();\n  assert((unsigned int)sz<=((1-p)&(p-1)));\n  assert((sz&(sz-1))==0);\n\
+    \ nth_root;\ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr>\n\
+    void ntt(vector<T>&a){\n  constexpr unsigned int p=T::get_mod();\n  const int\
+    \ sz=a.size();\n  assert((unsigned int)sz<=((1-p)&(p-1)));\n  assert((sz&(sz-1))==0);\n\
     \  const int lg=msb(sz);\n  rep(i,sz){\n    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n\
     \  }\n  rep(i,lg){\n    const T w=nth_root<p>.get(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
     \      T z=1;\n      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n   \
     \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n}\ntemplate<typename\
-    \ T,enable_if_t<is_modint<T>::value>* =nullptr,enable_if_t<is_prime_v<T::get_mod()>>*\
-    \ =nullptr>\nvoid intt(vector<T>&a){\n  constexpr unsigned int p=T::get_mod();\n\
-    \  const int sz=a.size();\n  assert((unsigned int)sz<=((1-p)&(p-1)));\n  assert((sz&(sz-1))==0);\n\
-    \  const int lg=msb(sz);\n  rep(i,sz){\n    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n\
-    \  }\n  rep(i,lg){\n    const T w=nth_root<p>.inv(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
+    \ T,enable_if_t<is_modint<T>::value>* =nullptr>\nvoid intt(vector<T>&a,const bool&f=true){\n\
+    \  constexpr unsigned int p=T::get_mod();\n  const int sz=a.size();\n  assert((unsigned\
+    \ int)sz<=((1-p)&(p-1)));\n  assert((sz&(sz-1))==0);\n  const int lg=msb(sz);\n\
+    \  rep(i,sz){\n    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n \
+    \ }\n  rep(i,lg){\n    const T w=nth_root<p>.inv(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
     \      T z=1;\n      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n   \
-    \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n  const\
-    \ T inv_sz=T(1)/sz;\n  for(auto&x:a)x*=inv_sz;\n}\ntemplate<typename T>\nvector<T>convolution_naive(const\
-    \ vector<T>&a,const vector<T>&b){\n  const int sz1=a.size(),sz2=b.size();\n  vector<T>c(sz1+sz2-1);\n\
-    \  rep(i,sz1)rep(j,sz2)c[i+j]+=a[i]*b[j];\n  return c;\n}\ntemplate<unsigned int\
-    \ p>\nvector<ModInt<p>>convolution_for_any_mod(const vector<ModInt<p>>&a,const\
-    \ vector<ModInt<p>>&b);\ntemplate<typename T,enable_if_t<is_modint<T>::value>*\
-    \ =nullptr>\nvector<T>convole(vector<T>a,vector<T>b){\n  const int n=a.size()+b.size()-1;\n\
-    \  const int sz=1<<ceil_log2(n);\n  a.resize(sz),b.resize(sz);\n  ntt(a),ntt(b);\n\
-    \  rep(i,sz)a[i]*=b[i];\n  intt(a);\n  a.resize(n);\n  return a;\n}\ntemplate<typename\
+    \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n  if(f){\n\
+    \    const T inv_sz=T(1)/sz;\n    for(auto&x:a)x*=inv_sz;\n  }\n}\ntemplate<typename\
+    \ T>\nvector<T>convolution_naive(const vector<T>&a,const vector<T>&b){\n  const\
+    \ int sz1=a.size(),sz2=b.size();\n  vector<T>c(sz1+sz2-1);\n  rep(i,sz1)rep(j,sz2)c[i+j]+=a[i]*b[j];\n\
+    \  return c;\n}\ntemplate<unsigned int p>\nvector<ModInt<p>>convolution_for_any_mod(const\
+    \ vector<ModInt<p>>&a,const vector<ModInt<p>>&b);\ntemplate<typename T,enable_if_t<is_modint<T>::value>*\
+    \ =nullptr>\nvector<T>convole(vector<T>a,vector<T>b){\n  constexpr unsigned int\
+    \ p=T::get_mod();\n  const int n=a.size()+b.size()-1;\n  const int lg=ceil_log2(n);\n\
+    \  const int sz=1<<lg;\n  a.resize(sz),b.resize(sz);\n  rep(i,sz){\n    const\
+    \ int j=reverse(i,lg);\n    if(i<j){\n      swap(a[i],a[j]);\n      swap(b[i],b[j]);\n\
+    \    }\n  }\n  rep(i,lg){\n    const T w=nth_root<p>.get(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
+    \      T z=1;\n      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n   \
+    \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        x=b[j+k],y=b[j+k+(1<<i)]*z;\n   \
+    \     b[j+k]=x+y,b[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n  rep(i,sz)a[i]*=b[i];\n\
+    \  rep(i,sz){\n    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n \
+    \ }\n  rep(i,lg){\n    const T w=nth_root<p>.inv(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
+    \      T z=1;\n      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n   \
+    \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n  a.resize(n);\n\
+    \  const T inv_sz=T(1)/sz;\n  for(auto&x:a)x*=inv_sz;\n  return a;\n}\ntemplate<typename\
     \ T,enable_if_t<is_modint<T>::value>* =nullptr>\nvector<T>convolution(const vector<T>&a,const\
     \ vector<T>&b){\n  constexpr unsigned int p=T::get_mod();\n  const unsigned int\
     \ sz1=a.size(),sz2=b.size();\n  if(sz1==0||sz2==0)return {};\n  if(sz1<=64||sz2<=64)return\
@@ -421,9 +431,89 @@ data:
     \    return c;\n  }\n};\ntemplate<int m>\nint NTT<m>::limit=0;\ntemplate<int m>\n\
     vector<ModInt<m>>NTT<m>::root=vector<ModInt<m>>();\ntemplate<int m>\nvector<ModInt<m>>NTT<m>::inv_root=vector<ModInt<m>>();\n\
     template<int m>\nModInt<m>NTT<m>::g=ModInt<m>();\n/**\n * @brief Number Theoretic\
-    \ Transform(\u6570\u8AD6\u5909\u63DB)\n*/\n#line 4 \"math/fps/fps.hpp\"\n\ntemplate<int\
-    \ m>\nstruct FormalPowerSeries:vector<ModInt<m>>{\n  using mint=ModInt<m>;\n \
-    \ using vector<mint>::vector;\n  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
+    \ Transform(\u6570\u8AD6\u5909\u63DB)\n*/\n#line 4 \"math/fps/fps.hpp\"\n\ntemplate<typename\
+    \ mint=ModInt<998244353>>\nstruct FormalPowerSeries:vector<mint>{\n  using vector<mint>::vector;\n\
+    \  using FPS=FormalPowerSeries<mint>;\n  private:\n  static constexpr unsigned\
+    \ int p=mint::get_mod();\n  public:\n  inline void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
+    \  FPS& dot(const FPS&r){\n    rep(i,min((*this).size(),r.size()))(*this)[i]*=r[i];\n\
+    \    return *this;\n  }\n  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n\
+    \    if(d==-1)d=n;\n    FPS res(d);\n    res[0]=(*this)[0].inv();\n    for(int\
+    \ sz=1;sz<d;sz<<=1){\n      FPS f((*this).begin(),(*this).begin()+min(n,2*sz));\n\
+    \      FPS g(res.begin(),res.begin()+sz);\n      f.resize(2*sz),g.resize(2*sz);\n\
+    \      ntt(f),ntt(g);\n      f.dot(g);\n      intt(f);\n      rep(i,sz)f[i]=0;\n\
+    \      ntt(f);\n      f.dot(g);\n      intt(f);\n      rep(j,sz,min(2*sz,d))res[j]=-f[j];\n\
+    \    }\n    return res;\n  }\n  FPS operator+()const{return *this;}\n  FPS operator-()const{\n\
+    \    FPS res(*this);\n    for(auto &x:res)x=-x;\n    return res;\n  }\n  FPS&\
+    \ operator+=(const mint&r){\n    shrink();\n    if((*this).empty())(*this).resize(1);\n\
+    \    (*this)[0]+=r;\n    return *this;\n  }\n  FPS& operator-=(const mint&r){\n\
+    \    shrink();\n    if((*this).empty())(*this).resize(1);\n    (*this)[0]-=r;\n\
+    \    return *this;\n  }\n  FPS& operator*=(const mint&r){\n    shrink();\n   \
+    \ for(auto &x:*this)x*=r;\n    return *this;\n  }\n  FPS& operator/=(const mint&r){\n\
+    \    shrink()\n    (*this)*=r.inv();\n    return *this;\n  }\n  FPS& operator+=(const\
+    \ FPS&r){\n    shrink();\n    if((*this).size()<r.size())(*this).resize(r.size());\n\
+    \    rep(i,r.size())(*this)[i]+=r[i];\n    return *this;\n  }\n  FPS& operator-=(const\
+    \ FPS&r){\n    shrink();\n    if((*this).size()<r.size())(*this).resize(r.size());\n\
+    \    rep(i,r.size())(*this)[i]-=r[i];\n    return *this;\n  }\n  FPS& operator*=(const\
+    \ FPS&r){\n    shrink();\n    auto ret=convolution(*this,r);\n    (*this)={ret.begin(),ret.end()};\n\
+    \    return *this;\n  }\n  FPS& operator/=(const FPS&r){\n    shrink();\n    const\
+    \ int n=(*this).size(),m=r.size();\n    if(n<m){\n      (*this).clear();\n   \
+    \   return *this;\n    }\n    const int d=n-m+1;\n    reverse((*this).begin(),(*this).end());\n\
+    \    reverse(r.begin(),r.end());\n    (*this).resize(d);\n    (*this)*=r.inv(d);\n\
+    \    (*this).resize(d);\n    reverse((*this).begin(),(*this).end());\n    return\
+    \ *this;\n  }\n  FPS& operator%=(const FPS&r){\n    shrink();\n    const int n=(*this).size(),m=r.size();\n\
+    \    if(n<m)return *this;\n    (*this)-=(*this)/r*r;\n    shrink();\n    return\
+    \ *this;\n  }\n  friend FPS operator+(const FPS&l,const mint&r){return FPS(l)+=r;}\n\
+    \  friend FPS operator-(const FPS&l,const mint&r){return FPS(l)-=r;}\n  friend\
+    \ FPS operator*(const FPS&l,const mint&r){return FPS(l)*=r;}\n  friend FPS operator/(const\
+    \ FPS&l,const mint&r){return FPS(l)/=r;}\n  friend FPS operator+(const mint&l,const\
+    \ FPS&r){return FPS(r)+=l;}\n  friend FPS operator-(const mint&l,const FPS&r){return\
+    \ FPS(-r)+=l;}\n  friend FPS operator*(const mint&l,const FPS&r){return FPS(r)*=l;}\n\
+    \  friend FPS operator+(const FPS&l,const FPS&r){return FPS(l)+=r;}\n  friend\
+    \ FPS operator-(const FPS&l,const FPS&r){return FPS(l)-=r;}\n  friend FPS operator*(const\
+    \ FPS&l,const FPS&r){return FPS(l)*=r;}\n  friend FPS operator/(const FPS&l,const\
+    \ FPS&r){return FPS(l)/=r;}\n  friend FPS operator%(const FPS&l,const FPS&r){return\
+    \ FPS(l)%=r;}\n  pair<FPS,FPS>div_mod(const FPS&r)const{\n    FPS q=(*this)/r;\n\
+    \    FPS m;\n    if((*this).size()>=r.size())m=(*this)-q*r;\n    else m=*this;\n\
+    \    q.shrink(),m.shrink();\n    return {q,m};\n  }\n  mint operator()(const mint&x)const{\n\
+    \    mint res=0,w=1;\n    for(auto &v:*this)res+=v*w,w*=x;\n    return res;\n\
+    \  }\n  FPS diff()const{\n    const int n=(*this).size();\n    FPS res(n-1);\n\
+    \    rep(i,1,n)res[i-1]=(*this)[i]*i;\n    return res;\n  }\n  FPS& inplace_diff(){\n\
+    \    shrink();\n    (*this).erase((*this).begin());\n    mint coeff=1;\n    for(int\
+    \ i=0;i<(int)(*this).size();i++){\n      (*this)[i]*=coeff;\n      coeff++;\n\
+    \    }\n    return *this;\n  }\n  FPS integral()const{\n    const int n=(*this).size();\n\
+    \    vector<mint>iv(n+1,1);\n    rep(i,2,n+1)iv[i]=-iv[p%i]*(p/i);\n    FPS res(n+1);\n\
+    \    rep(i,n)res[i+1]=(*this)[i]*iv[i+1];\n    return res;\n  }\n  FPS& inplace_integral(){\n\
+    \    shrink();\n    const int n=(*this).size();\n    vector<mint>iv(n+1,1);\n\
+    \    rep(i,2,n+1)iv[i]=-iv[p%i]*(p/i);\n    (*this).insert((*this).begin(),mint(0));\n\
+    \    rep(i,1,n+1)(*this)[i]*=iv[i];\n    return *this;\n  }\n  FPS log(int d=-1)const{\n\
+    \    const int n=(*this).size();\n    if(d==-1)d=n;\n    FPS res=diff()*inv(d);\n\
+    \    res.resize(d-1);\n    return res.integral();\n  }\n  FPS& inplace_log(int\
+    \ d=-1){\n    shrink();\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
+    \    FPS tmp=inv(d);\n    (*this).inplace_diff()*=tmp;\n    (*this).resize(d-1);\n\
+    \    return (*this).inplace_integral();\n  }\n  FPS exp(int d=-1)const{\n    const\
+    \ int n=(*this).size();\n    if(d==-1)d=n;\n    if(n==1){\n      FPS res(d,mint());\n\
+    \      res[0]=1;\n      return res;\n    }\n    FPS f={mint(1)+(*this)[0],(*this)[1]},res{1,(*this)[1]};\n\
+    \    for(int sz=2;sz<d;sz<<=1){\n      f.insert(f.end(),(*this).begin()+min(sz,n),(*this).begin()+min(n,sz<<1));\n\
+    \      f.resize(sz<<1);\n      res=res*(f-res.log(sz<<1));\n      res.resize(sz<<1);\n\
+    \    }\n    res.resize(d);\n    return res;\n  }\n  FPS pow(ll k,int d=-1)const{\n\
+    \    const int n=(*this).size();\n    if(d==-1)d=n;\n    if(k==0){\n      FPS\
+    \ ans(d,mint());\n      ans[0]=1;\n      return ans;\n    }\n    for(int i=0;i<n;i++){\n\
+    \      if((*this)[i]!=mint()){\n        if(i>d/k)return FPS(d,mint());\n     \
+    \   mint rev=(*this)[i].inv();\n        FPS res=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));\n\
+    \        res=(res<<(i*k));\n        res.resize(d);\n        return res;\n    \
+    \  }\n    }\n    return FPS(d,mint());\n  }\n  FPS sqrt(const function<mint(mint)>&get_sqrt=[](mint){return\
+    \ mint(1);},int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
+    \    if((*this)[0]==mint(0)){\n      rep(i,1,n){\n        if((*this)[i]!=mint(0)){\n\
+    \          if(i&1)return {};\n          if(d-i/2<=0)break;\n          auto res=(*this>>i).sqrt(get_sqrt,d-i/2);\n\
+    \          if(res.empty())return {};\n          res=res<<(i/2);\n          res.resize(d);\n\
+    \          return res;\n        }\n      }\n      return FPS(d);\n    }\n    auto\
+    \ sqr=get_sqrt((*this)[0]);\n    if(sqr*sqr!=(*this)[0])return {};\n    FPS res{sqr};\n\
+    \    const mint inv2=mint(2).inv();\n    FPS f={(*this)[0]};\n    for(int i=1;i<d;i<<=1){\n\
+    \      if(i<n)f.insert(f.end(),(*this).begin()+i,(*this).begin()+min(n,i<<1));\n\
+    \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      res=(res+f*res.inv(i<<1))*inv2;\n\
+    \    }\n    res.resize(d);\n    return res;\n  }\n};\n/*\ntemplate<int m>\nstruct\
+    \ FormalPowerSeries:vector<ModInt<m>>{\n  using mint=ModInt<m>;\n  using vector<mint>::vector;\n\
+    \  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
     \  FormalPowerSeries inv(int d=-1)const{\n    NTT<m>ntt;\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FormalPowerSeries res{(*this)[0].inv()};\n    for(int\
     \ sz=1;sz<d;sz<<=1){\n      FormalPowerSeries f((*this).begin(),(*this).begin()+min(n,2*sz));\n\
@@ -502,8 +592,8 @@ data:
     \ {};\n    FormalPowerSeries ret{sqr};\n    mint inv2=mint(2).inv();\n    FormalPowerSeries\
     \ f={(*this)[0]};\n    for(int i=1;i<d;i<<=1){\n      if(i<n)f.insert(f.end(),(*this).begin()+i,(*this).begin()+min(n,i<<1));\n\
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      ret=(ret+f*ret.inv(i<<1))*inv2;\n\
-    \    }\n    ret.resize(d);\n    return ret;\n  }\n};\n/**\n * @brief Formal Power\
-    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"math/others/combinatorics.hpp\"\
+    \    }\n    ret.resize(d);\n    return ret;\n  }\n};*/\n/**\n * @brief Formal\
+    \ Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"math/others/combinatorics.hpp\"\
     \n\ntemplate<int m>\nstruct Combinatorics{\n  using mint=ModInt<m>;\n  private:\n\
     \  static vector<mint>dat,idat;\n  inline static void extend(int sz){\n    if((int)dat.size()<sz+1){\n\
     \      int pre_sz=max<int>(1,dat.size());\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
@@ -527,17 +617,18 @@ data:
     \    while(n>0||k>0){\n      int ni=n%p,ki=k%p;\n      ret*=comb[ni][ki];\n  \
     \    n/=p;k/=p;\n    }\n    return ret;\n  }\n};\ntemplate<long long p>\nvector<vector<ModInt<p>>>COMB<p>::comb=vector<vector<ModInt<p>>>();\n\
     /**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n#line 5 \"math/fps/taylor-shift.hpp\"\
-    \n\ntemplate<int m>\nFormalPowerSeries<m>taylor_shift(FormalPowerSeries<m>f,ModInt<m>a){\n\
-    \  const int n=f.size();\n  Combinatorics<m>c(n);\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n\
-    \  reverse(f.begin(),f.end());\n  FormalPowerSeries<m>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
-    \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
-    \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
-    \u79FB\u52D5)\n*/\n#line 4 \"test/yosupo/polynomial/polynomial_taylor_shift.test.cpp\"\
-    \nusing mint=ModInt<998244353>;\nint main(){\n  int n,c;\n  cin>>n>>c;\n  FormalPowerSeries<998244353>f(n);\n\
+    \n\ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr>\nFormalPowerSeries<T>taylor_shift(FormalPowerSeries<T>f,const\
+    \ T&a){\n  const int n=f.size();\n  Combinatorics<T::get_mod()>c(n);\n  for(int\
+    \ i=0;i<n;i++)f[i]*=c.fac(i);\n  reverse(f.begin(),f.end());\n  FormalPowerSeries<m>g(n,1);\n\
+    \  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n  f*=g;\n  f.resize(n);\n\
+    \  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n  return\
+    \ f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\
+    \u52D5)\n*/\n#line 4 \"test/yosupo/polynomial/polynomial_taylor_shift.test.cpp\"\
+    \nusing mint=ModInt<998244353>;\nint main(){\n  int n,c;\n  cin>>n>>c;\n  FormalPowerSeries<mint>f(n);\n\
     \  cin>>f;\n  print(taylor_shift(f,mint(c)));\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/fps/taylor-shift.hpp\"\
-    \nusing mint=ModInt<998244353>;\nint main(){\n  int n,c;\n  cin>>n>>c;\n  FormalPowerSeries<998244353>f(n);\n\
+    \nusing mint=ModInt<998244353>;\nint main(){\n  int n,c;\n  cin>>n>>c;\n  FormalPowerSeries<mint>f(n);\n\
     \  cin>>f;\n  print(taylor_shift(f,mint(c)));\n}"
   dependsOn:
   - template/template.hpp
@@ -561,7 +652,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2022-12-24 03:09:26+09:00'
+  timestamp: '2022-12-24 10:45:37+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp

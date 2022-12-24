@@ -340,36 +340,46 @@ data:
     \ 11;\n  if(p==998244353)return 3;\n  if(p==1224736769)return 3;\n  if(p==1811939329)return\
     \ 11;\n  if(p==2013265921)return 11;\n  rep(g,2,p){\n    if(mod_pow(g,(p-1)>>1,p)!=1)return\
     \ g;\n  }\n  return -1;\n}\n/**\n * @brief Primitive Root(\u539F\u59CB\u6839)\n\
-    */\n#line 6 \"math/convolution/convolution.hpp\"\n\ntemplate<unsigned int p,enable_if_t<is_prime_v<p>>*\
-    \ =nullptr>\nstruct NthRoot{\n  private:\n  static constexpr unsigned int lg=msb((p-1)&(1-p));\n\
+    */\n#line 6 \"math/convolution/convolution.hpp\"\n\ntemplate<unsigned int p>\n\
+    struct NthRoot{\n  private:\n  static constexpr unsigned int lg=msb((p-1)&(1-p));\n\
     \  array<unsigned int,lg+1>root,inv_root;\n  public:\n  constexpr NthRoot():root{},inv_root{}{\n\
     \    root[lg]=mod_pow(constexpr_primitive_root<p>(),(p-1)>>lg,p);\n    inv_root[lg]=mod_pow(root[lg],p-2,p);\n\
     \    rrep(i,lg){\n      root[i]=(ull)root[i+1]*root[i+1]%p;\n      inv_root[i]=(ull)inv_root[i+1]*inv_root[i+1]%p;\n\
     \    }\n  }\n  static constexpr unsigned int get_lg(){return lg;}\n  constexpr\
     \ unsigned int get(int n)const{return root[n];}\n  constexpr unsigned int inv(int\
     \ n)const{return inv_root[n];}\n};\ntemplate<unsigned int p>constexpr NthRoot<p>\
-    \ nth_root;\ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr,enable_if_t<is_prime_v<T::get_mod()>>*\
-    \ =nullptr>\nvoid ntt(vector<T>&a){\n  constexpr unsigned int p=T::get_mod();\n\
-    \  const int sz=a.size();\n  assert((unsigned int)sz<=((1-p)&(p-1)));\n  assert((sz&(sz-1))==0);\n\
+    \ nth_root;\ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr>\n\
+    void ntt(vector<T>&a){\n  constexpr unsigned int p=T::get_mod();\n  const int\
+    \ sz=a.size();\n  assert((unsigned int)sz<=((1-p)&(p-1)));\n  assert((sz&(sz-1))==0);\n\
     \  const int lg=msb(sz);\n  rep(i,sz){\n    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n\
     \  }\n  rep(i,lg){\n    const T w=nth_root<p>.get(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
     \      T z=1;\n      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n   \
     \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n}\ntemplate<typename\
-    \ T,enable_if_t<is_modint<T>::value>* =nullptr,enable_if_t<is_prime_v<T::get_mod()>>*\
-    \ =nullptr>\nvoid intt(vector<T>&a){\n  constexpr unsigned int p=T::get_mod();\n\
-    \  const int sz=a.size();\n  assert((unsigned int)sz<=((1-p)&(p-1)));\n  assert((sz&(sz-1))==0);\n\
-    \  const int lg=msb(sz);\n  rep(i,sz){\n    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n\
-    \  }\n  rep(i,lg){\n    const T w=nth_root<p>.inv(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
+    \ T,enable_if_t<is_modint<T>::value>* =nullptr>\nvoid intt(vector<T>&a,const bool&f=true){\n\
+    \  constexpr unsigned int p=T::get_mod();\n  const int sz=a.size();\n  assert((unsigned\
+    \ int)sz<=((1-p)&(p-1)));\n  assert((sz&(sz-1))==0);\n  const int lg=msb(sz);\n\
+    \  rep(i,sz){\n    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n \
+    \ }\n  rep(i,lg){\n    const T w=nth_root<p>.inv(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
     \      T z=1;\n      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n   \
-    \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n  const\
-    \ T inv_sz=T(1)/sz;\n  for(auto&x:a)x*=inv_sz;\n}\ntemplate<typename T>\nvector<T>convolution_naive(const\
-    \ vector<T>&a,const vector<T>&b){\n  const int sz1=a.size(),sz2=b.size();\n  vector<T>c(sz1+sz2-1);\n\
-    \  rep(i,sz1)rep(j,sz2)c[i+j]+=a[i]*b[j];\n  return c;\n}\ntemplate<unsigned int\
-    \ p>\nvector<ModInt<p>>convolution_for_any_mod(const vector<ModInt<p>>&a,const\
-    \ vector<ModInt<p>>&b);\ntemplate<typename T,enable_if_t<is_modint<T>::value>*\
-    \ =nullptr>\nvector<T>convole(vector<T>a,vector<T>b){\n  const int n=a.size()+b.size()-1;\n\
-    \  const int sz=1<<ceil_log2(n);\n  a.resize(sz),b.resize(sz);\n  ntt(a),ntt(b);\n\
-    \  rep(i,sz)a[i]*=b[i];\n  intt(a);\n  a.resize(n);\n  return a;\n}\ntemplate<typename\
+    \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n  if(f){\n\
+    \    const T inv_sz=T(1)/sz;\n    for(auto&x:a)x*=inv_sz;\n  }\n}\ntemplate<typename\
+    \ T>\nvector<T>convolution_naive(const vector<T>&a,const vector<T>&b){\n  const\
+    \ int sz1=a.size(),sz2=b.size();\n  vector<T>c(sz1+sz2-1);\n  rep(i,sz1)rep(j,sz2)c[i+j]+=a[i]*b[j];\n\
+    \  return c;\n}\ntemplate<unsigned int p>\nvector<ModInt<p>>convolution_for_any_mod(const\
+    \ vector<ModInt<p>>&a,const vector<ModInt<p>>&b);\ntemplate<typename T,enable_if_t<is_modint<T>::value>*\
+    \ =nullptr>\nvector<T>convole(vector<T>a,vector<T>b){\n  constexpr unsigned int\
+    \ p=T::get_mod();\n  const int n=a.size()+b.size()-1;\n  const int lg=ceil_log2(n);\n\
+    \  const int sz=1<<lg;\n  a.resize(sz),b.resize(sz);\n  rep(i,sz){\n    const\
+    \ int j=reverse(i,lg);\n    if(i<j){\n      swap(a[i],a[j]);\n      swap(b[i],b[j]);\n\
+    \    }\n  }\n  rep(i,lg){\n    const T w=nth_root<p>.get(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
+    \      T z=1;\n      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n   \
+    \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        x=b[j+k],y=b[j+k+(1<<i)]*z;\n   \
+    \     b[j+k]=x+y,b[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n  rep(i,sz)a[i]*=b[i];\n\
+    \  rep(i,sz){\n    const int j=reverse(i,lg);\n    if(i<j)swap(a[i],a[j]);\n \
+    \ }\n  rep(i,lg){\n    const T w=nth_root<p>.inv(i+1);\n    rep(j,0,sz,1<<(i+1)){\n\
+    \      T z=1;\n      rep(k,1<<i){\n        T x=a[j+k],y=a[j+k+(1<<i)]*z;\n   \
+    \     a[j+k]=x+y,a[j+k+(1<<i)]=x-y;\n        z*=w;\n      }\n    }\n  }\n  a.resize(n);\n\
+    \  const T inv_sz=T(1)/sz;\n  for(auto&x:a)x*=inv_sz;\n  return a;\n}\ntemplate<typename\
     \ T,enable_if_t<is_modint<T>::value>* =nullptr>\nvector<T>convolution(const vector<T>&a,const\
     \ vector<T>&b){\n  constexpr unsigned int p=T::get_mod();\n  const unsigned int\
     \ sz1=a.size(),sz2=b.size();\n  if(sz1==0||sz2==0)return {};\n  if(sz1<=64||sz2<=64)return\
@@ -438,7 +448,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
   requiredBy: []
-  timestamp: '2022-12-24 03:09:26+09:00'
+  timestamp: '2022-12-24 10:45:37+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
