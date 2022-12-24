@@ -80,7 +80,7 @@ struct FormalPowerSeries:vector<mint>{
     (*this)={ret.begin(),ret.end()};
     return *this;
   }
-  FPS& operator/=(const FPS&r){
+  FPS& operator/=(FPS r){
     shrink();
     const int n=(*this).size(),m=r.size();
     if(n<m){

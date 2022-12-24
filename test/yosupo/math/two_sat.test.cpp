@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/TwoSat"
+#define PROBLEM "https://judge.yosupo.jp/problem/two_sat"
 #include"../../../template/template.hpp"
 #include"../../../graph/others/two-sat.hpp"
 int main(){
