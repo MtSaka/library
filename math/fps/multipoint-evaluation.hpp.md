@@ -1,33 +1,33 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/convolution/convolution.hpp
     title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
   - icon: ':x:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/montgomery-modint.hpp
     title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: string/run-length.hpp
     title: string/run-length.hpp
   - icon: ':question:'
@@ -455,29 +455,33 @@ data:
     \    (*this).resize(d);\n    reverse((*this).begin(),(*this).end());\n    return\
     \ *this;\n  }\n  FPS& operator%=(const FPS&r){\n    shrink();\n    const int n=(*this).size(),m=r.size();\n\
     \    if(n<m)return *this;\n    (*this)-=(*this)/r*r;\n    shrink();\n    return\
-    \ *this;\n  }\n  friend FPS operator+(const FPS&l,const mint&r){return FPS(l)+=r;}\n\
-    \  friend FPS operator-(const FPS&l,const mint&r){return FPS(l)-=r;}\n  friend\
-    \ FPS operator*(const FPS&l,const mint&r){return FPS(l)*=r;}\n  friend FPS operator/(const\
-    \ FPS&l,const mint&r){return FPS(l)/=r;}\n  friend FPS operator+(const mint&l,const\
-    \ FPS&r){return FPS(r)+=l;}\n  friend FPS operator-(const mint&l,const FPS&r){return\
-    \ FPS(-r)+=l;}\n  friend FPS operator*(const mint&l,const FPS&r){return FPS(r)*=l;}\n\
-    \  friend FPS operator+(const FPS&l,const FPS&r){return FPS(l)+=r;}\n  friend\
-    \ FPS operator-(const FPS&l,const FPS&r){return FPS(l)-=r;}\n  friend FPS operator*(const\
-    \ FPS&l,const FPS&r){return FPS(l)*=r;}\n  friend FPS operator/(const FPS&l,const\
-    \ FPS&r){return FPS(l)/=r;}\n  friend FPS operator%(const FPS&l,const FPS&r){return\
-    \ FPS(l)%=r;}\n  pair<FPS,FPS>div_mod(const FPS&r)const{\n    FPS q=(*this)/r;\n\
-    \    FPS m;\n    if((*this).size()>=r.size())m=(*this)-q*r;\n    else m=*this;\n\
-    \    q.shrink(),m.shrink();\n    return {q,m};\n  }\n  mint operator()(const mint&x)const{\n\
-    \    mint res=0,w=1;\n    for(auto &v:*this)res+=v*w,w*=x;\n    return res;\n\
-    \  }\n  FPS diff()const{\n    const int n=(*this).size();\n    FPS res(n-1);\n\
-    \    rep(i,1,n)res[i-1]=(*this)[i]*i;\n    return res;\n  }\n  FPS& inplace_diff(){\n\
-    \    shrink();\n    (*this).erase((*this).begin());\n    mint coeff=1;\n    for(int\
-    \ i=0;i<(int)(*this).size();i++){\n      (*this)[i]*=coeff;\n      coeff++;\n\
-    \    }\n    return *this;\n  }\n  FPS integral()const{\n    const int n=(*this).size();\n\
-    \    vector<mint>iv(n+1,1);\n    rep(i,2,n+1)iv[i]=-iv[p%i]*(p/i);\n    FPS res(n+1);\n\
-    \    rep(i,n)res[i+1]=(*this)[i]*iv[i+1];\n    return res;\n  }\n  FPS& inplace_integral(){\n\
-    \    shrink();\n    const int n=(*this).size();\n    vector<mint>iv(n+1,1);\n\
-    \    rep(i,2,n+1)iv[i]=-iv[p%i]*(p/i);\n    (*this).insert((*this).begin(),mint(0));\n\
+    \ *this;\n  }\n  FPS& operator<<=(ll k){\n    shrink();\n    (*this).insert((*this).begin(),k,mint(0));\n\
+    \    return *this;\n  }\n  FPS& operator>>=(ll k){\n    shrink();\n    if(k>(*this).size())(*this).clear();\n\
+    \    else (*this).erase((*this).begin(),(*this).begin()+k);\n    return *this;\n\
+    \  }\n  FPS operator<<(ll k)const{return FPS(*this)<<=k;}\n  FPS operator>>(ll\
+    \ k)const{return FPS(*this)>>=k;}\n  friend FPS operator+(const FPS&l,const mint&r){return\
+    \ FPS(l)+=r;}\n  friend FPS operator-(const FPS&l,const mint&r){return FPS(l)-=r;}\n\
+    \  friend FPS operator*(const FPS&l,const mint&r){return FPS(l)*=r;}\n  friend\
+    \ FPS operator/(const FPS&l,const mint&r){return FPS(l)/=r;}\n  friend FPS operator+(const\
+    \ mint&l,const FPS&r){return FPS(r)+=l;}\n  friend FPS operator-(const mint&l,const\
+    \ FPS&r){return FPS(-r)+=l;}\n  friend FPS operator*(const mint&l,const FPS&r){return\
+    \ FPS(r)*=l;}\n  friend FPS operator+(const FPS&l,const FPS&r){return FPS(l)+=r;}\n\
+    \  friend FPS operator-(const FPS&l,const FPS&r){return FPS(l)-=r;}\n  friend\
+    \ FPS operator*(const FPS&l,const FPS&r){return FPS(l)*=r;}\n  friend FPS operator/(const\
+    \ FPS&l,const FPS&r){return FPS(l)/=r;}\n  friend FPS operator%(const FPS&l,const\
+    \ FPS&r){return FPS(l)%=r;}\n  pair<FPS,FPS>div_mod(const FPS&r)const{\n    FPS\
+    \ q=(*this)/r;\n    FPS m;\n    if((*this).size()>=r.size())m=(*this)-q*r;\n \
+    \   else m=*this;\n    q.shrink(),m.shrink();\n    return {q,m};\n  }\n  mint\
+    \ operator()(const mint&x)const{\n    mint res=0,w=1;\n    for(auto &v:*this)res+=v*w,w*=x;\n\
+    \    return res;\n  }\n  FPS diff()const{\n    const int n=(*this).size();\n \
+    \   FPS res(n-1);\n    rep(i,1,n)res[i-1]=(*this)[i]*i;\n    return res;\n  }\n\
+    \  FPS& inplace_diff(){\n    shrink();\n    (*this).erase((*this).begin());\n\
+    \    mint coeff=1;\n    for(int i=0;i<(int)(*this).size();i++){\n      (*this)[i]*=coeff;\n\
+    \      coeff++;\n    }\n    return *this;\n  }\n  FPS integral()const{\n    const\
+    \ int n=(*this).size();\n    vector<mint>iv(n+1,1);\n    rep(i,2,n+1)iv[i]=-iv[p%i]*(p/i);\n\
+    \    FPS res(n+1);\n    rep(i,n)res[i+1]=(*this)[i]*iv[i+1];\n    return res;\n\
+    \  }\n  FPS& inplace_integral(){\n    shrink();\n    const int n=(*this).size();\n\
+    \    vector<mint>iv(n+1,1);\n    rep(i,2,n+1)iv[i]=-iv[p%i]*(p/i);\n    (*this).insert((*this).begin(),mint(0));\n\
     \    rep(i,1,n+1)(*this)[i]*=iv[i];\n    return *this;\n  }\n  FPS log(int d=-1)const{\n\
     \    const int n=(*this).size();\n    if(d==-1)d=n;\n    FPS res=diff()*inv(d);\n\
     \    res.resize(d-1);\n    return res.integral();\n  }\n  FPS& inplace_log(int\
@@ -504,89 +508,8 @@ data:
     \    const mint inv2=mint(2).inv();\n    FPS f={(*this)[0]};\n    for(int i=1;i<d;i<<=1){\n\
     \      if(i<n)f.insert(f.end(),(*this).begin()+i,(*this).begin()+min(n,i<<1));\n\
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      res=(res+f*res.inv(i<<1))*inv2;\n\
-    \    }\n    res.resize(d);\n    return res;\n  }\n};\n/*\ntemplate<int m>\nstruct\
-    \ FormalPowerSeries:vector<ModInt<m>>{\n  using mint=ModInt<m>;\n  using vector<mint>::vector;\n\
-    \  using vector<mint>::operator=;\n  void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
-    \  FormalPowerSeries inv(int d=-1)const{\n    NTT<m>ntt;\n    const int n=(*this).size();\n\
-    \    if(d==-1)d=n;\n    FormalPowerSeries res{(*this)[0].inv()};\n    for(int\
-    \ sz=1;sz<d;sz<<=1){\n      FormalPowerSeries f((*this).begin(),(*this).begin()+min(n,2*sz));\n\
-    \      FormalPowerSeries g(res);\n      f.resize(2*sz),g.resize(2*sz);\n     \
-    \ ntt.dft(f,1),ntt.dft(g,1);\n      for(int i=0;i<2*sz;i++)f[i]*=g[i];\n     \
-    \ ntt.dft(f,-1);\n      f.erase(f.begin(),f.begin()+sz);\n      f.resize(2*sz);ntt.dft(f,1);\n\
-    \      for(int i=0;i<2*sz;i++)f[i]*=g[i];\n      ntt.dft(f,-1);\n      mint iz=mint(2*sz).inv();iz*=-iz;\n\
-    \      for(int i=0;i<sz;i++)f[i]*=iz;\n      res.insert(res.end(),f.begin(),f.begin()+sz);\n\
-    \    }\n    res.resize(d);\n    return res;\n  }\n  FormalPowerSeries operator+(const\
-    \ mint&r)const{return FormalPowerSeries(*this)+=r;}\n  FormalPowerSeries operator-(const\
-    \ mint&r)const{return FormalPowerSeries(*this)-=r;}\n  FormalPowerSeries operator*(const\
-    \ mint&r)const{return FormalPowerSeries(*this)*=r;}\n  FormalPowerSeries operator/(const\
-    \ mint&r)const{return FormalPowerSeries(*this)/=r;}\n  FormalPowerSeries operator+(const\
-    \ FormalPowerSeries&r)const{return FormalPowerSeries(*this)+=r;}\n  FormalPowerSeries\
-    \ operator-(const FormalPowerSeries&r)const{return FormalPowerSeries(*this)-=r;}\n\
-    \  FormalPowerSeries operator<<(const int&d)const{return FormalPowerSeries(*this)<<=d;}\n\
-    \  FormalPowerSeries operator>>(const int&d)const{return FormalPowerSeries(*this)>>=d;}\n\
-    \  FormalPowerSeries operator*(const FormalPowerSeries&r)const{return FormalPowerSeries(*this)*=r;}\n\
-    \  FormalPowerSeries operator/(const FormalPowerSeries&r)const{return FormalPowerSeries(*this)/=r;}\n\
-    \  FormalPowerSeries operator%(const FormalPowerSeries&r)const{return FormalPowerSeries(*this)%=r;}\n\
-    \  FormalPowerSeries operator-()const{\n    FormalPowerSeries ret(*this);\n  \
-    \  for(auto &i:ret)i=-i;\n    return ret;\n  }\n  FormalPowerSeries &operator+=(const\
-    \ mint&r){\n    if((*this).empty())(*this).resize(1);\n    (*this)[0]+=r;\n  \
-    \  return *this;\n  }\n  FormalPowerSeries &operator-=(const mint&r){\n    if((*this).empty())(*this).resize(1);\n\
-    \    (*this)[0]-=r;\n    return *this;\n  }\n  FormalPowerSeries &operator*=(const\
-    \ mint&r){\n    for(auto &i:*this)i*=r;\n    return *this;\n  }\n  FormalPowerSeries\
-    \ &operator/=(const mint&r){\n    (*this)*=r.inv();\n    return *this;\n  }\n\
-    \  FormalPowerSeries &operator+=(const FormalPowerSeries&r){\n    const int n=(*this).size(),sz=r.size();\n\
-    \    (*this).resize(max(n,sz));\n    for(int i=0;i<sz;i++)(*this)[i]+=r[i];\n\
-    \    return *this;\n  }\n  FormalPowerSeries &operator-=(const FormalPowerSeries&r){\n\
-    \    const int n=(*this).size(),sz=r.size();\n    (*this).resize(max(n,sz));\n\
-    \    for(int i=0;i<sz;i++)(*this)[i]-=r[i];\n    return *this;\n  }\n  FormalPowerSeries\
-    \ &operator<<=(const long long&d){\n    (*this).insert((*this).begin(),d,mint(0));\n\
-    \    return *this;\n  }\n  FormalPowerSeries &operator>>=(const long long&d){\n\
-    \    (*this).erase((*this).begin(),(*this).begin()+d);\n    return *this;\n  }\n\
-    \  FormalPowerSeries &operator*=(const FormalPowerSeries&r){\n    (*this)=NTT<m>::multiply((*this),r);\n\
-    \    return *this;\n  }\n  FormalPowerSeries &operator/=(FormalPowerSeries r){\n\
-    \    const int n=(*this).size(),n1=r.size();\n    if(n<n1){\n      (*this).clear();\n\
-    \      return *this;\n    }\n    const int sz=n-n1+1;\n    reverse((*this).begin(),(*this).end());\n\
-    \    reverse(r.begin(),r.end());\n    (*this).resize(sz);\n    (*this)*=r.inv(sz);\n\
-    \    (*this).resize(sz);\n    reverse((*this).begin(),(*this).end());\n    return\
-    \ (*this);\n  }\n  FormalPowerSeries &operator%=(const FormalPowerSeries&r){\n\
-    \    const int n=(*this).size(),sz=r.size();\n    if(n<sz)return (*this);\n  \
-    \  (*this)-=(*this)/r*r;\n    (*this).resize(sz-1);\n    shrink();\n    return\
-    \ (*this);\n  }\n  pair<FormalPowerSeries,FormalPowerSeries>div_mod(const FormalPowerSeries&r){\n\
-    \    FormalPowerSeries p=*this/r,q=*this-p*r;\n    q.shrink();\n    return {p,q};\n\
-    \  }\n  mint operator()(const mint&x)const{\n    mint ret(0),w(1);\n    for(auto\
-    \ &e:*this){\n      ret+=e*w;\n      w*=x;\n    }\n    return ret;\n  }\n  FormalPowerSeries\
-    \ diff()const{\n    const int n=(*this).size();\n    FormalPowerSeries ret(max(0,n-1));\n\
-    \    for(int i=1;i<n;i++)ret[i-1]=(*this)[i]*mint(i);\n    return ret;\n  }\n\
-    \  FormalPowerSeries integral()const{\n    const int n=(*this).size();\n    vector<mint>inv(n+1);\n\
-    \    inv[1]=mint(1);\n    for(int i=2;i<=n;i++)inv[i]=-inv[m%i]*mint(m/i);\n \
-    \   FormalPowerSeries ret(n+1);\n    for(int i=0;i<n;i++)ret[i+1]=(*this)[i]*inv[i+1];\n\
-    \    return ret;\n  }\n  FormalPowerSeries log(int d=-1)const{\n    const int\
-    \ n=(*this).size();\n    if(d==-1)d=n;\n    FormalPowerSeries res=diff()*inv(d);\n\
-    \    res.resize(d-1);\n    return res.integral();\n  }\n  FormalPowerSeries exp(int\
-    \ d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n    FormalPowerSeries\
-    \ f={mint(1)+(*this)[0],(*this)[1]},res{1,1<n?(*this)[1]:0};\n    for(int sz=2;sz<d;sz<<=1){\n\
-    \      f.insert(f.end(),(*this).begin()+min(sz,n),(*this).begin()+min(n,2*sz));\n\
-    \      if((int)f.size()<2*sz)f.resize(2*sz);\n      res=res*(f-res.log(2*sz));\n\
-    \      res.resize(2*sz);\n    }\n    res.resize(d);\n    return res;\n  }\n  FormalPowerSeries\
-    \ pow(long long k,int d=-1)const{\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
-    \    if(k==0){\n      FormalPowerSeries ans(d,mint(0));\n      ans[0]=1;\n   \
-    \   return ans;\n    }\n    for(int i=0;i<n;i++){\n      if((*this)[i]!=mint()){\n\
-    \        if(i>d/k)return FormalPowerSeries(d,mint(0));\n        mint rev=(*this)[i].inv();\n\
-    \        FormalPowerSeries ret=(((*this*rev)>>i).log(d)*k).exp(d)*((*this)[i].pow(k));\n\
-    \        ret=(ret<<(i*k));\n        ret.resize(d);\n        return ret;\n    \
-    \  }\n    }\n    return FormalPowerSeries(d,mint(0));\n  }\n  FormalPowerSeries\
-    \ sqrt(int d=-1,const function<mint(mint)>&get_sqrt=[](mint){return mint(1);})const{\n\
-    \    const int n=(*this).size();\n    if(d==-1)d=n;\n    if((*this)[0]==mint(0)){\n\
-    \      for(int i=1;i<n;i++){\n        if((*this)[i]!=mint(0)){\n          if(i&1)return\
-    \ {};\n          if(d-i/2<=0)break;\n          auto ret=(*this>>i).sqrt(d-i/2,get_sqrt);\n\
-    \          if(ret.empty())return {};\n          ret=ret<<(i/2);\n          if((int)ret.size()<d)ret.resize(d);\n\
-    \          return ret;\n        }\n      }\n      return FormalPowerSeries(d);\n\
-    \    }\n    auto sqr=get_sqrt((*this)[0]);\n    if(sqr*sqr!=(*this)[0])return\
-    \ {};\n    FormalPowerSeries ret{sqr};\n    mint inv2=mint(2).inv();\n    FormalPowerSeries\
-    \ f={(*this)[0]};\n    for(int i=1;i<d;i<<=1){\n      if(i<n)f.insert(f.end(),(*this).begin()+i,(*this).begin()+min(n,i<<1));\n\
-    \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      ret=(ret+f*ret.inv(i<<1))*inv2;\n\
-    \    }\n    ret.resize(d);\n    return ret;\n  }\n};*/\n/**\n * @brief Formal\
-    \ Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"math/fps/multipoint-evaluation.hpp\"\
+    \    }\n    res.resize(d);\n    return res;\n  }\n};\n/**\n * @brief Formal Power\
+    \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"math/fps/multipoint-evaluation.hpp\"\
     \n\ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr>\nvector<T>multipoint_evaluation(const\
     \ FormalPowerSeries<T>&f,const vector<T>&xs){\n  const int n=xs.size();\n  const\
     \ int sz=1<<ceil_log2(n);\n  vector<FormalPowerSeries<T>>g(sz<<1,{1});\n  for(int\
@@ -622,7 +545,7 @@ data:
   isVerificationFile: false
   path: math/fps/multipoint-evaluation.hpp
   requiredBy: []
-  timestamp: '2022-12-24 10:45:37+09:00'
+  timestamp: '2022-12-24 11:09:14+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/polynomial/multipoint_evaluation.test.cpp

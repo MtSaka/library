@@ -51,7 +51,7 @@ data:
     - icon: ':question:'
       path: data-structure/segment-tree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: data-structure/sparse-table.hpp
       title: Sparse Table
     - icon: ':question:'
@@ -83,10 +83,10 @@ data:
       title: geometry/geometry.hpp
   - name: graph/flow
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/dinic.hpp
       title: "Dinic(\u6700\u5927\u6D41)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/ford-fulkerson.hpp
       title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: graph
@@ -105,14 +105,14 @@ data:
       title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - name: graph/others
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/detect-cycle.hpp
       title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
     - icon: ':question:'
       path: graph/others/scc.hpp
       title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
         )"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/others/topological-sort.hpp
       title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
         )"
@@ -136,35 +136,35 @@ data:
       title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - name: graph/tree
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/tree/RMQ_lowest_common_ancestor.hpp
       title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':warning:'
       path: graph/tree/centroid.hpp
       title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/tree/doubling-lowest-common-ancestor.hpp
       title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/tree/tree-diameter.hpp
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: math/convolution
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/convolution/convolution.hpp
       title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
     - icon: ':warning:'
       path: math/convolution/fft.hpp
       title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB\
         )"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/convolution/gcd-convolution.hpp
       title: GCD Convolution
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/convolution/lcm-convolution.hpp
       title: LCM Convolution
   - name: math/fps
@@ -192,10 +192,10 @@ data:
     - icon: ':x:'
       path: math/modular/mod-sqrt.hpp
       title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/modular/modint.hpp
       title: ModInt
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/modular/montgomery-modint.hpp
       title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
   - name: math/number
@@ -203,31 +203,31 @@ data:
     - icon: ':warning:'
       path: math/number/factor-cnt.hpp
       title: "Factor Count(\u7D04\u6570\u500B\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/number/factor.hpp
       title: "Factor Enumeration(\u7D04\u6570\u5217\u6319)"
     - icon: ':x:'
       path: math/number/kth-root-integer.hpp
       title: Kth Root Integer
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/number/miller-rabin.hpp
       title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
         \u6570\u5224\u5B9A)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/number/phi.hpp
       title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
         )"
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/number/pollard-rho.hpp
       title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
         \u6CD5)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/number/prime-factor.hpp
       title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
       path: math/number/prime-sieve.hpp
       title: "Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/number/primitive-root.hpp
       title: "Primitive Root(\u539F\u59CB\u6839)"
     - icon: ':warning:'
@@ -256,7 +256,7 @@ data:
     - icon: ':x:'
       path: others/mo.hpp
       title: Mo's Algorithm
-    - icon: ':x:'
+    - icon: ':question:'
       path: others/random.hpp
       title: "Random(\u4E71\u6570)"
     - icon: ':warning:'
@@ -267,7 +267,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/rolling-hash.hpp
       title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: string/run-length.hpp
       title: string/run-length.hpp
   - name: template
@@ -403,61 +403,61 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_3_C.test.cpp
       title: test/aoj/GRL/GRL_3_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_4_A.test.cpp
       title: test/aoj/GRL/GRL_4_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_4_B.test.cpp
       title: test/aoj/GRL/GRL_4_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_A.test.cpp
       title: test/aoj/GRL/GRL_5_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_B.test.cpp
       title: test/aoj/GRL/GRL_5_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_C_1.test.cpp
       title: test/aoj/GRL/GRL_5_C_1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_C_2.test.cpp
       title: test/aoj/GRL/GRL_5_C_2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_6_A.test.cpp
       title: test/aoj/GRL/GRL_6_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_6_A_2.test.cpp
       title: test/aoj/GRL/GRL_6_A_2.test.cpp
   - name: test/aoj/ITP1
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ITP1/ITP1_3_D.test.cpp
       title: test/aoj/ITP1/ITP1_3_D.test.cpp
   - name: test/aoj/NTL
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_A.test.cpp
       title: test/aoj/NTL/NTL_1_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_B.test.cpp
       title: test/aoj/NTL/NTL_1_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_C.test.cpp
       title: test/aoj/NTL/NTL_1_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_D.test.cpp
       title: test/aoj/NTL/NTL_1_D.test.cpp
   - name: test/yosupo/convolution
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution/convolution_mod.test.cpp
       title: test/yosupo/convolution/convolution_mod.test.cpp
     - icon: ':x:'
       path: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution/gcd_convolution.test.cpp
       title: test/yosupo/convolution/gcd_convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution/lcm_convolution.test.cpp
       title: test/yosupo/convolution/lcm_convolution.test.cpp
   - name: test/yosupo/data_strucuture
