@@ -200,22 +200,20 @@ data:
     \ &is,StaticModInt&x){\n    ll tmp;\n    is>>tmp;\n    x=StaticModInt(tmp);\n\
     \    return is;\n  }\n};\ntemplate<unsigned int p>using ModInt=StaticModInt<unsigned\
     \ int,p>;\n/**\n * @brief ModInt\n*/\n#line 4 \"math/others/combinatorics.hpp\"\
-    \n\ntemplate<int m>\nstruct Combinatorics{\n  using mint=ModInt<m>;\n  private:\n\
-    \  static vector<mint>dat,idat;\n  inline static void extend(int sz){\n    if((int)dat.size()<sz+1){\n\
-    \      int pre_sz=max<int>(1,dat.size());\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
-    \      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n      idat[sz]=1/dat[sz];\n\
+    \n\ntemplate<typename T>\nstruct Combinatorics{\n  private:\n  static vector<T>dat,idat;\n\
+    \  inline static void extend(int sz){\n    if((int)dat.size()<sz+1){\n      int\
+    \ pre_sz=max<int>(1,dat.size());\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
+    \      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n      idat[sz]=T(1)/dat[sz];\n\
     \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n    }\n  }\n  public:\n\
-    \  Combinatorics(int sz=0){extend(sz);}\n  template<typename T>\n  static inline\
-    \ mint fac(T n){\n    if(n<0)return mint();\n    extend(n);\n    return dat[n];\n\
-    \  }\n  template<typename T>\n  static inline mint finv(T n){\n    if(n<0)return\
-    \ mint();\n    extend(n);\n    return idat[n];\n  }\n  template<typename T,typename\
-    \ U>\n  static mint com(T n,U k){\n    if(k<0||n<k)return mint();\n    return\
-    \ fac(n)*finv(k)*finv(n-k);\n  }\n  template<typename T,typename U>\n  static\
-    \ mint hom(T n,U k){\n    if(n<0||k<0)return mint();\n    return k==0?1:com(n+k-1,k);\n\
-    \  }\n  template<typename T,typename U>\n  static mint per(T n,U k){\n    if(k<0||n<k)return\
-    \ mint();\n    return fac(n)*finv(n-k);\n  }\n};\ntemplate<int m>\nvector<ModInt<m>>Combinatorics<m>::dat=vector<ModInt<m>>();\n\
-    template<int m>\nvector<ModInt<m>>Combinatorics<m>::idat=vector<ModInt<m>>();\n\
-    template<long long p>\nstruct COMB{\n  private:\n  static vector<vector<ModInt<p>>>comb;\n\
+    \  Combinatorics(int sz=0){extend(sz);}\n  static inline T fac(ll n){\n    if(n<0)return\
+    \ T();\n    extend(n);\n    return dat[n];\n  }\n  static inline T finv(ll n){\n\
+    \    if(n<0)return T();\n    extend(n);\n    return idat[n];\n  }\n  static T\
+    \ com(ll n,ll k){\n    if(k<0||n<k)return T();\n    return fac(n)*finv(k)*finv(n-k);\n\
+    \  }\n  static T hom(ll n,ll k){\n    if(n<0||k<0)return mint();\n    return k==0?1:com(n+k-1,k);\n\
+    \  }\n  static T per(ll n,ll k){\n    if(k<0||n<k)return T();\n    return fac(n)*finv(n-k);\n\
+    \  }\n};\ntemplate<typename T>\nvector<T>Combinatorics<T>::dat=vector<T>{0,1};\n\
+    template<typename T>\nvector<T>Combinatorics<T>::idat=vector<T>{0,1};\ntemplate<long\
+    \ long p>\nstruct COMB{\n  private:\n  static vector<vector<ModInt<p>>>comb;\n\
     \  static void init(){\n    if(!comb.empty())return;\n    comb.assign(p,vector<ModInt<p>>(p));\n\
     \    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int\
     \ j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n    }\n  }\n  public:\n\
@@ -224,7 +222,7 @@ data:
     \    n/=p;k/=p;\n    }\n    return ret;\n  }\n};\ntemplate<long long p>\nvector<vector<ModInt<p>>>COMB<p>::comb=vector<vector<ModInt<p>>>();\n\
     /**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n#line 4 \"math/others/lagrange.hpp\"\
     \n\ntemplate<long long m>\nModInt<m>lagrange_polynomial(const vector<ModInt<m>>&y,const\
-    \ long long&t){\n  using mint=ModInt<m>;\n  const int n=y.size()-1;\n  Combinatorics<m>c(n);\n\
+    \ long long&t){\n  using mint=ModInt<m>;\n  const int n=y.size()-1;\n  Combinatorics<mint>c(n);\n\
     \  if(t<=n)return y[t];\n  mint ret;\n  vector<mint>dp(n+1,1),pd(n+1,1);\n  for(int\
     \ i=0;i<n;i++)dp[i+1]=dp[i]*(t-i);\n  for(int i=n;i>0;i--)pd[i-1]=pd[i]*(t-i);\n\
     \  for(int i=0;i<=n;i++){\n    mint tmp=y[i]*dp[i]*pd[i]*c.finv(i)*c.finv(n-i);\n\
@@ -232,7 +230,7 @@ data:
     \ @brief Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)\n*/\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"combinatorics.hpp\"\
     \n\ntemplate<long long m>\nModInt<m>lagrange_polynomial(const vector<ModInt<m>>&y,const\
-    \ long long&t){\n  using mint=ModInt<m>;\n  const int n=y.size()-1;\n  Combinatorics<m>c(n);\n\
+    \ long long&t){\n  using mint=ModInt<m>;\n  const int n=y.size()-1;\n  Combinatorics<mint>c(n);\n\
     \  if(t<=n)return y[t];\n  mint ret;\n  vector<mint>dp(n+1,1),pd(n+1,1);\n  for(int\
     \ i=0;i<n;i++)dp[i+1]=dp[i]*(t-i);\n  for(int i=n;i>0;i--)pd[i-1]=pd[i]*(t-i);\n\
     \  for(int i=0;i<=n;i++){\n    mint tmp=y[i]*dp[i]*pd[i]*c.finv(i)*c.finv(n-i);\n\
@@ -251,7 +249,7 @@ data:
   isVerificationFile: false
   path: math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2022-12-24 03:09:26+09:00'
+  timestamp: '2022-12-24 12:33:13+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/others/lagrange.hpp

@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':question:'
@@ -487,8 +487,8 @@ data:
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      res=(res+f*res.inv(i<<1))*inv2;\n\
     \    }\n    res.resize(d);\n    return res;\n  }\n};\n/**\n * @brief Formal Power\
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"math/fps/polynomial-interpolation.hpp\"\
-    \n\ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr>\nFormalPowerSeries<T>polynomial_interpolation(const\
-    \ vector<T>&xs,const vector<T>&ys){\n  const int n=xs.size();\n  const int sz=1<<ceil_log2(n);\n\
+    \n\ntemplate<typename T>\nFormalPowerSeries<T>polynomial_interpolation(const vector<T>&xs,const\
+    \ vector<T>&ys){\n  const int n=xs.size();\n  const int sz=1<<ceil_log2(n);\n\
     \  vector<FormalPowerSeries<T>>mul(sz<<1,{1});\n  for(int i=0;i<n;i++)mul[i+sz]={-xs[i],T(1)};\n\
     \  for(int i=sz;i-->1;)mul[i]=mul[i<<1]*mul[i<<1|1];\n  vector<FormalPowerSeries<T>>g(2*sz);\n\
     \  g[1]=mul[1].diff()%mul[1];\n  for(int i=2;i<sz+n;i++)g[i]=g[i>>1]%mul[i];\n\
@@ -496,8 +496,8 @@ data:
     \  return g[1];\n}\n/**\n * @brief Polynomial Interpolation(\u591A\u9805\u5F0F\
     \u88DC\u9593)\n*/\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"fps.hpp\"\
-    \n\ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr>\nFormalPowerSeries<T>polynomial_interpolation(const\
-    \ vector<T>&xs,const vector<T>&ys){\n  const int n=xs.size();\n  const int sz=1<<ceil_log2(n);\n\
+    \n\ntemplate<typename T>\nFormalPowerSeries<T>polynomial_interpolation(const vector<T>&xs,const\
+    \ vector<T>&ys){\n  const int n=xs.size();\n  const int sz=1<<ceil_log2(n);\n\
     \  vector<FormalPowerSeries<T>>mul(sz<<1,{1});\n  for(int i=0;i<n;i++)mul[i+sz]={-xs[i],T(1)};\n\
     \  for(int i=sz;i-->1;)mul[i]=mul[i<<1]*mul[i<<1|1];\n  vector<FormalPowerSeries<T>>g(2*sz);\n\
     \  g[1]=mul[1].diff()%mul[1];\n  for(int i=2;i<sz+n;i++)g[i]=g[i>>1]%mul[i];\n\
@@ -524,7 +524,7 @@ data:
   isVerificationFile: false
   path: math/fps/polynomial-interpolation.hpp
   requiredBy: []
-  timestamp: '2022-12-24 12:08:13+09:00'
+  timestamp: '2022-12-24 12:33:13+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/polynomial/polynomial_interpolation.test.cpp

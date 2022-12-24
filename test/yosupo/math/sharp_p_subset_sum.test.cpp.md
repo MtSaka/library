@@ -4,10 +4,10 @@ data:
   - icon: ':question:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/subset-sum.hpp
     title: Count Subset Sum
   - icon: ':question:'
@@ -56,9 +56,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sharp_p_subset_sum
@@ -491,8 +491,8 @@ data:
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      res=(res+f*res.inv(i<<1))*inv2;\n\
     \    }\n    res.resize(d);\n    return res;\n  }\n};\n/**\n * @brief Formal Power\
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"math/fps/subset-sum.hpp\"\
-    \n\ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr>\nFormalPowerSeries<T>subset_sum(vector<T>&count){\n\
-    \  const int n=(int)count.size();\n  const int mod=T::get_mod();\n  vector<T>inv_table(n);\n\
+    \n\ntemplate<typename T>\nFormalPowerSeries<T>subset_sum(vector<T>&count){\n \
+    \ const int n=(int)count.size();\n  constexpr int mod=T::get_mod();\n  vector<T>inv_table(n);\n\
     \  inv_table[1]=1;\n  for(int i=2;i<n;i++)inv_table[i]=-inv_table[mod%i]*(mod/i);\n\
     \  FormalPowerSeries<T>f(n);\n  for(int i=1;i<n;i++)if(count[i].get()){\n    for(int\
     \ j=1,k=i;k<n;j++,k+=i){\n      if(j&1)f[k]+=inv_table[j]*count[i];\n      else\
@@ -527,8 +527,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/math/sharp_p_subset_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-12-24 12:08:13+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-24 12:33:13+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/math/sharp_p_subset_sum.test.cpp
 layout: document

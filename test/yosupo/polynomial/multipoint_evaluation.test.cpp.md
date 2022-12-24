@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':x:'
@@ -491,16 +491,16 @@ data:
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      res=(res+f*res.inv(i<<1))*inv2;\n\
     \    }\n    res.resize(d);\n    return res;\n  }\n};\n/**\n * @brief Formal Power\
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"math/fps/multipoint-evaluation.hpp\"\
-    \n\ntemplate<typename T,enable_if_t<is_modint<T>::value>* =nullptr>\nvector<T>multipoint_evaluation(const\
-    \ FormalPowerSeries<T>&f,const vector<T>&xs){\n  const int n=xs.size();\n  const\
-    \ int sz=1<<ceil_log2(n);\n  vector<FormalPowerSeries<T>>g(sz<<1,{1});\n  for(int\
-    \ i=0;i<n;i++)g[i+sz]={-xs[i],1};\n  for(int i=sz;i-->1;)g[i]=g[i<<1]*g[i<<1|1];\n\
-    \  g[1]=f%g[1];\n  for(int i=2;i<sz+n;i++)g[i]=g[i>>1]%g[i];\n  vector<T>res(n);\n\
-    \  for(int i=0;i<n;i++)res[i]=(g[i+sz].empty()?T():g[i+sz][0]);\n  return res;\n\
-    }\n/**\n * @brief Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)\n*/\n#line 5\
-    \ \"test/yosupo/polynomial/multipoint_evaluation.test.cpp\"\nusing mint=ModInt<998244353>;\n\
-    int main(){\n  int n,m;\n  cin>>n>>m;\n  FormalPowerSeries<mint>f(n);\n  vector<mint>xs(m);\n\
-    \  cin>>f>>xs;\n  cout<<multipoint_evaluation(f,xs)<<endl;\n}\n"
+    \n\ntemplate<typename T>\nvector<T>multipoint_evaluation(const FormalPowerSeries<T>&f,const\
+    \ vector<T>&xs){\n  const int n=xs.size();\n  const int sz=1<<ceil_log2(n);\n\
+    \  vector<FormalPowerSeries<T>>g(sz<<1,{1});\n  for(int i=0;i<n;i++)g[i+sz]={-xs[i],1};\n\
+    \  for(int i=sz;i-->1;)g[i]=g[i<<1]*g[i<<1|1];\n  g[1]=f%g[1];\n  for(int i=2;i<sz+n;i++)g[i]=g[i>>1]%g[i];\n\
+    \  vector<T>res(n);\n  for(int i=0;i<n;i++)res[i]=(g[i+sz].empty()?T():g[i+sz][0]);\n\
+    \  return res;\n}\n/**\n * @brief Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1\
+    )\n*/\n#line 5 \"test/yosupo/polynomial/multipoint_evaluation.test.cpp\"\nusing\
+    \ mint=ModInt<998244353>;\nint main(){\n  int n,m;\n  cin>>n>>m;\n  FormalPowerSeries<mint>f(n);\n\
+    \  vector<mint>xs(m);\n  cin>>f>>xs;\n  cout<<multipoint_evaluation(f,xs)<<endl;\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/multipoint_evaluation\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/fps/fps.hpp\"\
     \n#include\"../../../math/fps/multipoint-evaluation.hpp\"\nusing mint=ModInt<998244353>;\n\
@@ -527,7 +527,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/multipoint_evaluation.test.cpp
   requiredBy: []
-  timestamp: '2022-12-24 12:08:13+09:00'
+  timestamp: '2022-12-24 12:33:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/multipoint_evaluation.test.cpp
