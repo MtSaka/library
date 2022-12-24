@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: math/convolution/convolution.hpp
-    title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
+    title: "Convolution(\u7573\u307F\u8FBC\u307F)"
   - icon: ':x:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
@@ -405,36 +405,13 @@ data:
     \ constexpr ull INV1_2=mod_pow(MOD1,MOD2-2,MOD2);\n  static constexpr ull INV1_3=mod_pow(MOD1,MOD3-2,MOD3);\n\
     \  static constexpr ull INV2_3=mod_pow(MOD2,MOD3-2,MOD3);\n  auto c1=convolution<MOD1>(a1,b1);\n\
     \  auto c2=convolution<MOD2>(a1,b1);\n  auto c3=convolution<MOD3>(a1,b1);\n  vector<ModInt<p>>c(sz1+sz2-1);\n\
-    \  rep(i,sz1+sz2-1){\n    ll x1=c1[i];\n    ll x2=(c2[i]-x1+MOD2)*INV1_2%MOD2;\n\
-    \    if(x2<0)x2+=MOD2;\n    ll x3=((c3[i]-x1+MOD3)*INV1_3%MOD3-x2+MOD3)*INV2_3%MOD3;\n\
-    \    if(x3<0)x3+=MOD3;\n    c[i]=ModInt<p>(x1+(x2+x3*MOD2)*MOD1);\n  }\n  return\
-    \ c;\n}\ntemplate<int m>\nstruct NTT{\n  using mint=ModInt<m>;\n  private:\n \
-    \ static ModInt<m> g;\n  static int limit;\n  static vector<ModInt<m>>root,inv_root;\n\
-    \  static void init(){\n    if(!root.empty())return;\n    g=primitive_root(m);\n\
-    \    long long now=m-1;\n    while(!(now&1))now>>=1,limit++;\n    root.resize(limit+1,1),inv_root.resize(limit+1,1);\n\
-    \    root[limit]=g.pow(now);\n    inv_root[limit]/=root[limit];\n    for(int i=limit-1;i>=0;i--){\n\
-    \      root[i]=root[i+1]*root[i+1];\n      inv_root[i]=inv_root[i+1]*inv_root[i+1];\n\
-    \    }\n  }\n  public:\n  NTT(){init();};\n  static void dft(vector<mint>&a,int\
-    \ inv){\n    init();\n    const int sz=a.size();\n    if(sz==1)return;\n    const\
-    \ int mask=sz-1;\n    vector<mint>b(sz);\n    for(int i=sz>>1;i>=1;i>>=1){\n \
-    \     int e=__builtin_ffsll(sz/i)-1;\n      mint w=1,z=(inv==1?root[e]:inv_root[e]);\n\
-    \      for(int j=0;j<sz;j+=i){\n        for(int k=0;k<i;k++)b[j+k]=a[((j<<1)&mask)+k]+w*a[(((j<<1)+i)&mask)+k];\n\
-    \        w*=z;\n      }\n      swap(a,b);\n    }\n  }\n  static vector<mint>multiply(vector<mint>a,vector<mint>b){\n\
-    \    int sz=1;\n    const int mxsiz=a.size()+b.size()-1;\n    while(sz<mxsiz)sz<<=1;\n\
-    \    a.resize(sz),b.resize(sz);\n    dft(a,1),dft(b,1);\n    for(int i=0;i<sz;i++)a[i]*=b[i];\n\
-    \    print(a);\n    dft(a,-1);\n    a.resize(mxsiz);\n    mint iz=mint(sz).inv();\n\
-    \    for(int i=0;i<mxsiz;i++)a[i]*=iz;\n    return a;\n  }\n  template<typename\
-    \ T,std::enable_if_t<is_integral<T>::value>* = nullptr>\n  static vector<T>multiply(const\
-    \ vector<T>&a,const vector<T>&b){\n    vector<mint>a1(a.size()),b1(b.size());\n\
-    \    for(int i=0;i<(int)a.size();i++)a1[i]=a[i];\n    for(int i=0;i<(int)b.size();i++)b1[i]=b[i];\n\
-    \    auto c2=multiply(a1,b1);\n    vector<T>c(c2.size());\n    for(int i=0;i<(int)c.size();i++)c[i]=c2[i].get();\n\
-    \    return c;\n  }\n};\ntemplate<int m>\nint NTT<m>::limit=0;\ntemplate<int m>\n\
-    vector<ModInt<m>>NTT<m>::root=vector<ModInt<m>>();\ntemplate<int m>\nvector<ModInt<m>>NTT<m>::inv_root=vector<ModInt<m>>();\n\
-    template<int m>\nModInt<m>NTT<m>::g=ModInt<m>();\n/**\n * @brief Number Theoretic\
-    \ Transform(\u6570\u8AD6\u5909\u63DB)\n*/\n#line 4 \"math/fps/fps.hpp\"\n\ntemplate<typename\
-    \ mint=ModInt<998244353>>\nstruct FormalPowerSeries:vector<mint>{\n  using vector<mint>::vector;\n\
-    \  using FPS=FormalPowerSeries<mint>;\n  private:\n  static constexpr unsigned\
-    \ int p=mint::get_mod();\n  public:\n  inline void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
+    \  rep(i,sz1+sz2-1){\n    ull x1=c1[i];\n    ull x2=(c2[i]-x1+MOD2)*INV1_2%MOD2;\n\
+    \    ull x3=((c3[i]-x1+MOD3)*INV1_3%MOD3-x2+MOD3)*INV2_3%MOD3;\n    c[i]=ModInt<p>(x1+(x2+x3*MOD2)%p*MOD1);\n\
+    \  }\n  return c;\n}\n/**\n * @brief Convolution(\u7573\u307F\u8FBC\u307F)\n*/\n\
+    #line 4 \"math/fps/fps.hpp\"\n\ntemplate<typename mint=ModInt<998244353>>\nstruct\
+    \ FormalPowerSeries:vector<mint>{\n  using vector<mint>::vector;\n  using FPS=FormalPowerSeries<mint>;\n\
+    \  private:\n  static constexpr unsigned int p=mint::get_mod();\n  public:\n \
+    \ inline void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
     \  FPS& dot(const FPS&r){\n    rep(i,min((*this).size(),r.size()))(*this)[i]*=r[i];\n\
     \    return *this;\n  }\n  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res(d);\n    res[0]=(*this)[0].inv();\n    for(int\
@@ -575,7 +552,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2022-12-24 11:09:14+09:00'
+  timestamp: '2022-12-24 12:08:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp

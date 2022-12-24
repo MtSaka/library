@@ -24,12 +24,12 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
     title: test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min
       Max)
@@ -309,7 +309,7 @@ data:
   path: data-structure/segment-tree-beats.hpp
   requiredBy: []
   timestamp: '2022-12-24 03:09:26+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
 documentation_of: data-structure/segment-tree-beats.hpp

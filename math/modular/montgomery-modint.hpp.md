@@ -25,7 +25,7 @@ data:
   _extendedRequiredBy:
   - icon: ':question:'
     path: math/convolution/convolution.hpp
-    title: "Number Theoretic Transform(\u6570\u8AD6\u5909\u63DB)"
+    title: "Convolution(\u7573\u307F\u8FBC\u307F)"
   - icon: ':x:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
@@ -56,7 +56,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution/convolution_mod.test.cpp
     title: test/yosupo/convolution/convolution_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
   - icon: ':x:'
