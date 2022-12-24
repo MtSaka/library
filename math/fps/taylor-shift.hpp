@@ -3,13 +3,13 @@
 #include"fps.hpp"
 #include"../others/combinatorics.hpp"
 
-template<typename T,enable_if_t<is_modint<T>::value>* =nullptr>
+template<typename T>
 FormalPowerSeries<T>taylor_shift(FormalPowerSeries<T>f,const T&a){
   const int n=f.size();
-  Combinatorics<T::get_mod()>c(n);
+  Combinatorics<mint>c(n);
   for(int i=0;i<n;i++)f[i]*=c.fac(i);
   reverse(f.begin(),f.end());
-  FormalPowerSeries<m>g(n,1);
+  FormalPowerSeries<T>g(n,1);
   for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);
   f*=g;
   f.resize(n);

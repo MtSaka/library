@@ -2,55 +2,49 @@
 #include"../../template/template.hpp"
 #include"../modular/modint.hpp"
 
-template<int m>
+template<typename T>
 struct Combinatorics{
-  using mint=ModInt<m>;
   private:
-  static vector<mint>dat,idat;
+  static vector<T>dat,idat;
   inline static void extend(int sz){
     if((int)dat.size()<sz+1){
       int pre_sz=max<int>(1,dat.size());
       dat.resize(sz+1,1);
       idat.resize(sz+1,1);
       for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;
-      idat[sz]=1/dat[sz];
+      idat[sz]=T(1)/dat[sz];
       for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);
     }
   }
   public:
   Combinatorics(int sz=0){extend(sz);}
-  template<typename T>
-  static inline mint fac(T n){
-    if(n<0)return mint();
+  static inline T fac(ll n){
+    if(n<0)return T();
     extend(n);
     return dat[n];
   }
-  template<typename T>
-  static inline mint finv(T n){
-    if(n<0)return mint();
+  static inline T finv(ll n){
+    if(n<0)return T();
     extend(n);
     return idat[n];
   }
-  template<typename T,typename U>
-  static mint com(T n,U k){
-    if(k<0||n<k)return mint();
+  static T com(ll n,ll k){
+    if(k<0||n<k)return T();
     return fac(n)*finv(k)*finv(n-k);
   }
-  template<typename T,typename U>
-  static mint hom(T n,U k){
+  static T hom(ll n,ll k){
     if(n<0||k<0)return mint();
     return k==0?1:com(n+k-1,k);
   }
-  template<typename T,typename U>
-  static mint per(T n,U k){
-    if(k<0||n<k)return mint();
+  static T per(ll n,ll k){
+    if(k<0||n<k)return T();
     return fac(n)*finv(n-k);
   }
 };
-template<int m>
-vector<ModInt<m>>Combinatorics<m>::dat=vector<ModInt<m>>();
-template<int m>
-vector<ModInt<m>>Combinatorics<m>::idat=vector<ModInt<m>>();
+template<typename T>
+vector<T>Combinatorics<T>::dat=vector<T>{0,1};
+template<typename T>
+vector<T>Combinatorics<T>::idat=vector<T>{0,1};
 template<long long p>
 struct COMB{
   private:

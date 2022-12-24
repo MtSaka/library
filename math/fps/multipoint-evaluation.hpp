@@ -2,7 +2,7 @@
 #include"../../template/template.hpp"
 #include"fps.hpp"
 
-template<typename T,enable_if_t<is_modint<T>::value>* =nullptr>
+template<typename T>
 vector<T>multipoint_evaluation(const FormalPowerSeries<T>&f,const vector<T>&xs){
   const int n=xs.size();
   const int sz=1<<ceil_log2(n);

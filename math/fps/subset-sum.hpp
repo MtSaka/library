@@ -2,10 +2,10 @@
 #include"../../template/template.hpp"
 #include"fps.hpp"
 
-template<typename T,enable_if_t<is_modint<T>::value>* =nullptr>
+template<typename T>
 FormalPowerSeries<T>subset_sum(vector<T>&count){
   const int n=(int)count.size();
-  const int mod=T::get_mod();
+  constexpr int mod=T::get_mod();
   vector<T>inv_table(n);
   inv_table[1]=1;
   for(int i=2;i<n;i++)inv_table[i]=-inv_table[mod%i]*(mod/i);
