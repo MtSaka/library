@@ -5,7 +5,7 @@ using mint=ModInt<998244353>;
 int main(){
   int n,c;
   cin>>n>>c;
-  FormalPowerSeries<998244353>f(n);
+  FormalPowerSeries<mint>f(n);
   cin>>f;
   print(taylor_shift(f,mint(c)));
 }

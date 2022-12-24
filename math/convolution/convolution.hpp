@@ -4,7 +4,7 @@
 #include"../number/miller-rabin.hpp"
 #include"../number/primitive-root.hpp"
 
-template<unsigned int p,enable_if_t<is_prime_v<p>>* =nullptr>
+template<unsigned int p>
 struct NthRoot{
   private:
   static constexpr unsigned int lg=msb((p-1)&(1-p));
@@ -23,7 +23,7 @@ struct NthRoot{
   constexpr unsigned int inv(int n)const{return inv_root[n];}
 };
 template<unsigned int p>constexpr NthRoot<p> nth_root;
-template<typename T,enable_if_t<is_modint<T>::value>* =nullptr,enable_if_t<is_prime_v<T::get_mod()>>* =nullptr>
+template<typename T,enable_if_t<is_modint<T>::value>* =nullptr>
 void ntt(vector<T>&a){
   constexpr unsigned int p=T::get_mod();
   const int sz=a.size();
@@ -46,8 +46,8 @@ void ntt(vector<T>&a){
     }
   }
 }
-template<typename T,enable_if_t<is_modint<T>::value>* =nullptr,enable_if_t<is_prime_v<T::get_mod()>>* =nullptr>
-void intt(vector<T>&a){
+template<typename T,enable_if_t<is_modint<T>::value>* =nullptr>
+void intt(vector<T>&a,const bool&f=true){
   constexpr unsigned int p=T::get_mod();
   const int sz=a.size();
   assert((unsigned int)sz<=((1-p)&(p-1)));
@@ -68,8 +68,10 @@ void intt(vector<T>&a){
       }
     }
   }
-  const T inv_sz=T(1)/sz;
-  for(auto&x:a)x*=inv_sz;
+  if(f){
+    const T inv_sz=T(1)/sz;
+    for(auto&x:a)x*=inv_sz;
+  }
 }
 template<typename T>
 vector<T>convolution_naive(const vector<T>&a,const vector<T>&b){
@@ -82,13 +84,50 @@ template<unsigned int p>
 vector<ModInt<p>>convolution_for_any_mod(const vector<ModInt<p>>&a,const vector<ModInt<p>>&b);
 template<typename T,enable_if_t<is_modint<T>::value>* =nullptr>
 vector<T>convole(vector<T>a,vector<T>b){
+  constexpr unsigned int p=T::get_mod();
   const int n=a.size()+b.size()-1;
-  const int sz=1<<ceil_log2(n);
+  const int lg=ceil_log2(n);
+  const int sz=1<<lg;
   a.resize(sz),b.resize(sz);
-  ntt(a),ntt(b);
+  rep(i,sz){
+    const int j=reverse(i,lg);
+    if(i<j){
+      swap(a[i],a[j]);
+      swap(b[i],b[j]);
+    }
+  }
+  rep(i,lg){
+    const T w=nth_root<p>.get(i+1);
+    rep(j,0,sz,1<<(i+1)){
+      T z=1;
+      rep(k,1<<i){
+        T x=a[j+k],y=a[j+k+(1<<i)]*z;
+        a[j+k]=x+y,a[j+k+(1<<i)]=x-y;
+        x=b[j+k],y=b[j+k+(1<<i)]*z;
+        b[j+k]=x+y,b[j+k+(1<<i)]=x-y;
+        z*=w;
+      }
+    }
+  }
   rep(i,sz)a[i]*=b[i];
-  intt(a);
+  rep(i,sz){
+    const int j=reverse(i,lg);
+    if(i<j)swap(a[i],a[j]);
+  }
+  rep(i,lg){
+    const T w=nth_root<p>.inv(i+1);
+    rep(j,0,sz,1<<(i+1)){
+      T z=1;
+      rep(k,1<<i){
+        T x=a[j+k],y=a[j+k+(1<<i)]*z;
+        a[j+k]=x+y,a[j+k+(1<<i)]=x-y;
+        z*=w;
+      }
+    }
+  }
   a.resize(n);
+  const T inv_sz=T(1)/sz;
+  for(auto&x:a)x*=inv_sz;
   return a;
 }
 template<typename T,enable_if_t<is_modint<T>::value>* =nullptr>
