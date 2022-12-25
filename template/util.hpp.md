@@ -81,7 +81,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: geometry/geometry.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/flow/dinic.hpp
     title: "Dinic(\u6700\u5927\u6D41)"
   - icon: ':question:'
@@ -300,7 +300,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_1_B.test.cpp
     title: test/aoj/DSL/DSL_1_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -309,22 +309,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B2.test.cpp
     title: test/aoj/DSL/DSL_2_B2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_D.test.cpp
     title: test/aoj/DSL/DSL_2_D.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_E.test.cpp
     title: test/aoj/DSL/DSL_2_E.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_F.test.cpp
     title: test/aoj/DSL/DSL_2_F.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_G.test.cpp
     title: test/aoj/DSL/DSL_2_G.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_H.test.cpp
     title: test/aoj/DSL/DSL_2_H.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_I.test.cpp
     title: test/aoj/DSL/DSL_2_I.test.cpp
   - icon: ':heavy_check_mark:'
@@ -363,7 +363,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_6_A.test.cpp
     title: test/aoj/GRL/GRL_6_A.test.cpp
   - icon: ':x:'

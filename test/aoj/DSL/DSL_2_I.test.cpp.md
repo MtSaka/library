@@ -36,9 +36,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I
@@ -74,7 +74,7 @@ data:
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
     \ x){return x?msb(x-1)+1:0;}\ninline constexpr ull reverse(ull x){\n  x=((x&0x5555555555555555)<<1)|((x&0xaaaaaaaaaaaaaaaa)>>1);\n\
     \  x=((x&0x3333333333333333)<<2)|((x&0xcccccccccccccccc)>>2);\n  x=((x&0x0f0f0f0f0f0f0f0f)<<4)|((x&0xf0f0f0f0f0f0f0f0)>>4);\n\
-    \  x=((x&0x00ff00ff00ff00ff)<<8)|((x&0xff00ff00ff00ff00)>>8);\n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff0000)>>16);\n\
+    \  x=((x&0x00ff00ff00ff00ff)<<8)|((x&0xff00ff00ff00ff00)>>8);\n  \n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff0000)>>16);\n\
     \  return (x<<32)|(x>>32);\n}\ninline constexpr ull reverse(ull x,int len){return\
     \ reverse(x)>>(64-len);}\ninline constexpr int popcnt(ull x){\n#if __cplusplus>=202002L\n\
     \  return std::popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
@@ -138,8 +138,8 @@ data:
     inline void dump(const bool&t){std::cerr<<(t?\"true\":\"false\");}\ntemplate <typename\
     \ T,std::enable_if_t<!is_specialize<T>::value,std::nullptr_t> =nullptr>\ninline\
     \ void dump(const T&t){std::cerr<<t;}\ntemplate<typename T>\ninline void dump(const\
-    \ T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp=\"\
-    inf\";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp=\"\
+    \ T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::max)tmp=\"\
+    inf\";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::min))tmp=\"\
     -inf\";if(tmp.empty())tmp=std::to_string(t);std::cerr<<tmp;}\ntemplate<typename\
     \ T,typename U>\ninline void dump(const std::pair<T,U>&);\ntemplate<typename T>\n\
     inline void dump(const T&t,std::enable_if_t<!std::is_void<typename T::iterator>::value>*\
@@ -261,8 +261,8 @@ data:
     \n\nnamespace MonoidSegmentTree{\n  template<class T>static constexpr T op1(T\
     \ a,T b){return min<T>(a,b);}\n  template<class T>static constexpr T op2(T a,T\
     \ b){return max<T>(a,b);}\n  template<class T>static constexpr T op3(T a,T b){return\
-    \ a+b;}\n  template<class T>static constexpr T e1(){return infinity<T>::MAX;}\n\
-    \  template<class T>static constexpr T e2(){return infinity<T>::MIN;}\n  template<class\
+    \ a+b;}\n  template<class T>static constexpr T e1(){return infinity<T>::max;}\n\
+    \  template<class T>static constexpr T e2(){return infinity<T>::min;}\n  template<class\
     \ T>static constexpr T e3(){return T(0);}\n  template<class T>using RmQ=SegmentTree<T,op1<T>,e1<T>>;\n\
     \  template<class T>using RMQ=SegmentTree<T,op2<T>,e2<T>>;\n  template<class T>using\
     \ RSQ=SegmentTree<T,op3<T>,e3<T>>;\n}\nusing MonoidSegmentTree::RmQ;\nusing MonoidSegmentTree::RMQ;\n\
@@ -272,22 +272,22 @@ data:
     \ T>static constexpr T op1(T a,T b){return min<T>(a,b);}\n  template<class T>static\
     \ constexpr T op2(T a,T b){return max<T>(a,b);}\n  template<class T>static constexpr\
     \ S<T> op3(S<T>a,S<T>b){return {a.value+b.value,a.size+b.size};}\n  template<class\
-    \ T>static constexpr T e1(){return infinity<T>::MAX;}\n  template<class T>static\
-    \ constexpr T e2(){return infinity<T>::MIN;}\n  template<class T>static constexpr\
+    \ T>static constexpr T e1(){return infinity<T>::max;}\n  template<class T>static\
+    \ constexpr T e2(){return infinity<T>::min;}\n  template<class T>static constexpr\
     \ S<T> e3(){return {T(0),1};}\n  template<class T>static constexpr T mapping1(T\
-    \ a,T b){return a==infinity<T>::MAX?b:a;}\n  template<class T>static constexpr\
-    \ S<T> mapping2(T a,S<T>b){if(a!=infinity<T>::MAX)b.value=a*b.size;return b;}\n\
+    \ a,T b){return a==infinity<T>::max?b:a;}\n  template<class T>static constexpr\
+    \ S<T> mapping2(T a,S<T>b){if(a!=infinity<T>::max)b.value=a*b.size;return b;}\n\
     \  template<class T>static constexpr S<T> mapping3(T a,S<T>b){return {b.value+a*b.size,b.size};}\n\
     \  template<class T>static constexpr T mapping4(T a,T b){return a+b;}\n  template<class\
     \ T>static constexpr T mapping5(T a,T b){return min<T>(a,b);}\n  template<class\
     \ T>static constexpr T mapping6(T a,T b){return max<T>(a,b);}\n  template<class\
-    \ T>static constexpr T composition1(T a,T b){return a==infinity<T>::MAX?b:a;}\n\
+    \ T>static constexpr T composition1(T a,T b){return a==infinity<T>::max?b:a;}\n\
     \  template<class T>static constexpr T composition2(T a,T b){return a+b;}\n  template<class\
     \ T>static constexpr T composition3(T a,T b){return min<T>(a,b);}\n  template<class\
     \ T>static constexpr T composition4(T a,T b){return max<T>(a,b);}\n  template<class\
-    \ T>static constexpr T id1(){return infinity<T>::MAX;}\n  template<class T>static\
+    \ T>static constexpr T id1(){return infinity<T>::max;}\n  template<class T>static\
     \ constexpr T id2(){return T(0);}\n  template<class T>static constexpr T id3(){return\
-    \ infinity<T>::MIN;}\n  template<class T>using RUQRmQ=LazySegmentTree<T,op1<T>,e1<T>,T,mapping1<T>,composition1<T>,id1<T>>;\n\
+    \ infinity<T>::min;}\n  template<class T>using RUQRmQ=LazySegmentTree<T,op1<T>,e1<T>,T,mapping1<T>,composition1<T>,id1<T>>;\n\
     \  template<class T>using RUQRMQ=LazySegmentTree<T,op2<T>,e2<T>,T,mapping1<T>,composition1<T>,id1<T>>;\n\
     \  template<class T>using RUQRSQ=LazySegmentTree<S<T>,op3<T>,e3<T>,T,mapping2<T>,composition1<T>,id1<T>>;\n\
     \  template<class T>using RAQRSQ=LazySegmentTree<S<T>,op3<T>,e3<T>,T,mapping3<T>,composition2<T>,id2<T>>;\n\
@@ -303,16 +303,16 @@ data:
     \ MonoidLazySegmentTree::RChminRmQ;\nusing MonoidLazySegmentTree::RChminRMQ;\n\
     using MonoidLazySegmentTree::RChmaxRmQ;\nusing MonoidLazySegmentTree::RChmaxRMQ;\n\
     namespace MonoidDualSegmentTree{\n  template<class T>static constexpr T mapping1(T\
-    \ a,T b){return a==infinity<T>::MAX?b:a;}\n  template<class T>static constexpr\
+    \ a,T b){return a==infinity<T>::max?b:a;}\n  template<class T>static constexpr\
     \ T mapping2(T a,T b){return min<T>(a,b);}\n  template<class T>static constexpr\
     \ T mapping3(T a,T b){return max<T>(a,b);}\n  template<class T>static constexpr\
     \ T mapping4(T a,T b){return a+b;}\n  template<class T>static constexpr T composition1(T\
-    \ a,T b){return a==infinity<T>::MAX?b:a;}\n  template<class T>static constexpr\
+    \ a,T b){return a==infinity<T>::max?b:a;}\n  template<class T>static constexpr\
     \ T composition2(T a,T b){return min<T>(a,b);}\n  template<class T>static constexpr\
     \ T composition3(T a,T b){return max<T>(a,b);}\n  template<class T>static constexpr\
     \ T composition4(T a,T b){return a+b;}\n  template<class T>static constexpr T\
-    \ id1(){return infinity<T>::MAX;}\n  template<class T>static constexpr T id2(){return\
-    \ infinity<T>::MIN;}\n  template<class T>static constexpr T id3(){return T(0);}\n\
+    \ id1(){return infinity<T>::max;}\n  template<class T>static constexpr T id2(){return\
+    \ infinity<T>::min;}\n  template<class T>static constexpr T id3(){return T(0);}\n\
     \  template<class T>using RUQ=DualSegmentTree<T,T,mapping1<T>,composition1<T>,id1<T>>;\n\
     \  template<class T>using RChminQ=DualSegmentTree<T,T,mapping2<T>,composition2<T>,id1<T>>;\n\
     \  template<class T>using RChmaxQ=DualSegmentTree<T,T,mapping3<T>,composition3<T>,id2<T>>;\n\
@@ -345,8 +345,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_I.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 11:58:05+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-25 12:30:26+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_I.test.cpp
 layout: document

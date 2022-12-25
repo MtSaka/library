@@ -81,7 +81,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: geometry/geometry.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/flow/dinic.hpp
     title: "Dinic(\u6700\u5927\u6D41)"
   - icon: ':question:'
@@ -300,7 +300,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_1_B.test.cpp
     title: test/aoj/DSL/DSL_1_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -309,22 +309,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B2.test.cpp
     title: test/aoj/DSL/DSL_2_B2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_D.test.cpp
     title: test/aoj/DSL/DSL_2_D.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_E.test.cpp
     title: test/aoj/DSL/DSL_2_E.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_F.test.cpp
     title: test/aoj/DSL/DSL_2_F.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_G.test.cpp
     title: test/aoj/DSL/DSL_2_G.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_H.test.cpp
     title: test/aoj/DSL/DSL_2_H.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_I.test.cpp
     title: test/aoj/DSL/DSL_2_I.test.cpp
   - icon: ':heavy_check_mark:'
@@ -363,7 +363,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_6_A.test.cpp
     title: test/aoj/GRL/GRL_6_A.test.cpp
   - icon: ':x:'
@@ -550,7 +550,7 @@ data:
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
     \ x){return x?msb(x-1)+1:0;}\ninline constexpr ull reverse(ull x){\n  x=((x&0x5555555555555555)<<1)|((x&0xaaaaaaaaaaaaaaaa)>>1);\n\
     \  x=((x&0x3333333333333333)<<2)|((x&0xcccccccccccccccc)>>2);\n  x=((x&0x0f0f0f0f0f0f0f0f)<<4)|((x&0xf0f0f0f0f0f0f0f0)>>4);\n\
-    \  x=((x&0x00ff00ff00ff00ff)<<8)|((x&0xff00ff00ff00ff00)>>8);\n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff0000)>>16);\n\
+    \  x=((x&0x00ff00ff00ff00ff)<<8)|((x&0xff00ff00ff00ff00)>>8);\n  \n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff0000)>>16);\n\
     \  return (x<<32)|(x>>32);\n}\ninline constexpr ull reverse(ull x,int len){return\
     \ reverse(x)>>(64-len);}\ninline constexpr int popcnt(ull x){\n#if __cplusplus>=202002L\n\
     \  return std::popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
@@ -587,7 +587,7 @@ data:
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
     \ x){return x?msb(x-1)+1:0;}\ninline constexpr ull reverse(ull x){\n  x=((x&0x5555555555555555)<<1)|((x&0xaaaaaaaaaaaaaaaa)>>1);\n\
     \  x=((x&0x3333333333333333)<<2)|((x&0xcccccccccccccccc)>>2);\n  x=((x&0x0f0f0f0f0f0f0f0f)<<4)|((x&0xf0f0f0f0f0f0f0f0)>>4);\n\
-    \  x=((x&0x00ff00ff00ff00ff)<<8)|((x&0xff00ff00ff00ff00)>>8);\n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff0000)>>16);\n\
+    \  x=((x&0x00ff00ff00ff00ff)<<8)|((x&0xff00ff00ff00ff00)>>8);\n  \n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff0000)>>16);\n\
     \  return (x<<32)|(x>>32);\n}\ninline constexpr ull reverse(ull x,int len){return\
     \ reverse(x)>>(64-len);}\ninline constexpr int popcnt(ull x){\n#if __cplusplus>=202002L\n\
     \  return std::popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
@@ -699,7 +699,7 @@ data:
   - data-structure/bit-vector.hpp
   - data-structure/dynamic-segment-tree.hpp
   - data-structure/dual-segment-tree.hpp
-  timestamp: '2022-12-25 11:58:05+09:00'
+  timestamp: '2022-12-25 12:30:26+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/CGL/CGL_2_C.test.cpp

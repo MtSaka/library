@@ -78,7 +78,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: geometry/geometry.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/flow/dinic.hpp
     title: "Dinic(\u6700\u5927\u6D41)"
   - icon: ':question:'
@@ -297,7 +297,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_1_B.test.cpp
     title: test/aoj/DSL/DSL_1_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -306,22 +306,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B2.test.cpp
     title: test/aoj/DSL/DSL_2_B2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_D.test.cpp
     title: test/aoj/DSL/DSL_2_D.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_E.test.cpp
     title: test/aoj/DSL/DSL_2_E.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_F.test.cpp
     title: test/aoj/DSL/DSL_2_F.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_G.test.cpp
     title: test/aoj/DSL/DSL_2_G.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_H.test.cpp
     title: test/aoj/DSL/DSL_2_H.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_I.test.cpp
     title: test/aoj/DSL/DSL_2_I.test.cpp
   - icon: ':heavy_check_mark:'
@@ -360,7 +360,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_6_A.test.cpp
     title: test/aoj/GRL/GRL_6_A.test.cpp
   - icon: ':x:'
@@ -539,8 +539,8 @@ data:
     inline void dump(const bool&t){std::cerr<<(t?\"true\":\"false\");}\ntemplate <typename\
     \ T,std::enable_if_t<!is_specialize<T>::value,std::nullptr_t> =nullptr>\ninline\
     \ void dump(const T&t){std::cerr<<t;}\ntemplate<typename T>\ninline void dump(const\
-    \ T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp=\"\
-    inf\";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp=\"\
+    \ T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string tmp;if(t==infinity<T>::value||t==infinity<T>::max)tmp=\"\
+    inf\";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::min))tmp=\"\
     -inf\";if(tmp.empty())tmp=std::to_string(t);std::cerr<<tmp;}\ntemplate<typename\
     \ T,typename U>\ninline void dump(const std::pair<T,U>&);\ntemplate<typename T>\n\
     inline void dump(const T&t,std::enable_if_t<!std::is_void<typename T::iterator>::value>*\
@@ -589,7 +589,7 @@ data:
     template<typename T>
 
     inline void dump(const T&t,std::enable_if_t<std::is_integral<T>::value>* =nullptr){std::string
-    tmp;if(t==infinity<T>::value||t==infinity<T>::MAX)tmp="inf";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::MIN))tmp="-inf";if(tmp.empty())tmp=std::to_string(t);std::cerr<<tmp;}
+    tmp;if(t==infinity<T>::value||t==infinity<T>::max)tmp="inf";if(std::is_signed<T>::value&&(t==infinity<T>::mvalue||t==infinity<T>::min))tmp="-inf";if(tmp.empty())tmp=std::to_string(t);std::cerr<<tmp;}
 
     template<typename T,typename U>
 
@@ -700,7 +700,7 @@ data:
   - data-structure/bit-vector.hpp
   - data-structure/dynamic-segment-tree.hpp
   - data-structure/dual-segment-tree.hpp
-  timestamp: '2022-12-25 11:58:05+09:00'
+  timestamp: '2022-12-25 12:30:26+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/CGL/CGL_2_C.test.cpp
