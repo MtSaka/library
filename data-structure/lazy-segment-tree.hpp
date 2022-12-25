@@ -1,5 +1,6 @@
 #pragma once
 #include"../template/template.hpp"
+#include"../others/monoid.hpp"
 
 template<typename A>
 struct LazySegmentTree{
@@ -40,7 +41,7 @@ struct LazySegmentTree{
   LazySegmentTree():LazySegmentTree(0){}
   LazySegmentTree(int n,const T&e=M::id()):LazySegmentTree(vector<T>(n,e)){}
   LazySegmentTree(const vector<T>&v){init(v);}
-  void init(const vecotr<T>&v){
+  void init(const vector<T>&v){
     n=v.size();
     lg=ceil_log2(n);
     size=1<<lg;
@@ -50,7 +51,7 @@ struct LazySegmentTree{
     rep(i,n)data[size+i]=v[i];
     rrep(i,1,size)update(i);
   }
-  T prod(T l,T r){
+  T prod(int l,int r){
     if(l==r)return M::id();
     l+=size,r+=size;
     rrep(i,1,lg+1){
@@ -83,9 +84,8 @@ struct LazySegmentTree{
   void set(int k,const T&x){
     update(k,[&](const T&y)->T {return x;});
   }
-  template<typename enable_if<Monoid::has_mul_op<A>>::type* = nullptr>
   void apply(int k,const U&x){
-    update(k,[&](const T&y)->T {return A::op(x,y);});
+    update(k,[&](const T&y)->T {return Aop(x,y,1);});
   }
   void apply(int l,int r,const U&x){
     if(l==r)return;

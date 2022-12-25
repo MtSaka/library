@@ -1,18 +1,18 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/segment-tree-monoids.hpp"
+#include"../../../data-structure/lazy-segment-tree.hpp"
 int main(){
-  int n,q;cin>>n>>q;
-  RUQRSQ<int>seg(n);
+  INT(n,q);
+  RangeUpdateQueryRangeSumQuery<int>RUQRSQ(n);
   while(q--){
-    int t;cin>>t;
+    INT(t);
     if(t==0){
-      int l,r,x;cin>>l>>r>>x;
-      seg.apply(l,r+1,x);
+      INT(l,r,x);
+      RUQRSQ.apply(l,r+1,x);
     }
     else{
-      int l,r;cin>>l>>r;
-      cout<<seg.query(l,r+1)<<endl;
+      INT(l,r);
+      print(RUQRSQ.prod(l,r+1));
     }
   }
 }

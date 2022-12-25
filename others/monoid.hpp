@@ -15,7 +15,7 @@ namespace Monoid{
   template<typename T,typename=void>struct is_semigroup:false_type{};
   template<typename T>struct is_semigroup<T,decltype(declval<typename T::value_type>(),(void)T::op)>:true_type{};
   template<typename T,typename=void>struct is_monoid:false_type{};
-  template<typename T>struct is_monoid<T,decltype(declval<typename T::value_type>,(void)T::op,(void)T::id)>:true_type{};
+  template<typename T>struct is_monoid<T,decltype(declval<typename T::value_type>(),(void)T::op,(void)T::id)>:true_type{};
   template<typename T,typename=void>struct is_group:false_type{};
   template<typename T>struct is_group<T,decltype(declval<typename T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};
   template<typename T,typename=void>struct is_action:false_type{};
