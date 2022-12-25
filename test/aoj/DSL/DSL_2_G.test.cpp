@@ -8,11 +8,11 @@ int main(){
     INT(t);
     if(t==0){
       INT(l,r,x);
-      seg.apply(l-1,r,x);
+      RAQRSQ.apply(l-1,r,x);
     }
     else{
       INT(l,r);
-      print(seg.prod(l-1,r));
+      print(RAQRSQ.prod(l-1,r));
     }
   }
 }
