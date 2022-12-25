@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/mod-sqrt.hpp
     title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
   - icon: ':question:'
@@ -161,13 +161,13 @@ data:
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/modular/mod-sqrt.hpp\"\
-    \n\ntemplate<typename T,typename S>\nS mod_sqrt(T a,const S&p){\n  a%=p;\n  if(a==0)return\
-    \ 0;\n  if(p==2)return a;\n  if(mod_pow(a,(p-1)/2,p)!=1)return -1;\n  if((p&3)==3)return\
-    \ mod_pow(a,(p+1)/4,p);\n  S q=p-1,s=0,z=2;\n  while(!(q&1))q>>=1,s++;\n  while(mod_pow(z,(p-1)/2,p)==1)z++;\n\
-    \  S m=s,c=mod_pow(z,q,p),t=mod_pow(a,q,p),r=mod_pow(a,(q+1)/2,p);\n  while(t!=1){\n\
-    \    S pow_t=t*t%p,m_update=0;\n    for(int j=1;j<m;j++){\n      if(pow_t==1){\n\
+    \n\nll mod_sqrt(ll a,const ll&p){\n  a%=p;\n  if(a==0)return 0;\n  if(p==2)return\
+    \ a;\n  if(mod_pow(a,(p-1)/2,p)!=1)return -1;\n  if((p&3)==3)return mod_pow(a,(p+1)/4,p);\n\
+    \  ll q=p-1,s=0,z=2;\n  while(!(q&1))q>>=1,s++;\n  while(mod_pow(z,(p-1)/2,p)==1)z++;\n\
+    \  ll m=s,c=mod_pow(z,q,p),t=mod_pow(a,q,p),r=mod_pow(a,(q+1)/2,p);\n  while(t!=1){\n\
+    \    ll pow_t=t*t%p,m_update=0;\n    for(int j=1;j<m;j++){\n      if(pow_t==1){\n\
     \        m_update=j;\n        break;\n      }\n      pow_t=pow_t*pow_t%p;\n  \
-    \  }\n    S b=mod_pow(c,S(1)<<(m-m_update-1),p);\n    m=m_update,c=mod_pow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
+    \  }\n    ll b=mod_pow(c,1LL<<(m-m_update-1),p);\n    m=m_update,c=mod_pow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
     \  }\n  return r;\n}\n/**\n * @brief Mod Square Root(\u5E73\u65B9\u5270\u4F59\
     )\n*/\n#line 4 \"test/yosupo/math/sqrt_mod.test.cpp\"\nint main(){\n  int t;\n\
     \  cin>>t;\n  while(t--){\n    LL(y,p);\n    print(mod_sqrt(y,p));\n  }\n}\n"
@@ -187,7 +187,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/math/sqrt_mod.test.cpp
   requiredBy: []
-  timestamp: '2022-12-24 03:09:26+09:00'
+  timestamp: '2022-12-25 07:22:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/math/sqrt_mod.test.cpp

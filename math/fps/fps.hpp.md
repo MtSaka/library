@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':question:'
@@ -14,14 +14,14 @@ data:
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
   - icon: ':question:'
@@ -58,7 +58,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/subset-sum.hpp
     title: Count Subset Sum
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/taylor-shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   _extendedVerifiedWith:
@@ -83,18 +83,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial/polynomial_interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     links: []
@@ -469,7 +469,7 @@ data:
     \ *this;\n  }\n  FPS& operator%=(const FPS&r){\n    shrink();\n    const int n=(*this).size(),m=r.size();\n\
     \    if(n<m)return *this;\n    (*this)-=(*this)/r*r;\n    shrink();\n    return\
     \ *this;\n  }\n  FPS& operator<<=(ll k){\n    shrink();\n    (*this).insert((*this).begin(),k,mint(0));\n\
-    \    return *this;\n  }\n  FPS& operator>>=(ll k){\n    shrink();\n    if(k>(*this).size())(*this).clear();\n\
+    \    return *this;\n  }\n  FPS& operator>>=(ll k){\n    shrink();\n    if(k>(ll)(*this).size())(*this).clear();\n\
     \    else (*this).erase((*this).begin(),(*this).begin()+k);\n    return *this;\n\
     \  }\n  FPS operator<<(ll k)const{return FPS(*this)<<=k;}\n  FPS operator>>(ll\
     \ k)const{return FPS(*this)>>=k;}\n  friend FPS operator+(const FPS&l,const mint&r){return\
@@ -556,7 +556,7 @@ data:
     \ *this;\n  }\n  FPS& operator%=(const FPS&r){\n    shrink();\n    const int n=(*this).size(),m=r.size();\n\
     \    if(n<m)return *this;\n    (*this)-=(*this)/r*r;\n    shrink();\n    return\
     \ *this;\n  }\n  FPS& operator<<=(ll k){\n    shrink();\n    (*this).insert((*this).begin(),k,mint(0));\n\
-    \    return *this;\n  }\n  FPS& operator>>=(ll k){\n    shrink();\n    if(k>(*this).size())(*this).clear();\n\
+    \    return *this;\n  }\n  FPS& operator>>=(ll k){\n    shrink();\n    if(k>(ll)(*this).size())(*this).clear();\n\
     \    else (*this).erase((*this).begin(),(*this).begin()+k);\n    return *this;\n\
     \  }\n  FPS operator<<(ll k)const{return FPS(*this)<<=k;}\n  FPS operator>>(ll\
     \ k)const{return FPS(*this)>>=k;}\n  friend FPS operator+(const FPS&l,const mint&r){return\
@@ -633,8 +633,8 @@ data:
   - math/fps/polynomial-interpolation.hpp
   - math/fps/taylor-shift.hpp
   - math/fps/multipoint-evaluation.hpp
-  timestamp: '2022-12-24 20:48:11+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-12-25 07:22:58+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/polynomial/log_of_formal_power_series.test.cpp
   - test/yosupo/polynomial/division_of_polynomials.test.cpp

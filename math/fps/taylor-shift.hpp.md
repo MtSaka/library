@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':question:'
@@ -17,17 +17,17 @@ data:
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
   - icon: ':question:'
@@ -56,12 +56,12 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5\
       )"
@@ -437,7 +437,7 @@ data:
     \ *this;\n  }\n  FPS& operator%=(const FPS&r){\n    shrink();\n    const int n=(*this).size(),m=r.size();\n\
     \    if(n<m)return *this;\n    (*this)-=(*this)/r*r;\n    shrink();\n    return\
     \ *this;\n  }\n  FPS& operator<<=(ll k){\n    shrink();\n    (*this).insert((*this).begin(),k,mint(0));\n\
-    \    return *this;\n  }\n  FPS& operator>>=(ll k){\n    shrink();\n    if(k>(*this).size())(*this).clear();\n\
+    \    return *this;\n  }\n  FPS& operator>>=(ll k){\n    shrink();\n    if(k>(ll)(*this).size())(*this).clear();\n\
     \    else (*this).erase((*this).begin(),(*this).begin()+k);\n    return *this;\n\
     \  }\n  FPS operator<<(ll k)const{return FPS(*this)<<=k;}\n  FPS operator>>(ll\
     \ k)const{return FPS(*this)>>=k;}\n  friend FPS operator+(const FPS&l,const mint&r){return\
@@ -493,17 +493,17 @@ data:
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"math/others/combinatorics.hpp\"\
     \n\ntemplate<typename T>\nstruct Combinatorics{\n  private:\n  static vector<T>dat,idat;\n\
     \  inline static void extend(int sz){\n    if((int)dat.size()<sz+1){\n      int\
-    \ pre_sz=max<int>(1,dat.size());\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
+    \ pre_sz=dat.size();\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
     \      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n      idat[sz]=T(1)/dat[sz];\n\
     \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n    }\n  }\n  public:\n\
     \  Combinatorics(int sz=0){extend(sz);}\n  static inline T fac(ll n){\n    if(n<0)return\
     \ T();\n    extend(n);\n    return dat[n];\n  }\n  static inline T finv(ll n){\n\
     \    if(n<0)return T();\n    extend(n);\n    return idat[n];\n  }\n  static T\
     \ com(ll n,ll k){\n    if(k<0||n<k)return T();\n    return fac(n)*finv(k)*finv(n-k);\n\
-    \  }\n  static T hom(ll n,ll k){\n    if(n<0||k<0)return mint();\n    return k==0?1:com(n+k-1,k);\n\
+    \  }\n  static T hom(ll n,ll k){\n    if(n<0||k<0)return T();\n    return k==0?1:com(n+k-1,k);\n\
     \  }\n  static T per(ll n,ll k){\n    if(k<0||n<k)return T();\n    return fac(n)*finv(n-k);\n\
-    \  }\n};\ntemplate<typename T>\nvector<T>Combinatorics<T>::dat=vector<T>{0,1};\n\
-    template<typename T>\nvector<T>Combinatorics<T>::idat=vector<T>{0,1};\ntemplate<long\
+    \  }\n};\ntemplate<typename T>\nvector<T>Combinatorics<T>::dat=vector<T>{1,1};\n\
+    template<typename T>\nvector<T>Combinatorics<T>::idat=vector<T>{1,1};\ntemplate<long\
     \ long p>\nstruct COMB{\n  private:\n  static vector<vector<ModInt<p>>>comb;\n\
     \  static void init(){\n    if(!comb.empty())return;\n    comb.assign(p,vector<ModInt<p>>(p));\n\
     \    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int\
@@ -513,14 +513,14 @@ data:
     \    n/=p;k/=p;\n    }\n    return ret;\n  }\n};\ntemplate<long long p>\nvector<vector<ModInt<p>>>COMB<p>::comb=vector<vector<ModInt<p>>>();\n\
     /**\n * @brief Combinatorics(\u7D44\u307F\u5408\u308F\u305B)\n*/\n#line 5 \"math/fps/taylor-shift.hpp\"\
     \n\ntemplate<typename T>\nFormalPowerSeries<T>taylor_shift(FormalPowerSeries<T>f,const\
-    \ T&a){\n  const int n=f.size();\n  Combinatorics<mint>c(n);\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n\
+    \ T&a){\n  const int n=f.size();\n  Combinatorics<T>c(n);\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n\
     \  reverse(f.begin(),f.end());\n  FormalPowerSeries<T>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
     \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
     \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
     \u79FB\u52D5)\n*/\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"fps.hpp\"\
     \n#include\"../others/combinatorics.hpp\"\n\ntemplate<typename T>\nFormalPowerSeries<T>taylor_shift(FormalPowerSeries<T>f,const\
-    \ T&a){\n  const int n=f.size();\n  Combinatorics<mint>c(n);\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n\
+    \ T&a){\n  const int n=f.size();\n  Combinatorics<T>c(n);\n  for(int i=0;i<n;i++)f[i]*=c.fac(i);\n\
     \  reverse(f.begin(),f.end());\n  FormalPowerSeries<T>g(n,1);\n  for(int i=1;i<n;i++)g[i]=g[i-1]*a*c.fac(i-1)*c.finv(i);\n\
     \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
     \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
@@ -546,8 +546,8 @@ data:
   isVerificationFile: false
   path: math/fps/taylor-shift.hpp
   requiredBy: []
-  timestamp: '2022-12-24 20:48:11+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-12-25 07:22:58+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
 documentation_of: math/fps/taylor-shift.hpp

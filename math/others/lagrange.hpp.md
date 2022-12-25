@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   - icon: ':question:'
@@ -202,17 +202,17 @@ data:
     \ int,p>;\n/**\n * @brief ModInt\n*/\n#line 4 \"math/others/combinatorics.hpp\"\
     \n\ntemplate<typename T>\nstruct Combinatorics{\n  private:\n  static vector<T>dat,idat;\n\
     \  inline static void extend(int sz){\n    if((int)dat.size()<sz+1){\n      int\
-    \ pre_sz=max<int>(1,dat.size());\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
+    \ pre_sz=dat.size();\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
     \      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n      idat[sz]=T(1)/dat[sz];\n\
     \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n    }\n  }\n  public:\n\
     \  Combinatorics(int sz=0){extend(sz);}\n  static inline T fac(ll n){\n    if(n<0)return\
     \ T();\n    extend(n);\n    return dat[n];\n  }\n  static inline T finv(ll n){\n\
     \    if(n<0)return T();\n    extend(n);\n    return idat[n];\n  }\n  static T\
     \ com(ll n,ll k){\n    if(k<0||n<k)return T();\n    return fac(n)*finv(k)*finv(n-k);\n\
-    \  }\n  static T hom(ll n,ll k){\n    if(n<0||k<0)return mint();\n    return k==0?1:com(n+k-1,k);\n\
+    \  }\n  static T hom(ll n,ll k){\n    if(n<0||k<0)return T();\n    return k==0?1:com(n+k-1,k);\n\
     \  }\n  static T per(ll n,ll k){\n    if(k<0||n<k)return T();\n    return fac(n)*finv(n-k);\n\
-    \  }\n};\ntemplate<typename T>\nvector<T>Combinatorics<T>::dat=vector<T>{0,1};\n\
-    template<typename T>\nvector<T>Combinatorics<T>::idat=vector<T>{0,1};\ntemplate<long\
+    \  }\n};\ntemplate<typename T>\nvector<T>Combinatorics<T>::dat=vector<T>{1,1};\n\
+    template<typename T>\nvector<T>Combinatorics<T>::idat=vector<T>{1,1};\ntemplate<long\
     \ long p>\nstruct COMB{\n  private:\n  static vector<vector<ModInt<p>>>comb;\n\
     \  static void init(){\n    if(!comb.empty())return;\n    comb.assign(p,vector<ModInt<p>>(p));\n\
     \    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int\
@@ -249,7 +249,7 @@ data:
   isVerificationFile: false
   path: math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2022-12-24 12:33:13+09:00'
+  timestamp: '2022-12-25 07:22:58+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/others/lagrange.hpp

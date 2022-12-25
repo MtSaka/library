@@ -135,7 +135,7 @@ data:
   - icon: ':question:'
     path: graph/tree/tree-diameter.hpp
     title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
   - icon: ':warning:'
@@ -148,7 +148,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/convolution/lcm-convolution.hpp
     title: LCM Convolution
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
@@ -160,16 +160,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/subset-sum.hpp
     title: Count Subset Sum
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/taylor-shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - icon: ':heavy_check_mark:'
     path: math/modular/mod-log.hpp
     title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/mod-sqrt.hpp
     title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':question:'
@@ -192,7 +192,7 @@ data:
     path: math/number/phi.hpp
     title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
       )"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
@@ -202,7 +202,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/number/prime-sieve.hpp
     title: "Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
   - icon: ':warning:'
@@ -212,7 +212,7 @@ data:
     path: math/number/range-prime-sieve.hpp
     title: "Range Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u533A\
       \u9593\u7BE9)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
   - icon: ':warning:'
@@ -227,7 +227,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: others/mo.hpp
     title: Mo's Algorithm
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
   - icon: ':warning:'
@@ -486,13 +486,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial/polynomial_interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
   - icon: ':x:'

@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/mod-sqrt.hpp
     title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':question:'
@@ -20,14 +20,14 @@ data:
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
   - icon: ':question:'
@@ -56,9 +56,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
@@ -437,7 +437,7 @@ data:
     \ *this;\n  }\n  FPS& operator%=(const FPS&r){\n    shrink();\n    const int n=(*this).size(),m=r.size();\n\
     \    if(n<m)return *this;\n    (*this)-=(*this)/r*r;\n    shrink();\n    return\
     \ *this;\n  }\n  FPS& operator<<=(ll k){\n    shrink();\n    (*this).insert((*this).begin(),k,mint(0));\n\
-    \    return *this;\n  }\n  FPS& operator>>=(ll k){\n    shrink();\n    if(k>(*this).size())(*this).clear();\n\
+    \    return *this;\n  }\n  FPS& operator>>=(ll k){\n    shrink();\n    if(k>(ll)(*this).size())(*this).clear();\n\
     \    else (*this).erase((*this).begin(),(*this).begin()+k);\n    return *this;\n\
     \  }\n  FPS operator<<(ll k)const{return FPS(*this)<<=k;}\n  FPS operator>>(ll\
     \ k)const{return FPS(*this)>>=k;}\n  friend FPS operator+(const FPS&l,const mint&r){return\
@@ -491,26 +491,26 @@ data:
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      res=(res+f*res.inv(i<<1))*inv2;\n\
     \    }\n    res.resize(d);\n    return res;\n  }\n};\n/**\n * @brief Formal Power\
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 3 \"math/modular/mod-sqrt.hpp\"\
-    \n\ntemplate<typename T,typename S>\nS mod_sqrt(T a,const S&p){\n  a%=p;\n  if(a==0)return\
-    \ 0;\n  if(p==2)return a;\n  if(mod_pow(a,(p-1)/2,p)!=1)return -1;\n  if((p&3)==3)return\
-    \ mod_pow(a,(p+1)/4,p);\n  S q=p-1,s=0,z=2;\n  while(!(q&1))q>>=1,s++;\n  while(mod_pow(z,(p-1)/2,p)==1)z++;\n\
-    \  S m=s,c=mod_pow(z,q,p),t=mod_pow(a,q,p),r=mod_pow(a,(q+1)/2,p);\n  while(t!=1){\n\
-    \    S pow_t=t*t%p,m_update=0;\n    for(int j=1;j<m;j++){\n      if(pow_t==1){\n\
+    \n\nll mod_sqrt(ll a,const ll&p){\n  a%=p;\n  if(a==0)return 0;\n  if(p==2)return\
+    \ a;\n  if(mod_pow(a,(p-1)/2,p)!=1)return -1;\n  if((p&3)==3)return mod_pow(a,(p+1)/4,p);\n\
+    \  ll q=p-1,s=0,z=2;\n  while(!(q&1))q>>=1,s++;\n  while(mod_pow(z,(p-1)/2,p)==1)z++;\n\
+    \  ll m=s,c=mod_pow(z,q,p),t=mod_pow(a,q,p),r=mod_pow(a,(q+1)/2,p);\n  while(t!=1){\n\
+    \    ll pow_t=t*t%p,m_update=0;\n    for(int j=1;j<m;j++){\n      if(pow_t==1){\n\
     \        m_update=j;\n        break;\n      }\n      pow_t=pow_t*pow_t%p;\n  \
-    \  }\n    S b=mod_pow(c,S(1)<<(m-m_update-1),p);\n    m=m_update,c=mod_pow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
+    \  }\n    ll b=mod_pow(c,1LL<<(m-m_update-1),p);\n    m=m_update,c=mod_pow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
     \  }\n  return r;\n}\n/**\n * @brief Mod Square Root(\u5E73\u65B9\u5270\u4F59\
     )\n*/\n#line 5 \"test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp\"\
     \nusing mint=ModInt<998244353>;\nint main(){\n  int n;\n  cin>>n;\n  FormalPowerSeries<mint>f(n);\n\
-    \  cin>>f;\n  auto get_sqrt=[&](mint x)->mint {return mint(mod_sqrt((ll)x.get(),998244353));};\n\
-    \  f=f.sqrt(get_sqrt,-1);\n  if(f.empty())print(-1);\n  else{\n    print(f);\n\
-    \  }\n}\n"
+    \  cin>>f;\n  auto get_sqrt=[&](mint x)->mint {return mint(mod_sqrt(x.get(),998244353));};\n\
+    \  f=f.sqrt(get_sqrt);\n  if(f.empty())print(-1);\n  else{\n    print(f);\n  }\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/fps/fps.hpp\"\
     \n#include\"../../../math/modular/mod-sqrt.hpp\"\nusing mint=ModInt<998244353>;\n\
     int main(){\n  int n;\n  cin>>n;\n  FormalPowerSeries<mint>f(n);\n  cin>>f;\n\
-    \  auto get_sqrt=[&](mint x)->mint {return mint(mod_sqrt((ll)x.get(),998244353));};\n\
-    \  f=f.sqrt(get_sqrt,-1);\n  if(f.empty())print(-1);\n  else{\n    print(f);\n\
-    \  }\n}"
+    \  auto get_sqrt=[&](mint x)->mint {return mint(mod_sqrt(x.get(),998244353));};\n\
+    \  f=f.sqrt(get_sqrt);\n  if(f.empty())print(-1);\n  else{\n    print(f);\n  }\n\
+    }"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -532,8 +532,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-12-24 20:48:11+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-25 07:22:58+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
 layout: document
