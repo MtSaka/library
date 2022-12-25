@@ -16,8 +16,8 @@ using vp=std::vector<pl>;
 using vb=std::vector<bool>;
 template<typename T>
 struct infinity{
-  static constexpr T MAX=std::numeric_limits<T>::max();
-  static constexpr T MIN=std::numeric_limits<T>::min();
+  static constexpr T max=std::numeric_limits<T>::max();
+  static constexpr T min=std::numeric_limits<T>::min();
   static constexpr T value=std::numeric_limits<T>::max()/2;
   static constexpr T mvalue=std::numeric_limits<T>::min()/2;
 };
