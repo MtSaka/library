@@ -4,15 +4,14 @@
 int main(){
   geometry::point p1,p2;
   cin>>p1>>p2;
-  int q;
-  cin>>q;
+  INT(q);
   while(q--){
     geometry::point p;cin>>p;
     int dir=geometry::ccw(p,p1,p2);
-    if(dir==1)cout<<"COUNTER_CLOCKWISE"<<endl;
-    else if(dir==-1)cout<<"CLOCKWISE"<<endl;
-    else if(p==p1||p==p2||dir==2)cout<<"ON_SEGMENT"<<endl;
-    else if(dir==-2)cout<<"ONLINE_BACK"<<endl;
-    else cout<<"ONLINE_FRONT"<<endl;
+    if(dir==1)print("COUNTER_CLOCKWISE");
+    else if(dir==-1)print("CLOCKWISE");
+    else if(p==p1||p==p2||dir==2)print("ON_SEGMENT");
+    else if(dir==-2)print("ONLINE_BACK");
+    else print("ONLINE_FRONT");
   }
 }

@@ -5,12 +5,11 @@
 int main(){
   cout<<fixed<<setprecision(15);
   geometry::point p1,p2;cin>>p1>>p2;
-  int q;
-  cin>>q;
+  INT(q);
   while(q--){
     geometry::point q;
     cin>>q;
     auto ans=geometry::project(geometry::line(p1,p2),q);
-    cout<<ans.x<<" "<<ans.y<<endl;
+    print(ans.x,ans.y);
   }
 }

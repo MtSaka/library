@@ -2,12 +2,10 @@
 #include"../../../template/template.hpp"
 #include"../../../dynamic-programming/longest-common-subsequence.hpp"
 int main(){
-  int q;
-  cin>>q;
+  INT(q);
   while(q--){
-    string s,t;
-    cin>>s>>t;
+    STR(s,t);
     vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());
-    cout<<LongestCommonSubsequence(a,b).size()<<endl;
+    print(LongestCommonSubsequence(a,b).size());
   }
 }

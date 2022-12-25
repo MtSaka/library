@@ -2,9 +2,7 @@
 #include"../../../template/template.hpp"
 #include"../../../data-structure/inversion.hpp"
 int main(){
-  int n;
-  cin>>n;
-  vector<int>a(n);
-  cin>>a;
-  cout<<inversion(a)<<endl;
+  INT(n);
+  vi a(n);cin>>a;
+  print(inversion(a));
 }
