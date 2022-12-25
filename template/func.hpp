@@ -42,7 +42,9 @@ inline constexpr ll gcd(ll a,ll b){
   if(a<0)a=-a;
   if(b<0)b=-b;
   while(b){
-    std::swap(a%=b,b);
+    const ll c=b;
+    b=a%b;
+    a=c;
   }
   return a;
 }

@@ -1,12 +1,12 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/segment-tree-monoids.hpp"
+#include"../../../data-structure/segment-tree.hpp"
 int main(){
   INT(n,q);
-  RSQ<int>seg(n);
+  RangeSumQuery<int>RSQ(n);
   while(q--){
-    INT(t,x,y);
-    if(t)print(seg.query(x-1,y));
-    else seg.set(x-1,seg[x-1]+y);
+    INT(t,a,b);
+    if(t==0)RSQ.apply(a-1,b);
+    else print(RSQ.prod(a-1,b));
   }
 }
