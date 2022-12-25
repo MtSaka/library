@@ -3,16 +3,15 @@
 #include"../../../data-structure/binary-indexed-tree.hpp"
 #include"../../../others/mo.hpp"
 int main(){
-  int n,q;
-  cin>>n>>q;
+  INT(n,q);
   vector<int>a(n);
   cin>>a;
   Mo mo(n);
-  for(int i=0;i<q;i++){
-    int l,r;cin>>l>>r;
+  rep(i,q){
+    INT(l,r);
     mo.add(l,r);
   }
-  vector<int>b{a};
+  vector<int>b=a;
   sort(b.begin(),b.end());
   b.erase(unique(b.begin(),b.end()),b.end());
   for(auto&i:a)i=lower_bound(b.begin(),b.end(),i)-b.begin();

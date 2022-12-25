@@ -3,7 +3,7 @@
 #include"../../../template/template.hpp"
 #include"../../../geometry/geometry.hpp"
 int main(){
-  cout<<fixed<<setprecision(15);
+  IOSetup();
   INT(q);
   while(q--){
     geometry::point p1,p2,q1,q2;

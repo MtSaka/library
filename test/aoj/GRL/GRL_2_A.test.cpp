@@ -2,9 +2,8 @@
 #include"../../../template/template.hpp"
 #include"../../../graph/mst/kruskal.hpp"
 int main(){
-  int v,e;
-  cin>>v>>e;
-  Edges<long long>ed(e);
+  INT(v,e);
+  Edges<ll>ed(e);
   for(auto &i:ed)cin>>i.from>>i.to>>i.cost;
-  cout<<kruskal(ed,v).cost<<endl;
+  print(kruskal(ed,v).cost);
 }

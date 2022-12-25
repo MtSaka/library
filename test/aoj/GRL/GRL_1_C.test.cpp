@@ -2,14 +2,13 @@
 #include"../../../template/template.hpp"
 #include"../../../graph/shortest-path/warshall-floyd.hpp"
 int main(){
-  int v,e;
-  cin>>v>>e;
-  Graph<long long>g(v);
+  INT(v,e);
+  Graph<ll>g(v);
   g.read(e,0,true,true);
   auto d=warshall_floyd(g);
-  for(int i=0;i<v;i++){
+  rep(i,v){
     if(d[i][i]<0){
-      cout<<"NEGATIVE CYCLE"<<endl;
+      print("NEGATIVE CYCLE");
       return 0;
     }
   }

@@ -2,9 +2,8 @@
 #include"../../../template/template.hpp"
 #include"../../../graph/mst/prim.hpp"
 int main(){
-  int v,e;
-  cin>>v>>e;
+  INT(v,e);
   Graph g(v);
   g.read(e,0,true);
-  cout<<prim(g).cost<<endl;
+  print(prim(g).cost);
 }

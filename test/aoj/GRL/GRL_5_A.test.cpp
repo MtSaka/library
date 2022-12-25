@@ -2,9 +2,8 @@
 #include"../../../template/template.hpp"
 #include"../../../graph/tree/tree-diameter.hpp"
 int main(){
-  int n;
-  cin>>n;
+  INT(n);
   TreeDiameter<int>g(n);
   g.read(n-1,0,true);
-  cout<<g.build()<<endl;
+  print(g.build());
 }

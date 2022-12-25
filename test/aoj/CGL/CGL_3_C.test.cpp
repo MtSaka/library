@@ -2,17 +2,15 @@
 #include"../../../template/template.hpp"
 #include"../../../geometry/geometry.hpp"
 int main(){
-  int n;
-  cin>>n;
+  INT(n);
   geometry::polygon pol(n);
-  for(int i=0;i<n;i++)cin>>pol[i];
-  int q;
-  cin>>q;
+  rep(i,n)cin>>pol[i];
+  INT(q);
   while(q--){
     geometry::point p;cin>>p;
     int ans=geometry::in_polygon(p,pol);
     if(ans==1)ans=2;
     else if(ans==2)ans=1;
-    cout<<ans<<endl;
+    print(ans);
   }
 }

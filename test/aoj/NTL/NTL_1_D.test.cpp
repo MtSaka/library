@@ -3,5 +3,5 @@
 #include"../../../math/number/phi.hpp"
 int main(){
   INT(n);
-  cout<<phi(n)<<endl;
+  print(phi(n));
 }

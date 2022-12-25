@@ -2,14 +2,13 @@
 #include"../../../template/template.hpp"
 #include"../../../graph/shortest-path/bellman-ford.hpp"
 int main(){
-  int v,e,r;
-  cin>>v>>e>>r;
-  Graph<long long>g(v);
+  INT(v,e,r);
+  Graph<ll>g(v);
   g.read(e,0,true,true);
   auto d=bellman_ford(g,r);
   if(count(d.begin(),d.end(),-numeric_limits<long long>::max()/2)){
-    cout<<"NEGATIVE CYCLE"<<endl;
+    print("NEGATIVE CYCLE");
     return 0;
   }
-  for(auto i:d)cout<<(i==numeric_limits<long long>::max()/2?"INF":to_string(i))<<endl;
+  for(auto i:d)print(i==numeric_limits<long long>::max()/2?"INF":to_string(i));
 }

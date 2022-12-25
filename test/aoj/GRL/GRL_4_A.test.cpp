@@ -2,9 +2,8 @@
 #include"../../../template/template.hpp"
 #include"../../../graph/others/detect-cycle.hpp"
 int main(){
-  int v,e;
-  cin>>v>>e;
+  INT(v,e);
   Graph<int>g(v);
   g.read(e,0,false,true);
-  cout<<detect_cycle(g)<<endl;
+  print(detect_cycle(g));
 }

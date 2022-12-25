@@ -2,7 +2,6 @@
 #include"../../../template/template.hpp"
 #include"../../../math/number/prime-factor.hpp"
 int main(){
-  int n;
-  cin>>n;
+  INT(n);
   cout<<n<<": "<<prime_factor(n)<<endl;
 }

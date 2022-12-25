@@ -2,9 +2,8 @@
 #include"../../../template/template.hpp"
 #include"../../../graph/others/topological-sort.hpp"
 int main(){
-  int v,e;
-  cin>>v>>e;
+  INT(v,e);
   Graph g(v);
   g.read(e,0,false,true);
-  for(auto i:TopologicalSort<int>(g).get())cout<<i<<endl;
+  for(auto i:TopologicalSort<int>(g).get())print(i);
 }
