@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data-structure/dual-segment-tree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data-structure/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data-structure/segment-tree-monoids.hpp
     title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data-structure/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':question:'
@@ -36,9 +36,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I
@@ -62,7 +62,7 @@ data:
     using vl=std::vector<ll>;\nusing vs=std::vector<std::string>;\nusing vc=std::vector<char>;\n\
     using vvl=std::vector<vl>;\nusing vd=std::vector<double>;\nusing vp=std::vector<pl>;\n\
     using vb=std::vector<bool>;\ntemplate<typename T>\nstruct infinity{\n  static\
-    \ constexpr T MAX=std::numeric_limits<T>::max();\n  static constexpr T MIN=std::numeric_limits<T>::min();\n\
+    \ constexpr T max=std::numeric_limits<T>::max();\n  static constexpr T min=std::numeric_limits<T>::min();\n\
     \  static constexpr T value=std::numeric_limits<T>::max()/2;\n  static constexpr\
     \ T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr\
     \ T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\n\
@@ -74,7 +74,7 @@ data:
     \  return res+(x&0xaaaaaaaaaaaaaaaa?1:0);\n}\ninline constexpr int ceil_log2(ull\
     \ x){return x?msb(x-1)+1:0;}\ninline constexpr ull reverse(ull x){\n  x=((x&0x5555555555555555)<<1)|((x&0xaaaaaaaaaaaaaaaa)>>1);\n\
     \  x=((x&0x3333333333333333)<<2)|((x&0xcccccccccccccccc)>>2);\n  x=((x&0x0f0f0f0f0f0f0f0f)<<4)|((x&0xf0f0f0f0f0f0f0f0)>>4);\n\
-    \  x=((x&0xff00ff00ff00ff00)>>8)|((x&0x00ff00ff00ff00ff)<<8);\n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff0000)>>16);\n\
+    \  x=((x&0x00ff00ff00ff00ff)<<8)|((x&0xff00ff00ff00ff00)>>8);\n  x=((x&0x0000ffff0000ffff)<<16)|((x&0xffff0000ffff0000)>>16);\n\
     \  return (x<<32)|(x>>32);\n}\ninline constexpr ull reverse(ull x,int len){return\
     \ reverse(x)>>(64-len);}\ninline constexpr int popcnt(ull x){\n#if __cplusplus>=202002L\n\
     \  return std::popcount(x);\n#endif\n  x=(x&0x5555555555555555)+((x>>1)&0x5555555555555555);\n\
@@ -169,16 +169,40 @@ data:
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/segment-tree.hpp\"\
-    \n\ntemplate<class S,S (*op)(S,S),S (*e)()>\nstruct SegmentTree{\n  private:\n\
-    \  int _n,size=1,idx=0;\n  vector<S>seq;\n  void update(int k){seq[k]=op(seq[k<<1],seq[k<<1^1]);}\n\
-    \  public:\n  SegmentTree():SegmentTree(0){};\n  SegmentTree(int n):SegmentTree(vector<S>(n,e())){}\n\
-    \  SegmentTree(const vector<S>&v):_n(int(v.size())){\n    while(size<_n)size<<=1,idx++;\n\
-    \    seq=vector<S>(size<<1,e());\n    for(int i=0;i<_n;i++)seq[size+i]=v[i];\n\
-    \    for(int i=size-1;i>=1;i--)update(i);\n  }\n  void set(int p,S x){\n    p+=size;\n\
-    \    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n  }\n  S operator[](int\
-    \ p)const{return seq[p+size];}\n  S query(int l,int r)const{\n    S sml=e(),smr=e();\n\
-    \    l+=size,r+=size;\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n \
-    \     if(r&1)smr=op(seq[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n\
+    \n/*\ntemplate<typename M>\nstruct SegmentTree{\n  private:\n  using T=typename\
+    \ M::value_type;\n  int n,size;\n  vector<T>data;\n  inline static void update(int\
+    \ k){data[k]=M::op(data[k<<1],data[k<<1^1]);}\n  public:\n  SegmentTree():SegmentTree(0){}\n\
+    \  SegmentTree(int n):SegmentTree(vector<T>(n,M::id())){}\n  SegmentTree(int n,const\
+    \ T&x):SegmentTree(vector<T>(n,x)){}\n  SegmentTree(const vector<T>&v){init(v);}\n\
+    \  void init(const vector<T>&v){\n    n=v.size();\n    size=1<<ceil_log2(n);\n\
+    \    data.assign(size<<1,M::id());\n    rep(i,n)data[size+i]=v[i];\n    rrep(i,1,size)update(i);\n\
+    \  }\n  template<class U>\n  void update(int k,const U&upd){\n    k+=size;\n \
+    \   data[k]=upd(data[k]);\n    while(k>>=1)update(k);\n  }\n  void set(int k,const\
+    \ T&x){\n    update(k,[&](T)->T {return x;});\n  }\n  void apply(int k,const T&x){\n\
+    \    update(k,[&](T y)->T {return M::op(y,x);});\n  }\n  T operator[](int k)const{return\
+    \ data[size+k];}\n  T prod(int l,int r)const{\n    l+=size,r+=size;\n    T lprod=M::id(),rprod=M::id();\n\
+    \    while(l<r){\n      if(l&1)lprod=M::op(lprod,data[l++]);\n      if(r&1)rprod=M::op(data[--r],rprod);\n\
+    \      l>>=1,r>>=1;\n    }\n    return M::op(lprod,rprod);\n  }\n  T all_prod()const{return\
+    \ data[1];}\n  template<class F>\n  int max_right(int l,const F&f)const{\n   \
+    \ if(l==n)return n;\n    l+=size;\n    T sum=M::id();\n    do{\n      while((l&1)==0)l>>=1;\n\
+    \      if(!f(M::op(sum,data[l]))){\n        while(l<size){\n          l<<=1;\n\
+    \          if(f(M::op(sum,data[l])))sum=M::op(sum,data[l++]);\n        }\n   \
+    \     return l-size;\n      }\n      sum=M::op(sum,data[l++]);\n    }while((l&-l)!=l);\n\
+    \    return n;\n  }\n  template<class F>\n  int min_left(int r,const F&f)const{\n\
+    \    if(r==0)return 0;\n    r+=size;\n    T sum=M::id();\n    do{\n      --r;\n\
+    \      while((r&1)&&r>1)r>>=1;\n      if(!f(M::op(data[r],sum))){\n        while(r<size){\n\
+    \          r=(r<<1)^1;\n          if(f(M::op(data[r],sum)))sum=M::op(data[r--],sum);\n\
+    \        }\n        return r+1-size;\n      }\n      sum=M::op(data[r],sum);\n\
+    \    }while((r&-r)!=r);\n    return 0;\n  }\n};*/\ntemplate<class S,S (*op)(S,S),S\
+    \ (*e)()>\nstruct SegmentTree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
+    \  void update(int k){seq[k]=op(seq[k<<1],seq[k<<1^1]);}\n  public:\n  SegmentTree():SegmentTree(0){};\n\
+    \  SegmentTree(int n):SegmentTree(vector<S>(n,e())){}\n  SegmentTree(const vector<S>&v):_n(int(v.size())){\n\
+    \    while(size<_n)size<<=1,idx++;\n    seq=vector<S>(size<<1,e());\n    for(int\
+    \ i=0;i<_n;i++)seq[size+i]=v[i];\n    for(int i=size-1;i>=1;i--)update(i);\n \
+    \ }\n  void set(int p,S x){\n    p+=size;\n    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n\
+    \  }\n  S operator[](int p)const{return seq[p+size];}\n  S query(int l,int r)const{\n\
+    \    S sml=e(),smr=e();\n    l+=size,r+=size;\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n\
+    \      if(r&1)smr=op(seq[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n\
     \  }\n  S all_query()const{return seq[1];}\n  template<typename F>\n  int find_right(int\
     \ l,const F&f)const{\n    if(l==_n)return _n;\n    l+=size;\n    S sum=e();\n\
     \    do{\n      while(!(l&1))l>>=1;\n      if(!f(op(sum,seq[l]))){\n        while(l<size){\n\
@@ -321,8 +345,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_I.test.cpp
   requiredBy: []
-  timestamp: '2022-12-24 03:09:26+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-25 11:58:05+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_I.test.cpp
 layout: document

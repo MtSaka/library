@@ -23,15 +23,11 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/yosupo/data_strucuture/set_xor_min.test.cpp
-    title: test/yosupo/data_strucuture/set_xor_min.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    document_title: Binary Trie
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -156,114 +152,42 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/binary-trie.hpp\"\
-    \n\ntemplate<class S,int B=(sizeof(S)*8-1)>\nstruct BinaryTrie{\n  private:\n\
-    \  struct node{\n    int ch[2];\n    int count;\n    node():ch{-1,-1},count(0){}\n\
-    \  };\n  int sz=1;\n  vector<node>v;\n  S xor_all=0;\n  int find(S x,S xor_val=0)const{\n\
-    \    xor_val^=xor_all;\n    int idx=0;\n    for(int i=B-1;i>=0;i--){\n      int\
-    \ b=(x>>i)&1;\n      if((xor_val>>i)&1)b^=1;\n      if(v[idx].ch[b]==-1)return\
-    \ -1;\n      idx=v[idx].ch[b];\n    }\n    return idx;\n  }\n  int make(){v.emplace_back(node());return\
-    \ sz++;}\n  public:\n  BinaryTrie():v(1){}\n  void insert(S x,S xor_val=0){add(x,1,xor_val);}\n\
-    \  void erase(S x,S xor_val=0){add(x,-1,xor_val);}\n  void add(S x,int a,S xor_val=0){\n\
-    \    xor_val^=xor_all;\n    int idx=0;\n    v[idx].count+=a;\n    for(int i=B-1;i>=0;i--){\n\
-    \      int b=(x>>i)&1;\n      if((xor_val>>i)&1)b^=1;\n      if(v[idx].ch[b]==-1)v[idx].ch[b]=make();\n\
-    \      idx=v[idx].ch[b];\n      v[idx].count+=a;\n    }\n  }\n  S min_element(S\
-    \ xor_val=0)const{return kth_element(0,xor_val);}\n  S max_element(S xor_val=0)const{return\
-    \ kth_element(size()-1,xor_val);}\n  S kth_element(int k,S xor_val=0)const{\n\
-    \    xor_val^=xor_all;\n    int idx=0;\n    S ret=0;\n    for(int i=B-1;i>=0;i--){\n\
-    \      bool f=(xor_val>>i)&1;\n      int u0=(f?v[idx].ch[1]:v[idx].ch[0]);\n \
-    \     int u1=(f?v[idx].ch[0]:v[idx].ch[1]);\n      if(u0==-1||v[u0].count<=k){\n\
-    \        if(u0!=-1)k-=v[u0].count;\n        idx=u1;\n        ret|=(S(1)<<i);\n\
-    \      }\n      else idx=u0;\n    }\n    return ret;\n  }\n  int order(S k,S xor_val=0)const{\n\
-    \    xor_val^=xor_all;\n    int idx=0;\n    int order=0;\n    for(int i=B-1;i>=0;i--){\n\
-    \      bool b=(k>>i)&1;\n      bool f=(xor_val>>i)&1;\n      int u0=(f?v[idx].ch[1]:v[idx].ch[0]);\n\
-    \      int u1=(f?v[idx].ch[0]:v[idx].ch[1]);\n      if(b){\n        if(u0!=-1)order+=v[u0].count;\n\
-    \        idx=u1;\n      }\n      else idx=u0;\n      if(idx==-1)break;\n    }\n\
-    \    return order;\n  }\n  S lower_bound(S k,S xor_val=0)const{\n    return kth_element(order(k,xor_val));\n\
-    \  }\n  S upper_bound(S k,S xor_val=0)const{\n    return kth_element(order(k+1,xor_val));\n\
-    \  }\n  void all_xor(S x){xor_all^=x;}\n  int count(S x)const{\n    int tmp=find(x);\n\
-    \    return (tmp==-1?0:v[tmp].count);\n  }\n  int size()const{return v[0].count;}\n\
-    };\n/*\ntemplate<class S,int B=(sizeof(S)*8-1)>\nstruct BinaryTrie{\n  private:\n\
-    \  struct node{\n    node*ch[2];\n    int count;\n    node():ch{nullptr,nullptr},count(0){}\n\
-    \  };\n  node*root;\n  S xor_all=0;\n  node* find(S x,S xor_val=0)const{\n   \
-    \ xor_val^=xor_all;\n    node*u=root;\n    for(int i=B-1;i>=0;i--){\n      int\
-    \ b=(x>>i)&1;\n      if((xor_val>>i)&1)b^=1;\n      if(u->ch[b]==nullptr)return\
-    \ nullptr;\n      u=u->ch[b];\n    }\n    return u;\n  }\n  public:\n  BinaryTrie():root(new\
-    \ node()){}\n  void insert(S x,S xor_val=0){add(x,1,xor_val);}\n  void erase(S\
-    \ x,S xor_val=0){add(x,-1,xor_val);}\n  void add(S x,int a,S xor_val=0){\n   \
-    \ xor_val^=xor_all;\n    node*u=root;\n    u->count+=a;\n    for(int i=B-1;i>=0;i--){\n\
-    \      int b=(x>>i)&1;\n      if((xor_val>>i)&1)b^=1;\n      if(u->ch[b]==nullptr)u->ch[b]=new\
-    \ node();\n      u=u->ch[b];\n      u->count+=a;\n    }\n  }\n  S min_element(S\
-    \ xor_val=0)const{return kth_element(0,xor_val);}\n  S max_element(S xor_val=0)const{return\
-    \ kth_element(size()-1,xor_val);}\n  S kth_element(int k,S xor_val=0)const{\n\
-    \    xor_val^=xor_all;\n    node*u=root;\n    S ret=0;\n    for(int i=B-1;i>=0;i--){\n\
-    \      bool f=(xor_val>>i)&1;\n      node*u0=(f?u->ch[1]:u->ch[0]);\n      node*u1=(f?u->ch[0]:u->ch[1]);\n\
-    \      if(u0==nullptr||u0->count<=k){\n        if(u0!=nullptr)k-=u0->count;\n\
-    \        u=u1;\n        ret|=(S(1)<<i);\n      }\n      else u=u0;\n    }\n  \
-    \  return ret;\n  }\n  int order(S k,S xor_val=0)const{\n    xor_val^=xor_all;\n\
-    \    node*u=root;\n    int order=0;\n    for(int i=B-1;i>=0;i--){\n      bool\
-    \ b=(k>>i)&1;\n      bool f=(xor_val>>i)&1;\n      node*u0=(f?u->ch[1]:u->ch[0]);\n\
-    \      node*u1=(f?u->ch[0]:u->ch[1]);\n      if(b){\n        if(u0!=nullptr)order+=u0->count;\n\
-    \        u=u1;\n      }\n      else u=u0;\n      if(u==nullptr)break;\n    }\n\
-    \    return order;\n  }\n  S lower_bound(S k,S xor_val=0)const{\n    return kth_element(order(k,xor_val));\n\
-    \  }\n  S upper_bound(S k,S xor_val=0)const{\n    return kth_element(order(k+1,xor_val));\n\
-    \  }\n  void all_xor(S x){xor_all^=x;}\n  int count(S x)const{\n    node*tmp=find(x);\n\
-    \    return (tmp==nullptr?0:tmp->count);\n  }\n  int size()const{return root->count;}\n\
-    };\n*/\n/**\n * @brief Binary Trie\n*/\n"
-  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<class S,int\
-    \ B=(sizeof(S)*8-1)>\nstruct BinaryTrie{\n  private:\n  struct node{\n    int\
-    \ ch[2];\n    int count;\n    node():ch{-1,-1},count(0){}\n  };\n  int sz=1;\n\
-    \  vector<node>v;\n  S xor_all=0;\n  int find(S x,S xor_val=0)const{\n    xor_val^=xor_all;\n\
-    \    int idx=0;\n    for(int i=B-1;i>=0;i--){\n      int b=(x>>i)&1;\n      if((xor_val>>i)&1)b^=1;\n\
-    \      if(v[idx].ch[b]==-1)return -1;\n      idx=v[idx].ch[b];\n    }\n    return\
-    \ idx;\n  }\n  int make(){v.emplace_back(node());return sz++;}\n  public:\n  BinaryTrie():v(1){}\n\
-    \  void insert(S x,S xor_val=0){add(x,1,xor_val);}\n  void erase(S x,S xor_val=0){add(x,-1,xor_val);}\n\
-    \  void add(S x,int a,S xor_val=0){\n    xor_val^=xor_all;\n    int idx=0;\n \
-    \   v[idx].count+=a;\n    for(int i=B-1;i>=0;i--){\n      int b=(x>>i)&1;\n  \
-    \    if((xor_val>>i)&1)b^=1;\n      if(v[idx].ch[b]==-1)v[idx].ch[b]=make();\n\
-    \      idx=v[idx].ch[b];\n      v[idx].count+=a;\n    }\n  }\n  S min_element(S\
-    \ xor_val=0)const{return kth_element(0,xor_val);}\n  S max_element(S xor_val=0)const{return\
-    \ kth_element(size()-1,xor_val);}\n  S kth_element(int k,S xor_val=0)const{\n\
-    \    xor_val^=xor_all;\n    int idx=0;\n    S ret=0;\n    for(int i=B-1;i>=0;i--){\n\
-    \      bool f=(xor_val>>i)&1;\n      int u0=(f?v[idx].ch[1]:v[idx].ch[0]);\n \
-    \     int u1=(f?v[idx].ch[0]:v[idx].ch[1]);\n      if(u0==-1||v[u0].count<=k){\n\
-    \        if(u0!=-1)k-=v[u0].count;\n        idx=u1;\n        ret|=(S(1)<<i);\n\
-    \      }\n      else idx=u0;\n    }\n    return ret;\n  }\n  int order(S k,S xor_val=0)const{\n\
-    \    xor_val^=xor_all;\n    int idx=0;\n    int order=0;\n    for(int i=B-1;i>=0;i--){\n\
-    \      bool b=(k>>i)&1;\n      bool f=(xor_val>>i)&1;\n      int u0=(f?v[idx].ch[1]:v[idx].ch[0]);\n\
-    \      int u1=(f?v[idx].ch[0]:v[idx].ch[1]);\n      if(b){\n        if(u0!=-1)order+=v[u0].count;\n\
-    \        idx=u1;\n      }\n      else idx=u0;\n      if(idx==-1)break;\n    }\n\
-    \    return order;\n  }\n  S lower_bound(S k,S xor_val=0)const{\n    return kth_element(order(k,xor_val));\n\
-    \  }\n  S upper_bound(S k,S xor_val=0)const{\n    return kth_element(order(k+1,xor_val));\n\
-    \  }\n  void all_xor(S x){xor_all^=x;}\n  int count(S x)const{\n    int tmp=find(x);\n\
-    \    return (tmp==-1?0:v[tmp].count);\n  }\n  int size()const{return v[0].count;}\n\
-    };\n/*\ntemplate<class S,int B=(sizeof(S)*8-1)>\nstruct BinaryTrie{\n  private:\n\
-    \  struct node{\n    node*ch[2];\n    int count;\n    node():ch{nullptr,nullptr},count(0){}\n\
-    \  };\n  node*root;\n  S xor_all=0;\n  node* find(S x,S xor_val=0)const{\n   \
-    \ xor_val^=xor_all;\n    node*u=root;\n    for(int i=B-1;i>=0;i--){\n      int\
-    \ b=(x>>i)&1;\n      if((xor_val>>i)&1)b^=1;\n      if(u->ch[b]==nullptr)return\
-    \ nullptr;\n      u=u->ch[b];\n    }\n    return u;\n  }\n  public:\n  BinaryTrie():root(new\
-    \ node()){}\n  void insert(S x,S xor_val=0){add(x,1,xor_val);}\n  void erase(S\
-    \ x,S xor_val=0){add(x,-1,xor_val);}\n  void add(S x,int a,S xor_val=0){\n   \
-    \ xor_val^=xor_all;\n    node*u=root;\n    u->count+=a;\n    for(int i=B-1;i>=0;i--){\n\
-    \      int b=(x>>i)&1;\n      if((xor_val>>i)&1)b^=1;\n      if(u->ch[b]==nullptr)u->ch[b]=new\
-    \ node();\n      u=u->ch[b];\n      u->count+=a;\n    }\n  }\n  S min_element(S\
-    \ xor_val=0)const{return kth_element(0,xor_val);}\n  S max_element(S xor_val=0)const{return\
-    \ kth_element(size()-1,xor_val);}\n  S kth_element(int k,S xor_val=0)const{\n\
-    \    xor_val^=xor_all;\n    node*u=root;\n    S ret=0;\n    for(int i=B-1;i>=0;i--){\n\
-    \      bool f=(xor_val>>i)&1;\n      node*u0=(f?u->ch[1]:u->ch[0]);\n      node*u1=(f?u->ch[0]:u->ch[1]);\n\
-    \      if(u0==nullptr||u0->count<=k){\n        if(u0!=nullptr)k-=u0->count;\n\
-    \        u=u1;\n        ret|=(S(1)<<i);\n      }\n      else u=u0;\n    }\n  \
-    \  return ret;\n  }\n  int order(S k,S xor_val=0)const{\n    xor_val^=xor_all;\n\
-    \    node*u=root;\n    int order=0;\n    for(int i=B-1;i>=0;i--){\n      bool\
-    \ b=(k>>i)&1;\n      bool f=(xor_val>>i)&1;\n      node*u0=(f?u->ch[1]:u->ch[0]);\n\
-    \      node*u1=(f?u->ch[0]:u->ch[1]);\n      if(b){\n        if(u0!=nullptr)order+=u0->count;\n\
-    \        u=u1;\n      }\n      else u=u0;\n      if(u==nullptr)break;\n    }\n\
-    \    return order;\n  }\n  S lower_bound(S k,S xor_val=0)const{\n    return kth_element(order(k,xor_val));\n\
-    \  }\n  S upper_bound(S k,S xor_val=0)const{\n    return kth_element(order(k+1,xor_val));\n\
-    \  }\n  void all_xor(S x){xor_all^=x;}\n  int count(S x)const{\n    node*tmp=find(x);\n\
-    \    return (tmp==nullptr?0:tmp->count);\n  }\n  int size()const{return root->count;}\n\
-    };\n*/\n/**\n * @brief Binary Trie\n*/"
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/monoid.hpp\"\
+    \n\nnamespace Monoid{\n  template<typename T>\n  struct Sum{\n    using value_type=T;\n\
+    \    static constexpr T op(const T&x,const T&y){return x+y;}\n    static constexpr\
+    \ T id(){return T(0);}\n    static constexpr T inv(const T&x,const T&y){return\
+    \ x-y;}\n    static constexpr T get_inv(const T&x){return -x;}\n  };\n  template<typename\
+    \ T,T max_value=infinity<T>::max>\n  struct Min{\n    using value_type=T;\n  \
+    \  static constexpr T op(const T&x,const T&y){return x<y?x:y;}\n    static constexpr\
+    \ T id(){return max_value;}\n  };\n  template<typename T,T min_value=-infinity<T>::min>\n\
+    \  struct Max{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return x<y?y:x;}\n    static constexpr T id(){return min_value;}\n  };\n\
+    \  template<typename T>\n  struct Assign{\n    using value_type=T;\n    static\
+    \ constexpr T op(const T&x,const T&y){return y;}\n  };\n  template<typename T,T\
+    \ max_value=infinity<T>::max>\n  struct AssignMin{\n    using value_type=T;\n\
+    \    using M=Min<T,max_value>;\n    using E=Assign<T>;\n    static constexpr T\
+    \ op(const T&x,const T&y){return x;}\n  };\n  template<typename T,T min_value=-infinity<T>::min>\n\
+    \  struct AssignMax{\n    using value_type=T;\n    using M=Max<T,min_value>;\n\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&y){return\
+    \ x;}\n  };\n}// namespace Monoid\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\nnamespace Monoid{\n\
+    \  template<typename T>\n  struct Sum{\n    using value_type=T;\n    static constexpr\
+    \ T op(const T&x,const T&y){return x+y;}\n    static constexpr T id(){return T(0);}\n\
+    \    static constexpr T inv(const T&x,const T&y){return x-y;}\n    static constexpr\
+    \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct Min{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return x<y?x:y;}\n    static constexpr T id(){return max_value;}\n  };\n\
+    \  template<typename T,T min_value=-infinity<T>::min>\n  struct Max{\n    using\
+    \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
+    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return y;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AssignMin{\n    using value_type=T;\n    using M=Min<T,max_value>;\n\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&y){return\
+    \ x;}\n  };\n  template<typename T,T min_value=-infinity<T>::min>\n  struct AssignMax{\n\
+    \    using value_type=T;\n    using M=Max<T,min_value>;\n    using E=Assign<T>;\n\
+    \    static constexpr T op(const T&x,const T&y){return x;}\n  };\n}// namespace\
+    \ Monoid"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -273,16 +197,15 @@ data:
   - template/debug.hpp
   - template/type-traits.hpp
   isVerificationFile: false
-  path: data-structure/binary-trie.hpp
+  path: others/monoid.hpp
   requiredBy: []
   timestamp: '2022-12-25 11:58:05+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/yosupo/data_strucuture/set_xor_min.test.cpp
-documentation_of: data-structure/binary-trie.hpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: others/monoid.hpp
 layout: document
 redirect_from:
-- /library/data-structure/binary-trie.hpp
-- /library/data-structure/binary-trie.hpp.html
-title: Binary Trie
+- /library/others/monoid.hpp
+- /library/others/monoid.hpp.html
+title: others/monoid.hpp
 ---
