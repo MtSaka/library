@@ -1,16 +1,14 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/segment-tree-monoids.hpp"
+#include"../../../data-structure/segment-tree.hpp"
 int main(){
-  int n,q;
-  cin>>n>>q;
-  vector<long long>a(n);
-  cin>>a;
-  RSQ<long long>s(a);
+  INT(n,q);
+  vl a(n);cin>>a;
+  RangeSumQuery<ll>RSQ(a);
   while(q--){
     int t,l,r;
     cin>>t>>l>>r;
-    if(t)cout<<s.query(l,r)<<endl;
-    else s.set(l,s[l]+r);
+    if(t==0)RSQ.apply(l,r);
+    else print(RSQ.prod(l,r));
   }
 }

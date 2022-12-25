@@ -13,7 +13,7 @@ namespace Monoid{
   template<typename A,typename=void>struct has_mul_op:false_type{};
   template<typename A>struct has_mul_op<A,decltype((void)A::mul_op)>:true_type{};
   template<typename T,typename=void>struct is_semigroup:false_type{};
-  template<typename T>struct is_semigroup<T,decltype(declval<typename T::vale_type>(),(void)T::op)>:true_type{};
+  template<typename T>struct is_semigroup<T,decltype(declval<typename T::value_type>(),(void)T::op)>:true_type{};
   template<typename T,typename=void>struct is_monoid:false_type{};
   template<typename T>struct is_monoid<T,decltype(declval<typename T::value_type>,(void)T::op,(void)T::id)>:true_type{};
   template<typename T,typename=void>struct is_group:false_type{};
@@ -45,25 +45,25 @@ namespace Monoid{
   template<typename T>
   struct Assign{
     using value_type=T;
-    static constexpr T op(const T&x,const T&y){return y;}
+    static constexpr T op(const T&,const T&x){return x;}
   };
   template<typename T,T max_value=infinity<T>::max>
   struct AssignMin{
     using M=Min<T,max_value>;
     using E=Assign<T>;
-    static constexpr T op(const T&x,const T&y){return x;}
+    static constexpr T op(const T&x,const T&){return x;}
   };
   template<typename T,T min_value=infinity<T>::min>
   struct AssignMax{
     using M=Max<T,min_value>;
     using E=Assign<T>;
-    static constexpr T op(const T&x,const T&y){return x;}
+    static constexpr T op(const T&x,const T&){return x;}
   };
   template<typename T>
   struct AssignSum{
     using M=Sum<T>;
     using E=Assign<T>;
-    static constexpr T mul_op(const T&x,int sz,const T&y){return x*sz;}
+    static constexpr T mul_op(const T&x,int sz,const T&){return x*sz;}
   };
   template<typename T,T max_value=infinity<T>::max>
   struct AddMin{
@@ -107,5 +107,11 @@ namespace Monoid{
     using E=Max<T>;
     static constexpr T op(const T&x,const T&y){return x<y?y:x;}
   };
-
+  template<typename E_>
+  struct AttachMonoid{
+    using M=E_;
+    using E=E_;
+    using T=typename E_::value_type;
+    static T op(const T&x,const T&y){return E_::op(y,x);}
+  };
 }// namespace Monoid

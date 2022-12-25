@@ -1,18 +1,18 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_D"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/segment-tree-monoids.hpp"
+#include"../../../data-structure/dual-segment-tree.hpp"
 int main(){
-  int n,q;cin>>n>>q;
-  RUQ<int>seg(n,INT_MAX);
+  INT(n,q);
+  RangeUpdateQuery<int>RUQ(n,(1u<<31)-1);
   while(q--){
-    int t;cin>>t;
+    INT(t);
     if(t==0){
-      int l,r,x;cin>>l>>r>>x;
-      seg.apply(l,r+1,x);
+      INT(l,r,x);
+      RUQ.apply(l,r+1,x);
     }
     else{
-      int k;cin>>k;
-      print(seg[k]);
+      INT(k);
+      print(RUQ[k]);
     }
   }
 }

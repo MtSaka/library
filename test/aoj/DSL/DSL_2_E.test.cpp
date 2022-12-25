@@ -1,18 +1,18 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_E"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/segment-tree-monoids.hpp"
+#include"../../../data-structure/dual-segment-tree.hpp"
 int main(){
-  int n,q;cin>>n>>q;
-  RAQ<int>seg(n,0);
+  INT(n,q);
+  RangeAddQuery<int>RAQ(n);
   while(q--){
-    int t;cin>>t;
+    INT(t);
     if(t==0){
-      int l,r,x;cin>>l>>r>>x;
-      seg.apply(l-1,r,x);
+      INT(l,r,x);
+      RAQ.apply(l-1,r,x);
     }
     else{
-      int k;cin>>k;
-      print(seg[k-1]);
+      INT(k);
+      print(RAQ[k-1]);
     }
   }
 }

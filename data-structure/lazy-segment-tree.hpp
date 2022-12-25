@@ -13,13 +13,13 @@ struct LazySegmentTree{
   vector<T>data;
   vector<U>lazy;
   vector<bool>lazy_flag;
-  template<typename enable_if<Monoid::has_mul_op<A>>::type* = nullptr>
-  inline static T Aop(const U&a,const T&b,int sz){
-    return A::mul_op(a,sz,b);
-  }
-  template<typename enable_if<!Monoid::has_mul_op<A>>::type* = nullptr>
+  template<bool dummy=true,typename enable_if<!Monoid::has_mul_op<A>::value&&dummy>::type* = nullptr>
   inline static T Aop(const U&a,const T&b,int sz){
     return A::op(a,b);
+  }
+  template<bool dummy=true,typename enable_if<Monoid::has_mul_op<A>::value&&dummy>::type* = nullptr>
+  inline static T Aop(const U&a,const T&b,int sz){
+    return A::mul_op(a,sz,b);
   }
   void update(int k){data[k]=M::op(data[k<<1],data[k<<1^1]);}
   void all_apply(int k,const U&x,int sz){
@@ -38,8 +38,7 @@ struct LazySegmentTree{
   }
   public:
   LazySegmentTree():LazySegmentTree(0){}
-  LazySegmentTree(int n):LazySegmentTree(vector<T>(n,M::id())){}
-  LazySegmentTree(int n,T x):LazySegmentTree(vector<T>(n,x)){}
+  LazySegmentTree(int n,const T&e=M::id()):LazySegmentTree(vector<T>(n,e)){}
   LazySegmentTree(const vector<T>&v){init(v);}
   void init(const vecotr<T>&v){
     n=v.size();
@@ -61,7 +60,7 @@ struct LazySegmentTree{
       if(!f)break;
     }
     T sml=M::id(),smr=M::id();
-    while(l<r){
+    while(l!=r){
       if(l&1)sml=M::op(sml,data[l++]);
       if(r&1)smr=M::op(data[--r],smr);
       l>>=1,r>>=1;
@@ -97,7 +96,7 @@ struct LazySegmentTree{
       if(((r>>i)<<i)!=r)eval((r-1)>>i,1<<i),lst=i;
       if(lst!=i)break;
     }
-    for(int l2=l,r2=r,sz=1;l2<r2;l2>>=1,r2>>=1,sz<<=1){
+    for(int l2=l,r2=r,sz=1;l2!=r2;l2>>=1,r2>>=1,sz<<=1){
       if(l2&1)all_apply(l2++,x,sz);
       if(r2&1)all_apply(--r2,x,sz);
     }
@@ -106,7 +105,6 @@ struct LazySegmentTree{
       if(((r>>i)<<i)!=r)update((r-1)>>i);
     }
   }
-
 };
 template<typename T,T max_value=infinity<T>::max>
 using RangeUpdateQueryRangeMinimumQuery=LazySegmentTree<Monoid::AssignMin<T,max_value>>;

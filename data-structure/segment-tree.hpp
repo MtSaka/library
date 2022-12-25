@@ -11,8 +11,7 @@ struct SegmentTree{
   void update(int k){data[k]=M::op(data[k<<1],data[k<<1^1]);}
   public:
   SegmentTree():SegmentTree(0){}
-  SegmentTree(int n):SegmentTree(vector<T>(n,M::id())){}
-  SegmentTree(int n,const T&x):SegmentTree(vector<T>(n,x)){}
+  SegmentTree(int n,const T&e=M::id()):SegmentTree(vector<T>(n,e)){}
   SegmentTree(const vector<T>&v){init(v);}
   void init(const vector<T>&v){
     n=v.size();
@@ -37,7 +36,7 @@ struct SegmentTree{
   T prod(int l,int r)const{
     l+=size,r+=size;
     T sml=M::id(),smr=M::id();
-    while(l<r){
+    while(l!=r){
       if(l&1)sml=M::op(sml,data[l++]);
       if(r&1)smr=M::op(data[--r],smr);
       l>>=1,r>>=1;

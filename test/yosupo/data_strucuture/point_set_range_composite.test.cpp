@@ -1,32 +1,20 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/segment-tree.hpp"
+#include"../../../others/monoid2.hpp"
 #include"../../../math/modular/modint.hpp"
+#include"../../../data-structure/segment-tree.hpp"
 using mint=ModInt<998244353>;
-using S=pair<mint,mint>;
-S op(S a,S b){return S{a.first*b.first,a.second*b.first+b.second};}
-S e(){return S{mint(1),mint(0)};}
+using T=pair<mint,mint>;
 int main(){
-  int n,q;
-  cin>>n>>q;
-  vector<S>a(n);
-  cin>>a;
-  SegmentTree<S,op,e>s(a);
+  INT(n,q);
+  vector<T>a(n);cin>>a;
+  SegmentTree<Monoid::Composite<mint>>seg(a);
   while(q--){
-    int t;
-    cin>>t;
-    if(t){
-      int l,r,x;
-      cin>>l>>r>>x;
-      auto [n,m]=s.query(l,r);
-      cout<<n*mint(x)+m<<endl;
-    }
+    INT(t,a,b,c);
+    if(t==0)seg.set(a,T{b,c});
     else{
-      int p;
-      cin>>p;
-      mint c,d;
-      cin>>c>>d;
-      s.set(p,S{c,d});
+      auto [x,y]=seg.prod(a,b);
+      print(x*c+y);
     }
   }
 }

@@ -1,14 +1,12 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/segment-tree-monoids.hpp"
+#include"../../../data-structure/segment-tree.hpp"
 int main(){
   INT(n,q);
-  RmQ<int>s(vector<int>(n,INT_MAX));
+  RangeMinimumQuery<int,(1ull<<31)-1>RMQ(n);
   while(q--){
     INT(t,x,y);
-    if(t==0)s.set(x,y);
-    else{
-      cout<<s.query(x,y+1)<<endl;
-    }
+    if(t==0)RMQ.set(x,y);
+    else print(RMQ.prod(x,y+1));
   }
 }
