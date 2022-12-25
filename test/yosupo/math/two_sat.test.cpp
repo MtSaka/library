@@ -16,5 +16,5 @@ int main(){
   print("s SATISFIABLE");
   cout<<"v ";
   rep(i,n)cout<<(ans[i]?i+1:-i-1)<<" ";
-  cout<<0<<endl;
+  print(0);
 }

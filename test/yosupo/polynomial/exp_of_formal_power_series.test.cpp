@@ -3,9 +3,8 @@
 #include"../../../math/fps/fps.hpp"
 using mint=ModInt<998244353>;
 int main(){
-  int n;
-  cin>>n;
+  INT(n);
   FormalPowerSeries<mint>f(n);
   cin>>f;
-  cout<<f.exp()<<endl;
+  print(f.exp());
 }

@@ -2,11 +2,10 @@
 #include"../../template/template.hpp"
 #include"../../math/others/rational.hpp"
 int main(){
-  string s,t;
-  cin>>s>>t;
+  STR(s,t);
   int a=stoi(s),b=stoi(t);
   Rational c(a*60+b),d(720,11),x(0);
   while(x<c)x+=d;
   x=x-c;
-  cout<<x.num*60/x.den<<endl;
+  print(x.num*60/x.den);
 }

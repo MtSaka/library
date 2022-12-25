@@ -2,12 +2,10 @@
 #include"../../../template/template.hpp"
 #include"../../../math/number/kth-root-integer.hpp"
 int main(){
-  int t;
-  cin>>t;
+  INT(t);
   while(t--){
-    uint64_t a;
-    int k;
-    cin>>a>>k;
-    cout<<kth_root_integer(a,k)<<endl;
+    uint64_t a;cin>>a;
+    INT(k);
+    print(kth_root_integer(a,k));
   }
 }

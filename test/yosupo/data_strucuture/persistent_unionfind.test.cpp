@@ -2,21 +2,15 @@
 #include"../../../template/template.hpp"
 #include"../../../data-structure/persistent-union-find.hpp"
 int main(){
-  int n,q;
-  cin>>n>>q;
+  INT(n,q);
   using node=PersistentUnionFind::node;
   PersistentUnionFind d(n);
   vector<node*>g(q+1);
   g[0]=d.get_root();
-  for(int i=1;i<=q;i++){
-    int t,k,u,v;
-    cin>>t>>k>>u>>v;
+  rep(i,1,q+1){
+    INT(t,k,u,v);
     k++;
-    if(t==0){
-      g[i]=d.merge(u,v,g[k]).second;
-    }
-    else{
-      cout<<d.same(u,v,g[k])<<endl;
-    }
+    if(t==0)g[i]=d.merge(u,v,g[k]).second;
+    else print(d.same(u,v,g[k]));
   }
 }

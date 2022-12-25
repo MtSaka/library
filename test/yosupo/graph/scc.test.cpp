@@ -2,12 +2,11 @@
 #include"../../../template/template.hpp"
 #include"../../../graph/others/scc.hpp"
 int main(){
-  int n,m;
-  cin>>n>>m;
+  INT(n,m);
   SCC scc(n);
   scc.read(m,0,false,true);
   scc.build();
   auto ret=scc.scc();
-  cout<<ret.size()<<endl;
-  for(auto&p:ret)cout<<p.size()<<" "<<p<<endl;
+  print(ret.size());
+  for(auto&p:ret)print(p.size(),p);
 }

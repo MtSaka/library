@@ -6,6 +6,6 @@ using mint=ModInt<998244353>;
 int main(){
   INT(n);
   Matrix<mint>mat(n);
-  for(int i=0;i<n;i++)for(int j=0;j<n;j++)cin>>mat[i][j];
-  cout<<mat.determinant()<<endl;
+  rep(i,n)rep(j,n)cin>>mat[i][j];
+  print(mat.determinant());
 }

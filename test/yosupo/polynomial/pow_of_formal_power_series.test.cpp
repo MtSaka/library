@@ -3,9 +3,8 @@
 #include"../../../math/fps/fps.hpp"
 using mint=ModInt<998244353>;
 int main(){
-  long long n,m;
-  cin>>n>>m;
+  INT(n);LL(m);
   FormalPowerSeries<mint>f(n);
   cin>>f;
-  cout<<f.pow(m)<<endl;
+  print(f.pow(m));
 }

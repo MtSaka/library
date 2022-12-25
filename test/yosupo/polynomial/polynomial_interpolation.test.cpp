@@ -4,9 +4,8 @@
 #include"../../../math/fps/polynomial-interpolation.hpp"
 using mint=ModInt<998244353>;
 int main(){
-  int n;
-  cin>>n;
+  INT(n);
   vector<mint>xs(n),ys(n);
   cin>>xs>>ys;
-  cout<<polynomial_interpolation(xs,ys)<<endl;
+  print(polynomial_interpolation(xs,ys));
 }
