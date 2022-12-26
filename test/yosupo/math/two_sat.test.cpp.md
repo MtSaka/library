@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':heavy_check_mark:'
@@ -11,25 +11,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/others/two-sat.hpp
     title: Tow Satisfiability(2-SAT)
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -221,13 +221,13 @@ data:
     \  while(m--){\n    int a,b;\n    cin>>a>>b>>s;\n    ts.add_clause(abs(a)-1,a>0,abs(b)-1,b>0);\n\
     \  }\n  auto ans=ts.calc();\n  if(ans.empty())fin(\"s UNSATISFIABLE\");\n  print(\"\
     s SATISFIABLE\");\n  cout<<\"v \";\n  rep(i,n)cout<<(ans[i]?i+1:-i-1)<<\" \";\n\
-    \  cout<<0<<endl;\n}\n"
+    \  print(0);\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/two_sat\"\n#include\"../../../template/template.hpp\"\
     \n#include\"../../../graph/others/two-sat.hpp\"\nint main(){\n  string s;\n  int\
     \ n,m;\n  cin>>s>>s>>n>>m;\n  TwoSat ts(n);\n  while(m--){\n    int a,b;\n   \
     \ cin>>a>>b>>s;\n    ts.add_clause(abs(a)-1,a>0,abs(b)-1,b>0);\n  }\n  auto ans=ts.calc();\n\
     \  if(ans.empty())fin(\"s UNSATISFIABLE\");\n  print(\"s SATISFIABLE\");\n  cout<<\"\
-    v \";\n  rep(i,n)cout<<(ans[i]?i+1:-i-1)<<\" \";\n  cout<<0<<endl;\n}"
+    v \";\n  rep(i,n)cout<<(ans[i]?i+1:-i-1)<<\" \";\n  print(0);\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -242,7 +242,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/math/two_sat.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 06:44:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/math/two_sat.test.cpp

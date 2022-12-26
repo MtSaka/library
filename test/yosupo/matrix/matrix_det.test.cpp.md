@@ -1,31 +1,31 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/others/matrix.hpp
     title: "Matrix(\u884C\u5217)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -233,13 +233,13 @@ data:
     \        T now=b[j][i];\n        for(int k=0;k<(int)width();k++)b[j][k]-=b[i][k]*now;\n\
     \      }\n    }\n    return ret;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
     )\n*/\n#line 5 \"test/yosupo/matrix/matrix_det.test.cpp\"\nusing mint=ModInt<998244353>;\n\
-    int main(){\n  INT(n);\n  Matrix<mint>mat(n);\n  for(int i=0;i<n;i++)for(int j=0;j<n;j++)cin>>mat[i][j];\n\
-    \  cout<<mat.determinant()<<endl;\n}\n"
+    int main(){\n  INT(n);\n  Matrix<mint>mat(n);\n  rep(i,n)rep(j,n)cin>>mat[i][j];\n\
+    \  print(mat.determinant());\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../math/modular/modint.hpp\"\
     \n#include\"../../../math/others/matrix.hpp\"\nusing mint=ModInt<998244353>;\n\
-    int main(){\n  INT(n);\n  Matrix<mint>mat(n);\n  for(int i=0;i<n;i++)for(int j=0;j<n;j++)cin>>mat[i][j];\n\
-    \  cout<<mat.determinant()<<endl;\n}"
+    int main(){\n  INT(n);\n  Matrix<mint>mat(n);\n  rep(i,n)rep(j,n)cin>>mat[i][j];\n\
+    \  print(mat.determinant());\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -253,7 +253,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix/matrix_det.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 06:44:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix/matrix_det.test.cpp

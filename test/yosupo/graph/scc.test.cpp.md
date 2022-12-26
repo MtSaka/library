@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':heavy_check_mark:'
     path: graph/others/scc.hpp
     title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
       )"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -203,14 +203,13 @@ data:
     \ idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n    for(auto&to:rg[idx])rdfs(to,k);\n\
     \  }\n};\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\
     \u5206\u5206\u89E3)\n*/\n#line 4 \"test/yosupo/graph/scc.test.cpp\"\nint main(){\n\
-    \  int n,m;\n  cin>>n>>m;\n  SCC scc(n);\n  scc.read(m,0,false,true);\n  scc.build();\n\
-    \  auto ret=scc.scc();\n  cout<<ret.size()<<endl;\n  for(auto&p:ret)cout<<p.size()<<\"\
-    \ \"<<p<<endl;\n}\n"
+    \  INT(n,m);\n  SCC scc(n);\n  scc.read(m,0,false,true);\n  scc.build();\n  auto\
+    \ ret=scc.scc();\n  print(ret.size());\n  for(auto&p:ret)print(p.size(),p);\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n#include\"../../../template/template.hpp\"\
-    \n#include\"../../../graph/others/scc.hpp\"\nint main(){\n  int n,m;\n  cin>>n>>m;\n\
-    \  SCC scc(n);\n  scc.read(m,0,false,true);\n  scc.build();\n  auto ret=scc.scc();\n\
-    \  cout<<ret.size()<<endl;\n  for(auto&p:ret)cout<<p.size()<<\" \"<<p<<endl;\n\
-    }"
+    \n#include\"../../../graph/others/scc.hpp\"\nint main(){\n  INT(n,m);\n  SCC scc(n);\n\
+    \  scc.read(m,0,false,true);\n  scc.build();\n  auto ret=scc.scc();\n  print(ret.size());\n\
+    \  for(auto&p:ret)print(p.size(),p);\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -224,7 +223,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/graph/scc.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 06:44:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/graph/scc.test.cpp

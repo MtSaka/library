@@ -7,25 +7,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/persistent-union-find.hpp
     title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -187,18 +187,16 @@ data:
     \    node*ret=p.set(y,x,p.set(x,p.get(x,t)+p.get(y,t),t));\n    return {x,ret};\n\
     \  }\n  node*get_root(){return p.get_root();}\n};\n/**\n * @brief Persistent Disjoint\
     \ Set Union(\u6C38\u7D9AUnion-Find)\n*/\n#line 4 \"test/yosupo/data_strucuture/persistent_unionfind.test.cpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  using node=PersistentUnionFind::node;\n\
-    \  PersistentUnionFind d(n);\n  vector<node*>g(q+1);\n  g[0]=d.get_root();\n \
-    \ for(int i=1;i<=q;i++){\n    int t,k,u,v;\n    cin>>t>>k>>u>>v;\n    k++;\n \
-    \   if(t==0){\n      g[i]=d.merge(u,v,g[k]).second;\n    }\n    else{\n      cout<<d.same(u,v,g[k])<<endl;\n\
-    \    }\n  }\n}\n"
+    \nint main(){\n  INT(n,q);\n  using node=PersistentUnionFind::node;\n  PersistentUnionFind\
+    \ d(n);\n  vector<node*>g(q+1);\n  g[0]=d.get_root();\n  rep(i,1,q+1){\n    INT(t,k,u,v);\n\
+    \    k++;\n    if(t==0)g[i]=d.merge(u,v,g[k]).second;\n    else print(d.same(u,v,g[k]));\n\
+    \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/persistent_unionfind\"\n\
     #include\"../../../template/template.hpp\"\n#include\"../../../data-structure/persistent-union-find.hpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  using node=PersistentUnionFind::node;\n\
-    \  PersistentUnionFind d(n);\n  vector<node*>g(q+1);\n  g[0]=d.get_root();\n \
-    \ for(int i=1;i<=q;i++){\n    int t,k,u,v;\n    cin>>t>>k>>u>>v;\n    k++;\n \
-    \   if(t==0){\n      g[i]=d.merge(u,v,g[k]).second;\n    }\n    else{\n      cout<<d.same(u,v,g[k])<<endl;\n\
-    \    }\n  }\n}"
+    \nint main(){\n  INT(n,q);\n  using node=PersistentUnionFind::node;\n  PersistentUnionFind\
+    \ d(n);\n  vector<node*>g(q+1);\n  g[0]=d.get_root();\n  rep(i,1,q+1){\n    INT(t,k,u,v);\n\
+    \    k++;\n    if(t==0)g[i]=d.merge(u,v,g[k]).second;\n    else print(d.same(u,v,g[k]));\n\
+    \  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -212,7 +210,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/data_strucuture/persistent_unionfind.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 06:44:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/persistent_unionfind.test.cpp

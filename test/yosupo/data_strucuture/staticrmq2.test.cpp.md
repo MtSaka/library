@@ -4,25 +4,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/disjoint-sparse-table.hpp
     title: Disjoint Sparse Table
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -175,15 +175,13 @@ data:
     \    int pos=log_table[l^r];\n    return op(table[pos][l],table[pos][r]);\n  }\n\
     };\n/**\n * @brief Disjoint Sparse Table\n */\n#line 4 \"test/yosupo/data_strucuture/staticrmq2.test.cpp\"\
     \nint op(int a,int b){return min(a,b);}\nint e(){return INF<int>;}\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  DisjointSparseTable<int,op,e>st(a);\n\
-    \  while(q--){\n    int l,r;\n    cin>>l>>r;\n    cout<<st.query(l,r)<<endl;\n\
-    \  }\n}\n"
+    \  INT(n,q);\n  vi a(n);\n  cin>>a;\n  DisjointSparseTable<int,op,e>st(a);\n \
+    \ while(q--){\n    INT(l,r);\n    print(st.query(l,r));\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../data-structure/disjoint-sparse-table.hpp\"\
     \nint op(int a,int b){return min(a,b);}\nint e(){return INF<int>;}\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  vi a(n);\n  cin>>a;\n  DisjointSparseTable<int,op,e>st(a);\n\
-    \  while(q--){\n    int l,r;\n    cin>>l>>r;\n    cout<<st.query(l,r)<<endl;\n\
-    \  }\n}"
+    \  INT(n,q);\n  vi a(n);\n  cin>>a;\n  DisjointSparseTable<int,op,e>st(a);\n \
+    \ while(q--){\n    INT(l,r);\n    print(st.query(l,r));\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -196,7 +194,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/data_strucuture/staticrmq2.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 06:44:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/staticrmq2.test.cpp

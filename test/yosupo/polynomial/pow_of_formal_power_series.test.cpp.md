@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':heavy_check_mark:'
@@ -27,28 +27,28 @@ data:
   - icon: ':heavy_check_mark:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: string/run-length.hpp
     title: string/run-length.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -488,12 +488,12 @@ data:
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      res=(res+f*res.inv(i<<1))*inv2;\n\
     \    }\n    res.resize(d);\n    return res;\n  }\n};\n/**\n * @brief Formal Power\
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"test/yosupo/polynomial/pow_of_formal_power_series.test.cpp\"\
-    \nusing mint=ModInt<998244353>;\nint main(){\n  long long n,m;\n  cin>>n>>m;\n\
-    \  FormalPowerSeries<mint>f(n);\n  cin>>f;\n  cout<<f.pow(m)<<endl;\n}\n"
+    \nusing mint=ModInt<998244353>;\nint main(){\n  INT(n);LL(m);\n  FormalPowerSeries<mint>f(n);\n\
+    \  cin>>f;\n  print(f.pow(m));\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_formal_power_series\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/fps/fps.hpp\"\
-    \nusing mint=ModInt<998244353>;\nint main(){\n  long long n,m;\n  cin>>n>>m;\n\
-    \  FormalPowerSeries<mint>f(n);\n  cin>>f;\n  cout<<f.pow(m)<<endl;\n}"
+    \nusing mint=ModInt<998244353>;\nint main(){\n  INT(n);LL(m);\n  FormalPowerSeries<mint>f(n);\n\
+    \  cin>>f;\n  print(f.pow(m));\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -514,7 +514,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 06:44:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp

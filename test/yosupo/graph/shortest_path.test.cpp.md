@@ -1,39 +1,39 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/shortest-path/dijkstra-path.hpp
     title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
       \u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/shortest_path
@@ -194,17 +194,15 @@ data:
     \  while(path.back()!=s)path.emplace_back(prev[path.back()]);\n  reverse(path.begin(),path.end());\n\
     \  return {d[t],path};\n}\n/**\n * @brief Dijkstra With Path(\u7D4C\u8DEF\u4ED8\
     \u304D\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n*/\n#line 4 \"test/yosupo/graph/shortest_path.test.cpp\"\
-    \nint main(){\n  int n,m,s,t;\n  cin>>n>>m>>s>>t;\n  Graph<long long>g(n);\n \
-    \ g.read(m,0,true,true);\n  auto d=dijkstra_path(g,s,t);\n  if(d.first==-1){\n\
-    \    cout<<d.first<<endl;\n    return 0;\n  }\n  cout<<d.first<<\" \"<<d.second.size()-1<<endl;\n\
-    \  for(int i=0;i<(int)d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
+    \nint main(){\n  INT(n,m,s,t);\n  Graph<ll>g(n);\n  g.read(m,0,true,true);\n \
+    \ auto d=dijkstra_path(g,s,t);\n  if(d.first==-1){\n    print(d.first);\n    return\
+    \ 0;\n  }\n  print(d.firstkd.second.size()-1);\n  rep(i,d.second.size()-1)print(d.second[i],d.second[i+1]);\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../graph/shortest-path/dijkstra-path.hpp\"\
-    \nint main(){\n  int n,m,s,t;\n  cin>>n>>m>>s>>t;\n  Graph<long long>g(n);\n \
-    \ g.read(m,0,true,true);\n  auto d=dijkstra_path(g,s,t);\n  if(d.first==-1){\n\
-    \    cout<<d.first<<endl;\n    return 0;\n  }\n  cout<<d.first<<\" \"<<d.second.size()-1<<endl;\n\
-    \  for(int i=0;i<(int)d.second.size()-1;i++)cout<<d.second[i]<<\" \"<<d.second[i+1]<<endl;\n\
+    \nint main(){\n  INT(n,m,s,t);\n  Graph<ll>g(n);\n  g.read(m,0,true,true);\n \
+    \ auto d=dijkstra_path(g,s,t);\n  if(d.first==-1){\n    print(d.first);\n    return\
+    \ 0;\n  }\n  print(d.firstkd.second.size()-1);\n  rep(i,d.second.size()-1)print(d.second[i],d.second[i+1]);\n\
     }"
   dependsOn:
   - template/template.hpp
@@ -219,8 +217,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/graph/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-26 06:44:59+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/graph/shortest_path.test.cpp
 layout: document

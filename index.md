@@ -88,7 +88,7 @@ data:
       title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: graph
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/graph-template.hpp
       title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
         )"
@@ -121,7 +121,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/shortest-path/bellman-ford.hpp
       title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/shortest-path/dijkstra-path.hpp
       title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
         \u77ED\u8DEF)"
@@ -139,14 +139,14 @@ data:
     - icon: ':warning:'
       path: graph/tree/centroid.hpp
       title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/tree/doubling-lowest-common-ancestor.hpp
       title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
     - icon: ':heavy_check_mark:'
       path: graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/tree/tree-diameter.hpp
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: math/convolution
@@ -189,7 +189,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/modular/mod-sqrt.hpp
       title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/modular/modint.hpp
       title: ModInt
     - icon: ':heavy_check_mark:'
@@ -242,10 +242,10 @@ data:
     - icon: ':warning:'
       path: math/others/lagrange.hpp
       title: "Lagrange Polynomial(\u591A\u9805\u5F0F\u88DC\u9593)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/others/matrix.hpp
       title: "Matrix(\u884C\u5217)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/others/rational.hpp
       title: "Fraction(\u6709\u7406\u6570\u578B)"
   - name: others
@@ -270,30 +270,30 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/rolling-hash.hpp
       title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: string/run-length.hpp
       title: string/run-length.hpp
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/alias.hpp
       title: template/alias.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/debug.hpp
       title: template/debug.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/func.hpp
       title: template/func.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/macro.hpp
       title: template/macro.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: template/template.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/type-traits.hpp
       title: template/type-traits.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/util.hpp
       title: template/util.hpp
   verificationCategories:
@@ -515,7 +515,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/graph/scc.test.cpp
       title: test/yosupo/graph/scc.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/graph/shortest_path.test.cpp
       title: test/yosupo/graph/shortest_path.test.cpp
   - name: test/yosupo/math
@@ -543,7 +543,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/matrix/matrix_det.test.cpp
       title: test/yosupo/matrix/matrix_det.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/matrix/matrix_product.test.cpp
       title: test/yosupo/matrix/matrix_product.test.cpp
   - name: test/yosupo/polynomial
@@ -577,24 +577,24 @@ data:
       title: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
   - name: test/yosupo/tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/tree/lca1.test.cpp
       title: test/yosupo/tree/lca1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/tree/lca2.test.cpp
       title: test/yosupo/tree/lca2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/tree/tree_diameter.test.cpp
       title: test/yosupo/tree/tree_diameter.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/1236.test.cpp
       title: test/yukicoder/1236.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1435.test.cpp
       title: test/yukicoder/1435.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/1469.test.cpp
       title: test/yukicoder/1469.test.cpp
     - icon: ':heavy_check_mark:'

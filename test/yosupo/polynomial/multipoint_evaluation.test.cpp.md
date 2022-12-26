@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/multipoint-evaluation.hpp
     title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':heavy_check_mark:'
@@ -30,28 +30,28 @@ data:
   - icon: ':heavy_check_mark:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: string/run-length.hpp
     title: string/run-length.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -498,14 +498,14 @@ data:
     \  vector<T>res(n);\n  for(int i=0;i<n;i++)res[i]=(g[i+sz].empty()?T():g[i+sz][0]);\n\
     \  return res;\n}\n/**\n * @brief Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1\
     )\n*/\n#line 5 \"test/yosupo/polynomial/multipoint_evaluation.test.cpp\"\nusing\
-    \ mint=ModInt<998244353>;\nint main(){\n  int n,m;\n  cin>>n>>m;\n  FormalPowerSeries<mint>f(n);\n\
-    \  vector<mint>xs(m);\n  cin>>f>>xs;\n  cout<<multipoint_evaluation(f,xs)<<endl;\n\
+    \ mint=ModInt<998244353>;\nint main(){\n  INT(n,m);\n  FormalPowerSeries<mint>f(n);\n\
+    \  vector<mint>xs(m);\n  cin>>f>>xs;\n  print(multipoint_evaluation(f,xs));\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/multipoint_evaluation\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/fps/fps.hpp\"\
     \n#include\"../../../math/fps/multipoint-evaluation.hpp\"\nusing mint=ModInt<998244353>;\n\
-    int main(){\n  int n,m;\n  cin>>n>>m;\n  FormalPowerSeries<mint>f(n);\n  vector<mint>xs(m);\n\
-    \  cin>>f>>xs;\n  cout<<multipoint_evaluation(f,xs)<<endl;\n}"
+    int main(){\n  INT(n,m);\n  FormalPowerSeries<mint>f(n);\n  vector<mint>xs(m);\n\
+    \  cin>>f>>xs;\n  print(multipoint_evaluation(f,xs));\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -527,7 +527,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/multipoint_evaluation.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 06:44:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/multipoint_evaluation.test.cpp

@@ -4,25 +4,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/dynamic-segment-tree.hpp
     title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -186,17 +186,16 @@ data:
     \    nd->val=op(nd->l?nd->l->val:e(),nd->r?nd->r->val:e());\n  }\n};\n/**\n *\
     \ @brief Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)\n */\n#line 4 \"\
     test/yosupo/data_strucuture/point_add_range_sum3.test.cpp\"\nlong long op(long\
-    \ long a,long long b){return a+b;}\nlong long e(){return 0;}\nint main(){\n  int\
-    \ n,q;cin>>n>>q;\n  DynamicSegmentTree<long long,op,e>seg(n);\n  vi a(n);cin>>a;\n\
-    \  for(int i=0;i<n;i++)seg.set(i,a[i]);\n  while(q--){\n    int t,l,r;cin>>t>>l>>r;\n\
-    \    if(t)cout<<seg.query(l,r)<<endl;\n    else seg.set(l,seg[l]+r);\n  }\n}\n"
+    \ long a,long long b){return a+b;}\nlong long e(){return 0;}\nint main(){\n  INT(n,q);\n\
+    \  DynamicSegmentTree<long long,op,e>seg(n);\n  vi a(n);cin>>a;\n  rep(i,n)seg.set(i,a[i]);\n\
+    \  while(q--){\n    INT(t,l,r);\n    if(t)print(seg.query(l,r));\n    else seg.set(l,seg[l]+r);\n\
+    \  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
     #include\"../../../template/template.hpp\"\n#include\"../../../data-structure/dynamic-segment-tree.hpp\"\
     \nlong long op(long long a,long long b){return a+b;}\nlong long e(){return 0;}\n\
-    int main(){\n  int n,q;cin>>n>>q;\n  DynamicSegmentTree<long long,op,e>seg(n);\n\
-    \  vi a(n);cin>>a;\n  for(int i=0;i<n;i++)seg.set(i,a[i]);\n  while(q--){\n  \
-    \  int t,l,r;cin>>t>>l>>r;\n    if(t)cout<<seg.query(l,r)<<endl;\n    else seg.set(l,seg[l]+r);\n\
-    \  }\n}"
+    int main(){\n  INT(n,q);\n  DynamicSegmentTree<long long,op,e>seg(n);\n  vi a(n);cin>>a;\n\
+    \  rep(i,n)seg.set(i,a[i]);\n  while(q--){\n    INT(t,l,r);\n    if(t)print(seg.query(l,r));\n\
+    \    else seg.set(l,seg[l]+r);\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -209,7 +208,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 06:44:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/point_add_range_sum3.test.cpp

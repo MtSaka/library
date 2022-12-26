@@ -1,38 +1,38 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/tree/doubling-lowest-common-ancestor.hpp
     title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/lca
@@ -198,14 +198,14 @@ data:
     \    for(auto &e:g[idx])if(e!=par){\n      sum[e]=sum[idx]+e.cost;\n      dfs(e,idx,d+1);\n\
     \    }\n  }\n};\n/**\n * @brief Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\
     \u901A\u7956\u5148)\n*/\n#line 4 \"test/yosupo/tree/lca1.test.cpp\"\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  DoublingLCA g(n);\n  for(int i=1;i<n;i++){\n    int\
-    \ u;\n    cin>>u;\n    g.add_edge(u,i,false);\n  }\n  g.build();\n  while(q--){\n\
-    \    int u,v;\n    cin>>u>>v;\n    cout<<g.lca(u,v)<<endl;\n  }\n}\n"
+    \  INT(n,q);\n  DoublingLCA g(n);\n  rep(i,1,n){\n    INT(u);\n    g.add_edge(u,i,false);\n\
+    \  }\n  g.build();\n  while(q--){\n    INT(u,v);\n    print(g.lca(u,v));\n  }\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include\"../../../template/template.hpp\"\
     \n#include\"../../../graph/tree/doubling-lowest-common-ancestor.hpp\"\nint main(){\n\
-    \  int n,q;\n  cin>>n>>q;\n  DoublingLCA g(n);\n  for(int i=1;i<n;i++){\n    int\
-    \ u;\n    cin>>u;\n    g.add_edge(u,i,false);\n  }\n  g.build();\n  while(q--){\n\
-    \    int u,v;\n    cin>>u>>v;\n    cout<<g.lca(u,v)<<endl;\n  }\n}"
+    \  INT(n,q);\n  DoublingLCA g(n);\n  rep(i,1,n){\n    INT(u);\n    g.add_edge(u,i,false);\n\
+    \  }\n  g.build();\n  while(q--){\n    INT(u,v);\n    print(g.lca(u,v));\n  }\n\
+    }"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -219,8 +219,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/tree/lca1.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-26 06:44:59+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/tree/lca1.test.cpp
 layout: document

@@ -1,38 +1,38 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/others/matrix.hpp
     title: "Matrix(\u884C\u5217)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/matrix_product
@@ -232,17 +232,13 @@ data:
     \ &is,StaticModInt&x){\n    ll tmp;\n    is>>tmp;\n    x=StaticModInt(tmp);\n\
     \    return is;\n  }\n};\ntemplate<unsigned int p>using ModInt=StaticModInt<unsigned\
     \ int,p>;\n/**\n * @brief ModInt\n*/\n#line 5 \"test/yosupo/matrix/matrix_product.test.cpp\"\
-    \nint main(){\n  int n,m,k;\n  cin>>n>>m>>k;\n  Matrix<ModInt<998244353>>a(n,m),b(m,k);\n\
-    \  for(int i=0;i<n;i++){\n    for(int j=0;j<m;j++){\n      cin>>a[i][j];\n   \
-    \ }\n  }\n  for(int i=0;i<m;i++){\n    for(int j=0;j<k;j++){\n      cin>>b[i][j];\n\
-    \    }\n  }\n  a*=b;\n  for(int i=0;i<n;i++){\n    cout<<a[i]<<endl;\n  }\n}\n"
+    \nint main(){\n  INT(n,m,k);\n  Matrix<ModInt<998244353>>a(n,m),b(m,k);\n  rep(i,n)repp(j,m)cin>>a[i][j];\n\
+    \  rep(i,m)rep(j,k)cin>>b[i][j];\n  a*=b;\n  rep(i,n)print(a[i]);\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../math/others/matrix.hpp\"\n\
-    #include\"../../../math/modular/modint.hpp\"\nint main(){\n  int n,m,k;\n  cin>>n>>m>>k;\n\
-    \  Matrix<ModInt<998244353>>a(n,m),b(m,k);\n  for(int i=0;i<n;i++){\n    for(int\
-    \ j=0;j<m;j++){\n      cin>>a[i][j];\n    }\n  }\n  for(int i=0;i<m;i++){\n  \
-    \  for(int j=0;j<k;j++){\n      cin>>b[i][j];\n    }\n  }\n  a*=b;\n  for(int\
-    \ i=0;i<n;i++){\n    cout<<a[i]<<endl;\n  }\n}"
+    #include\"../../../math/modular/modint.hpp\"\nint main(){\n  INT(n,m,k);\n  Matrix<ModInt<998244353>>a(n,m),b(m,k);\n\
+    \  rep(i,n)repp(j,m)cin>>a[i][j];\n  rep(i,m)rep(j,k)cin>>b[i][j];\n  a*=b;\n\
+    \  rep(i,n)print(a[i]);\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -256,8 +252,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-26 06:44:59+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/matrix/matrix_product.test.cpp
 layout: document

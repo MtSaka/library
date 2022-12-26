@@ -1,38 +1,38 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/tree/tree-diameter.hpp
     title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/tree_diameter
@@ -193,14 +193,13 @@ data:
     \    for(auto &e:g[idx])if(e.to!=par){\n      auto cost=dfs(e.to,idx);\n     \
     \ cost.first+=e.cost;\n      if(res<cost)res=cost,to[idx]=e.to;\n    }\n    return\
     \ res;\n  }\n};\n/**\n * @brief Tree Diameter(\u6728\u306E\u76F4\u5F84)\n*/\n\
-    #line 4 \"test/yosupo/tree/tree_diameter.test.cpp\"\nint main(){\n  int n;\n \
-    \ cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n  cout<<g.build()<<\"\
-    \ \"<<g.path.size()+1<<endl;\n  cout<<g.path[0].from<<\" \"<<g.path<<endl;\n}\n"
+    #line 4 \"test/yosupo/tree/tree_diameter.test.cpp\"\nint main(){\n  INT(n);\n\
+    \  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n  print(g.build(),g.path.size()+1);\n\
+    \  print(g.path[0].from,g.path);\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../graph/tree/tree-diameter.hpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n\
-    \  cout<<g.build()<<\" \"<<g.path.size()+1<<endl;\n  cout<<g.path[0].from<<\"\
-    \ \"<<g.path<<endl;\n}"
+    \nint main(){\n  INT(n);\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n  print(g.build(),g.path.size()+1);\n\
+    \  print(g.path[0].from,g.path);\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -214,8 +213,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/tree/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-26 06:44:59+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/tree/tree_diameter.test.cpp
 layout: document

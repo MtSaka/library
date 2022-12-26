@@ -4,25 +4,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/number/kth-root-integer.hpp
     title: Kth Root Integer
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -166,12 +166,12 @@ data:
     \   if(__builtin_mul_overflow(mul,x,&mul))return false;\n    }\n    return mul<=a;\n\
     \  };\n  uint64_t ret=0;\n  for(int i=31;i>=0;i--){\n    if(check(ret|(1u<<i)))ret|=1u<<i;\n\
     \  }\n  return ret;\n}\n/**\n * @brief Kth Root Integer\n*/\n#line 4 \"test/yosupo/math/kth_root_integer.test.cpp\"\
-    \nint main(){\n  int t;\n  cin>>t;\n  while(t--){\n    uint64_t a;\n    int k;\n\
-    \    cin>>a>>k;\n    cout<<kth_root_integer(a,k)<<endl;\n  }\n}\n"
+    \nint main(){\n  INT(t);\n  while(t--){\n    uint64_t a;cin>>a;\n    INT(k);\n\
+    \    print(kth_root_integer(a,k));\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/kth_root_integer\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../math/number/kth-root-integer.hpp\"\
-    \nint main(){\n  int t;\n  cin>>t;\n  while(t--){\n    uint64_t a;\n    int k;\n\
-    \    cin>>a>>k;\n    cout<<kth_root_integer(a,k)<<endl;\n  }\n}"
+    \nint main(){\n  INT(t);\n  while(t--){\n    uint64_t a;cin>>a;\n    INT(k);\n\
+    \    print(kth_root_integer(a,k));\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -184,7 +184,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/math/kth_root_integer.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 06:44:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/math/kth_root_integer.test.cpp

@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':heavy_check_mark:'
@@ -30,28 +30,28 @@ data:
   - icon: ':heavy_check_mark:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: string/run-length.hpp
     title: string/run-length.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -499,13 +499,13 @@ data:
     \  for(int i=0;i<n;i++)g[sz+i]={ys[i]/g[sz+i][0]};\n  for(int i=sz;i-->1;)g[i]=g[i<<1]*mul[i<<1|1]+g[i<<1|1]*mul[i<<1];\n\
     \  return g[1];\n}\n/**\n * @brief Polynomial Interpolation(\u591A\u9805\u5F0F\
     \u88DC\u9593)\n*/\n#line 5 \"test/yosupo/polynomial/polynomial_interpolation.test.cpp\"\
-    \nusing mint=ModInt<998244353>;\nint main(){\n  int n;\n  cin>>n;\n  vector<mint>xs(n),ys(n);\n\
-    \  cin>>xs>>ys;\n  cout<<polynomial_interpolation(xs,ys)<<endl;\n}\n"
+    \nusing mint=ModInt<998244353>;\nint main(){\n  INT(n);\n  vector<mint>xs(n),ys(n);\n\
+    \  cin>>xs>>ys;\n  print(polynomial_interpolation(xs,ys));\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_interpolation\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/fps/fps.hpp\"\
     \n#include\"../../../math/fps/polynomial-interpolation.hpp\"\nusing mint=ModInt<998244353>;\n\
-    int main(){\n  int n;\n  cin>>n;\n  vector<mint>xs(n),ys(n);\n  cin>>xs>>ys;\n\
-    \  cout<<polynomial_interpolation(xs,ys)<<endl;\n}"
+    int main(){\n  INT(n);\n  vector<mint>xs(n),ys(n);\n  cin>>xs>>ys;\n  print(polynomial_interpolation(xs,ys));\n\
+    }"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -527,7 +527,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/polynomial_interpolation.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 06:44:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/polynomial_interpolation.test.cpp
