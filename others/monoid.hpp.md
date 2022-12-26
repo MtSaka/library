@@ -22,11 +22,20 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedRequiredBy:
+  - icon: ':question:'
+    path: data-structure/segment-tree.hpp
+    title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_B2.test.cpp
+    title: test/aoj/DSL/DSL_2_B2.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+    title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
@@ -68,15 +77,15 @@ data:
     \ T,typename U>\ninline constexpr bool chmin(T&a,U b){return a>b&&(a=b,true);}\n\
     template<typename T,typename U>\ninline constexpr bool chmax(T&a,U b){return a<b&&(a=b,true);}\n\
     inline constexpr ll gcd(ll a,ll b){\n  if(a<0)a=-a;\n  if(b<0)b=-b;\n  while(b){\n\
-    \    std::swap(a%=b,b);\n  }\n  return a;\n}\ninline constexpr ll lcm(ll a,ll\
-    \ b){return a/gcd(a,b)*b;}\ninline constexpr bool is_prime(ll n){\n  if(n<=1)return\
-    \ false;\n  for(ll i=2;i*i<=n;i++){\n    if(n%i==0)return false;\n  }\n  return\
-    \ true;\n}\ninline constexpr ll my_pow(ll a,ll b){\n  ll res=1;\n  while(b){\n\
-    \    if(b&1)res*=a;\n    a*=a;\n    b>>=1;\n  }\n  return res;\n}\ninline constexpr\
-    \ ll mod_pow(ll a,ll b,const ll&mod){\n  if(mod==1)return 0;\n  a%=mod;\n  ll\
-    \ res=1;\n  while(b){\n    if(b&1)(res*=a)%=mod;\n    (a*=a)%=mod;\n    b>>=1;\n\
-    \  }\n  return res;\n}\ninline ll mod_inv(ll a,const ll&mod){\n  ll b=mod,x=1,u=0,t;\n\
-    \  while(b){\n    t=a/b;\n    std::swap(a-=t*b,b);\n    std::swap(x-=t*u,u);\n\
+    \    const ll c=b;\n    b=a%b;\n    a=c;\n  }\n  return a;\n}\ninline constexpr\
+    \ ll lcm(ll a,ll b){return a/gcd(a,b)*b;}\ninline constexpr bool is_prime(ll n){\n\
+    \  if(n<=1)return false;\n  for(ll i=2;i*i<=n;i++){\n    if(n%i==0)return false;\n\
+    \  }\n  return true;\n}\ninline constexpr ll my_pow(ll a,ll b){\n  ll res=1;\n\
+    \  while(b){\n    if(b&1)res*=a;\n    a*=a;\n    b>>=1;\n  }\n  return res;\n\
+    }\ninline constexpr ll mod_pow(ll a,ll b,const ll&mod){\n  if(mod==1)return 0;\n\
+    \  a%=mod;\n  ll res=1;\n  while(b){\n    if(b&1)(res*=a)%=mod;\n    (a*=a)%=mod;\n\
+    \    b>>=1;\n  }\n  return res;\n}\ninline ll mod_inv(ll a,const ll&mod){\n  ll\
+    \ b=mod,x=1,u=0,t;\n  while(b){\n    t=a/b;\n    std::swap(a-=t*b,b);\n    std::swap(x-=t*u,u);\n\
     \  }\n  if(x<0)x+=mod;\n  return x;\n}\ntemplate<typename T,typename U>\nstd::ostream\
     \ &operator<<(std::ostream&os,const std::pair<T,U>&p){os<<p.first<<\" \"<<p.second;return\
     \ os;}\ntemplate<typename T,typename U>\nstd::istream &operator>>(std::istream&is,std::pair<T,U>&p){is>>p.first>>p.second;return\
@@ -153,41 +162,115 @@ data:
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/monoid.hpp\"\
-    \n\nnamespace Monoid{\n  template<typename T>\n  struct Sum{\n    using value_type=T;\n\
-    \    static constexpr T op(const T&x,const T&y){return x+y;}\n    static constexpr\
-    \ T id(){return T(0);}\n    static constexpr T inv(const T&x,const T&y){return\
-    \ x-y;}\n    static constexpr T get_inv(const T&x){return -x;}\n  };\n  template<typename\
-    \ T,T max_value=infinity<T>::max>\n  struct Min{\n    using value_type=T;\n  \
-    \  static constexpr T op(const T&x,const T&y){return x<y?x:y;}\n    static constexpr\
-    \ T id(){return max_value;}\n  };\n  template<typename T,T min_value=-infinity<T>::min>\n\
-    \  struct Max{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
-    \ T&y){return x<y?y:x;}\n    static constexpr T id(){return min_value;}\n  };\n\
-    \  template<typename T>\n  struct Assign{\n    using value_type=T;\n    static\
-    \ constexpr T op(const T&x,const T&y){return y;}\n  };\n  template<typename T,T\
-    \ max_value=infinity<T>::max>\n  struct AssignMin{\n    using value_type=T;\n\
-    \    using M=Min<T,max_value>;\n    using E=Assign<T>;\n    static constexpr T\
-    \ op(const T&x,const T&y){return x;}\n  };\n  template<typename T,T min_value=-infinity<T>::min>\n\
-    \  struct AssignMax{\n    using value_type=T;\n    using M=Max<T,min_value>;\n\
-    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&y){return\
-    \ x;}\n  };\n}// namespace Monoid\n"
-  code: "#pragma once\n#include\"../template/template.hpp\"\n\nnamespace Monoid{\n\
+    \n\nnamespace Monoid{\n  template<typename M,typename=void>struct has_op:false_type{};\n\
+    \  template<typename M>struct has_op<M,decltype((void)M::op)>:true_type{};\n \
+    \ template<typename M,typename=void>struct has_id:false_type{};\n  template<typename\
+    \ M>struct has_id<M,decltype((void)M::id)>:true_type{};\n  template<typename M,typename=void>struct\
+    \ has_inv:false_type{};\n  template<typename M>struct has_inv<M,decltype((void)M::inv)>:true_type{};\n\
+    \  template<typename M,typename=void>struct has_get_inv:false_type{};\n  template<typename\
+    \ M>struct has_get_inv<M,decltype((void)M::get_inv)>:true_type{};\n  template<typename\
+    \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
+    \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
+    \ T::vale_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
+    \ T::value_type>,(void)T::op,(void)T::id)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_group:false_type{};\n  template<typename T>struct is_group<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};\n \
+    \ template<typename T,typename=void>struct is_action:false_type{};\n  template<typename\
+    \ T>struct is_action<T,typename enable_if<is_monoid<typename T::M>::value&&is_semigroup<typename\
+    \ T::E>::value&&(has_op<T>::value||has_mul_op<T>::value)>::type>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_distributable_action:false_type{};\n\
+    \  template<typename T>struct is_distributable_action<T,typename enable_if<is_action<T>::value&&!has_mul_op<T>::value>::type>:true_type{};\n\
     \  template<typename T>\n  struct Sum{\n    using value_type=T;\n    static constexpr\
     \ T op(const T&x,const T&y){return x+y;}\n    static constexpr T id(){return T(0);}\n\
     \    static constexpr T inv(const T&x,const T&y){return x-y;}\n    static constexpr\
     \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
     \  struct Min{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
     \ T&y){return x<y?x:y;}\n    static constexpr T id(){return max_value;}\n  };\n\
-    \  template<typename T,T min_value=-infinity<T>::min>\n  struct Max{\n    using\
+    \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
     \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
     \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
     \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
     \ T&y){return y;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
-    \  struct AssignMin{\n    using value_type=T;\n    using M=Min<T,max_value>;\n\
+    \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
+    \    static constexpr T op(const T&x,const T&y){return x;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
     \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&y){return\
-    \ x;}\n  };\n  template<typename T,T min_value=-infinity<T>::min>\n  struct AssignMax{\n\
-    \    using value_type=T;\n    using M=Max<T,min_value>;\n    using E=Assign<T>;\n\
-    \    static constexpr T op(const T&x,const T&y){return x;}\n  };\n}// namespace\
-    \ Monoid"
+    \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
+    \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
+    \ T&y){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
+    \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Sum<T>;\n    static constexpr T op(const T&a,const T&b){return b+a;}\n\
+    \  };\n  template<typename T>\n  struct AddSum{\n    using M=Sum<T>;\n    using\
+    \ E=Sum<T>;\n    static constexpr T mul_op(const T&x,int sz,const T&y){return\
+    \ y+x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n  struct\
+    \ ChminMin{\n    using M=Min<T,max_value>;\n    using E=Min<T>;\n    static constexpr\
+    \ T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename T,T min_value=infinity<T>::min>\n\
+    \  struct ChminMax{\n    using M=Max<T,min_value>;\n    using E=Min<T>;\n    static\
+    \ constexpr T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename\
+    \ T,T max_value=infinity<T>::max>\n  struct ChmaxMin{\n    using M=Min<T,max_value>;\n\
+    \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
+    \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
+    \ T&x,const T&y){return x<y?y:x;}\n  };\n\n}// namespace Monoid\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\nnamespace Monoid{\n\
+    \  template<typename M,typename=void>struct has_op:false_type{};\n  template<typename\
+    \ M>struct has_op<M,decltype((void)M::op)>:true_type{};\n  template<typename M,typename=void>struct\
+    \ has_id:false_type{};\n  template<typename M>struct has_id<M,decltype((void)M::id)>:true_type{};\n\
+    \  template<typename M,typename=void>struct has_inv:false_type{};\n  template<typename\
+    \ M>struct has_inv<M,decltype((void)M::inv)>:true_type{};\n  template<typename\
+    \ M,typename=void>struct has_get_inv:false_type{};\n  template<typename M>struct\
+    \ has_get_inv<M,decltype((void)M::get_inv)>:true_type{};\n  template<typename\
+    \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
+    \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
+    \ T::vale_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
+    \ T::value_type>,(void)T::op,(void)T::id)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_group:false_type{};\n  template<typename T>struct is_group<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};\n \
+    \ template<typename T,typename=void>struct is_action:false_type{};\n  template<typename\
+    \ T>struct is_action<T,typename enable_if<is_monoid<typename T::M>::value&&is_semigroup<typename\
+    \ T::E>::value&&(has_op<T>::value||has_mul_op<T>::value)>::type>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_distributable_action:false_type{};\n\
+    \  template<typename T>struct is_distributable_action<T,typename enable_if<is_action<T>::value&&!has_mul_op<T>::value>::type>:true_type{};\n\
+    \  template<typename T>\n  struct Sum{\n    using value_type=T;\n    static constexpr\
+    \ T op(const T&x,const T&y){return x+y;}\n    static constexpr T id(){return T(0);}\n\
+    \    static constexpr T inv(const T&x,const T&y){return x-y;}\n    static constexpr\
+    \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct Min{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return x<y?x:y;}\n    static constexpr T id(){return max_value;}\n  };\n\
+    \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
+    \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
+    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return y;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
+    \    static constexpr T op(const T&x,const T&y){return x;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&y){return\
+    \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
+    \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
+    \ T&y){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
+    \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Sum<T>;\n    static constexpr T op(const T&a,const T&b){return b+a;}\n\
+    \  };\n  template<typename T>\n  struct AddSum{\n    using M=Sum<T>;\n    using\
+    \ E=Sum<T>;\n    static constexpr T mul_op(const T&x,int sz,const T&y){return\
+    \ y+x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n  struct\
+    \ ChminMin{\n    using M=Min<T,max_value>;\n    using E=Min<T>;\n    static constexpr\
+    \ T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename T,T min_value=infinity<T>::min>\n\
+    \  struct ChminMax{\n    using M=Max<T,min_value>;\n    using E=Min<T>;\n    static\
+    \ constexpr T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename\
+    \ T,T max_value=infinity<T>::max>\n  struct ChmaxMin{\n    using M=Min<T,max_value>;\n\
+    \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
+    \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
+    \ T&x,const T&y){return x<y?y:x;}\n  };\n\n}// namespace Monoid"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -198,10 +281,13 @@ data:
   - template/type-traits.hpp
   isVerificationFile: false
   path: others/monoid.hpp
-  requiredBy: []
-  timestamp: '2022-12-25 12:30:26+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  requiredBy:
+  - data-structure/segment-tree.hpp
+  timestamp: '2022-12-25 17:16:40+09:00'
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - test/aoj/DSL/DSL_2_B2.test.cpp
+  - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
 documentation_of: others/monoid.hpp
 layout: document
 redirect_from:

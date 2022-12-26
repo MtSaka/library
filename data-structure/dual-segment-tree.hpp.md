@@ -22,41 +22,11 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy:
-  - icon: ':question:'
-    path: data-structure/segment-tree-monoids.hpp
-    title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL/DSL_2_A.test.cpp
-    title: test/aoj/DSL/DSL_2_A.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL/DSL_2_B2.test.cpp
-    title: test/aoj/DSL/DSL_2_B2.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL/DSL_2_D.test.cpp
-    title: test/aoj/DSL/DSL_2_D.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL/DSL_2_E.test.cpp
-    title: test/aoj/DSL/DSL_2_E.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL/DSL_2_F.test.cpp
-    title: test/aoj/DSL/DSL_2_F.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL/DSL_2_G.test.cpp
-    title: test/aoj/DSL/DSL_2_G.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL/DSL_2_H.test.cpp
-    title: test/aoj/DSL/DSL_2_H.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL/DSL_2_I.test.cpp
-    title: test/aoj/DSL/DSL_2_I.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
-    title: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
-  _isVerificationFailed: true
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     document_title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
       )"
@@ -100,15 +70,15 @@ data:
     \ T,typename U>\ninline constexpr bool chmin(T&a,U b){return a>b&&(a=b,true);}\n\
     template<typename T,typename U>\ninline constexpr bool chmax(T&a,U b){return a<b&&(a=b,true);}\n\
     inline constexpr ll gcd(ll a,ll b){\n  if(a<0)a=-a;\n  if(b<0)b=-b;\n  while(b){\n\
-    \    std::swap(a%=b,b);\n  }\n  return a;\n}\ninline constexpr ll lcm(ll a,ll\
-    \ b){return a/gcd(a,b)*b;}\ninline constexpr bool is_prime(ll n){\n  if(n<=1)return\
-    \ false;\n  for(ll i=2;i*i<=n;i++){\n    if(n%i==0)return false;\n  }\n  return\
-    \ true;\n}\ninline constexpr ll my_pow(ll a,ll b){\n  ll res=1;\n  while(b){\n\
-    \    if(b&1)res*=a;\n    a*=a;\n    b>>=1;\n  }\n  return res;\n}\ninline constexpr\
-    \ ll mod_pow(ll a,ll b,const ll&mod){\n  if(mod==1)return 0;\n  a%=mod;\n  ll\
-    \ res=1;\n  while(b){\n    if(b&1)(res*=a)%=mod;\n    (a*=a)%=mod;\n    b>>=1;\n\
-    \  }\n  return res;\n}\ninline ll mod_inv(ll a,const ll&mod){\n  ll b=mod,x=1,u=0,t;\n\
-    \  while(b){\n    t=a/b;\n    std::swap(a-=t*b,b);\n    std::swap(x-=t*u,u);\n\
+    \    const ll c=b;\n    b=a%b;\n    a=c;\n  }\n  return a;\n}\ninline constexpr\
+    \ ll lcm(ll a,ll b){return a/gcd(a,b)*b;}\ninline constexpr bool is_prime(ll n){\n\
+    \  if(n<=1)return false;\n  for(ll i=2;i*i<=n;i++){\n    if(n%i==0)return false;\n\
+    \  }\n  return true;\n}\ninline constexpr ll my_pow(ll a,ll b){\n  ll res=1;\n\
+    \  while(b){\n    if(b&1)res*=a;\n    a*=a;\n    b>>=1;\n  }\n  return res;\n\
+    }\ninline constexpr ll mod_pow(ll a,ll b,const ll&mod){\n  if(mod==1)return 0;\n\
+    \  a%=mod;\n  ll res=1;\n  while(b){\n    if(b&1)(res*=a)%=mod;\n    (a*=a)%=mod;\n\
+    \    b>>=1;\n  }\n  return res;\n}\ninline ll mod_inv(ll a,const ll&mod){\n  ll\
+    \ b=mod,x=1,u=0,t;\n  while(b){\n    t=a/b;\n    std::swap(a-=t*b,b);\n    std::swap(x-=t*u,u);\n\
     \  }\n  if(x<0)x+=mod;\n  return x;\n}\ntemplate<typename T,typename U>\nstd::ostream\
     \ &operator<<(std::ostream&os,const std::pair<T,U>&p){os<<p.first<<\" \"<<p.second;return\
     \ os;}\ntemplate<typename T,typename U>\nstd::istream &operator>>(std::istream&is,std::pair<T,U>&p){is>>p.first>>p.second;return\
@@ -230,20 +200,10 @@ data:
   - template/type-traits.hpp
   isVerificationFile: false
   path: data-structure/dual-segment-tree.hpp
-  requiredBy:
-  - data-structure/segment-tree-monoids.hpp
-  timestamp: '2022-12-25 12:30:26+09:00'
-  verificationStatus: LIBRARY_SOME_WA
-  verifiedWith:
-  - test/aoj/DSL/DSL_2_G.test.cpp
-  - test/aoj/DSL/DSL_2_B2.test.cpp
-  - test/aoj/DSL/DSL_2_E.test.cpp
-  - test/aoj/DSL/DSL_2_A.test.cpp
-  - test/aoj/DSL/DSL_2_F.test.cpp
-  - test/aoj/DSL/DSL_2_I.test.cpp
-  - test/aoj/DSL/DSL_2_H.test.cpp
-  - test/aoj/DSL/DSL_2_D.test.cpp
-  - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+  requiredBy: []
+  timestamp: '2022-12-25 17:16:40+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: data-structure/dual-segment-tree.hpp
 layout: document
 redirect_from:

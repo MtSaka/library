@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: data-structure/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':question:'
@@ -79,15 +79,15 @@ data:
     \ T,typename U>\ninline constexpr bool chmin(T&a,U b){return a>b&&(a=b,true);}\n\
     template<typename T,typename U>\ninline constexpr bool chmax(T&a,U b){return a<b&&(a=b,true);}\n\
     inline constexpr ll gcd(ll a,ll b){\n  if(a<0)a=-a;\n  if(b<0)b=-b;\n  while(b){\n\
-    \    std::swap(a%=b,b);\n  }\n  return a;\n}\ninline constexpr ll lcm(ll a,ll\
-    \ b){return a/gcd(a,b)*b;}\ninline constexpr bool is_prime(ll n){\n  if(n<=1)return\
-    \ false;\n  for(ll i=2;i*i<=n;i++){\n    if(n%i==0)return false;\n  }\n  return\
-    \ true;\n}\ninline constexpr ll my_pow(ll a,ll b){\n  ll res=1;\n  while(b){\n\
-    \    if(b&1)res*=a;\n    a*=a;\n    b>>=1;\n  }\n  return res;\n}\ninline constexpr\
-    \ ll mod_pow(ll a,ll b,const ll&mod){\n  if(mod==1)return 0;\n  a%=mod;\n  ll\
-    \ res=1;\n  while(b){\n    if(b&1)(res*=a)%=mod;\n    (a*=a)%=mod;\n    b>>=1;\n\
-    \  }\n  return res;\n}\ninline ll mod_inv(ll a,const ll&mod){\n  ll b=mod,x=1,u=0,t;\n\
-    \  while(b){\n    t=a/b;\n    std::swap(a-=t*b,b);\n    std::swap(x-=t*u,u);\n\
+    \    const ll c=b;\n    b=a%b;\n    a=c;\n  }\n  return a;\n}\ninline constexpr\
+    \ ll lcm(ll a,ll b){return a/gcd(a,b)*b;}\ninline constexpr bool is_prime(ll n){\n\
+    \  if(n<=1)return false;\n  for(ll i=2;i*i<=n;i++){\n    if(n%i==0)return false;\n\
+    \  }\n  return true;\n}\ninline constexpr ll my_pow(ll a,ll b){\n  ll res=1;\n\
+    \  while(b){\n    if(b&1)res*=a;\n    a*=a;\n    b>>=1;\n  }\n  return res;\n\
+    }\ninline constexpr ll mod_pow(ll a,ll b,const ll&mod){\n  if(mod==1)return 0;\n\
+    \  a%=mod;\n  ll res=1;\n  while(b){\n    if(b&1)(res*=a)%=mod;\n    (a*=a)%=mod;\n\
+    \    b>>=1;\n  }\n  return res;\n}\ninline ll mod_inv(ll a,const ll&mod){\n  ll\
+    \ b=mod,x=1,u=0,t;\n  while(b){\n    t=a/b;\n    std::swap(a-=t*b,b);\n    std::swap(x-=t*u,u);\n\
     \  }\n  if(x<0)x+=mod;\n  return x;\n}\ntemplate<typename T,typename U>\nstd::ostream\
     \ &operator<<(std::ostream&os,const std::pair<T,U>&p){os<<p.first<<\" \"<<p.second;return\
     \ os;}\ntemplate<typename T,typename U>\nstd::istream &operator>>(std::istream&is,std::pair<T,U>&p){is>>p.first>>p.second;return\
@@ -204,32 +204,53 @@ data:
     \ &is,StaticModInt&x){\n    ll tmp;\n    is>>tmp;\n    x=StaticModInt(tmp);\n\
     \    return is;\n  }\n};\ntemplate<unsigned int p>using ModInt=StaticModInt<unsigned\
     \ int,p>;\n/**\n * @brief ModInt\n*/\n#line 3 \"data-structure/lazy-segment-tree.hpp\"\
-    \n\ntemplate<class S,S (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F\
-    \ (*id)()>\nstruct LazySegmentTree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
-    \  vector<F>lazy;\n  void update(int k){seq[k]=op(seq[k<<1],seq[k<<1^1]);}\n \
-    \ void all_apply(int k,F f){\n    seq[k]=mapping(f,seq[k]);\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
-    \  }\n  void eval(int k){\n    all_apply(k<<1,lazy[k]);\n    all_apply(k<<1^1,lazy[k]);\n\
-    \    lazy[k]=id();\n  }\n  public:\n  LazySegmentTree():LazySegmentTree(0){}\n\
-    \  LazySegmentTree(int n):LazySegmentTree(vector<S>(n,e())){}\n  LazySegmentTree(const\
-    \ vector<S>&v):_n(int(v.size())){\n    while(size<_n)size<<=1,idx++;\n    seq=vector<S>(size<<1,e());\n\
-    \    lazy=vector<F>(size,id());\n    for(int i=0;i<_n;i++)seq[size+i]=v[i];\n\
-    \    for(int i=size-1;i>=1;i--)update(i);\n  }\n  void set(int p,S x){\n    p+=size;\n\
-    \    for(int i=idx;i>=1;i--)eval(p>>i);\n    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n\
-    \  }\n  S operator[](int p){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
-    \    return seq[p];\n  }\n  S query(int l,int r){\n    if(l==r)return e();\n \
-    \   S sml=e(),smr=e();\n    l+=size,r+=size;\n    for(int i=idx;i>=1;i--){\n \
-    \     if(((l>>i)<<i)!=l)eval(l>>i);\n      if(((r>>i)<<i)!=r)eval(r>>i);\n   \
-    \ }\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n      if(r&1)smr=op(seq[--r],smr);\n\
-    \      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n  }\n  S all_query()const{return\
-    \ seq[1];}\n  void apply(int p,F f){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
-    \    seq[p]=mapping(f,seq[p]);\n    for(int i=1;i<=idx;i++)update(p>>i);\n  }\n\
-    \  void apply(int l,int r,F f){\n    if(l==r)return ;\n    l+=size;\n    r+=size;\n\
-    \    for(int i=idx;i>=1;i--){\n      if(((l>>i)<<i)!=l)eval(l>>i);\n      if(((r>>i)<<i)!=r)eval(r>>i);\n\
-    \    }\n    int l2=l,r2=r;\n    while(l<r){\n      if(l&1)all_apply(l++,f);\n\
-    \      if(r&1)all_apply(--r,f);\n      l>>=1;\n      r>>=1;\n    }\n    l=l2,r=r2;\n\
-    \    for(int i=1;i<=idx;i++){\n      if(((l>>i)<<i)!=l)update(l>>i);\n      if(((r>>i)<<i)!=r)update(r>>i);\n\
-    \    }\n  }\n};\n/**\n * @brief Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\
-    \u30F3\u30C8\u6728)\n*/\n#line 5 \"test/yosupo/data_strucuture/range_affine_range_sum.test.cpp\"\
+    \n\ntemplate<typename A>\nstruct LazySegmentTree{\n  static_assert(Monoid::is_action<A>::value,\"\
+    A must be action\");\n  private:\n  using M=typename A::M;\n  using E=typename\
+    \ A::E;\n  using T=typename M::value_type;\n  using U=typename E::value_type;\n\
+    \  int lg,n,size;\n  vector<T>data;\n  vector<U>lazy;\n  vector<bool>lazy_flag;\n\
+    \  template<typename enable_if<Monoid::has_mul_op<A>>::type* = nullptr>\n  inline\
+    \ static T Aop(const U&a,const T&b,int sz){\n    return A::mul_op(a,sz,b);\n \
+    \ }\n  template<typename enable_if<!Monoid::has_mul_op<A>>::type* = nullptr>\n\
+    \  inline static T Aop(const U&a,const T&b,int sz){\n    return A::op(a,b);\n\
+    \  }\n  void update(int k){data[k]=M::op(data[k<<1],data[k<<1^1]);}\n  void all_apply(int\
+    \ k,const U&x,int sz){\n    data[k]=Aop(x,data[k],sz);\n    if(k<size){\n    \
+    \  if(lazy_flag[k])lazy[k]=E::op(lazy[k],x);\n      else lazy[k]=x,lazy_flag[k]=true;\n\
+    \    }\n  }\n  void eval(int k,int sz){\n    if(lazy_flag[k]){\n      all_apply(k<<1,lazy[k],sz>>1);\n\
+    \      all_apply(k<<1^1,lazy[k],sz>>1);\n      lazy_flag[k]=false;\n    }\n  }\n\
+    \  public:\n  LazySegmentTree():LazySegmentTree(0){}\n  LazySegmentTree(int n):LazySegmentTree(vector<T>(n,M::id())){}\n\
+    \  LazySegmentTree(int n,T x):LazySegmentTree(vector<T>(n,x)){}\n  LazySegmentTree(const\
+    \ vector<T>&v){init(v);}\n  void init(const vecotr<T>&v){\n    n=v.size();\n \
+    \   lg=ceil_log2(n);\n    size=1<<lg;\n    data.assign(size<<1,M::id());\n   \
+    \ lazy.resize(size);\n    lazy_flag.assign(size,false);\n    rep(i,n)data[size+i]=v[i];\n\
+    \    rrep(i,1,size)update(i);\n  }\n  T prod(T l,T r){\n    if(l==r)return M::id();\n\
+    \    l+=size,r+=size;\n    rrep(i,1,lg+1){\n      bool f=false;\n      if(((l>>i)<<i)!=l)eval(l>>i,1<<i),f=true;\n\
+    \      if(((r>>i)<<i)!=r)eval((r-1)>>i,1<<i),f=true;\n      if(!f)break;\n   \
+    \ }\n    T sml=M::id(),smr=M::id();\n    while(l<r){\n      if(l&1)sml=M::op(sml,data[l++]);\n\
+    \      if(r&1)smr=M::op(data[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return\
+    \ M::op(sml,smr);\n  }\n  T operator[](int k){\n    k+=size;\n    rrep(i,1,lg+1)eval(k>>i,1<<i);\n\
+    \    return data[k];\n  }\n  T all_prod()const{return data[1];}\n  template<typename\
+    \ Upd>\n  void update(int k,const Upd&upd){\n    k+=size;\n    rrep(i,1,lg+1)eval(k>>i,1<<i);\n\
+    \    data[k]=upd(data[k]);\n    rep(i,1,lg+1)update(k>>i);\n  }\n  void set(int\
+    \ k,const T&x){\n    update(k,[&](const T&y)->T {return x;});\n  }\n  template<typename\
+    \ enable_if<Monoid::has_mul_op<A>>::type* = nullptr>\n  void apply(int k,const\
+    \ U&x){\n    update(k,[&](const T&y)->T {return A::op(x,y);});\n  }\n  void apply(int\
+    \ l,int r,const U&x){\n    if(l==r)return;\n    l+=size,r+=size;\n    int lst=lg+1;\n\
+    \    rrep(i,1,lg+1){\n      if(((l>>i)<<i)!=l)eval(l>>i,1<<i),lst=i;\n      if(((r>>i)<<i)!=r)eval((r-1)>>i,1<<i),lst=i;\n\
+    \      if(lst!=i)break;\n    }\n    for(int l2=l,r2=r,sz=1;l2<r2;l2>>=1,r2>>=1,sz<<=1){\n\
+    \      if(l2&1)all_apply(l2++,x,sz);\n      if(r2&1)all_apply(--r2,x,sz);\n  \
+    \  }\n    rep(i,lst,lg+1){\n      if(((l>>i)<<i)!=l)update(l>>i);\n      if(((r>>i)<<i)!=r)update((r-1)>>i);\n\
+    \    }\n  }\n\n};\ntemplate<typename T,T max_value=infinity<T>::max>\nusing RangeUpdateQueryRangeMinimumQuery=LazySegmentTree<Monoid::AssignMin<T,max_value>>;\n\
+    template<typename T,T min_value=infinity<T>::min>\nusing RangeUpdateQueryRangeMaximumQuery=LazySegmentTree<Monoid::AssignMax<T,min_value>>;\n\
+    template<typename T>\nusing RangeUpdateQueryRangeSumQuery=LazySegmentTree<Monoid::AssignSum<T>>;\n\
+    template<typename T,T max_value=infinity<T>::max>\nusing RangeAddQueryRangeMinimumQuery=LazySegmentTree<Monoid::AddMin<T,max_value>>;\n\
+    template<typename T,T min_value=infinity<T>::min>\nusing RangeAddQueryRangeMaximumQuery=LazySegmentTree<Monoid::AddMax<T,min_value>>;\n\
+    template<typename T>\nusing RangeAddQueryRangeSumQuery=LazySegmentTree<Monoid::AddSum<T>>;\n\
+    template<typename T,T max_value=infinity<T>::max>\nusing RangeChminQueryRangeMinimumQuery=LazySegmentTree<Monoid::ChminMin<T,max_value>>;\n\
+    template<typename T,T min_value=infinity<T>::min>\nusing RangeChminQueryRangeMaximumQuery=LazySegmentTree<Monoid::ChminMax<T,min_value>>;\n\
+    template<typename T,T max_value=infinity<T>::max>\nusing RangeChmaxQueryRangeMinimumQuery=LazySegmentTree<Monoid::ChmaxMin<T,max_value>>;\n\
+    template<typename T,T min_value=infinity<T>::min>\nusing RangeChmaxQueryRangeMaximumQuery=LazySegmentTree<Monoid::ChmaxMax<T,min_value>>;\n\
+    /**\n * @brief Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
+    )\n*/\n#line 5 \"test/yosupo/data_strucuture/range_affine_range_sum.test.cpp\"\
     \nusing mint=ModInt<998244353>;\nusing Pi=pair<mint,int >;\nusing qi=pair<mint,mint>;\n\
     Pi op(Pi a,Pi b){return {a.first+b.first,a.second+b.second};}\nPi mapping(qi a,Pi\
     \ b){return {a.first*b.first+a.second*mint(b.second),b.second};}\nqi composition(qi\
@@ -263,7 +284,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 12:30:26+09:00'
+  timestamp: '2022-12-25 17:16:40+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp

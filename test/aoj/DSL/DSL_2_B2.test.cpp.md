@@ -2,17 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: data-structure/dual-segment-tree.hpp
-    title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':question:'
-    path: data-structure/lazy-segment-tree.hpp
-    title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':question:'
-    path: data-structure/segment-tree-monoids.hpp
-    title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
-  - icon: ':question:'
     path: data-structure/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  - icon: ':question:'
+    path: others/monoid.hpp
+    title: others/monoid.hpp
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -84,15 +78,15 @@ data:
     \ T,typename U>\ninline constexpr bool chmin(T&a,U b){return a>b&&(a=b,true);}\n\
     template<typename T,typename U>\ninline constexpr bool chmax(T&a,U b){return a<b&&(a=b,true);}\n\
     inline constexpr ll gcd(ll a,ll b){\n  if(a<0)a=-a;\n  if(b<0)b=-b;\n  while(b){\n\
-    \    std::swap(a%=b,b);\n  }\n  return a;\n}\ninline constexpr ll lcm(ll a,ll\
-    \ b){return a/gcd(a,b)*b;}\ninline constexpr bool is_prime(ll n){\n  if(n<=1)return\
-    \ false;\n  for(ll i=2;i*i<=n;i++){\n    if(n%i==0)return false;\n  }\n  return\
-    \ true;\n}\ninline constexpr ll my_pow(ll a,ll b){\n  ll res=1;\n  while(b){\n\
-    \    if(b&1)res*=a;\n    a*=a;\n    b>>=1;\n  }\n  return res;\n}\ninline constexpr\
-    \ ll mod_pow(ll a,ll b,const ll&mod){\n  if(mod==1)return 0;\n  a%=mod;\n  ll\
-    \ res=1;\n  while(b){\n    if(b&1)(res*=a)%=mod;\n    (a*=a)%=mod;\n    b>>=1;\n\
-    \  }\n  return res;\n}\ninline ll mod_inv(ll a,const ll&mod){\n  ll b=mod,x=1,u=0,t;\n\
-    \  while(b){\n    t=a/b;\n    std::swap(a-=t*b,b);\n    std::swap(x-=t*u,u);\n\
+    \    const ll c=b;\n    b=a%b;\n    a=c;\n  }\n  return a;\n}\ninline constexpr\
+    \ ll lcm(ll a,ll b){return a/gcd(a,b)*b;}\ninline constexpr bool is_prime(ll n){\n\
+    \  if(n<=1)return false;\n  for(ll i=2;i*i<=n;i++){\n    if(n%i==0)return false;\n\
+    \  }\n  return true;\n}\ninline constexpr ll my_pow(ll a,ll b){\n  ll res=1;\n\
+    \  while(b){\n    if(b&1)res*=a;\n    a*=a;\n    b>>=1;\n  }\n  return res;\n\
+    }\ninline constexpr ll mod_pow(ll a,ll b,const ll&mod){\n  if(mod==1)return 0;\n\
+    \  a%=mod;\n  ll res=1;\n  while(b){\n    if(b&1)(res*=a)%=mod;\n    (a*=a)%=mod;\n\
+    \    b>>=1;\n  }\n  return res;\n}\ninline ll mod_inv(ll a,const ll&mod){\n  ll\
+    \ b=mod,x=1,u=0,t;\n  while(b){\n    t=a/b;\n    std::swap(a-=t*b,b);\n    std::swap(x-=t*u,u);\n\
     \  }\n  if(x<0)x+=mod;\n  return x;\n}\ntemplate<typename T,typename U>\nstd::ostream\
     \ &operator<<(std::ostream&os,const std::pair<T,U>&p){os<<p.first<<\" \"<<p.second;return\
     \ os;}\ntemplate<typename T,typename U>\nstd::istream &operator>>(std::istream&is,std::pair<T,U>&p){is>>p.first>>p.second;return\
@@ -168,21 +162,75 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/segment-tree.hpp\"\
-    \n/*\ntemplate<typename M>\nstruct SegmentTree{\n  private:\n  using T=typename\
-    \ M::value_type;\n  int n,size;\n  vector<T>data;\n  inline static void update(int\
-    \ k){data[k]=M::op(data[k<<1],data[k<<1^1]);}\n  public:\n  SegmentTree():SegmentTree(0){}\n\
-    \  SegmentTree(int n):SegmentTree(vector<T>(n,M::id())){}\n  SegmentTree(int n,const\
-    \ T&x):SegmentTree(vector<T>(n,x)){}\n  SegmentTree(const vector<T>&v){init(v);}\n\
-    \  void init(const vector<T>&v){\n    n=v.size();\n    size=1<<ceil_log2(n);\n\
-    \    data.assign(size<<1,M::id());\n    rep(i,n)data[size+i]=v[i];\n    rrep(i,1,size)update(i);\n\
-    \  }\n  template<class U>\n  void update(int k,const U&upd){\n    k+=size;\n \
-    \   data[k]=upd(data[k]);\n    while(k>>=1)update(k);\n  }\n  void set(int k,const\
-    \ T&x){\n    update(k,[&](T)->T {return x;});\n  }\n  void apply(int k,const T&x){\n\
-    \    update(k,[&](T y)->T {return M::op(y,x);});\n  }\n  T operator[](int k)const{return\
-    \ data[size+k];}\n  T prod(int l,int r)const{\n    l+=size,r+=size;\n    T lprod=M::id(),rprod=M::id();\n\
-    \    while(l<r){\n      if(l&1)lprod=M::op(lprod,data[l++]);\n      if(r&1)rprod=M::op(data[--r],rprod);\n\
-    \      l>>=1,r>>=1;\n    }\n    return M::op(lprod,rprod);\n  }\n  T all_prod()const{return\
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/monoid.hpp\"\
+    \n\nnamespace Monoid{\n  template<typename M,typename=void>struct has_op:false_type{};\n\
+    \  template<typename M>struct has_op<M,decltype((void)M::op)>:true_type{};\n \
+    \ template<typename M,typename=void>struct has_id:false_type{};\n  template<typename\
+    \ M>struct has_id<M,decltype((void)M::id)>:true_type{};\n  template<typename M,typename=void>struct\
+    \ has_inv:false_type{};\n  template<typename M>struct has_inv<M,decltype((void)M::inv)>:true_type{};\n\
+    \  template<typename M,typename=void>struct has_get_inv:false_type{};\n  template<typename\
+    \ M>struct has_get_inv<M,decltype((void)M::get_inv)>:true_type{};\n  template<typename\
+    \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
+    \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
+    \ T::vale_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
+    \ T::value_type>,(void)T::op,(void)T::id)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_group:false_type{};\n  template<typename T>struct is_group<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};\n \
+    \ template<typename T,typename=void>struct is_action:false_type{};\n  template<typename\
+    \ T>struct is_action<T,typename enable_if<is_monoid<typename T::M>::value&&is_semigroup<typename\
+    \ T::E>::value&&(has_op<T>::value||has_mul_op<T>::value)>::type>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_distributable_action:false_type{};\n\
+    \  template<typename T>struct is_distributable_action<T,typename enable_if<is_action<T>::value&&!has_mul_op<T>::value>::type>:true_type{};\n\
+    \  template<typename T>\n  struct Sum{\n    using value_type=T;\n    static constexpr\
+    \ T op(const T&x,const T&y){return x+y;}\n    static constexpr T id(){return T(0);}\n\
+    \    static constexpr T inv(const T&x,const T&y){return x-y;}\n    static constexpr\
+    \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct Min{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return x<y?x:y;}\n    static constexpr T id(){return max_value;}\n  };\n\
+    \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
+    \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
+    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return y;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
+    \    static constexpr T op(const T&x,const T&y){return x;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&y){return\
+    \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
+    \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
+    \ T&y){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
+    \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Sum<T>;\n    static constexpr T op(const T&a,const T&b){return b+a;}\n\
+    \  };\n  template<typename T>\n  struct AddSum{\n    using M=Sum<T>;\n    using\
+    \ E=Sum<T>;\n    static constexpr T mul_op(const T&x,int sz,const T&y){return\
+    \ y+x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n  struct\
+    \ ChminMin{\n    using M=Min<T,max_value>;\n    using E=Min<T>;\n    static constexpr\
+    \ T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename T,T min_value=infinity<T>::min>\n\
+    \  struct ChminMax{\n    using M=Max<T,min_value>;\n    using E=Min<T>;\n    static\
+    \ constexpr T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename\
+    \ T,T max_value=infinity<T>::max>\n  struct ChmaxMin{\n    using M=Min<T,max_value>;\n\
+    \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
+    \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
+    \ T&x,const T&y){return x<y?y:x;}\n  };\n\n}// namespace Monoid\n#line 4 \"data-structure/segment-tree.hpp\"\
+    \n\ntemplate<typename M>\nstruct SegmentTree{\n  private:\n  using T=typename\
+    \ M::value_type;\n  int n,size;\n  vector<T>data;\n  void update(int k){data[k]=M::op(data[k<<1],data[k<<1^1]);}\n\
+    \  public:\n  SegmentTree():SegmentTree(0){}\n  SegmentTree(int n):SegmentTree(vector<T>(n,M::id())){}\n\
+    \  SegmentTree(int n,const T&x):SegmentTree(vector<T>(n,x)){}\n  SegmentTree(const\
+    \ vector<T>&v){init(v);}\n  void init(const vector<T>&v){\n    n=v.size();\n \
+    \   size=1<<ceil_log2(n);\n    data.assign(size<<1,M::id());\n    rep(i,n)data[size+i]=v[i];\n\
+    \    rrep(i,1,size)update(i);\n  }\n  template<class Upd>\n  void update(int k,const\
+    \ Upd&upd){\n    k+=size;\n    data[k]=upd(data[k]);\n    while(k>>=1)update(k);\n\
+    \  }\n  void set(int k,const T&x){\n    update(k,[&](T)->T {return x;});\n  }\n\
+    \  void apply(int k,const T&x){\n    update(k,[&](T y)->T {return M::op(y,x);});\n\
+    \  }\n  T operator[](int k)const{return data[size+k];}\n  T prod(int l,int r)const{\n\
+    \    l+=size,r+=size;\n    T sml=M::id(),smr=M::id();\n    while(l<r){\n     \
+    \ if(l&1)sml=M::op(sml,data[l++]);\n      if(r&1)smr=M::op(data[--r],smr);\n \
+    \     l>>=1,r>>=1;\n    }\n    return M::op(sml,smr);\n  }\n  T all_prod()const{return\
     \ data[1];}\n  template<class F>\n  int max_right(int l,const F&f)const{\n   \
     \ if(l==n)return n;\n    l+=size;\n    T sum=M::id();\n    do{\n      while((l&1)==0)l>>=1;\n\
     \      if(!f(M::op(sum,data[l]))){\n        while(l<size){\n          l<<=1;\n\
@@ -193,139 +241,18 @@ data:
     \      while((r&1)&&r>1)r>>=1;\n      if(!f(M::op(data[r],sum))){\n        while(r<size){\n\
     \          r=(r<<1)^1;\n          if(f(M::op(data[r],sum)))sum=M::op(data[r--],sum);\n\
     \        }\n        return r+1-size;\n      }\n      sum=M::op(data[r],sum);\n\
-    \    }while((r&-r)!=r);\n    return 0;\n  }\n};*/\ntemplate<class S,S (*op)(S,S),S\
-    \ (*e)()>\nstruct SegmentTree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
-    \  void update(int k){seq[k]=op(seq[k<<1],seq[k<<1^1]);}\n  public:\n  SegmentTree():SegmentTree(0){};\n\
-    \  SegmentTree(int n):SegmentTree(vector<S>(n,e())){}\n  SegmentTree(const vector<S>&v):_n(int(v.size())){\n\
-    \    while(size<_n)size<<=1,idx++;\n    seq=vector<S>(size<<1,e());\n    for(int\
-    \ i=0;i<_n;i++)seq[size+i]=v[i];\n    for(int i=size-1;i>=1;i--)update(i);\n \
-    \ }\n  void set(int p,S x){\n    p+=size;\n    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n\
-    \  }\n  S operator[](int p)const{return seq[p+size];}\n  S query(int l,int r)const{\n\
-    \    S sml=e(),smr=e();\n    l+=size,r+=size;\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n\
-    \      if(r&1)smr=op(seq[--r],smr);\n      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n\
-    \  }\n  S all_query()const{return seq[1];}\n  template<typename F>\n  int find_right(int\
-    \ l,const F&f)const{\n    if(l==_n)return _n;\n    l+=size;\n    S sum=e();\n\
-    \    do{\n      while(!(l&1))l>>=1;\n      if(!f(op(sum,seq[l]))){\n        while(l<size){\n\
-    \          l<<=1;\n          if(f(op(sum,seq[l])))sum=op(sum,seq[l++]);\n    \
-    \    }\n        return l-size;\n      }\n      sum=op(sum,seq[l++]);\n    }while((l&-l)!=l);\n\
-    \    return _n;\n  }\n  template<typename F>\n  int find_left(int r,const F&f)const{\n\
-    \    if(!r)return 0;\n    r+=size;\n    S sum=e();\n    do{\n      r--;\n    \
-    \  while(r>1&&(r&1))r>>=1;\n      if(!f(op(seq[r],sum))){\n        while(r<size){\n\
-    \          (r<<=1)++;\n          if(f(op(seq[r],sum)))sum=op(seq[r--],sum);\n\
-    \        }\n        return r+1-size;\n      }\n      sum=op(seq[r],sum);\n   \
-    \ }while((r&-r)!=r);\n    return 0;\n  }\n};\n/**\n * @brief Segment Tree(\u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 3 \"data-structure/lazy-segment-tree.hpp\"\
-    \n\ntemplate<class S,S (*op)(S,S),S (*e)(),class F,S (*mapping)(F,S),F (*composition)(F,F),F\
-    \ (*id)()>\nstruct LazySegmentTree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
-    \  vector<F>lazy;\n  void update(int k){seq[k]=op(seq[k<<1],seq[k<<1^1]);}\n \
-    \ void all_apply(int k,F f){\n    seq[k]=mapping(f,seq[k]);\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
-    \  }\n  void eval(int k){\n    all_apply(k<<1,lazy[k]);\n    all_apply(k<<1^1,lazy[k]);\n\
-    \    lazy[k]=id();\n  }\n  public:\n  LazySegmentTree():LazySegmentTree(0){}\n\
-    \  LazySegmentTree(int n):LazySegmentTree(vector<S>(n,e())){}\n  LazySegmentTree(const\
-    \ vector<S>&v):_n(int(v.size())){\n    while(size<_n)size<<=1,idx++;\n    seq=vector<S>(size<<1,e());\n\
-    \    lazy=vector<F>(size,id());\n    for(int i=0;i<_n;i++)seq[size+i]=v[i];\n\
-    \    for(int i=size-1;i>=1;i--)update(i);\n  }\n  void set(int p,S x){\n    p+=size;\n\
-    \    for(int i=idx;i>=1;i--)eval(p>>i);\n    seq[p]=x;\n    for(int i=1;i<=idx;i++)update(p>>i);\n\
-    \  }\n  S operator[](int p){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
-    \    return seq[p];\n  }\n  S query(int l,int r){\n    if(l==r)return e();\n \
-    \   S sml=e(),smr=e();\n    l+=size,r+=size;\n    for(int i=idx;i>=1;i--){\n \
-    \     if(((l>>i)<<i)!=l)eval(l>>i);\n      if(((r>>i)<<i)!=r)eval(r>>i);\n   \
-    \ }\n    while(l<r){\n      if(l&1)sml=op(sml,seq[l++]);\n      if(r&1)smr=op(seq[--r],smr);\n\
-    \      l>>=1,r>>=1;\n    }\n    return op(sml,smr);\n  }\n  S all_query()const{return\
-    \ seq[1];}\n  void apply(int p,F f){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
-    \    seq[p]=mapping(f,seq[p]);\n    for(int i=1;i<=idx;i++)update(p>>i);\n  }\n\
-    \  void apply(int l,int r,F f){\n    if(l==r)return ;\n    l+=size;\n    r+=size;\n\
-    \    for(int i=idx;i>=1;i--){\n      if(((l>>i)<<i)!=l)eval(l>>i);\n      if(((r>>i)<<i)!=r)eval(r>>i);\n\
-    \    }\n    int l2=l,r2=r;\n    while(l<r){\n      if(l&1)all_apply(l++,f);\n\
-    \      if(r&1)all_apply(--r,f);\n      l>>=1;\n      r>>=1;\n    }\n    l=l2,r=r2;\n\
-    \    for(int i=1;i<=idx;i++){\n      if(((l>>i)<<i)!=l)update(l>>i);\n      if(((r>>i)<<i)!=r)update(r>>i);\n\
-    \    }\n  }\n};\n/**\n * @brief Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\
-    \u30F3\u30C8\u6728)\n*/\n#line 3 \"data-structure/dual-segment-tree.hpp\"\n\n\
-    template<class S,class F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>\n\
-    struct DualSegmentTree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
-    \  vector<F>lazy;\n  void all_apply(int k,F f){\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
-    \    else if(k<size+_n)seq[k-size]=mapping(f,seq[k-size]);\n  }\n  void eval(int\
-    \ k){\n    all_apply(k<<1,lazy[k]);\n    all_apply(k<<1^1,lazy[k]);\n    lazy[k]=id();\n\
-    \  }\n  public:\n  DualSegmentTree():DualSegmentTree(0){}\n  DualSegmentTree(int\
-    \ n,S e=S()):DualSegmentTree(vector<S>(n,e)){};\n  DualSegmentTree(const vector<S>&v):_n(v.size()){\n\
-    \    while(size<_n)size<<=1,idx++;\n    seq=v;lazy=vector<F>(size,id());\n  }\n\
-    \  void set(int p,S x){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
-    \    seq[p-size]=x;\n  }\n  S operator[](int p){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
-    \    return seq[p-size];\n  }\n  void apply(int p,F f){\n    p+=size;\n    for(int\
-    \ i=idx;i>=1;i--)eval(p>>i);\n    seq[p-size]=mapping(f,seq[p-size]);\n  }\n \
-    \ void apply(int l,int r,F f){\n    if(l==r)return;\n    l+=size;r+=size;\n  \
-    \  for(int i=idx;i>=1;i--){\n      if(((l>>i)<<i)!=l)eval(l>>i);\n      if(((r>>i)<<i)!=r)eval(r>>i);\n\
-    \    }\n    while(l<r){\n      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n\
-    \      l>>=1,r>>=1;\n    }\n  }\n};\n/**\n *@brief Dual Segment Tree(\u53CC\u5BFE\
-    \u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 6 \"data-structure/segment-tree-monoids.hpp\"\
-    \n\nnamespace MonoidSegmentTree{\n  template<class T>static constexpr T op1(T\
-    \ a,T b){return min<T>(a,b);}\n  template<class T>static constexpr T op2(T a,T\
-    \ b){return max<T>(a,b);}\n  template<class T>static constexpr T op3(T a,T b){return\
-    \ a+b;}\n  template<class T>static constexpr T e1(){return infinity<T>::max;}\n\
-    \  template<class T>static constexpr T e2(){return infinity<T>::min;}\n  template<class\
-    \ T>static constexpr T e3(){return T(0);}\n  template<class T>using RmQ=SegmentTree<T,op1<T>,e1<T>>;\n\
-    \  template<class T>using RMQ=SegmentTree<T,op2<T>,e2<T>>;\n  template<class T>using\
-    \ RSQ=SegmentTree<T,op3<T>,e3<T>>;\n}\nusing MonoidSegmentTree::RmQ;\nusing MonoidSegmentTree::RMQ;\n\
-    using MonoidSegmentTree::RSQ;\nnamespace MonoidLazySegmentTree{\n  template<class\
-    \ T>struct S{T value;int size;S(const T&a):value(a),size(1){}S(const T&a,const\
-    \ int&size):value(a),size(size){}operator T()const{return value;}};\n  template<class\
-    \ T>static constexpr T op1(T a,T b){return min<T>(a,b);}\n  template<class T>static\
-    \ constexpr T op2(T a,T b){return max<T>(a,b);}\n  template<class T>static constexpr\
-    \ S<T> op3(S<T>a,S<T>b){return {a.value+b.value,a.size+b.size};}\n  template<class\
-    \ T>static constexpr T e1(){return infinity<T>::max;}\n  template<class T>static\
-    \ constexpr T e2(){return infinity<T>::min;}\n  template<class T>static constexpr\
-    \ S<T> e3(){return {T(0),1};}\n  template<class T>static constexpr T mapping1(T\
-    \ a,T b){return a==infinity<T>::max?b:a;}\n  template<class T>static constexpr\
-    \ S<T> mapping2(T a,S<T>b){if(a!=infinity<T>::max)b.value=a*b.size;return b;}\n\
-    \  template<class T>static constexpr S<T> mapping3(T a,S<T>b){return {b.value+a*b.size,b.size};}\n\
-    \  template<class T>static constexpr T mapping4(T a,T b){return a+b;}\n  template<class\
-    \ T>static constexpr T mapping5(T a,T b){return min<T>(a,b);}\n  template<class\
-    \ T>static constexpr T mapping6(T a,T b){return max<T>(a,b);}\n  template<class\
-    \ T>static constexpr T composition1(T a,T b){return a==infinity<T>::max?b:a;}\n\
-    \  template<class T>static constexpr T composition2(T a,T b){return a+b;}\n  template<class\
-    \ T>static constexpr T composition3(T a,T b){return min<T>(a,b);}\n  template<class\
-    \ T>static constexpr T composition4(T a,T b){return max<T>(a,b);}\n  template<class\
-    \ T>static constexpr T id1(){return infinity<T>::max;}\n  template<class T>static\
-    \ constexpr T id2(){return T(0);}\n  template<class T>static constexpr T id3(){return\
-    \ infinity<T>::min;}\n  template<class T>using RUQRmQ=LazySegmentTree<T,op1<T>,e1<T>,T,mapping1<T>,composition1<T>,id1<T>>;\n\
-    \  template<class T>using RUQRMQ=LazySegmentTree<T,op2<T>,e2<T>,T,mapping1<T>,composition1<T>,id1<T>>;\n\
-    \  template<class T>using RUQRSQ=LazySegmentTree<S<T>,op3<T>,e3<T>,T,mapping2<T>,composition1<T>,id1<T>>;\n\
-    \  template<class T>using RAQRSQ=LazySegmentTree<S<T>,op3<T>,e3<T>,T,mapping3<T>,composition2<T>,id2<T>>;\n\
-    \  template<class T>using RAQRmQ=LazySegmentTree<T,op1<T>,e1<T>,T,mapping4<T>,composition2<T>,id2<T>>;\n\
-    \  template<class T>using RAQRMQ=LazySegmentTree<T,op2<T>,e2<T>,T,mapping4<T>,composition2<T>,id2<T>>;\n\
-    \  template<class T>using RChminRmQ=LazySegmentTree<T,op1<T>,e1<T>,T,mapping5<T>,composition3<T>,id1<T>>;\n\
-    \  template<class T>using RChminRMQ=LazySegmentTree<T,op2<T>,e2<T>,T,mapping5<T>,composition3<T>,id1<T>>;\n\
-    \  template<class T>using RChmaxRmQ=LazySegmentTree<T,op1<T>,e1<T>,T,mapping6<T>,composition4<T>,id3<T>>;\n\
-    \  template<class T>using RChmaxRMQ=LazySegmentTree<T,op2<T>,e2<T>,T,mapping6<T>,composition4<T>,id3<T>>;\n\
-    }\nusing MonoidLazySegmentTree::RUQRmQ;\nusing MonoidLazySegmentTree::RUQRMQ;\n\
-    using MonoidLazySegmentTree::RUQRSQ;\nusing MonoidLazySegmentTree::RAQRSQ;\nusing\
-    \ MonoidLazySegmentTree::RAQRmQ;\nusing MonoidLazySegmentTree::RAQRMQ;\nusing\
-    \ MonoidLazySegmentTree::RChminRmQ;\nusing MonoidLazySegmentTree::RChminRMQ;\n\
-    using MonoidLazySegmentTree::RChmaxRmQ;\nusing MonoidLazySegmentTree::RChmaxRMQ;\n\
-    namespace MonoidDualSegmentTree{\n  template<class T>static constexpr T mapping1(T\
-    \ a,T b){return a==infinity<T>::max?b:a;}\n  template<class T>static constexpr\
-    \ T mapping2(T a,T b){return min<T>(a,b);}\n  template<class T>static constexpr\
-    \ T mapping3(T a,T b){return max<T>(a,b);}\n  template<class T>static constexpr\
-    \ T mapping4(T a,T b){return a+b;}\n  template<class T>static constexpr T composition1(T\
-    \ a,T b){return a==infinity<T>::max?b:a;}\n  template<class T>static constexpr\
-    \ T composition2(T a,T b){return min<T>(a,b);}\n  template<class T>static constexpr\
-    \ T composition3(T a,T b){return max<T>(a,b);}\n  template<class T>static constexpr\
-    \ T composition4(T a,T b){return a+b;}\n  template<class T>static constexpr T\
-    \ id1(){return infinity<T>::max;}\n  template<class T>static constexpr T id2(){return\
-    \ infinity<T>::min;}\n  template<class T>static constexpr T id3(){return T(0);}\n\
-    \  template<class T>using RUQ=DualSegmentTree<T,T,mapping1<T>,composition1<T>,id1<T>>;\n\
-    \  template<class T>using RChminQ=DualSegmentTree<T,T,mapping2<T>,composition2<T>,id1<T>>;\n\
-    \  template<class T>using RChmaxQ=DualSegmentTree<T,T,mapping3<T>,composition3<T>,id2<T>>;\n\
-    \  template<class T>using RAQ=DualSegmentTree<T,T,mapping4<T>,composition4<T>,id3<T>>;\n\
-    }\nusing MonoidDualSegmentTree::RUQ;\nusing MonoidDualSegmentTree::RChminQ;\n\
-    using MonoidDualSegmentTree::RChmaxQ;\nusing MonoidDualSegmentTree::RAQ;\n/**\n\
-    \ * @brief Monoids(\u30E2\u30CE\u30A4\u30C9)\n */\n#line 4 \"test/aoj/DSL/DSL_2_B2.test.cpp\"\
-    \nint main(){\n  INT(n,q);\n  RSQ<int>seg(n);\n  while(q--){\n    INT(t,x,y);\n\
-    \    if(t)print(seg.query(x-1,y));\n    else seg.set(x-1,seg[x-1]+y);\n  }\n}\n"
+    \    }while((r&-r)!=r);\n    return 0;\n  }\n};\ntemplate<typename T,T max_value=infinity<T>::max>\n\
+    using RangeMinimumQuery=SegmentTree<Monoid::Min<T,max_value>>;\ntemplate<typename\
+    \ T,T min_value=infinity<T>::min>\nusing RangeMaximumQuery=SegmentTree<Monoid::Max<T,min_value>>;\n\
+    template<typename T>\nusing RangeSumQuery=SegmentTree<Monoid::Sum<T>>;\n/**\n\
+    \ * @brief Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 4 \"\
+    test/aoj/DSL/DSL_2_B2.test.cpp\"\nint main(){\n  INT(n,q);\n  RangeSumQuery<int>RSQ(n);\n\
+    \  while(q--){\n    INT(t,a,b);\n    if(t==0)RSQ.apply(a-1,b);\n    else print(RSQ.prod(a-1,b));\n\
+    \  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../data-structure/segment-tree-monoids.hpp\"\
-    \nint main(){\n  INT(n,q);\n  RSQ<int>seg(n);\n  while(q--){\n    INT(t,x,y);\n\
-    \    if(t)print(seg.query(x-1,y));\n    else seg.set(x-1,seg[x-1]+y);\n  }\n}"
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../data-structure/segment-tree.hpp\"\
+    \nint main(){\n  INT(n,q);\n  RangeSumQuery<int>RSQ(n);\n  while(q--){\n    INT(t,a,b);\n\
+    \    if(t==0)RSQ.apply(a-1,b);\n    else print(RSQ.prod(a-1,b));\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -334,14 +261,12 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
-  - data-structure/segment-tree-monoids.hpp
   - data-structure/segment-tree.hpp
-  - data-structure/lazy-segment-tree.hpp
-  - data-structure/dual-segment-tree.hpp
+  - others/monoid.hpp
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_B2.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 12:30:26+09:00'
+  timestamp: '2022-12-25 17:16:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_B2.test.cpp

@@ -15,7 +15,7 @@ data:
     - icon: ':x:'
       path: data-structure/disjoint-sparse-table.hpp
       title: Disjoint Sparse Table
-    - icon: ':question:'
+    - icon: ':warning:'
       path: data-structure/dual-segment-tree.hpp
       title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':x:'
@@ -30,7 +30,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data-structure/inversion.hpp
       title: "Inversion Number(\u8EE2\u5012\u6570)"
-    - icon: ':question:'
+    - icon: ':x:'
       path: data-structure/lazy-segment-tree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':x:'
@@ -45,9 +45,6 @@ data:
     - icon: ':x:'
       path: data-structure/segment-tree-beats.hpp
       title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
-    - icon: ':question:'
-      path: data-structure/segment-tree-monoids.hpp
-      title: "Monoids(\u30E2\u30CE\u30A4\u30C9)"
     - icon: ':question:'
       path: data-structure/segment-tree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
@@ -86,7 +83,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/flow/dinic.hpp
       title: "Dinic(\u6700\u5927\u6D41)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/ford-fulkerson.hpp
       title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: graph
@@ -154,7 +151,7 @@ data:
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: math/convolution
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/convolution/convolution.hpp
       title: "Convolution(\u7573\u307F\u8FBC\u307F)"
     - icon: ':warning:'
@@ -192,10 +189,10 @@ data:
     - icon: ':x:'
       path: math/modular/mod-sqrt.hpp
       title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/modular/modint.hpp
       title: ModInt
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/modular/montgomery-modint.hpp
       title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
   - name: math/number
@@ -203,31 +200,31 @@ data:
     - icon: ':warning:'
       path: math/number/factor-cnt.hpp
       title: "Factor Count(\u7D04\u6570\u500B\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/number/factor.hpp
       title: "Factor Enumeration(\u7D04\u6570\u5217\u6319)"
     - icon: ':x:'
       path: math/number/kth-root-integer.hpp
       title: Kth Root Integer
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/number/miller-rabin.hpp
       title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
         \u6570\u5224\u5B9A)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/number/phi.hpp
       title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
         )"
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/number/pollard-rho.hpp
       title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
         \u6CD5)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/number/prime-factor.hpp
       title: "Prime Factorization(\u7D20\u56E0\u6570\u5206\u89E3)"
     - icon: ':heavy_check_mark:'
       path: math/number/prime-sieve.hpp
       title: "Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/number/primitive-root.hpp
       title: "Primitive Root(\u539F\u59CB\u6839)"
     - icon: ':warning:'
@@ -256,10 +253,10 @@ data:
     - icon: ':x:'
       path: others/mo.hpp
       title: Mo's Algorithm
-    - icon: ':warning:'
+    - icon: ':question:'
       path: others/monoid.hpp
       title: others/monoid.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: others/random.hpp
       title: "Random(\u4E71\u6570)"
     - icon: ':warning:'
@@ -270,7 +267,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/rolling-hash.hpp
       title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: string/run-length.hpp
       title: string/run-length.hpp
   - name: template
@@ -359,7 +356,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_1_B.test.cpp
       title: test/aoj/DSL/DSL_1_B.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL/DSL_2_A.test.cpp
       title: test/aoj/DSL/DSL_2_A.test.cpp
     - icon: ':heavy_check_mark:'
@@ -368,22 +365,22 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_B2.test.cpp
       title: test/aoj/DSL/DSL_2_B2.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL/DSL_2_D.test.cpp
       title: test/aoj/DSL/DSL_2_D.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL/DSL_2_E.test.cpp
       title: test/aoj/DSL/DSL_2_E.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL/DSL_2_F.test.cpp
       title: test/aoj/DSL/DSL_2_F.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL/DSL_2_G.test.cpp
       title: test/aoj/DSL/DSL_2_G.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL/DSL_2_H.test.cpp
       title: test/aoj/DSL/DSL_2_H.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/DSL/DSL_2_I.test.cpp
       title: test/aoj/DSL/DSL_2_I.test.cpp
   - name: test/aoj/GRL
@@ -427,34 +424,34 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_6_A.test.cpp
       title: test/aoj/GRL/GRL_6_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_6_A_2.test.cpp
       title: test/aoj/GRL/GRL_6_A_2.test.cpp
   - name: test/aoj/ITP1
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ITP1/ITP1_3_D.test.cpp
       title: test/aoj/ITP1/ITP1_3_D.test.cpp
   - name: test/aoj/NTL
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_A.test.cpp
       title: test/aoj/NTL/NTL_1_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_B.test.cpp
       title: test/aoj/NTL/NTL_1_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_C.test.cpp
       title: test/aoj/NTL/NTL_1_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_D.test.cpp
       title: test/aoj/NTL/NTL_1_D.test.cpp
   - name: test/yosupo/convolution
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution/convolution_mod.test.cpp
       title: test/yosupo/convolution/convolution_mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
       title: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
     - icon: ':x:'
