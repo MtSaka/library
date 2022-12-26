@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: others/monoid.hpp
     title: others/monoid.hpp
   - icon: ':question:'
@@ -181,10 +181,10 @@ data:
     \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
     \ T::value_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
     \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
-    \ T::value_type>,(void)T::op,(void)T::id)>:true_type{};\n  template<typename T,typename=void>struct\
-    \ is_group:false_type{};\n  template<typename T>struct is_group<T,decltype(declval<typename\
-    \ T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};\n \
-    \ template<typename T,typename=void>struct is_action:false_type{};\n  template<typename\
+    \ T::value_type>(),(void)T::op,(void)T::id)>:true_type{};\n  template<typename\
+    \ T,typename=void>struct is_group:false_type{};\n  template<typename T>struct\
+    \ is_group<T,decltype(declval<typename T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_action:false_type{};\n  template<typename\
     \ T>struct is_action<T,typename enable_if<is_monoid<typename T::M>::value&&is_semigroup<typename\
     \ T::E>::value&&(has_op<T>::value||has_mul_op<T>::value)>::type>:true_type{};\n\
     \  template<typename T,typename=void>struct is_distributable_action:false_type{};\n\
@@ -295,7 +295,7 @@ data:
   isVerificationFile: false
   path: data-structure/segment-tree.hpp
   requiredBy: []
-  timestamp: '2022-12-25 22:30:40+09:00'
+  timestamp: '2022-12-25 23:39:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL/DSL_2_B2.test.cpp

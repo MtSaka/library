@@ -1,12 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: data-structure/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
+  - icon: ':question:'
+    path: others/monoid.hpp
+    title: others/monoid.hpp
+  - icon: ':heavy_check_mark:'
+    path: others/monoid2.hpp
+    title: others/monoid2.hpp
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -30,9 +36,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_affine_range_sum
@@ -163,10 +169,82 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/modular/modint.hpp\"\
-    \n\nnamespace internal{\n  struct modint_base{};\n}//naespace internal\ntemplate<typename\
-    \ T>using is_modint=is_base_of<internal::modint_base,T>;\ntemplate<typename T,T\
-    \ mod>\nstruct StaticModInt:internal::modint_base{\n  static_assert(is_integral<T>::value,\"\
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/monoid.hpp\"\
+    \n\nnamespace Monoid{\n  template<typename M,typename=void>struct has_op:false_type{};\n\
+    \  template<typename M>struct has_op<M,decltype((void)M::op)>:true_type{};\n \
+    \ template<typename M,typename=void>struct has_id:false_type{};\n  template<typename\
+    \ M>struct has_id<M,decltype((void)M::id)>:true_type{};\n  template<typename M,typename=void>struct\
+    \ has_inv:false_type{};\n  template<typename M>struct has_inv<M,decltype((void)M::inv)>:true_type{};\n\
+    \  template<typename M,typename=void>struct has_get_inv:false_type{};\n  template<typename\
+    \ M>struct has_get_inv<M,decltype((void)M::get_inv)>:true_type{};\n  template<typename\
+    \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
+    \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op,(void)T::id)>:true_type{};\n  template<typename\
+    \ T,typename=void>struct is_group:false_type{};\n  template<typename T>struct\
+    \ is_group<T,decltype(declval<typename T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_action:false_type{};\n  template<typename\
+    \ T>struct is_action<T,typename enable_if<is_monoid<typename T::M>::value&&is_semigroup<typename\
+    \ T::E>::value&&(has_op<T>::value||has_mul_op<T>::value)>::type>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_distributable_action:false_type{};\n\
+    \  template<typename T>struct is_distributable_action<T,typename enable_if<is_action<T>::value&&!has_mul_op<T>::value>::type>:true_type{};\n\
+    \  template<typename T>\n  struct Sum{\n    using value_type=T;\n    static constexpr\
+    \ T op(const T&x,const T&y){return x+y;}\n    static constexpr T id(){return T(0);}\n\
+    \    static constexpr T inv(const T&x,const T&y){return x-y;}\n    static constexpr\
+    \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct Min{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return x<y?x:y;}\n    static constexpr T id(){return max_value;}\n  };\n\
+    \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
+    \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
+    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&,const\
+    \ T&x){return x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
+    \    static constexpr T op(const T&x,const T&){return x;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&){return\
+    \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
+    \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
+    \ T&){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
+    \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Sum<T>;\n    static constexpr T op(const T&a,const T&b){return b+a;}\n\
+    \  };\n  template<typename T>\n  struct AddSum{\n    using M=Sum<T>;\n    using\
+    \ E=Sum<T>;\n    static constexpr T mul_op(const T&x,int sz,const T&y){return\
+    \ y+x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n  struct\
+    \ ChminMin{\n    using M=Min<T,max_value>;\n    using E=Min<T>;\n    static constexpr\
+    \ T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename T,T min_value=infinity<T>::min>\n\
+    \  struct ChminMax{\n    using M=Max<T,min_value>;\n    using E=Min<T>;\n    static\
+    \ constexpr T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename\
+    \ T,T max_value=infinity<T>::max>\n  struct ChmaxMin{\n    using M=Min<T,max_value>;\n\
+    \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
+    \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
+    \ T&x,const T&y){return x<y?y:x;}\n  };\n  template<typename E_>\n  struct AttachMonoid{\n\
+    \    using M=E_;\n    using E=E_;\n    using T=typename E_::value_type;\n    static\
+    \ T op(const T&x,const T&y){return E_::op(y,x);}\n  };\n}// namespace Monoid\n\
+    #line 4 \"others/monoid2.hpp\"\n\nnamespace Monoid{\n  template<typename T>\n\
+    \  struct Product{\n    using value_type=T;\n    static T op(const T&x,const T&y){return\
+    \ x*y;}\n    static T id(){return T(1);}\n    static T inv(const T&x,const T&y){return\
+    \ x/y;}\n    static T get_inv(const T&x){return T(1)/x;}\n  };\n  template<typename\
+    \ T>\n  struct Composite{\n    using value_type=pair<T,T>;\n    static pair<T,T>\
+    \ op(const pair<T,T>&x,const pair<T,T>&y){return {x.first*y.first,x.second*y.first+y.second};}\n\
+    \    static pair<T,T> id(){return {T(1),T(0)};}\n    static pair<T,T> get_inv(const\
+    \ pair<T,T>&x){return {T{1}/x.first,-x.second/x.first};}\n    static pair<T,T>\
+    \ inv(const pair<T,T>&x,const pair<T,T>&y){return op(x,get_inv(y));}\n  };\n \
+    \ template<typename T>\n  struct GCD{\n    using value_type=T;\n    static T op(const\
+    \ T&x,const T&y){return gcd(x,y);}\n    static T id(){return T(0);}\n  };\n  template<typename\
+    \ T>\n  struct LCM{\n    using value_type=T;\n    static T op(const T&x,const\
+    \ T&y){return lcm(x,y);}\n    static T id(){return T(1);}\n  };\n  template<typename\
+    \ T>\n  struct AffineSum{\n    using M=Sum<T>;\n    using E=Composite<T>;\n  \
+    \  using U=typename E::value_type;\n    static T mul_op(const U&a,int sz,const\
+    \ T&b){return a.first*b+a.second*sz;}\n  };\n}// namespace Monoid\n#line 3 \"\
+    math/modular/modint.hpp\"\n\nnamespace internal{\n  struct modint_base{};\n}//naespace\
+    \ internal\ntemplate<typename T>using is_modint=is_base_of<internal::modint_base,T>;\n\
+    template<typename T,T mod>\nstruct StaticModInt:internal::modint_base{\n  static_assert(is_integral<T>::value,\"\
     T must be integral\");\n  static_assert(is_unsigned<T>::value,\"T must be unsgined\"\
     );\n  static_assert(mod>0,\"mod must be positive\");\n  static_assert(mod<=INF<T>,\"\
     mod*2 must be less than or equal to T::max()\");\n  private:\n  using large_t=typename\
@@ -203,7 +281,7 @@ data:
     \ &os,const StaticModInt&x){\n    return os<<x.val;\n  }\n  friend istream &operator>>(istream\
     \ &is,StaticModInt&x){\n    ll tmp;\n    is>>tmp;\n    x=StaticModInt(tmp);\n\
     \    return is;\n  }\n};\ntemplate<unsigned int p>using ModInt=StaticModInt<unsigned\
-    \ int,p>;\n/**\n * @brief ModInt\n*/\n#line 3 \"data-structure/lazy-segment-tree.hpp\"\
+    \ int,p>;\n/**\n * @brief ModInt\n*/\n#line 4 \"data-structure/lazy-segment-tree.hpp\"\
     \n\ntemplate<typename A>\nstruct LazySegmentTree{\n  static_assert(Monoid::is_action<A>::value,\"\
     A must be action\");\n  private:\n  using M=typename A::M;\n  using E=typename\
     \ A::E;\n  using T=typename M::value_type;\n  using U=typename E::value_type;\n\
@@ -219,10 +297,10 @@ data:
     \      all_apply(k<<1^1,lazy[k],sz>>1);\n      lazy_flag[k]=false;\n    }\n  }\n\
     \  public:\n  LazySegmentTree():LazySegmentTree(0){}\n  LazySegmentTree(int n,const\
     \ T&e=M::id()):LazySegmentTree(vector<T>(n,e)){}\n  LazySegmentTree(const vector<T>&v){init(v);}\n\
-    \  void init(const vecotr<T>&v){\n    n=v.size();\n    lg=ceil_log2(n);\n    size=1<<lg;\n\
+    \  void init(const vector<T>&v){\n    n=v.size();\n    lg=ceil_log2(n);\n    size=1<<lg;\n\
     \    data.assign(size<<1,M::id());\n    lazy.resize(size);\n    lazy_flag.assign(size,false);\n\
-    \    rep(i,n)data[size+i]=v[i];\n    rrep(i,1,size)update(i);\n  }\n  T prod(T\
-    \ l,T r){\n    if(l==r)return M::id();\n    l+=size,r+=size;\n    rrep(i,1,lg+1){\n\
+    \    rep(i,n)data[size+i]=v[i];\n    rrep(i,1,size)update(i);\n  }\n  T prod(int\
+    \ l,int r){\n    if(l==r)return M::id();\n    l+=size,r+=size;\n    rrep(i,1,lg+1){\n\
     \      bool f=false;\n      if(((l>>i)<<i)!=l)eval(l>>i,1<<i),f=true;\n      if(((r>>i)<<i)!=r)eval((r-1)>>i,1<<i),f=true;\n\
     \      if(!f)break;\n    }\n    T sml=M::id(),smr=M::id();\n    while(l!=r){\n\
     \      if(l&1)sml=M::op(sml,data[l++]);\n      if(r&1)smr=M::op(data[--r],smr);\n\
@@ -231,15 +309,14 @@ data:
     \  }\n  T all_prod()const{return data[1];}\n  template<typename Upd>\n  void update(int\
     \ k,const Upd&upd){\n    k+=size;\n    rrep(i,1,lg+1)eval(k>>i,1<<i);\n    data[k]=upd(data[k]);\n\
     \    rep(i,1,lg+1)update(k>>i);\n  }\n  void set(int k,const T&x){\n    update(k,[&](const\
-    \ T&y)->T {return x;});\n  }\n  template<typename enable_if<Monoid::has_mul_op<A>>::type*\
-    \ = nullptr>\n  void apply(int k,const U&x){\n    update(k,[&](const T&y)->T {return\
-    \ A::op(x,y);});\n  }\n  void apply(int l,int r,const U&x){\n    if(l==r)return;\n\
-    \    l+=size,r+=size;\n    int lst=lg+1;\n    rrep(i,1,lg+1){\n      if(((l>>i)<<i)!=l)eval(l>>i,1<<i),lst=i;\n\
-    \      if(((r>>i)<<i)!=r)eval((r-1)>>i,1<<i),lst=i;\n      if(lst!=i)break;\n\
-    \    }\n    for(int l2=l,r2=r,sz=1;l2!=r2;l2>>=1,r2>>=1,sz<<=1){\n      if(l2&1)all_apply(l2++,x,sz);\n\
-    \      if(r2&1)all_apply(--r2,x,sz);\n    }\n    rep(i,lst,lg+1){\n      if(((l>>i)<<i)!=l)update(l>>i);\n\
-    \      if(((r>>i)<<i)!=r)update((r-1)>>i);\n    }\n  }\n};\ntemplate<typename\
-    \ T,T max_value=infinity<T>::max>\nusing RangeUpdateQueryRangeMinimumQuery=LazySegmentTree<Monoid::AssignMin<T,max_value>>;\n\
+    \ T&y)->T {return x;});\n  }\n  void apply(int k,const U&x){\n    update(k,[&](const\
+    \ T&y)->T {return Aop(x,y,1);});\n  }\n  void apply(int l,int r,const U&x){\n\
+    \    if(l==r)return;\n    l+=size,r+=size;\n    int lst=lg+1;\n    rrep(i,1,lg+1){\n\
+    \      if(((l>>i)<<i)!=l)eval(l>>i,1<<i),lst=i;\n      if(((r>>i)<<i)!=r)eval((r-1)>>i,1<<i),lst=i;\n\
+    \      if(lst!=i)break;\n    }\n    for(int l2=l,r2=r,sz=1;l2!=r2;l2>>=1,r2>>=1,sz<<=1){\n\
+    \      if(l2&1)all_apply(l2++,x,sz);\n      if(r2&1)all_apply(--r2,x,sz);\n  \
+    \  }\n    rep(i,lst,lg+1){\n      if(((l>>i)<<i)!=l)update(l>>i);\n      if(((r>>i)<<i)!=r)update((r-1)>>i);\n\
+    \    }\n  }\n};\ntemplate<typename T,T max_value=infinity<T>::max>\nusing RangeUpdateQueryRangeMinimumQuery=LazySegmentTree<Monoid::AssignMin<T,max_value>>;\n\
     template<typename T,T min_value=infinity<T>::min>\nusing RangeUpdateQueryRangeMaximumQuery=LazySegmentTree<Monoid::AssignMax<T,min_value>>;\n\
     template<typename T>\nusing RangeUpdateQueryRangeSumQuery=LazySegmentTree<Monoid::AssignSum<T>>;\n\
     template<typename T,T max_value=infinity<T>::max>\nusing RangeAddQueryRangeMinimumQuery=LazySegmentTree<Monoid::AddMin<T,max_value>>;\n\
@@ -250,27 +327,19 @@ data:
     template<typename T,T max_value=infinity<T>::max>\nusing RangeChmaxQueryRangeMinimumQuery=LazySegmentTree<Monoid::ChmaxMin<T,max_value>>;\n\
     template<typename T,T min_value=infinity<T>::min>\nusing RangeChmaxQueryRangeMaximumQuery=LazySegmentTree<Monoid::ChmaxMax<T,min_value>>;\n\
     /**\n * @brief Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
-    )\n*/\n#line 5 \"test/yosupo/data_strucuture/range_affine_range_sum.test.cpp\"\
-    \nusing mint=ModInt<998244353>;\nusing Pi=pair<mint,int >;\nusing qi=pair<mint,mint>;\n\
-    Pi op(Pi a,Pi b){return {a.first+b.first,a.second+b.second};}\nPi mapping(qi a,Pi\
-    \ b){return {a.first*b.first+a.second*mint(b.second),b.second};}\nqi composition(qi\
-    \ b,qi a){return {a.first*b.first,a.second*b.first+b.second};}\nPi e(){return\
-    \ Pi(0,0);}\nqi id(){return qi(1,0);}\nint main(){\n  INT(n,q);\n  vector<Pi>a(n,{0,1});\n\
-    \  rep(i,n)cin>>a[i].first;\n  LazySegmentTree<Pi,op,e,qi,mapping,composition,id>s(a);\n\
-    \  while(q--){\n    LL(t);\n    if(t){\n      INT(l,r);\n      print(s.query(l,r).first);\n\
-    \    }\n    else{\n      INT(l,r);\n      mint b,c;\n      scan(b,c);\n      s.apply(l,r,qi(b,c));\n\
-    \    }\n  }\n}\n"
+    )\n*/\n#line 6 \"test/yosupo/data_strucuture/range_affine_range_sum.test.cpp\"\
+    \nusing mint=ModInt<998244353>;\nusing T=pair<mint,mint>;\nint main(){\n  INT(n,q);\n\
+    \  vector<mint>a(n);cin>>a;\n  LazySegmentTree<Monoid::AffineSum<mint>>seg(a);\n\
+    \  while(q--){\n    INT(t);\n    if(t==0){\n      INT(l,r,b,c);\n      seg.apply(l,r,T{b,c});\n\
+    \    }\n    else{\n      INT(l,r);\n      print(seg.prod(l,r));\n    }\n  }\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../math/modular/modint.hpp\"\
-    \n#include\"../../../data-structure/lazy-segment-tree.hpp\"\nusing mint=ModInt<998244353>;\n\
-    using Pi=pair<mint,int >;\nusing qi=pair<mint,mint>;\nPi op(Pi a,Pi b){return\
-    \ {a.first+b.first,a.second+b.second};}\nPi mapping(qi a,Pi b){return {a.first*b.first+a.second*mint(b.second),b.second};}\n\
-    qi composition(qi b,qi a){return {a.first*b.first,a.second*b.first+b.second};}\n\
-    Pi e(){return Pi(0,0);}\nqi id(){return qi(1,0);}\nint main(){\n  INT(n,q);\n\
-    \  vector<Pi>a(n,{0,1});\n  rep(i,n)cin>>a[i].first;\n  LazySegmentTree<Pi,op,e,qi,mapping,composition,id>s(a);\n\
-    \  while(q--){\n    LL(t);\n    if(t){\n      INT(l,r);\n      print(s.query(l,r).first);\n\
-    \    }\n    else{\n      INT(l,r);\n      mint b,c;\n      scan(b,c);\n      s.apply(l,r,qi(b,c));\n\
-    \    }\n  }\n}"
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../others/monoid2.hpp\"\
+    \n#include\"../../../math/modular/modint.hpp\"\n#include\"../../../data-structure/lazy-segment-tree.hpp\"\
+    \nusing mint=ModInt<998244353>;\nusing T=pair<mint,mint>;\nint main(){\n  INT(n,q);\n\
+    \  vector<mint>a(n);cin>>a;\n  LazySegmentTree<Monoid::AffineSum<mint>>seg(a);\n\
+    \  while(q--){\n    INT(t);\n    if(t==0){\n      INT(l,r,b,c);\n      seg.apply(l,r,T{b,c});\n\
+    \    }\n    else{\n      INT(l,r);\n      print(seg.prod(l,r));\n    }\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -279,13 +348,15 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
+  - others/monoid2.hpp
+  - others/monoid.hpp
   - math/modular/modint.hpp
   - data-structure/lazy-segment-tree.hpp
   isVerificationFile: true
   path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 22:30:40+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-25 23:39:16+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
 layout: document
