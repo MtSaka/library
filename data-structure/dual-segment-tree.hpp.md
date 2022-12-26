@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: others/monoid.hpp
+    title: others/monoid.hpp
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -23,10 +26,16 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_D.test.cpp
+    title: test/aoj/DSL/DSL_2_D.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_E.test.cpp
+    title: test/aoj/DSL/DSL_2_E.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
       )"
@@ -154,42 +163,136 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/dual-segment-tree.hpp\"\
-    \n\ntemplate<class S,class F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>\n\
-    struct DualSegmentTree{\n  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n\
-    \  vector<F>lazy;\n  void all_apply(int k,F f){\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n\
-    \    else if(k<size+_n)seq[k-size]=mapping(f,seq[k-size]);\n  }\n  void eval(int\
-    \ k){\n    all_apply(k<<1,lazy[k]);\n    all_apply(k<<1^1,lazy[k]);\n    lazy[k]=id();\n\
-    \  }\n  public:\n  DualSegmentTree():DualSegmentTree(0){}\n  DualSegmentTree(int\
-    \ n,S e=S()):DualSegmentTree(vector<S>(n,e)){};\n  DualSegmentTree(const vector<S>&v):_n(v.size()){\n\
-    \    while(size<_n)size<<=1,idx++;\n    seq=v;lazy=vector<F>(size,id());\n  }\n\
-    \  void set(int p,S x){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
-    \    seq[p-size]=x;\n  }\n  S operator[](int p){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
-    \    return seq[p-size];\n  }\n  void apply(int p,F f){\n    p+=size;\n    for(int\
-    \ i=idx;i>=1;i--)eval(p>>i);\n    seq[p-size]=mapping(f,seq[p-size]);\n  }\n \
-    \ void apply(int l,int r,F f){\n    if(l==r)return;\n    l+=size;r+=size;\n  \
-    \  for(int i=idx;i>=1;i--){\n      if(((l>>i)<<i)!=l)eval(l>>i);\n      if(((r>>i)<<i)!=r)eval(r>>i);\n\
-    \    }\n    while(l<r){\n      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n\
-    \      l>>=1,r>>=1;\n    }\n  }\n};\n/**\n *@brief Dual Segment Tree(\u53CC\u5BFE\
-    \u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n"
-  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<class S,class\
-    \ F,S (*mapping)(F,S),F (*composition)(F,F),F (*id)()>\nstruct DualSegmentTree{\n\
-    \  private:\n  int _n,size=1,idx=0;\n  vector<S>seq;\n  vector<F>lazy;\n  void\
-    \ all_apply(int k,F f){\n    if(k<size)lazy[k]=composition(f,lazy[k]);\n    else\
-    \ if(k<size+_n)seq[k-size]=mapping(f,seq[k-size]);\n  }\n  void eval(int k){\n\
-    \    all_apply(k<<1,lazy[k]);\n    all_apply(k<<1^1,lazy[k]);\n    lazy[k]=id();\n\
-    \  }\n  public:\n  DualSegmentTree():DualSegmentTree(0){}\n  DualSegmentTree(int\
-    \ n,S e=S()):DualSegmentTree(vector<S>(n,e)){};\n  DualSegmentTree(const vector<S>&v):_n(v.size()){\n\
-    \    while(size<_n)size<<=1,idx++;\n    seq=v;lazy=vector<F>(size,id());\n  }\n\
-    \  void set(int p,S x){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
-    \    seq[p-size]=x;\n  }\n  S operator[](int p){\n    p+=size;\n    for(int i=idx;i>=1;i--)eval(p>>i);\n\
-    \    return seq[p-size];\n  }\n  void apply(int p,F f){\n    p+=size;\n    for(int\
-    \ i=idx;i>=1;i--)eval(p>>i);\n    seq[p-size]=mapping(f,seq[p-size]);\n  }\n \
-    \ void apply(int l,int r,F f){\n    if(l==r)return;\n    l+=size;r+=size;\n  \
-    \  for(int i=idx;i>=1;i--){\n      if(((l>>i)<<i)!=l)eval(l>>i);\n      if(((r>>i)<<i)!=r)eval(r>>i);\n\
-    \    }\n    while(l<r){\n      if(l&1)all_apply(l++,f);\n      if(r&1)all_apply(--r,f);\n\
-    \      l>>=1,r>>=1;\n    }\n  }\n};\n/**\n *@brief Dual Segment Tree(\u53CC\u5BFE\
-    \u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/"
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/monoid.hpp\"\
+    \n\nnamespace Monoid{\n  template<typename M,typename=void>struct has_op:false_type{};\n\
+    \  template<typename M>struct has_op<M,decltype((void)M::op)>:true_type{};\n \
+    \ template<typename M,typename=void>struct has_id:false_type{};\n  template<typename\
+    \ M>struct has_id<M,decltype((void)M::id)>:true_type{};\n  template<typename M,typename=void>struct\
+    \ has_inv:false_type{};\n  template<typename M>struct has_inv<M,decltype((void)M::inv)>:true_type{};\n\
+    \  template<typename M,typename=void>struct has_get_inv:false_type{};\n  template<typename\
+    \ M>struct has_get_inv<M,decltype((void)M::get_inv)>:true_type{};\n  template<typename\
+    \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
+    \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
+    \ T::value_type>,(void)T::op,(void)T::id)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_group:false_type{};\n  template<typename T>struct is_group<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};\n \
+    \ template<typename T,typename=void>struct is_action:false_type{};\n  template<typename\
+    \ T>struct is_action<T,typename enable_if<is_monoid<typename T::M>::value&&is_semigroup<typename\
+    \ T::E>::value&&(has_op<T>::value||has_mul_op<T>::value)>::type>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_distributable_action:false_type{};\n\
+    \  template<typename T>struct is_distributable_action<T,typename enable_if<is_action<T>::value&&!has_mul_op<T>::value>::type>:true_type{};\n\
+    \  template<typename T>\n  struct Sum{\n    using value_type=T;\n    static constexpr\
+    \ T op(const T&x,const T&y){return x+y;}\n    static constexpr T id(){return T(0);}\n\
+    \    static constexpr T inv(const T&x,const T&y){return x-y;}\n    static constexpr\
+    \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct Min{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return x<y?x:y;}\n    static constexpr T id(){return max_value;}\n  };\n\
+    \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
+    \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
+    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&,const\
+    \ T&x){return x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
+    \    static constexpr T op(const T&x,const T&){return x;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&){return\
+    \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
+    \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
+    \ T&){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
+    \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Sum<T>;\n    static constexpr T op(const T&a,const T&b){return b+a;}\n\
+    \  };\n  template<typename T>\n  struct AddSum{\n    using M=Sum<T>;\n    using\
+    \ E=Sum<T>;\n    static constexpr T mul_op(const T&x,int sz,const T&y){return\
+    \ y+x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n  struct\
+    \ ChminMin{\n    using M=Min<T,max_value>;\n    using E=Min<T>;\n    static constexpr\
+    \ T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename T,T min_value=infinity<T>::min>\n\
+    \  struct ChminMax{\n    using M=Max<T,min_value>;\n    using E=Min<T>;\n    static\
+    \ constexpr T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename\
+    \ T,T max_value=infinity<T>::max>\n  struct ChmaxMin{\n    using M=Min<T,max_value>;\n\
+    \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
+    \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
+    \ T&x,const T&y){return x<y?y:x;}\n  };\n  template<typename E_>\n  struct AttachMonoid{\n\
+    \    using M=E_;\n    using E=E_;\n    using T=typename E_::value_type;\n    static\
+    \ T op(const T&x,const T&y){return E_::op(y,x);}\n  };\n}// namespace Monoid\n\
+    #line 4 \"data-structure/dual-segment-tree.hpp\"\n\ntemplate<typename A,bool =Monoid::is_semigroup<A>::value>\n\
+    struct DualSegmentTree{\n  static_assert(Monoid::is_semigroup<typename A::M>::value,\"\
+    A::M must be semigroup\");\n  static_assert(Monoid::is_semigroup<typename A::E>::value,\"\
+    A::E must be action\");\n  static_assert(Monoid::has_op<A>::value||Monoid::has_mul_op<A>::value,\"\
+    A must have op\");\n  private:\n  using M=typename A::M;\n  using E=typename A::E;\n\
+    \  using T=typename M::value_type;\n  using U=typename E::value_type;\n  int lg,n,size;\n\
+    \  vector<T>data;\n  vector<U>lazy;\n  vector<bool>lazy_flag;\n  template<bool\
+    \ dummy=true,typename enable_if<!Monoid::has_mul_op<A>::value&&dummy>::type* =\
+    \ nullptr>\n  inline static T Aop(const U&a,const T&b,int){\n    return A::op(a,b);\n\
+    \  }\n  template<bool dummy=true,typename enable_if<Monoid::has_mul_op<A>::value&&dummy>::type*\
+    \ = nullptr>\n  inline static T Aop(const U&a,const T&b,int sz){\n    return A::mul_op(a,sz,b);\n\
+    \  }\n  void all_apply(int k,U x){\n    if(k<size){\n      if(lazy_flag[k])lazy[k]=E::op(lazy[k],x);\n\
+    \      else lazy[k]=x,lazy_flag[k]=true;\n    }\n    else if(k<n+size){\n    \
+    \  data[k-size]=Aop(x,data[k-size],1);\n    }\n  }\n  void eval(int k){\n    if(lazy_flag[k]){\n\
+    \      all_apply(k<<1,lazy[k]);\n      all_apply(k<<1^1,lazy[k]);\n      lazy_flag[k]=false;\n\
+    \    }\n  }\n  public:\n  DualSegmentTree():DualSegmentTree(0){}\n  DualSegmentTree(int\
+    \ n,const T&e=T{}):DualSegmentTree(vector<T>(n,e)){};\n  DualSegmentTree(const\
+    \ vector<T>&v){init(v);}\n  void init(const vector<T>&v){\n    n=v.size();\n \
+    \   lg=ceil_log2(n);\n    size=1<<lg;\n    data=v;\n    lazy.resize(size);\n \
+    \   lazy_flag.assign(size,false);\n  }\n  T operator[](int k){\n    k+=size;\n\
+    \    rrep(i,1,lg+1)eval(k>>i);\n    return data[k-size];\n  }\n  template<typename\
+    \ Upd>\n  void update(int k,const Upd&upd){\n    k+=size;\n    rrep(i,1,lg+1)eval(k>>i);\n\
+    \    data[k-size]=upd(data[k-size]);\n  }\n  void set(int k,const T&x){\n    update(k,[&](T)->T\
+    \ {return x;});\n  }\n  void apply(int k,const U&x){\n    update(k,[&](const T&y)->T\
+    \ {return Aop(x,y,1);});\n  }\n  void apply(int l,int r,const U&x){\n    l+=size,r+=size;\n\
+    \    rrep(i,1,lg+1){\n      bool f=false;\n      if(((l>>i)<<i)!=l)eval(l>>i),f=true;\n\
+    \      if(((r>>i)<<i)!=r)eval((r-1)>>i),f=true;\n      if(!f)break;\n    }\n \
+    \   while(l!=r){\n      if(l&1)all_apply(l++,x);\n      if(r&1)all_apply(--r,x);\n\
+    \      l>>=1,r>>=1;\n    }\n  }\n};\ntemplate<typename E>\nstruct DualSegmentTree<E,true>:DualSegmentTree<Monoid::AttachMonoid<E>>{\n\
+    \  private:\n  using Base=DualSegmentTree<Monoid::AttachMonoid<E>>;\n  public:\n\
+    \  using Base::Base;\n};\ntemplate<typename T>using RangeUpdateQuery=DualSegmentTree<Monoid::Assign<T>>;\n\
+    template<typename T>using RangeAddQuery=DualSegmentTree<Monoid::Sum<T>>;\ntemplate<typename\
+    \ T,T max_value=infinity<T>::max>using RangeChminQuery=DualSegmentTree<Monoid::Min<T,max_value>>;\n\
+    template<typename T,T min_value=infinity<T>::min>using RangeChmaxQuery=DualSegmentTree<Monoid::Max<T,min_value>>;\n\
+    /**\n *@brief Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
+    )\n*/\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n#include\"../others/monoid.hpp\"\
+    \n\ntemplate<typename A,bool =Monoid::is_semigroup<A>::value>\nstruct DualSegmentTree{\n\
+    \  static_assert(Monoid::is_semigroup<typename A::M>::value,\"A::M must be semigroup\"\
+    );\n  static_assert(Monoid::is_semigroup<typename A::E>::value,\"A::E must be\
+    \ action\");\n  static_assert(Monoid::has_op<A>::value||Monoid::has_mul_op<A>::value,\"\
+    A must have op\");\n  private:\n  using M=typename A::M;\n  using E=typename A::E;\n\
+    \  using T=typename M::value_type;\n  using U=typename E::value_type;\n  int lg,n,size;\n\
+    \  vector<T>data;\n  vector<U>lazy;\n  vector<bool>lazy_flag;\n  template<bool\
+    \ dummy=true,typename enable_if<!Monoid::has_mul_op<A>::value&&dummy>::type* =\
+    \ nullptr>\n  inline static T Aop(const U&a,const T&b,int){\n    return A::op(a,b);\n\
+    \  }\n  template<bool dummy=true,typename enable_if<Monoid::has_mul_op<A>::value&&dummy>::type*\
+    \ = nullptr>\n  inline static T Aop(const U&a,const T&b,int sz){\n    return A::mul_op(a,sz,b);\n\
+    \  }\n  void all_apply(int k,U x){\n    if(k<size){\n      if(lazy_flag[k])lazy[k]=E::op(lazy[k],x);\n\
+    \      else lazy[k]=x,lazy_flag[k]=true;\n    }\n    else if(k<n+size){\n    \
+    \  data[k-size]=Aop(x,data[k-size],1);\n    }\n  }\n  void eval(int k){\n    if(lazy_flag[k]){\n\
+    \      all_apply(k<<1,lazy[k]);\n      all_apply(k<<1^1,lazy[k]);\n      lazy_flag[k]=false;\n\
+    \    }\n  }\n  public:\n  DualSegmentTree():DualSegmentTree(0){}\n  DualSegmentTree(int\
+    \ n,const T&e=T{}):DualSegmentTree(vector<T>(n,e)){};\n  DualSegmentTree(const\
+    \ vector<T>&v){init(v);}\n  void init(const vector<T>&v){\n    n=v.size();\n \
+    \   lg=ceil_log2(n);\n    size=1<<lg;\n    data=v;\n    lazy.resize(size);\n \
+    \   lazy_flag.assign(size,false);\n  }\n  T operator[](int k){\n    k+=size;\n\
+    \    rrep(i,1,lg+1)eval(k>>i);\n    return data[k-size];\n  }\n  template<typename\
+    \ Upd>\n  void update(int k,const Upd&upd){\n    k+=size;\n    rrep(i,1,lg+1)eval(k>>i);\n\
+    \    data[k-size]=upd(data[k-size]);\n  }\n  void set(int k,const T&x){\n    update(k,[&](T)->T\
+    \ {return x;});\n  }\n  void apply(int k,const U&x){\n    update(k,[&](const T&y)->T\
+    \ {return Aop(x,y,1);});\n  }\n  void apply(int l,int r,const U&x){\n    l+=size,r+=size;\n\
+    \    rrep(i,1,lg+1){\n      bool f=false;\n      if(((l>>i)<<i)!=l)eval(l>>i),f=true;\n\
+    \      if(((r>>i)<<i)!=r)eval((r-1)>>i),f=true;\n      if(!f)break;\n    }\n \
+    \   while(l!=r){\n      if(l&1)all_apply(l++,x);\n      if(r&1)all_apply(--r,x);\n\
+    \      l>>=1,r>>=1;\n    }\n  }\n};\ntemplate<typename E>\nstruct DualSegmentTree<E,true>:DualSegmentTree<Monoid::AttachMonoid<E>>{\n\
+    \  private:\n  using Base=DualSegmentTree<Monoid::AttachMonoid<E>>;\n  public:\n\
+    \  using Base::Base;\n};\ntemplate<typename T>using RangeUpdateQuery=DualSegmentTree<Monoid::Assign<T>>;\n\
+    template<typename T>using RangeAddQuery=DualSegmentTree<Monoid::Sum<T>>;\ntemplate<typename\
+    \ T,T max_value=infinity<T>::max>using RangeChminQuery=DualSegmentTree<Monoid::Min<T,max_value>>;\n\
+    template<typename T,T min_value=infinity<T>::min>using RangeChmaxQuery=DualSegmentTree<Monoid::Max<T,min_value>>;\n\
+    /**\n *@brief Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
+    )\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -198,12 +301,15 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
+  - others/monoid.hpp
   isVerificationFile: false
   path: data-structure/dual-segment-tree.hpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2022-12-25 22:30:40+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/DSL/DSL_2_E.test.cpp
+  - test/aoj/DSL/DSL_2_D.test.cpp
 documentation_of: data-structure/dual-segment-tree.hpp
 layout: document
 redirect_from:

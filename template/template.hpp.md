@@ -20,25 +20,25 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/binary-indexed-tree.hpp
     title: Binary Indexed Tree(Fenwick Tree, BIT)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/binary-trie.hpp
     title: Binary Trie
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/bit-vector.hpp
     title: Bit Vector
   - icon: ':x:'
     path: data-structure/disjoint-sparse-table.hpp
     title: Disjoint Sparse Table
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/dual-segment-tree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/dynamic-segment-tree.hpp
     title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: data-structure/hash-map.hpp
     title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
   - icon: ':warning:'
@@ -50,19 +50,19 @@ data:
   - icon: ':x:'
     path: data-structure/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/persistent-array.hpp
     title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/persistent-union-find.hpp
     title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/rollback-union-find.hpp
     title: Rollback Disjoint Set Union(Union Find)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/segment-tree-beats.hpp
     title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':question:'
@@ -71,7 +71,7 @@ data:
   - icon: ':question:'
     path: data-structure/union-find.hpp
     title: Union Find(Disjoint Set Union)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/wavelet-matrix.hpp
     title: Wavelet Matrix
   - icon: ':heavy_check_mark:'
@@ -151,10 +151,10 @@ data:
     path: math/convolution/fft.hpp
     title: "Fast Fourier Transform(\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB\
       )"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/gcd-convolution.hpp
     title: GCD Convolution
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/lcm-convolution.hpp
     title: LCM Convolution
   - icon: ':x:'
@@ -233,12 +233,15 @@ data:
   - icon: ':x:'
     path: math/others/rational.hpp
     title: "Fraction(\u6709\u7406\u6570\u578B)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: others/mo.hpp
     title: Mo's Algorithm
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: others/monoid.hpp
     title: others/monoid.hpp
+  - icon: ':heavy_check_mark:'
+    path: others/monoid2.hpp
+    title: others/monoid2.hpp
   - icon: ':question:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
@@ -307,11 +310,20 @@ data:
     path: test/aoj/DSL/DSL_1_B.test.cpp
     title: test/aoj/DSL/DSL_1_B.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_A.test.cpp
+    title: test/aoj/DSL/DSL_2_A.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B2.test.cpp
     title: test/aoj/DSL/DSL_2_B2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_D.test.cpp
+    title: test/aoj/DSL/DSL_2_D.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_E.test.cpp
+    title: test/aoj/DSL/DSL_2_E.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_A.test.cpp
     title: test/aoj/GRL/GRL_1_A.test.cpp
@@ -375,46 +387,49 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
     title: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution/gcd_convolution.test.cpp
     title: test/yosupo/convolution/gcd_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution/lcm_convolution.test.cpp
     title: test/yosupo/convolution/lcm_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/associative_array.test.cpp
     title: test/yosupo/data_strucuture/associative_array.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/persistent_unionfind.test.cpp
     title: test/yosupo/data_strucuture/persistent_unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
     title: test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+    title: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
     title: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
     title: test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
     title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
   - icon: ':x:'
     path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
     title: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
     title: test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
     title: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/set_xor_min.test.cpp
     title: test/yosupo/data_strucuture/set_xor_min.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
     title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/staticrmq.test.cpp
     title: test/yosupo/data_strucuture/staticrmq.test.cpp
   - icon: ':x:'
@@ -659,6 +674,7 @@ data:
   - dynamic-programming/longest-increasing-subsequence.hpp
   - dynamic-programming/longest-common-subsequence.hpp
   - others/random.hpp
+  - others/monoid2.hpp
   - others/mo.hpp
   - others/timer.hpp
   - others/monoid.hpp
@@ -763,7 +779,10 @@ data:
   - test/aoj/GRL/GRL_4_B.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp
   - test/aoj/DSL/DSL_2_B2.test.cpp
+  - test/aoj/DSL/DSL_2_E.test.cpp
+  - test/aoj/DSL/DSL_2_A.test.cpp
   - test/aoj/DSL/DSL_2_B.test.cpp
+  - test/aoj/DSL/DSL_2_D.test.cpp
   - test/aoj/DSL/DSL_1_B.test.cpp
   - test/aoj/NTL/NTL_1_C.test.cpp
   - test/aoj/NTL/NTL_1_D.test.cpp
@@ -811,6 +830,7 @@ data:
   - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
   - test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
   - test/yosupo/data_strucuture/set_xor_min.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
   - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   - test/yosupo/data_strucuture/range_kth_smallest.test.cpp
 documentation_of: template/template.hpp

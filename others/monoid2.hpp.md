@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: others/monoid.hpp
+    title: others/monoid.hpp
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -25,13 +28,12 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/yosupo/convolution/lcm_convolution.test.cpp
-    title: test/yosupo/convolution/lcm_convolution.test.cpp
+    path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+    title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: LCM Convolution
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -156,21 +158,96 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/convolution/lcm-convolution.hpp\"\
-    \n\ntemplate<typename T>\nvector<T>lcm_convolution(vector<T>a,vector<T>b){\n \
-    \ const int n=a.size();\n  vector<bool>sieve(n,true);\n  for(int p=2;p<n;p++)if(sieve[p]){\n\
-    \    for(int i=1;i*p<n;i++)a[i*p]+=a[i],sieve[i*p]=false;\n    sieve[p]=true;\n\
-    \  }\n  for(int p=2;p<n;p++)if(sieve[p])for(int i=1;i*p<n;i++)b[i*p]+=b[i];\n\
-    \  for(int i=0;i<n;i++)a[i]*=b[i];\n  for(int p=2;p<n;p++)if(sieve[p])for(int\
-    \ i=(n-1)/p;i>0;i--)a[i*p]-=a[i];\n  return a;\n}\n/**\n * @brief LCM Convolution\n\
-    */\n"
-  code: "#pragma once\n#include\"../../template/template.hpp\"\n\ntemplate<typename\
-    \ T>\nvector<T>lcm_convolution(vector<T>a,vector<T>b){\n  const int n=a.size();\n\
-    \  vector<bool>sieve(n,true);\n  for(int p=2;p<n;p++)if(sieve[p]){\n    for(int\
-    \ i=1;i*p<n;i++)a[i*p]+=a[i],sieve[i*p]=false;\n    sieve[p]=true;\n  }\n  for(int\
-    \ p=2;p<n;p++)if(sieve[p])for(int i=1;i*p<n;i++)b[i*p]+=b[i];\n  for(int i=0;i<n;i++)a[i]*=b[i];\n\
-    \  for(int p=2;p<n;p++)if(sieve[p])for(int i=(n-1)/p;i>0;i--)a[i*p]-=a[i];\n \
-    \ return a;\n}\n/**\n * @brief LCM Convolution\n*/"
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/monoid.hpp\"\
+    \n\nnamespace Monoid{\n  template<typename M,typename=void>struct has_op:false_type{};\n\
+    \  template<typename M>struct has_op<M,decltype((void)M::op)>:true_type{};\n \
+    \ template<typename M,typename=void>struct has_id:false_type{};\n  template<typename\
+    \ M>struct has_id<M,decltype((void)M::id)>:true_type{};\n  template<typename M,typename=void>struct\
+    \ has_inv:false_type{};\n  template<typename M>struct has_inv<M,decltype((void)M::inv)>:true_type{};\n\
+    \  template<typename M,typename=void>struct has_get_inv:false_type{};\n  template<typename\
+    \ M>struct has_get_inv<M,decltype((void)M::get_inv)>:true_type{};\n  template<typename\
+    \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
+    \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
+    \ T::value_type>,(void)T::op,(void)T::id)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_group:false_type{};\n  template<typename T>struct is_group<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};\n \
+    \ template<typename T,typename=void>struct is_action:false_type{};\n  template<typename\
+    \ T>struct is_action<T,typename enable_if<is_monoid<typename T::M>::value&&is_semigroup<typename\
+    \ T::E>::value&&(has_op<T>::value||has_mul_op<T>::value)>::type>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_distributable_action:false_type{};\n\
+    \  template<typename T>struct is_distributable_action<T,typename enable_if<is_action<T>::value&&!has_mul_op<T>::value>::type>:true_type{};\n\
+    \  template<typename T>\n  struct Sum{\n    using value_type=T;\n    static constexpr\
+    \ T op(const T&x,const T&y){return x+y;}\n    static constexpr T id(){return T(0);}\n\
+    \    static constexpr T inv(const T&x,const T&y){return x-y;}\n    static constexpr\
+    \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct Min{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return x<y?x:y;}\n    static constexpr T id(){return max_value;}\n  };\n\
+    \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
+    \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
+    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&,const\
+    \ T&x){return x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
+    \    static constexpr T op(const T&x,const T&){return x;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&){return\
+    \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
+    \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
+    \ T&){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
+    \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Sum<T>;\n    static constexpr T op(const T&a,const T&b){return b+a;}\n\
+    \  };\n  template<typename T>\n  struct AddSum{\n    using M=Sum<T>;\n    using\
+    \ E=Sum<T>;\n    static constexpr T mul_op(const T&x,int sz,const T&y){return\
+    \ y+x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n  struct\
+    \ ChminMin{\n    using M=Min<T,max_value>;\n    using E=Min<T>;\n    static constexpr\
+    \ T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename T,T min_value=infinity<T>::min>\n\
+    \  struct ChminMax{\n    using M=Max<T,min_value>;\n    using E=Min<T>;\n    static\
+    \ constexpr T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename\
+    \ T,T max_value=infinity<T>::max>\n  struct ChmaxMin{\n    using M=Min<T,max_value>;\n\
+    \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
+    \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
+    \ T&x,const T&y){return x<y?y:x;}\n  };\n  template<typename E_>\n  struct AttachMonoid{\n\
+    \    using M=E_;\n    using E=E_;\n    using T=typename E_::value_type;\n    static\
+    \ T op(const T&x,const T&y){return E_::op(y,x);}\n  };\n}// namespace Monoid\n\
+    #line 4 \"others/monoid2.hpp\"\n\nnamespace Monoid{\n  template<typename T>\n\
+    \  struct Product{\n    using value_type=T;\n    static T op(const T&x,const T&y){return\
+    \ x*y;}\n    static T id(){return T(1);}\n    static T inv(const T&x,const T&y){return\
+    \ x/y;}\n    static T get_inv(const T&x){return T(1)/x;}\n  };\n  template<typename\
+    \ T>\n  struct Composite{\n    using value_type=pair<T,T>;\n    static pair<T,T>\
+    \ op(const pair<T,T>&x,const pair<T,T>&y){return {x.first*y.first,x.second*y.first+y.second};}\n\
+    \    static pair<T,T> id(){return {T(1),T(0)};}\n    static pair<T,T> get_inv(const\
+    \ pair<T,T>&x){return {T{1}/x.first,-x.second/x.first};}\n    static pair<T,T>\
+    \ inv(const pair<T,T>&x,const pair<T,T>&y){return op(x,get_inv(y));}\n  };\n \
+    \ template<typename T>\n  struct GCD{\n    using value_type=T;\n    static T op(const\
+    \ T&x,const T&y){return gcd(x,y);}\n    static T id(){return T(0);}\n  };\n  template<typename\
+    \ T>\n  struct LCM{\n    using value_type=T;\n    static T op(const T&x,const\
+    \ T&y){return lcm(x,y);}\n    static T id(){return T(1);}\n  };\n  template<typename\
+    \ T>\n  struct AffineSum{\n    using M=Sum<T>;\n    using E=Composite<T>;\n  \
+    \  using U=typename E::value_type;\n    static T mul_op(const U&a,int sz,const\
+    \ T&b){return a.first*b+a.second*sz;}\n  };\n}// namespace Monoid\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n#include\"monoid.hpp\"\
+    \n\nnamespace Monoid{\n  template<typename T>\n  struct Product{\n    using value_type=T;\n\
+    \    static T op(const T&x,const T&y){return x*y;}\n    static T id(){return T(1);}\n\
+    \    static T inv(const T&x,const T&y){return x/y;}\n    static T get_inv(const\
+    \ T&x){return T(1)/x;}\n  };\n  template<typename T>\n  struct Composite{\n  \
+    \  using value_type=pair<T,T>;\n    static pair<T,T> op(const pair<T,T>&x,const\
+    \ pair<T,T>&y){return {x.first*y.first,x.second*y.first+y.second};}\n    static\
+    \ pair<T,T> id(){return {T(1),T(0)};}\n    static pair<T,T> get_inv(const pair<T,T>&x){return\
+    \ {T{1}/x.first,-x.second/x.first};}\n    static pair<T,T> inv(const pair<T,T>&x,const\
+    \ pair<T,T>&y){return op(x,get_inv(y));}\n  };\n  template<typename T>\n  struct\
+    \ GCD{\n    using value_type=T;\n    static T op(const T&x,const T&y){return gcd(x,y);}\n\
+    \    static T id(){return T(0);}\n  };\n  template<typename T>\n  struct LCM{\n\
+    \    using value_type=T;\n    static T op(const T&x,const T&y){return lcm(x,y);}\n\
+    \    static T id(){return T(1);}\n  };\n  template<typename T>\n  struct AffineSum{\n\
+    \    using M=Sum<T>;\n    using E=Composite<T>;\n    using U=typename E::value_type;\n\
+    \    static T mul_op(const U&a,int sz,const T&b){return a.first*b+a.second*sz;}\n\
+    \  };\n}// namespace Monoid"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -179,17 +256,18 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
+  - others/monoid.hpp
   isVerificationFile: false
-  path: math/convolution/lcm-convolution.hpp
+  path: others/monoid2.hpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-25 22:30:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/convolution/lcm_convolution.test.cpp
-documentation_of: math/convolution/lcm-convolution.hpp
+  - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+documentation_of: others/monoid2.hpp
 layout: document
 redirect_from:
-- /library/math/convolution/lcm-convolution.hpp
-- /library/math/convolution/lcm-convolution.hpp.html
-title: LCM Convolution
+- /library/others/monoid2.hpp
+- /library/others/monoid2.hpp.html
+title: others/monoid2.hpp
 ---

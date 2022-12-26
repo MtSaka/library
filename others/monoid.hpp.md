@@ -23,19 +23,37 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
+    path: data-structure/dual-segment-tree.hpp
+    title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  - icon: ':heavy_check_mark:'
     path: data-structure/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  - icon: ':heavy_check_mark:'
+    path: others/monoid2.hpp
+    title: others/monoid2.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_A.test.cpp
+    title: test/aoj/DSL/DSL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B2.test.cpp
     title: test/aoj/DSL/DSL_2_B2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_D.test.cpp
+    title: test/aoj/DSL/DSL_2_D.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/DSL/DSL_2_E.test.cpp
+    title: test/aoj/DSL/DSL_2_E.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+    title: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
     title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
@@ -172,7 +190,7 @@ data:
     \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
     \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
     \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
-    \ T::vale_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ T::value_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
     \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
     \ T::value_type>,(void)T::op,(void)T::id)>:true_type{};\n  template<typename T,typename=void>struct\
     \ is_group:false_type{};\n  template<typename T>struct is_group<T,decltype(declval<typename\
@@ -191,15 +209,15 @@ data:
     \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
     \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
     \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
-    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
-    \ T&y){return y;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&,const\
+    \ T&x){return x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
     \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
-    \    static constexpr T op(const T&x,const T&y){return x;}\n  };\n  template<typename\
+    \    static constexpr T op(const T&x,const T&){return x;}\n  };\n  template<typename\
     \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
-    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&y){return\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&){return\
     \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
     \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
-    \ T&y){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \ T&){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
     \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
     \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
     \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
@@ -215,7 +233,9 @@ data:
     \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
     \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
     \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
-    \ T&x,const T&y){return x<y?y:x;}\n  };\n\n}// namespace Monoid\n"
+    \ T&x,const T&y){return x<y?y:x;}\n  };\n  template<typename E_>\n  struct AttachMonoid{\n\
+    \    using M=E_;\n    using E=E_;\n    using T=typename E_::value_type;\n    static\
+    \ T op(const T&x,const T&y){return E_::op(y,x);}\n  };\n}// namespace Monoid\n"
   code: "#pragma once\n#include\"../template/template.hpp\"\n\nnamespace Monoid{\n\
     \  template<typename M,typename=void>struct has_op:false_type{};\n  template<typename\
     \ M>struct has_op<M,decltype((void)M::op)>:true_type{};\n  template<typename M,typename=void>struct\
@@ -227,7 +247,7 @@ data:
     \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
     \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
     \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
-    \ T::vale_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ T::value_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
     \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
     \ T::value_type>,(void)T::op,(void)T::id)>:true_type{};\n  template<typename T,typename=void>struct\
     \ is_group:false_type{};\n  template<typename T>struct is_group<T,decltype(declval<typename\
@@ -246,15 +266,15 @@ data:
     \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
     \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
     \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
-    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
-    \ T&y){return y;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&,const\
+    \ T&x){return x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
     \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
-    \    static constexpr T op(const T&x,const T&y){return x;}\n  };\n  template<typename\
+    \    static constexpr T op(const T&x,const T&){return x;}\n  };\n  template<typename\
     \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
-    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&y){return\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&){return\
     \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
     \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
-    \ T&y){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \ T&){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
     \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
     \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
     \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
@@ -270,7 +290,9 @@ data:
     \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
     \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
     \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
-    \ T&x,const T&y){return x<y?y:x;}\n  };\n\n}// namespace Monoid"
+    \ T&x,const T&y){return x<y?y:x;}\n  };\n  template<typename E_>\n  struct AttachMonoid{\n\
+    \    using M=E_;\n    using E=E_;\n    using T=typename E_::value_type;\n    static\
+    \ T op(const T&x,const T&y){return E_::op(y,x);}\n  };\n}// namespace Monoid"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -282,12 +304,18 @@ data:
   isVerificationFile: false
   path: others/monoid.hpp
   requiredBy:
+  - others/monoid2.hpp
   - data-structure/segment-tree.hpp
-  timestamp: '2022-12-25 17:16:40+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  - data-structure/dual-segment-tree.hpp
+  timestamp: '2022-12-25 22:30:40+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL/DSL_2_B2.test.cpp
+  - test/aoj/DSL/DSL_2_E.test.cpp
+  - test/aoj/DSL/DSL_2_A.test.cpp
+  - test/aoj/DSL/DSL_2_D.test.cpp
   - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
 documentation_of: others/monoid.hpp
 layout: document
 redirect_from:

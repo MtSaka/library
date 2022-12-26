@@ -1,15 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: others/monoid.hpp
     title: others/monoid.hpp
+  - icon: ':heavy_check_mark:'
+    path: others/monoid2.hpp
+    title: others/monoid2.hpp
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -33,9 +36,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_range_composite
@@ -177,7 +180,7 @@ data:
     \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
     \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
     \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
-    \ T::vale_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ T::value_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
     \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
     \ T::value_type>,(void)T::op,(void)T::id)>:true_type{};\n  template<typename T,typename=void>struct\
     \ is_group:false_type{};\n  template<typename T>struct is_group<T,decltype(declval<typename\
@@ -196,15 +199,15 @@ data:
     \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
     \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
     \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
-    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
-    \ T&y){return y;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&,const\
+    \ T&x){return x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
     \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
-    \    static constexpr T op(const T&x,const T&y){return x;}\n  };\n  template<typename\
+    \    static constexpr T op(const T&x,const T&){return x;}\n  };\n  template<typename\
     \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
-    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&y){return\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&){return\
     \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
     \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
-    \ T&y){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \ T&){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
     \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
     \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
     \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
@@ -220,36 +223,25 @@ data:
     \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
     \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
     \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
-    \ T&x,const T&y){return x<y?y:x;}\n  };\n\n}// namespace Monoid\n#line 4 \"data-structure/segment-tree.hpp\"\
-    \n\ntemplate<typename M>\nstruct SegmentTree{\n  private:\n  using T=typename\
-    \ M::value_type;\n  int n,size;\n  vector<T>data;\n  void update(int k){data[k]=M::op(data[k<<1],data[k<<1^1]);}\n\
-    \  public:\n  SegmentTree():SegmentTree(0){}\n  SegmentTree(int n):SegmentTree(vector<T>(n,M::id())){}\n\
-    \  SegmentTree(int n,const T&x):SegmentTree(vector<T>(n,x)){}\n  SegmentTree(const\
-    \ vector<T>&v){init(v);}\n  void init(const vector<T>&v){\n    n=v.size();\n \
-    \   size=1<<ceil_log2(n);\n    data.assign(size<<1,M::id());\n    rep(i,n)data[size+i]=v[i];\n\
-    \    rrep(i,1,size)update(i);\n  }\n  template<class Upd>\n  void update(int k,const\
-    \ Upd&upd){\n    k+=size;\n    data[k]=upd(data[k]);\n    while(k>>=1)update(k);\n\
-    \  }\n  void set(int k,const T&x){\n    update(k,[&](T)->T {return x;});\n  }\n\
-    \  void apply(int k,const T&x){\n    update(k,[&](T y)->T {return M::op(y,x);});\n\
-    \  }\n  T operator[](int k)const{return data[size+k];}\n  T prod(int l,int r)const{\n\
-    \    l+=size,r+=size;\n    T sml=M::id(),smr=M::id();\n    while(l<r){\n     \
-    \ if(l&1)sml=M::op(sml,data[l++]);\n      if(r&1)smr=M::op(data[--r],smr);\n \
-    \     l>>=1,r>>=1;\n    }\n    return M::op(sml,smr);\n  }\n  T all_prod()const{return\
-    \ data[1];}\n  template<class F>\n  int max_right(int l,const F&f)const{\n   \
-    \ if(l==n)return n;\n    l+=size;\n    T sum=M::id();\n    do{\n      while((l&1)==0)l>>=1;\n\
-    \      if(!f(M::op(sum,data[l]))){\n        while(l<size){\n          l<<=1;\n\
-    \          if(f(M::op(sum,data[l])))sum=M::op(sum,data[l++]);\n        }\n   \
-    \     return l-size;\n      }\n      sum=M::op(sum,data[l++]);\n    }while((l&-l)!=l);\n\
-    \    return n;\n  }\n  template<class F>\n  int min_left(int r,const F&f)const{\n\
-    \    if(r==0)return 0;\n    r+=size;\n    T sum=M::id();\n    do{\n      --r;\n\
-    \      while((r&1)&&r>1)r>>=1;\n      if(!f(M::op(data[r],sum))){\n        while(r<size){\n\
-    \          r=(r<<1)^1;\n          if(f(M::op(data[r],sum)))sum=M::op(data[r--],sum);\n\
-    \        }\n        return r+1-size;\n      }\n      sum=M::op(data[r],sum);\n\
-    \    }while((r&-r)!=r);\n    return 0;\n  }\n};\ntemplate<typename T,T max_value=infinity<T>::max>\n\
-    using RangeMinimumQuery=SegmentTree<Monoid::Min<T,max_value>>;\ntemplate<typename\
-    \ T,T min_value=infinity<T>::min>\nusing RangeMaximumQuery=SegmentTree<Monoid::Max<T,min_value>>;\n\
-    template<typename T>\nusing RangeSumQuery=SegmentTree<Monoid::Sum<T>>;\n/**\n\
-    \ * @brief Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 3 \"\
+    \ T&x,const T&y){return x<y?y:x;}\n  };\n  template<typename E_>\n  struct AttachMonoid{\n\
+    \    using M=E_;\n    using E=E_;\n    using T=typename E_::value_type;\n    static\
+    \ T op(const T&x,const T&y){return E_::op(y,x);}\n  };\n}// namespace Monoid\n\
+    #line 4 \"others/monoid2.hpp\"\n\nnamespace Monoid{\n  template<typename T>\n\
+    \  struct Product{\n    using value_type=T;\n    static T op(const T&x,const T&y){return\
+    \ x*y;}\n    static T id(){return T(1);}\n    static T inv(const T&x,const T&y){return\
+    \ x/y;}\n    static T get_inv(const T&x){return T(1)/x;}\n  };\n  template<typename\
+    \ T>\n  struct Composite{\n    using value_type=pair<T,T>;\n    static pair<T,T>\
+    \ op(const pair<T,T>&x,const pair<T,T>&y){return {x.first*y.first,x.second*y.first+y.second};}\n\
+    \    static pair<T,T> id(){return {T(1),T(0)};}\n    static pair<T,T> get_inv(const\
+    \ pair<T,T>&x){return {T{1}/x.first,-x.second/x.first};}\n    static pair<T,T>\
+    \ inv(const pair<T,T>&x,const pair<T,T>&y){return op(x,get_inv(y));}\n  };\n \
+    \ template<typename T>\n  struct GCD{\n    using value_type=T;\n    static T op(const\
+    \ T&x,const T&y){return gcd(x,y);}\n    static T id(){return T(0);}\n  };\n  template<typename\
+    \ T>\n  struct LCM{\n    using value_type=T;\n    static T op(const T&x,const\
+    \ T&y){return lcm(x,y);}\n    static T id(){return T(1);}\n  };\n  template<typename\
+    \ T>\n  struct AffineSum{\n    using M=Sum<T>;\n    using E=Composite<T>;\n  \
+    \  using U=typename E::value_type;\n    static T mul_op(const U&a,int sz,const\
+    \ T&b){return a.first*b+a.second*sz;}\n  };\n}// namespace Monoid\n#line 3 \"\
     math/modular/modint.hpp\"\n\nnamespace internal{\n  struct modint_base{};\n}//naespace\
     \ internal\ntemplate<typename T>using is_modint=is_base_of<internal::modint_base,T>;\n\
     template<typename T,T mod>\nstruct StaticModInt:internal::modint_base{\n  static_assert(is_integral<T>::value,\"\
@@ -289,23 +281,47 @@ data:
     \ &os,const StaticModInt&x){\n    return os<<x.val;\n  }\n  friend istream &operator>>(istream\
     \ &is,StaticModInt&x){\n    ll tmp;\n    is>>tmp;\n    x=StaticModInt(tmp);\n\
     \    return is;\n  }\n};\ntemplate<unsigned int p>using ModInt=StaticModInt<unsigned\
-    \ int,p>;\n/**\n * @brief ModInt\n*/\n#line 5 \"test/yosupo/data_strucuture/point_set_range_composite.test.cpp\"\
-    \nusing mint=ModInt<998244353>;\nusing S=pair<mint,mint>;\nS op(S a,S b){return\
-    \ S{a.first*b.first,a.second*b.first+b.second};}\nS e(){return S{mint(1),mint(0)};}\n\
-    int main(){\n  int n,q;\n  cin>>n>>q;\n  vector<S>a(n);\n  cin>>a;\n  SegmentTree<S,op,e>s(a);\n\
-    \  while(q--){\n    int t;\n    cin>>t;\n    if(t){\n      int l,r,x;\n      cin>>l>>r>>x;\n\
-    \      auto [n,m]=s.query(l,r);\n      cout<<n*mint(x)+m<<endl;\n    }\n    else{\n\
-    \      int p;\n      cin>>p;\n      mint c,d;\n      cin>>c>>d;\n      s.set(p,S{c,d});\n\
-    \    }\n  }\n}\n"
+    \ int,p>;\n/**\n * @brief ModInt\n*/\n#line 4 \"data-structure/segment-tree.hpp\"\
+    \n\ntemplate<typename M>\nstruct SegmentTree{\n  private:\n  using T=typename\
+    \ M::value_type;\n  int n,size;\n  vector<T>data;\n  void update(int k){data[k]=M::op(data[k<<1],data[k<<1^1]);}\n\
+    \  public:\n  SegmentTree():SegmentTree(0){}\n  SegmentTree(int n,const T&e=M::id()):SegmentTree(vector<T>(n,e)){}\n\
+    \  SegmentTree(const vector<T>&v){init(v);}\n  void init(const vector<T>&v){\n\
+    \    n=v.size();\n    size=1<<ceil_log2(n);\n    data.assign(size<<1,M::id());\n\
+    \    rep(i,n)data[size+i]=v[i];\n    rrep(i,1,size)update(i);\n  }\n  template<class\
+    \ Upd>\n  void update(int k,const Upd&upd){\n    k+=size;\n    data[k]=upd(data[k]);\n\
+    \    while(k>>=1)update(k);\n  }\n  void set(int k,const T&x){\n    update(k,[&](T)->T\
+    \ {return x;});\n  }\n  void apply(int k,const T&x){\n    update(k,[&](T y)->T\
+    \ {return M::op(y,x);});\n  }\n  T operator[](int k)const{return data[size+k];}\n\
+    \  T prod(int l,int r)const{\n    l+=size,r+=size;\n    T sml=M::id(),smr=M::id();\n\
+    \    while(l!=r){\n      if(l&1)sml=M::op(sml,data[l++]);\n      if(r&1)smr=M::op(data[--r],smr);\n\
+    \      l>>=1,r>>=1;\n    }\n    return M::op(sml,smr);\n  }\n  T all_prod()const{return\
+    \ data[1];}\n  template<class F>\n  int max_right(int l,const F&f)const{\n   \
+    \ if(l==n)return n;\n    l+=size;\n    T sum=M::id();\n    do{\n      while((l&1)==0)l>>=1;\n\
+    \      if(!f(M::op(sum,data[l]))){\n        while(l<size){\n          l<<=1;\n\
+    \          if(f(M::op(sum,data[l])))sum=M::op(sum,data[l++]);\n        }\n   \
+    \     return l-size;\n      }\n      sum=M::op(sum,data[l++]);\n    }while((l&-l)!=l);\n\
+    \    return n;\n  }\n  template<class F>\n  int min_left(int r,const F&f)const{\n\
+    \    if(r==0)return 0;\n    r+=size;\n    T sum=M::id();\n    do{\n      --r;\n\
+    \      while((r&1)&&r>1)r>>=1;\n      if(!f(M::op(data[r],sum))){\n        while(r<size){\n\
+    \          r=(r<<1)^1;\n          if(f(M::op(data[r],sum)))sum=M::op(data[r--],sum);\n\
+    \        }\n        return r+1-size;\n      }\n      sum=M::op(data[r],sum);\n\
+    \    }while((r&-r)!=r);\n    return 0;\n  }\n};\ntemplate<typename T,T max_value=infinity<T>::max>\n\
+    using RangeMinimumQuery=SegmentTree<Monoid::Min<T,max_value>>;\ntemplate<typename\
+    \ T,T min_value=infinity<T>::min>\nusing RangeMaximumQuery=SegmentTree<Monoid::Max<T,min_value>>;\n\
+    template<typename T>\nusing RangeSumQuery=SegmentTree<Monoid::Sum<T>>;\n/**\n\
+    \ * @brief Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)\n*/\n#line 6 \"\
+    test/yosupo/data_strucuture/point_set_range_composite.test.cpp\"\nusing mint=ModInt<998244353>;\n\
+    using T=pair<mint,mint>;\nint main(){\n  INT(n,q);\n  vector<T>a(n);cin>>a;\n\
+    \  SegmentTree<Monoid::Composite<mint>>seg(a);\n  while(q--){\n    INT(t,a,b,c);\n\
+    \    if(t==0)seg.set(a,T{b,c});\n    else{\n      auto [x,y]=seg.prod(a,b);\n\
+    \      print(x*c+y);\n    }\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../data-structure/segment-tree.hpp\"\
-    \n#include\"../../../math/modular/modint.hpp\"\nusing mint=ModInt<998244353>;\n\
-    using S=pair<mint,mint>;\nS op(S a,S b){return S{a.first*b.first,a.second*b.first+b.second};}\n\
-    S e(){return S{mint(1),mint(0)};}\nint main(){\n  int n,q;\n  cin>>n>>q;\n  vector<S>a(n);\n\
-    \  cin>>a;\n  SegmentTree<S,op,e>s(a);\n  while(q--){\n    int t;\n    cin>>t;\n\
-    \    if(t){\n      int l,r,x;\n      cin>>l>>r>>x;\n      auto [n,m]=s.query(l,r);\n\
-    \      cout<<n*mint(x)+m<<endl;\n    }\n    else{\n      int p;\n      cin>>p;\n\
-    \      mint c,d;\n      cin>>c>>d;\n      s.set(p,S{c,d});\n    }\n  }\n}"
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../others/monoid2.hpp\"\
+    \n#include\"../../../math/modular/modint.hpp\"\n#include\"../../../data-structure/segment-tree.hpp\"\
+    \nusing mint=ModInt<998244353>;\nusing T=pair<mint,mint>;\nint main(){\n  INT(n,q);\n\
+    \  vector<T>a(n);cin>>a;\n  SegmentTree<Monoid::Composite<mint>>seg(a);\n  while(q--){\n\
+    \    INT(t,a,b,c);\n    if(t==0)seg.set(a,T{b,c});\n    else{\n      auto [x,y]=seg.prod(a,b);\n\
+    \      print(x*c+y);\n    }\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -314,14 +330,15 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
-  - data-structure/segment-tree.hpp
+  - others/monoid2.hpp
   - others/monoid.hpp
   - math/modular/modint.hpp
+  - data-structure/segment-tree.hpp
   isVerificationFile: true
   path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-25 22:30:40+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
 layout: document
