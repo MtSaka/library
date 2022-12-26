@@ -177,17 +177,16 @@ data:
     \    dfs_all(0,-1,id);\n    return dp;\n  }\n};\n/**\n * @brief ReRooting(\u5168\
     \u65B9\u4F4D\u6728DP)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_B.test.cpp\"\nlong long\
     \ f(long long a,long long b){\n  return max(a,b);\n}\nlong long g(long long a,ReRooting<long\
-    \ long>::Edge b){\n  return a+b.cost;\n}\nint main(){\n  int n;\n  cin>>n;\n \
-    \ ReRooting<long long>r(n,f,g);\n  for(int i=0;i<n-1;i++){\n    int s,t;\n   \
-    \ long long w;\n    cin>>s>>t>>w;\n    r.add_edge(s,t,w);\n  }\n  auto ans=r.solve();\n\
-    \  for(auto i:ans)cout<<i<<endl;\n}\n"
+    \ long>::Edge b){\n  return a+b.cost;\n}\nint main(){\n  INT(n);\n  ReRooting<ll>r(n,f,g);\n\
+    \  for(int i=0;i<n-1;i++){\n    INT(s,t);\n    LL(w);\n    r.add_edge(s,t,w);\n\
+    \  }\n  auto ans=r.solve();\n  for(auto i:ans)print(i);\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_B\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/tree/rerooting.hpp\"\
     \nlong long f(long long a,long long b){\n  return max(a,b);\n}\nlong long g(long\
     \ long a,ReRooting<long long>::Edge b){\n  return a+b.cost;\n}\nint main(){\n\
-    \  int n;\n  cin>>n;\n  ReRooting<long long>r(n,f,g);\n  for(int i=0;i<n-1;i++){\n\
-    \    int s,t;\n    long long w;\n    cin>>s>>t>>w;\n    r.add_edge(s,t,w);\n \
-    \ }\n  auto ans=r.solve();\n  for(auto i:ans)cout<<i<<endl;\n}"
+    \  INT(n);\n  ReRooting<ll>r(n,f,g);\n  for(int i=0;i<n-1;i++){\n    INT(s,t);\n\
+    \    LL(w);\n    r.add_edge(s,t,w);\n  }\n  auto ans=r.solve();\n  for(auto i:ans)print(i);\n\
+    }"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -200,7 +199,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_B.test.cpp

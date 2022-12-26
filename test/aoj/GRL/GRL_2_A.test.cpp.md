@@ -199,13 +199,13 @@ data:
     \ d(v);\n  T total=0;\n  Edges<T>es;\n  for(auto &e:ed){\n    if(!d.same(e.to,e.from)){\n\
     \      d.merge(e.to,e.from);\n      es.emplace_back(e);\n      total+=e.cost;\n\
     \    }\n  }\n  return {total,es};\n}\n/**\n * @brief Kruskal(\u6700\u5C0F\u5168\
-    \u57DF\u6728)\n*/\n#line 4 \"test/aoj/GRL/GRL_2_A.test.cpp\"\nint main(){\n  int\
-    \ v,e;\n  cin>>v>>e;\n  Edges<long long>ed(e);\n  for(auto &i:ed)cin>>i.from>>i.to>>i.cost;\n\
-    \  cout<<kruskal(ed,v).cost<<endl;\n}\n"
+    \u57DF\u6728)\n*/\n#line 4 \"test/aoj/GRL/GRL_2_A.test.cpp\"\nint main(){\n  INT(v,e);\n\
+    \  Edges<ll>ed(e);\n  for(auto &i:ed)cin>>i.from>>i.to>>i.cost;\n  print(kruskal(ed,v).cost);\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/mst/kruskal.hpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Edges<long long>ed(e);\n  for(auto\
-    \ &i:ed)cin>>i.from>>i.to>>i.cost;\n  cout<<kruskal(ed,v).cost<<endl;\n}"
+    \nint main(){\n  INT(v,e);\n  Edges<ll>ed(e);\n  for(auto &i:ed)cin>>i.from>>i.to>>i.cost;\n\
+    \  print(kruskal(ed,v).cost);\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -220,7 +220,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_2_A.test.cpp

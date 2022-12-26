@@ -193,18 +193,16 @@ data:
     \          d[e]=d[j];\n          changed=true;\n        }\n      }\n    }\n  \
     \  if(!changed)break;\n  }\n  return d;\n}\n/**\n * @brief Bellman-Ford(\u5358\
     \u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)\n*/\n#line 4 \"test/aoj/GRL/GRL_1_B.test.cpp\"\
-    \nint main(){\n  int v,e,r;\n  cin>>v>>e>>r;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n\
-    \  auto d=bellman_ford(g,r);\n  if(count(d.begin(),d.end(),-numeric_limits<long\
-    \ long>::max()/2)){\n    cout<<\"NEGATIVE CYCLE\"<<endl;\n    return 0;\n  }\n\
-    \  for(auto i:d)cout<<(i==numeric_limits<long long>::max()/2?\"INF\":to_string(i))<<endl;\n\
-    }\n"
+    \nint main(){\n  INT(v,e,r);\n  Graph<ll>g(v);\n  g.read(e,0,true,true);\n  auto\
+    \ d=bellman_ford(g,r);\n  if(count(d.begin(),d.end(),-numeric_limits<long long>::max()/2)){\n\
+    \    print(\"NEGATIVE CYCLE\");\n    return 0;\n  }\n  for(auto i:d)print(i==numeric_limits<long\
+    \ long>::max()/2?\"INF\":to_string(i));\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/shortest-path/bellman-ford.hpp\"\
-    \nint main(){\n  int v,e,r;\n  cin>>v>>e>>r;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n\
-    \  auto d=bellman_ford(g,r);\n  if(count(d.begin(),d.end(),-numeric_limits<long\
-    \ long>::max()/2)){\n    cout<<\"NEGATIVE CYCLE\"<<endl;\n    return 0;\n  }\n\
-    \  for(auto i:d)cout<<(i==numeric_limits<long long>::max()/2?\"INF\":to_string(i))<<endl;\n\
-    }"
+    \nint main(){\n  INT(v,e,r);\n  Graph<ll>g(v);\n  g.read(e,0,true,true);\n  auto\
+    \ d=bellman_ford(g,r);\n  if(count(d.begin(),d.end(),-numeric_limits<long long>::max()/2)){\n\
+    \    print(\"NEGATIVE CYCLE\");\n    return 0;\n  }\n  for(auto i:d)print(i==numeric_limits<long\
+    \ long>::max()/2?\"INF\":to_string(i));\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -218,7 +216,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_1_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_1_B.test.cpp

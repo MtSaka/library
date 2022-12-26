@@ -270,16 +270,14 @@ data:
     \    for(auto &e:g[idx])if(e!=par){\n      dfs(e,idx,d+1);\n      rmqvec.emplace_back(d,idx);\
     \  \n    }\n  }\n};\n/**\n * @brief RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\
     \u901A\u7956\u5148)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_C_2.test.cpp\"\nint main(){\n\
-    \  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n    int k;\n\
-    \    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n      g.add_edge(i,j,false);\n\
-    \    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n    int a,b;\n\
-    \    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}\n"
+    \  INT(n);\n  RMQ_LCA g(n);\n  rep(i,n){\n    INT(k);\n    while(k--){\n     \
+    \ INT(j);\n      g.add_edge(i,j,false);\n    }\n  }\n  g.build();\n  INT(q);\n\
+    \  while(q--){\n    INT(a,b);\n    print(g.lca(a,b));\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/tree/RMQ_lowest_common_ancestor.hpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n\
-    \    int k;\n    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n     \
-    \ g.add_edge(i,j,false);\n    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n\
-    \    int a,b;\n    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}"
+    \nint main(){\n  INT(n);\n  RMQ_LCA g(n);\n  rep(i,n){\n    INT(k);\n    while(k--){\n\
+    \      INT(j);\n      g.add_edge(i,j,false);\n    }\n  }\n  g.build();\n  INT(q);\n\
+    \  while(q--){\n    INT(a,b);\n    print(g.lca(a,b));\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -295,7 +293,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_C_2.test.cpp
   requiredBy: []
-  timestamp: '2022-12-26 03:31:22+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_C_2.test.cpp

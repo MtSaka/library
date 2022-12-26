@@ -192,12 +192,12 @@ data:
     \    for(auto &e:g[idx])if(e.to!=par){\n      auto cost=dfs(e.to,idx);\n     \
     \ cost.first+=e.cost;\n      if(res<cost)res=cost,to[idx]=e.to;\n    }\n    return\
     \ res;\n  }\n};\n/**\n * @brief Tree Diameter(\u6728\u306E\u76F4\u5F84)\n*/\n\
-    #line 4 \"test/aoj/GRL/GRL_5_A.test.cpp\"\nint main(){\n  int n;\n  cin>>n;\n\
-    \  TreeDiameter<int>g(n);\n  g.read(n-1,0,true);\n  cout<<g.build()<<endl;\n}\n"
+    #line 4 \"test/aoj/GRL/GRL_5_A.test.cpp\"\nint main(){\n  INT(n);\n  TreeDiameter<int>g(n);\n\
+    \  g.read(n-1,0,true);\n  print(g.build());\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/tree/tree-diameter.hpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  TreeDiameter<int>g(n);\n  g.read(n-1,0,true);\n\
-    \  cout<<g.build()<<endl;\n}"
+    \nint main(){\n  INT(n);\n  TreeDiameter<int>g(n);\n  g.read(n-1,0,true);\n  print(g.build());\n\
+    }"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -211,7 +211,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_A.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_A.test.cpp

@@ -163,12 +163,11 @@ data:
     \n\nvector<ll>prime_factor(ll n){\n  vector<ll>res;\n  for(ll i=2;i*i<=n;i++){\n\
     \    while(n%i==0){\n      res.push_back(i);\n      n/=i;\n    }\n  }\n  if(n!=1)res.push_back(n);\n\
     \  return res;\n}\n/**\n * @brief Prime Factorization(\u7D20\u56E0\u6570\u5206\
-    \u89E3)\n*/\n#line 4 \"test/aoj/NTL/NTL_1_A.test.cpp\"\nint main(){\n  int n;\n\
-    \  cin>>n;\n  cout<<n<<\": \"<<prime_factor(n)<<endl;\n}\n"
+    \u89E3)\n*/\n#line 4 \"test/aoj/NTL/NTL_1_A.test.cpp\"\nint main(){\n  INT(n);\n\
+    \  cout<<n<<\": \"<<prime_factor(n)<<endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/number/prime-factor.hpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  cout<<n<<\": \"<<prime_factor(n)<<endl;\n\
-    }"
+    \nint main(){\n  INT(n);\n  cout<<n<<\": \"<<prime_factor(n)<<endl;\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -181,7 +180,7 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL/NTL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL/NTL_1_A.test.cpp

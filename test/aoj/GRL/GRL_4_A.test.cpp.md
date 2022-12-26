@@ -188,12 +188,12 @@ data:
     \ u=q.front();q.pop();\n    for(auto &e:g[u]){\n      deg[e]--;\n      if(deg[e]==0)q.push(e);\n\
     \    }\n  }\n  for(int i=0;i<n;i++)if(deg[i]!=0)return true;\n  return false;\n\
     }\n/**\n * @brief Cycle Detection(\u9589\u8DEF\u691C\u51FA)\n*/\n#line 4 \"test/aoj/GRL/GRL_4_A.test.cpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<int>g(v);\n  g.read(e,0,false,true);\n\
-    \  cout<<detect_cycle(g)<<endl;\n}\n"
+    \nint main(){\n  INT(v,e);\n  Graph<int>g(v);\n  g.read(e,0,false,true);\n  print(detect_cycle(g));\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/others/detect-cycle.hpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<int>g(v);\n  g.read(e,0,false,true);\n\
-    \  cout<<detect_cycle(g)<<endl;\n}"
+    \nint main(){\n  INT(v,e);\n  Graph<int>g(v);\n  g.read(e,0,false,true);\n  print(detect_cycle(g));\n\
+    }"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -207,7 +207,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_4_A.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_4_A.test.cpp

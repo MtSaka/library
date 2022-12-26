@@ -189,18 +189,16 @@ data:
     \        if(d[i][k]!=MAX&&d[k][j]!=MAX){\n          d[i][j]=min(d[i][j],d[i][k]+d[k][j]);\n\
     \        }\n      }\n    }\n  }\n  return d;\n}\n/**\n * @brief Warshall Floyd(\u5168\
     \u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)\n*/\n#line 4 \"test/aoj/GRL/GRL_1_C.test.cpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n\
-    \  auto d=warshall_floyd(g);\n  for(int i=0;i<v;i++){\n    if(d[i][i]<0){\n  \
-    \    cout<<\"NEGATIVE CYCLE\"<<endl;\n      return 0;\n    }\n  }\n  for(auto\
-    \ k:d)for(int i=0;i<k.size();i++)cout<<(k[i]==numeric_limits<long long>::max()/2?\"\
-    INF\":to_string(k[i]))<<(i==k.size()-1?\"\\n\":\" \");\n}\n"
+    \nint main(){\n  INT(v,e);\n  Graph<ll>g(v);\n  g.read(e,0,true,true);\n  auto\
+    \ d=warshall_floyd(g);\n  rep(i,v){\n    if(d[i][i]<0){\n      print(\"NEGATIVE\
+    \ CYCLE\");\n      return 0;\n    }\n  }\n  for(auto k:d)for(int i=0;i<k.size();i++)cout<<(k[i]==numeric_limits<long\
+    \ long>::max()/2?\"INF\":to_string(k[i]))<<(i==k.size()-1?\"\\n\":\" \");\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/shortest-path/warshall-floyd.hpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n\
-    \  auto d=warshall_floyd(g);\n  for(int i=0;i<v;i++){\n    if(d[i][i]<0){\n  \
-    \    cout<<\"NEGATIVE CYCLE\"<<endl;\n      return 0;\n    }\n  }\n  for(auto\
-    \ k:d)for(int i=0;i<k.size();i++)cout<<(k[i]==numeric_limits<long long>::max()/2?\"\
-    INF\":to_string(k[i]))<<(i==k.size()-1?\"\\n\":\" \");\n}"
+    \nint main(){\n  INT(v,e);\n  Graph<ll>g(v);\n  g.read(e,0,true,true);\n  auto\
+    \ d=warshall_floyd(g);\n  rep(i,v){\n    if(d[i][i]<0){\n      print(\"NEGATIVE\
+    \ CYCLE\");\n      return 0;\n    }\n  }\n  for(auto k:d)for(int i=0;i<k.size();i++)cout<<(k[i]==numeric_limits<long\
+    \ long>::max()/2?\"INF\":to_string(k[i]))<<(i==k.size()-1?\"\\n\":\" \");\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -214,7 +212,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_1_C.test.cpp

@@ -191,13 +191,12 @@ data:
     \  }\n  public:\n  TopologicalSort(const Graph<T>&g):g(g){init();}\n  const vector<int>&get()const&{return\
     \ order;}\n  vector<int>get()&&{return move(order);}\n};\n/**\n * @brief Topological\
     \ Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8)\n*/\n#line 4 \"\
-    test/aoj/GRL/GRL_4_B.test.cpp\"\nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph\
-    \ g(v);\n  g.read(e,0,false,true);\n  for(auto i:TopologicalSort<int>(g).get())cout<<i<<endl;\n\
-    }\n"
+    test/aoj/GRL/GRL_4_B.test.cpp\"\nint main(){\n  INT(v,e);\n  Graph g(v);\n  g.read(e,0,false,true);\n\
+    \  for(auto i:TopologicalSort<int>(g).get())print(i);\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_B\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/others/topological-sort.hpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph g(v);\n  g.read(e,0,false,true);\n\
-    \  for(auto i:TopologicalSort<int>(g).get())cout<<i<<endl;\n}"
+    \nint main(){\n  INT(v,e);\n  Graph g(v);\n  g.read(e,0,false,true);\n  for(auto\
+    \ i:TopologicalSort<int>(g).get())print(i);\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -211,7 +210,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_4_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_4_B.test.cpp

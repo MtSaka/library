@@ -8,6 +8,9 @@ data:
     path: data-structure/inversion.hpp
     title: "Inversion Number(\u8EE2\u5012\u6570)"
   - icon: ':heavy_check_mark:'
+    path: others/monoid.hpp
+    title: others/monoid.hpp
+  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
   - icon: ':heavy_check_mark:'
@@ -163,13 +166,83 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/binary-indexed-tree.hpp\"\
-    \n\ntemplate<typename T>\nstruct BinaryIndexedTree{\n  private:\n  int N;\n  vector<T>bit;\n\
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/monoid.hpp\"\
+    \n\nnamespace Monoid{\n  template<typename M,typename=void>struct has_op:false_type{};\n\
+    \  template<typename M>struct has_op<M,decltype((void)M::op)>:true_type{};\n \
+    \ template<typename M,typename=void>struct has_id:false_type{};\n  template<typename\
+    \ M>struct has_id<M,decltype((void)M::id)>:true_type{};\n  template<typename M,typename=void>struct\
+    \ has_inv:false_type{};\n  template<typename M>struct has_inv<M,decltype((void)M::inv)>:true_type{};\n\
+    \  template<typename M,typename=void>struct has_get_inv:false_type{};\n  template<typename\
+    \ M>struct has_get_inv<M,decltype((void)M::get_inv)>:true_type{};\n  template<typename\
+    \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
+    \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op,(void)T::id)>:true_type{};\n  template<typename\
+    \ T,typename=void>struct is_group:false_type{};\n  template<typename T>struct\
+    \ is_group<T,decltype(declval<typename T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_action:false_type{};\n  template<typename\
+    \ T>struct is_action<T,typename enable_if<is_monoid<typename T::M>::value&&is_semigroup<typename\
+    \ T::E>::value&&(has_op<T>::value||has_mul_op<T>::value)>::type>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_distributable_action:false_type{};\n\
+    \  template<typename T>struct is_distributable_action<T,typename enable_if<is_action<T>::value&&!has_mul_op<T>::value>::type>:true_type{};\n\
+    \  template<typename T>\n  struct Sum{\n    using value_type=T;\n    static constexpr\
+    \ T op(const T&x,const T&y){return x+y;}\n    static constexpr T id(){return T(0);}\n\
+    \    static constexpr T inv(const T&x,const T&y){return x-y;}\n    static constexpr\
+    \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct Min{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return x<y?x:y;}\n    static constexpr T id(){return max_value;}\n  };\n\
+    \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
+    \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
+    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&,const\
+    \ T&x){return x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
+    \    static constexpr T op(const T&x,const T&){return x;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&){return\
+    \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
+    \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
+    \ T&){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
+    \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Sum<T>;\n    static constexpr T op(const T&a,const T&b){return b+a;}\n\
+    \  };\n  template<typename T>\n  struct AddSum{\n    using M=Sum<T>;\n    using\
+    \ E=Sum<T>;\n    static constexpr T mul_op(const T&x,int sz,const T&y){return\
+    \ y+x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n  struct\
+    \ ChminMin{\n    using M=Min<T,max_value>;\n    using E=Min<T>;\n    static constexpr\
+    \ T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename T,T min_value=infinity<T>::min>\n\
+    \  struct ChminMax{\n    using M=Max<T,min_value>;\n    using E=Min<T>;\n    static\
+    \ constexpr T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename\
+    \ T,T max_value=infinity<T>::max>\n  struct ChmaxMin{\n    using M=Min<T,max_value>;\n\
+    \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
+    \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
+    \ T&x,const T&y){return x<y?y:x;}\n  };\n  template<typename E_>\n  struct AttachMonoid{\n\
+    \    using M=E_;\n    using E=E_;\n    using T=typename E_::value_type;\n    static\
+    \ T op(const T&x,const T&y){return E_::op(y,x);}\n  };\n}// namespace Monoid\n\
+    #line 4 \"data-structure/binary-indexed-tree.hpp\"\n\ntemplate<typename M,bool=Monoid::is_monoid<M>::value>\n\
+    struct BinaryIndexedTree{\n  private:\n  using T=typename M::value_type;\n  int\
+    \ n;\n  vector<T>data;\n  public:\n  BinaryIndexedTree():BinaryIndexedTree(0){}\n\
+    \  BinaryIndexedTree(int n_){init(n_);}\n  void init(int n_){\n    n=n_;\n   \
+    \ data.assign(n+1,M::id());\n  }\n  void apply(int k,T x){\n    k++;\n    while(k<=n){\n\
+    \      data[k]=M::op(data[k],x);\n      k+=k&-k;\n    }\n  }\n  T prod(int k)const{\n\
+    \    T res=M::id();\n    while(k){\n      res=M::op(res,data[k]);\n      k-=k&-k;\n\
+    \    }\n    return res;\n  }\n  template<bool dummy=true,typename enable_if<Monoid::has_inv<M>::value&&dummy>::type*\
+    \ = nullptr>\n  T prod(int l,int r)const{\n    return M::inv(prod(r),prod(l));\n\
+    \  }\n  T operator[](int k)const{return prod(k,k+1);}\n  void set(int k,T x){apply(k,M::inv(x,(*this)[k]));}\n\
+    };\ntemplate<typename T>\nstruct BinaryIndexedTree<T,false>:BinaryIndexedTree<Monoid::Sum<T>>{\n\
+    \  private:\n  using Base=BinaryIndexedTree<Monoid::Sum<T>>;\n  public:\n  using\
+    \ Base::Base;\n  void add(int k,T x){this->apply(k,x);}\n  T sum(int k)const{return\
+    \ this->prod(k);}\n  T sum(int l,int r)const{return this->prod(l,r);}\n};\n/*\n\
+    template<typename T>\nstruct BinaryIndexedTree{\n  private:\n  int N;\n  vector<T>bit;\n\
     \  public:\n  BinaryIndexedTree(){}\n  BinaryIndexedTree(int n){\n    N=1;\n \
     \   while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n  }\n  void add(int i,T x){\n\
     \    i++;\n    while(i<=N){\n      bit[i]+=x;\n      i+=i&-i;    \n    }\n  }\n\
     \  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n    return\
-    \ ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n};\n/**\n\
+    \ ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n};*/\n/**\n\
     \ * @brief Binary Indexed Tree(Fenwick Tree, BIT)\n*/\n#line 4 \"data-structure/inversion.hpp\"\
     \n\ntemplate<typename T>\nlong long inversion(vector<T>a){\n  int n=a.size();\n\
     \  compressor<T>c(a);\n  c.build();\n  a=c.pressed(a);\n  long long ans=0;\n \
@@ -190,10 +263,11 @@ data:
   - template/type-traits.hpp
   - data-structure/inversion.hpp
   - data-structure/binary-indexed-tree.hpp
+  - others/monoid.hpp
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   requiredBy: []
-  timestamp: '2022-12-26 03:31:22+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_5_D.test.cpp

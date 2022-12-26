@@ -157,12 +157,11 @@ data:
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"test/aoj/NTL/NTL_1_C.test.cpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  int g=1;\n  for(int i=0;i<n;i++){\n    int\
-    \ a;\n    cin>>a;\n    g=g/gcd(g,a)*a;\n  }\n  cout<<g<<endl;\n}\n"
+    \nint main(){\n  INT(n);\n  int g=1;\n  while(n--){\n    INT(a);\n    g=g/gcd(g,a)*a;\n\
+    \  }\n  print(g);\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_C\"\
-    \n#include\"../../../template/template.hpp\"\nint main(){\n  int n;\n  cin>>n;\n\
-    \  int g=1;\n  for(int i=0;i<n;i++){\n    int a;\n    cin>>a;\n    g=g/gcd(g,a)*a;\n\
-    \  }\n  cout<<g<<endl;\n}"
+    \n#include\"../../../template/template.hpp\"\nint main(){\n  INT(n);\n  int g=1;\n\
+    \  while(n--){\n    INT(a);\n    g=g/gcd(g,a)*a;\n  }\n  print(g);\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -174,7 +173,7 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL/NTL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL/NTL_1_C.test.cpp

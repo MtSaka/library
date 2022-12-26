@@ -177,14 +177,13 @@ data:
     \   }\n    return 0;\n  }\n  T max_flow(int s,int t){\n    T flow=0;\n    while(build_path(s,t)){\n\
     \      iter.assign(g.size(),0);\n      T f;\n      while((f=find_path(s,t,INF))>0)flow+=f;\n\
     \    }\n    return flow;\n  }\n};\n/**\n * @brief Dinic(\u6700\u5927\u6D41)\n\
-    */\n#line 4 \"test/aoj/GRL/GRL_6_A.test.cpp\"\nint main(){\n  int v,e;\n  cin>>v>>e;\n\
-    \  Dinic<int>g(v);\n  for(int i=0;i<e;i++){\n    int a,b,c;\n    cin>>a>>b>>c;\n\
-    \    g.add_edge(a,b,c);\n  }\n  cout<<g.max_flow(0,v-1)<<endl;\n}\n"
+    */\n#line 4 \"test/aoj/GRL/GRL_6_A.test.cpp\"\nint main(){\n  INT(v,e);\n  Dinic<int>g(v);\n\
+    \  rep(i,e){\n    INT(a,b,c);\n    g.add_edge(a,b,c);\n  }\n  print(g.max_flow(0,v-1));\n\
+    }\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/flow/dinic.hpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Dinic<int>g(v);\n  for(int i=0;i<e;i++){\n\
-    \    int a,b,c;\n    cin>>a>>b>>c;\n    g.add_edge(a,b,c);\n  }\n  cout<<g.max_flow(0,v-1)<<endl;\n\
-    }"
+    \nint main(){\n  INT(v,e);\n  Dinic<int>g(v);\n  rep(i,e){\n    INT(a,b,c);\n\
+    \    g.add_edge(a,b,c);\n  }\n  print(g.max_flow(0,v-1));\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -197,7 +196,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_6_A.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_6_A.test.cpp

@@ -165,10 +165,10 @@ data:
     \    if(n%i==0){\n      ans/=i;ans*=i-1;\n      while(n%i==0)n/=i;\n    }\n  }\n\
     \  if(n>1)ans/=n,ans*=(n-1);\n  return ans;\n}\n/**\n * @brief Euler's Totient\
     \ Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570)\n*/\n#line 4 \"test/aoj/NTL/NTL_1_D.test.cpp\"\
-    \nint main(){\n  INT(n);\n  cout<<phi(n)<<endl;\n}\n"
+    \nint main(){\n  INT(n);\n  print(phi(n));\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_D\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/number/phi.hpp\"\
-    \nint main(){\n  INT(n);\n  cout<<phi(n)<<endl;\n}"
+    \nint main(){\n  INT(n);\n  print(phi(n));\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -181,7 +181,7 @@ data:
   isVerificationFile: true
   path: test/aoj/NTL/NTL_1_D.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/NTL/NTL_1_D.test.cpp

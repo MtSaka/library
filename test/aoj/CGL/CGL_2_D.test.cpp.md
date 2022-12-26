@@ -263,14 +263,14 @@ data:
     \    bool in=false;\n    for(int i=0;i<n;i++){\n      point a=pol[i],b=pol[(i+1)%n];\n\
     \      if(intersect(p,segment(a,b)))return 2;\n      if(intersect(segment(p,point(p.x+1.0,INT_MAX)),segment(a,b)))in=!in;\
     \ \n    }\n    return in;\n  }\n}//namespace geometry\n#line 5 \"test/aoj/CGL/CGL_2_D.test.cpp\"\
-    \nint main(){\n  cout<<fixed<<setprecision(15);\n  INT(q);\n  while(q--){\n  \
-    \  geometry::point p1,p2,q1,q2;\n    cin>>p1>>p2>>q1>>q2;\n    geometry::segment\
-    \ a(p1,p2),b(q1,q2);\n    auto ans=dist(a,b);\n    print(ans);\n  }\n}\n"
+    \nint main(){\n  IOSetup();\n  INT(q);\n  while(q--){\n    geometry::point p1,p2,q1,q2;\n\
+    \    cin>>p1>>p2>>q1>>q2;\n    geometry::segment a(p1,p2),b(q1,q2);\n    auto\
+    \ ans=dist(a,b);\n    print(ans);\n  }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_2_D\"\
     \n#define ERROR 1e-6\n#include\"../../../template/template.hpp\"\n#include\"../../../geometry/geometry.hpp\"\
-    \nint main(){\n  cout<<fixed<<setprecision(15);\n  INT(q);\n  while(q--){\n  \
-    \  geometry::point p1,p2,q1,q2;\n    cin>>p1>>p2>>q1>>q2;\n    geometry::segment\
-    \ a(p1,p2),b(q1,q2);\n    auto ans=dist(a,b);\n    print(ans);\n  }\n}"
+    \nint main(){\n  IOSetup();\n  INT(q);\n  while(q--){\n    geometry::point p1,p2,q1,q2;\n\
+    \    cin>>p1>>p2>>q1>>q2;\n    geometry::segment a(p1,p2),b(q1,q2);\n    auto\
+    \ ans=dist(a,b);\n    print(ans);\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -283,7 +283,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL/CGL_2_D.test.cpp
   requiredBy: []
-  timestamp: '2022-12-26 03:31:22+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL/CGL_2_D.test.cpp

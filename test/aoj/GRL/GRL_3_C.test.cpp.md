@@ -203,14 +203,12 @@ data:
     \ idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n    for(auto&to:rg[idx])rdfs(to,k);\n\
     \  }\n};\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\
     \u5206\u5206\u89E3)\n*/\n#line 4 \"test/aoj/GRL/GRL_3_C.test.cpp\"\nint main(){\n\
-    \  int v,e,q;\n  cin>>v>>e;\n  SCC scc(v);\n  scc.read(e,0,false,true);\n  scc.build();\n\
-    \  cin>>q;\n  while(q--){\n    int a,b;\n    cin>>a>>b;\n    cout<<(scc[a]==scc[b])<<endl;\n\
-    \  }\n}\n"
+    \  INT(v,e);\n  SCC scc(v);\n  scc.read(e,0,false,true);\n  scc.build();\n  INT(q);\n\
+    \  while(q--){\n    INT(a,b);\n    print(scc[a]==scc[b]);\n  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/others/scc.hpp\"\
-    \nint main(){\n  int v,e,q;\n  cin>>v>>e;\n  SCC scc(v);\n  scc.read(e,0,false,true);\n\
-    \  scc.build();\n  cin>>q;\n  while(q--){\n    int a,b;\n    cin>>a>>b;\n    cout<<(scc[a]==scc[b])<<endl;\n\
-    \  }\n}"
+    \nint main(){\n  INT(v,e);\n  SCC scc(v);\n  scc.read(e,0,false,true);\n  scc.build();\n\
+    \  INT(q);\n  while(q--){\n    INT(a,b);\n    print(scc[a]==scc[b]);\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -224,7 +222,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_3_C.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_3_C.test.cpp

@@ -172,14 +172,13 @@ data:
     \       return d;\n        }\n      }\n    }\n    return 0;\n  }\n  T max_flow(int\
     \ s,int t){\n    T flow=0;\n    for(T f;(f=find_path(s,t,INF));timer++)flow+=f;\n\
     \    return flow;\n  }\n};\n/**\n * @brief Ford Fulkerson(\u6700\u5927\u6D41)\n\
-    */\n#line 4 \"test/aoj/GRL/GRL_6_A_2.test.cpp\"\nint main(){\n  int v,e;\n  cin>>v>>e;\n\
-    \  FordFulkerson<int>g(v);\n  for(int i=0;i<e;i++){\n    int a,b,c;\n    cin>>a>>b>>c;\n\
-    \    g.add_edge(a,b,c);\n  }\n  cout<<g.max_flow(0,v-1)<<endl;\n}\n"
+    */\n#line 4 \"test/aoj/GRL/GRL_6_A_2.test.cpp\"\nint main(){\n  INT(v,e);\n  FordFulkerson<int>g(v);\n\
+    \  rep(i,e){\n    INT(a,b,c);\n    g.add_edge(a,b,c);\n  }\n  print(g.max_flow(0,v-1));\n\
+    }\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/flow/ford-fulkerson.hpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  FordFulkerson<int>g(v);\n  for(int\
-    \ i=0;i<e;i++){\n    int a,b,c;\n    cin>>a>>b>>c;\n    g.add_edge(a,b,c);\n \
-    \ }\n  cout<<g.max_flow(0,v-1)<<endl;\n}"
+    \nint main(){\n  INT(v,e);\n  FordFulkerson<int>g(v);\n  rep(i,e){\n    INT(a,b,c);\n\
+    \    g.add_edge(a,b,c);\n  }\n  print(g.max_flow(0,v-1));\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -192,7 +191,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_6_A_2.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_6_A_2.test.cpp

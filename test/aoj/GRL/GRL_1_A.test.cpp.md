@@ -191,13 +191,13 @@ data:
     \  return d;\n}\n/**\n * @brief Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF\
     )\n*/\n#line 4 \"test/aoj/GRL/GRL_1_A.test.cpp\"\nint main(){\n  int v,e,r;\n\
     \  cin>>v>>e>>r;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n  auto d=dijkstra(g,r);\n\
-    \  for(auto i:d)cout<<(i==numeric_limits<long long>::max()/2?\"INF\":to_string(i))<<endl;\n\
+    \  for(auto i:d)print((i==numeric_limits<long long>::max()/2?\"INF\":to_string(i)));\n\
     }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/shortest-path/dijkstra.hpp\"\
     \nint main(){\n  int v,e,r;\n  cin>>v>>e>>r;\n  Graph<long long>g(v);\n  g.read(e,0,true,true);\n\
-    \  auto d=dijkstra(g,r);\n  for(auto i:d)cout<<(i==numeric_limits<long long>::max()/2?\"\
-    INF\":to_string(i))<<endl;\n}"
+    \  auto d=dijkstra(g,r);\n  for(auto i:d)print((i==numeric_limits<long long>::max()/2?\"\
+    INF\":to_string(i)));\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -211,7 +211,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_1_A.test.cpp

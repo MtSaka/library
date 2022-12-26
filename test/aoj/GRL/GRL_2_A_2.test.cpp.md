@@ -190,13 +190,12 @@ data:
     \    if(dist[p.second])es.emplace_back(dist[p.second]);\n    for(auto &e:g[p.second]){\n\
     \      if(used[e]||(dist[e]&&dist[e].cost<=e.cost))continue;\n      q.emplace(e.cost,e.to);\n\
     \    }\n  }\n  return {sum,es};\n}\n/**\n * @brief Prim(\u6700\u5C0F\u5168\u57DF\
-    \u6728)\n*/\n#line 4 \"test/aoj/GRL/GRL_2_A_2.test.cpp\"\nint main(){\n  int v,e;\n\
-    \  cin>>v>>e;\n  Graph g(v);\n  g.read(e,0,true);\n  cout<<prim(g).cost<<endl;\n\
-    }\n"
+    \u6728)\n*/\n#line 4 \"test/aoj/GRL/GRL_2_A_2.test.cpp\"\nint main(){\n  INT(v,e);\n\
+    \  Graph g(v);\n  g.read(e,0,true);\n  print(prim(g).cost);\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/mst/prim.hpp\"\
-    \nint main(){\n  int v,e;\n  cin>>v>>e;\n  Graph g(v);\n  g.read(e,0,true);\n\
-    \  cout<<prim(g).cost<<endl;\n}"
+    \nint main(){\n  INT(v,e);\n  Graph g(v);\n  g.read(e,0,true);\n  print(prim(g).cost);\n\
+    }"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -210,7 +209,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_2_A_2.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_2_A_2.test.cpp
