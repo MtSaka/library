@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':question:'
@@ -30,9 +30,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_G
@@ -267,13 +267,14 @@ data:
     /**\n * @brief Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
     )\n*/\n#line 4 \"test/aoj/DSL/DSL_2_G.test.cpp\"\nint main(){\n  INT(n,q);\n \
     \ RangeAddQueryRangeSumQuery<ll>RAQRSQ(n);\n  while(q--){\n    INT(t);\n    if(t==0){\n\
-    \      INT(l,r,x);\n      seg.apply(l-1,r,x);\n    }\n    else{\n      INT(l,r);\n\
-    \      print(seg.prod(l-1,r));\n    }\n  }\n}\n"
+    \      INT(l,r,x);\n      RAQRSQ.apply(l-1,r,x);\n    }\n    else{\n      INT(l,r);\n\
+    \      print(RAQRSQ.prod(l-1,r));\n    }\n  }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_G\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../data-structure/lazy-segment-tree.hpp\"\
     \nint main(){\n  INT(n,q);\n  RangeAddQueryRangeSumQuery<ll>RAQRSQ(n);\n  while(q--){\n\
-    \    INT(t);\n    if(t==0){\n      INT(l,r,x);\n      seg.apply(l-1,r,x);\n  \
-    \  }\n    else{\n      INT(l,r);\n      print(seg.prod(l-1,r));\n    }\n  }\n}"
+    \    INT(t);\n    if(t==0){\n      INT(l,r,x);\n      RAQRSQ.apply(l-1,r,x);\n\
+    \    }\n    else{\n      INT(l,r);\n      print(RAQRSQ.prod(l-1,r));\n    }\n\
+    \  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -287,8 +288,8 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_G.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 23:39:16+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-26 00:22:25+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_G.test.cpp
 layout: document

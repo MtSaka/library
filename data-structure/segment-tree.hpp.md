@@ -39,9 +39,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
     title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yukicoder/1435.test.cpp
+    title: test/yukicoder/1435.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     links: []
@@ -296,10 +299,11 @@ data:
   path: data-structure/segment-tree.hpp
   requiredBy: []
   timestamp: '2022-12-25 23:39:16+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/DSL/DSL_2_B2.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
+  - test/yukicoder/1435.test.cpp
   - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
   - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
 documentation_of: data-structure/segment-tree.hpp
