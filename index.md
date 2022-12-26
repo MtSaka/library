@@ -45,10 +45,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: data-structure/segment-tree-beats.hpp
       title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data-structure/segment-tree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data-structure/sparse-table.hpp
       title: Sparse Table
     - icon: ':heavy_check_mark:'
@@ -88,7 +88,7 @@ data:
       title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: graph
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/graph-template.hpp
       title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
         )"
@@ -133,25 +133,25 @@ data:
       title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - name: graph/tree
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/RMQ_lowest_common_ancestor.hpp
       title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':warning:'
       path: graph/tree/centroid.hpp
       title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/doubling-lowest-common-ancestor.hpp
       title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
         )"
     - icon: ':heavy_check_mark:'
       path: graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/tree-diameter.hpp
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: math/convolution
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/convolution/convolution.hpp
       title: "Convolution(\u7573\u307F\u8FBC\u307F)"
     - icon: ':warning:'
@@ -166,7 +166,7 @@ data:
       title: LCM Convolution
   - name: math/fps
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/fps.hpp
       title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
     - icon: ':heavy_check_mark:'
@@ -186,13 +186,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/modular/mod-log.hpp
       title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/modular/mod-sqrt.hpp
       title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/modular/modint.hpp
       title: ModInt
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/modular/montgomery-modint.hpp
       title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
   - name: math/number
@@ -206,7 +206,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/number/kth-root-integer.hpp
       title: Kth Root Integer
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/number/miller-rabin.hpp
       title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
         \u6570\u5224\u5B9A)"
@@ -214,7 +214,7 @@ data:
       path: math/number/phi.hpp
       title: "Euler's Totient Function(\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570\
         )"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/number/pollard-rho.hpp
       title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
         \u6CD5)"
@@ -224,7 +224,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/number/prime-sieve.hpp
       title: "Prime Sieve(\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/number/primitive-root.hpp
       title: "Primitive Root(\u539F\u59CB\u6839)"
     - icon: ':warning:'
@@ -245,7 +245,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/others/matrix.hpp
       title: "Matrix(\u884C\u5217)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/others/rational.hpp
       title: "Fraction(\u6709\u7406\u6570\u578B)"
   - name: others
@@ -253,13 +253,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: others/mo.hpp
       title: Mo's Algorithm
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: others/monoid.hpp
       title: others/monoid.hpp
     - icon: ':heavy_check_mark:'
       path: others/monoid2.hpp
       title: others/monoid2.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: others/random.hpp
       title: "Random(\u4E71\u6570)"
     - icon: ':warning:'
@@ -270,30 +270,30 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/rolling-hash.hpp
       title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: string/run-length.hpp
       title: string/run-length.hpp
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/alias.hpp
       title: template/alias.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/debug.hpp
       title: template/debug.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/func.hpp
       title: template/func.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/macro.hpp
       title: template/macro.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: template/template.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/type-traits.hpp
       title: template/type-traits.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/util.hpp
       title: template/util.hpp
   verificationCategories:
@@ -572,32 +572,32 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
       title: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
       title: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
   - name: test/yosupo/tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/tree/lca1.test.cpp
       title: test/yosupo/tree/lca1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/tree/lca2.test.cpp
       title: test/yosupo/tree/lca2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/tree/tree_diameter.test.cpp
       title: test/yosupo/tree/tree_diameter.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1236.test.cpp
       title: test/yukicoder/1236.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1435.test.cpp
       title: test/yukicoder/1435.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1469.test.cpp
       title: test/yukicoder/1469.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/3030.test.cpp
       title: test/yukicoder/3030.test.cpp
 layout: toppage

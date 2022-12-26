@@ -4,25 +4,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: geometry/geometry.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -264,15 +264,13 @@ data:
     \      if(intersect(p,segment(a,b)))return 2;\n      if(intersect(segment(p,point(p.x+1.0,INT_MAX)),segment(a,b)))in=!in;\
     \ \n    }\n    return in;\n  }\n}//namespace geometry\n#line 5 \"test/aoj/CGL/CGL_1_A.test.cpp\"\
     \nint main(){\n  cout<<fixed<<setprecision(15);\n  geometry::point p1,p2;cin>>p1>>p2;\n\
-    \  int q;\n  cin>>q;\n  while(q--){\n    geometry::point q;\n    cin>>q;\n   \
-    \ auto ans=geometry::project(geometry::line(p1,p2),q);\n    cout<<ans.x<<\" \"\
-    <<ans.y<<endl;\n  }\n}\n"
+    \  INT(q);\n  while(q--){\n    geometry::point q;\n    cin>>q;\n    auto ans=geometry::project(geometry::line(p1,p2),q);\n\
+    \    print(ans.x,ans.y);\n  }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_1_A\"\
     \n#define ERROR 1e-6\n#include\"../../../template/template.hpp\"\n#include\"../../../geometry/geometry.hpp\"\
     \nint main(){\n  cout<<fixed<<setprecision(15);\n  geometry::point p1,p2;cin>>p1>>p2;\n\
-    \  int q;\n  cin>>q;\n  while(q--){\n    geometry::point q;\n    cin>>q;\n   \
-    \ auto ans=geometry::project(geometry::line(p1,p2),q);\n    cout<<ans.x<<\" \"\
-    <<ans.y<<endl;\n  }\n}"
+    \  INT(q);\n  while(q--){\n    geometry::point q;\n    cin>>q;\n    auto ans=geometry::project(geometry::line(p1,p2),q);\n\
+    \    print(ans.x,ans.y);\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -285,7 +283,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL/CGL_1_A.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 03:31:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL/CGL_1_A.test.cpp

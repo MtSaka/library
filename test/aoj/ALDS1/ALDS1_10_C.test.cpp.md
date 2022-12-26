@@ -4,25 +4,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: dynamic-programming/longest-common-subsequence.hpp
     title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -169,14 +169,13 @@ data:
     \    else if(dp[i][j-1]==dp[i][j])j--;\n    else i--,j--,ans.push_back(a[i]);\n\
     \  }\n  reverse(ans.begin(),ans.end());\n  return ans;\n}\n/**\n * @brief Longest\
     \ Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)\n*/\n#line 4\
-    \ \"test/aoj/ALDS1/ALDS1_10_C.test.cpp\"\nint main(){\n  int q;\n  cin>>q;\n \
-    \ while(q--){\n    string s,t;\n    cin>>s>>t;\n    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n\
-    \    cout<<LongestCommonSubsequence(a,b).size()<<endl;\n  }\n}\n"
+    \ \"test/aoj/ALDS1/ALDS1_10_C.test.cpp\"\nint main(){\n  INT(q);\n  while(q--){\n\
+    \    STR(s,t);\n    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n \
+    \   print(LongestCommonSubsequence(a,b).size());\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../dynamic-programming/longest-common-subsequence.hpp\"\
-    \nint main(){\n  int q;\n  cin>>q;\n  while(q--){\n    string s,t;\n    cin>>s>>t;\n\
-    \    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n    cout<<LongestCommonSubsequence(a,b).size()<<endl;\n\
-    \  }\n}"
+    \nint main(){\n  INT(q);\n  while(q--){\n    STR(s,t);\n    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n\
+    \    print(LongestCommonSubsequence(a,b).size());\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -189,7 +188,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 03:31:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_10_C.test.cpp

@@ -4,25 +4,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: geometry/geometry.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -262,20 +262,18 @@ data:
     \    bool in=false;\n    for(int i=0;i<n;i++){\n      point a=pol[i],b=pol[(i+1)%n];\n\
     \      if(intersect(p,segment(a,b)))return 2;\n      if(intersect(segment(p,point(p.x+1.0,INT_MAX)),segment(a,b)))in=!in;\
     \ \n    }\n    return in;\n  }\n}//namespace geometry\n#line 4 \"test/aoj/CGL/CGL_1_C.test.cpp\"\
-    \nint main(){\n  geometry::point p1,p2;\n  cin>>p1>>p2;\n  int q;\n  cin>>q;\n\
-    \  while(q--){\n    geometry::point p;cin>>p;\n    int dir=geometry::ccw(p,p1,p2);\n\
-    \    if(dir==1)cout<<\"COUNTER_CLOCKWISE\"<<endl;\n    else if(dir==-1)cout<<\"\
-    CLOCKWISE\"<<endl;\n    else if(p==p1||p==p2||dir==2)cout<<\"ON_SEGMENT\"<<endl;\n\
-    \    else if(dir==-2)cout<<\"ONLINE_BACK\"<<endl;\n    else cout<<\"ONLINE_FRONT\"\
-    <<endl;\n  }\n}\n"
+    \nint main(){\n  geometry::point p1,p2;\n  cin>>p1>>p2;\n  INT(q);\n  while(q--){\n\
+    \    geometry::point p;cin>>p;\n    int dir=geometry::ccw(p,p1,p2);\n    if(dir==1)print(\"\
+    COUNTER_CLOCKWISE\");\n    else if(dir==-1)print(\"CLOCKWISE\");\n    else if(p==p1||p==p2||dir==2)print(\"\
+    ON_SEGMENT\");\n    else if(dir==-2)print(\"ONLINE_BACK\");\n    else print(\"\
+    ONLINE_FRONT\");\n  }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_1_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../geometry/geometry.hpp\"\
-    \nint main(){\n  geometry::point p1,p2;\n  cin>>p1>>p2;\n  int q;\n  cin>>q;\n\
-    \  while(q--){\n    geometry::point p;cin>>p;\n    int dir=geometry::ccw(p,p1,p2);\n\
-    \    if(dir==1)cout<<\"COUNTER_CLOCKWISE\"<<endl;\n    else if(dir==-1)cout<<\"\
-    CLOCKWISE\"<<endl;\n    else if(p==p1||p==p2||dir==2)cout<<\"ON_SEGMENT\"<<endl;\n\
-    \    else if(dir==-2)cout<<\"ONLINE_BACK\"<<endl;\n    else cout<<\"ONLINE_FRONT\"\
-    <<endl;\n  }\n}"
+    \nint main(){\n  geometry::point p1,p2;\n  cin>>p1>>p2;\n  INT(q);\n  while(q--){\n\
+    \    geometry::point p;cin>>p;\n    int dir=geometry::ccw(p,p1,p2);\n    if(dir==1)print(\"\
+    COUNTER_CLOCKWISE\");\n    else if(dir==-1)print(\"CLOCKWISE\");\n    else if(p==p1||p==p2||dir==2)print(\"\
+    ON_SEGMENT\");\n    else if(dir==-2)print(\"ONLINE_BACK\");\n    else print(\"\
+    ONLINE_FRONT\");\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -288,7 +286,7 @@ data:
   isVerificationFile: true
   path: test/aoj/CGL/CGL_1_C.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 03:31:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/CGL/CGL_1_C.test.cpp

@@ -1,34 +1,37 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/sparse-table.hpp
     title: Sparse Table
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
+    path: others/monoid.hpp
+    title: others/monoid.hpp
+  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -184,32 +187,93 @@ data:
     \    }\n  }\n};\nstruct UnweightedEdge{\n  template<class... Args>UnweightedEdge(const\
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
     \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"data-structure/sparse-table.hpp\"\
-    \n\ntemplate<typename T,typename F>\nstruct SparseTable{\n  F f;\n  vector<vector<T>>table;\n\
-    \  vector<int>log_table;\n  SparseTable()=default;\n  SparseTable(const vector<T>&v,const\
-    \ F&f):f(f){\n    const int n=(int)v.size();\n    const int lg=32-__builtin_clz(n);\n\
-    \    table.assign(lg,vector<T>(n));\n    for(int i=0;i<n;i++)table[0][i]=v[i];\n\
-    \    for(int i=1;i<lg;i++)for(int j=0;j+(1<<i)<=n;j++)table[i][j]=f(table[i-1][j],table[i-1][j+(1<<(i-1))]);\n\
-    \    log_table.resize(n+1);\n    for(int i=2;i<=n;i++)log_table[i]=1+log_table[i>>1];\n\
-    \  }\n  T query(int l,int r){\n    int a=log_table[r-l];\n    return f(table[a][l],table[a][r-(1<<a)]);\n\
-    \  }\n};\ntemplate<typename T,typename F>\nSparseTable<T,F>MakeSparseTable(const\
-    \ vector<T>&v,const F&f){\n  return SparseTable<T,F>(v,f);\n} \n/**\n * @brief\
-    \ Sparse Table\n*/\n#line 4 \"graph/tree/RMQ_lowest_common_ancestor.hpp\"\ntemplate<typename\
-    \ T=UnweightedEdge>\nstruct RMQ_LCA:Graph<T>{\n  using Graph<T>::g;\n  using F=function<int(int,int)>;\n\
-    \  vector<int>ord,dep,in;\n  RMQ_LCA(int n):Graph<T>(n){}\n  RMQ_LCA(const Graph<T>&g):Graph<T>(g){}\n\
-    \  void build(int root=0){\n    in.resize(g.size());\n    dfs(root,-1,0);\n  \
-    \  vector<int>v(g.size()*2-1);\n    iota(v.begin(),v.end(),0);\n    F f=[&](int\
-    \ a,int b){return dep[a]<dep[b]?a:b;};\n    st=SparseTable<int,F>(v,f);\n  }\n\
-    \  int lca(int u,int v){\n    if(in[u]>in[v])swap(u,v);\n    return u==v?u:ord[st.query(in[u],in[v])];\n\
-    \  }\n  private:\n  SparseTable<int,F>st;\n  void dfs(int idx,int par,int d){\n\
-    \    in[idx]=(int)ord.size();\n    ord.emplace_back(idx);\n    dep.emplace_back(d);\n\
-    \    for(auto &e:g[idx])if(e!=par){\n      dfs(e,idx,d+1);\n      ord.emplace_back(idx);\n\
-    \      dep.emplace_back(d);\n    }\n  }\n};\n/**\n * @brief RMQ Lowest Common\
-    \ Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_C_2.test.cpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n\
-    \    int k;\n    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n     \
-    \ g.add_edge(i,j,false);\n    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n\
-    \    int a,b;\n    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}\n"
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 3 \"others/monoid.hpp\"\
+    \n\nnamespace Monoid{\n  template<typename M,typename=void>struct has_op:false_type{};\n\
+    \  template<typename M>struct has_op<M,decltype((void)M::op)>:true_type{};\n \
+    \ template<typename M,typename=void>struct has_id:false_type{};\n  template<typename\
+    \ M>struct has_id<M,decltype((void)M::id)>:true_type{};\n  template<typename M,typename=void>struct\
+    \ has_inv:false_type{};\n  template<typename M>struct has_inv<M,decltype((void)M::inv)>:true_type{};\n\
+    \  template<typename M,typename=void>struct has_get_inv:false_type{};\n  template<typename\
+    \ M>struct has_get_inv<M,decltype((void)M::get_inv)>:true_type{};\n  template<typename\
+    \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
+    \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op,(void)T::id)>:true_type{};\n  template<typename\
+    \ T,typename=void>struct is_group:false_type{};\n  template<typename T>struct\
+    \ is_group<T,decltype(declval<typename T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_action:false_type{};\n  template<typename\
+    \ T>struct is_action<T,typename enable_if<is_monoid<typename T::M>::value&&is_semigroup<typename\
+    \ T::E>::value&&(has_op<T>::value||has_mul_op<T>::value)>::type>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_distributable_action:false_type{};\n\
+    \  template<typename T>struct is_distributable_action<T,typename enable_if<is_action<T>::value&&!has_mul_op<T>::value>::type>:true_type{};\n\
+    \  template<typename T>\n  struct Sum{\n    using value_type=T;\n    static constexpr\
+    \ T op(const T&x,const T&y){return x+y;}\n    static constexpr T id(){return T(0);}\n\
+    \    static constexpr T inv(const T&x,const T&y){return x-y;}\n    static constexpr\
+    \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct Min{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return x<y?x:y;}\n    static constexpr T id(){return max_value;}\n  };\n\
+    \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
+    \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
+    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&,const\
+    \ T&x){return x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
+    \    static constexpr T op(const T&x,const T&){return x;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&){return\
+    \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
+    \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
+    \ T&){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
+    \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Sum<T>;\n    static constexpr T op(const T&a,const T&b){return b+a;}\n\
+    \  };\n  template<typename T>\n  struct AddSum{\n    using M=Sum<T>;\n    using\
+    \ E=Sum<T>;\n    static constexpr T mul_op(const T&x,int sz,const T&y){return\
+    \ y+x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n  struct\
+    \ ChminMin{\n    using M=Min<T,max_value>;\n    using E=Min<T>;\n    static constexpr\
+    \ T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename T,T min_value=infinity<T>::min>\n\
+    \  struct ChminMax{\n    using M=Max<T,min_value>;\n    using E=Min<T>;\n    static\
+    \ constexpr T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename\
+    \ T,T max_value=infinity<T>::max>\n  struct ChmaxMin{\n    using M=Min<T,max_value>;\n\
+    \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
+    \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
+    \ T&x,const T&y){return x<y?y:x;}\n  };\n  template<typename E_>\n  struct AttachMonoid{\n\
+    \    using M=E_;\n    using E=E_;\n    using T=typename E_::value_type;\n    static\
+    \ T op(const T&x,const T&y){return E_::op(y,x);}\n  };\n}// namespace Monoid\n\
+    #line 4 \"data-structure/sparse-table.hpp\"\n\ntemplate<typename M>\nstruct SparseTable{\n\
+    \  private:\n  using T=typename M::value_type;\n  int lg,n;\n  vector<vector<T>>table;\n\
+    \  vector<int>log_table;\n  T internal_prod(int l,int r)const{\n    int d=log_table[r-l];\n\
+    \    return M::op(table[d][l],table[d][r-(1<<d)]);\n  }\n  public:\n  SparseTable()=default;\n\
+    \  SparseTable(const vector<T>&v){init(v);}\n  void init(const vector<T>&v){\n\
+    \    n=v.size();\n    lg=ceil_log2(n)+1;\n    table.assign(lg,vector<T>(n));\n\
+    \    table[0]=v;\n    rep(i,1,lg)rep(j,n-(1<<i)+1)table[i][j]=M::op(table[i-1][j],table[i-1][j+(1<<(i-1))]);\n\
+    \    log_table.assign(n+1,0);\n    log_table[1]=0;\n    rep(i,2,n+1)log_table[i]=log_table[i>>1]+1;\n\
+    \  }\n  template<bool dummy=true,typename enable_if<Monoid::has_id<M>::value&&dummy>::type*\
+    \ = nullptr>\n  T prod(int l,int r)const{\n    if(l==r)return M::id();\n    return\
+    \ internal_prod(l,r);\n  }\n  template<bool dummy=true,typename enable_if<!Monoid::has_id<M>::value&&dummy>::type*\
+    \ = nullptr>\n  T prod(int l,int r)const{\n    if(l==r)return T{};\n    return\
+    \ internal_prod(l,r);\n  }\n};\n/**\n * @brief Sparse Table\n*/\n#line 4 \"graph/tree/RMQ_lowest_common_ancestor.hpp\"\
+    \n\nnamespace Monoid{\n  struct PairMinForLCA{\n    using value_type=pair<int,int>;\n\
+    \    static value_type op(const value_type&a,const value_type&b){\n      return\
+    \ a.first<b.first?a:b;\n    }\n    static value_type id(){return {infinity<int>::value,-1};}\n\
+    \  };\n}//namespace Monoid\ntemplate<typename T=UnweightedEdge>\nstruct RMQ_LCA:Graph<T>{\n\
+    \  using Graph<T>::g;\n  vector<int>in;\n  RMQ_LCA(int n):Graph<T>(n){}\n  RMQ_LCA(const\
+    \ Graph<T>&g):Graph<T>(g){}\n  void build(int root=0){\n    in.resize(g.size());\n\
+    \    dfs(root,-1,0);\n    RMQ.init(rmqvec);\n  }\n  int lca(int u,int v)const{\n\
+    \    if(in[u]>in[v])swap(u,v);\n    return u==v?u:RMQ.prod(in[u],in[v]).second;\n\
+    \  }\n  private:\n  vector<pair<int,int>>rmqvec;\n  SparseTable<Monoid::PairMinForLCA>RMQ;\n\
+    \  void dfs(int idx,int par,int d){\n    in[idx]=(int)rmqvec.size();\n    rmqvec.emplace_back(d,idx);\n\
+    \    for(auto &e:g[idx])if(e!=par){\n      dfs(e,idx,d+1);\n      rmqvec.emplace_back(d,idx);\
+    \  \n    }\n  }\n};\n/**\n * @brief RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\
+    \u901A\u7956\u5148)\n*/\n#line 4 \"test/aoj/GRL/GRL_5_C_2.test.cpp\"\nint main(){\n\
+    \  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n    int k;\n\
+    \    cin>>k;\n    while(k--){\n      int j;\n      cin>>j;\n      g.add_edge(i,j,false);\n\
+    \    }\n  }\n  int q;\n  cin>>q;\n  g.build();\n  while(q--){\n    int a,b;\n\
+    \    cin>>a>>b;\n    cout<<g.lca(a,b)<<endl;\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/tree/RMQ_lowest_common_ancestor.hpp\"\
     \nint main(){\n  int n;\n  cin>>n;\n  RMQ_LCA<int>g(n);\n  for(int i=0;i<n;i++){\n\
@@ -227,10 +291,11 @@ data:
   - graph/tree/RMQ_lowest_common_ancestor.hpp
   - graph/graph-template.hpp
   - data-structure/sparse-table.hpp
+  - others/monoid.hpp
   isVerificationFile: true
   path: test/aoj/GRL/GRL_5_C_2.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 03:31:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_5_C_2.test.cpp

@@ -4,25 +4,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/rolling-hash.hpp
     title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -178,14 +178,14 @@ data:
     \  template<typename T>\n  hash get_hash(const T&s)const{return hash(BASE,s);}\n\
     \  ull get_base()const{return BASE;}\n};\n/**\n * @brief Rolling Hash(\u30ED\u30FC\
     \u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)\n*/\n#line 4 \"test/aoj/ALDS1/ALDS1_14_B.test.cpp\"\
-    \nint main(){\n  string t,p;\n  cin>>t>>p;\n  RollingHash rh;\n  auto rh1=rh.get_hash(t);\n\
-    \  auto rh2=rh.get_hash(p);\n  for(int i=0;i+p.size()<=t.size();i++){\n    if(rh1.get_hash(i,i+p.size())==rh2.get_all()){\n\
-    \      cout<<i<<endl;\n    }\n  }\n}\n"
+    \nint main(){\n  STR(t,p);\n  RollingHash rh;\n  auto rh1=rh.get_hash(t);\n  auto\
+    \ rh2=rh.get_hash(p);\n  for(int i=0;i+p.size()<=t.size();i++){\n    if(rh1.get_hash(i,i+p.size())==rh2.get_all())print(i);\n\
+    \  }\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../string/rolling-hash.hpp\"\
-    \nint main(){\n  string t,p;\n  cin>>t>>p;\n  RollingHash rh;\n  auto rh1=rh.get_hash(t);\n\
-    \  auto rh2=rh.get_hash(p);\n  for(int i=0;i+p.size()<=t.size();i++){\n    if(rh1.get_hash(i,i+p.size())==rh2.get_all()){\n\
-    \      cout<<i<<endl;\n    }\n  }\n}"
+    \nint main(){\n  STR(t,p);\n  RollingHash rh;\n  auto rh1=rh.get_hash(t);\n  auto\
+    \ rh2=rh.get_hash(p);\n  for(int i=0;i+p.size()<=t.size();i++){\n    if(rh1.get_hash(i,i+p.size())==rh2.get_all())print(i);\n\
+    \  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -198,7 +198,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_14_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 03:31:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_14_B.test.cpp

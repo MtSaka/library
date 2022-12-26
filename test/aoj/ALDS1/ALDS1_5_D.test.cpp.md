@@ -7,25 +7,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/inversion.hpp
     title: "Inversion Number(\u8EE2\u5012\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -176,12 +176,10 @@ data:
     \ BinaryIndexedTree<int>bit(c.size());\n  for(int i=0;i<n;i++){\n    ans+=i-bit.sum(a[i]+1);\n\
     \    bit.add(a[i],1);\n  }\n  return ans;\n}\n/**\n * @brief Inversion Number(\u8EE2\
     \u5012\u6570)\n*/\n#line 4 \"test/aoj/ALDS1/ALDS1_5_D.test.cpp\"\nint main(){\n\
-    \  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n\
-    }\n"
+    \  INT(n);\n  vi a(n);cin>>a;\n  print(inversion(a));\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../data-structure/inversion.hpp\"\
-    \nint main(){\n  int n;\n  cin>>n;\n  vector<int>a(n);\n  cin>>a;\n  cout<<inversion(a)<<endl;\n\
-    }"
+    \nint main(){\n  INT(n);\n  vi a(n);cin>>a;\n  print(inversion(a));\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -195,7 +193,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-26 03:31:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_5_D.test.cpp
