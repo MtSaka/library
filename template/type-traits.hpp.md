@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/macro.hpp
     title: template/macro.hpp
   _extendedRequiredBy:
@@ -78,7 +78,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/flow/dinic.hpp
     title: "Dinic(\u6700\u5927\u6D41)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
   - icon: ':heavy_check_mark:'
@@ -104,7 +104,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/shortest-path/bellman-ford.hpp
     title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/shortest-path/dijkstra-path.hpp
     title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
       \u77ED\u8DEF)"
@@ -239,7 +239,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/run-length.hpp
     title: string/run-length.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedVerifiedWith:
@@ -441,7 +441,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/graph/scc.test.cpp
     title: test/yosupo/graph/scc.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/graph/shortest_path.test.cpp
     title: test/yosupo/graph/shortest_path.test.cpp
   - icon: ':heavy_check_mark:'
@@ -516,9 +516,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/3030.test.cpp
     title: test/yukicoder/3030.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/macro.hpp\"\n#include<bits/stdc++.h>\n\n#define\
@@ -651,7 +651,7 @@ data:
   - data-structure/dynamic-segment-tree.hpp
   - data-structure/dual-segment-tree.hpp
   timestamp: '2022-12-21 20:26:30+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/CGL/CGL_2_C.test.cpp
   - test/aoj/CGL/CGL_2_B.test.cpp

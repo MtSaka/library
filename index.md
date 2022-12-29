@@ -88,7 +88,7 @@ data:
       title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: graph
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/graph-template.hpp
       title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\
         )"
@@ -121,7 +121,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/shortest-path/bellman-ford.hpp
       title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/shortest-path/dijkstra-path.hpp
       title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
         \u77ED\u8DEF)"
@@ -275,25 +275,25 @@ data:
       title: string/run-length.hpp
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/alias.hpp
       title: template/alias.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/debug.hpp
       title: template/debug.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/func.hpp
       title: template/func.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/macro.hpp
       title: template/macro.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: template/template.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/type-traits.hpp
       title: template/type-traits.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/util.hpp
       title: template/util.hpp
   verificationCategories:
@@ -515,7 +515,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/graph/scc.test.cpp
       title: test/yosupo/graph/scc.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/graph/shortest_path.test.cpp
       title: test/yosupo/graph/shortest_path.test.cpp
   - name: test/yosupo/math
