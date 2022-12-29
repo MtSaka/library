@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':heavy_check_mark:'
@@ -30,7 +30,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: string/run-length.hpp
     title: string/run-length.hpp
   - icon: ':question:'

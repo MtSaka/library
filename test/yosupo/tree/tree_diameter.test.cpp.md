@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/tree-diameter.hpp
     title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - icon: ':question:'
@@ -30,9 +30,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/tree_diameter
@@ -194,12 +194,13 @@ data:
     \ cost.first+=e.cost;\n      if(res<cost)res=cost,to[idx]=e.to;\n    }\n    return\
     \ res;\n  }\n};\n/**\n * @brief Tree Diameter(\u6728\u306E\u76F4\u5F84)\n*/\n\
     #line 4 \"test/yosupo/tree/tree_diameter.test.cpp\"\nint main(){\n  INT(n);\n\
-    \  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n  print(g.build(),g.path.size()+1);\n\
+    \  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n  auto ans=g.build();\n  print(ans,g.path.size()+1);\n\
     \  print(g.path[0].from,g.path);\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../graph/tree/tree-diameter.hpp\"\
-    \nint main(){\n  INT(n);\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n  print(g.build(),g.path.size()+1);\n\
-    \  print(g.path[0].from,g.path);\n}"
+    \nint main(){\n  INT(n);\n  TreeDiameter<ll>g(n);\n  g.read(n-1,0,true);\n  auto\
+    \ ans=g.build();\n  print(ans,g.path.size()+1);\n  print(g.path[0].from,g.path);\n\
+    }"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -213,8 +214,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/tree/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2022-12-26 06:44:59+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-29 00:54:51+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/tree/tree_diameter.test.cpp
 layout: document

@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/others/matrix.hpp
     title: "Matrix(\u884C\u5217)"
   - icon: ':question:'
@@ -30,9 +30,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/matrix_product
@@ -232,13 +232,13 @@ data:
     \ &is,StaticModInt&x){\n    ll tmp;\n    is>>tmp;\n    x=StaticModInt(tmp);\n\
     \    return is;\n  }\n};\ntemplate<unsigned int p>using ModInt=StaticModInt<unsigned\
     \ int,p>;\n/**\n * @brief ModInt\n*/\n#line 5 \"test/yosupo/matrix/matrix_product.test.cpp\"\
-    \nint main(){\n  INT(n,m,k);\n  Matrix<ModInt<998244353>>a(n,m),b(m,k);\n  rep(i,n)repp(j,m)cin>>a[i][j];\n\
+    \nint main(){\n  INT(n,m,k);\n  Matrix<ModInt<998244353>>a(n,m),b(m,k);\n  rep(i,n)rep(j,m)cin>>a[i][j];\n\
     \  rep(i,m)rep(j,k)cin>>b[i][j];\n  a*=b;\n  rep(i,n)print(a[i]);\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../math/others/matrix.hpp\"\n\
     #include\"../../../math/modular/modint.hpp\"\nint main(){\n  INT(n,m,k);\n  Matrix<ModInt<998244353>>a(n,m),b(m,k);\n\
-    \  rep(i,n)repp(j,m)cin>>a[i][j];\n  rep(i,m)rep(j,k)cin>>b[i][j];\n  a*=b;\n\
-    \  rep(i,n)print(a[i]);\n}"
+    \  rep(i,n)rep(j,m)cin>>a[i][j];\n  rep(i,m)rep(j,k)cin>>b[i][j];\n  a*=b;\n \
+    \ rep(i,n)print(a[i]);\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -252,8 +252,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2022-12-26 06:44:59+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-29 00:54:51+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix/matrix_product.test.cpp
 layout: document
