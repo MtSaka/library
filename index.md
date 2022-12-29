@@ -14,7 +14,7 @@ data:
       title: Bit Vector
     - icon: ':heavy_check_mark:'
       path: data-structure/disjoint-sparse-table.hpp
-      title: Disjoint Sparse Table
+      title: data-structure/disjoint-sparse-table.hpp
     - icon: ':heavy_check_mark:'
       path: data-structure/dual-segment-tree.hpp
       title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
@@ -501,6 +501,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
       title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/data_strucuture/static_range_sum.test.cpp
+      title: test/yosupo/data_strucuture/static_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/staticrmq.test.cpp
       title: test/yosupo/data_strucuture/staticrmq.test.cpp

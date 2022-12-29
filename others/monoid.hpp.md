@@ -27,6 +27,9 @@ data:
     path: data-structure/binary-indexed-tree.hpp
     title: Binary Indexed Tree(Fenwick Tree, BIT)
   - icon: ':heavy_check_mark:'
+    path: data-structure/disjoint-sparse-table.hpp
+    title: data-structure/disjoint-sparse-table.hpp
+  - icon: ':heavy_check_mark:'
     path: data-structure/dual-segment-tree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':heavy_check_mark:'
@@ -97,8 +100,14 @@ data:
     path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
     title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/static_range_sum.test.cpp
+    title: test/yosupo/data_strucuture/static_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/staticrmq.test.cpp
     title: test/yosupo/data_strucuture/staticrmq.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/staticrmq2.test.cpp
+    title: test/yosupo/data_strucuture/staticrmq2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/tree/lca2.test.cpp
     title: test/yosupo/tree/lca2.test.cpp
@@ -362,6 +371,7 @@ data:
   - graph/tree/RMQ_lowest_common_ancestor.hpp
   - data-structure/inversion.hpp
   - data-structure/segment-tree.hpp
+  - data-structure/disjoint-sparse-table.hpp
   - data-structure/lazy-segment-tree.hpp
   - data-structure/binary-indexed-tree.hpp
   - data-structure/sparse-table.hpp
@@ -384,8 +394,10 @@ data:
   - test/yosupo/tree/lca2.test.cpp
   - test/yosupo/data_strucuture/staticrmq.test.cpp
   - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+  - test/yosupo/data_strucuture/staticrmq2.test.cpp
   - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
   - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
+  - test/yosupo/data_strucuture/static_range_sum.test.cpp
   - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
   - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
 documentation_of: others/monoid.hpp

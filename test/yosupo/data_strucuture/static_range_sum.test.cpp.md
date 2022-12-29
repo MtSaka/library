@@ -35,18 +35,18 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/staticrmq
+    PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
     links:
-    - https://judge.yosupo.jp/problem/staticrmq
-  bundledCode: "#line 1 \"test/yosupo/data_strucuture/staticrmq2.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#line 2 \"template/template.hpp\"\
-    \n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...)\
-    \ e\n#define SELECT3(a,b,c,d,...) d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n\
-    #define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n#define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n\
-    #define REP4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...)\
-    \ SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n#define RREP1(a) for(ll\
-    \ i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define\
-    \ RREP3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);--i)\n#define rrep(...) SELECT3(__VA_ARGS__,RREP3,RREP2,RREP1)(__VA_ARGS__)\n\
+    - https://judge.yosupo.jp/problem/static_range_sum
+  bundledCode: "#line 1 \"test/yosupo/data_strucuture/static_range_sum.test.cpp\"\n\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n#line 2\
+    \ \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\
+    \n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...) d\n#define\
+    \ REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
+    #define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n#define REP4(i,a,b,c) for(ll\
+    \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n\
+    #define RREP1(a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n\
+    #define RREP3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);--i)\n#define rrep(...) SELECT3(__VA_ARGS__,RREP3,RREP2,RREP1)(__VA_ARGS__)\n\
     #define all(v) std::begin(v),std::end(v)\n#define rall(v) std::rbegin(v),std::rend(v)\n\
     #define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)\n#define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n\
@@ -236,13 +236,13 @@ data:
     \ = nullptr>\n  T prod(int l,int r)const{\n    if(l==r)return M::id();\n    return\
     \ internal_prod(l,r);\n  }\n  template<bool dummy=true,typename enable_if<!Monoid::has_id<M>::value&&dummy>::type*\
     \ = nullptr>\n  T prod(int l,int r)const{\n    return internal_prod(l,r);\n  }\n\
-    };\n#line 5 \"test/yosupo/data_strucuture/staticrmq2.test.cpp\"\nint main(){\n\
-    \  INT(n,q);\n  vi a(n);\n  cin>>a;\n  DisjointSparseTable<Monoid::Min<int>>st(a);\n\
+    };\n#line 5 \"test/yosupo/data_strucuture/static_range_sum.test.cpp\"\nint main(){\n\
+    \  INT(n,q);\n  vl a(n);\n  cin>>a;\n  DisjointSparseTable<Monoid::Sum<ll>>st(a);\n\
     \  while(q--){\n    INT(l,r);\n    print(st.prod(l,r));\n  }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../others/monoid.hpp\"\n#include\"\
     ../../../data-structure/disjoint-sparse-table.hpp\"\nint main(){\n  INT(n,q);\n\
-    \  vi a(n);\n  cin>>a;\n  DisjointSparseTable<Monoid::Min<int>>st(a);\n  while(q--){\n\
+    \  vl a(n);\n  cin>>a;\n  DisjointSparseTable<Monoid::Sum<ll>>st(a);\n  while(q--){\n\
     \    INT(l,r);\n    print(st.prod(l,r));\n  }\n}"
   dependsOn:
   - template/template.hpp
@@ -255,15 +255,15 @@ data:
   - others/monoid.hpp
   - data-structure/disjoint-sparse-table.hpp
   isVerificationFile: true
-  path: test/yosupo/data_strucuture/staticrmq2.test.cpp
+  path: test/yosupo/data_strucuture/static_range_sum.test.cpp
   requiredBy: []
   timestamp: '2022-12-29 21:07:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yosupo/data_strucuture/staticrmq2.test.cpp
+documentation_of: test/yosupo/data_strucuture/static_range_sum.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/data_strucuture/staticrmq2.test.cpp
-- /verify/test/yosupo/data_strucuture/staticrmq2.test.cpp.html
-title: test/yosupo/data_strucuture/staticrmq2.test.cpp
+- /verify/test/yosupo/data_strucuture/static_range_sum.test.cpp
+- /verify/test/yosupo/data_strucuture/static_range_sum.test.cpp.html
+title: test/yosupo/data_strucuture/static_range_sum.test.cpp
 ---

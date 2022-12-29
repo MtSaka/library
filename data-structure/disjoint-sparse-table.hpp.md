@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: others/monoid.hpp
+    title: others/monoid.hpp
+  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
   - icon: ':heavy_check_mark:'
@@ -25,13 +28,15 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/static_range_sum.test.cpp
+    title: test/yosupo/data_strucuture/static_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/staticrmq2.test.cpp
     title: test/yosupo/data_strucuture/staticrmq2.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: Disjoint Sparse Table
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -156,34 +161,97 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/disjoint-sparse-table.hpp\"\
-    \n\ntemplate<class S,S (*op)(S,S),S (*e)()>\nstruct DisjointSparseTable{\n  private:\n\
-    \  vector<vector<S>>table;\n  vector<int>log_table;\n  public:\n  DisjointSparseTable(const\
-    \ vector<S>&v){\n    int bit=0,sz=1;\n    while(sz<=(int)v.size())sz<<=1,bit++;\n\
-    \    table.resize(bit,vector<S>(v.size(),e()));\n    for(size_t i=0;i<v.size();i++)table[0][i]=v[i];\n\
-    \    int shift=1;\n    for(int i=1;i<bit;i++){\n      shift<<=1;\n      for(int\
-    \ j=0;j<(int)v.size();j+=shift<<1){\n        int l=min<int>(j+shift,v.size());\n\
-    \        table[i][l-1]=v[l-1];\n        for(int k=l-2;k>=j;k--)table[i][k]=op(v[k],table[i][k+1]);\n\
-    \        if((int)v.size()==l)break;\n        table[i][l]=v[l];\n        int r=min<int>(l+shift,v.size());\n\
-    \        for(int k=l+1;k<r;k++)table[i][k]=op(table[i][k-1],v[k]);\n      }\n\
-    \    }\n    log_table.resize(sz);\n    for(int i=2;i<sz;i++)log_table[i]=1+log_table[i>>1];\n\
-    \  }\n  S query(int l,int r){\n    if(l==r)return e();\n    if(l>=--r)return table[0][l];\n\
-    \    int pos=log_table[l^r];\n    return op(table[pos][l],table[pos][r]);\n  }\n\
-    };\n/**\n * @brief Disjoint Sparse Table\n */\n"
-  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<class S,S\
-    \ (*op)(S,S),S (*e)()>\nstruct DisjointSparseTable{\n  private:\n  vector<vector<S>>table;\n\
-    \  vector<int>log_table;\n  public:\n  DisjointSparseTable(const vector<S>&v){\n\
-    \    int bit=0,sz=1;\n    while(sz<=(int)v.size())sz<<=1,bit++;\n    table.resize(bit,vector<S>(v.size(),e()));\n\
-    \    for(size_t i=0;i<v.size();i++)table[0][i]=v[i];\n    int shift=1;\n    for(int\
-    \ i=1;i<bit;i++){\n      shift<<=1;\n      for(int j=0;j<(int)v.size();j+=shift<<1){\n\
-    \        int l=min<int>(j+shift,v.size());\n        table[i][l-1]=v[l-1];\n  \
-    \      for(int k=l-2;k>=j;k--)table[i][k]=op(v[k],table[i][k+1]);\n        if((int)v.size()==l)break;\n\
-    \        table[i][l]=v[l];\n        int r=min<int>(l+shift,v.size());\n      \
-    \  for(int k=l+1;k<r;k++)table[i][k]=op(table[i][k-1],v[k]);\n      }\n    }\n\
-    \    log_table.resize(sz);\n    for(int i=2;i<sz;i++)log_table[i]=1+log_table[i>>1];\n\
-    \  }\n  S query(int l,int r){\n    if(l==r)return e();\n    if(l>=--r)return table[0][l];\n\
-    \    int pos=log_table[l^r];\n    return op(table[pos][l],table[pos][r]);\n  }\n\
-    };\n/**\n * @brief Disjoint Sparse Table\n */"
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/monoid.hpp\"\
+    \n\nnamespace Monoid{\n  template<typename M,typename=void>struct has_op:false_type{};\n\
+    \  template<typename M>struct has_op<M,decltype((void)M::op)>:true_type{};\n \
+    \ template<typename M,typename=void>struct has_id:false_type{};\n  template<typename\
+    \ M>struct has_id<M,decltype((void)M::id)>:true_type{};\n  template<typename M,typename=void>struct\
+    \ has_inv:false_type{};\n  template<typename M>struct has_inv<M,decltype((void)M::inv)>:true_type{};\n\
+    \  template<typename M,typename=void>struct has_get_inv:false_type{};\n  template<typename\
+    \ M>struct has_get_inv<M,decltype((void)M::get_inv)>:true_type{};\n  template<typename\
+    \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
+    \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
+    \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
+    \ T::value_type>(),(void)T::op,(void)T::id)>:true_type{};\n  template<typename\
+    \ T,typename=void>struct is_group:false_type{};\n  template<typename T>struct\
+    \ is_group<T,decltype(declval<typename T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_action:false_type{};\n  template<typename\
+    \ T>struct is_action<T,typename enable_if<is_monoid<typename T::M>::value&&is_semigroup<typename\
+    \ T::E>::value&&(has_op<T>::value||has_mul_op<T>::value)>::type>:true_type{};\n\
+    \  template<typename T,typename=void>struct is_distributable_action:false_type{};\n\
+    \  template<typename T>struct is_distributable_action<T,typename enable_if<is_action<T>::value&&!has_mul_op<T>::value>::type>:true_type{};\n\
+    \  template<typename T>\n  struct Sum{\n    using value_type=T;\n    static constexpr\
+    \ T op(const T&x,const T&y){return x+y;}\n    static constexpr T id(){return T(0);}\n\
+    \    static constexpr T inv(const T&x,const T&y){return x-y;}\n    static constexpr\
+    \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct Min{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
+    \ T&y){return x<y?x:y;}\n    static constexpr T id(){return max_value;}\n  };\n\
+    \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
+    \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
+    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&,const\
+    \ T&x){return x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
+    \    static constexpr T op(const T&x,const T&){return x;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&){return\
+    \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
+    \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
+    \ T&){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
+    \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
+    \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
+    \    using E=Sum<T>;\n    static constexpr T op(const T&a,const T&b){return b+a;}\n\
+    \  };\n  template<typename T>\n  struct AddSum{\n    using M=Sum<T>;\n    using\
+    \ E=Sum<T>;\n    static constexpr T mul_op(const T&x,int sz,const T&y){return\
+    \ y+x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n  struct\
+    \ ChminMin{\n    using M=Min<T,max_value>;\n    using E=Min<T>;\n    static constexpr\
+    \ T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename T,T min_value=infinity<T>::min>\n\
+    \  struct ChminMax{\n    using M=Max<T,min_value>;\n    using E=Min<T>;\n    static\
+    \ constexpr T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename\
+    \ T,T max_value=infinity<T>::max>\n  struct ChmaxMin{\n    using M=Min<T,max_value>;\n\
+    \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
+    \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
+    \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
+    \ T&x,const T&y){return x<y?y:x;}\n  };\n  template<typename E_>\n  struct AttachMonoid{\n\
+    \    using M=E_;\n    using E=E_;\n    using T=typename E_::value_type;\n    static\
+    \ T op(const T&x,const T&y){return E_::op(y,x);}\n  };\n}// namespace Monoid\n\
+    #line 4 \"data-structure/disjoint-sparse-table.hpp\"\n\ntemplate<typename M>\n\
+    struct DisjointSparseTable{\n  private:\n  using T=typename M::value_type;\n \
+    \ int lg,n;\n  vector<int>log_table;\n  vector<vector<T>>table;\n  T internal_prod(int\
+    \ l,int r)const{\n    r--;\n    if(l==r)return table[0][l];\n    int d=log_table[r^l];\n\
+    \    return M::op(table[d][l],table[d][r]);\n  }\n  public:\n  DisjointSparseTable()=default;\n\
+    \  DisjointSparseTable(const vector<T>&v){init(v);}\n  void init(const vector<T>&v){\n\
+    \    n=v.size(),lg=ceil_log2(n+1);\n    table.resize(lg,vector<T>(n));\n    table[0]=v;\n\
+    \    int shift=1;\n    rep(i,1,lg){\n      shift<<=1;\n      rep(j,0,n,shift<<1){\n\
+    \        int l=min<int>(j+shift,n);\n        table[i][l-1]=v[l-1];\n        rrep(k,j,l-1)table[i][k]=M::op(v[k],table[i][k+1]);\n\
+    \        if(n==l)break;\n        table[i][l]=v[l];\n        int r=min<int>(l+shift,n);\n\
+    \        rep(k,l+1,r)table[i][k]=M::op(table[i][k-1],v[k]);\n      }\n    }\n\
+    \    log_table.resize(1<<lg);\n    rep(i,2,1<<lg)log_table[i]=log_table[i>>1]+1;\n\
+    \  }\n  template<bool dummy=true,typename enable_if<Monoid::has_id<M>::value&&dummy>::type*\
+    \ = nullptr>\n  T prod(int l,int r)const{\n    if(l==r)return M::id();\n    return\
+    \ internal_prod(l,r);\n  }\n  template<bool dummy=true,typename enable_if<!Monoid::has_id<M>::value&&dummy>::type*\
+    \ = nullptr>\n  T prod(int l,int r)const{\n    return internal_prod(l,r);\n  }\n\
+    };\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n#include\"../others/monoid.hpp\"\
+    \n\ntemplate<typename M>\nstruct DisjointSparseTable{\n  private:\n  using T=typename\
+    \ M::value_type;\n  int lg,n;\n  vector<int>log_table;\n  vector<vector<T>>table;\n\
+    \  T internal_prod(int l,int r)const{\n    r--;\n    if(l==r)return table[0][l];\n\
+    \    int d=log_table[r^l];\n    return M::op(table[d][l],table[d][r]);\n  }\n\
+    \  public:\n  DisjointSparseTable()=default;\n  DisjointSparseTable(const vector<T>&v){init(v);}\n\
+    \  void init(const vector<T>&v){\n    n=v.size(),lg=ceil_log2(n+1);\n    table.resize(lg,vector<T>(n));\n\
+    \    table[0]=v;\n    int shift=1;\n    rep(i,1,lg){\n      shift<<=1;\n     \
+    \ rep(j,0,n,shift<<1){\n        int l=min<int>(j+shift,n);\n        table[i][l-1]=v[l-1];\n\
+    \        rrep(k,j,l-1)table[i][k]=M::op(v[k],table[i][k+1]);\n        if(n==l)break;\n\
+    \        table[i][l]=v[l];\n        int r=min<int>(l+shift,n);\n        rep(k,l+1,r)table[i][k]=M::op(table[i][k-1],v[k]);\n\
+    \      }\n    }\n    log_table.resize(1<<lg);\n    rep(i,2,1<<lg)log_table[i]=log_table[i>>1]+1;\n\
+    \  }\n  template<bool dummy=true,typename enable_if<Monoid::has_id<M>::value&&dummy>::type*\
+    \ = nullptr>\n  T prod(int l,int r)const{\n    if(l==r)return M::id();\n    return\
+    \ internal_prod(l,r);\n  }\n  template<bool dummy=true,typename enable_if<!Monoid::has_id<M>::value&&dummy>::type*\
+    \ = nullptr>\n  T prod(int l,int r)const{\n    return internal_prod(l,r);\n  }\n\
+    };"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -192,17 +260,19 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
+  - others/monoid.hpp
   isVerificationFile: false
   path: data-structure/disjoint-sparse-table.hpp
   requiredBy: []
-  timestamp: '2022-12-25 17:16:40+09:00'
+  timestamp: '2022-12-29 21:07:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/staticrmq2.test.cpp
+  - test/yosupo/data_strucuture/static_range_sum.test.cpp
 documentation_of: data-structure/disjoint-sparse-table.hpp
 layout: document
 redirect_from:
 - /library/data-structure/disjoint-sparse-table.hpp
 - /library/data-structure/disjoint-sparse-table.hpp.html
-title: Disjoint Sparse Table
+title: data-structure/disjoint-sparse-table.hpp
 ---

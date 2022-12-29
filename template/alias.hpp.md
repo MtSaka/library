@@ -13,7 +13,7 @@ data:
     title: Bit Vector
   - icon: ':heavy_check_mark:'
     path: data-structure/disjoint-sparse-table.hpp
-    title: Disjoint Sparse Table
+    title: data-structure/disjoint-sparse-table.hpp
   - icon: ':heavy_check_mark:'
     path: data-structure/dual-segment-tree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
@@ -436,6 +436,9 @@ data:
     path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
     title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/static_range_sum.test.cpp
+    title: test/yosupo/data_strucuture/static_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/staticrmq.test.cpp
     title: test/yosupo/data_strucuture/staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
@@ -721,6 +724,7 @@ data:
   - test/yosupo/data_strucuture/unionfind.test.cpp
   - test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
   - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
+  - test/yosupo/data_strucuture/static_range_sum.test.cpp
   - test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
   - test/yosupo/data_strucuture/set_xor_min.test.cpp
   - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp

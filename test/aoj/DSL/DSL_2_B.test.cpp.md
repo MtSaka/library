@@ -232,13 +232,7 @@ data:
     };\ntemplate<typename T>\nstruct BinaryIndexedTree<T,false>:BinaryIndexedTree<Monoid::Sum<T>>{\n\
     \  private:\n  using Base=BinaryIndexedTree<Monoid::Sum<T>>;\n  public:\n  using\
     \ Base::Base;\n  void add(int k,T x){this->apply(k,x);}\n  T sum(int k)const{return\
-    \ this->prod(k);}\n  T sum(int l,int r)const{return this->prod(l,r);}\n};\n/*\n\
-    template<typename T>\nstruct BinaryIndexedTree{\n  private:\n  int N;\n  vector<T>bit;\n\
-    \  public:\n  BinaryIndexedTree(){}\n  BinaryIndexedTree(int n){\n    N=1;\n \
-    \   while(N<n)N<<=1;\n    bit=vector<T>(N+1,0);\n  }\n  void add(int i,T x){\n\
-    \    i++;\n    while(i<=N){\n      bit[i]+=x;\n      i+=i&-i;    \n    }\n  }\n\
-    \  T sum(int i){\n    T ans=0;\n    while(i>0)ans+=bit[i],i-=i&-i;\n    return\
-    \ ans;\n  }\n  T query(int l,int r){\n    return sum(r)-sum(l);\n  }\n};*/\n/**\n\
+    \ this->prod(k);}\n  T sum(int l,int r)const{return this->prod(l,r);}\n};\n/**\n\
     \ * @brief Binary Indexed Tree(Fenwick Tree, BIT)\n*/\n#line 4 \"test/aoj/DSL/DSL_2_B.test.cpp\"\
     \nint main(){\n  INT(n,q);\n  BinaryIndexedTree<int>bit(n);\n  while(q--){\n \
     \   INT(t,x,y);\n    if(t)print(bit.sum(x-1,y));\n    else bit.add(x-1,y);\n \
@@ -261,7 +255,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-26 04:29:28+09:00'
+  timestamp: '2022-12-29 21:07:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_B.test.cpp
