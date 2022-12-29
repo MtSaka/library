@@ -65,6 +65,7 @@
 "test/yosupo/data_strucuture/staticrmq2.test.cpp": "2022-12-26 06:44:59 +0900",
 "test/yosupo/data_strucuture/unionfind.test.cpp": "2022-12-25 17:16:40 +0900",
 "test/yosupo/graph/scc.test.cpp": "2022-12-26 06:44:59 +0900",
+"test/yosupo/graph/shortest_path.test.cpp": "2022-12-29 15:30:49 +0900",
 "test/yosupo/math/discrete-logarithm-mod.test.cpp": "2022-12-25 17:16:40 +0900",
 "test/yosupo/math/factorize.test.cpp": "2022-12-25 17:16:40 +0900",
 "test/yosupo/math/kth_root_integer.test.cpp": "2022-12-26 06:44:59 +0900",
