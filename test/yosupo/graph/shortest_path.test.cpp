@@ -10,6 +10,6 @@ int main(){
     print(d.first);
     return 0;
   }
-  print(d.firstkd.second.size()-1);
+  print(d.first,d.second.size()-1);
   rep(i,d.second.size()-1)print(d.second[i],d.second[i+1]);
 }
