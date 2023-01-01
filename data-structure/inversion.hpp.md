@@ -235,16 +235,16 @@ data:
     \ this->prod(k);}\n  T sum(int l,int r)const{return this->prod(l,r);}\n};\n/**\n\
     \ * @brief Binary Indexed Tree(Fenwick Tree, BIT)\n*/\n#line 4 \"data-structure/inversion.hpp\"\
     \n\ntemplate<typename T>\nlong long inversion(vector<T>a){\n  int n=a.size();\n\
-    \  compressor<T>c(a);\n  c.build();\n  a=c.pressed(a);\n  long long ans=0;\n \
-    \ BinaryIndexedTree<int>bit(c.size());\n  for(int i=0;i<n;i++){\n    ans+=i-bit.sum(a[i]+1);\n\
-    \    bit.add(a[i],1);\n  }\n  return ans;\n}\n/**\n * @brief Inversion Number(\u8EE2\
-    \u5012\u6570)\n*/\n"
+    \  compressor<T>c(a);\n  c.build();\n  vector<int>b=c.pressed(a);\n  long long\
+    \ ans=0;\n  BinaryIndexedTree<int>bit(c.size());\n  for(int i=0;i<n;i++){\n  \
+    \  ans+=i-bit.sum(b[i]+1);\n    bit.add(b[i],1);\n  }\n  return ans;\n}\n/**\n\
+    \ * @brief Inversion Number(\u8EE2\u5012\u6570)\n*/\n"
   code: "#pragma once\n#include\"../template/template.hpp\"\n#include\"binary-indexed-tree.hpp\"\
     \n\ntemplate<typename T>\nlong long inversion(vector<T>a){\n  int n=a.size();\n\
-    \  compressor<T>c(a);\n  c.build();\n  a=c.pressed(a);\n  long long ans=0;\n \
-    \ BinaryIndexedTree<int>bit(c.size());\n  for(int i=0;i<n;i++){\n    ans+=i-bit.sum(a[i]+1);\n\
-    \    bit.add(a[i],1);\n  }\n  return ans;\n}\n/**\n * @brief Inversion Number(\u8EE2\
-    \u5012\u6570)\n*/"
+    \  compressor<T>c(a);\n  c.build();\n  vector<int>b=c.pressed(a);\n  long long\
+    \ ans=0;\n  BinaryIndexedTree<int>bit(c.size());\n  for(int i=0;i<n;i++){\n  \
+    \  ans+=i-bit.sum(b[i]+1);\n    bit.add(b[i],1);\n  }\n  return ans;\n}\n/**\n\
+    \ * @brief Inversion Number(\u8EE2\u5012\u6570)\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -258,7 +258,7 @@ data:
   isVerificationFile: false
   path: data-structure/inversion.hpp
   requiredBy: []
-  timestamp: '2022-12-29 21:07:09+09:00'
+  timestamp: '2023-01-01 12:09:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1/ALDS1_5_D.test.cpp
