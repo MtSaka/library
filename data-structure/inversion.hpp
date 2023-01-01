@@ -7,12 +7,12 @@ long long inversion(vector<T>a){
   int n=a.size();
   compressor<T>c(a);
   c.build();
-  a=c.pressed(a);
+  vector<int>b=c.pressed(a);
   long long ans=0;
   BinaryIndexedTree<int>bit(c.size());
   for(int i=0;i<n;i++){
-    ans+=i-bit.sum(a[i]+1);
-    bit.add(a[i],1);
+    ans+=i-bit.sum(b[i]+1);
+    bit.add(b[i],1);
   }
   return ans;
 }
