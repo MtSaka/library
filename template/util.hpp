@@ -33,10 +33,10 @@ struct compressor{
   compressor():compressor(Comp()){}
   compressor(const Comp&cmp):cmp(cmp){}
   compressor(const std::vector<T>&dat,const Comp&cmp=Comp()):data(dat),cmp(cmp){}
-  compressor(std::vector<T>&&dat,const Comp&cmp=Comp()):data(move(dat)),cmp(cmp){}
+  compressor(std::vector<T>&&dat,const Comp&cmp=Comp()):data(std::move(dat)),cmp(cmp){}
   compressor(std::initializer_list<T>li,const Comp&cmp=Comp()):data(li.begin(),li.end()),cmp(cmp){}
   void push_back(const T&v){assert(!sorted);data.push_back(v);}
-  void push_back(T&&v){assert(!sorted);data.push_back(move(v));}
+  void push_back(T&&v){assert(!sorted);data.push_back(std::move(v));}
   template<typename... Args>void emplace_back(Args&&...args){assert(!sorted);data.emplace_back(std::forward<Args>(args)...);}
   void push(const std::vector<T>&v){
     assert(!sorted);

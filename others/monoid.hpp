@@ -30,13 +30,13 @@ namespace Monoid{
     static constexpr T inv(const T&x,const T&y){return x-y;}
     static constexpr T get_inv(const T&x){return -x;}
   };
-  template<typename T,T max_value=infinity<T>::max>
+  template<typename T,T max_value=infinity<T>::value>
   struct Min{
     using value_type=T;
     static constexpr T op(const T&x,const T&y){return x<y?x:y;}
     static constexpr T id(){return max_value;}
   };
-  template<typename T,T min_value=infinity<T>::min>
+  template<typename T,T min_value=infinity<T>::mvalue>
   struct Max{
     using value_type=T;
     static constexpr T op(const T&x,const T&y){return x<y?y:x;}
@@ -47,13 +47,13 @@ namespace Monoid{
     using value_type=T;
     static constexpr T op(const T&,const T&x){return x;}
   };
-  template<typename T,T max_value=infinity<T>::max>
+  template<typename T,T max_value=infinity<T>::value>
   struct AssignMin{
     using M=Min<T,max_value>;
     using E=Assign<T>;
     static constexpr T op(const T&x,const T&){return x;}
   };
-  template<typename T,T min_value=infinity<T>::min>
+  template<typename T,T min_value=infinity<T>::mvalue>
   struct AssignMax{
     using M=Max<T,min_value>;
     using E=Assign<T>;
@@ -65,13 +65,13 @@ namespace Monoid{
     using E=Assign<T>;
     static constexpr T mul_op(const T&x,int sz,const T&){return x*sz;}
   };
-  template<typename T,T max_value=infinity<T>::max>
+  template<typename T,T max_value=infinity<T>::value>
   struct AddMin{
     using M=Min<T,max_value>;
     using E=Sum<T>;
     static constexpr T op(const T&a,const T&b){return b+a;}
   };
-  template<typename T,T min_value=infinity<T>::min>
+  template<typename T,T min_value=infinity<T>::mvalue>
   struct AddMax{
     using M=Max<T,min_value>;
     using E=Sum<T>;
@@ -83,25 +83,25 @@ namespace Monoid{
     using E=Sum<T>;
     static constexpr T mul_op(const T&x,int sz,const T&y){return y+x*sz;}
   };
-  template<typename T,T max_value=infinity<T>::max>
+  template<typename T,T max_value=infinity<T>::value>
   struct ChminMin{
     using M=Min<T,max_value>;
     using E=Min<T>;
     static constexpr T op(const T&x,const T&y){return y<x?y:x;}
   };
-  template<typename T,T min_value=infinity<T>::min>
+  template<typename T,T min_value=infinity<T>::mvalue>
   struct ChminMax{
     using M=Max<T,min_value>;
     using E=Min<T>;
     static constexpr T op(const T&x,const T&y){return y<x?y:x;}
   };
-  template<typename T,T max_value=infinity<T>::max>
+  template<typename T,T max_value=infinity<T>::value>
   struct ChmaxMin{
     using M=Min<T,max_value>;
     using E=Max<T>;
     static constexpr T op(const T&x,const T&y){return x<y?y:x;}
   };
-  template<typename T,T min_value=infinity<T>::min>
+  template<typename T,T min_value=infinity<T>::mvalue>
   struct ChmaxMax{
     using M=Max<T,min_value>;
     using E=Max<T>;
