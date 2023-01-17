@@ -4,28 +4,28 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/dual-segment-tree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: others/monoid.hpp
     title: others/monoid.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -108,9 +108,9 @@ data:
     \  Comp cmp;\n  bool sorted=false;\n  public:\n  compressor():compressor(Comp()){}\n\
     \  compressor(const Comp&cmp):cmp(cmp){}\n  compressor(const std::vector<T>&dat,const\
     \ Comp&cmp=Comp()):data(dat),cmp(cmp){}\n  compressor(std::vector<T>&&dat,const\
-    \ Comp&cmp=Comp()):data(move(dat)),cmp(cmp){}\n  compressor(std::initializer_list<T>li,const\
+    \ Comp&cmp=Comp()):data(std::move(dat)),cmp(cmp){}\n  compressor(std::initializer_list<T>li,const\
     \ Comp&cmp=Comp()):data(li.begin(),li.end()),cmp(cmp){}\n  void push_back(const\
-    \ T&v){assert(!sorted);data.push_back(v);}\n  void push_back(T&&v){assert(!sorted);data.push_back(move(v));}\n\
+    \ T&v){assert(!sorted);data.push_back(v);}\n  void push_back(T&&v){assert(!sorted);data.push_back(std::move(v));}\n\
     \  template<typename... Args>void emplace_back(Args&&...args){assert(!sorted);data.emplace_back(std::forward<Args>(args)...);}\n\
     \  void push(const std::vector<T>&v){\n    assert(!sorted);\n    const int n=data.size();\n\
     \    data.resize(v.size()+n);\n    for(int i=0;i<(int)v.size();i++)data[i+n]=v[i];\n\
@@ -186,35 +186,35 @@ data:
     \  template<typename T>\n  struct Sum{\n    using value_type=T;\n    static constexpr\
     \ T op(const T&x,const T&y){return x+y;}\n    static constexpr T id(){return T(0);}\n\
     \    static constexpr T inv(const T&x,const T&y){return x-y;}\n    static constexpr\
-    \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::value>\n\
     \  struct Min{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
     \ T&y){return x<y?x:y;}\n    static constexpr T id(){return max_value;}\n  };\n\
-    \  template<typename T,T min_value=infinity<T>::min>\n  struct Max{\n    using\
+    \  template<typename T,T min_value=infinity<T>::mvalue>\n  struct Max{\n    using\
     \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
     \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
     \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&,const\
-    \ T&x){return x;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \ T&x){return x;}\n  };\n  template<typename T,T max_value=infinity<T>::value>\n\
     \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
     \    static constexpr T op(const T&x,const T&){return x;}\n  };\n  template<typename\
-    \ T,T min_value=infinity<T>::min>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
+    \ T,T min_value=infinity<T>::mvalue>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
     \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&){return\
     \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
     \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
-    \ T&){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n\
+    \ T&){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::value>\n\
     \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
     \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
-    \ T,T min_value=infinity<T>::min>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
+    \ T,T min_value=infinity<T>::mvalue>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
     \    using E=Sum<T>;\n    static constexpr T op(const T&a,const T&b){return b+a;}\n\
     \  };\n  template<typename T>\n  struct AddSum{\n    using M=Sum<T>;\n    using\
     \ E=Sum<T>;\n    static constexpr T mul_op(const T&x,int sz,const T&y){return\
-    \ y+x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::max>\n  struct\
+    \ y+x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::value>\n  struct\
     \ ChminMin{\n    using M=Min<T,max_value>;\n    using E=Min<T>;\n    static constexpr\
-    \ T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename T,T min_value=infinity<T>::min>\n\
+    \ T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename T,T min_value=infinity<T>::mvalue>\n\
     \  struct ChminMax{\n    using M=Max<T,min_value>;\n    using E=Min<T>;\n    static\
     \ constexpr T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename\
-    \ T,T max_value=infinity<T>::max>\n  struct ChmaxMin{\n    using M=Min<T,max_value>;\n\
+    \ T,T max_value=infinity<T>::value>\n  struct ChmaxMin{\n    using M=Min<T,max_value>;\n\
     \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
-    \  };\n  template<typename T,T min_value=infinity<T>::min>\n  struct ChmaxMax{\n\
+    \  };\n  template<typename T,T min_value=infinity<T>::mvalue>\n  struct ChmaxMax{\n\
     \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
     \ T&x,const T&y){return x<y?y:x;}\n  };\n  template<typename E_>\n  struct AttachMonoid{\n\
     \    using M=E_;\n    using E=E_;\n    using T=typename E_::value_type;\n    static\
@@ -276,7 +276,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_D.test.cpp
   requiredBy: []
-  timestamp: '2022-12-25 23:39:16+09:00'
+  timestamp: '2023-01-18 00:28:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_D.test.cpp
