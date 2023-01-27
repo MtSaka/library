@@ -9,5 +9,6 @@ int main(){
   for(int i=1;i<=n;i++)cin>>a[i];
   for(int i=1;i<=n;i++)cin>>b[i];
   auto ans=lcm_convolution(a,b);
-  for(int i=1;i<=n;i++)cout<<ans[i]<<" \n"[i==n];
+  ans.erase(ans.begin());
+  print(ans);
 }
