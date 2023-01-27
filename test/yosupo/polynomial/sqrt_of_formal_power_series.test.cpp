@@ -4,8 +4,7 @@
 #include"../../../math/modular/mod-sqrt.hpp"
 using mint=ModInt<998244353>;
 int main(){
-  int n;
-  cin>>n;
+  INT(n);
   FormalPowerSeries<mint>f(n);
   cin>>f;
   auto get_sqrt=[&](mint x)->mint {return mint(mod_sqrt(x.get(),998244353));};

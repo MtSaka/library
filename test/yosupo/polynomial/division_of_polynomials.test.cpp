@@ -3,8 +3,7 @@
 #include"../../../math/fps/fps.hpp"
 using mint=ModInt<998244353>;
 int main(){
-  int n,m;
-  cin>>n>>m;
+  INT(n,m);
   FormalPowerSeries<mint>f(n),g(m);
   cin>>f>>g;
   auto [q,r]=f.div_mod(g);

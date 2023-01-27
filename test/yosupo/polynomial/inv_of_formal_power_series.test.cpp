@@ -3,8 +3,7 @@
 #include"../../../math/fps/fps.hpp"
 using mint=ModInt<998244353>;
 int main(){
-  int n;
-  cin>>n;
+  INT(n);
   FormalPowerSeries<mint>fps(n);
   cin>>fps;
   print(fps.inv());
