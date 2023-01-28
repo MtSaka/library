@@ -1,8 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1435"
 #include"../../template/template.hpp"
 #include"../../data-structure/segment-tree.hpp"
-int main(){
-  struct Mmm{
+struct Mmm{
     struct value_type{
       int m1,m2,M;
     };
@@ -16,6 +15,7 @@ int main(){
       return {infinity<int>::value,infinity<int>::value,infinity<int>::mvalue};
     }
   };
+int main(){
   INT(n);
   vi a(n);cin>>a;
   vector<typename Mmm::T>v(n);
