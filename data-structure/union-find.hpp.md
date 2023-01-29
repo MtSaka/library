@@ -200,8 +200,8 @@ data:
   timestamp: '2023-01-18 00:28:06+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/aoj/DSL/DSL_1_A.test.cpp
   - test/aoj/GRL/GRL_2_A.test.cpp
+  - test/aoj/DSL/DSL_1_A.test.cpp
   - test/yosupo/data_strucuture/unionfind.test.cpp
 documentation_of: data-structure/union-find.hpp
 layout: document

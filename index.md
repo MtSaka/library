@@ -578,6 +578,11 @@ data:
     - icon: ':x:'
       path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
       title: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
+  - name: test/yosupo/string
+    pages:
+    - icon: ':x:'
+      path: test/yosupo/string/zalgorithm.test.cpp
+      title: test/yosupo/string/zalgorithm.test.cpp
   - name: test/yosupo/tree
     pages:
     - icon: ':x:'

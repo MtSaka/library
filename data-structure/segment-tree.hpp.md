@@ -301,11 +301,11 @@ data:
   timestamp: '2023-01-18 00:28:06+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yukicoder/1435.test.cpp
-  - test/aoj/DSL/DSL_2_B2.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
-  - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+  - test/aoj/DSL/DSL_2_B2.test.cpp
   - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+  - test/yukicoder/1435.test.cpp
 documentation_of: data-structure/segment-tree.hpp
 layout: document
 redirect_from:
