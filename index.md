@@ -83,7 +83,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/flow/dinic.hpp
       title: "Dinic(\u6700\u5927\u6D41)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/ford-fulkerson.hpp
       title: "Ford Fulkerson(\u6700\u5927\u6D41)"
   - name: graph
@@ -427,7 +427,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_6_A.test.cpp
       title: test/aoj/GRL/GRL_6_A.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_6_A_2.test.cpp
       title: test/aoj/GRL/GRL_6_A_2.test.cpp
   - name: test/aoj/ITP1

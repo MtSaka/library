@@ -163,15 +163,15 @@ data:
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"dynamic-programming/longest-common-subsequence.hpp\"\
     \n\ntemplate<typename T>\nvector<T>LongestCommonSubsequence(const vector<T>&a,const\
     \ vector<T>&b){\n  vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,0));\n\
-    \  for(int i=0;i<a.size();i++){\n    for(int j=0;j<b.size();j++){\n      if(a[i]==b[j])dp[i+1][j+1]=dp[i][j]+1;\n\
-    \      else dp[i+1][j+1]=max(dp[i][j+1],dp[i+1][j]);\n    }\n  }\n  vector<T>ans;\n\
-    \  int i=a.size(),j=b.size();\n  while(dp[i][j]){\n    if(dp[i-1][j]==dp[i][j])i--;\n\
-    \    else if(dp[i][j-1]==dp[i][j])j--;\n    else i--,j--,ans.push_back(a[i]);\n\
-    \  }\n  reverse(ans.begin(),ans.end());\n  return ans;\n}\n/**\n * @brief Longest\
-    \ Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)\n*/\n#line 4\
-    \ \"test/aoj/ALDS1/ALDS1_10_C.test.cpp\"\nint main(){\n  INT(q);\n  while(q--){\n\
-    \    STR(s,t);\n    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n \
-    \   print(LongestCommonSubsequence(a,b).size());\n  }\n}\n"
+    \  for(int i=0;i<(int)a.size();i++){\n    for(int j=0;j<(int)b.size();j++){\n\
+    \      if(a[i]==b[j])dp[i+1][j+1]=dp[i][j]+1;\n      else dp[i+1][j+1]=max(dp[i][j+1],dp[i+1][j]);\n\
+    \    }\n  }\n  vector<T>ans;\n  int i=a.size(),j=b.size();\n  while(dp[i][j]){\n\
+    \    if(dp[i-1][j]==dp[i][j])i--;\n    else if(dp[i][j-1]==dp[i][j])j--;\n   \
+    \ else i--,j--,ans.push_back(a[i]);\n  }\n  reverse(ans.begin(),ans.end());\n\
+    \  return ans;\n}\n/**\n * @brief Longest Common Subsequence(\u6700\u9577\u5171\
+    \u901A\u90E8\u5206\u5217)\n*/\n#line 4 \"test/aoj/ALDS1/ALDS1_10_C.test.cpp\"\n\
+    int main(){\n  INT(q);\n  while(q--){\n    STR(s,t);\n    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n\
+    \    print(LongestCommonSubsequence(a,b).size());\n  }\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_C\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../dynamic-programming/longest-common-subsequence.hpp\"\
     \nint main(){\n  INT(q);\n  while(q--){\n    STR(s,t);\n    vector<char>a(s.begin(),s.end()),b(t.begin(),t.end());\n\
@@ -188,7 +188,7 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
+  timestamp: '2023-01-27 17:05:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1/ALDS1_10_C.test.cpp
