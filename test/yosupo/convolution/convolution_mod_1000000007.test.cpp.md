@@ -1,30 +1,30 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/montgomery-modint.hpp
     title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: string/run-length.hpp
     title: string/run-length.hpp
   - icon: ':question:'
@@ -50,9 +50,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/convolution_mod_1000000007
@@ -400,12 +400,12 @@ data:
     \    ull x3=((c3[i]-x1+MOD3)*INV1_3%MOD3-x2+MOD3)*INV2_3%MOD3;\n    c[i]=ModInt<p>(x1+(x2+x3*MOD2)%p*MOD1);\n\
     \  }\n  return c;\n}\n/**\n * @brief Convolution(\u7573\u307F\u8FBC\u307F)\n*/\n\
     #line 4 \"test/yosupo/convolution/convolution_mod_1000000007.test.cpp\"\nint main(){\n\
-    \  int n,m;\n  cin>>n>>m;\n  vector<long long>a(n),b(m);\n  scan(a,b);\n  print(convolution<1000000007>(a,b));\n\
+    \  INT(n,m);\n  vl a(n),b(m);\n  scan(a,b);\n  print(convolution<1000000007>(a,b));\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod_1000000007\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/convolution/convolution.hpp\"\
-    \nint main(){\n  int n,m;\n  cin>>n>>m;\n  vector<long long>a(n),b(m);\n  scan(a,b);\n\
-    \  print(convolution<1000000007>(a,b));\n}"
+    \nint main(){\n  INT(n,m);\n  vl a(n),b(m);\n  scan(a,b);\n  print(convolution<1000000007>(a,b));\n\
+    }"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -425,8 +425,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-01-27 17:23:26+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/convolution/convolution_mod_1000000007.test.cpp
 layout: document

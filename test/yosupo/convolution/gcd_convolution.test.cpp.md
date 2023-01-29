@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/gcd-convolution.hpp
     title: GCD Convolution
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':question:'
@@ -30,9 +30,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/gcd_convolution
@@ -211,15 +211,15 @@ data:
     \  for(int i=0;i<n;i++)a[i]*=b[i];\n  for(int p=2;p<n;p++)if(sieve[p]){\n    for(int\
     \ i=1;i*p<n;i++)a[i]-=a[i*p];\n  }\n  return a;\n}\n/**\n * @brief GCD Convolution\n\
     */\n#line 5 \"test/yosupo/convolution/gcd_convolution.test.cpp\"\nusing mint=ModInt<998244353>;\n\
-    int main(){\n  int n;cin>>n;\n  vector<mint>a(n+1),b(n+1);\n  for(int i=1;i<=n;i++)cin>>a[i];\n\
-    \  for(int i=1;i<=n;i++)cin>>b[i];\n  auto ans=gcd_convolution(a,b);\n  for(int\
-    \ i=1;i<=n;i++)cout<<ans[i]<<\" \\n\"[i==n];\n}\n"
+    int main(){\n  INT(n);\n  vector<mint>a(n+1),b(n+1);\n  for(int i=1;i<=n;i++)cin>>a[i];\n\
+    \  for(int i=1;i<=n;i++)cin>>b[i];\n  auto ans=gcd_convolution(a,b);\n  ans.erase(ans.begin());\n\
+    \  print(ans);\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/gcd_convolution\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../math/modular/modint.hpp\"\
     \n#include\"../../../math/convolution/gcd-convolution.hpp\"\nusing mint=ModInt<998244353>;\n\
-    int main(){\n  int n;cin>>n;\n  vector<mint>a(n+1),b(n+1);\n  for(int i=1;i<=n;i++)cin>>a[i];\n\
-    \  for(int i=1;i<=n;i++)cin>>b[i];\n  auto ans=gcd_convolution(a,b);\n  for(int\
-    \ i=1;i<=n;i++)cout<<ans[i]<<\" \\n\"[i==n];\n}"
+    int main(){\n  INT(n);\n  vector<mint>a(n+1),b(n+1);\n  for(int i=1;i<=n;i++)cin>>a[i];\n\
+    \  for(int i=1;i<=n;i++)cin>>b[i];\n  auto ans=gcd_convolution(a,b);\n  ans.erase(ans.begin());\n\
+    \  print(ans);\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -233,8 +233,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/convolution/gcd_convolution.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-01-27 17:23:26+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/convolution/gcd_convolution.test.cpp
 layout: document

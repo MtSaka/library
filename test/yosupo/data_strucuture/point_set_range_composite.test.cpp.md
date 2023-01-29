@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: data-structure/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':question:'
     path: others/monoid.hpp
     title: others/monoid.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: others/monoid2.hpp
     title: others/monoid2.hpp
   - icon: ':question:'
@@ -36,9 +36,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_range_composite
@@ -338,7 +338,7 @@ data:
   path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
   requiredBy: []
   timestamp: '2023-01-18 00:28:06+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
 layout: document
