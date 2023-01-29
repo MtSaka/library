@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':x:'
@@ -521,11 +521,11 @@ data:
     \  f*=g;\n  f.resize(n);\n  reverse(f.begin(),f.end());\n  for(int i=0;i<n;i++)f[i]*=c.finv(i);\n\
     \  return f;\n}\n/**\n * @brief Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\
     \u79FB\u52D5)\n*/\n#line 4 \"test/yosupo/polynomial/polynomial_taylor_shift.test.cpp\"\
-    \nusing mint=ModInt<998244353>;\nint main(){\n  int n,c;\n  cin>>n>>c;\n  FormalPowerSeries<mint>f(n);\n\
+    \nusing mint=ModInt<998244353>;\nint main(){\n  INT(n,c);\n  FormalPowerSeries<mint>f(n);\n\
     \  cin>>f;\n  print(taylor_shift(f,mint(c)));\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/fps/taylor-shift.hpp\"\
-    \nusing mint=ModInt<998244353>;\nint main(){\n  int n,c;\n  cin>>n>>c;\n  FormalPowerSeries<mint>f(n);\n\
+    \nusing mint=ModInt<998244353>;\nint main(){\n  INT(n,c);\n  FormalPowerSeries<mint>f(n);\n\
     \  cin>>f;\n  print(taylor_shift(f,mint(c)));\n}"
   dependsOn:
   - template/template.hpp
@@ -549,7 +549,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
+  timestamp: '2023-01-27 23:49:59+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp

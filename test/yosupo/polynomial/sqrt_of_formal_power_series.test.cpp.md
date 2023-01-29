@@ -4,10 +4,10 @@ data:
   - icon: ':question:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/mod-sqrt.hpp
     title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
   - icon: ':question:'
@@ -500,17 +500,16 @@ data:
     \  }\n    ll b=mod_pow(c,1LL<<(m-m_update-1),p);\n    m=m_update,c=mod_pow(b,2,p),t=(t*b%p)*b%p,r=r*b%p;\n\
     \  }\n  return r;\n}\n/**\n * @brief Mod Square Root(\u5E73\u65B9\u5270\u4F59\
     )\n*/\n#line 5 \"test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp\"\
-    \nusing mint=ModInt<998244353>;\nint main(){\n  int n;\n  cin>>n;\n  FormalPowerSeries<mint>f(n);\n\
+    \nusing mint=ModInt<998244353>;\nint main(){\n  INT(n);\n  FormalPowerSeries<mint>f(n);\n\
     \  cin>>f;\n  auto get_sqrt=[&](mint x)->mint {return mint(mod_sqrt(x.get(),998244353));};\n\
     \  f=f.sqrt(get_sqrt);\n  if(f.empty())print(-1);\n  else{\n    print(f);\n  }\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/fps/fps.hpp\"\
     \n#include\"../../../math/modular/mod-sqrt.hpp\"\nusing mint=ModInt<998244353>;\n\
-    int main(){\n  int n;\n  cin>>n;\n  FormalPowerSeries<mint>f(n);\n  cin>>f;\n\
-    \  auto get_sqrt=[&](mint x)->mint {return mint(mod_sqrt(x.get(),998244353));};\n\
-    \  f=f.sqrt(get_sqrt);\n  if(f.empty())print(-1);\n  else{\n    print(f);\n  }\n\
-    }"
+    int main(){\n  INT(n);\n  FormalPowerSeries<mint>f(n);\n  cin>>f;\n  auto get_sqrt=[&](mint\
+    \ x)->mint {return mint(mod_sqrt(x.get(),998244353));};\n  f=f.sqrt(get_sqrt);\n\
+    \  if(f.empty())print(-1);\n  else{\n    print(f);\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -532,7 +531,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
+  timestamp: '2023-01-27 23:49:59+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp

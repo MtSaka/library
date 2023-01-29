@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':question:'
@@ -488,11 +488,11 @@ data:
     \      if((int)f.size()<(i<<1))f.resize(i<<1);\n      res=(res+f*res.inv(i<<1))*inv2;\n\
     \    }\n    res.resize(d);\n    return res;\n  }\n};\n/**\n * @brief Formal Power\
     \ Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)\n*/\n#line 4 \"test/yosupo/polynomial/log_of_formal_power_series.test.cpp\"\
-    \nusing mint=ModInt<998244353>;\nint main(){\n  int n;\n  cin>>n;\n  FormalPowerSeries<mint>fps(n);\n\
+    \nusing mint=ModInt<998244353>;\nint main(){\n  INT(n);\n  FormalPowerSeries<mint>fps(n);\n\
     \  cin>>fps;\n  print(fps.log());\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/log_of_formal_power_series\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../math/fps/fps.hpp\"\
-    \nusing mint=ModInt<998244353>;\nint main(){\n  int n;\n  cin>>n;\n  FormalPowerSeries<mint>fps(n);\n\
+    \nusing mint=ModInt<998244353>;\nint main(){\n  INT(n);\n  FormalPowerSeries<mint>fps(n);\n\
     \  cin>>fps;\n  print(fps.log());\n}"
   dependsOn:
   - template/template.hpp
@@ -514,7 +514,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/log_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
+  timestamp: '2023-01-27 23:49:59+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/log_of_formal_power_series.test.cpp
