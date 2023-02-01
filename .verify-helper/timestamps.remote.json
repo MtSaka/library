@@ -84,5 +84,12 @@
 "test/yosupo/polynomial/polynomial_taylor_shift.test.cpp": "2023-01-27 23:49:59 +0900",
 "test/yosupo/polynomial/pow_of_formal_power_series.test.cpp": "2023-01-18 00:28:06 +0900",
 "test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp": "2023-01-27 23:49:59 +0900",
-"test/yosupo/tree/lca1.test.cpp": "2023-01-18 00:28:06 +0900"
+"test/yosupo/string/zalgorithm.test.cpp": "2023-01-29 03:45:13 +0900",
+"test/yosupo/tree/lca1.test.cpp": "2023-01-18 00:28:06 +0900",
+"test/yosupo/tree/lca2.test.cpp": "2023-01-18 00:28:06 +0900",
+"test/yosupo/tree/tree_diameter.test.cpp": "2023-01-18 00:28:06 +0900",
+"test/yukicoder/1236.test.cpp": "2023-01-18 00:28:06 +0900",
+"test/yukicoder/1435.test.cpp": "2023-01-29 03:22:09 +0900",
+"test/yukicoder/1469.test.cpp": "2023-01-18 00:28:06 +0900",
+"test/yukicoder/3030.test.cpp": "2023-01-18 00:28:06 +0900"
 }
