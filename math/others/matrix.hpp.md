@@ -27,12 +27,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix/matrix_det.test.cpp
     title: test/yosupo/matrix/matrix_det.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/matrix/matrix_product.test.cpp
     title: test/yosupo/matrix/matrix_product.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Matrix(\u884C\u5217)"
     links: []
@@ -160,64 +160,66 @@ data:
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/others/matrix.hpp\"\
-    \n\ntemplate<typename T>\nstruct Matrix{\n  private:\n  vector<vector<T>>A;\n\
-    \  public:\n  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n\
-    \  Matrix(size_t n):A(n,vector<T>(n,0)){};\n  Matrix(const vector<vector<T>>&a):A(a){}\n\
-    \  size_t height()const{return (A.size());}\n  size_t width()const{return (A[0].size());}\n\
-    \  inline const vector<T>&operator[](int k)const{return A.at(k);}\n  inline vector<T>&operator[](int\
-    \ k){return A.at(k);}\n  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(size_t\
-    \ i=0;i<n;i++)mat[i][i]=1;\n    return mat;\n  }\n  Matrix &operator+=(const Matrix&B){\n\
-    \    const size_t n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t\
-    \ j=0;j<m;j++)(*this)[i][j]+=B[i][j];\n    return *this;\n  }\n  Matrix &operator-=(const\
-    \ Matrix&B){\n    const size_t n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t\
-    \ j=0;j<m;j++)(*this)[i][j]-=B[i][j];\n    return *this;\n  }\n  Matrix &operator*=(const\
-    \ Matrix&B) {\n    const size_t n=height(),m=B.width(),p=width();\n    vector<vector<T>>C(n,vector<T>(m,0));\n\
-    \    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)for(size_t k=0;k<p;k++)C[i][j]+=(*this)[i][k]*B[k][j];\n\
-    \    A.swap(C);\n    return *this;\n  }\n  Matrix &operator^=(long long k){\n\
-    \    Matrix B=Matrix::I(height());\n    while(k>0){\n      if(k&1)B*=*this;\n\
-    \      *this*=*this;\n      k>>=1LL;\n    }\n    A.swap(B.A);\n    return *this;\n\
-    \  }\n  Matrix pow(long long k)const{return Matrix(*this)^=k;}\n  friend Matrix\
-    \ operator+(const Matrix&A,const Matrix&B){return Matrix(A)+=B;}\n  friend Matrix\
-    \ operator-(const Matrix&A,const Matrix&B){return Matrix(A)-=B;}\n  friend Matrix\
-    \ operator*(const Matrix&A,const Matrix&B){return Matrix(A)*=B;}\n  friend Matrix\
-    \ operator^(const Matrix&A,const long long&k){return Matrix(A)^=k;}\n  T determinant()const{\n\
-    \    Matrix b(*this);\n    T ret=1;\n    for(int i=0;i<(int)width();i++){\n  \
-    \    int idx=-1;\n      for(int j=i;j<(int)width();j++)if(b[j][i]!=0){idx=j;break;}\n\
+    \n\ntemplate<typename T>\nstruct Matrix{\n  private:\n  vector<vector<T>>data;\n\
+    \  public:\n  Matrix(){}\n  Matrix(int n,int m):data(n,vector<T>(m,T())){}\n \
+    \ Matrix(int n):data(n,vector<T>(n,T())){};\n  Matrix(const vector<vector<T>>&a):data(a){}\n\
+    \  size_t height()const{return data.size();}\n  size_t width()const{return (data.size()?data[0].size():0);}\n\
+    \  inline const vector<T>&operator[](int k)const{return data[k];}\n  inline vector<T>&operator[](int\
+    \ k){return data[k];}\n  static Matrix I(int n){\n    Matrix mat(n);\n    for(int\
+    \ i=0;i<n;i++)mat[i][i]=1;\n    return mat;\n  }\n  Matrix &operator+=(const Matrix&r){\n\
+    \    const int n=height(),m=width();\n    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]+=r[i][j];\n\
+    \    return *this;\n  }\n  Matrix &operator-=(const Matrix&r){\n    const int\
+    \ n=height(),m=width();\n    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]-=r[i][j];\n\
+    \    return *this;\n  }\n  Matrix &operator*=(const Matrix&r) {\n    const int\
+    \ n=height(),m=r.width(),p=width();\n    vector<vector<T>>res(n,vector<T>(m,T()));\n\
+    \    for(int i=0;i<n;i++)for(int j=0;j<m;j++)for(int k=0;k<p;k++)res[i][j]+=(*this)[i][k]*r[k][j];\n\
+    \    data.swap(res);\n    return *this;\n  }\n  Matrix pow(long long k)const{\n\
+    \    Matrix res=Matrix::I(height());\n    Matrix tmp=*this;\n    while(k>0){\n\
+    \      if(k&1)res*=tmp;\n      tmp*=tmp;\n      k>>=1LL;\n    }\n    return res;\n\
+    \  }\n  friend Matrix operator+(const Matrix&l,const Matrix&r){return Matrix(l)+=r;}\n\
+    \  friend Matrix operator-(const Matrix&l,const Matrix&r){return Matrix(l)-=r;}\n\
+    \  friend Matrix operator*(const Matrix&l,const Matrix&r){return Matrix(l)*=r;}\n\
+    \  T determinant()const{\n    Matrix b(*this);\n    T ret=1;\n    for(int i=0;i<width();i++){\n\
+    \      int idx=-1;\n      for(int j=i;j<width();j++)if(b[j][i]!=0){idx=j;break;}\n\
     \      if(idx==-1)return T(0);\n      if(i!=idx){\n        ret*=T(-1);\n     \
     \   swap(b[i],b[idx]);\n      }\n      ret*=b[i][i];\n      T tmp=b[i][i];\n \
-    \     for(int j=0;j<(int)width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<(int)width();j++){\n\
-    \        T now=b[j][i];\n        for(int k=0;k<(int)width();k++)b[j][k]-=b[i][k]*now;\n\
-    \      }\n    }\n    return ret;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
+    \     for(int j=0;j<width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<width();j++){\n\
+    \        T now=b[j][i];\n        for(int k=0;k<width();k++)b[j][k]-=b[i][k]*now;\n\
+    \      }\n    }\n    return ret;\n  }\n  friend istream& operator>>(istream&is,Matrix&x){\n\
+    \    for(int i=0;i<x.height();i++)for(int j=0;j<x.width();j++)is>>x[i][j];\n \
+    \   return is;\n  }\n  friend ostream& operator<<(ostream&os,const Matrix&x){\n\
+    \    os<<x.data;\n    return os;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
     )\n*/\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n\ntemplate<typename\
-    \ T>\nstruct Matrix{\n  private:\n  vector<vector<T>>A;\n  public:\n  Matrix(){}\n\
-    \  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n  Matrix(size_t n):A(n,vector<T>(n,0)){};\n\
-    \  Matrix(const vector<vector<T>>&a):A(a){}\n  size_t height()const{return (A.size());}\n\
-    \  size_t width()const{return (A[0].size());}\n  inline const vector<T>&operator[](int\
-    \ k)const{return A.at(k);}\n  inline vector<T>&operator[](int k){return A.at(k);}\n\
-    \  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(size_t i=0;i<n;i++)mat[i][i]=1;\n\
-    \    return mat;\n  }\n  Matrix &operator+=(const Matrix&B){\n    const size_t\
-    \ n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)(*this)[i][j]+=B[i][j];\n\
-    \    return *this;\n  }\n  Matrix &operator-=(const Matrix&B){\n    const size_t\
-    \ n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)(*this)[i][j]-=B[i][j];\n\
-    \    return *this;\n  }\n  Matrix &operator*=(const Matrix&B) {\n    const size_t\
-    \ n=height(),m=B.width(),p=width();\n    vector<vector<T>>C(n,vector<T>(m,0));\n\
-    \    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)for(size_t k=0;k<p;k++)C[i][j]+=(*this)[i][k]*B[k][j];\n\
-    \    A.swap(C);\n    return *this;\n  }\n  Matrix &operator^=(long long k){\n\
-    \    Matrix B=Matrix::I(height());\n    while(k>0){\n      if(k&1)B*=*this;\n\
-    \      *this*=*this;\n      k>>=1LL;\n    }\n    A.swap(B.A);\n    return *this;\n\
-    \  }\n  Matrix pow(long long k)const{return Matrix(*this)^=k;}\n  friend Matrix\
-    \ operator+(const Matrix&A,const Matrix&B){return Matrix(A)+=B;}\n  friend Matrix\
-    \ operator-(const Matrix&A,const Matrix&B){return Matrix(A)-=B;}\n  friend Matrix\
-    \ operator*(const Matrix&A,const Matrix&B){return Matrix(A)*=B;}\n  friend Matrix\
-    \ operator^(const Matrix&A,const long long&k){return Matrix(A)^=k;}\n  T determinant()const{\n\
-    \    Matrix b(*this);\n    T ret=1;\n    for(int i=0;i<(int)width();i++){\n  \
-    \    int idx=-1;\n      for(int j=i;j<(int)width();j++)if(b[j][i]!=0){idx=j;break;}\n\
+    \ T>\nstruct Matrix{\n  private:\n  vector<vector<T>>data;\n  public:\n  Matrix(){}\n\
+    \  Matrix(int n,int m):data(n,vector<T>(m,T())){}\n  Matrix(int n):data(n,vector<T>(n,T())){};\n\
+    \  Matrix(const vector<vector<T>>&a):data(a){}\n  size_t height()const{return\
+    \ data.size();}\n  size_t width()const{return (data.size()?data[0].size():0);}\n\
+    \  inline const vector<T>&operator[](int k)const{return data[k];}\n  inline vector<T>&operator[](int\
+    \ k){return data[k];}\n  static Matrix I(int n){\n    Matrix mat(n);\n    for(int\
+    \ i=0;i<n;i++)mat[i][i]=1;\n    return mat;\n  }\n  Matrix &operator+=(const Matrix&r){\n\
+    \    const int n=height(),m=width();\n    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]+=r[i][j];\n\
+    \    return *this;\n  }\n  Matrix &operator-=(const Matrix&r){\n    const int\
+    \ n=height(),m=width();\n    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]-=r[i][j];\n\
+    \    return *this;\n  }\n  Matrix &operator*=(const Matrix&r) {\n    const int\
+    \ n=height(),m=r.width(),p=width();\n    vector<vector<T>>res(n,vector<T>(m,T()));\n\
+    \    for(int i=0;i<n;i++)for(int j=0;j<m;j++)for(int k=0;k<p;k++)res[i][j]+=(*this)[i][k]*r[k][j];\n\
+    \    data.swap(res);\n    return *this;\n  }\n  Matrix pow(long long k)const{\n\
+    \    Matrix res=Matrix::I(height());\n    Matrix tmp=*this;\n    while(k>0){\n\
+    \      if(k&1)res*=tmp;\n      tmp*=tmp;\n      k>>=1LL;\n    }\n    return res;\n\
+    \  }\n  friend Matrix operator+(const Matrix&l,const Matrix&r){return Matrix(l)+=r;}\n\
+    \  friend Matrix operator-(const Matrix&l,const Matrix&r){return Matrix(l)-=r;}\n\
+    \  friend Matrix operator*(const Matrix&l,const Matrix&r){return Matrix(l)*=r;}\n\
+    \  T determinant()const{\n    Matrix b(*this);\n    T ret=1;\n    for(int i=0;i<width();i++){\n\
+    \      int idx=-1;\n      for(int j=i;j<width();j++)if(b[j][i]!=0){idx=j;break;}\n\
     \      if(idx==-1)return T(0);\n      if(i!=idx){\n        ret*=T(-1);\n     \
     \   swap(b[i],b[idx]);\n      }\n      ret*=b[i][i];\n      T tmp=b[i][i];\n \
-    \     for(int j=0;j<(int)width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<(int)width();j++){\n\
-    \        T now=b[j][i];\n        for(int k=0;k<(int)width();k++)b[j][k]-=b[i][k]*now;\n\
-    \      }\n    }\n    return ret;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
+    \     for(int j=0;j<width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<width();j++){\n\
+    \        T now=b[j][i];\n        for(int k=0;k<width();k++)b[j][k]-=b[i][k]*now;\n\
+    \      }\n    }\n    return ret;\n  }\n  friend istream& operator>>(istream&is,Matrix&x){\n\
+    \    for(int i=0;i<x.height();i++)for(int j=0;j<x.width();j++)is>>x[i][j];\n \
+    \   return is;\n  }\n  friend ostream& operator<<(ostream&os,const Matrix&x){\n\
+    \    os<<x.data;\n    return os;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
     )\n*/"
   dependsOn:
   - template/template.hpp
@@ -230,8 +232,8 @@ data:
   isVerificationFile: false
   path: math/others/matrix.hpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2023-01-29 03:22:09+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/matrix/matrix_det.test.cpp
   - test/yosupo/matrix/matrix_product.test.cpp

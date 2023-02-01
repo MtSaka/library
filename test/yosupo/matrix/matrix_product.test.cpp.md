@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/others/matrix.hpp
     title: "Matrix(\u884C\u5217)"
   - icon: ':question:'
@@ -30,9 +30,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/matrix_product
@@ -164,34 +164,35 @@ data:
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/others/matrix.hpp\"\
-    \n\ntemplate<typename T>\nstruct Matrix{\n  private:\n  vector<vector<T>>A;\n\
-    \  public:\n  Matrix(){}\n  Matrix(size_t n,size_t m):A(n,vector<T>(m,0)){}\n\
-    \  Matrix(size_t n):A(n,vector<T>(n,0)){};\n  Matrix(const vector<vector<T>>&a):A(a){}\n\
-    \  size_t height()const{return (A.size());}\n  size_t width()const{return (A[0].size());}\n\
-    \  inline const vector<T>&operator[](int k)const{return A.at(k);}\n  inline vector<T>&operator[](int\
-    \ k){return A.at(k);}\n  static Matrix I(size_t n){\n    Matrix mat(n);\n    for(size_t\
-    \ i=0;i<n;i++)mat[i][i]=1;\n    return mat;\n  }\n  Matrix &operator+=(const Matrix&B){\n\
-    \    const size_t n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t\
-    \ j=0;j<m;j++)(*this)[i][j]+=B[i][j];\n    return *this;\n  }\n  Matrix &operator-=(const\
-    \ Matrix&B){\n    const size_t n=height(),m=width();\n    for(size_t i=0;i<n;i++)for(size_t\
-    \ j=0;j<m;j++)(*this)[i][j]-=B[i][j];\n    return *this;\n  }\n  Matrix &operator*=(const\
-    \ Matrix&B) {\n    const size_t n=height(),m=B.width(),p=width();\n    vector<vector<T>>C(n,vector<T>(m,0));\n\
-    \    for(size_t i=0;i<n;i++)for(size_t j=0;j<m;j++)for(size_t k=0;k<p;k++)C[i][j]+=(*this)[i][k]*B[k][j];\n\
-    \    A.swap(C);\n    return *this;\n  }\n  Matrix &operator^=(long long k){\n\
-    \    Matrix B=Matrix::I(height());\n    while(k>0){\n      if(k&1)B*=*this;\n\
-    \      *this*=*this;\n      k>>=1LL;\n    }\n    A.swap(B.A);\n    return *this;\n\
-    \  }\n  Matrix pow(long long k)const{return Matrix(*this)^=k;}\n  friend Matrix\
-    \ operator+(const Matrix&A,const Matrix&B){return Matrix(A)+=B;}\n  friend Matrix\
-    \ operator-(const Matrix&A,const Matrix&B){return Matrix(A)-=B;}\n  friend Matrix\
-    \ operator*(const Matrix&A,const Matrix&B){return Matrix(A)*=B;}\n  friend Matrix\
-    \ operator^(const Matrix&A,const long long&k){return Matrix(A)^=k;}\n  T determinant()const{\n\
-    \    Matrix b(*this);\n    T ret=1;\n    for(int i=0;i<(int)width();i++){\n  \
-    \    int idx=-1;\n      for(int j=i;j<(int)width();j++)if(b[j][i]!=0){idx=j;break;}\n\
+    \n\ntemplate<typename T>\nstruct Matrix{\n  private:\n  vector<vector<T>>data;\n\
+    \  public:\n  Matrix(){}\n  Matrix(int n,int m):data(n,vector<T>(m,T())){}\n \
+    \ Matrix(int n):data(n,vector<T>(n,T())){};\n  Matrix(const vector<vector<T>>&a):data(a){}\n\
+    \  size_t height()const{return data.size();}\n  size_t width()const{return (data.size()?data[0].size():0);}\n\
+    \  inline const vector<T>&operator[](int k)const{return data[k];}\n  inline vector<T>&operator[](int\
+    \ k){return data[k];}\n  static Matrix I(int n){\n    Matrix mat(n);\n    for(int\
+    \ i=0;i<n;i++)mat[i][i]=1;\n    return mat;\n  }\n  Matrix &operator+=(const Matrix&r){\n\
+    \    const int n=height(),m=width();\n    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]+=r[i][j];\n\
+    \    return *this;\n  }\n  Matrix &operator-=(const Matrix&r){\n    const int\
+    \ n=height(),m=width();\n    for(int i=0;i<n;i++)for(int j=0;j<m;j++)(*this)[i][j]-=r[i][j];\n\
+    \    return *this;\n  }\n  Matrix &operator*=(const Matrix&r) {\n    const int\
+    \ n=height(),m=r.width(),p=width();\n    vector<vector<T>>res(n,vector<T>(m,T()));\n\
+    \    for(int i=0;i<n;i++)for(int j=0;j<m;j++)for(int k=0;k<p;k++)res[i][j]+=(*this)[i][k]*r[k][j];\n\
+    \    data.swap(res);\n    return *this;\n  }\n  Matrix pow(long long k)const{\n\
+    \    Matrix res=Matrix::I(height());\n    Matrix tmp=*this;\n    while(k>0){\n\
+    \      if(k&1)res*=tmp;\n      tmp*=tmp;\n      k>>=1LL;\n    }\n    return res;\n\
+    \  }\n  friend Matrix operator+(const Matrix&l,const Matrix&r){return Matrix(l)+=r;}\n\
+    \  friend Matrix operator-(const Matrix&l,const Matrix&r){return Matrix(l)-=r;}\n\
+    \  friend Matrix operator*(const Matrix&l,const Matrix&r){return Matrix(l)*=r;}\n\
+    \  T determinant()const{\n    Matrix b(*this);\n    T ret=1;\n    for(int i=0;i<width();i++){\n\
+    \      int idx=-1;\n      for(int j=i;j<width();j++)if(b[j][i]!=0){idx=j;break;}\n\
     \      if(idx==-1)return T(0);\n      if(i!=idx){\n        ret*=T(-1);\n     \
     \   swap(b[i],b[idx]);\n      }\n      ret*=b[i][i];\n      T tmp=b[i][i];\n \
-    \     for(int j=0;j<(int)width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<(int)width();j++){\n\
-    \        T now=b[j][i];\n        for(int k=0;k<(int)width();k++)b[j][k]-=b[i][k]*now;\n\
-    \      }\n    }\n    return ret;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
+    \     for(int j=0;j<width();j++)b[i][j]/=tmp;\n      for(int j=i+1;j<width();j++){\n\
+    \        T now=b[j][i];\n        for(int k=0;k<width();k++)b[j][k]-=b[i][k]*now;\n\
+    \      }\n    }\n    return ret;\n  }\n  friend istream& operator>>(istream&is,Matrix&x){\n\
+    \    for(int i=0;i<x.height();i++)for(int j=0;j<x.width();j++)is>>x[i][j];\n \
+    \   return is;\n  }\n  friend ostream& operator<<(ostream&os,const Matrix&x){\n\
+    \    os<<x.data;\n    return os;\n  }\n};\n/**\n * @brief Matrix(\u884C\u5217\
     )\n*/\n#line 3 \"math/modular/modint.hpp\"\n\nnamespace internal{\n  struct modint_base{};\n\
     }//naespace internal\ntemplate<typename T>using is_modint=is_base_of<internal::modint_base,T>;\n\
     template<typename T,T mod>\nstruct StaticModInt:internal::modint_base{\n  static_assert(is_integral<T>::value,\"\
@@ -232,13 +233,13 @@ data:
     \ &is,StaticModInt&x){\n    ll tmp;\n    is>>tmp;\n    x=StaticModInt(tmp);\n\
     \    return is;\n  }\n};\ntemplate<unsigned int p>using ModInt=StaticModInt<unsigned\
     \ int,p>;\n/**\n * @brief ModInt\n*/\n#line 5 \"test/yosupo/matrix/matrix_product.test.cpp\"\
-    \nint main(){\n  INT(n,m,k);\n  Matrix<ModInt<998244353>>a(n,m),b(m,k);\n  rep(i,n)rep(j,m)cin>>a[i][j];\n\
-    \  rep(i,m)rep(j,k)cin>>b[i][j];\n  a*=b;\n  rep(i,n)print(a[i]);\n}\n"
+    \nusing mint=ModInt<998244353>;\nint main(){\n  INT(n,m,k);\n  Matrix<mint>a(n,m),b(m,k);\n\
+    \  cin>>a>>b;\n  a*=b;\n  rep(i,n)print(a[i]);\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#include\"\
     ../../../template/template.hpp\"\n#include\"../../../math/others/matrix.hpp\"\n\
-    #include\"../../../math/modular/modint.hpp\"\nint main(){\n  INT(n,m,k);\n  Matrix<ModInt<998244353>>a(n,m),b(m,k);\n\
-    \  rep(i,n)rep(j,m)cin>>a[i][j];\n  rep(i,m)rep(j,k)cin>>b[i][j];\n  a*=b;\n \
-    \ rep(i,n)print(a[i]);\n}"
+    #include\"../../../math/modular/modint.hpp\"\nusing mint=ModInt<998244353>;\n\
+    int main(){\n  INT(n,m,k);\n  Matrix<mint>a(n,m),b(m,k);\n  cin>>a>>b;\n  a*=b;\n\
+    \  rep(i,n)print(a[i]);\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -252,8 +253,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/matrix/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-01-29 03:22:09+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/matrix/matrix_product.test.cpp
 layout: document
