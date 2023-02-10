@@ -1,35 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
     title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
@@ -157,52 +157,52 @@ data:
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/convex-hull-trick.hpp\"\
     \n\ntemplate<typename T=ll,bool is_max=false,typename largeT=double_size_int_t<T>>\n\
-    struct ConvexHullTrick{\n  private:\n  struct line{\n    T a,b;\n    bool is_query;\n\
+    struct ConvexHullTrick{\n  private:\n  struct Line{\n    T a,b;\n    bool is_query;\n\
     \    mutable T nxt_a,nxt_b;\n    mutable bool has_nxt;\n    T get(T x)const{return\
-    \ a*x+b;}\n    T get_nxt(T x)const{return nxt_a*x+nxt_b;}\n    line()=default;\n\
-    \    line(T a,T b,bool query=false):a(a),b(b),is_query(query),has_nxt(false){}\n\
-    \    friend bool operator<(const line&l,const line&r){\n      if(l.is_query){\n\
+    \ a*x+b;}\n    T get_nxt(T x)const{return nxt_a*x+nxt_b;}\n    Line()=default;\n\
+    \    Line(T a,T b,bool query=false):a(a),b(b),is_query(query),has_nxt(false){}\n\
+    \    friend bool operator<(const Line&l,const Line&r){\n      if(l.is_query){\n\
     \        if(!r.has_nxt)return true;\n        return r.get(l.a)<r.get_nxt(l.a);\n\
     \      }\n      if(r.is_query){\n        if(!l.has_nxt)return false;\n       \
     \ return l.get(r.a)>l.get_nxt(r.a);\n      }\n      return l.a==r.a?l.b<r.b:l.a<r.a;\n\
-    \    }\n  };\n  set<line>st;\n  bool is_needed(const typename set<line>::iterator&it){\n\
+    \    }\n  };\n  set<Line>st;\n  bool is_needed(const typename set<Line>::iterator&it){\n\
     \    if(it!=st.begin()&&it->a==prev(it)->a)return it->b<prev(it)->b;\n    if(it!=prev(st.end())&&it->a==next(it)->a)return\
     \ it->b<next(it)->b;\n    if(it==st.begin()||it==prev(st.end()))return true;\n\
     \    return static_cast<largeT>(it->b-prev(it)->b)*static_cast<largeT>(next(it)->a-it->a)\
     \ < static_cast<largeT>(it->b-next(it)->b)*static_cast<largeT>(prev(it)->a-it->a);\n\
-    \  }\n  public:\n  ConvexHullTrick()=default;\n  struct Line{\n    T a,b;\n  };\n\
+    \  }\n  public:\n  ConvexHullTrick()=default;\n  struct line{\n    T a,b;\n  };\n\
     \  void add_line(T a,T b){\n    auto it=st.emplace(is_max?-a:a,is_max?-b:b).first;\n\
     \    if(!is_needed(it)){\n      st.erase(it);\n      return;\n    }\n    while(it!=st.begin()&&!is_needed(prev(it)))st.erase(prev(it));\n\
     \    while(it!=prev(st.end())&&!is_needed(next(it)))st.erase(next(it));\n    if(it!=st.begin()){\n\
     \      prev(it)->has_nxt=true;\n      prev(it)->nxt_a=it->a;\n      prev(it)->nxt_b=it->b;\n\
     \    }\n    if(it!=prev(st.end())){\n      it->has_nxt=true;\n      it->nxt_a=next(it)->a;\n\
-    \      it->nxt_b=next(it)->b;\n    }\n    return;\n  }\n  Line get_min_line(T\
-    \ x)const{\n    auto it=st.lower_bound(line(x,0,true));\n    return Line{is_max?-it->a:it->a,is_max?-it->b:it->b};\n\
-    \  }\n  T get_min(T x)const{\n    const Line&l=get_min_line(x);\n    return l.a*x+l.b;\n\
+    \      it->nxt_b=next(it)->b;\n    }\n    return;\n  }\n  line get_min_line(T\
+    \ x)const{\n    auto it=st.lower_bound(line(x,0,true));\n    return line{is_max?-it->a:it->a,is_max?-it->b:it->b};\n\
+    \  }\n  T get_min(T x)const{\n    const line&l=get_min_line(x);\n    return l.a*x+l.b;\n\
     \  }\n};\n"
   code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename T=ll,bool\
     \ is_max=false,typename largeT=double_size_int_t<T>>\nstruct ConvexHullTrick{\n\
-    \  private:\n  struct line{\n    T a,b;\n    bool is_query;\n    mutable T nxt_a,nxt_b;\n\
+    \  private:\n  struct Line{\n    T a,b;\n    bool is_query;\n    mutable T nxt_a,nxt_b;\n\
     \    mutable bool has_nxt;\n    T get(T x)const{return a*x+b;}\n    T get_nxt(T\
-    \ x)const{return nxt_a*x+nxt_b;}\n    line()=default;\n    line(T a,T b,bool query=false):a(a),b(b),is_query(query),has_nxt(false){}\n\
-    \    friend bool operator<(const line&l,const line&r){\n      if(l.is_query){\n\
+    \ x)const{return nxt_a*x+nxt_b;}\n    Line()=default;\n    Line(T a,T b,bool query=false):a(a),b(b),is_query(query),has_nxt(false){}\n\
+    \    friend bool operator<(const Line&l,const Line&r){\n      if(l.is_query){\n\
     \        if(!r.has_nxt)return true;\n        return r.get(l.a)<r.get_nxt(l.a);\n\
     \      }\n      if(r.is_query){\n        if(!l.has_nxt)return false;\n       \
     \ return l.get(r.a)>l.get_nxt(r.a);\n      }\n      return l.a==r.a?l.b<r.b:l.a<r.a;\n\
-    \    }\n  };\n  set<line>st;\n  bool is_needed(const typename set<line>::iterator&it){\n\
+    \    }\n  };\n  set<Line>st;\n  bool is_needed(const typename set<Line>::iterator&it){\n\
     \    if(it!=st.begin()&&it->a==prev(it)->a)return it->b<prev(it)->b;\n    if(it!=prev(st.end())&&it->a==next(it)->a)return\
     \ it->b<next(it)->b;\n    if(it==st.begin()||it==prev(st.end()))return true;\n\
     \    return static_cast<largeT>(it->b-prev(it)->b)*static_cast<largeT>(next(it)->a-it->a)\
     \ < static_cast<largeT>(it->b-next(it)->b)*static_cast<largeT>(prev(it)->a-it->a);\n\
-    \  }\n  public:\n  ConvexHullTrick()=default;\n  struct Line{\n    T a,b;\n  };\n\
+    \  }\n  public:\n  ConvexHullTrick()=default;\n  struct line{\n    T a,b;\n  };\n\
     \  void add_line(T a,T b){\n    auto it=st.emplace(is_max?-a:a,is_max?-b:b).first;\n\
     \    if(!is_needed(it)){\n      st.erase(it);\n      return;\n    }\n    while(it!=st.begin()&&!is_needed(prev(it)))st.erase(prev(it));\n\
     \    while(it!=prev(st.end())&&!is_needed(next(it)))st.erase(next(it));\n    if(it!=st.begin()){\n\
     \      prev(it)->has_nxt=true;\n      prev(it)->nxt_a=it->a;\n      prev(it)->nxt_b=it->b;\n\
     \    }\n    if(it!=prev(st.end())){\n      it->has_nxt=true;\n      it->nxt_a=next(it)->a;\n\
-    \      it->nxt_b=next(it)->b;\n    }\n    return;\n  }\n  Line get_min_line(T\
-    \ x)const{\n    auto it=st.lower_bound(line(x,0,true));\n    return Line{is_max?-it->a:it->a,is_max?-it->b:it->b};\n\
-    \  }\n  T get_min(T x)const{\n    const Line&l=get_min_line(x);\n    return l.a*x+l.b;\n\
+    \      it->nxt_b=next(it)->b;\n    }\n    return;\n  }\n  line get_min_line(T\
+    \ x)const{\n    auto it=st.lower_bound(line(x,0,true));\n    return line{is_max?-it->a:it->a,is_max?-it->b:it->b};\n\
+    \  }\n  T get_min(T x)const{\n    const line&l=get_min_line(x);\n    return l.a*x+l.b;\n\
     \  }\n};"
   dependsOn:
   - template/template.hpp
@@ -215,8 +215,8 @@ data:
   isVerificationFile: false
   path: data-structure/convex-hull-trick.hpp
   requiredBy: []
-  timestamp: '2023-02-10 16:36:43+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-10 18:21:51+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/data_strucuture/line_add_get_min.test.cpp
 documentation_of: data-structure/convex-hull-trick.hpp
