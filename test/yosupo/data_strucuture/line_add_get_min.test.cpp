@@ -5,17 +5,17 @@ int main(){
   ConvexHullTrick cht;
   INT(n,q);
   rep(i,n){
-    INT(a,b);
+    LL(a,b);
     cht.add_line(a,b);
   }
   rep(i,q){
     INT(t);
     if(t==0){
-      INT(a,b);
+      LL(a,b);
       cht.add_line(a,b);
     }
     else{
-      INT(x);
+      LL(x);
       print(cht.get_min(x));
     }
   }
