@@ -4,16 +4,16 @@
 template<typename T=ll,bool is_max=false,typename largeT=double_size_int_t<T>>
 struct ConvexHullTrick{
   private:
-  struct line{
+  struct Line{
     T a,b;
     bool is_query;
     mutable T nxt_a,nxt_b;
     mutable bool has_nxt;
     T get(T x)const{return a*x+b;}
     T get_nxt(T x)const{return nxt_a*x+nxt_b;}
-    line()=default;
-    line(T a,T b,bool query=false):a(a),b(b),is_query(query),has_nxt(false){}
-    friend bool operator<(const line&l,const line&r){
+    Line()=default;
+    Line(T a,T b,bool query=false):a(a),b(b),is_query(query),has_nxt(false){}
+    friend bool operator<(const Line&l,const Line&r){
       if(l.is_query){
         if(!r.has_nxt)return true;
         return r.get(l.a)<r.get_nxt(l.a);
@@ -25,8 +25,8 @@ struct ConvexHullTrick{
       return l.a==r.a?l.b<r.b:l.a<r.a;
     }
   };
-  set<line>st;
-  bool is_needed(const typename set<line>::iterator&it){
+  set<Line>st;
+  bool is_needed(const typename set<Line>::iterator&it){
     if(it!=st.begin()&&it->a==prev(it)->a)return it->b<prev(it)->b;
     if(it!=prev(st.end())&&it->a==next(it)->a)return it->b<next(it)->b;
     if(it==st.begin()||it==prev(st.end()))return true;
@@ -34,7 +34,7 @@ struct ConvexHullTrick{
   }
   public:
   ConvexHullTrick()=default;
-  struct Line{
+  struct line{
     T a,b;
   };
   void add_line(T a,T b){
@@ -57,12 +57,12 @@ struct ConvexHullTrick{
     }
     return;
   }
-  Line get_min_line(T x)const{
+  line get_min_line(T x)const{
     auto it=st.lower_bound(line(x,0,true));
-    return Line{is_max?-it->a:it->a,is_max?-it->b:it->b};
+    return line{is_max?-it->a:it->a,is_max?-it->b:it->b};
   }
   T get_min(T x)const{
-    const Line&l=get_min_line(x);
+    const line&l=get_min_line(x);
     return l.a*x+l.b;
   }
 };
