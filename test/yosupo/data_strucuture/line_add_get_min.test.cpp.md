@@ -1,13 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/graph-template.hpp
-    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':heavy_check_mark:'
-    path: graph/others/scc.hpp
-    title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
-      )"
+  - icon: ':x:'
+    path: data-structure/convex-hull-trick.hpp
+    title: data-structure/convex-hull-trick.hpp
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -30,19 +26,20 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/math/two_sat.test.cpp
-    title: test/yosupo/math/two_sat.test.cpp
-  _isVerificationFailed: false
-  _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _extendedVerifiedWith: []
+  _isVerificationFailed: true
+  _pathExtension: cpp
+  _verificationStatusIcon: ':x:'
   attributes:
-    document_title: Tow Satisfiability(2-SAT)
-    links: []
-  bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
-    \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
-    \ d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/line_add_get_min
+    links:
+    - https://judge.yosupo.jp/problem/line_add_get_min
+  bundledCode: "#line 1 \"test/yosupo/data_strucuture/line_add_get_min.test.cpp\"\n\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/line_add_get_min\"\n#line 2\
+    \ \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\
+    \n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...) d\n#define\
+    \ REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
     #define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n#define REP4(i,a,b,c) for(ll\
     \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n\
     #define RREP1(a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n\
@@ -163,67 +160,41 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"graph/graph-template.hpp\"\
-    \n\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n  int idx;\n\
-    \  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
-    \  operator int()const{return to;}\n  bool operator<(const Edge&e)const{return\
-    \ cost<e.cost;}\n};\ntemplate<typename T=int>\nusing Edges=vector<Edge<T>>;\n\
-    template<typename T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n  int es;\n\
-    \  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n  size_t size()const{return\
-    \ g.size();}\n  size_t edge_size()const{return es;}\n  void add_edge(int from,int\
-    \ to,T cost=1,bool direct=false){\n    g[from].emplace_back(from,to,cost,es);\n\
-    \    if(!direct)g[to].emplace_back(to,from,cost,es);\n    es++;\n  }\n  void add_edge(int\
-    \ from,int to,bool direct=false){\n    g[from].emplace_back(from,to,1,es);\n \
-    \   if(!direct)g[to].emplace_back(to,from,1,es);\n  }\n  inline vector<Edge<T>>&operator[](int\
-    \ idx){return g[idx];}\n  inline const vector<Edge<T>>&operator[](int idx)const{return\
-    \ g[idx];}\n  void read(int m,int padding=-1,bool weighted=false,bool direct=false){\n\
-    \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
-    \    a+=padding;\n      b+=padding;\n      if(weighted)cin>>c;\n      add_edge(a,b,c,direct);\n\
-    \    }\n  }\n};\nstruct UnweightedEdge{\n  template<class... Args>UnweightedEdge(const\
-    \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
-    \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 4 \"graph/others/scc.hpp\"\
-    \n\nstruct SCC:UnweightedGraph{\n  public:\n  using UnweightedGraph::g;\n  SCC(){}\n\
-    \  SCC(int n):UnweightedGraph(n){}\n  SCC(const UnweightedGraph&g):UnweightedGraph(g){}\n\
-    \  void build(){\n    rg=UnweightedGraph(g.size());\n    for(size_t i=0;i<g.size();i++){\n\
-    \      for(auto&e:g[i]){\n        rg.add_edge(e.to,i,e.cost,true);\n      }\n\
-    \    }\n    comp.assign(g.size(),-1);\n    used.assign(g.size(),false);\n    for(size_t\
-    \ i=0;i<g.size();i++)dfs(i);\n    reverse(ord.begin(),ord.end());\n    cnt=0;\n\
-    \    for(auto i:ord)if(comp[i]==-1)rdfs(i,cnt),cnt++;\n  }\n  void add(int u,int\
-    \ v){UnweightedGraph::add_edge(u,v,true);}\n  int operator[](int k)const{return\
-    \ comp[k];}\n  vector<vector<int>>scc(){\n    if(!group.empty())return group;\n\
-    \    group.resize(cnt);\n    for(size_t i=0;i<g.size();i++)group[comp[i]].emplace_back(i);\n\
-    \    return group;\n  }\n  UnweightedGraph DAG(){\n    if(dag.size())return dag;\n\
-    \    dag=UnweightedGraph(cnt);\n    for(size_t i=0;i<g.size();i++){\n      for(auto&e:g[i]){\n\
-    \        if(comp[i]!=comp[e.to])dag.add_edge(comp[i],comp[e.to],true);\n     \
-    \ }\n    }\n    return dag;\n  }\n  private:\n  UnweightedGraph rg;\n  vector<int>comp,ord;\n\
-    \  vector<bool>used;\n  int cnt;\n  vector<vector<int>>group;\n  UnweightedGraph\
-    \ dag;\n  void dfs(int idx){\n    if(used[idx])return;\n    used[idx]=true;\n\
-    \    for(auto&to:g[idx])dfs(to);\n    ord.emplace_back(idx);\n  }\n  void rdfs(int\
-    \ idx,int k){\n    if(comp[idx]!=-1)return;\n    comp[idx]=k;\n    for(auto&to:rg[idx])rdfs(to,k);\n\
-    \  }\n};\n/**\n * @brief Strongly Connected Components(\u5F37\u9023\u7D50\u6210\
-    \u5206\u5206\u89E3)\n*/\n#line 4 \"graph/others/two-sat.hpp\"\n\nstruct TwoSat{\n\
-    \  private:\n  int n;\n  SCC scc;\n  vector<bool>ans;\n  public:\n  TwoSat(){}\n\
-    \  TwoSat(int n):n(n),scc(2*n),ans(n){}\n  void add_clause(int i,bool f,int j,bool\
-    \ g){    \n    scc.add(i+(f?n:0),j+(g?0:n));\n    scc.add(j+(g?n:0),i+(f?0:n));\n\
-    \  }\n  void add_equal(int i,int j){\n    add_clause(i,true,j,false);\n    add_clause(i,false,j,true);\n\
-    \  }\n  void add_neq(int i,int j){\n    add_clause(i,true,j,true);\n    add_clause(i,false,j,false);\n\
-    \  }\n  void add_true(int i){\n    scc.add(i+n,i);\n  }\n  void add_false(int\
-    \ i){\n    scc.add(i,i+n);\n  }\n  vector<bool>calc(){\n    scc.build();\n   \
-    \ for(int i=0;i<n;i++){\n      if(scc[i]==scc[i+n])return vector<bool>();\n  \
-    \    ans[i]=scc[i+n]<scc[i];\n    }\n    return ans;\n  }\n};\n/**\n * @brief\
-    \ Tow Satisfiability(2-SAT)\n*/\n"
-  code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"scc.hpp\"\
-    \n\nstruct TwoSat{\n  private:\n  int n;\n  SCC scc;\n  vector<bool>ans;\n  public:\n\
-    \  TwoSat(){}\n  TwoSat(int n):n(n),scc(2*n),ans(n){}\n  void add_clause(int i,bool\
-    \ f,int j,bool g){    \n    scc.add(i+(f?n:0),j+(g?0:n));\n    scc.add(j+(g?n:0),i+(f?0:n));\n\
-    \  }\n  void add_equal(int i,int j){\n    add_clause(i,true,j,false);\n    add_clause(i,false,j,true);\n\
-    \  }\n  void add_neq(int i,int j){\n    add_clause(i,true,j,true);\n    add_clause(i,false,j,false);\n\
-    \  }\n  void add_true(int i){\n    scc.add(i+n,i);\n  }\n  void add_false(int\
-    \ i){\n    scc.add(i,i+n);\n  }\n  vector<bool>calc(){\n    scc.build();\n   \
-    \ for(int i=0;i<n;i++){\n      if(scc[i]==scc[i+n])return vector<bool>();\n  \
-    \    ans[i]=scc[i+n]<scc[i];\n    }\n    return ans;\n  }\n};\n/**\n * @brief\
-    \ Tow Satisfiability(2-SAT)\n*/"
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/convex-hull-trick.hpp\"\
+    \n\ntemplate<typename T=ll,bool is_max=false,typename largeT=double_size_int_t<T>>\n\
+    struct ConvexHullTrick{\n  private:\n  struct line{\n    T a,b;\n    bool is_query;\n\
+    \    mutable T nxt_a,nxt_b;\n    mutable bool has_nxt;\n    T get(T x)const{return\
+    \ a*x+b;}\n    T get_nxt(T x)const{return nxt_a*x+nxt_b;}\n    line()=default;\n\
+    \    line(T a,T b,bool query=false):a(a),b(b),is_query(query),has_nxt(false){}\n\
+    \    friend bool operator<(const line&l,const line&r){\n      if(l.is_query){\n\
+    \        if(!r.has_nxt)return true;\n        return r.get(l.a)<r.get_nxt(l.a);\n\
+    \      }\n      if(r.is_query){\n        if(!l.has_nxt)return false;\n       \
+    \ return l.get(r.a)>l.get_nxt(r.a);\n      }\n      return l.a==r.a?l.b<r.b:l.a<r.a;\n\
+    \    }\n  };\n  set<line>st;\n  bool is_needed(const typename set<line>::iterator&it){\n\
+    \    if(it!=st.begin()&&it->a==prev(it)->a)return it->b<prev(it)->b;\n    if(it!=prev(st.end())&&it->a==next(it)->a)return\
+    \ it->b<next(it)->b;\n    if(it==st.begin()||it==prev(st.end()))return true;\n\
+    \    return static_cast<largeT>(it->b-prev(it)->b)*static_cast<largeT>(next(it)->a-it->a)\
+    \ < static_cast<largeT>(it->b-next(it)->b)*static_cast<largeT>(prev(it)->a-it->a);\n\
+    \  }\n  public:\n  ConvexHullTrick()=default;\n  struct Line{\n    T a,b;\n  };\n\
+    \  void add_line(T a,T b){\n    auto it=st.emplace(is_max?-a:a,is_max?-b:b).first;\n\
+    \    if(!is_needed(it)){\n      st.erase(it);\n      return;\n    }\n    while(it!=st.begin()&&!is_needed(prev(it)))st.erase(prev(it));\n\
+    \    while(it!=prev(st.end())&&!is_needed(next(it)))st.erase(next(it));\n    if(it!=st.begin()){\n\
+    \      prev(it)->has_nxt=true;\n      prev(it)->nxt_a=it->a;\n      prev(it)->nxt_b=it->b;\n\
+    \    }\n    if(it!=prev(st.end())){\n      it->has_nxt=true;\n      it->nxt_a=next(it)->a;\n\
+    \      it->nxt_b=next(it)->b;\n    }\n    return;\n  }\n  Line get_min_line(T\
+    \ x)const{\n    auto it=st.lower_bound(line(x,0,true));\n    return Line{is_max?-it->a:it->a,is_max?-it->b:it->b};\n\
+    \  }\n  T get_min(T x)const{\n    const Line&l=get_min_line(x);\n    return l.a*x+l.b;\n\
+    \  }\n};\n#line 4 \"test/yosupo/data_strucuture/line_add_get_min.test.cpp\"\n\
+    int main(){\n  ConvexHullTrick cht;\n  INT(n,q);\n  rep(i,n){\n    INT(a,b);\n\
+    \    cht.add_line(a,b);\n  }\n  rep(i,q){\n    INT(t);\n    if(t==0){\n      INT(a,b);\n\
+    \      cht.add_line(a,b);\n    }\n    else{\n      INT(x);\n      print(cht.get_min(x));\n\
+    \    }\n  }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/line_add_get_min\"\n#include\"\
+    ../../../template/template.hpp\"\n#include\"../../../data-structure/convex-hull-trick.hpp\"\
+    \nint main(){\n  ConvexHullTrick cht;\n  INT(n,q);\n  rep(i,n){\n    INT(a,b);\n\
+    \    cht.add_line(a,b);\n  }\n  rep(i,q){\n    INT(t);\n    if(t==0){\n      INT(a,b);\n\
+    \      cht.add_line(a,b);\n    }\n    else{\n      INT(x);\n      print(cht.get_min(x));\n\
+    \    }\n  }\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -232,19 +203,17 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
-  - graph/others/scc.hpp
-  - graph/graph-template.hpp
-  isVerificationFile: false
-  path: graph/others/two-sat.hpp
+  - data-structure/convex-hull-trick.hpp
+  isVerificationFile: true
+  path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/yosupo/math/two_sat.test.cpp
-documentation_of: graph/others/two-sat.hpp
+  timestamp: '2023-02-10 16:36:43+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
+  verifiedWith: []
+documentation_of: test/yosupo/data_strucuture/line_add_get_min.test.cpp
 layout: document
 redirect_from:
-- /library/graph/others/two-sat.hpp
-- /library/graph/others/two-sat.hpp.html
-title: Tow Satisfiability(2-SAT)
+- /verify/test/yosupo/data_strucuture/line_add_get_min.test.cpp
+- /verify/test/yosupo/data_strucuture/line_add_get_min.test.cpp.html
+title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
 ---

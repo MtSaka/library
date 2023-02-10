@@ -12,6 +12,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data-structure/bit-vector.hpp
       title: Bit Vector
+    - icon: ':x:'
+      path: data-structure/convex-hull-trick.hpp
+      title: data-structure/convex-hull-trick.hpp
     - icon: ':heavy_check_mark:'
       path: data-structure/disjoint-sparse-table.hpp
       title: data-structure/disjoint-sparse-table.hpp
@@ -275,25 +278,25 @@ data:
       title: string/run-length.hpp
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/alias.hpp
       title: template/alias.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/debug.hpp
       title: template/debug.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/func.hpp
       title: template/func.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/macro.hpp
       title: template/macro.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: template/template.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/type-traits.hpp
       title: template/type-traits.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/util.hpp
       title: template/util.hpp
   verificationCategories:
@@ -468,6 +471,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/associative_array.test.cpp
       title: test/yosupo/data_strucuture/associative_array.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
+      title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/persistent_unionfind.test.cpp
       title: test/yosupo/data_strucuture/persistent_unionfind.test.cpp

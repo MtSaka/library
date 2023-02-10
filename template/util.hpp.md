@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
   _extendedRequiredBy:
@@ -17,6 +17,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/bit-vector.hpp
     title: Bit Vector
+  - icon: ':x:'
+    path: data-structure/convex-hull-trick.hpp
+    title: data-structure/convex-hull-trick.hpp
   - icon: ':heavy_check_mark:'
     path: data-structure/disjoint-sparse-table.hpp
     title: data-structure/disjoint-sparse-table.hpp
@@ -242,7 +245,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/run-length.hpp
     title: string/run-length.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedVerifiedWith:
@@ -399,6 +402,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/associative_array.test.cpp
     title: test/yosupo/data_strucuture/associative_array.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
+    title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/persistent_unionfind.test.cpp
     title: test/yosupo/data_strucuture/persistent_unionfind.test.cpp
@@ -525,9 +531,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/3030.test.cpp
     title: test/yukicoder/3030.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/util.hpp\"\n#include<bits/stdc++.h>\n#line 3 \"\
@@ -657,6 +663,7 @@ data:
   - data-structure/disjoint-sparse-table.hpp
   - data-structure/lazy-segment-tree.hpp
   - data-structure/hash-map.hpp
+  - data-structure/convex-hull-trick.hpp
   - data-structure/segment-tree.hpp
   - data-structure/weighted-union-find.hpp
   - template/template.hpp
@@ -689,7 +696,7 @@ data:
   - math/modular/mod-sqrt.hpp
   - math/modular/modint.hpp
   timestamp: '2023-01-18 00:28:06+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/ITP1/ITP1_3_D.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
@@ -749,6 +756,7 @@ data:
   - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
   - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   - test/yosupo/data_strucuture/range_kth_smallest.test.cpp
+  - test/yosupo/data_strucuture/line_add_get_min.test.cpp
   - test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
   - test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
   - test/yosupo/data_strucuture/unionfind.test.cpp
