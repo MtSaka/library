@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
@@ -29,7 +29,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/bit-vector.hpp
     title: Bit Vector
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/convex-hull-trick.hpp
     title: data-structure/convex-hull-trick.hpp
   - icon: ':heavy_check_mark:'
@@ -411,7 +411,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/associative_array.test.cpp
     title: test/yosupo/data_strucuture/associative_array.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
     title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
   - icon: ':heavy_check_mark:'
@@ -540,9 +540,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/3030.test.cpp
     title: test/yukicoder/3030.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
@@ -773,7 +773,7 @@ data:
   - math/modular/mod-sqrt.hpp
   - math/modular/modint.hpp
   timestamp: '2023-01-18 00:28:06+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ITP1/ITP1_3_D.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
