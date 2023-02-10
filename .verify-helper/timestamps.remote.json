@@ -50,7 +50,6 @@
 "test/yosupo/convolution/gcd_convolution.test.cpp": "2023-01-27 17:23:26 +0900",
 "test/yosupo/convolution/lcm_convolution.test.cpp": "2023-01-27 17:23:26 +0900",
 "test/yosupo/data_strucuture/associative_array.test.cpp": "2023-01-18 00:28:06 +0900",
-"test/yosupo/data_strucuture/line_add_get_min.test.cpp": "2023-02-10 16:42:06 +0900",
 "test/yosupo/data_strucuture/persistent_unionfind.test.cpp": "2023-01-18 00:28:06 +0900",
 "test/yosupo/data_strucuture/persistent_unionfind2.test.cpp": "2023-01-18 00:28:06 +0900",
 "test/yosupo/data_strucuture/point_add_range_sum1.test.cpp": "2023-01-18 00:28:06 +0900",
