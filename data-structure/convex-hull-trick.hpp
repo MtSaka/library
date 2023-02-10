@@ -58,7 +58,7 @@ struct ConvexHullTrick{
     return;
   }
   line get_min_line(T x)const{
-    auto it=st.lower_bound(line(x,0,true));
+    auto it=st.lower_bound(Line(x,0,true));
     return line{is_max?-it->a:it->a,is_max?-it->b:it->b};
   }
   T get_min(T x)const{
@@ -66,3 +66,6 @@ struct ConvexHullTrick{
     return l.a*x+l.b;
   }
 };
+/**
+ * @brief Convex Hull Trick
+*/
