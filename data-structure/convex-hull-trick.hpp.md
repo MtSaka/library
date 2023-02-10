@@ -1,36 +1,37 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
     title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    document_title: Convex Hull Trick
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -177,9 +178,9 @@ data:
     \      prev(it)->has_nxt=true;\n      prev(it)->nxt_a=it->a;\n      prev(it)->nxt_b=it->b;\n\
     \    }\n    if(it!=prev(st.end())){\n      it->has_nxt=true;\n      it->nxt_a=next(it)->a;\n\
     \      it->nxt_b=next(it)->b;\n    }\n    return;\n  }\n  line get_min_line(T\
-    \ x)const{\n    auto it=st.lower_bound(line(x,0,true));\n    return line{is_max?-it->a:it->a,is_max?-it->b:it->b};\n\
+    \ x)const{\n    auto it=st.lower_bound(Line(x,0,true));\n    return line{is_max?-it->a:it->a,is_max?-it->b:it->b};\n\
     \  }\n  T get_min(T x)const{\n    const line&l=get_min_line(x);\n    return l.a*x+l.b;\n\
-    \  }\n};\n"
+    \  }\n};\n/**\n * @brief Convex Hull Trick\n*/\n"
   code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename T=ll,bool\
     \ is_max=false,typename largeT=double_size_int_t<T>>\nstruct ConvexHullTrick{\n\
     \  private:\n  struct Line{\n    T a,b;\n    bool is_query;\n    mutable T nxt_a,nxt_b;\n\
@@ -201,9 +202,9 @@ data:
     \      prev(it)->has_nxt=true;\n      prev(it)->nxt_a=it->a;\n      prev(it)->nxt_b=it->b;\n\
     \    }\n    if(it!=prev(st.end())){\n      it->has_nxt=true;\n      it->nxt_a=next(it)->a;\n\
     \      it->nxt_b=next(it)->b;\n    }\n    return;\n  }\n  line get_min_line(T\
-    \ x)const{\n    auto it=st.lower_bound(line(x,0,true));\n    return line{is_max?-it->a:it->a,is_max?-it->b:it->b};\n\
+    \ x)const{\n    auto it=st.lower_bound(Line(x,0,true));\n    return line{is_max?-it->a:it->a,is_max?-it->b:it->b};\n\
     \  }\n  T get_min(T x)const{\n    const line&l=get_min_line(x);\n    return l.a*x+l.b;\n\
-    \  }\n};"
+    \  }\n};\n/**\n * @brief Convex Hull Trick\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -215,8 +216,8 @@ data:
   isVerificationFile: false
   path: data-structure/convex-hull-trick.hpp
   requiredBy: []
-  timestamp: '2023-02-10 18:21:51+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2023-02-10 19:06:42+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/line_add_get_min.test.cpp
 documentation_of: data-structure/convex-hull-trick.hpp
@@ -224,5 +225,5 @@ layout: document
 redirect_from:
 - /library/data-structure/convex-hull-trick.hpp
 - /library/data-structure/convex-hull-trick.hpp.html
-title: data-structure/convex-hull-trick.hpp
+title: Convex Hull Trick
 ---

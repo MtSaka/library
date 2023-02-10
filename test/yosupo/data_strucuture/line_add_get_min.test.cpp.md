@@ -1,35 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/convex-hull-trick.hpp
-    title: data-structure/convex-hull-trick.hpp
-  - icon: ':question:'
+    title: Convex Hull Trick
+  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/line_add_get_min
@@ -182,10 +182,10 @@ data:
     \      prev(it)->has_nxt=true;\n      prev(it)->nxt_a=it->a;\n      prev(it)->nxt_b=it->b;\n\
     \    }\n    if(it!=prev(st.end())){\n      it->has_nxt=true;\n      it->nxt_a=next(it)->a;\n\
     \      it->nxt_b=next(it)->b;\n    }\n    return;\n  }\n  line get_min_line(T\
-    \ x)const{\n    auto it=st.lower_bound(line(x,0,true));\n    return line{is_max?-it->a:it->a,is_max?-it->b:it->b};\n\
+    \ x)const{\n    auto it=st.lower_bound(Line(x,0,true));\n    return line{is_max?-it->a:it->a,is_max?-it->b:it->b};\n\
     \  }\n  T get_min(T x)const{\n    const line&l=get_min_line(x);\n    return l.a*x+l.b;\n\
-    \  }\n};\n#line 4 \"test/yosupo/data_strucuture/line_add_get_min.test.cpp\"\n\
-    int main(){\n  ConvexHullTrick cht;\n  INT(n,q);\n  rep(i,n){\n    LL(a,b);\n\
+    \  }\n};\n/**\n * @brief Convex Hull Trick\n*/\n#line 4 \"test/yosupo/data_strucuture/line_add_get_min.test.cpp\"\
+    \nint main(){\n  ConvexHullTrick cht;\n  INT(n,q);\n  rep(i,n){\n    LL(a,b);\n\
     \    cht.add_line(a,b);\n  }\n  rep(i,q){\n    INT(t);\n    if(t==0){\n      LL(a,b);\n\
     \      cht.add_line(a,b);\n    }\n    else{\n      LL(x);\n      print(cht.get_min(x));\n\
     \    }\n  }\n}\n"
@@ -207,8 +207,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
   requiredBy: []
-  timestamp: '2023-02-10 18:21:51+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-02-10 19:06:42+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/line_add_get_min.test.cpp
 layout: document

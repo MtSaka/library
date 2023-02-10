@@ -12,9 +12,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data-structure/bit-vector.hpp
       title: Bit Vector
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data-structure/convex-hull-trick.hpp
-      title: data-structure/convex-hull-trick.hpp
+      title: Convex Hull Trick
     - icon: ':heavy_check_mark:'
       path: data-structure/disjoint-sparse-table.hpp
       title: data-structure/disjoint-sparse-table.hpp
@@ -36,6 +36,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data-structure/lazy-segment-tree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+    - icon: ':heavy_check_mark:'
+      path: data-structure/li-chao-tree.hpp
+      title: data-structure/li-chao-tree.hpp
     - icon: ':heavy_check_mark:'
       path: data-structure/persistent-array.hpp
       title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
@@ -278,25 +281,25 @@ data:
       title: string/run-length.hpp
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/alias.hpp
       title: template/alias.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/debug.hpp
       title: template/debug.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/func.hpp
       title: template/func.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/macro.hpp
       title: template/macro.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: template/template.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/type-traits.hpp
       title: template/type-traits.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/util.hpp
       title: template/util.hpp
   verificationCategories:
@@ -471,7 +474,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/associative_array.test.cpp
       title: test/yosupo/data_strucuture/associative_array.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
       title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
     - icon: ':heavy_check_mark:'
@@ -501,6 +504,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
       title: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/data_strucuture/segment_add_get_min.test.cpp
+      title: test/yosupo/data_strucuture/segment_add_get_min.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/set_xor_min.test.cpp
       title: test/yosupo/data_strucuture/set_xor_min.test.cpp

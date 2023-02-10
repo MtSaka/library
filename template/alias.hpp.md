@@ -11,9 +11,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/bit-vector.hpp
     title: Bit Vector
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data-structure/convex-hull-trick.hpp
-    title: data-structure/convex-hull-trick.hpp
+    title: Convex Hull Trick
   - icon: ':heavy_check_mark:'
     path: data-structure/disjoint-sparse-table.hpp
     title: data-structure/disjoint-sparse-table.hpp
@@ -35,6 +35,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  - icon: ':heavy_check_mark:'
+    path: data-structure/li-chao-tree.hpp
+    title: data-structure/li-chao-tree.hpp
   - icon: ':heavy_check_mark:'
     path: data-structure/persistent-array.hpp
     title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
@@ -239,16 +242,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/run-length.hpp
     title: string/run-length.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedVerifiedWith:
@@ -405,7 +408,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/associative_array.test.cpp
     title: test/yosupo/data_strucuture/associative_array.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
     title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
   - icon: ':heavy_check_mark:'
@@ -435,6 +438,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
     title: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/segment_add_get_min.test.cpp
+    title: test/yosupo/data_strucuture/segment_add_get_min.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/set_xor_min.test.cpp
     title: test/yosupo/data_strucuture/set_xor_min.test.cpp
@@ -534,9 +540,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/3030.test.cpp
     title: test/yukicoder/3030.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/alias.hpp\"\n#include<bits/stdc++.h>\n\nusing ll=long\
@@ -593,6 +599,7 @@ data:
   - geometry/geometry.hpp
   - string/run-length.hpp
   - string/rolling-hash.hpp
+  - data-structure/li-chao-tree.hpp
   - data-structure/wavelet-matrix.hpp
   - data-structure/persistent-array.hpp
   - data-structure/sparse-table.hpp
@@ -646,7 +653,7 @@ data:
   - math/modular/mod-sqrt.hpp
   - math/modular/modint.hpp
   timestamp: '2022-12-25 11:58:05+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ITP1/ITP1_3_D.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
@@ -712,6 +719,7 @@ data:
   - test/yosupo/data_strucuture/unionfind.test.cpp
   - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
   - test/yosupo/data_strucuture/persistent_unionfind.test.cpp
+  - test/yosupo/data_strucuture/segment_add_get_min.test.cpp
   - test/yosupo/data_strucuture/associative_array.test.cpp
   - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
   - test/yosupo/data_strucuture/set_xor_min.test.cpp

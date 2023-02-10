@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: data-structure/union-find.hpp
-    title: Union Find(Disjoint Set Union)
-  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
   - icon: ':heavy_check_mark:'
@@ -26,19 +23,18 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/segment_add_get_min.test.cpp
+    title: test/yosupo/data_strucuture/segment_add_get_min.test.cpp
   _isVerificationFailed: false
-  _pathExtension: cpp
+  _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A
-    links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A
-  bundledCode: "#line 1 \"test/aoj/DSL/DSL_1_A.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A\"\
-    \n#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\
-    \n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...) d\n#define\
-    \ REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
+    links: []
+  bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
+    \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
+    \ d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
     #define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n#define REP4(i,a,b,c) for(ll\
     \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n\
     #define RREP1(a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n\
@@ -159,24 +155,60 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/union-find.hpp\"\
-    \n\nstruct UnionFind{\n  private:\n  int n;\n  vector<int>p;\n  public:\n  UnionFind():UnionFind(0){}\n\
-    \  UnionFind(int n):n(n),p(n,-1){}\n  int root(int x){return p[x]<0?x:p[x]=root(p[x]);}\n\
-    \  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
-    \ -p[root(x)];}\n  int merge(int x,int y){\n    x=root(x),y=root(y);\n    if(x==y)return\
-    \ x;\n    if(p[x]>p[y])swap(x,y);\n    p[x]+=p[y];p[y]=x;\n    return x;\n  }\n\
-    \  vector<vector<int>>groups(){\n    vector<vector<int>>result(n);\n    for(int\
-    \ i=0;i<n;i++)result[root(i)].push_back(i);\n    result.erase(remove_if(result.begin(),result.end(),[](const\
-    \ vector<int>&v){return v.empty();}),result.end());\n    return result;\n  }\n\
-    };\n/**\n * @brief Union Find(Disjoint Set Union)\n*/\n#line 4 \"test/aoj/DSL/DSL_1_A.test.cpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  UnionFind d(n);\n  while(q--){\n  \
-    \  int t,x,y;\n    cin>>t>>x>>y;\n    if(t==0)d.merge(x,y);\n    else print(d.same(x,y));\n\
-    \  }\n}\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A\"\
-    \n#include\"../../../template/template.hpp\"\n#include\"../../../data-structure/union-find.hpp\"\
-    \nint main(){\n  int n,q;\n  cin>>n>>q;\n  UnionFind d(n);\n  while(q--){\n  \
-    \  int t,x,y;\n    cin>>t>>x>>y;\n    if(t==0)d.merge(x,y);\n    else print(d.same(x,y));\n\
-    \  }\n}"
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/li-chao-tree.hpp\"\
+    \n\ntemplate<typename T=ll,bool is_max=false>\nstruct LiChaoTree{\n  private:\n\
+    \  struct Line{\n    T a,b;\n    T get(T x)const{return a*x+b;}\n    Line()=default;\n\
+    \    Line(T a,T b):a(a),b(b){}\n  };\n  int n,sz;\n  vector<T>xs;\n  vector<Line>lines;\n\
+    \  void add_line(int k,int a,int b,const Line&line){\n    if(a+1==b){\n      if(line.get(xs[a])<lines[k].get(xs[a]))lines[k]=line;\n\
+    \      return;\n    }\n    int mid=(a+b)>>1;\n    T x1=lines[k].get(xs[a]),x2=line.get(xs[a]);\n\
+    \    T y1=lines[k].get(xs[b-1]),y2=line.get(xs[b-1]);\n    if(x1<=x2&&y1<=y2)return;\n\
+    \    if(x2<=x1&&y2<=y1){\n      lines[k]=line;\n      return;\n    }\n    if(lines[k].get(xs[mid])<=line.get(xs[mid])){\n\
+    \      if(y1<y2)add_line(k<<1,a,mid,line);\n      else add_line(k<<1|1,mid,b,line);\n\
+    \    }\n    else{\n      if(y1<y2)add_line(k<<1|1,mid,b,lines[k]);\n      else\
+    \ add_line(k<<1,a,mid,lines[k]);\n      lines[k]=line;\n    }\n  }\n  void add_segment(int\
+    \ k,int a,int b,int l,int r,const Line&line){\n    if(l<=a&&b<=r){\n      add_line(k,a,b,line);\n\
+    \      return;\n    }\n    if(r<=a||b<=l)return;\n    int mid=(a+b)>>1;\n    add_segment(k<<1,a,mid,l,r,line);\n\
+    \    add_segment(k<<1|1,mid,b,l,r,line);\n  }\n  public:\n  LiChaoTree():LiChaoTree({}){}\n\
+    \  LiChaoTree(const vector<T>&xs_){init(xs_);}\n  void init(const vector<T>&xs_){\n\
+    \    xs=xs_;\n    n=xs.size();\n    sz=1<<ceil_log2(n);\n    xs.reserve(sz);\n\
+    \    rep(i,xs.size(),sz)xs.emplace_back(xs.back()+1);\n    lines.assign(sz<<1,Line(0,is_max?infinity<T>::min:infinity<T>::max));\n\
+    \  }\n  void add_segment(int l,int r,T a,T b){\n    add_segment(1,0,sz,l,r,Line{is_max?-a:a,is_max?-b:b});\n\
+    \  }\n  void add_line(T a,T b){\n    add_line(1,0,sz,Line{is_max?-a:a,is_max?-b:b});\n\
+    \  }\n  T get_min(int k)const{\n    T x=xs[k];\n    k+=sz;\n    T res=(is_max?-lines[k].get(x):lines[k].get(x));\n\
+    \    while(k>>=1){\n      res=min(res,is_max?-lines[k].get(x):lines[k].get(x));\n\
+    \    }\n    return is_max?-res:res;\n  }\n  struct line{\n    T a,b;\n  };\n \
+    \ line get_min_line(int k)const{\n    T x=xs[k];\n    k+=sz;\n    line res=lines[k];;\n\
+    \    T mn=(is_max?-lines[k].get(x):lines[k].get(x));\n    while(k>>=1){\n    \
+    \  if(mn>(is_max?-lines[k].get(x):lines[k].get(x))){\n        mn=(is_max?-lines[k].get(x):lines[k].get(x));\n\
+    \        res=lines[k];\n      }\n    }\n    return line{is_max?-res.a:res.a,is_max?-res.b:res.b};\n\
+    \  }\n};\n/**\n * @breif Li Chao Tree\n*/\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename T=ll,bool\
+    \ is_max=false>\nstruct LiChaoTree{\n  private:\n  struct Line{\n    T a,b;\n\
+    \    T get(T x)const{return a*x+b;}\n    Line()=default;\n    Line(T a,T b):a(a),b(b){}\n\
+    \  };\n  int n,sz;\n  vector<T>xs;\n  vector<Line>lines;\n  void add_line(int\
+    \ k,int a,int b,const Line&line){\n    if(a+1==b){\n      if(line.get(xs[a])<lines[k].get(xs[a]))lines[k]=line;\n\
+    \      return;\n    }\n    int mid=(a+b)>>1;\n    T x1=lines[k].get(xs[a]),x2=line.get(xs[a]);\n\
+    \    T y1=lines[k].get(xs[b-1]),y2=line.get(xs[b-1]);\n    if(x1<=x2&&y1<=y2)return;\n\
+    \    if(x2<=x1&&y2<=y1){\n      lines[k]=line;\n      return;\n    }\n    if(lines[k].get(xs[mid])<=line.get(xs[mid])){\n\
+    \      if(y1<y2)add_line(k<<1,a,mid,line);\n      else add_line(k<<1|1,mid,b,line);\n\
+    \    }\n    else{\n      if(y1<y2)add_line(k<<1|1,mid,b,lines[k]);\n      else\
+    \ add_line(k<<1,a,mid,lines[k]);\n      lines[k]=line;\n    }\n  }\n  void add_segment(int\
+    \ k,int a,int b,int l,int r,const Line&line){\n    if(l<=a&&b<=r){\n      add_line(k,a,b,line);\n\
+    \      return;\n    }\n    if(r<=a||b<=l)return;\n    int mid=(a+b)>>1;\n    add_segment(k<<1,a,mid,l,r,line);\n\
+    \    add_segment(k<<1|1,mid,b,l,r,line);\n  }\n  public:\n  LiChaoTree():LiChaoTree({}){}\n\
+    \  LiChaoTree(const vector<T>&xs_){init(xs_);}\n  void init(const vector<T>&xs_){\n\
+    \    xs=xs_;\n    n=xs.size();\n    sz=1<<ceil_log2(n);\n    xs.reserve(sz);\n\
+    \    rep(i,xs.size(),sz)xs.emplace_back(xs.back()+1);\n    lines.assign(sz<<1,Line(0,is_max?infinity<T>::min:infinity<T>::max));\n\
+    \  }\n  void add_segment(int l,int r,T a,T b){\n    add_segment(1,0,sz,l,r,Line{is_max?-a:a,is_max?-b:b});\n\
+    \  }\n  void add_line(T a,T b){\n    add_line(1,0,sz,Line{is_max?-a:a,is_max?-b:b});\n\
+    \  }\n  T get_min(int k)const{\n    T x=xs[k];\n    k+=sz;\n    T res=(is_max?-lines[k].get(x):lines[k].get(x));\n\
+    \    while(k>>=1){\n      res=min(res,is_max?-lines[k].get(x):lines[k].get(x));\n\
+    \    }\n    return is_max?-res:res;\n  }\n  struct line{\n    T a,b;\n  };\n \
+    \ line get_min_line(int k)const{\n    T x=xs[k];\n    k+=sz;\n    line res=lines[k];;\n\
+    \    T mn=(is_max?-lines[k].get(x):lines[k].get(x));\n    while(k>>=1){\n    \
+    \  if(mn>(is_max?-lines[k].get(x):lines[k].get(x))){\n        mn=(is_max?-lines[k].get(x):lines[k].get(x));\n\
+    \        res=lines[k];\n      }\n    }\n    return line{is_max?-res.a:res.a,is_max?-res.b:res.b};\n\
+    \  }\n};\n/**\n * @breif Li Chao Tree\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -185,17 +217,17 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
-  - data-structure/union-find.hpp
-  isVerificationFile: true
-  path: test/aoj/DSL/DSL_1_A.test.cpp
+  isVerificationFile: false
+  path: data-structure/li-chao-tree.hpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
-  verificationStatus: TEST_ACCEPTED
-  verifiedWith: []
-documentation_of: test/aoj/DSL/DSL_1_A.test.cpp
+  timestamp: '2023-02-10 19:06:42+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/data_strucuture/segment_add_get_min.test.cpp
+documentation_of: data-structure/li-chao-tree.hpp
 layout: document
 redirect_from:
-- /verify/test/aoj/DSL/DSL_1_A.test.cpp
-- /verify/test/aoj/DSL/DSL_1_A.test.cpp.html
-title: test/aoj/DSL/DSL_1_A.test.cpp
+- /library/data-structure/li-chao-tree.hpp
+- /library/data-structure/li-chao-tree.hpp.html
+title: data-structure/li-chao-tree.hpp
 ---
