@@ -15,7 +15,7 @@ struct LazySegmentTree{
   vector<U>lazy;
   vector<bool>lazy_flag;
   template<bool dummy=true,typename enable_if<!Monoid::has_mul_op<A>::value&&dummy>::type* = nullptr>
-  inline static T Aop(const U&a,const T&b,int sz){
+  inline static T Aop(const U&a,const T&b,int){
     return A::op(a,b);
   }
   template<bool dummy=true,typename enable_if<Monoid::has_mul_op<A>::value&&dummy>::type* = nullptr>
