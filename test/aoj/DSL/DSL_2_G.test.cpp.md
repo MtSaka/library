@@ -225,7 +225,7 @@ data:
     \ M::value_type;\n  using U=typename E::value_type;\n  int lg,n,size;\n  vector<T>data;\n\
     \  vector<U>lazy;\n  vector<bool>lazy_flag;\n  template<bool dummy=true,typename\
     \ enable_if<!Monoid::has_mul_op<A>::value&&dummy>::type* = nullptr>\n  inline\
-    \ static T Aop(const U&a,const T&b,int sz){\n    return A::op(a,b);\n  }\n  template<bool\
+    \ static T Aop(const U&a,const T&b,int){\n    return A::op(a,b);\n  }\n  template<bool\
     \ dummy=true,typename enable_if<Monoid::has_mul_op<A>::value&&dummy>::type* =\
     \ nullptr>\n  inline static T Aop(const U&a,const T&b,int sz){\n    return A::mul_op(a,sz,b);\n\
     \  }\n  void update(int k){data[k]=M::op(data[k<<1],data[k<<1^1]);}\n  void all_apply(int\
@@ -288,7 +288,7 @@ data:
   isVerificationFile: true
   path: test/aoj/DSL/DSL_2_G.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
+  timestamp: '2023-02-10 14:47:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_G.test.cpp
