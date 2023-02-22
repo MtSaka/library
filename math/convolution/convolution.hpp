@@ -140,7 +140,7 @@ vector<T>convolution(const vector<T>&a,const vector<T>&b){
   return convole(a,b);
 }
 
-template<unsigned int p=99824435>
+template<unsigned int p=998244353>
 vector<ll>convolution(const vector<ll>&a,const vector<ll>&b){
   const int sz1=a.size(),sz2=b.size();
   vector<ModInt<p>>a1(sz1),b1(sz2);
