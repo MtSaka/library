@@ -1,57 +1,57 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
   - icon: ':heavy_check_mark:'
     path: math/fps/subset-sum.hpp
     title: Count Subset Sum
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modular/montgomery-modint.hpp
     title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: string/run-length.hpp
     title: string/run-length.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -390,7 +390,7 @@ data:
     \ vector<T>&b){\n  constexpr unsigned int p=T::get_mod();\n  const unsigned int\
     \ sz1=a.size(),sz2=b.size();\n  if(sz1==0||sz2==0)return {};\n  if(sz1<=64||sz2<=64)return\
     \ convolution_naive(a,b);\n  if(sz1+sz2-1>((p-1)&(1-p)))return convolution_for_any_mod(a,b);\n\
-    \  return convole(a,b);\n}\n\ntemplate<unsigned int p=99824435>\nvector<ll>convolution(const\
+    \  return convole(a,b);\n}\n\ntemplate<unsigned int p=998244353>\nvector<ll>convolution(const\
     \ vector<ll>&a,const vector<ll>&b){\n  const int sz1=a.size(),sz2=b.size();\n\
     \  vector<ModInt<p>>a1(sz1),b1(sz2);\n  rep(i,sz1)a1[i]=a[i];\n  rep(i,sz2)b1[i]=b[i];\n\
     \  auto c1=convolution(a1,b1);\n  vector<ll>c(sz1+sz2-1);\n  rep(i,sz1+sz2-1)c[i]=c1[i].get();\n\
@@ -527,7 +527,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/math/sharp_p_subset_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
+  timestamp: '2023-02-22 22:41:29+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/math/sharp_p_subset_sum.test.cpp
