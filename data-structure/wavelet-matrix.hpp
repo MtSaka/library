@@ -75,7 +75,7 @@ struct WaveletMatrix{
   }
   int next_val(int l,int r,T x)const{
     int cnt=range_freq(l,r,x);
-    return (cnt==r-l?T(-1):kth_largest(l,r,cnt));
+    return (cnt==r-l?T(-1):kth_smallest(l,r,cnt));
   }
 };
 
