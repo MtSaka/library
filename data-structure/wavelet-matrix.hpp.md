@@ -4,25 +4,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/bit-vector.hpp
     title: Bit Vector
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
@@ -191,7 +191,7 @@ data:
     \ l,int r,T low,T high)const{return range_freq(l,r,high)-range_freq(l,r,low);}\n\
     \  int prev_val(int l,int r,T x)const{\n    int cnt=range_freq(l,r,x);\n    return\
     \ (cnt==0?T(-1):kth_smallest(l,r,cnt-1));\n  }\n  int next_val(int l,int r,T x)const{\n\
-    \    int cnt=range_freq(l,r,x);\n    return (cnt==r-l?T(-1):kth_largest(l,r,cnt));\n\
+    \    int cnt=range_freq(l,r,x);\n    return (cnt==r-l?T(-1):kth_smallest(l,r,cnt));\n\
     \  }\n};\n\ntemplate<typename T,int LOG>\nstruct CompressedWaveletMatrix{\n  private:\n\
     \  WaveletMatrix<int,LOG>w;\n  vector<T>v;\n  int get(const T&x)const{return lower_bound(v.begin(),v.end(),x)-v.begin();}\n\
     \  public:\n  CompressedWaveletMatrix(){}\n  CompressedWaveletMatrix(const vector<T>&x):v(x){\n\
@@ -233,7 +233,7 @@ data:
     \ l,int r,T low,T high)const{return range_freq(l,r,high)-range_freq(l,r,low);}\n\
     \  int prev_val(int l,int r,T x)const{\n    int cnt=range_freq(l,r,x);\n    return\
     \ (cnt==0?T(-1):kth_smallest(l,r,cnt-1));\n  }\n  int next_val(int l,int r,T x)const{\n\
-    \    int cnt=range_freq(l,r,x);\n    return (cnt==r-l?T(-1):kth_largest(l,r,cnt));\n\
+    \    int cnt=range_freq(l,r,x);\n    return (cnt==r-l?T(-1):kth_smallest(l,r,cnt));\n\
     \  }\n};\n\ntemplate<typename T,int LOG>\nstruct CompressedWaveletMatrix{\n  private:\n\
     \  WaveletMatrix<int,LOG>w;\n  vector<T>v;\n  int get(const T&x)const{return lower_bound(v.begin(),v.end(),x)-v.begin();}\n\
     \  public:\n  CompressedWaveletMatrix(){}\n  CompressedWaveletMatrix(const vector<T>&x):v(x){\n\
@@ -262,7 +262,7 @@ data:
   isVerificationFile: false
   path: data-structure/wavelet-matrix.hpp
   requiredBy: []
-  timestamp: '2023-01-18 00:28:06+09:00'
+  timestamp: '2023-03-17 00:01:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/range_kth_smallest.test.cpp
