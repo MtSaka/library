@@ -9,7 +9,7 @@ struct FormalPowerSeries:vector<mint>{
   private:
   static constexpr unsigned int p=mint::get_mod();
   public:
-  inline void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}
+  inline void shrink(){while(!(*this).size()==1&&(*this).back()==mint())(*this).pop_back();}
   FPS& dot(const FPS&r){
     rep(i,min((*this).size(),r.size()))(*this)[i]*=r[i];
     return *this;
