@@ -1,67 +1,67 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/taylor-shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/modular/montgomery-modint.hpp
     title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/others/combinatorics.hpp
     title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: string/run-length.hpp
     title: string/run-length.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/polynomial_taylor_shift
@@ -411,7 +411,7 @@ data:
     #line 4 \"math/fps/fps.hpp\"\n\ntemplate<typename mint=ModInt<998244353>>\nstruct\
     \ FormalPowerSeries:vector<mint>{\n  using vector<mint>::vector;\n  using FPS=FormalPowerSeries<mint>;\n\
     \  private:\n  static constexpr unsigned int p=mint::get_mod();\n  public:\n \
-    \ inline void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
+    \ inline void shrink(){while(!(*this).size()==1&&(*this).back()==mint())(*this).pop_back();}\n\
     \  FPS& dot(const FPS&r){\n    rep(i,min((*this).size(),r.size()))(*this)[i]*=r[i];\n\
     \    return *this;\n  }\n  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res(d);\n    res[0]=(*this)[0].inv();\n    for(int\
@@ -549,8 +549,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2023-02-22 22:41:29+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-05-27 23:43:30+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
 layout: document

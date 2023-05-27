@@ -4,25 +4,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: others/monoid.hpp
     title: others/monoid.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/debug.hpp
     title: template/debug.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/macro.hpp
     title: template/macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/type-traits.hpp
     title: template/type-traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
@@ -277,8 +277,8 @@ data:
   verifiedWith:
   - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
   - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
-  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - test/aoj/DSL/DSL_2_B.test.cpp
+  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
 documentation_of: data-structure/binary-indexed-tree.hpp
 layout: document
 redirect_from:
