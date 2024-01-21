@@ -33,7 +33,7 @@ struct Random{
   }
   template<typename Iter>
   void shuffle(const Iter&first,const Iter&last){
-    shuffle(first,last,rnd);
+    std::shuffle(first,last,rnd);
   }
   template<class T>
   vector<T>permutalion(T n){
