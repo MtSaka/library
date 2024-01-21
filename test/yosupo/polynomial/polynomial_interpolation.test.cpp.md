@@ -304,9 +304,9 @@ data:
     \  pair<T,T> uniform_pair(T l,T r){\n    T a,b;\n    do{\n      a=uniform<T>(l,r);\n\
     \      b=uniform<T>(l,r);\n    }while(a==b);\n    if(a>b)swap(a,b);\n    return\
     \ {a,b};\n  }\n  template<typename Iter>\n  void shuffle(const Iter&first,const\
-    \ Iter&last){\n    shuffle(first,last,rnd);\n  }\n  template<class T>\n  vector<T>permutalion(T\
-    \ n){\n    static_assert(is_integral<T>::value,\"template argument must be an\
-    \ integral type\");\n    vector<T>res(n);\n    iota(res.begin(),res.end(),T());\n\
+    \ Iter&last){\n    std::shuffle(first,last,rnd);\n  }\n  template<class T>\n \
+    \ vector<T>permutalion(T n){\n    static_assert(is_integral<T>::value,\"template\
+    \ argument must be an integral type\");\n    vector<T>res(n);\n    iota(res.begin(),res.end(),T());\n\
     \    shuffle(all(res));\n    return res;\n  }\n};\nusing Random32=Random<mt19937>;\n\
     using Random64=Random<mt19937_64>;\nRandom32 rand32;\nRandom64 rand64;\n/**\n\
     \ * @brief Random(\u4E71\u6570)\n*/\n#line 3 \"string/run-length.hpp\"\n\ntemplate<typename\
@@ -527,7 +527,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/polynomial_interpolation.test.cpp
   requiredBy: []
-  timestamp: '2023-05-27 23:43:30+09:00'
+  timestamp: '2024-01-21 16:52:15+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/polynomial_interpolation.test.cpp

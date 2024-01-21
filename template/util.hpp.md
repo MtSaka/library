@@ -624,182 +624,182 @@ data:
   isVerificationFile: false
   path: template/util.hpp
   requiredBy:
-  - geometry/geometry.hpp
+  - data-structure/union-find.hpp
+  - data-structure/dual-segment-tree.hpp
+  - data-structure/bit-vector.hpp
+  - data-structure/binary-trie.hpp
+  - data-structure/lazy-segment-tree.hpp
+  - data-structure/inversion.hpp
+  - data-structure/persistent-array.hpp
+  - data-structure/binary-indexed-tree.hpp
+  - data-structure/rollback-union-find.hpp
+  - data-structure/convex-hull-trick.hpp
+  - data-structure/dynamic-segment-tree.hpp
+  - data-structure/segment-tree-beats.hpp
+  - data-structure/hash-set.hpp
+  - data-structure/persistent-union-find.hpp
+  - data-structure/weighted-union-find.hpp
+  - data-structure/sparse-table.hpp
+  - data-structure/hash-map.hpp
+  - data-structure/disjoint-sparse-table.hpp
+  - data-structure/segment-tree.hpp
+  - data-structure/li-chao-tree.hpp
+  - data-structure/wavelet-matrix.hpp
+  - math/fps/fps.hpp
+  - math/fps/multipoint-evaluation.hpp
+  - math/fps/polynomial-interpolation.hpp
+  - math/fps/taylor-shift.hpp
+  - math/fps/subset-sum.hpp
+  - math/convolution/fft.hpp
+  - math/convolution/gcd-convolution.hpp
+  - math/convolution/lcm-convolution.hpp
+  - math/convolution/convolution.hpp
+  - math/modular/modint.hpp
+  - math/modular/mod-log.hpp
   - math/modular/mod-sqrt.hpp
   - math/modular/montgomery-modint.hpp
-  - math/modular/mod-log.hpp
-  - math/modular/modint.hpp
-  - math/convolution/gcd-convolution.hpp
-  - math/convolution/fft.hpp
-  - math/convolution/convolution.hpp
-  - math/convolution/lcm-convolution.hpp
-  - math/fps/subset-sum.hpp
-  - math/fps/multipoint-evaluation.hpp
-  - math/fps/taylor-shift.hpp
-  - math/fps/fps.hpp
-  - math/fps/polynomial-interpolation.hpp
-  - math/others/rational.hpp
-  - math/others/matrix.hpp
-  - math/others/combinatorics.hpp
-  - math/others/lagrange.hpp
-  - math/number/kth-root-integer.hpp
-  - math/number/prime-factor.hpp
-  - math/number/phi.hpp
-  - math/number/miller-rabin.hpp
   - math/number/factor.hpp
-  - math/number/factor-cnt.hpp
+  - math/number/kth-root-integer.hpp
   - math/number/prime-sieve.hpp
   - math/number/primitive-root.hpp
-  - math/number/range-prime-sieve.hpp
-  - math/number/quotient-ranges.hpp
+  - math/number/phi.hpp
+  - math/number/miller-rabin.hpp
   - math/number/pollard-rho.hpp
+  - math/number/range-prime-sieve.hpp
+  - math/number/prime-factor.hpp
+  - math/number/quotient-ranges.hpp
+  - math/number/factor-cnt.hpp
+  - math/others/rational.hpp
+  - math/others/lagrange.hpp
+  - math/others/combinatorics.hpp
+  - math/others/matrix.hpp
+  - template/template.hpp
+  - dynamic-programming/longest-increasing-subsequence.hpp
   - dynamic-programming/longest-common-subsequence.hpp
   - dynamic-programming/count-subsequences.hpp
-  - dynamic-programming/longest-increasing-subsequence.hpp
-  - data-structure/binary-trie.hpp
-  - data-structure/binary-indexed-tree.hpp
-  - data-structure/segment-tree-beats.hpp
-  - data-structure/bit-vector.hpp
-  - data-structure/inversion.hpp
-  - data-structure/hash-set.hpp
-  - data-structure/rollback-union-find.hpp
-  - data-structure/dual-segment-tree.hpp
-  - data-structure/union-find.hpp
-  - data-structure/lazy-segment-tree.hpp
-  - data-structure/hash-map.hpp
-  - data-structure/sparse-table.hpp
-  - data-structure/li-chao-tree.hpp
-  - data-structure/segment-tree.hpp
-  - data-structure/persistent-union-find.hpp
-  - data-structure/persistent-array.hpp
-  - data-structure/wavelet-matrix.hpp
-  - data-structure/weighted-union-find.hpp
-  - data-structure/dynamic-segment-tree.hpp
-  - data-structure/disjoint-sparse-table.hpp
-  - data-structure/convex-hull-trick.hpp
-  - others/monoid.hpp
   - others/random.hpp
-  - others/mo.hpp
-  - others/timer.hpp
+  - others/monoid.hpp
   - others/monoid2.hpp
-  - template/template.hpp
+  - others/timer.hpp
+  - others/mo.hpp
   - graph/graph-template.hpp
-  - graph/tree/RMQ_lowest_common_ancestor.hpp
-  - graph/tree/tree-diameter.hpp
-  - graph/tree/centroid.hpp
-  - graph/tree/doubling-lowest-common-ancestor.hpp
-  - graph/tree/rerooting.hpp
-  - graph/flow/dinic.hpp
-  - graph/others/two-sat.hpp
-  - graph/others/scc.hpp
-  - graph/others/detect-cycle.hpp
-  - graph/others/topological-sort.hpp
-  - graph/shortest-path/warshall-floyd.hpp
-  - graph/shortest-path/dijkstra.hpp
   - graph/shortest-path/bellman-ford.hpp
   - graph/shortest-path/dijkstra-path.hpp
-  - graph/mst/kruskal.hpp
+  - graph/shortest-path/dijkstra.hpp
+  - graph/shortest-path/warshall-floyd.hpp
+  - graph/flow/dinic.hpp
+  - graph/others/detect-cycle.hpp
+  - graph/others/two-sat.hpp
+  - graph/others/topological-sort.hpp
+  - graph/others/scc.hpp
+  - graph/tree/RMQ_lowest_common_ancestor.hpp
+  - graph/tree/rerooting.hpp
+  - graph/tree/doubling-lowest-common-ancestor.hpp
+  - graph/tree/centroid.hpp
+  - graph/tree/tree-diameter.hpp
   - graph/mst/prim.hpp
+  - graph/mst/kruskal.hpp
+  - geometry/geometry.hpp
   - string/rolling-hash.hpp
   - string/run-length.hpp
   timestamp: '2023-01-18 00:28:06+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yukicoder/3030.test.cpp
-  - test/yukicoder/1469.test.cpp
-  - test/yukicoder/1435.test.cpp
-  - test/yukicoder/1236.test.cpp
-  - test/yosupo/tree/tree_diameter.test.cpp
-  - test/yosupo/tree/lca1.test.cpp
-  - test/yosupo/tree/lca2.test.cpp
-  - test/yosupo/convolution/convolution_mod_1000000007.test.cpp
-  - test/yosupo/convolution/lcm_convolution.test.cpp
-  - test/yosupo/convolution/convolution_mod.test.cpp
-  - test/yosupo/convolution/gcd_convolution.test.cpp
-  - test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial/division_of_polynomials.test.cpp
-  - test/yosupo/polynomial/log_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial/multipoint_evaluation.test.cpp
-  - test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
-  - test/yosupo/polynomial/polynomial_interpolation.test.cpp
-  - test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/math/factorize.test.cpp
-  - test/yosupo/math/kth_root_integer.test.cpp
+  - test/yosupo/matrix/matrix_product.test.cpp
+  - test/yosupo/matrix/matrix_det.test.cpp
   - test/yosupo/math/two_sat.test.cpp
-  - test/yosupo/math/discrete-logarithm-mod.test.cpp
+  - test/yosupo/math/kth_root_integer.test.cpp
   - test/yosupo/math/sharp_p_subset_sum.test.cpp
   - test/yosupo/math/sqrt_mod.test.cpp
+  - test/yosupo/math/discrete-logarithm-mod.test.cpp
+  - test/yosupo/math/factorize.test.cpp
+  - test/yosupo/convolution/convolution_mod.test.cpp
+  - test/yosupo/convolution/convolution_mod_1000000007.test.cpp
+  - test/yosupo/convolution/gcd_convolution.test.cpp
+  - test/yosupo/convolution/lcm_convolution.test.cpp
+  - test/yosupo/data_strucuture/associative_array.test.cpp
+  - test/yosupo/data_strucuture/segment_add_get_min.test.cpp
+  - test/yosupo/data_strucuture/persistent_unionfind.test.cpp
+  - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
+  - test/yosupo/data_strucuture/static_range_sum.test.cpp
+  - test/yosupo/data_strucuture/unionfind.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
+  - test/yosupo/data_strucuture/set_xor_min.test.cpp
+  - test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
+  - test/yosupo/data_strucuture/range_kth_smallest.test.cpp
+  - test/yosupo/data_strucuture/staticrmq.test.cpp
+  - test/yosupo/data_strucuture/line_add_get_min.test.cpp
+  - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
+  - test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
+  - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+  - test/yosupo/data_strucuture/staticrmq2.test.cpp
+  - test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
+  - test/yosupo/polynomial/log_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/division_of_polynomials.test.cpp
+  - test/yosupo/polynomial/multipoint_evaluation.test.cpp
+  - test/yosupo/polynomial/polynomial_interpolation.test.cpp
+  - test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
+  - test/yosupo/tree/lca2.test.cpp
+  - test/yosupo/tree/lca1.test.cpp
+  - test/yosupo/tree/tree_diameter.test.cpp
   - test/yosupo/graph/scc.test.cpp
   - test/yosupo/graph/shortest_path.test.cpp
   - test/yosupo/string/zalgorithm.test.cpp
-  - test/yosupo/data_strucuture/line_add_get_min.test.cpp
-  - test/yosupo/data_strucuture/persistent_unionfind.test.cpp
-  - test/yosupo/data_strucuture/associative_array.test.cpp
-  - test/yosupo/data_strucuture/static_range_sum.test.cpp
-  - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
-  - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
-  - test/yosupo/data_strucuture/staticrmq2.test.cpp
-  - test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
-  - test/yosupo/data_strucuture/range_kth_smallest.test.cpp
-  - test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
-  - test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
-  - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
-  - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
-  - test/yosupo/data_strucuture/staticrmq.test.cpp
-  - test/yosupo/data_strucuture/set_xor_min.test.cpp
-  - test/yosupo/data_strucuture/unionfind.test.cpp
-  - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
-  - test/yosupo/data_strucuture/segment_add_get_min.test.cpp
-  - test/yosupo/matrix/matrix_product.test.cpp
-  - test/yosupo/matrix/matrix_det.test.cpp
-  - test/aoj/NTL/NTL_1_A.test.cpp
-  - test/aoj/NTL/NTL_1_C.test.cpp
-  - test/aoj/NTL/NTL_1_D.test.cpp
-  - test/aoj/NTL/NTL_1_B.test.cpp
-  - test/aoj/DSL/DSL_2_B2.test.cpp
-  - test/aoj/DSL/DSL_2_I.test.cpp
-  - test/aoj/DSL/DSL_2_D.test.cpp
-  - test/aoj/DSL/DSL_2_F.test.cpp
-  - test/aoj/DSL/DSL_2_E.test.cpp
-  - test/aoj/DSL/DSL_2_G.test.cpp
-  - test/aoj/DSL/DSL_1_B.test.cpp
-  - test/aoj/DSL/DSL_1_A.test.cpp
-  - test/aoj/DSL/DSL_2_H.test.cpp
-  - test/aoj/DSL/DSL_2_B.test.cpp
-  - test/aoj/DSL/DSL_2_A.test.cpp
-  - test/aoj/ALDS1/ALDS1_14_B.test.cpp
-  - test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
-  - test/aoj/ALDS1/ALDS1_10_C.test.cpp
-  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
-  - test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
-  - test/aoj/CGL/CGL_1_C.test.cpp
-  - test/aoj/CGL/CGL_1_A.test.cpp
-  - test/aoj/CGL/CGL_2_C.test.cpp
-  - test/aoj/CGL/CGL_3_A.test.cpp
   - test/aoj/CGL/CGL_3_B.test.cpp
-  - test/aoj/CGL/CGL_1_B.test.cpp
-  - test/aoj/CGL/CGL_3_C.test.cpp
-  - test/aoj/CGL/CGL_2_D.test.cpp
-  - test/aoj/CGL/CGL_2_B.test.cpp
   - test/aoj/CGL/CGL_2_A.test.cpp
-  - test/aoj/GRL/GRL_5_B.test.cpp
+  - test/aoj/CGL/CGL_1_A.test.cpp
+  - test/aoj/CGL/CGL_2_B.test.cpp
+  - test/aoj/CGL/CGL_2_C.test.cpp
+  - test/aoj/CGL/CGL_1_B.test.cpp
+  - test/aoj/CGL/CGL_2_D.test.cpp
+  - test/aoj/CGL/CGL_3_C.test.cpp
+  - test/aoj/CGL/CGL_1_C.test.cpp
+  - test/aoj/CGL/CGL_3_A.test.cpp
+  - test/aoj/GRL/GRL_5_C_2.test.cpp
   - test/aoj/GRL/GRL_4_A.test.cpp
-  - test/aoj/GRL/GRL_4_B.test.cpp
-  - test/aoj/GRL/GRL_1_A.test.cpp
+  - test/aoj/GRL/GRL_6_A_2.test.cpp
   - test/aoj/GRL/GRL_3_C.test.cpp
-  - test/aoj/GRL/GRL_1_C.test.cpp
   - test/aoj/GRL/GRL_2_A_2.test.cpp
+  - test/aoj/GRL/GRL_5_B.test.cpp
+  - test/aoj/GRL/GRL_1_A.test.cpp
+  - test/aoj/GRL/GRL_2_A.test.cpp
+  - test/aoj/GRL/GRL_5_A.test.cpp
+  - test/aoj/GRL/GRL_5_C_1.test.cpp
+  - test/aoj/GRL/GRL_1_C.test.cpp
   - test/aoj/GRL/GRL_6_A.test.cpp
   - test/aoj/GRL/GRL_1_B.test.cpp
-  - test/aoj/GRL/GRL_6_A_2.test.cpp
-  - test/aoj/GRL/GRL_5_C_1.test.cpp
-  - test/aoj/GRL/GRL_5_C_2.test.cpp
-  - test/aoj/GRL/GRL_5_A.test.cpp
-  - test/aoj/GRL/GRL_2_A.test.cpp
+  - test/aoj/GRL/GRL_4_B.test.cpp
+  - test/aoj/DSL/DSL_2_B2.test.cpp
+  - test/aoj/DSL/DSL_2_H.test.cpp
+  - test/aoj/DSL/DSL_2_E.test.cpp
+  - test/aoj/DSL/DSL_2_A.test.cpp
+  - test/aoj/DSL/DSL_2_F.test.cpp
+  - test/aoj/DSL/DSL_1_B.test.cpp
+  - test/aoj/DSL/DSL_2_B.test.cpp
+  - test/aoj/DSL/DSL_2_G.test.cpp
+  - test/aoj/DSL/DSL_2_D.test.cpp
+  - test/aoj/DSL/DSL_1_A.test.cpp
+  - test/aoj/DSL/DSL_2_I.test.cpp
+  - test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
+  - test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
+  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
+  - test/aoj/ALDS1/ALDS1_10_C.test.cpp
+  - test/aoj/ALDS1/ALDS1_14_B.test.cpp
+  - test/aoj/NTL/NTL_1_D.test.cpp
+  - test/aoj/NTL/NTL_1_C.test.cpp
+  - test/aoj/NTL/NTL_1_B.test.cpp
+  - test/aoj/NTL/NTL_1_A.test.cpp
   - test/aoj/DPL/DPL_1_D.test.cpp
   - test/aoj/ITP1/ITP1_3_D.test.cpp
+  - test/yukicoder/1469.test.cpp
+  - test/yukicoder/1236.test.cpp
+  - test/yukicoder/3030.test.cpp
+  - test/yukicoder/1435.test.cpp
 documentation_of: template/util.hpp
 layout: document
 redirect_from:

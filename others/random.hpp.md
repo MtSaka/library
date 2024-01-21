@@ -230,9 +230,9 @@ data:
     \  pair<T,T> uniform_pair(T l,T r){\n    T a,b;\n    do{\n      a=uniform<T>(l,r);\n\
     \      b=uniform<T>(l,r);\n    }while(a==b);\n    if(a>b)swap(a,b);\n    return\
     \ {a,b};\n  }\n  template<typename Iter>\n  void shuffle(const Iter&first,const\
-    \ Iter&last){\n    shuffle(first,last,rnd);\n  }\n  template<class T>\n  vector<T>permutalion(T\
-    \ n){\n    static_assert(is_integral<T>::value,\"template argument must be an\
-    \ integral type\");\n    vector<T>res(n);\n    iota(res.begin(),res.end(),T());\n\
+    \ Iter&last){\n    std::shuffle(first,last,rnd);\n  }\n  template<class T>\n \
+    \ vector<T>permutalion(T n){\n    static_assert(is_integral<T>::value,\"template\
+    \ argument must be an integral type\");\n    vector<T>res(n);\n    iota(res.begin(),res.end(),T());\n\
     \    shuffle(all(res));\n    return res;\n  }\n};\nusing Random32=Random<mt19937>;\n\
     using Random64=Random<mt19937_64>;\nRandom32 rand32;\nRandom64 rand64;\n/**\n\
     \ * @brief Random(\u4E71\u6570)\n*/\n"
@@ -249,9 +249,9 @@ data:
     \  pair<T,T> uniform_pair(T l,T r){\n    T a,b;\n    do{\n      a=uniform<T>(l,r);\n\
     \      b=uniform<T>(l,r);\n    }while(a==b);\n    if(a>b)swap(a,b);\n    return\
     \ {a,b};\n  }\n  template<typename Iter>\n  void shuffle(const Iter&first,const\
-    \ Iter&last){\n    shuffle(first,last,rnd);\n  }\n  template<class T>\n  vector<T>permutalion(T\
-    \ n){\n    static_assert(is_integral<T>::value,\"template argument must be an\
-    \ integral type\");\n    vector<T>res(n);\n    iota(res.begin(),res.end(),T());\n\
+    \ Iter&last){\n    std::shuffle(first,last,rnd);\n  }\n  template<class T>\n \
+    \ vector<T>permutalion(T n){\n    static_assert(is_integral<T>::value,\"template\
+    \ argument must be an integral type\");\n    vector<T>res(n);\n    iota(res.begin(),res.end(),T());\n\
     \    shuffle(all(res));\n    return res;\n  }\n};\nusing Random32=Random<mt19937>;\n\
     using Random64=Random<mt19937_64>;\nRandom32 rand32;\nRandom64 rand64;\n/**\n\
     \ * @brief Random(\u4E71\u6570)\n*/"
@@ -266,30 +266,30 @@ data:
   isVerificationFile: false
   path: others/random.hpp
   requiredBy:
-  - math/convolution/convolution.hpp
-  - math/fps/subset-sum.hpp
-  - math/fps/multipoint-evaluation.hpp
-  - math/fps/taylor-shift.hpp
   - math/fps/fps.hpp
+  - math/fps/multipoint-evaluation.hpp
   - math/fps/polynomial-interpolation.hpp
+  - math/fps/taylor-shift.hpp
+  - math/fps/subset-sum.hpp
+  - math/convolution/convolution.hpp
   - math/number/primitive-root.hpp
   - math/number/pollard-rho.hpp
-  timestamp: '2023-01-18 00:28:06+09:00'
+  timestamp: '2024-01-21 16:52:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yosupo/convolution/convolution_mod_1000000007.test.cpp
-  - test/yosupo/convolution/convolution_mod.test.cpp
-  - test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial/division_of_polynomials.test.cpp
-  - test/yosupo/polynomial/log_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial/multipoint_evaluation.test.cpp
-  - test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
-  - test/yosupo/polynomial/polynomial_interpolation.test.cpp
-  - test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
-  - test/yosupo/math/factorize.test.cpp
   - test/yosupo/math/sharp_p_subset_sum.test.cpp
+  - test/yosupo/math/factorize.test.cpp
+  - test/yosupo/convolution/convolution_mod.test.cpp
+  - test/yosupo/convolution/convolution_mod_1000000007.test.cpp
+  - test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
+  - test/yosupo/polynomial/log_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/division_of_polynomials.test.cpp
+  - test/yosupo/polynomial/multipoint_evaluation.test.cpp
+  - test/yosupo/polynomial/polynomial_interpolation.test.cpp
+  - test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
 documentation_of: others/random.hpp
 layout: document
 redirect_from:

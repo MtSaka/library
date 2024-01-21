@@ -201,8 +201,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/unionfind.test.cpp
-  - test/aoj/DSL/DSL_1_A.test.cpp
   - test/aoj/GRL/GRL_2_A.test.cpp
+  - test/aoj/DSL/DSL_1_A.test.cpp
 documentation_of: data-structure/union-find.hpp
 layout: document
 redirect_from:

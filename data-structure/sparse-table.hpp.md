@@ -267,8 +267,8 @@ data:
   timestamp: '2023-01-18 00:28:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/tree/lca2.test.cpp
   - test/yosupo/data_strucuture/staticrmq.test.cpp
+  - test/yosupo/tree/lca2.test.cpp
   - test/aoj/GRL/GRL_5_C_2.test.cpp
 documentation_of: data-structure/sparse-table.hpp
 layout: document

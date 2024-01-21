@@ -339,10 +339,10 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
-  - test/aoj/DSL/DSL_2_I.test.cpp
+  - test/aoj/DSL/DSL_2_H.test.cpp
   - test/aoj/DSL/DSL_2_F.test.cpp
   - test/aoj/DSL/DSL_2_G.test.cpp
-  - test/aoj/DSL/DSL_2_H.test.cpp
+  - test/aoj/DSL/DSL_2_I.test.cpp
 documentation_of: data-structure/lazy-segment-tree.hpp
 layout: document
 redirect_from:
