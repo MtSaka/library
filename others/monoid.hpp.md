@@ -23,10 +23,10 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data-structure/binary-indexed-tree.hpp
     title: Binary Indexed Tree(Fenwick Tree, BIT)
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data-structure/disjoint-sparse-table.hpp
     title: data-structure/disjoint-sparse-table.hpp
   - icon: ':heavy_check_mark:'
@@ -35,19 +35,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: data-structure/inversion.hpp
     title: "Inversion Number(\u8EE2\u5012\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data-structure/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data-structure/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data-structure/sparse-table.hpp
     title: Sparse Table
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: others/monoid2.hpp
     title: others/monoid2.hpp
   _extendedVerifiedWith:
@@ -81,42 +81,42 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_I.test.cpp
     title: test/aoj/DSL/DSL_2_I.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
     title: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
     title: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
     title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
     title: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
     title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/data_strucuture/static_range_sum.test.cpp
     title: test/yosupo/data_strucuture/static_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/data_strucuture/staticrmq.test.cpp
     title: test/yosupo/data_strucuture/staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/data_strucuture/staticrmq2.test.cpp
     title: test/yosupo/data_strucuture/staticrmq2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/tree/lca2.test.cpp
     title: test/yosupo/tree/lca2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1435.test.cpp
     title: test/yukicoder/1435.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
@@ -140,7 +140,7 @@ data:
     \  static constexpr T value=std::numeric_limits<T>::max()/2;\n  static constexpr\
     \ T mvalue=std::numeric_limits<T>::min()/2;\n};\ntemplate<typename T>constexpr\
     \ T INF=infinity<T>::value;\nconstexpr ll inf=INF<ll>;\nconstexpr ld EPS=1e-8;\n\
-    constexpr ld PI=3.1415926535897932384626;\nconstexpr int dx[8]={1,0,-1,0,1,-1,-1,1};\n\
+    constexpr ld PI=3.1415926535897932384626;\nconstexpr int dx[8]={-1,0,1,0,1,-1,-1,1};\n\
     constexpr int dy[8]={0,1,0,-1,1,1,-1,-1};\n#line 5 \"template/func.hpp\"\n\ninline\
     \ constexpr int msb(ull x){\n  int res=x?0:-1;\n  if(x&0xffffffff00000000)x&=0xffffffff00000000,res+=32;\n\
     \  if(x&0xffff0000ffff0000)x&=0xffff0000ffff0000,res+=16;\n  if(x&0xff00ff00ff00ff00)x&=0xff00ff00ff00ff00,res+=8;\n\
@@ -367,39 +367,39 @@ data:
   isVerificationFile: false
   path: others/monoid.hpp
   requiredBy:
-  - data-structure/dual-segment-tree.hpp
-  - data-structure/lazy-segment-tree.hpp
-  - data-structure/inversion.hpp
-  - data-structure/binary-indexed-tree.hpp
-  - data-structure/sparse-table.hpp
-  - data-structure/disjoint-sparse-table.hpp
-  - data-structure/segment-tree.hpp
   - others/monoid2.hpp
+  - data-structure/dual-segment-tree.hpp
+  - data-structure/disjoint-sparse-table.hpp
+  - data-structure/sparse-table.hpp
+  - data-structure/inversion.hpp
+  - data-structure/lazy-segment-tree.hpp
+  - data-structure/binary-indexed-tree.hpp
+  - data-structure/segment-tree.hpp
   - graph/tree/RMQ_lowest_common_ancestor.hpp
-  timestamp: '2023-01-18 00:28:06+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-02-04 11:21:20+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
-  - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
-  - test/yosupo/data_strucuture/static_range_sum.test.cpp
-  - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
-  - test/yosupo/data_strucuture/staticrmq.test.cpp
-  - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
-  - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
-  - test/yosupo/data_strucuture/staticrmq2.test.cpp
-  - test/yosupo/tree/lca2.test.cpp
+  - test/yukicoder/1435.test.cpp
   - test/aoj/GRL/GRL_5_C_2.test.cpp
-  - test/aoj/DSL/DSL_2_B2.test.cpp
-  - test/aoj/DSL/DSL_2_H.test.cpp
+  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - test/aoj/DSL/DSL_2_E.test.cpp
   - test/aoj/DSL/DSL_2_A.test.cpp
   - test/aoj/DSL/DSL_2_F.test.cpp
-  - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/DSL/DSL_2_G.test.cpp
+  - test/aoj/DSL/DSL_2_B2.test.cpp
   - test/aoj/DSL/DSL_2_D.test.cpp
+  - test/aoj/DSL/DSL_2_B.test.cpp
   - test/aoj/DSL/DSL_2_I.test.cpp
-  - test/aoj/ALDS1/ALDS1_5_D.test.cpp
-  - test/yukicoder/1435.test.cpp
+  - test/aoj/DSL/DSL_2_H.test.cpp
+  - test/yosupo/data_strucuture/staticrmq.test.cpp
+  - test/yosupo/data_strucuture/static_range_sum.test.cpp
+  - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+  - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+  - test/yosupo/data_strucuture/staticrmq2.test.cpp
+  - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
+  - test/yosupo/tree/lca2.test.cpp
 documentation_of: others/monoid.hpp
 layout: document
 redirect_from:
