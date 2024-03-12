@@ -308,8 +308,8 @@ data:
   timestamp: '2024-02-04 11:21:20+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/DSL/DSL_2_E.test.cpp
   - test/aoj/DSL/DSL_2_D.test.cpp
+  - test/aoj/DSL/DSL_2_E.test.cpp
 documentation_of: data-structure/dual-segment-tree.hpp
 layout: document
 redirect_from:

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
   - icon: ':x:'
@@ -10,27 +10,27 @@ data:
   - icon: ':x:'
     path: math/modular/mod-sqrt.hpp
     title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/montgomery-modint.hpp
     title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: string/run-length.hpp
     title: string/run-length.hpp
   - icon: ':question:'

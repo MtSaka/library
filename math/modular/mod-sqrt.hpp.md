@@ -192,8 +192,8 @@ data:
   timestamp: '2024-02-04 11:21:20+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/math/sqrt_mod.test.cpp
   - test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/math/sqrt_mod.test.cpp
 documentation_of: math/modular/mod-sqrt.hpp
 layout: document
 redirect_from:

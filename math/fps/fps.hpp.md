@@ -1,30 +1,30 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/montgomery-modint.hpp
     title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: string/run-length.hpp
     title: string/run-length.hpp
   - icon: ':question:'
@@ -629,23 +629,23 @@ data:
   isVerificationFile: false
   path: math/fps/fps.hpp
   requiredBy:
-  - math/fps/polynomial-interpolation.hpp
-  - math/fps/multipoint-evaluation.hpp
   - math/fps/taylor-shift.hpp
   - math/fps/subset-sum.hpp
+  - math/fps/polynomial-interpolation.hpp
+  - math/fps/multipoint-evaluation.hpp
   timestamp: '2024-02-04 11:21:20+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/math/sharp_p_subset_sum.test.cpp
-  - test/yosupo/polynomial/polynomial_interpolation.test.cpp
-  - test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial/multipoint_evaluation.test.cpp
-  - test/yosupo/polynomial/log_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
-  - test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
-  - test/yosupo/polynomial/division_of_polynomials.test.cpp
   - test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
   - test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/division_of_polynomials.test.cpp
+  - test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/multipoint_evaluation.test.cpp
+  - test/yosupo/polynomial/log_of_formal_power_series.test.cpp
+  - test/yosupo/polynomial/polynomial_interpolation.test.cpp
+  - test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
+  - test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
+  - test/yosupo/math/sharp_p_subset_sum.test.cpp
 documentation_of: math/fps/fps.hpp
 layout: document
 redirect_from:

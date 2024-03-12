@@ -27,7 +27,7 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_A.test.cpp
     title: test/aoj/GRL/GRL_5_A.test.cpp
   - icon: ':x:'
@@ -35,7 +35,7 @@ data:
     title: test/yosupo/tree/tree_diameter.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
     links: []
@@ -216,7 +216,7 @@ data:
   path: graph/tree/tree-diameter.hpp
   requiredBy: []
   timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/GRL/GRL_5_A.test.cpp
   - test/yosupo/tree/tree_diameter.test.cpp

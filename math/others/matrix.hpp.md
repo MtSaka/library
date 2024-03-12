@@ -235,8 +235,8 @@ data:
   timestamp: '2024-02-04 11:21:20+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yosupo/matrix/matrix_det.test.cpp
   - test/yosupo/matrix/matrix_product.test.cpp
+  - test/yosupo/matrix/matrix_det.test.cpp
 documentation_of: math/others/matrix.hpp
 layout: document
 redirect_from:

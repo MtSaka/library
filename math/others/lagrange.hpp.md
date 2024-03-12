@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/modular/modint.hpp
     title: ModInt
   - icon: ':x:'
@@ -201,19 +201,19 @@ data:
     \    return is;\n  }\n};\ntemplate<unsigned int p>using ModInt=StaticModInt<unsigned\
     \ int,p>;\n/**\n * @brief ModInt\n*/\n#line 4 \"math/others/combinatorics.hpp\"\
     \n\ntemplate<typename T>\nstruct Combinatorics{\n  private:\n  static vector<T>dat,idat;\n\
-    \  inline static void extend(int sz){\n    if((int)dat.size()<sz+1){\n      int\
-    \ pre_sz=dat.size();\n      dat.resize(sz+1,1);\n      idat.resize(sz+1,1);\n\
-    \      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n      idat[sz]=T(1)/dat[sz];\n\
-    \      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n    }\n  }\n  public:\n\
-    \  Combinatorics(int sz=0){extend(sz);}\n  static inline T fac(ll n){\n    if(n<0)return\
-    \ T();\n    extend(n);\n    return dat[n];\n  }\n  static inline T finv(ll n){\n\
-    \    if(n<0)return T();\n    extend(n);\n    return idat[n];\n  }\n  static T\
-    \ com(ll n,ll k){\n    if(k<0||n<k)return T();\n    return fac(n)*finv(k)*finv(n-k);\n\
-    \  }\n  static T hom(ll n,ll k){\n    if(n<0||k<0)return T();\n    return k==0?1:com(n+k-1,k);\n\
-    \  }\n  static T per(ll n,ll k){\n    if(k<0||n<k)return T();\n    return fac(n)*finv(n-k);\n\
-    \  }\n};\ntemplate<typename T>\nvector<T>Combinatorics<T>::dat=vector<T>{1,1};\n\
-    template<typename T>\nvector<T>Combinatorics<T>::idat=vector<T>{1,1};\ntemplate<long\
-    \ long p>\nstruct COMB{\n  private:\n  static vector<vector<ModInt<p>>>comb;\n\
+    \  inline static void extend(int sz){\n    if(dat.size()==0)dat=vector<T>(2,1),idat=vector<T>(2,1);\n\
+    \    if((int)dat.size()<sz+1){\n      int pre_sz=dat.size();\n      dat.resize(sz+1,1);\n\
+    \      idat.resize(sz+1,1);\n      for(int i=pre_sz;i<=sz;i++)dat[i]=dat[i-1]*i;\n\
+    \      idat[sz]=T(1)/dat[sz];\n      for(int i=sz-1;i>=pre_sz;i--)idat[i]=idat[i+1]*(i+1);\n\
+    \    }\n  }\n  public:\n  Combinatorics(int sz=0){extend(sz);}\n  static inline\
+    \ T fac(ll n){\n    if(n<0)return T();\n    extend(n);\n    return dat[n];\n \
+    \ }\n  static inline T finv(ll n){\n    if(n<0)return T();\n    extend(n);\n \
+    \   return idat[n];\n  }\n  static T com(ll n,ll k){\n    if(k<0||n<k)return T();\n\
+    \    return fac(n)*finv(k)*finv(n-k);\n  }\n  static T hom(ll n,ll k){\n    if(n<0||k<0)return\
+    \ T();\n    return k==0?1:com(n+k-1,k);\n  }\n  static T per(ll n,ll k){\n   \
+    \ if(k<0||n<k)return T();\n    return fac(n)*finv(n-k);\n  }\n};\ntemplate<typename\
+    \ T>\nvector<T>Combinatorics<T>::dat=vector<T>(2,1);\ntemplate<typename T>\nvector<T>Combinatorics<T>::idat=vector<T>(2,1);\n\
+    template<long long p>\nstruct COMB{\n  private:\n  static vector<vector<ModInt<p>>>comb;\n\
     \  static void init(){\n    if(!comb.empty())return;\n    comb.assign(p,vector<ModInt<p>>(p));\n\
     \    comb[0][0]=1;\n    for(int i=1;i<p;i++){\n      comb[i][0]=1;\n      for(int\
     \ j=i;j>0;j--)comb[i][j]=comb[i-1][j-1]+comb[i-1][j];\n    }\n  }\n  public:\n\
@@ -249,7 +249,7 @@ data:
   isVerificationFile: false
   path: math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2024-02-04 11:21:20+09:00'
+  timestamp: '2024-03-12 15:32:53+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/others/lagrange.hpp
