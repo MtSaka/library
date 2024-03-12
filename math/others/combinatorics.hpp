@@ -7,6 +7,7 @@ struct Combinatorics{
   private:
   static vector<T>dat,idat;
   inline static void extend(int sz){
+    if(dat.size()==0)dat=vector<T>(2,1),idat=vector<T>(2,1);
     if((int)dat.size()<sz+1){
       int pre_sz=dat.size();
       dat.resize(sz+1,1);
@@ -42,9 +43,9 @@ struct Combinatorics{
   }
 };
 template<typename T>
-vector<T>Combinatorics<T>::dat=vector<T>{1,1};
+vector<T>Combinatorics<T>::dat=vector<T>(2,1);
 template<typename T>
-vector<T>Combinatorics<T>::idat=vector<T>{1,1};
+vector<T>Combinatorics<T>::idat=vector<T>(2,1);
 template<long long p>
 struct COMB{
   private:
