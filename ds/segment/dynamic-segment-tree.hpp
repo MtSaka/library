@@ -1,5 +1,5 @@
 #pragma once
-#include"../template/template.hpp"
+#include"../../template/template.hpp"
 
 template<typename S,S (*op)(S,S),S (*e)()>
 struct DynamicSegmentTree{

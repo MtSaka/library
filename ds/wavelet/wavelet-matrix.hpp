@@ -1,5 +1,5 @@
 #pragma once
-#include"../template/template.hpp"
+#include"../../template/template.hpp"
 #include"bit-vector.hpp"
 
 template<typename T,int LOG>

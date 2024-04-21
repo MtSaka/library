@@ -1,5 +1,5 @@
 #pragma once
-#include"../template/template.hpp"
+#include"../../template/template.hpp"
 
 template<class S,int B=(sizeof(S)*8-1)>
 struct BinaryTrie{

@@ -1,5 +1,5 @@
 #pragma once
-#include"../template/template.hpp"
+#include"../../template/template.hpp"
 
 template<typename T=ll,bool is_max=false>
 struct LiChaoTree{

@@ -1,6 +1,6 @@
 #pragma once
-#include"../template/template.hpp"
-#include"persistent-array.hpp"
+#include"../../template/template.hpp"
+#include"../others/persistent-array.hpp"
 
 struct PersistentUnionFind{
   private:

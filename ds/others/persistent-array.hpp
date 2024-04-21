@@ -1,5 +1,5 @@
 #pragma once
-#include"../template/template.hpp"
+#include"../../template/template.hpp"
 
 template<typename T,int N=1>
 struct PersistentArray{

@@ -1,6 +1,6 @@
 #pragma once
-#include"../template/template.hpp"
-#include"../others/monoid.hpp"
+#include"../../template/template.hpp"
+#include"../../others/monoid.hpp"
 
 template<typename A>
 struct LazySegmentTree{
