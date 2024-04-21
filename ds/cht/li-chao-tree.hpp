@@ -90,5 +90,5 @@ struct LiChaoTree{
   }
 };
 /**
- * @breif Li Chao Tree
+ * @brief Li Chao Tree
 */
