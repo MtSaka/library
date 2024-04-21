@@ -1,6 +1,6 @@
 #pragma once
 #include"../../template/template.hpp"
-#include"../../ds/hash-map.hpp"
+#include"../../ds/others/hash-map.hpp"
 
 template<typename T>
 T discrete_logarithm(T x,T y,T m){

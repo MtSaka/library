@@ -31,7 +31,7 @@ jobs:
       run: |
         PARALLEL=$(nproc)
 
-        TARGETS=$(find test -type f -name '*.test.cpp' | wc -l)
+        TARGETS=$(find / -type f -name '*.test.cpp' | wc -l)
         NODES=$(((TARGETS + PARALLEL - 1) / PARALLEL))
 
         if [ $NODES -lt 20 ]; then
@@ -81,7 +81,7 @@ jobs:
       working-directory: main
       run: |
         TEST_FILES=$(
-          find test -type f -name '*.test.cpp' | \
+          find / -type f -name '*.test.cpp' | \
           sort | \
           awk -v n=${{ strategy.job-total }} \
               -v i=${{ strategy.job-index }} \
@@ -103,7 +103,7 @@ jobs:
         path: |
           ~/.cache/online-judge-tools/library-checker-problems/
           main/.verify-helper/cache/
-        key: verify-${{ hashFiles('main/verify/**/*.test.cpp', 'main/.verify-helper/targets.txt') }}
+        key: verify-${{ hashFiles('main/test/**/*.test.cpp', 'main/.verify-helper/targets.txt') }}
 
     - name: Run tests
       working-directory: main

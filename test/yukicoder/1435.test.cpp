@@ -1,6 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1435"
 #include"../../template/template.hpp"
-#include"../../ds/segment-tree.hpp"
+#include"../../ds/segment/segment-tree.hpp"
 struct Mmm{
     struct value_type{
       int m1,m2,M;
