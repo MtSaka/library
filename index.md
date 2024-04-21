@@ -16,72 +16,72 @@ data:
         )"
   - name: ds/cht
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/cht/convex-hull-trick.hpp
       title: Convex Hull Trick
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/cht/li-chao-tree.hpp
       title: ds/cht/li-chao-tree.hpp
   - name: ds/others
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/others/binary-trie.hpp
       title: Binary Trie
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/others/hash-map.hpp
       title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
     - icon: ':warning:'
       path: ds/others/hash-set.hpp
       title: "HashSet(\u30CF\u30C3\u30B7\u30E5\u30BB\u30C3\u30C8)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/others/persistent-array.hpp
       title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
   - name: ds/segment
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/segment/binary-indexed-tree.hpp
       title: Binary Indexed Tree(Fenwick Tree, BIT)
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/segment/disjoint-sparse-table.hpp
       title: ds/segment/disjoint-sparse-table.hpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/segment/dual-segment-tree.hpp
       title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/segment/dynamic-segment-tree.hpp
       title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/segment/lazy-segment-tree.hpp
       title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/segment/segment-tree-beats.hpp
       title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/segment/segment-tree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/segment/sparse-table.hpp
       title: Sparse Table
   - name: ds/union-find
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/union-find/persistent-union-find.hpp
       title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/union-find/rollback-union-find.hpp
       title: Rollback Disjoint Set Union(Union Find)
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/union-find/union-find.hpp
       title: Union Find(Disjoint Set Union)
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/union-find/weighted-union-find.hpp
       title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
   - name: ds/wavelet
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/wavelet/bit-vector.hpp
       title: Bit Vector
-    - icon: ':warning:'
+    - icon: ':x:'
       path: ds/wavelet/wavelet-matrix.hpp
       title: Wavelet Matrix
   - name: geometry
@@ -105,7 +105,7 @@ data:
         )"
   - name: graph/mst
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: graph/mst/kruskal.hpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
     - icon: ':x:'
@@ -261,13 +261,13 @@ data:
       title: "Fraction(\u6709\u7406\u6570\u578B)"
   - name: others
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: others/mo.hpp
       title: Mo's Algorithm
-    - icon: ':warning:'
+    - icon: ':x:'
       path: others/monoid.hpp
       title: others/monoid.hpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: others/monoid2.hpp
       title: others/monoid2.hpp
     - icon: ':question:'

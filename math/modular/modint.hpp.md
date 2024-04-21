@@ -60,6 +60,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution/lcm_convolution.test.cpp
     title: test/yosupo/convolution/lcm_convolution.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+    title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+    title: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/math/sharp_p_subset_sum.test.cpp
     title: test/yosupo/math/sharp_p_subset_sum.test.cpp
@@ -332,6 +338,8 @@ data:
   - test/yosupo/convolution/convolution_mod.test.cpp
   - test/yosupo/convolution/convolution_mod_1000000007.test.cpp
   - test/yosupo/convolution/gcd_convolution.test.cpp
+  - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+  - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
   - test/yosupo/matrix/matrix_det.test.cpp
   - test/yosupo/matrix/matrix_product.test.cpp
   - test/yosupo/math/sharp_p_subset_sum.test.cpp

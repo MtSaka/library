@@ -12,6 +12,66 @@ data:
     path: dp/longest-increasing-subsequence.hpp
     title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
       )"
+  - icon: ':x:'
+    path: ds/cht/convex-hull-trick.hpp
+    title: Convex Hull Trick
+  - icon: ':x:'
+    path: ds/cht/li-chao-tree.hpp
+    title: ds/cht/li-chao-tree.hpp
+  - icon: ':x:'
+    path: ds/others/binary-trie.hpp
+    title: Binary Trie
+  - icon: ':x:'
+    path: ds/others/hash-map.hpp
+    title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
+  - icon: ':warning:'
+    path: ds/others/hash-set.hpp
+    title: "HashSet(\u30CF\u30C3\u30B7\u30E5\u30BB\u30C3\u30C8)"
+  - icon: ':x:'
+    path: ds/others/persistent-array.hpp
+    title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
+  - icon: ':x:'
+    path: ds/segment/binary-indexed-tree.hpp
+    title: Binary Indexed Tree(Fenwick Tree, BIT)
+  - icon: ':x:'
+    path: ds/segment/disjoint-sparse-table.hpp
+    title: ds/segment/disjoint-sparse-table.hpp
+  - icon: ':x:'
+    path: ds/segment/dual-segment-tree.hpp
+    title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  - icon: ':x:'
+    path: ds/segment/dynamic-segment-tree.hpp
+    title: "Dynamic Segment Tree(\u52D5\u7684\u30BB\u30B0\u6728)"
+  - icon: ':x:'
+    path: ds/segment/lazy-segment-tree.hpp
+    title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  - icon: ':x:'
+    path: ds/segment/segment-tree-beats.hpp
+    title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
+  - icon: ':x:'
+    path: ds/segment/segment-tree.hpp
+    title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+  - icon: ':x:'
+    path: ds/segment/sparse-table.hpp
+    title: Sparse Table
+  - icon: ':x:'
+    path: ds/union-find/persistent-union-find.hpp
+    title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
+  - icon: ':x:'
+    path: ds/union-find/rollback-union-find.hpp
+    title: Rollback Disjoint Set Union(Union Find)
+  - icon: ':x:'
+    path: ds/union-find/union-find.hpp
+    title: Union Find(Disjoint Set Union)
+  - icon: ':x:'
+    path: ds/union-find/weighted-union-find.hpp
+    title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
+  - icon: ':x:'
+    path: ds/wavelet/bit-vector.hpp
+    title: Bit Vector
+  - icon: ':x:'
+    path: ds/wavelet/wavelet-matrix.hpp
+    title: Wavelet Matrix
   - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: geometry/geometry.hpp
@@ -21,6 +81,9 @@ data:
   - icon: ':question:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  - icon: ':x:'
+    path: graph/mst/kruskal.hpp
+    title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':x:'
     path: graph/mst/prim.hpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
@@ -149,13 +212,13 @@ data:
   - icon: ':x:'
     path: math/others/rational.hpp
     title: "Fraction(\u6709\u7406\u6570\u578B)"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: others/mo.hpp
     title: Mo's Algorithm
-  - icon: ':warning:'
+  - icon: ':x:'
     path: others/monoid.hpp
     title: others/monoid.hpp
-  - icon: ':warning:'
+  - icon: ':x:'
     path: others/monoid2.hpp
     title: others/monoid2.hpp
   - icon: ':question:'
@@ -228,6 +291,39 @@ data:
   - icon: ':x:'
     path: test/aoj/DPL/DPL_1_D.test.cpp
     title: test/aoj/DPL/DPL_1_D.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_1_A.test.cpp
+    title: test/aoj/DSL/DSL_1_A.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_1_B.test.cpp
+    title: test/aoj/DSL/DSL_1_B.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_A.test.cpp
+    title: test/aoj/DSL/DSL_2_A.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_B.test.cpp
+    title: test/aoj/DSL/DSL_2_B.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_B2.test.cpp
+    title: test/aoj/DSL/DSL_2_B2.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_D.test.cpp
+    title: test/aoj/DSL/DSL_2_D.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_E.test.cpp
+    title: test/aoj/DSL/DSL_2_E.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_F.test.cpp
+    title: test/aoj/DSL/DSL_2_F.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_G.test.cpp
+    title: test/aoj/DSL/DSL_2_G.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_H.test.cpp
+    title: test/aoj/DSL/DSL_2_H.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DSL/DSL_2_I.test.cpp
+    title: test/aoj/DSL/DSL_2_I.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_A.test.cpp
     title: test/aoj/GRL/GRL_1_A.test.cpp
@@ -237,6 +333,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_C.test.cpp
     title: test/aoj/GRL/GRL_1_C.test.cpp
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_2_A.test.cpp
+    title: test/aoj/GRL/GRL_2_A.test.cpp
   - icon: ':x:'
     path: test/aoj/GRL/GRL_2_A_2.test.cpp
     title: test/aoj/GRL/GRL_2_A_2.test.cpp
@@ -291,6 +390,57 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution/lcm_convolution.test.cpp
     title: test/yosupo/convolution/lcm_convolution.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/associative_array.test.cpp
+    title: test/yosupo/data_strucuture/associative_array.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
+    title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/persistent_unionfind.test.cpp
+    title: test/yosupo/data_strucuture/persistent_unionfind.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
+    title: test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+    title: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
+    title: test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+    title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+    title: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
+    title: test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
+    title: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/segment_add_get_min.test.cpp
+    title: test/yosupo/data_strucuture/segment_add_get_min.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/set_xor_min.test.cpp
+    title: test/yosupo/data_strucuture/set_xor_min.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
+    title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/static_range_sum.test.cpp
+    title: test/yosupo/data_strucuture/static_range_sum.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/staticrmq.test.cpp
+    title: test/yosupo/data_strucuture/staticrmq.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/staticrmq2.test.cpp
+    title: test/yosupo/data_strucuture/staticrmq2.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/unionfind.test.cpp
+    title: test/yosupo/data_strucuture/unionfind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/graph/scc.test.cpp
     title: test/yosupo/graph/scc.test.cpp
@@ -412,6 +562,7 @@ data:
   - graph/shortest-path/dijkstra.hpp
   - graph/shortest-path/dijkstra-path.hpp
   - graph/shortest-path/warshall-floyd.hpp
+  - graph/mst/kruskal.hpp
   - graph/mst/prim.hpp
   - graph/tree/centroid.hpp
   - graph/tree/tree-diameter.hpp
@@ -451,6 +602,26 @@ data:
   - math/modular/montgomery-modint.hpp
   - math/modular/mod-sqrt.hpp
   - geometry/geometry.hpp
+  - ds/cht/convex-hull-trick.hpp
+  - ds/cht/li-chao-tree.hpp
+  - ds/wavelet/bit-vector.hpp
+  - ds/wavelet/wavelet-matrix.hpp
+  - ds/union-find/weighted-union-find.hpp
+  - ds/union-find/persistent-union-find.hpp
+  - ds/union-find/rollback-union-find.hpp
+  - ds/union-find/union-find.hpp
+  - ds/others/binary-trie.hpp
+  - ds/others/persistent-array.hpp
+  - ds/others/hash-set.hpp
+  - ds/others/hash-map.hpp
+  - ds/segment/dual-segment-tree.hpp
+  - ds/segment/lazy-segment-tree.hpp
+  - ds/segment/segment-tree-beats.hpp
+  - ds/segment/binary-indexed-tree.hpp
+  - ds/segment/segment-tree.hpp
+  - ds/segment/sparse-table.hpp
+  - ds/segment/disjoint-sparse-table.hpp
+  - ds/segment/dynamic-segment-tree.hpp
   timestamp: '2024-02-04 11:21:20+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
@@ -458,6 +629,23 @@ data:
   - test/yosupo/convolution/convolution_mod.test.cpp
   - test/yosupo/convolution/convolution_mod_1000000007.test.cpp
   - test/yosupo/convolution/gcd_convolution.test.cpp
+  - test/yosupo/data_strucuture/static_range_sum.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
+  - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+  - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+  - test/yosupo/data_strucuture/segment_add_get_min.test.cpp
+  - test/yosupo/data_strucuture/range_kth_smallest.test.cpp
+  - test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
+  - test/yosupo/data_strucuture/unionfind.test.cpp
+  - test/yosupo/data_strucuture/line_add_get_min.test.cpp
+  - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
+  - test/yosupo/data_strucuture/set_xor_min.test.cpp
+  - test/yosupo/data_strucuture/staticrmq2.test.cpp
+  - test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
+  - test/yosupo/data_strucuture/associative_array.test.cpp
+  - test/yosupo/data_strucuture/persistent_unionfind.test.cpp
+  - test/yosupo/data_strucuture/staticrmq.test.cpp
   - test/yosupo/graph/shortest_path.test.cpp
   - test/yosupo/graph/scc.test.cpp
   - test/yosupo/matrix/matrix_det.test.cpp
@@ -490,6 +678,17 @@ data:
   - test/aoj/NTL/NTL_1_A.test.cpp
   - test/aoj/NTL/NTL_1_B.test.cpp
   - test/aoj/NTL/NTL_1_D.test.cpp
+  - test/aoj/DSL/DSL_2_I.test.cpp
+  - test/aoj/DSL/DSL_2_G.test.cpp
+  - test/aoj/DSL/DSL_2_B.test.cpp
+  - test/aoj/DSL/DSL_2_F.test.cpp
+  - test/aoj/DSL/DSL_2_B2.test.cpp
+  - test/aoj/DSL/DSL_2_A.test.cpp
+  - test/aoj/DSL/DSL_2_H.test.cpp
+  - test/aoj/DSL/DSL_1_A.test.cpp
+  - test/aoj/DSL/DSL_1_B.test.cpp
+  - test/aoj/DSL/DSL_2_E.test.cpp
+  - test/aoj/DSL/DSL_2_D.test.cpp
   - test/aoj/ITP1/ITP1_3_D.test.cpp
   - test/aoj/GRL/GRL_3_C.test.cpp
   - test/aoj/GRL/GRL_6_A.test.cpp
@@ -499,6 +698,7 @@ data:
   - test/aoj/GRL/GRL_5_A.test.cpp
   - test/aoj/GRL/GRL_2_A_2.test.cpp
   - test/aoj/GRL/GRL_4_A.test.cpp
+  - test/aoj/GRL/GRL_2_A.test.cpp
   - test/aoj/GRL/GRL_6_A_2.test.cpp
   - test/aoj/GRL/GRL_5_C_1.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp

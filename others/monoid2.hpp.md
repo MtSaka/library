@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: others/monoid.hpp
     title: others/monoid.hpp
   - icon: ':question:'
@@ -26,10 +26,16 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+    title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+  - icon: ':x:'
+    path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+    title: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
@@ -258,8 +264,10 @@ data:
   path: others/monoid2.hpp
   requiredBy: []
   timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
+  - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
 documentation_of: others/monoid2.hpp
 layout: document
 redirect_from:
