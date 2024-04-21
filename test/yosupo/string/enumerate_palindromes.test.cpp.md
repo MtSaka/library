@@ -1,6 +1,9 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: string/manacher.hpp
+    title: "Manacher Algorithm(\u6700\u9577\u56DE\u6587)"
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -23,19 +26,20 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1236.test.cpp
-    title: test/yukicoder/1236.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: "Fraction(\u6709\u7406\u6570\u578B)"
-    links: []
-  bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
-    \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
-    \ d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/enumerate_palindromes
+    links:
+    - https://judge.yosupo.jp/problem/enumerate_palindromes
+  bundledCode: "#line 1 \"test/yosupo/string/enumerate_palindromes.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\n#line 2 \"\
+    template/template.hpp\"\n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\
+    \n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...) d\n#define\
+    \ REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
     #define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n#define REP4(i,a,b,c) for(ll\
     \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n\
     #define RREP1(a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n\
@@ -156,52 +160,22 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"math/others/rational.hpp\"\
-    \n\nstruct Rational{\n  static long long gcd(long long a,long long b){return b?gcd(b,a%b):a;}\n\
-    \  long long num,den;\n  Rational():num(0),den(1){}\n  Rational(long long n):num(n),den(1){}\n\
-    \  Rational(long long n,long long d):num(n),den(d){normalize();}\n  void normalize(){\n\
-    \    long long g=gcd(num,den);\n    num/=g;den/=g;\n    if(den<0){num=-num;den=-den;}\n\
-    \  }\n  bool operator>(const Rational &f)const{return num*f.den>den*f.num;}\n\
-    \  bool operator<(const Rational &f)const{return num*f.den<den*f.num;}\n  bool\
-    \ operator>=(const Rational &f)const{return num*f.den>=den*f.num;}\n  bool operator<=(const\
-    \ Rational &f)const{return num*f.den<=den*f.num;}\n  bool operator==(const Rational\
-    \ &f)const{return num*f.den==den*f.num;}\n  bool operator!=(const Rational &f)const{return\
-    \ num*f.den!=den*f.num;}\n  Rational operator-()const{return Rational(-num,den);}\n\
-    \  Rational &operator-=(const Rational &f){num=num*f.den-den*f.num;den*=f.den;normalize();return\
-    \ *this;}\n  Rational &operator+=(const Rational &f){num=num*f.den+den*f.num;den*=f.den;normalize();return\
-    \ *this;}\n  Rational &operator*=(const Rational &f){num*=f.num;den*=f.den;normalize();return\
-    \ *this;}\n  Rational &operator/=(const Rational &f){num*=f.den;den*=f.num;normalize();return\
-    \ *this;}\n  friend Rational operator+(const Rational&lhs,const Rational&rhs){return\
-    \ Rational(lhs)+=rhs;}\n  friend Rational operator-(const Rational&lhs,const Rational&rhs){return\
-    \ Rational(lhs)-=rhs;}\n  friend Rational operator*(const Rational&lhs,const Rational&rhs){return\
-    \ Rational(lhs)*=rhs;}\n  friend Rational operator/(const Rational&lhs,const Rational&rhs){return\
-    \ Rational(lhs)/=rhs;}\n  friend ostream& operator<<(ostream& os, const Rational&\
-    \ f){os<<f.num<<\"/\"<<f.den;return os;}\n  friend istream& operator>>(istream&\
-    \ is, Rational& f){is>>f.num>>f.den;return is;}\n};\n/**\n * @brief Fraction(\u6709\
-    \u7406\u6570\u578B)\n*/\n"
-  code: "#pragma once\n#include\"../../template/template.hpp\"\n\nstruct Rational{\n\
-    \  static long long gcd(long long a,long long b){return b?gcd(b,a%b):a;}\n  long\
-    \ long num,den;\n  Rational():num(0),den(1){}\n  Rational(long long n):num(n),den(1){}\n\
-    \  Rational(long long n,long long d):num(n),den(d){normalize();}\n  void normalize(){\n\
-    \    long long g=gcd(num,den);\n    num/=g;den/=g;\n    if(den<0){num=-num;den=-den;}\n\
-    \  }\n  bool operator>(const Rational &f)const{return num*f.den>den*f.num;}\n\
-    \  bool operator<(const Rational &f)const{return num*f.den<den*f.num;}\n  bool\
-    \ operator>=(const Rational &f)const{return num*f.den>=den*f.num;}\n  bool operator<=(const\
-    \ Rational &f)const{return num*f.den<=den*f.num;}\n  bool operator==(const Rational\
-    \ &f)const{return num*f.den==den*f.num;}\n  bool operator!=(const Rational &f)const{return\
-    \ num*f.den!=den*f.num;}\n  Rational operator-()const{return Rational(-num,den);}\n\
-    \  Rational &operator-=(const Rational &f){num=num*f.den-den*f.num;den*=f.den;normalize();return\
-    \ *this;}\n  Rational &operator+=(const Rational &f){num=num*f.den+den*f.num;den*=f.den;normalize();return\
-    \ *this;}\n  Rational &operator*=(const Rational &f){num*=f.num;den*=f.den;normalize();return\
-    \ *this;}\n  Rational &operator/=(const Rational &f){num*=f.den;den*=f.num;normalize();return\
-    \ *this;}\n  friend Rational operator+(const Rational&lhs,const Rational&rhs){return\
-    \ Rational(lhs)+=rhs;}\n  friend Rational operator-(const Rational&lhs,const Rational&rhs){return\
-    \ Rational(lhs)-=rhs;}\n  friend Rational operator*(const Rational&lhs,const Rational&rhs){return\
-    \ Rational(lhs)*=rhs;}\n  friend Rational operator/(const Rational&lhs,const Rational&rhs){return\
-    \ Rational(lhs)/=rhs;}\n  friend ostream& operator<<(ostream& os, const Rational&\
-    \ f){os<<f.num<<\"/\"<<f.den;return os;}\n  friend istream& operator>>(istream&\
-    \ is, Rational& f){is>>f.num>>f.den;return is;}\n};\n/**\n * @brief Fraction(\u6709\
-    \u7406\u6570\u578B)\n*/"
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"string/manacher.hpp\"\
+    \n\ntemplate<typename Cont,typename Cmp>\nvector<int>manacher(Cont s,const Cmp&cmp,bool\
+    \ calc_even=true){\n    if(calc_even){\n        int n=(int)s.size();\n       \
+    \ s.resize(2*n-1);\n        for(int i=n-1;i>=0;--i)s[2*i]=s[i];\n        for(int\
+    \ i=0;i<n;++i)s[2*i+1]=s[0];\n    }\n    int n=(int)s.size();\n    vector<int>rad(n);\n\
+    \    {\n        int i=0,j=0;\n        while(i<n){\n            while(i-j>=0&&i+j<n&&cmp(s[i-j],s[i+j]))++j;\n\
+    \            rad[i]=j;\n            int k=1;\n            while(i-k>=0&&i+k<n&&k+rad[i-k]<j)rad[i+k]=rad[i-k],++k;\n\
+    \            i+=k;j-=k;\n        }\n    }\n    if(calc_even){\n        for(int\
+    \ i=0;i<n;++i)if(!((i^rad[i])&1))rad[i]--;\n    }\n    else{\n        for(auto&e:rad)e=2*e-1;\n\
+    \    }\n    return rad;\n}\ntemplate<typename Cont>\nvector<int>manacher(const\
+    \ Cont&s,bool calc_even=true){return manacher(s,equal_to<typename Cont::value_type>(),calc_even);}\n\
+    /**\n @brief Manacher Algorithm(\u6700\u9577\u56DE\u6587)\n*/\n#line 4 \"test/yosupo/string/enumerate_palindromes.test.cpp\"\
+    \n\nint main(){\n    string s;cin>>s;\n    print(manacher(s));\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
+    \n#include\"../../../template/template.hpp\"\n#include\"../../../string/manacher.hpp\"\
+    \n\nint main(){\n    string s;cin>>s;\n    print(manacher(s));\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -210,17 +184,17 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
-  isVerificationFile: false
-  path: math/others/rational.hpp
+  - string/manacher.hpp
+  isVerificationFile: true
+  path: test/yosupo/string/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/yukicoder/1236.test.cpp
-documentation_of: math/others/rational.hpp
+  timestamp: '2024-04-21 15:15:36+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/yosupo/string/enumerate_palindromes.test.cpp
 layout: document
 redirect_from:
-- /library/math/others/rational.hpp
-- /library/math/others/rational.hpp.html
-title: "Fraction(\u6709\u7406\u6570\u578B)"
+- /verify/test/yosupo/string/enumerate_palindromes.test.cpp
+- /verify/test/yosupo/string/enumerate_palindromes.test.cpp.html
+title: test/yosupo/string/enumerate_palindromes.test.cpp
 ---

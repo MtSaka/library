@@ -205,7 +205,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/others/matrix.hpp
     title: "Matrix(\u884C\u5217)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/others/rational.hpp
     title: "Fraction(\u6709\u7406\u6570\u578B)"
   - icon: ':x:'
@@ -223,6 +223,9 @@ data:
   - icon: ':warning:'
     path: others/timer.hpp
     title: "Timer(\u30BF\u30A4\u30DE\u30FC)"
+  - icon: ':heavy_check_mark:'
+    path: string/manacher.hpp
+    title: "Manacher Algorithm(\u6700\u9577\u56DE\u6587)"
   - icon: ':heavy_check_mark:'
     path: string/rolling-hash.hpp
     title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
@@ -495,6 +498,9 @@ data:
     path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/string/enumerate_palindromes.test.cpp
+    title: test/yosupo/string/enumerate_palindromes.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/string/zalgorithm.test.cpp
     title: test/yosupo/string/zalgorithm.test.cpp
   - icon: ':heavy_check_mark:'
@@ -506,7 +512,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/tree/tree_diameter.test.cpp
     title: test/yosupo/tree/tree_diameter.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1236.test.cpp
     title: test/yukicoder/1236.test.cpp
   - icon: ':heavy_check_mark:'
@@ -643,6 +649,7 @@ data:
   - graph/tree/doubling-lowest-common-ancestor.hpp
   - graph/tree/rerooting.hpp
   - graph/tree/RMQ_lowest_common_ancestor.hpp
+  - string/manacher.hpp
   - string/run-length.hpp
   - string/rolling-hash.hpp
   - template/func.hpp
@@ -728,6 +735,7 @@ data:
   - test/yosupo/matrix/matrix_det.test.cpp
   - test/yosupo/matrix/matrix_product.test.cpp
   - test/yosupo/string/zalgorithm.test.cpp
+  - test/yosupo/string/enumerate_palindromes.test.cpp
   - test/yosupo/math/two_sat.test.cpp
   - test/yosupo/math/factorize.test.cpp
   - test/yosupo/math/sqrt_mod.test.cpp

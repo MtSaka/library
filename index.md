@@ -243,7 +243,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/others/matrix.hpp
       title: "Matrix(\u884C\u5217)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/others/rational.hpp
       title: "Fraction(\u6709\u7406\u6570\u578B)"
   - name: others
@@ -266,11 +266,17 @@ data:
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
+      path: string/manacher.hpp
+      title: "Manacher Algorithm(\u6700\u9577\u56DE\u6587)"
+    - icon: ':heavy_check_mark:'
       path: string/rolling-hash.hpp
       title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
     - icon: ':question:'
       path: string/run-length.hpp
       title: string/run-length.hpp
+    - icon: ':warning:'
+      path: string/z-algorithm.hpp
+      title: string/z-algorithm.hpp
   - name: template
     pages:
     - icon: ':question:'
@@ -574,6 +580,9 @@ data:
   - name: test/yosupo/string
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/string/enumerate_palindromes.test.cpp
+      title: test/yosupo/string/enumerate_palindromes.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/string/zalgorithm.test.cpp
       title: test/yosupo/string/zalgorithm.test.cpp
   - name: test/yosupo/tree
@@ -589,7 +598,7 @@ data:
       title: test/yosupo/tree/tree_diameter.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1236.test.cpp
       title: test/yukicoder/1236.test.cpp
     - icon: ':heavy_check_mark:'
