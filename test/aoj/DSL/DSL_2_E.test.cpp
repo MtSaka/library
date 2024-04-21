@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_E"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/dual-segment-tree.hpp"
+#include"../../../ds/dual-segment-tree.hpp"
 int main(){
   INT(n,q);
   RangeAddQuery<int>RAQ(n);

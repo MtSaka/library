@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/set_xor_min"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/binary-trie.hpp"
+#include"../../../ds/others/binary-trie.hpp"
 int main(){
   BinaryTrie<int>bt;
   int q;cin>>q;

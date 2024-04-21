@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/segment_add_get_min"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/li-chao-tree.hpp"
+#include"../../../ds/cht/li-chao-tree.hpp"
 int main(){
   INT(n,q);
   vector<array<ll,4>>A(n);

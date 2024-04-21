@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/union-find.hpp"
+#include"../../../ds/union-find/union-find.hpp"
 int main(){
   int n,q;
   cin>>n>>q;

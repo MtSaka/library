@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/persistent_unionfind"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/persistent-union-find.hpp"
+#include"../../../ds/union-find/persistent-union-find.hpp"
 int main(){
   INT(n,q);
   using node=PersistentUnionFind::node;

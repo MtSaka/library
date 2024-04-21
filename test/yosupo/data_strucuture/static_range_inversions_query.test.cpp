@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_inversions_query"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/binary-indexed-tree.hpp"
+#include"../../../ds/segment/binary-indexed-tree.hpp"
 #include"../../../others/mo.hpp"
 int main(){
   INT(n,q);

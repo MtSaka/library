@@ -2,7 +2,7 @@
 #include"../../../template/template.hpp"
 #include"../../../others/monoid2.hpp"
 #include"../../../math/modular/modint.hpp"
-#include"../../../data-structure/lazy-segment-tree.hpp"
+#include"../../../ds/segment/lazy-segment-tree.hpp"
 using mint=ModInt<998244353>;
 using T=pair<mint,mint>;
 int main(){

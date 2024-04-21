@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_H"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/lazy-segment-tree.hpp"
+#include"../../../ds/lazy-segment-tree.hpp"
 int main(){
   INT(n,q);
   RangeAddQueryRangeMinimumQuery<int>RAQRMQ(n,0);

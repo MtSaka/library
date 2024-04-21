@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/persistent_unionfind"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/rollback-union-find.hpp"
+#include"../../../ds/union-find/rollback-union-find.hpp"
 int main(){
   int n,q;cin>>n>>q;
   vector<vector<array<int,3>>>g(q+1);

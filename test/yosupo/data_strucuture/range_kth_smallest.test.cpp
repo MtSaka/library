@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_kth_smallest"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/wavelet-matrix.hpp"
+#include"../../../ds/wavelet/wavelet-matrix.hpp"
 int main(){
   int n,q;
   cin>>n>>q;

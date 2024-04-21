@@ -1,6 +1,6 @@
 #pragma once
 #include"../../template/template.hpp"
-#include"../../data-structure/union-find.hpp"
+#include"../../ds/union-find/union-find.hpp"
 #include"../graph-template.hpp"
 
 template<typename T>

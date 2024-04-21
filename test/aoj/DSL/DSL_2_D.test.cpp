@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_D"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/dual-segment-tree.hpp"
+#include"../../../ds/dual-segment-tree.hpp"
 int main(){
   INT(n,q);
   RangeUpdateQuery<int>RUQ(n,(1u<<31)-1);

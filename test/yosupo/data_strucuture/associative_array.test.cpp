@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/associative_array"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/hash-map.hpp"
+#include"../../../ds/others/hash-map.hpp"
 int main(){
   int q;cin>>q;
   HashMap<ll,ll>mp;

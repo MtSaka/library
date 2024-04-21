@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/line_add_get_min"
 #include"../../../template/template.hpp"
-#include"../../../data-structure/convex-hull-trick.hpp"
+#include"../../../ds/cht/convex-hull-trick.hpp"
 int main(){
   ConvexHullTrick cht;
   INT(n,q);

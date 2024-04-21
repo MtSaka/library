@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 #include"../../../template/template.hpp"
 #include"../../../others/monoid.hpp"
-#include"../../../data-structure/disjoint-sparse-table.hpp"
+#include"../../../ds/segment/disjoint-sparse-table.hpp"
 int main(){
   INT(n,q);
   vi a(n);

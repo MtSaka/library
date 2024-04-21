@@ -1,6 +1,6 @@
 #pragma once
 #include"../graph-template.hpp"
-#include"../../data-structure/sparse-table.hpp"
+#include"../../ds/sparse-table.hpp"
 
 namespace Monoid{
   struct PairMinForLCA{
