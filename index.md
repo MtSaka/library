@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: ds/cht
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: ds/cht/convex-hull-trick.hpp
       title: Convex Hull Trick
     - icon: ':x:'
@@ -23,6 +23,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: ds/others/persistent-array.hpp
       title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
+    - icon: ':x:'
+      path: ds/others/slope-trick.hpp
+      title: Slope Trick
   - name: ds/segment
     pages:
     - icon: ':question:'
@@ -31,7 +34,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: ds/segment/disjoint-sparse-table.hpp
       title: ds/segment/disjoint-sparse-table.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: ds/segment/dual-segment-tree.hpp
       title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':heavy_check_mark:'
@@ -43,7 +46,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: ds/segment/segment-tree-beats.hpp
       title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: ds/segment/segment-tree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     - icon: ':question:'
@@ -131,7 +134,7 @@ data:
       title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - name: graph/tree
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/RMQ_lowest_common_ancestor.hpp
       title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':warning:'
@@ -352,7 +355,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_1_B.test.cpp
       title: test/aoj/DSL/DSL_1_B.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_A.test.cpp
       title: test/aoj/DSL/DSL_2_A.test.cpp
     - icon: ':heavy_check_mark:'
@@ -361,7 +364,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_B2.test.cpp
       title: test/aoj/DSL/DSL_2_B2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_D.test.cpp
       title: test/aoj/DSL/DSL_2_D.test.cpp
     - icon: ':x:'
@@ -373,7 +376,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_G.test.cpp
       title: test/aoj/DSL/DSL_2_G.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_H.test.cpp
       title: test/aoj/DSL/DSL_2_H.test.cpp
     - icon: ':heavy_check_mark:'
@@ -414,7 +417,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_C_1.test.cpp
       title: test/aoj/GRL/GRL_5_C_1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_5_C_2.test.cpp
       title: test/aoj/GRL/GRL_5_C_2.test.cpp
     - icon: ':heavy_check_mark:'
@@ -442,6 +445,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/NTL/NTL_1_D.test.cpp
       title: test/aoj/NTL/NTL_1_D.test.cpp
+  - name: test/atcoder
+    pages:
+    - icon: ':x:'
+      path: test/atcoder/arc070-c.test.cpp
+      title: test/atcoder/arc070-c.test.cpp
   - name: test/yosupo/convolution
     pages:
     - icon: ':heavy_check_mark:'
@@ -461,7 +469,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/associative_array.test.cpp
       title: test/yosupo/data_strucuture/associative_array.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
       title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
     - icon: ':heavy_check_mark:'

@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: ds/cht/convex-hull-trick.hpp
     title: Convex Hull Trick
   - icon: ':x:'
@@ -20,13 +20,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: ds/others/persistent-array.hpp
     title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
+  - icon: ':x:'
+    path: ds/others/slope-trick.hpp
+    title: Slope Trick
   - icon: ':question:'
     path: ds/segment/binary-indexed-tree.hpp
     title: Binary Indexed Tree(Fenwick Tree, BIT)
   - icon: ':heavy_check_mark:'
     path: ds/segment/disjoint-sparse-table.hpp
     title: ds/segment/disjoint-sparse-table.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: ds/segment/dual-segment-tree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':heavy_check_mark:'
@@ -38,7 +41,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: ds/segment/segment-tree-beats.hpp
     title: Segment Tree Beats!(Rnage Chmin Chmax Add Update Range Sum Min Max)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: ds/segment/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':question:'
@@ -104,7 +107,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/shortest-path/warshall-floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':warning:'
@@ -293,7 +296,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_1_B.test.cpp
     title: test/aoj/DSL/DSL_1_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
   - icon: ':heavy_check_mark:'
@@ -302,7 +305,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B2.test.cpp
     title: test/aoj/DSL/DSL_2_B2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_D.test.cpp
     title: test/aoj/DSL/DSL_2_D.test.cpp
   - icon: ':x:'
@@ -314,7 +317,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_G.test.cpp
     title: test/aoj/DSL/DSL_2_G.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_H.test.cpp
     title: test/aoj/DSL/DSL_2_H.test.cpp
   - icon: ':heavy_check_mark:'
@@ -353,7 +356,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_1.test.cpp
     title: test/aoj/GRL/GRL_5_C_1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -377,6 +380,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/NTL/NTL_1_D.test.cpp
     title: test/aoj/NTL/NTL_1_D.test.cpp
+  - icon: ':x:'
+    path: test/atcoder/arc070-c.test.cpp
+    title: test/atcoder/arc070-c.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/convolution/convolution_mod.test.cpp
     title: test/yosupo/convolution/convolution_mod.test.cpp
@@ -392,7 +398,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/associative_array.test.cpp
     title: test/yosupo/data_strucuture/associative_array.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
     title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
   - icon: ':heavy_check_mark:'
@@ -701,6 +707,7 @@ data:
   - ds/others/persistent-array.hpp
   - ds/others/hash-set.hpp
   - ds/others/hash-map.hpp
+  - ds/others/slope-trick.hpp
   - ds/segment/dual-segment-tree.hpp
   - ds/segment/lazy-segment-tree.hpp
   - ds/segment/segment-tree-beats.hpp
@@ -758,6 +765,7 @@ data:
   - test/yosupo/tree/lca2.test.cpp
   - test/yosupo/tree/lca1.test.cpp
   - test/yosupo/tree/tree_diameter.test.cpp
+  - test/atcoder/arc070-c.test.cpp
   - test/yukicoder/1469.test.cpp
   - test/yukicoder/1435.test.cpp
   - test/yukicoder/1236.test.cpp

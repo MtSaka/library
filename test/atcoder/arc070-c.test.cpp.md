@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: ds/cht/convex-hull-trick.hpp
-    title: Convex Hull Trick
+  - icon: ':x:'
+    path: ds/others/slope-trick.hpp
+    title: Slope Trick
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -27,17 +27,16 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/line_add_get_min
+    PROBLEM: https://atcoder.jp/contests/arc070/tasks/arc070_e
     links:
-    - https://judge.yosupo.jp/problem/line_add_get_min
-  bundledCode: "#line 1 \"test/yosupo/data_strucuture/line_add_get_min.test.cpp\"\n\
-    #define PROBLEM \"https://judge.yosupo.jp/problem/line_add_get_min\"\n#line 2\
-    \ \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\
+    - https://atcoder.jp/contests/arc070/tasks/arc070_e
+  bundledCode: "#line 1 \"test/atcoder/arc070-c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/arc070/tasks/arc070_e\"\
+    \n#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\
     \n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...) d\n#define\
     \ REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
     #define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n#define REP4(i,a,b,c) for(ll\
@@ -160,41 +159,32 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"ds/cht/convex-hull-trick.hpp\"\
-    \n\ntemplate<typename T=ll,bool is_max=false,typename largeT=double_size_int_t<T>>\n\
-    struct ConvexHullTrick{\n  private:\n  struct Line{\n    T a,b;\n    bool is_query;\n\
-    \    mutable T nxt_a,nxt_b;\n    mutable bool has_nxt;\n    T get(T x)const{return\
-    \ a*x+b;}\n    T get_nxt(T x)const{return nxt_a*x+nxt_b;}\n    Line()=default;\n\
-    \    Line(T a,T b,bool query=false):a(a),b(b),is_query(query),has_nxt(false){}\n\
-    \    friend bool operator<(const Line&l,const Line&r){\n      if(l.is_query){\n\
-    \        if(!r.has_nxt)return true;\n        return r.get(l.a)<r.get_nxt(l.a);\n\
-    \      }\n      if(r.is_query){\n        if(!l.has_nxt)return false;\n       \
-    \ return l.get(r.a)>l.get_nxt(r.a);\n      }\n      return l.a==r.a?l.b<r.b:l.a<r.a;\n\
-    \    }\n  };\n  set<Line>st;\n  bool is_needed(const typename set<Line>::iterator&it){\n\
-    \    if(it!=st.begin()&&it->a==prev(it)->a)return it->b<prev(it)->b;\n    if(it!=prev(st.end())&&it->a==next(it)->a)return\
-    \ it->b<next(it)->b;\n    if(it==st.begin()||it==prev(st.end()))return true;\n\
-    \    return static_cast<largeT>(it->b-prev(it)->b)*static_cast<largeT>(next(it)->a-it->a)\
-    \ < static_cast<largeT>(it->b-next(it)->b)*static_cast<largeT>(prev(it)->a-it->a);\n\
-    \  }\n  public:\n  ConvexHullTrick()=default;\n  struct line{\n    T a,b;\n  };\n\
-    \  void add_line(T a,T b){\n    auto it=st.emplace(is_max?-a:a,is_max?-b:b).first;\n\
-    \    if(!is_needed(it)){\n      st.erase(it);\n      return;\n    }\n    while(it!=st.begin()&&!is_needed(prev(it)))st.erase(prev(it));\n\
-    \    while(it!=prev(st.end())&&!is_needed(next(it)))st.erase(next(it));\n    if(it!=st.begin()){\n\
-    \      prev(it)->has_nxt=true;\n      prev(it)->nxt_a=it->a;\n      prev(it)->nxt_b=it->b;\n\
-    \    }\n    if(it!=prev(st.end())){\n      it->has_nxt=true;\n      it->nxt_a=next(it)->a;\n\
-    \      it->nxt_b=next(it)->b;\n    }\n    return;\n  }\n  line get_min_line(T\
-    \ x)const{\n    auto it=st.lower_bound(Line(x,0,true));\n    return line{is_max?-it->a:it->a,is_max?-it->b:it->b};\n\
-    \  }\n  T get_min(T x)const{\n    const line&l=get_min_line(x);\n    return l.a*x+l.b;\n\
-    \  }\n};\n/**\n * @brief Convex Hull Trick\n*/\n#line 4 \"test/yosupo/data_strucuture/line_add_get_min.test.cpp\"\
-    \nint main(){\n  ConvexHullTrick cht;\n  INT(n,q);\n  rep(i,n){\n    LL(a,b);\n\
-    \    cht.add_line(a,b);\n  }\n  rep(i,q){\n    INT(t);\n    if(t==0){\n      LL(a,b);\n\
-    \      cht.add_line(a,b);\n    }\n    else{\n      LL(x);\n      print(cht.get_min(x));\n\
-    \    }\n  }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/line_add_get_min\"\n#include\"\
-    ../../../template/template.hpp\"\n#include\"../../../ds/cht/convex-hull-trick.hpp\"\
-    \nint main(){\n  ConvexHullTrick cht;\n  INT(n,q);\n  rep(i,n){\n    LL(a,b);\n\
-    \    cht.add_line(a,b);\n  }\n  rep(i,q){\n    INT(t);\n    if(t==0){\n      LL(a,b);\n\
-    \      cht.add_line(a,b);\n    }\n    else{\n      LL(x);\n      print(cht.get_min(x));\n\
-    \    }\n  }\n}"
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"ds/others/slope-trick.hpp\"\
+    \n\ntemplate<typename T>\nstruct SlopeTrick{\n    private:\n    priority_queue<T>lque;\n\
+    \    priority_queue<T,vector<T>,greater<>>rque;\n    T addl,addr,mi;\n    void\
+    \ pushr(T x){\n        if(x!=inf)rque.emplace(x-addr);\n    }\n    void pushl(T\
+    \ x){\n        if(x!=-inf)lque.emplace(x-addl);\n    }\n    T topr()const{return\
+    \ (rque.empty()?inf:rque.top()+addr);}\n    T topl()const{return (lque.empty()?-inf:lque.top()+addl);}\n\
+    \    T popr(){\n        T res=topr();\n        if(!rque.empty())rque.pop();\n\
+    \        return res;\n    }\n    T popl(){\n        T res=topl();\n        if(!lque.empty())lque.pop();\n\
+    \        return res;\n    }\n    public:\n    SlopeTrick():addl(0),addr(0),mi(0){}\n\
+    \    SlopeTrick(const vector<T>&l,const vector<T>&r):lque(all(l)),rque(all(r)),addl(0),addr(0),mi(0){}\n\
+    \    T getmin()const{return mi;}\n    pair<T,T>getminargs()const{return {topl(),topr()};}\n\
+    \    void add(T a){mi+=a;}\n    //+max(a-x,0)\n    void addminus(T a){\n     \
+    \   mi+=max(T(0),a-topr());\n        pushr(a);pushl(popr());\n    }\n    //+max(x-a,0)\n\
+    \    void addplus(T a){\n        mi+=max(T(0),topl()-a);\n        pushl(a);pushr(popl());\n\
+    \    }\n    //+|x-a|\n    void addabs(T a){\n        addminus(a);addplus(a);\n\
+    \    }\n    void shift(T a){addl+=a,addr+=a;}\n    //g(x)=min[x-b<=y<=x-a]f(y)\n\
+    \    void sliding_window(T a,T b){\n        addr+=b,addl+=a;\n    }\n};\n/**\n\
+    \ * @brief Slope Trick\n */\n#line 4 \"test/atcoder/arc070-c.test.cpp\"\n\nint\
+    \ main(){\n    INT(n);\n    vp a(n);cin>>a;\n    SlopeTrick<ll> st;\n    st.addabs(a[0].first);\n\
+    \    rep(i,1,n){\n        st.sliding_window(a[i].first-a[i].second,a[i-1].second-a[i-1].first);\n\
+    \        st.addabs(a[i].first);\n    }\n    print(st.getmin());\n}\n"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/arc070/tasks/arc070_e\"\n#include\"\
+    ../../template/template.hpp\"\n#include\"../../ds/others/slope-trick.hpp\"\n\n\
+    int main(){\n    INT(n);\n    vp a(n);cin>>a;\n    SlopeTrick<ll> st;\n    st.addabs(a[0].first);\n\
+    \    rep(i,1,n){\n        st.sliding_window(a[i].first-a[i].second,a[i-1].second-a[i-1].first);\n\
+    \        st.addabs(a[i].first);\n    }\n    print(st.getmin());\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -203,17 +193,17 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
-  - ds/cht/convex-hull-trick.hpp
+  - ds/others/slope-trick.hpp
   isVerificationFile: true
-  path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
+  path: test/atcoder/arc070-c.test.cpp
   requiredBy: []
-  timestamp: '2024-04-21 13:53:32+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-04-21 15:40:42+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/yosupo/data_strucuture/line_add_get_min.test.cpp
+documentation_of: test/atcoder/arc070-c.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/data_strucuture/line_add_get_min.test.cpp
-- /verify/test/yosupo/data_strucuture/line_add_get_min.test.cpp.html
-title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
+- /verify/test/atcoder/arc070-c.test.cpp
+- /verify/test/atcoder/arc070-c.test.cpp.html
+title: test/atcoder/arc070-c.test.cpp
 ---

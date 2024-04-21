@@ -33,15 +33,15 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_2.test.cpp
     title: test/aoj/GRL/GRL_5_C_2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/tree/lca2.test.cpp
     title: test/yosupo/tree/lca2.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148\
       )"
@@ -300,7 +300,7 @@ data:
   path: graph/tree/RMQ_lowest_common_ancestor.hpp
   requiredBy: []
   timestamp: '2024-04-21 14:12:49+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/tree/lca2.test.cpp
   - test/aoj/GRL/GRL_5_C_2.test.cpp
