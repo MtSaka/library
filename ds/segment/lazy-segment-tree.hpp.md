@@ -30,7 +30,7 @@ data:
   - icon: ':x:'
     path: test/aoj/DSL/DSL_2_F.test.cpp
     title: test/aoj/DSL/DSL_2_F.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_G.test.cpp
     title: test/aoj/DSL/DSL_2_G.test.cpp
   - icon: ':x:'

@@ -27,13 +27,13 @@ data:
     - icon: ':x:'
       path: ds/others/binary-trie.hpp
       title: Binary Trie
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: ds/others/hash-map.hpp
       title: "HashMap(\u30CF\u30C3\u30B7\u30E5\u30DE\u30C3\u30D7)"
     - icon: ':warning:'
       path: ds/others/hash-set.hpp
       title: "HashSet(\u30CF\u30C3\u30B7\u30E5\u30BB\u30C3\u30C8)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: ds/others/persistent-array.hpp
       title: "\u6C38\u7D9A\u914D\u5217(Persistent Array)"
   - name: ds/segment
@@ -41,7 +41,7 @@ data:
     - icon: ':question:'
       path: ds/segment/binary-indexed-tree.hpp
       title: Binary Indexed Tree(Fenwick Tree, BIT)
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: ds/segment/disjoint-sparse-table.hpp
       title: ds/segment/disjoint-sparse-table.hpp
     - icon: ':x:'
@@ -59,18 +59,18 @@ data:
     - icon: ':question:'
       path: ds/segment/segment-tree.hpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: ds/segment/sparse-table.hpp
       title: Sparse Table
   - name: ds/union-find
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: ds/union-find/persistent-union-find.hpp
       title: "Persistent Disjoint Set Union(\u6C38\u7D9AUnion-Find)"
     - icon: ':heavy_check_mark:'
       path: ds/union-find/rollback-union-find.hpp
       title: Rollback Disjoint Set Union(Union Find)
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: ds/union-find/union-find.hpp
       title: Union Find(Disjoint Set Union)
     - icon: ':heavy_check_mark:'
@@ -105,7 +105,7 @@ data:
         )"
   - name: graph/mst
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/mst/kruskal.hpp
       title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
     - icon: ':x:'
@@ -144,7 +144,7 @@ data:
       title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
   - name: graph/tree
     pages:
-    - icon: ':warning:'
+    - icon: ':question:'
       path: graph/tree/RMQ_lowest_common_ancestor.hpp
       title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
     - icon: ':warning:'
@@ -157,7 +157,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/tree/rerooting.hpp
       title: "ReRooting(\u5168\u65B9\u4F4D\u6728DP)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/tree-diameter.hpp
       title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   - name: math/convolution
@@ -189,12 +189,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/subset-sum.hpp
       title: Count Subset Sum
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/fps/taylor-shift.hpp
       title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   - name: math/modular
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/modular/mod-log.hpp
       title: "Mod Log(\u96E2\u6563\u5BFE\u6570)"
     - icon: ':heavy_check_mark:'
@@ -247,7 +247,7 @@ data:
         \u9593\u7BE9)"
   - name: math/others
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/others/combinatorics.hpp
       title: "Combinatorics(\u7D44\u307F\u5408\u308F\u305B)"
     - icon: ':warning:'
@@ -322,9 +322,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
       title: test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
-    - icon: ':x:'
-      path: test/aoj/ALDS1/ALDS1_5_D.test.cpp
-      title: test/aoj/ALDS1/ALDS1_5_D.test.cpp
   - name: test/aoj/CGL
     pages:
     - icon: ':heavy_check_mark:'
@@ -388,7 +385,7 @@ data:
     - icon: ':x:'
       path: test/aoj/DSL/DSL_2_F.test.cpp
       title: test/aoj/DSL/DSL_2_F.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/DSL/DSL_2_G.test.cpp
       title: test/aoj/DSL/DSL_2_G.test.cpp
     - icon: ':x:'
@@ -408,7 +405,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_1_C.test.cpp
       title: test/aoj/GRL/GRL_1_C.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL/GRL_2_A.test.cpp
       title: test/aoj/GRL/GRL_2_A.test.cpp
     - icon: ':x:'
@@ -476,13 +473,13 @@ data:
       title: test/yosupo/convolution/lcm_convolution.test.cpp
   - name: test/yosupo/data_strucuture
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/associative_array.test.cpp
       title: test/yosupo/data_strucuture/associative_array.test.cpp
     - icon: ':x:'
       path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
       title: test/yosupo/data_strucuture/line_add_get_min.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/persistent_unionfind.test.cpp
       title: test/yosupo/data_strucuture/persistent_unionfind.test.cpp
     - icon: ':heavy_check_mark:'
@@ -518,7 +515,7 @@ data:
     - icon: ':x:'
       path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
       title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/data_strucuture/static_range_sum.test.cpp
       title: test/yosupo/data_strucuture/static_range_sum.test.cpp
     - icon: ':x:'
@@ -540,7 +537,7 @@ data:
       title: test/yosupo/graph/shortest_path.test.cpp
   - name: test/yosupo/math
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/math/discrete-logarithm-mod.test.cpp
       title: test/yosupo/math/discrete-logarithm-mod.test.cpp
     - icon: ':heavy_check_mark:'
@@ -586,7 +583,7 @@ data:
     - icon: ':x:'
       path: test/yosupo/polynomial/polynomial_interpolation.test.cpp
       title: test/yosupo/polynomial/polynomial_interpolation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
       title: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
     - icon: ':x:'
@@ -605,10 +602,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/tree/lca1.test.cpp
       title: test/yosupo/tree/lca1.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/tree/lca2.test.cpp
       title: test/yosupo/tree/lca2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/tree/tree_diameter.test.cpp
       title: test/yosupo/tree/tree_diameter.test.cpp
   - name: test/yukicoder
@@ -616,7 +613,7 @@ data:
     - icon: ':x:'
       path: test/yukicoder/1236.test.cpp
       title: test/yukicoder/1236.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/1435.test.cpp
       title: test/yukicoder/1435.test.cpp
     - icon: ':heavy_check_mark:'

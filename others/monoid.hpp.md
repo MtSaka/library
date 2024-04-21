@@ -26,7 +26,7 @@ data:
   - icon: ':question:'
     path: ds/segment/binary-indexed-tree.hpp
     title: Binary Indexed Tree(Fenwick Tree, BIT)
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: ds/segment/disjoint-sparse-table.hpp
     title: ds/segment/disjoint-sparse-table.hpp
   - icon: ':x:'
@@ -38,9 +38,12 @@ data:
   - icon: ':question:'
     path: ds/segment/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: ds/segment/sparse-table.hpp
     title: Sparse Table
+  - icon: ':question:'
+    path: graph/tree/RMQ_lowest_common_ancestor.hpp
+    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':question:'
     path: others/monoid2.hpp
     title: others/monoid2.hpp
@@ -63,7 +66,7 @@ data:
   - icon: ':x:'
     path: test/aoj/DSL/DSL_2_F.test.cpp
     title: test/aoj/DSL/DSL_2_F.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_G.test.cpp
     title: test/aoj/DSL/DSL_2_G.test.cpp
   - icon: ':x:'
@@ -72,6 +75,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_I.test.cpp
     title: test/aoj/DSL/DSL_2_I.test.cpp
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_5_C_2.test.cpp
+    title: test/aoj/GRL/GRL_5_C_2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
     title: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
@@ -84,7 +90,7 @@ data:
   - icon: ':x:'
     path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
     title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/static_range_sum.test.cpp
     title: test/yosupo/data_strucuture/static_range_sum.test.cpp
   - icon: ':x:'
@@ -93,6 +99,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/staticrmq2.test.cpp
     title: test/yosupo/data_strucuture/staticrmq2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/tree/lca2.test.cpp
+    title: test/yosupo/tree/lca2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1435.test.cpp
+    title: test/yukicoder/1435.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -347,6 +359,7 @@ data:
   path: others/monoid.hpp
   requiredBy:
   - others/monoid2.hpp
+  - graph/tree/RMQ_lowest_common_ancestor.hpp
   - ds/segment/dual-segment-tree.hpp
   - ds/segment/lazy-segment-tree.hpp
   - ds/segment/binary-indexed-tree.hpp
@@ -363,6 +376,8 @@ data:
   - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   - test/yosupo/data_strucuture/staticrmq2.test.cpp
   - test/yosupo/data_strucuture/staticrmq.test.cpp
+  - test/yosupo/tree/lca2.test.cpp
+  - test/yukicoder/1435.test.cpp
   - test/aoj/DSL/DSL_2_I.test.cpp
   - test/aoj/DSL/DSL_2_G.test.cpp
   - test/aoj/DSL/DSL_2_B.test.cpp
@@ -372,6 +387,7 @@ data:
   - test/aoj/DSL/DSL_2_H.test.cpp
   - test/aoj/DSL/DSL_2_E.test.cpp
   - test/aoj/DSL/DSL_2_D.test.cpp
+  - test/aoj/GRL/GRL_5_C_2.test.cpp
 documentation_of: others/monoid.hpp
 layout: document
 redirect_from:

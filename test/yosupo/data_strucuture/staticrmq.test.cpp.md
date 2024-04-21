@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: ds/segment/sparse-table.hpp
     title: Sparse Table
   - icon: ':question:'

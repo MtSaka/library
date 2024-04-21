@@ -23,7 +23,7 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':x:'
@@ -56,13 +56,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/shortest-path/warshall-floyd.hpp
     title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
+  - icon: ':question:'
+    path: graph/tree/RMQ_lowest_common_ancestor.hpp
+    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':warning:'
     path: graph/tree/centroid.hpp
     title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
   - icon: ':heavy_check_mark:'
     path: graph/tree/doubling-lowest-common-ancestor.hpp
     title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/tree-diameter.hpp
     title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
   _extendedVerifiedWith:
@@ -75,7 +78,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_C.test.cpp
     title: test/aoj/GRL/GRL_1_C.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_2_A.test.cpp
     title: test/aoj/GRL/GRL_2_A.test.cpp
   - icon: ':x:'
@@ -96,6 +99,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_1.test.cpp
     title: test/aoj/GRL/GRL_5_C_1.test.cpp
+  - icon: ':x:'
+    path: test/aoj/GRL/GRL_5_C_2.test.cpp
+    title: test/aoj/GRL/GRL_5_C_2.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yosupo/graph/scc.test.cpp
     title: test/yosupo/graph/scc.test.cpp
@@ -108,7 +114,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/tree/lca1.test.cpp
     title: test/yosupo/tree/lca1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/tree/lca2.test.cpp
+    title: test/yosupo/tree/lca2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/tree/tree_diameter.test.cpp
     title: test/yosupo/tree/tree_diameter.test.cpp
   _isVerificationFailed: true
@@ -304,15 +313,18 @@ data:
   - graph/tree/centroid.hpp
   - graph/tree/tree-diameter.hpp
   - graph/tree/doubling-lowest-common-ancestor.hpp
+  - graph/tree/RMQ_lowest_common_ancestor.hpp
   timestamp: '2024-02-04 11:21:20+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/graph/shortest_path.test.cpp
   - test/yosupo/graph/scc.test.cpp
   - test/yosupo/math/two_sat.test.cpp
+  - test/yosupo/tree/lca2.test.cpp
   - test/yosupo/tree/lca1.test.cpp
   - test/yosupo/tree/tree_diameter.test.cpp
   - test/aoj/GRL/GRL_3_C.test.cpp
+  - test/aoj/GRL/GRL_5_C_2.test.cpp
   - test/aoj/GRL/GRL_1_C.test.cpp
   - test/aoj/GRL/GRL_1_A.test.cpp
   - test/aoj/GRL/GRL_5_A.test.cpp
