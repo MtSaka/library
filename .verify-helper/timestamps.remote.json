@@ -105,6 +105,7 @@
   "test/yosupo/data_strucuture/persistent_unionfind.test.cpp": "2024-04-21 13:53:32 +0900",
   "test/yosupo/data_strucuture/persistent_unionfind2.test.cpp": "2024-04-21 13:53:32 +0900",
   "test/yosupo/data_strucuture/point_add_range_sum1.test.cpp": "2024-04-21 13:53:32 +0900",
+  "test/yosupo/data_strucuture/point_add_range_sum2.test.cpp": "2024-04-21 14:47:51 +0900",
   "test/yosupo/data_strucuture/point_add_range_sum3.test.cpp": "2024-04-21 13:53:32 +0900",
   "test/yosupo/data_strucuture/point_set_range_composite.test.cpp": "2024-04-21 13:53:32 +0900",
   "test/yosupo/data_strucuture/range_chmin_chmax_add_range_sum.test.cpp": "2024-04-21 13:53:32 +0900",
