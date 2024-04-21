@@ -6,11 +6,11 @@ data:
     - icon: ':warning:'
       path: dp/count-subsequences.hpp
       title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: dp/longest-common-subsequence.hpp
       title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217\
         )"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: dp/longest-increasing-subsequence.hpp
       title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
         )"

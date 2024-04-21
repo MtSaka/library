@@ -5,10 +5,10 @@ data:
   - icon: ':warning:'
     path: dp/count-subsequences.hpp
     title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: dp/longest-common-subsequence.hpp
     title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: dp/longest-increasing-subsequence.hpp
     title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
       )"
@@ -183,6 +183,9 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
+    title: test/aoj/ALDS1/ALDS1_10_C.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_14_B.test.cpp
     title: test/aoj/ALDS1/ALDS1_14_B.test.cpp
@@ -222,6 +225,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/CGL/CGL_3_C.test.cpp
     title: test/aoj/CGL/CGL_3_C.test.cpp
+  - icon: ':x:'
+    path: test/aoj/DPL/DPL_1_D.test.cpp
+    title: test/aoj/DPL/DPL_1_D.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_1_A.test.cpp
     title: test/aoj/GRL/GRL_1_A.test.cpp
@@ -549,6 +555,7 @@ data:
   - test/yukicoder/1236.test.cpp
   - test/yukicoder/3030.test.cpp
   - test/aoj/ALDS1/ALDS1_14_B.test.cpp
+  - test/aoj/ALDS1/ALDS1_10_C.test.cpp
   - test/aoj/ALDS1/ALDS1_1_C_2.test.cpp
   - test/aoj/ALDS1/ALDS1_1_C_1.test.cpp
   - test/aoj/NTL/NTL_1_C.test.cpp
@@ -568,6 +575,7 @@ data:
   - test/aoj/GRL/GRL_5_C_1.test.cpp
   - test/aoj/GRL/GRL_4_B.test.cpp
   - test/aoj/GRL/GRL_1_B.test.cpp
+  - test/aoj/DPL/DPL_1_D.test.cpp
   - test/aoj/CGL/CGL_2_A.test.cpp
   - test/aoj/CGL/CGL_1_A.test.cpp
   - test/aoj/CGL/CGL_3_A.test.cpp

@@ -23,10 +23,13 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/DPL/DPL_1_D.test.cpp
+    title: test/aoj/DPL/DPL_1_D.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\
       \u5206\u5217)"
@@ -178,8 +181,9 @@ data:
   path: dp/longest-increasing-subsequence.hpp
   requiredBy: []
   timestamp: '2024-04-21 13:23:38+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/aoj/DPL/DPL_1_D.test.cpp
 documentation_of: dp/longest-increasing-subsequence.hpp
 layout: document
 redirect_from:

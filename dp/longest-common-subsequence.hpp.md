@@ -23,10 +23,13 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
+    title: test/aoj/ALDS1/ALDS1_10_C.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\
       \u5217)"
@@ -185,8 +188,9 @@ data:
   path: dp/longest-common-subsequence.hpp
   requiredBy: []
   timestamp: '2024-04-21 13:23:38+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/aoj/ALDS1/ALDS1_10_C.test.cpp
 documentation_of: dp/longest-common-subsequence.hpp
 layout: document
 redirect_from:
