@@ -23,16 +23,16 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: ds/wavelet/wavelet-matrix.hpp
     title: Wavelet Matrix
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
     title: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Bit Vector
     links: []
@@ -188,7 +188,7 @@ data:
   requiredBy:
   - ds/wavelet/wavelet-matrix.hpp
   timestamp: '2024-04-21 13:53:32+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/range_kth_smallest.test.cpp
 documentation_of: ds/wavelet/bit-vector.hpp

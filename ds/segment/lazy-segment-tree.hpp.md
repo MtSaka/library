@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/monoid.hpp
     title: others/monoid.hpp
   - icon: ':question:'
@@ -36,7 +36,7 @@ data:
   - icon: ':x:'
     path: test/aoj/DSL/DSL_2_H.test.cpp
     title: test/aoj/DSL/DSL_2_H.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_I.test.cpp
     title: test/aoj/DSL/DSL_2_I.test.cpp
   - icon: ':x:'
@@ -44,7 +44,7 @@ data:
     title: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
       )"
@@ -335,7 +335,7 @@ data:
   path: ds/segment/lazy-segment-tree.hpp
   requiredBy: []
   timestamp: '2024-04-21 13:53:32+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
   - test/aoj/DSL/DSL_2_I.test.cpp

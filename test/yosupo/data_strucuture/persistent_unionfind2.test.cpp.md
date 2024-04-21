@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: ds/union-find/rollback-union-find.hpp
     title: Rollback Disjoint Set Union(Union Find)
   - icon: ':question:'
@@ -27,9 +27,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/persistent_unionfind
@@ -203,7 +203,7 @@ data:
   path: test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
   requiredBy: []
   timestamp: '2024-04-21 13:53:32+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
 layout: document

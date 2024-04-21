@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: ds/segment/binary-indexed-tree.hpp
     title: Binary Indexed Tree(Fenwick Tree, BIT)
   - icon: ':x:'
     path: others/mo.hpp
     title: Mo's Algorithm
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/monoid.hpp
     title: others/monoid.hpp
   - icon: ':question:'

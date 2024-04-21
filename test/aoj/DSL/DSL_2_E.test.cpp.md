@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: ds/segment/dual-segment-tree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/monoid.hpp
     title: others/monoid.hpp
   - icon: ':question:'

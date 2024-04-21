@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: ds/segment/binary-indexed-tree.hpp
     title: Binary Indexed Tree(Fenwick Tree, BIT)
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/monoid.hpp
     title: others/monoid.hpp
   - icon: ':question:'
@@ -30,9 +30,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B
@@ -256,7 +256,7 @@ data:
   path: test/aoj/DSL/DSL_2_B.test.cpp
   requiredBy: []
   timestamp: '2024-04-21 13:53:32+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/DSL/DSL_2_B.test.cpp
 layout: document

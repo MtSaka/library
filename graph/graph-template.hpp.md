@@ -59,7 +59,7 @@ data:
   - icon: ':warning:'
     path: graph/tree/centroid.hpp
     title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/doubling-lowest-common-ancestor.hpp
     title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
   - icon: ':question:'
@@ -105,7 +105,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/math/two_sat.test.cpp
     title: test/yosupo/math/two_sat.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/tree/lca1.test.cpp
     title: test/yosupo/tree/lca1.test.cpp
   - icon: ':x:'

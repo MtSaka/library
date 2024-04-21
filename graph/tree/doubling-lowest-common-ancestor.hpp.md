@@ -30,12 +30,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/GRL/GRL_5_C_1.test.cpp
     title: test/aoj/GRL/GRL_5_C_1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/tree/lca1.test.cpp
     title: test/yosupo/tree/lca1.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\
       \u5148)"
@@ -229,7 +229,7 @@ data:
   path: graph/tree/doubling-lowest-common-ancestor.hpp
   requiredBy: []
   timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/tree/lca1.test.cpp
   - test/aoj/GRL/GRL_5_C_1.test.cpp

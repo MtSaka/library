@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/monoid.hpp
     title: others/monoid.hpp
   - icon: ':question:'
@@ -30,18 +30,18 @@ data:
   - icon: ':x:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B2.test.cpp
     title: test/aoj/DSL/DSL_2_B2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
     title: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
     title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
     links: []
@@ -296,7 +296,7 @@ data:
   path: ds/segment/segment-tree.hpp
   requiredBy: []
   timestamp: '2024-04-21 13:53:32+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
   - test/yosupo/data_strucuture/point_set_range_composite.test.cpp

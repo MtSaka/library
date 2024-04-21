@@ -27,18 +27,18 @@ data:
     path: graph/mst/kruskal.hpp
     title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_1_A.test.cpp
     title: test/aoj/DSL/DSL_1_A.test.cpp
   - icon: ':x:'
     path: test/aoj/GRL/GRL_2_A.test.cpp
     title: test/aoj/GRL/GRL_2_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/unionfind.test.cpp
     title: test/yosupo/data_strucuture/unionfind.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: Union Find(Disjoint Set Union)
     links: []
@@ -198,7 +198,7 @@ data:
   requiredBy:
   - graph/mst/kruskal.hpp
   timestamp: '2024-04-21 13:53:32+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/data_strucuture/unionfind.test.cpp
   - test/aoj/DSL/DSL_1_A.test.cpp

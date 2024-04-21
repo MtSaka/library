@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/monoid.hpp
     title: others/monoid.hpp
   - icon: ':question:'
@@ -27,7 +27,7 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
   - icon: ':x:'
@@ -35,7 +35,7 @@ data:
     title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: Binary Indexed Tree(Fenwick Tree, BIT)
     links: []
@@ -263,7 +263,7 @@ data:
   path: ds/segment/binary-indexed-tree.hpp
   requiredBy: []
   timestamp: '2024-04-21 13:53:32+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   - test/aoj/DSL/DSL_2_B.test.cpp

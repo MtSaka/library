@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: ds/segment/sparse-table.hpp
     title: Sparse Table
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/monoid.hpp
     title: others/monoid.hpp
   - icon: ':question:'

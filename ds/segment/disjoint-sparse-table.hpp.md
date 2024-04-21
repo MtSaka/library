@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/monoid.hpp
     title: others/monoid.hpp
   - icon: ':question:'
@@ -30,12 +30,12 @@ data:
   - icon: ':x:'
     path: test/yosupo/data_strucuture/static_range_sum.test.cpp
     title: test/yosupo/data_strucuture/static_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/staticrmq2.test.cpp
     title: test/yosupo/data_strucuture/staticrmq2.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
@@ -265,7 +265,7 @@ data:
   path: ds/segment/disjoint-sparse-table.hpp
   requiredBy: []
   timestamp: '2024-04-21 13:53:32+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/data_strucuture/static_range_sum.test.cpp
   - test/yosupo/data_strucuture/staticrmq2.test.cpp

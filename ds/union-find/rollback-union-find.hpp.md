@@ -24,12 +24,12 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
     title: test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Rollback Disjoint Set Union(Union Find)
     links: []
@@ -195,7 +195,7 @@ data:
   path: ds/union-find/rollback-union-find.hpp
   requiredBy: []
   timestamp: '2024-04-21 13:53:32+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
 documentation_of: ds/union-find/rollback-union-find.hpp

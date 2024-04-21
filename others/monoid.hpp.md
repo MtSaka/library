@@ -23,35 +23,35 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: ds/segment/binary-indexed-tree.hpp
     title: Binary Indexed Tree(Fenwick Tree, BIT)
-  - icon: ':x:'
+  - icon: ':question:'
     path: ds/segment/disjoint-sparse-table.hpp
     title: ds/segment/disjoint-sparse-table.hpp
   - icon: ':x:'
     path: ds/segment/dual-segment-tree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: ds/segment/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: ds/segment/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':x:'
     path: ds/segment/sparse-table.hpp
     title: Sparse Table
-  - icon: ':x:'
+  - icon: ':question:'
     path: others/monoid2.hpp
     title: others/monoid2.hpp
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/aoj/DSL/DSL_2_A.test.cpp
     title: test/aoj/DSL/DSL_2_A.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B2.test.cpp
     title: test/aoj/DSL/DSL_2_B2.test.cpp
   - icon: ':x:'
@@ -69,13 +69,13 @@ data:
   - icon: ':x:'
     path: test/aoj/DSL/DSL_2_H.test.cpp
     title: test/aoj/DSL/DSL_2_H.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_I.test.cpp
     title: test/aoj/DSL/DSL_2_I.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
     title: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
     title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
   - icon: ':x:'
@@ -90,12 +90,12 @@ data:
   - icon: ':x:'
     path: test/yosupo/data_strucuture/staticrmq.test.cpp
     title: test/yosupo/data_strucuture/staticrmq.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/staticrmq2.test.cpp
     title: test/yosupo/data_strucuture/staticrmq2.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
@@ -354,7 +354,7 @@ data:
   - ds/segment/sparse-table.hpp
   - ds/segment/disjoint-sparse-table.hpp
   timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/data_strucuture/static_range_sum.test.cpp
   - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp

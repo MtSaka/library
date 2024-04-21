@@ -67,10 +67,10 @@ data:
   - icon: ':x:'
     path: test/yosupo/polynomial/division_of_polynomials.test.cpp
     title: test/yosupo/polynomial/division_of_polynomials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
   - icon: ':x:'
@@ -88,10 +88,10 @@ data:
   - icon: ':x:'
     path: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/3030.test.cpp
     title: test/yukicoder/3030.test.cpp
   _isVerificationFailed: true

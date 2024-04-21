@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/mod-sqrt.hpp
     title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
   - icon: ':question:'
@@ -56,9 +56,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
@@ -532,7 +532,7 @@ data:
   path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
   requiredBy: []
   timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
 layout: document
