@@ -20,7 +20,7 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../ds/segment/binary-indexed-tree.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
-    #include\"../../../template/template.hpp\"\n#include\"..//../ds/segment/binary-indexed-tree.hpp\"\
+    #include\"../../../template/template.hpp\"\n#include\"../../ds/segment/binary-indexed-tree.hpp\"\
     \nint main(){\n  INT(n,q);\n  BinaryIndexedTree<ll>bit(n);\n  for(int i=0;i<n;i++){\n\
     \    INT(a);\n    bit.add(i,a);\n  }\n  while(q--){\n    INT(t,l,r);\n    if(t)print(bit.sum(l,r));\n\
     \    else bit.add(l,r);\n  }\n}"
