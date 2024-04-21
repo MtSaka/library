@@ -31,7 +31,7 @@ jobs:
       run: |
         PARALLEL=$(nproc)
 
-        TARGETS=$(find verify -type f -name '*.test.cpp' | wc -l)
+        TARGETS=$(find test -type f -name '*.test.cpp' | wc -l)
         NODES=$(((TARGETS + PARALLEL - 1) / PARALLEL))
 
         if [ $NODES -lt 20 ]; then
@@ -81,7 +81,7 @@ jobs:
       working-directory: main
       run: |
         TEST_FILES=$(
-          find verify -type f -name '*.test.cpp' | \
+          find test -type f -name '*.test.cpp' | \
           sort | \
           awk -v n=${{ strategy.job-total }} \
               -v i=${{ strategy.job-index }} \
