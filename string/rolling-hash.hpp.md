@@ -27,9 +27,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/ALDS1/ALDS1_14_B.test.cpp
     title: test/aoj/ALDS1/ALDS1_14_B.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/string/zalgorithm.test.cpp
-    title: test/yosupo/string/zalgorithm.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -219,7 +216,6 @@ data:
   timestamp: '2024-02-04 11:21:20+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/string/zalgorithm.test.cpp
   - test/aoj/ALDS1/ALDS1_14_B.test.cpp
 documentation_of: string/rolling-hash.hpp
 layout: document

@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: string/rolling-hash.hpp
-    title: "Rolling Hash(\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)"
+    path: string/z-algorithm.hpp
+    title: Z Algorithm
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -160,35 +160,18 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"string/rolling-hash.hpp\"\
-    \n\nstruct RollingHash{\n  using ull=unsigned long long;\n  using i128=__uint128_t;\n\
-    \  private:\n  static constexpr ull MOD=(1ull<<61)-1;\n  static constexpr ull\
-    \ MASK31=(1ull<<31)-1;\n  static ull calc_mod(ull a){\n    ull ret=(a&MOD)+(a>>61);\n\
-    \    if(ret>=MOD)ret-=MOD;\n    return ret;\n  }\n  static ull calc_mul(ull a,ull\
-    \ b){\n    i128 c=(i128)a*b;\n    return calc_add(c&MOD,c>>61);\n  }\n  static\
-    \ ull calc_add(ull a,ull b){\n    ull ret=a+b;\n    if(ret>=MOD)ret-=MOD;\n  \
-    \  return ret;\n  }\n  ull BASE;\n  void init(){\n    BASE=(1ull<<31)+(random_device()()&MASK31);\n\
-    \  }\n  public:\n  struct Hash{\n    private:\n    int n;\n    ull BASE;\n   \
-    \ vector<ull>inner_hash,power;\n    public:\n    template<typename T>\n    Hash(ull\
-    \ base,const T&s):BASE(base){\n      n=s.size();\n      inner_hash.resize(n+1);\n\
-    \      for(int i=0;i<n;i++)inner_hash[i+1]=calc_add(s[i],calc_mul(BASE,inner_hash[i]));\n\
-    \      power.resize(n+1);power[0]=1;\n      for(int i=0;i<n;i++)power[i+1]=calc_mul(power[i],BASE);\n\
-    \    }\n    ull get_hash(int l,int r)const{\n      return calc_add(inner_hash[r],MOD-calc_mul(inner_hash[l],power[r-l]));\n\
-    \    }\n    ull get_all()const{\n      return inner_hash[n];\n    }\n    size_t\
-    \ size()const{return n;}\n  };\n  RollingHash(){init();}\n  template<typename\
-    \ T>\n  Hash get_hash(const T&s)const{return Hash(BASE,s);}\n  ull get_base()const{return\
-    \ BASE;}\n  int lcp(const Hash&h1,const Hash&h2,int l1=0,int r1=-1,int l2=0,int\
-    \ r2=-1){\n    if(r1==-1)r1=h1.size();\n    if(r2==-1)r2=h2.size();\n    const\
-    \ int len=min(r1-l1,r2-l2);\n    int ok=0,ng=len+1;\n    while(ng-ok>1){\n   \
-    \   int mid=(ok+ng)>>1;\n      if(h1.get_hash(l1,l1+mid)==h2.get_hash(l2,l2+mid))ok=mid;\n\
-    \      else ng=mid;\n    }\n    return ok;\n  }\n};\n/**\n * @brief Rolling Hash(\u30ED\
-    \u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5)\n*/\n#line 4 \"test/yosupo/string/zalgorithm.test.cpp\"\
-    \nint main(){\n  RollingHash rh;\n  STR(s);\n  const int n=s.size();\n  auto h=rh.get_hash(s);\n\
-    \  vi ans(n);\n  rep(i,n)ans[i]=rh.lcp(h,h,0,n,i,n);\n  print(ans);\n}\n"
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"string/z-algorithm.hpp\"\
+    \n\ntemplate<typename Cont,typename Cmp>\nvector<int>ZAlgorithm(const Cont&s,const\
+    \ Cmp&cmp){\n    int n=s.size();\n    vector<int>z(n);\n    z[0]=n;\n    int i=1,j=0;\n\
+    \    while(i<n){\n        while(i+j<n&&cmp(s[j],s[i+j]))++j;\n        z[i]=j;\n\
+    \        if(j==0){++i;continue;}\n        int k=1;\n        while(i+k<n&&k+z[k]<j)z[i+k]=z[k],++k;\n\
+    \        i+=k;j-=k;\n    }\n    return z;\n}\ntemplate<typename Cont>\nvector<int>ZAlgorithm(const\
+    \ Cont&s){return ZAlgorithm(s,equal_to<typename Cont::value_type>());}\n/**\n\
+    \ * @brief Z Algorithm\n*/\n#line 4 \"test/yosupo/string/zalgorithm.test.cpp\"\
+    \nint main(){\n  string s;cin>>s;\n  print(ZAlgorithm(s));\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#include\"\
-    ../../../template/template.hpp\"\n#include\"../../../string/rolling-hash.hpp\"\
-    \nint main(){\n  RollingHash rh;\n  STR(s);\n  const int n=s.size();\n  auto h=rh.get_hash(s);\n\
-    \  vi ans(n);\n  rep(i,n)ans[i]=rh.lcp(h,h,0,n,i,n);\n  print(ans);\n}"
+    ../../../template/template.hpp\"\n#include\"../../../string/z-algorithm.hpp\"\n\
+    int main(){\n  string s;cin>>s;\n  print(ZAlgorithm(s));\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -197,11 +180,11 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
-  - string/rolling-hash.hpp
+  - string/z-algorithm.hpp
   isVerificationFile: true
   path: test/yosupo/string/zalgorithm.test.cpp
   requiredBy: []
-  timestamp: '2024-02-04 11:21:20+09:00'
+  timestamp: '2024-04-21 15:26:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/string/zalgorithm.test.cpp

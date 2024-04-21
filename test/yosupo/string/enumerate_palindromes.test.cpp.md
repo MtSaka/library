@@ -171,7 +171,7 @@ data:
     \ i=0;i<n;++i)if(!((i^rad[i])&1))rad[i]--;\n    }\n    else{\n        for(auto&e:rad)e=2*e-1;\n\
     \    }\n    return rad;\n}\ntemplate<typename Cont>\nvector<int>manacher(const\
     \ Cont&s,bool calc_even=true){return manacher(s,equal_to<typename Cont::value_type>(),calc_even);}\n\
-    /**\n @brief Manacher Algorithm(\u6700\u9577\u56DE\u6587)\n*/\n#line 4 \"test/yosupo/string/enumerate_palindromes.test.cpp\"\
+    /**\n * @brief Manacher Algorithm(\u6700\u9577\u56DE\u6587)\n*/\n#line 4 \"test/yosupo/string/enumerate_palindromes.test.cpp\"\
     \n\nint main(){\n    string s;cin>>s;\n    print(manacher(s));\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../string/manacher.hpp\"\
@@ -188,7 +188,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/string/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2024-04-21 15:15:36+09:00'
+  timestamp: '2024-04-21 15:26:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/string/enumerate_palindromes.test.cpp

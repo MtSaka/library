@@ -232,6 +232,9 @@ data:
   - icon: ':question:'
     path: string/run-length.hpp
     title: string/run-length.hpp
+  - icon: ':heavy_check_mark:'
+    path: string/z-algorithm.hpp
+    title: Z Algorithm
   - icon: ':question:'
     path: template/func.hpp
     title: template/func.hpp
@@ -649,6 +652,7 @@ data:
   - graph/tree/doubling-lowest-common-ancestor.hpp
   - graph/tree/rerooting.hpp
   - graph/tree/RMQ_lowest_common_ancestor.hpp
+  - string/z-algorithm.hpp
   - string/manacher.hpp
   - string/run-length.hpp
   - string/rolling-hash.hpp

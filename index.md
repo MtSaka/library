@@ -274,9 +274,9 @@ data:
     - icon: ':question:'
       path: string/run-length.hpp
       title: string/run-length.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: string/z-algorithm.hpp
-      title: string/z-algorithm.hpp
+      title: Z Algorithm
   - name: template
     pages:
     - icon: ':question:'

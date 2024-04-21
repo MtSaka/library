@@ -167,7 +167,7 @@ data:
     \ i=0;i<n;++i)if(!((i^rad[i])&1))rad[i]--;\n    }\n    else{\n        for(auto&e:rad)e=2*e-1;\n\
     \    }\n    return rad;\n}\ntemplate<typename Cont>\nvector<int>manacher(const\
     \ Cont&s,bool calc_even=true){return manacher(s,equal_to<typename Cont::value_type>(),calc_even);}\n\
-    /**\n @brief Manacher Algorithm(\u6700\u9577\u56DE\u6587)\n*/\n"
+    /**\n * @brief Manacher Algorithm(\u6700\u9577\u56DE\u6587)\n*/\n"
   code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename Cont,typename\
     \ Cmp>\nvector<int>manacher(Cont s,const Cmp&cmp,bool calc_even=true){\n    if(calc_even){\n\
     \        int n=(int)s.size();\n        s.resize(2*n-1);\n        for(int i=n-1;i>=0;--i)s[2*i]=s[i];\n\
@@ -179,7 +179,7 @@ data:
     \ i=0;i<n;++i)if(!((i^rad[i])&1))rad[i]--;\n    }\n    else{\n        for(auto&e:rad)e=2*e-1;\n\
     \    }\n    return rad;\n}\ntemplate<typename Cont>\nvector<int>manacher(const\
     \ Cont&s,bool calc_even=true){return manacher(s,equal_to<typename Cont::value_type>(),calc_even);}\n\
-    /**\n @brief Manacher Algorithm(\u6700\u9577\u56DE\u6587)\n*/"
+    /**\n * @brief Manacher Algorithm(\u6700\u9577\u56DE\u6587)\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -191,7 +191,7 @@ data:
   isVerificationFile: false
   path: string/manacher.hpp
   requiredBy: []
-  timestamp: '2024-04-21 15:15:36+09:00'
+  timestamp: '2024-04-21 15:26:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/string/enumerate_palindromes.test.cpp
