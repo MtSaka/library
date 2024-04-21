@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 #include"../../../template/template.hpp"
-#include"../../../ds/weighted-union-find.hpp"
+#include"../../../ds/union-find/weighted-union-find.hpp"
 int main(){
   int n,m;
   cin>>n>>m;

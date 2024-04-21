@@ -31,12 +31,6 @@ jobs:
     - name: Install oj-verify
       run: pip3 install -U online-judge-verify-helper
 
-    - name: Clone AC-Library
-      uses: actions/checkout@v3
-      with:
-        repository: atcoder/ac-library
-        sparse-checkout: atcoder
-        path: ac-library
 
     - name: Git pull
       working-directory: main
@@ -45,7 +39,6 @@ jobs:
     - name: Generate documentation
       working-directory: main
       env:
-        CPLUS_INCLUDE_PATH: ${{ github.workspace }}/ac-library
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GH_PAT: ${{ secrets.GH_PAT }}
       run: oj-verify docs --jobs $(nproc)

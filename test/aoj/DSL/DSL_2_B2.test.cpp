@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 #include"../../../template/template.hpp"
-#include"../../../ds/segment-tree.hpp"
+#include"../../../ds/segment/segment-tree.hpp"
 int main(){
   INT(n,q);
   RangeSumQuery<int>RSQ(n);

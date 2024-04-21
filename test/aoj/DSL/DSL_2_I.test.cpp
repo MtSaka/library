@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I"
 #include"../../../template/template.hpp"
-#include"../../../ds/lazy-segment-tree.hpp"
+#include"../../../ds/segment/lazy-segment-tree.hpp"
 int main(){
   INT(n,q);
   RangeUpdateQueryRangeSumQuery<int>RUQRSQ(n);

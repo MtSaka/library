@@ -1,6 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A"
 #include"../../../template/template.hpp"
-#include"../../../ds/segment-tree.hpp"
+#include"../../../ds/segment/segment-tree.hpp"
 int main(){
   INT(n,q);
   RangeMinimumQuery<int,(1ull<<31)-1>RMQ(n);
