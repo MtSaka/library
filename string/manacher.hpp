@@ -32,5 +32,5 @@ vector<int>manacher(Cont s,const Cmp&cmp,bool calc_even=true){
 template<typename Cont>
 vector<int>manacher(const Cont&s,bool calc_even=true){return manacher(s,equal_to<typename Cont::value_type>(),calc_even);}
 /**
- @brief Manacher Algorithm(最長回文)
+ * @brief Manacher Algorithm(最長回文)
 */
