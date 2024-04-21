@@ -5,7 +5,7 @@ template<typename Cont,typename Cmp>
 vector<int>manacher(Cont s,const Cmp&cmp,bool calc_even=true){
     if(calc_even){
         int n=(int)s.size();
-        s.resize(2*n+1);
+        s.resize(2*n-1);
         for(int i=n-1;i>=0;--i)s[2*i]=s[i];
         for(int i=0;i<n;++i)s[2*i+1]=s[0];
     }
