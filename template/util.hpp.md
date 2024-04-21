@@ -396,6 +396,9 @@ data:
     path: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
     title: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
+    title: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
     title: test/yosupo/data_strucuture/point_add_range_sum3.test.cpp
   - icon: ':heavy_check_mark:'
@@ -688,6 +691,7 @@ data:
   - test/yosupo/data_strucuture/range_kth_smallest.test.cpp
   - test/yosupo/data_strucuture/persistent_unionfind2.test.cpp
   - test/yosupo/data_strucuture/unionfind.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
   - test/yosupo/data_strucuture/line_add_get_min.test.cpp
   - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   - test/yosupo/data_strucuture/set_xor_min.test.cpp

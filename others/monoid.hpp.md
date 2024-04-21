@@ -82,6 +82,9 @@ data:
     path: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
     title: test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
+    title: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
     title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
   - icon: ':x:'
@@ -373,6 +376,7 @@ data:
   - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp
   - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
   - test/yosupo/data_strucuture/point_set_range_composite.test.cpp
+  - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
   - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   - test/yosupo/data_strucuture/staticrmq2.test.cpp
   - test/yosupo/data_strucuture/staticrmq.test.cpp

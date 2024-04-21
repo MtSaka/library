@@ -30,6 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_B.test.cpp
     title: test/aoj/DSL/DSL_2_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
+    title: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
   - icon: ':x:'
     path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
     title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
@@ -265,6 +268,7 @@ data:
   timestamp: '2024-04-21 13:53:32+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
   - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   - test/aoj/DSL/DSL_2_B.test.cpp
 documentation_of: ds/segment/binary-indexed-tree.hpp
