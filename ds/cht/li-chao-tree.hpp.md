@@ -31,6 +31,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
   attributes:
+    document_title: Li Chao Tree
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -181,7 +182,7 @@ data:
     \    T mn=(is_max?-lines[k].get(x):lines[k].get(x));\n    while(k>>=1){\n    \
     \  if(mn>(is_max?-lines[k].get(x):lines[k].get(x))){\n        mn=(is_max?-lines[k].get(x):lines[k].get(x));\n\
     \        res=lines[k];\n      }\n    }\n    return line{is_max?-res.a:res.a,is_max?-res.b:res.b};\n\
-    \  }\n};\n/**\n * @breif Li Chao Tree\n*/\n"
+    \  }\n};\n/**\n * @brief Li Chao Tree\n*/\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n\ntemplate<typename\
     \ T=ll,bool is_max=false>\nstruct LiChaoTree{\n  private:\n  struct Line{\n  \
     \  T a,b;\n    T get(T x)const{return a*x+b;}\n    Line()=default;\n    Line(T\
@@ -208,7 +209,7 @@ data:
     \    T mn=(is_max?-lines[k].get(x):lines[k].get(x));\n    while(k>>=1){\n    \
     \  if(mn>(is_max?-lines[k].get(x):lines[k].get(x))){\n        mn=(is_max?-lines[k].get(x):lines[k].get(x));\n\
     \        res=lines[k];\n      }\n    }\n    return line{is_max?-res.a:res.a,is_max?-res.b:res.b};\n\
-    \  }\n};\n/**\n * @breif Li Chao Tree\n*/"
+    \  }\n};\n/**\n * @brief Li Chao Tree\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -220,7 +221,7 @@ data:
   isVerificationFile: false
   path: ds/cht/li-chao-tree.hpp
   requiredBy: []
-  timestamp: '2024-04-21 13:53:32+09:00'
+  timestamp: '2024-04-21 14:37:17+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/data_strucuture/segment_add_get_min.test.cpp
@@ -229,5 +230,5 @@ layout: document
 redirect_from:
 - /library/ds/cht/li-chao-tree.hpp
 - /library/ds/cht/li-chao-tree.hpp.html
-title: ds/cht/li-chao-tree.hpp
+title: Li Chao Tree
 ---

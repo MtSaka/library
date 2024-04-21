@@ -1,19 +1,6 @@
 ---
 data:
   libraryCategories:
-  - name: dp
-    pages:
-    - icon: ':warning:'
-      path: dp/count-subsequences.hpp
-      title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
-    - icon: ':heavy_check_mark:'
-      path: dp/longest-common-subsequence.hpp
-      title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217\
-        )"
-    - icon: ':x:'
-      path: dp/longest-increasing-subsequence.hpp
-      title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\
-        )"
   - name: ds/cht
     pages:
     - icon: ':x:'
@@ -21,7 +8,7 @@ data:
       title: Convex Hull Trick
     - icon: ':x:'
       path: ds/cht/li-chao-tree.hpp
-      title: ds/cht/li-chao-tree.hpp
+      title: Li Chao Tree
   - name: ds/others
     pages:
     - icon: ':x:'
@@ -311,9 +298,6 @@ data:
   - name: test/aoj/ALDS1
     pages:
     - icon: ':heavy_check_mark:'
-      path: test/aoj/ALDS1/ALDS1_10_C.test.cpp
-      title: test/aoj/ALDS1/ALDS1_10_C.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1/ALDS1_14_B.test.cpp
       title: test/aoj/ALDS1/ALDS1_14_B.test.cpp
     - icon: ':heavy_check_mark:'
@@ -354,11 +338,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/CGL/CGL_3_C.test.cpp
       title: test/aoj/CGL/CGL_3_C.test.cpp
-  - name: test/aoj/DPL
-    pages:
-    - icon: ':x:'
-      path: test/aoj/DPL/DPL_1_D.test.cpp
-      title: test/aoj/DPL/DPL_1_D.test.cpp
   - name: test/aoj/DSL
     pages:
     - icon: ':heavy_check_mark:'

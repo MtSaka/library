@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':x:'
     path: ds/cht/li-chao-tree.hpp
-    title: ds/cht/li-chao-tree.hpp
+    title: Li Chao Tree
   - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
@@ -186,7 +186,7 @@ data:
     \    T mn=(is_max?-lines[k].get(x):lines[k].get(x));\n    while(k>>=1){\n    \
     \  if(mn>(is_max?-lines[k].get(x):lines[k].get(x))){\n        mn=(is_max?-lines[k].get(x):lines[k].get(x));\n\
     \        res=lines[k];\n      }\n    }\n    return line{is_max?-res.a:res.a,is_max?-res.b:res.b};\n\
-    \  }\n};\n/**\n * @breif Li Chao Tree\n*/\n#line 4 \"test/yosupo/data_strucuture/segment_add_get_min.test.cpp\"\
+    \  }\n};\n/**\n * @brief Li Chao Tree\n*/\n#line 4 \"test/yosupo/data_strucuture/segment_add_get_min.test.cpp\"\
     \nint main(){\n  INT(n,q);\n  vector<array<ll,4>>A(n);\n  for(auto&[l,r,a,b]:A)cin>>l>>r>>a>>b;\n\
     \  vector<array<ll,5>>B(q);\n  for(auto&[t,l,r,a,b]:B){\n    cin>>t;\n    if(t==0)cin>>l>>r>>a>>b;\n\
     \    else cin>>l;\n  }\n  compressor<ll>press;\n  for(auto&[a,b,c,d,e]:B){\n \
@@ -219,7 +219,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/data_strucuture/segment_add_get_min.test.cpp
   requiredBy: []
-  timestamp: '2024-04-21 13:53:32+09:00'
+  timestamp: '2024-04-21 14:37:17+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/segment_add_get_min.test.cpp
