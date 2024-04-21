@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: others/monoid.hpp
-    title: others/monoid.hpp
-  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
   - icon: ':question:'
@@ -25,25 +22,14 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy:
-  - icon: ':question:'
-    path: graph/tree/RMQ_lowest_common_ancestor.hpp
-    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_5_C_2.test.cpp
-    title: test/aoj/GRL/GRL_5_C_2.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/data_strucuture/staticrmq.test.cpp
-    title: test/yosupo/data_strucuture/staticrmq.test.cpp
-  - icon: ':x:'
-    path: test/yosupo/tree/lca2.test.cpp
-    title: test/yosupo/tree/lca2.test.cpp
-  _isVerificationFailed: true
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    document_title: Sparse Table
+    document_title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\
+      \u5217)"
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -168,89 +154,25 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"others/monoid.hpp\"\
-    \n\nnamespace Monoid{\n  template<typename M,typename=void>struct has_op:false_type{};\n\
-    \  template<typename M>struct has_op<M,decltype((void)M::op)>:true_type{};\n \
-    \ template<typename M,typename=void>struct has_id:false_type{};\n  template<typename\
-    \ M>struct has_id<M,decltype((void)M::id)>:true_type{};\n  template<typename M,typename=void>struct\
-    \ has_inv:false_type{};\n  template<typename M>struct has_inv<M,decltype((void)M::inv)>:true_type{};\n\
-    \  template<typename M,typename=void>struct has_get_inv:false_type{};\n  template<typename\
-    \ M>struct has_get_inv<M,decltype((void)M::get_inv)>:true_type{};\n  template<typename\
-    \ A,typename=void>struct has_mul_op:false_type{};\n  template<typename A>struct\
-    \ has_mul_op<A,decltype((void)A::mul_op)>:true_type{};\n  template<typename T,typename=void>struct\
-    \ is_semigroup:false_type{};\n  template<typename T>struct is_semigroup<T,decltype(declval<typename\
-    \ T::value_type>(),(void)T::op)>:true_type{};\n  template<typename T,typename=void>struct\
-    \ is_monoid:false_type{};\n  template<typename T>struct is_monoid<T,decltype(declval<typename\
-    \ T::value_type>(),(void)T::op,(void)T::id)>:true_type{};\n  template<typename\
-    \ T,typename=void>struct is_group:false_type{};\n  template<typename T>struct\
-    \ is_group<T,decltype(declval<typename T::value_type>(),(void)T::op,(void)T::id,(void)T::get_inv)>:true_type{};\n\
-    \  template<typename T,typename=void>struct is_action:false_type{};\n  template<typename\
-    \ T>struct is_action<T,typename enable_if<is_monoid<typename T::M>::value&&is_semigroup<typename\
-    \ T::E>::value&&(has_op<T>::value||has_mul_op<T>::value)>::type>:true_type{};\n\
-    \  template<typename T,typename=void>struct is_distributable_action:false_type{};\n\
-    \  template<typename T>struct is_distributable_action<T,typename enable_if<is_action<T>::value&&!has_mul_op<T>::value>::type>:true_type{};\n\
-    \  template<typename T>\n  struct Sum{\n    using value_type=T;\n    static constexpr\
-    \ T op(const T&x,const T&y){return x+y;}\n    static constexpr T id(){return T(0);}\n\
-    \    static constexpr T inv(const T&x,const T&y){return x-y;}\n    static constexpr\
-    \ T get_inv(const T&x){return -x;}\n  };\n  template<typename T,T max_value=infinity<T>::value>\n\
-    \  struct Min{\n    using value_type=T;\n    static constexpr T op(const T&x,const\
-    \ T&y){return x<y?x:y;}\n    static constexpr T id(){return max_value;}\n  };\n\
-    \  template<typename T,T min_value=infinity<T>::mvalue>\n  struct Max{\n    using\
-    \ value_type=T;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
-    \    static constexpr T id(){return min_value;}\n  };\n  template<typename T>\n\
-    \  struct Assign{\n    using value_type=T;\n    static constexpr T op(const T&,const\
-    \ T&x){return x;}\n  };\n  template<typename T,T max_value=infinity<T>::value>\n\
-    \  struct AssignMin{\n    using M=Min<T,max_value>;\n    using E=Assign<T>;\n\
-    \    static constexpr T op(const T&x,const T&){return x;}\n  };\n  template<typename\
-    \ T,T min_value=infinity<T>::mvalue>\n  struct AssignMax{\n    using M=Max<T,min_value>;\n\
-    \    using E=Assign<T>;\n    static constexpr T op(const T&x,const T&){return\
-    \ x;}\n  };\n  template<typename T>\n  struct AssignSum{\n    using M=Sum<T>;\n\
-    \    using E=Assign<T>;\n    static constexpr T mul_op(const T&x,int sz,const\
-    \ T&){return x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::value>\n\
-    \  struct AddMin{\n    using M=Min<T,max_value>;\n    using E=Sum<T>;\n    static\
-    \ constexpr T op(const T&a,const T&b){return b+a;}\n  };\n  template<typename\
-    \ T,T min_value=infinity<T>::mvalue>\n  struct AddMax{\n    using M=Max<T,min_value>;\n\
-    \    using E=Sum<T>;\n    static constexpr T op(const T&a,const T&b){return b+a;}\n\
-    \  };\n  template<typename T>\n  struct AddSum{\n    using M=Sum<T>;\n    using\
-    \ E=Sum<T>;\n    static constexpr T mul_op(const T&x,int sz,const T&y){return\
-    \ y+x*sz;}\n  };\n  template<typename T,T max_value=infinity<T>::value>\n  struct\
-    \ ChminMin{\n    using M=Min<T,max_value>;\n    using E=Min<T>;\n    static constexpr\
-    \ T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename T,T min_value=infinity<T>::mvalue>\n\
-    \  struct ChminMax{\n    using M=Max<T,min_value>;\n    using E=Min<T>;\n    static\
-    \ constexpr T op(const T&x,const T&y){return y<x?y:x;}\n  };\n  template<typename\
-    \ T,T max_value=infinity<T>::value>\n  struct ChmaxMin{\n    using M=Min<T,max_value>;\n\
-    \    using E=Max<T>;\n    static constexpr T op(const T&x,const T&y){return x<y?y:x;}\n\
-    \  };\n  template<typename T,T min_value=infinity<T>::mvalue>\n  struct ChmaxMax{\n\
-    \    using M=Max<T,min_value>;\n    using E=Max<T>;\n    static constexpr T op(const\
-    \ T&x,const T&y){return x<y?y:x;}\n  };\n  template<typename E_>\n  struct AttachMonoid{\n\
-    \    using M=E_;\n    using E=E_;\n    using T=typename E_::value_type;\n    static\
-    \ T op(const T&x,const T&y){return E_::op(y,x);}\n  };\n}// namespace Monoid\n\
-    #line 4 \"data-structure/sparse-table.hpp\"\n\ntemplate<typename M>\nstruct SparseTable{\n\
-    \  private:\n  using T=typename M::value_type;\n  int lg,n;\n  vector<vector<T>>table;\n\
-    \  vector<int>log_table;\n  T internal_prod(int l,int r)const{\n    int d=log_table[r-l];\n\
-    \    return M::op(table[d][l],table[d][r-(1<<d)]);\n  }\n  public:\n  SparseTable()=default;\n\
-    \  SparseTable(const vector<T>&v){init(v);}\n  void init(const vector<T>&v){\n\
-    \    n=v.size();\n    lg=ceil_log2(n)+1;\n    table.assign(lg,vector<T>(n));\n\
-    \    table[0]=v;\n    rep(i,1,lg)rep(j,n-(1<<i)+1)table[i][j]=M::op(table[i-1][j],table[i-1][j+(1<<(i-1))]);\n\
-    \    log_table.assign(n+1,0);\n    log_table[1]=0;\n    rep(i,2,n+1)log_table[i]=log_table[i>>1]+1;\n\
-    \  }\n  template<bool dummy=true,typename enable_if<Monoid::has_id<M>::value&&dummy>::type*\
-    \ = nullptr>\n  T prod(int l,int r)const{\n    if(l==r)return M::id();\n    return\
-    \ internal_prod(l,r);\n  }\n  template<bool dummy=true,typename enable_if<!Monoid::has_id<M>::value&&dummy>::type*\
-    \ = nullptr>\n  T prod(int l,int r)const{\n    if(l==r)return T{};\n    return\
-    \ internal_prod(l,r);\n  }\n};\n/**\n * @brief Sparse Table\n*/\n"
-  code: "#pragma once\n#include\"../template/template.hpp\"\n#include\"../others/monoid.hpp\"\
-    \n\ntemplate<typename M>\nstruct SparseTable{\n  private:\n  using T=typename\
-    \ M::value_type;\n  int lg,n;\n  vector<vector<T>>table;\n  vector<int>log_table;\n\
-    \  T internal_prod(int l,int r)const{\n    int d=log_table[r-l];\n    return M::op(table[d][l],table[d][r-(1<<d)]);\n\
-    \  }\n  public:\n  SparseTable()=default;\n  SparseTable(const vector<T>&v){init(v);}\n\
-    \  void init(const vector<T>&v){\n    n=v.size();\n    lg=ceil_log2(n)+1;\n  \
-    \  table.assign(lg,vector<T>(n));\n    table[0]=v;\n    rep(i,1,lg)rep(j,n-(1<<i)+1)table[i][j]=M::op(table[i-1][j],table[i-1][j+(1<<(i-1))]);\n\
-    \    log_table.assign(n+1,0);\n    log_table[1]=0;\n    rep(i,2,n+1)log_table[i]=log_table[i>>1]+1;\n\
-    \  }\n  template<bool dummy=true,typename enable_if<Monoid::has_id<M>::value&&dummy>::type*\
-    \ = nullptr>\n  T prod(int l,int r)const{\n    if(l==r)return M::id();\n    return\
-    \ internal_prod(l,r);\n  }\n  template<bool dummy=true,typename enable_if<!Monoid::has_id<M>::value&&dummy>::type*\
-    \ = nullptr>\n  T prod(int l,int r)const{\n    if(l==r)return T{};\n    return\
-    \ internal_prod(l,r);\n  }\n};\n/**\n * @brief Sparse Table\n*/"
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"dp/longest-common-subsequence.hpp\"\
+    \n\ntemplate<typename T>\nvector<T>LongestCommonSubsequence(const vector<T>&a,const\
+    \ vector<T>&b){\n  vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,0));\n\
+    \  for(int i=0;i<(int)a.size();i++){\n    for(int j=0;j<(int)b.size();j++){\n\
+    \      if(a[i]==b[j])dp[i+1][j+1]=dp[i][j]+1;\n      else dp[i+1][j+1]=max(dp[i][j+1],dp[i+1][j]);\n\
+    \    }\n  }\n  vector<T>ans;\n  int i=a.size(),j=b.size();\n  while(dp[i][j]){\n\
+    \    if(dp[i-1][j]==dp[i][j])i--;\n    else if(dp[i][j-1]==dp[i][j])j--;\n   \
+    \ else i--,j--,ans.push_back(a[i]);\n  }\n  reverse(ans.begin(),ans.end());\n\
+    \  return ans;\n}\n/**\n * @brief Longest Common Subsequence(\u6700\u9577\u5171\
+    \u901A\u90E8\u5206\u5217)\n*/\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename T>\n\
+    vector<T>LongestCommonSubsequence(const vector<T>&a,const vector<T>&b){\n  vector<vector<int>>dp(a.size()+1,vector<int>(b.size()+1,0));\n\
+    \  for(int i=0;i<(int)a.size();i++){\n    for(int j=0;j<(int)b.size();j++){\n\
+    \      if(a[i]==b[j])dp[i+1][j+1]=dp[i][j]+1;\n      else dp[i+1][j+1]=max(dp[i][j+1],dp[i+1][j]);\n\
+    \    }\n  }\n  vector<T>ans;\n  int i=a.size(),j=b.size();\n  while(dp[i][j]){\n\
+    \    if(dp[i-1][j]==dp[i][j])i--;\n    else if(dp[i][j-1]==dp[i][j])j--;\n   \
+    \ else i--,j--,ans.push_back(a[i]);\n  }\n  reverse(ans.begin(),ans.end());\n\
+    \  return ans;\n}\n/**\n * @brief Longest Common Subsequence(\u6700\u9577\u5171\
+    \u901A\u90E8\u5206\u5217)\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -259,21 +181,16 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
-  - others/monoid.hpp
   isVerificationFile: false
-  path: data-structure/sparse-table.hpp
-  requiredBy:
-  - graph/tree/RMQ_lowest_common_ancestor.hpp
-  timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_SOME_WA
-  verifiedWith:
-  - test/aoj/GRL/GRL_5_C_2.test.cpp
-  - test/yosupo/tree/lca2.test.cpp
-  - test/yosupo/data_strucuture/staticrmq.test.cpp
-documentation_of: data-structure/sparse-table.hpp
+  path: dp/longest-common-subsequence.hpp
+  requiredBy: []
+  timestamp: '2024-04-21 13:23:38+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: dp/longest-common-subsequence.hpp
 layout: document
 redirect_from:
-- /library/data-structure/sparse-table.hpp
-- /library/data-structure/sparse-table.hpp.html
-title: Sparse Table
+- /library/dp/longest-common-subsequence.hpp
+- /library/dp/longest-common-subsequence.hpp.html
+title: "Longest Common Subsequence(\u6700\u9577\u5171\u901A\u90E8\u5206\u5217)"
 ---

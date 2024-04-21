@@ -22,19 +22,14 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy:
-  - icon: ':x:'
-    path: data-structure/wavelet-matrix.hpp
-    title: Wavelet Matrix
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
-    title: test/yosupo/data_strucuture/range_kth_smallest.test.cpp
-  _isVerificationFailed: true
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    document_title: Bit Vector
+    document_title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\
+      \u5206\u5217)"
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -159,22 +154,18 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/bit-vector.hpp\"\
-    \n\nstruct BitVector{\n  private:\n  size_t size,block;\n  vector<unsigned int>bit,sum;\n\
-    \  public:\n  BitVector(){}\n  BitVector(size_t size):size(size),block((size+31)>>5),bit(block,0u),sum(block,0u){}\n\
-    \  void set(int i){bit[i>>5]|=1u<<(i&31);}\n  bool operator[](int i)const{return\
-    \ (bit[i>>5]>>(i&31))&1;}\n  void build(){\n    sum[0]=0u;\n    for(size_t i=1;i<block;i++)sum[i]=sum[i-1]+__builtin_popcount(bit[i-1]);\n\
-    \  }\n  int rank(int i)const{return sum[i>>5]+__builtin_popcount(bit[i>>5]&((1<<(i&31))-1));}\n\
-    \  int rank(bool v,int i)const{return (v?rank(i):i-rank(i));}\n};\n/**\n * @brief\
-    \ Bit Vector\n*/\n"
-  code: "#pragma once\n#include\"../template/template.hpp\"\n\nstruct BitVector{\n\
-    \  private:\n  size_t size,block;\n  vector<unsigned int>bit,sum;\n  public:\n\
-    \  BitVector(){}\n  BitVector(size_t size):size(size),block((size+31)>>5),bit(block,0u),sum(block,0u){}\n\
-    \  void set(int i){bit[i>>5]|=1u<<(i&31);}\n  bool operator[](int i)const{return\
-    \ (bit[i>>5]>>(i&31))&1;}\n  void build(){\n    sum[0]=0u;\n    for(size_t i=1;i<block;i++)sum[i]=sum[i-1]+__builtin_popcount(bit[i-1]);\n\
-    \  }\n  int rank(int i)const{return sum[i>>5]+__builtin_popcount(bit[i>>5]&((1<<(i&31))-1));}\n\
-    \  int rank(bool v,int i)const{return (v?rank(i):i-rank(i));}\n};\n/**\n * @brief\
-    \ Bit Vector\n*/"
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"dp/longest-increasing-subsequence.hpp\"\
+    \n\ntemplate<typename T>\nint LongestIncreasingSubsequence(const vector<T>&a){\n\
+    \  int n=a.size();\n  vector<long long>dp(n,2e18);\n  for(int i=0;i<n;i++)*lower_bound(dp.begin(),dp.end(),a[i])=a[i];\n\
+    \  return lower_bound(dp.begin(),dp.end(),2e18)-dp.begin();\n}\n/**\n * @brief\
+    \ Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217)\n\
+    */\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename T>\n\
+    int LongestIncreasingSubsequence(const vector<T>&a){\n  int n=a.size();\n  vector<long\
+    \ long>dp(n,2e18);\n  for(int i=0;i<n;i++)*lower_bound(dp.begin(),dp.end(),a[i])=a[i];\n\
+    \  return lower_bound(dp.begin(),dp.end(),2e18)-dp.begin();\n}\n/**\n * @brief\
+    \ Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217)\n\
+    */"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -184,17 +175,15 @@ data:
   - template/debug.hpp
   - template/type-traits.hpp
   isVerificationFile: false
-  path: data-structure/bit-vector.hpp
-  requiredBy:
-  - data-structure/wavelet-matrix.hpp
-  timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/yosupo/data_strucuture/range_kth_smallest.test.cpp
-documentation_of: data-structure/bit-vector.hpp
+  path: dp/longest-increasing-subsequence.hpp
+  requiredBy: []
+  timestamp: '2024-04-21 13:23:38+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: dp/longest-increasing-subsequence.hpp
 layout: document
 redirect_from:
-- /library/data-structure/bit-vector.hpp
-- /library/data-structure/bit-vector.hpp.html
-title: Bit Vector
+- /library/dp/longest-increasing-subsequence.hpp
+- /library/dp/longest-increasing-subsequence.hpp.html
+title: "Longest Increasing Subsequence(\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217)"
 ---

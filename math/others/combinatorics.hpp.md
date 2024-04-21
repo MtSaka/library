@@ -261,8 +261,8 @@ data:
   isVerificationFile: false
   path: math/others/combinatorics.hpp
   requiredBy:
-  - math/fps/taylor-shift.hpp
   - math/others/lagrange.hpp
+  - math/fps/taylor-shift.hpp
   timestamp: '2024-03-12 15:32:53+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:

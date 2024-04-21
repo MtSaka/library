@@ -231,8 +231,8 @@ data:
   timestamp: '2024-02-04 11:21:20+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/aoj/GRL/GRL_5_C_1.test.cpp
   - test/yosupo/tree/lca1.test.cpp
+  - test/aoj/GRL/GRL_5_C_1.test.cpp
 documentation_of: graph/tree/doubling-lowest-common-ancestor.hpp
 layout: document
 redirect_from:

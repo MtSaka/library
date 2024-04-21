@@ -219,8 +219,8 @@ data:
   timestamp: '2024-02-04 11:21:20+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/aoj/ALDS1/ALDS1_14_B.test.cpp
   - test/yosupo/string/zalgorithm.test.cpp
+  - test/aoj/ALDS1/ALDS1_14_B.test.cpp
 documentation_of: string/rolling-hash.hpp
 layout: document
 redirect_from:

@@ -23,15 +23,12 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/DSL/DSL_1_B.test.cpp
-    title: test/aoj/DSL/DSL_1_B.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    document_title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
+    document_title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
     \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
@@ -156,29 +153,20 @@ data:
     template<typename T>using double_size_uint_t=typename double_size_uint<T>::type;\n\
     template<typename T>\nusing double_size=typename std::conditional<std::is_signed<T>::value,double_size_int<T>,double_size_uint<T>>::type;\n\
     template<typename T>using double_size_t=typename double_size<T>::type;\n#line\
-    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"data-structure/weighted-union-find.hpp\"\
-    \n\ntemplate<typename T>\nstruct WeightedUnionFind{\n  vector<int>p;vector<T>diff;\n\
-    \  WeightedUnionFind(){}\n  WeightedUnionFind(int n,T s=0):p(n,-1),diff(n,s){}\n\
-    \  int root(int x){\n    if(p[x]<0)return x;\n    int r=root(p[x]);\n    diff[x]+=diff[p[x]];\n\
-    \    return p[x]=r;\n  }\n  T weight(int x){\n    root(x);\n    return diff[x];\n\
-    \  }\n  bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return\
-    \ -p[root(x)];}\n  bool merge(int x,int y,T w){\n    int xx=x,yy=y;T ww=w;\n \
-    \   w+=weight(x),w-=weight(y);\n    x=root(x),y=root(y);\n    if(x==y)return dist(xx,yy)==ww;\n\
-    \    if(p[x]>p[y])swap(x,y),w=-w;\n    p[x]+=p[y];\n    p[y]=x;\n    diff[y]=w;\n\
-    \    return true;\n  }\n  T dist(int x,int y){\n    return weight(y)-weight(x);\n\
-    \  }\n};\n/**\n * @brief Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304D\
-    Union Find)\n*/ \n"
-  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename T>\n\
-    struct WeightedUnionFind{\n  vector<int>p;vector<T>diff;\n  WeightedUnionFind(){}\n\
-    \  WeightedUnionFind(int n,T s=0):p(n,-1),diff(n,s){}\n  int root(int x){\n  \
-    \  if(p[x]<0)return x;\n    int r=root(p[x]);\n    diff[x]+=diff[p[x]];\n    return\
-    \ p[x]=r;\n  }\n  T weight(int x){\n    root(x);\n    return diff[x];\n  }\n \
-    \ bool same(int x,int y){return root(x)==root(y);}\n  int size(int x){return -p[root(x)];}\n\
-    \  bool merge(int x,int y,T w){\n    int xx=x,yy=y;T ww=w;\n    w+=weight(x),w-=weight(y);\n\
-    \    x=root(x),y=root(y);\n    if(x==y)return dist(xx,yy)==ww;\n    if(p[x]>p[y])swap(x,y),w=-w;\n\
-    \    p[x]+=p[y];\n    p[y]=x;\n    diff[y]=w;\n    return true;\n  }\n  T dist(int\
-    \ x,int y){\n    return weight(y)-weight(x);\n  }\n};\n/**\n * @brief Weighted\
-    \ Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)\n*/ "
+    \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"dp/count-subsequences.hpp\"\
+    \n\nlong long CountSubsequences(const string&s){\n  int n=s.size();\n  vector<vector<int>>next(n+1,vector<int>(26,0));\n\
+    \  for(int i=n-1;i>=0;i--){\n    for(int j=0;j<26;j++)next[i][j]=next[i+1][j];\n\
+    \    next[i][s[i]-'a']=i;\n  }\n  vector<long long>dp(n+1,0);\n  dp[0]=1;\n  for(int\
+    \ i=0;i<n;i++)for(int j=0;j<26;j++)if(next[i][j]<n)dp[next[i][j]+1]=dp[next[i][j]+1]+dp[i];\n\
+    \  long long ans=0;\n  for(int i=0;i<=n;i++)ans+=dp[i];\n  return ans;\n}\n/**\n\
+    \ * @brief Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)\n*/\n"
+  code: "#pragma once\n#include\"../template/template.hpp\"\n\nlong long CountSubsequences(const\
+    \ string&s){\n  int n=s.size();\n  vector<vector<int>>next(n+1,vector<int>(26,0));\n\
+    \  for(int i=n-1;i>=0;i--){\n    for(int j=0;j<26;j++)next[i][j]=next[i+1][j];\n\
+    \    next[i][s[i]-'a']=i;\n  }\n  vector<long long>dp(n+1,0);\n  dp[0]=1;\n  for(int\
+    \ i=0;i<n;i++)for(int j=0;j<26;j++)if(next[i][j]<n)dp[next[i][j]+1]=dp[next[i][j]+1]+dp[i];\n\
+    \  long long ans=0;\n  for(int i=0;i<=n;i++)ans+=dp[i];\n  return ans;\n}\n/**\n\
+    \ * @brief Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -188,16 +176,15 @@ data:
   - template/debug.hpp
   - template/type-traits.hpp
   isVerificationFile: false
-  path: data-structure/weighted-union-find.hpp
+  path: dp/count-subsequences.hpp
   requiredBy: []
-  timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/aoj/DSL/DSL_1_B.test.cpp
-documentation_of: data-structure/weighted-union-find.hpp
+  timestamp: '2024-04-21 13:23:38+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: dp/count-subsequences.hpp
 layout: document
 redirect_from:
-- /library/data-structure/weighted-union-find.hpp
-- /library/data-structure/weighted-union-find.hpp.html
-title: "Weighted Disjoint Set Union(\u91CD\u307F\u4ED8\u304DUnion Find)"
+- /library/dp/count-subsequences.hpp
+- /library/dp/count-subsequences.hpp.html
+title: "Count Subsequences(\u90E8\u5206\u5217\u306E\u500B\u6570)"
 ---
