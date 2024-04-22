@@ -38,7 +38,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: ds/segment/segment-tree.hpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: ds/segment/sparse-table.hpp
     title: Sparse Table
   - icon: ':heavy_check_mark:'
@@ -96,7 +96,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/static_range_sum.test.cpp
     title: test/yosupo/data_strucuture/static_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/staticrmq.test.cpp
     title: test/yosupo/data_strucuture/staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
@@ -108,9 +108,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1435.test.cpp
     title: test/yukicoder/1435.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
@@ -370,7 +370,7 @@ data:
   - ds/segment/sparse-table.hpp
   - ds/segment/disjoint-sparse-table.hpp
   timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/static_range_sum.test.cpp
   - test/yosupo/data_strucuture/point_add_range_sum1.test.cpp

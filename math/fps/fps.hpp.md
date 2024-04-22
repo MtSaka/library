@@ -55,23 +55,23 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/fps/polynomial-interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/subset-sum.hpp
     title: Count Subset Sum
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/taylor-shift.hpp
     title: "Taylor Shift(\u591A\u9805\u5F0F\u306E\u5E73\u884C\u79FB\u52D5)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/math/sharp_p_subset_sum.test.cpp
     title: test/yosupo/math/sharp_p_subset_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/polynomial/division_of_polynomials.test.cpp
     title: test/yosupo/polynomial/division_of_polynomials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/inv_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -83,13 +83,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/polynomial_interpolation.test.cpp
     title: test/yosupo/polynomial/polynomial_interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
     title: test/yosupo/polynomial/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
   _isVerificationFailed: true
@@ -440,7 +440,7 @@ data:
     #line 4 \"math/fps/fps.hpp\"\n\ntemplate<typename mint=ModInt<998244353>>\nstruct\
     \ FormalPowerSeries:vector<mint>{\n  using vector<mint>::vector;\n  using FPS=FormalPowerSeries<mint>;\n\
     \  private:\n  static constexpr unsigned int p=mint::get_mod();\n  public:\n \
-    \ inline void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
+    \ inline void shrink(){while((int)(*this).size()>1&&(*this).back()==mint())(*this).pop_back();}\n\
     \  FPS& dot(const FPS&r){\n    rep(i,min((*this).size(),r.size()))(*this)[i]*=r[i];\n\
     \    return *this;\n  }\n  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res(d);\n    res[0]=(*this)[0].inv();\n    for(int\
@@ -527,7 +527,7 @@ data:
     \n\ntemplate<typename mint=ModInt<998244353>>\nstruct FormalPowerSeries:vector<mint>{\n\
     \  using vector<mint>::vector;\n  using FPS=FormalPowerSeries<mint>;\n  private:\n\
     \  static constexpr unsigned int p=mint::get_mod();\n  public:\n  inline void\
-    \ shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
+    \ shrink(){while((int)(*this).size()>1&&(*this).back()==mint())(*this).pop_back();}\n\
     \  FPS& dot(const FPS&r){\n    rep(i,min((*this).size(),r.size()))(*this)[i]*=r[i];\n\
     \    return *this;\n  }\n  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res(d);\n    res[0]=(*this)[0].inv();\n    for(int\
@@ -633,7 +633,7 @@ data:
   - math/fps/multipoint-evaluation.hpp
   - math/fps/taylor-shift.hpp
   - math/fps/polynomial-interpolation.hpp
-  timestamp: '2024-04-22 12:05:14+09:00'
+  timestamp: '2024-04-22 13:54:28+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/math/sharp_p_subset_sum.test.cpp
