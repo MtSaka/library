@@ -1,33 +1,33 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/convolution.hpp
     title: "Convolution(\u7573\u307F\u8FBC\u307F)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/modint.hpp
     title: ModInt
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/modular/montgomery-modint.hpp
     title: "MontgomeryModInt(\u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number/miller-rabin.hpp
     title: "Miller-Rabin Primality Test(\u30DF\u30E9\u30FC\u30E9\u30D3\u30F3\u7D20\
       \u6570\u5224\u5B9A)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number/pollard-rho.hpp
     title: "Pollard's Rho Factorization(\u30DD\u30E9\u30FC\u30C9\u30FB\u30ED\u30FC\
       \u6CD5)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number/primitive-root.hpp
     title: "Primitive Root(\u539F\u59CB\u6839)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: others/random.hpp
     title: "Random(\u4E71\u6570)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: string/run-length.hpp
     title: string/run-length.hpp
   - icon: ':question:'
@@ -466,7 +466,7 @@ data:
     \ d=-1){\n    shrink();\n    const int n=(*this).size();\n    if(d==-1)d=n;\n\
     \    FPS tmp=inv(d);\n    (*this).inplace_diff()*=tmp;\n    (*this).resize(d-1);\n\
     \    return (*this).inplace_integral();\n  }\n  FPS exp(int d=-1)const{\n    const\
-    \ int n=(*this).size();\n    if(d==-1)d=n;\n    if(n==1){\n      FPS res(d,mint());\n\
+    \ int n=(*this).size();\n    if(d==-1)d=n;\n    if(n<=1){\n      FPS res(d,mint());\n\
     \      res[0]=1;\n      return res;\n    }\n    FPS f={mint(1)+(*this)[0],(*this)[1]},res{1,(*this)[1]};\n\
     \    for(int sz=2;sz<d;sz<<=1){\n      f.insert(f.end(),(*this).begin()+min(sz,n),(*this).begin()+min(n,sz<<1));\n\
     \      f.resize(sz<<1);\n      res=res*(f-res.log(sz<<1));\n      res.resize(sz<<1);\n\
@@ -514,7 +514,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2024-04-22 16:39:36+09:00'
+  timestamp: '2024-04-22 22:31:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
