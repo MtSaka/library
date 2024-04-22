@@ -183,15 +183,14 @@ data:
     \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
     \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 4 \"graph/mst/prim.hpp\"\
     \n\ntemplate<typename T>\npair<T,Edges<T>>prim(const Graph<T>&g){\n  T sum=T();\n\
-    \  vector<bool>used(g.size(),false);\n  vector<Edge<T>>dist(g.size(),Edge<T>());\n\
-    \  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<>>q;\n  q.emplace(T(),0);\n\
-    \  Edges<T>es;\n  while(!q.empty()){\n    auto p=q.top();q.pop();\n    if(used[p.second])continue;\n\
-    \    used[p.second]=true;\n    sum+=p.first;\n    if(dist[p.second])es.emplace_back(dist[p.second]);\n\
-    \    for(auto &e:g[p.second]){\n      if(used[e]||(dist[e]&&dist[e].cost<=e.cost))continue;\n\
-    \      q.emplace(e.cost,e.to);\n    }\n  }\n  return {sum,es};\n}\n/**\n * @brief\
-    \ Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n*/\n#line 4 \"test/aoj/GRL/GRL_2_A_2.test.cpp\"\
-    \nint main(){\n  INT(v,e);\n  Graph<ll>g(v);\n  g.read(e,0,true,false);\n  print(prim(g).first);\n\
-    }\n"
+    \  Edges<T>es;\n  if(g.size()==0)return {sum,es};\n  vector<bool>used(g.size(),false);\n\
+    \  priority_queue<Edge<T>,vector<Edge<T>>,greater<>>q;\n  used[0]=true;\n  for(auto\
+    \ e:g[0])q.emplace(e);\n  while(!q.empty()){\n    const auto p=q.top();q.pop();\n\
+    \    if(used[p.to])continue;\n    used[p.to]=true;\n    sum+=p.cost;\n    es.emplace_back(p);\n\
+    \    for(auto &e:g[p.second])if(!used[e.to]){\n      q.emplace(e);\n    }\n  }\n\
+    \  return {sum,es};\n}\n/**\n * @brief Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n\
+    */\n#line 4 \"test/aoj/GRL/GRL_2_A_2.test.cpp\"\nint main(){\n  INT(v,e);\n  Graph<ll>g(v);\n\
+    \  g.read(e,0,true,false);\n  print(prim(g).first);\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/mst/prim.hpp\"\
     \nint main(){\n  INT(v,e);\n  Graph<ll>g(v);\n  g.read(e,0,true,false);\n  print(prim(g).first);\n\
@@ -209,7 +208,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_2_A_2.test.cpp
   requiredBy: []
-  timestamp: '2024-04-23 08:28:20+09:00'
+  timestamp: '2024-04-23 08:35:51+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_2_A_2.test.cpp
