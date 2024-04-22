@@ -9,7 +9,8 @@ struct Edge{
   Edge(){}
   Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}
   operator int()const{return to;}
-  bool operator<(const Edge&e)const{return cost<e.cost;}
+  friend bool operator<(const Edge&lhs,const Edge&rhs){return lhs.cost<rhs.cost;}
+  friend bool operator>(const Edge&lhs,const Edge&rhs){return lhs.cost>rhs.cost;}
 };
 template<typename T=int>
 using Edges=vector<Edge<T>>;
@@ -29,6 +30,7 @@ struct Graph{
   void add_edge(int from,int to,bool direct=false){
     g[from].emplace_back(from,to,1,es);
     if(!direct)g[to].emplace_back(to,from,1,es);
+    es++;
   }
   inline vector<Edge<T>>&operator[](int idx){return g[idx];}
   inline const vector<Edge<T>>&operator[](int idx)const{return g[idx];}
