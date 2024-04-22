@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: math/fps/fps.hpp
     title: "Formal Power Series(\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/fps/polynomial-interpolation.hpp
     title: "Polynomial Interpolation(\u591A\u9805\u5F0F\u88DC\u9593)"
   - icon: ':question:'
@@ -56,9 +56,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/polynomial_interpolation
@@ -408,7 +408,7 @@ data:
     #line 4 \"math/fps/fps.hpp\"\n\ntemplate<typename mint=ModInt<998244353>>\nstruct\
     \ FormalPowerSeries:vector<mint>{\n  using vector<mint>::vector;\n  using FPS=FormalPowerSeries<mint>;\n\
     \  private:\n  static constexpr unsigned int p=mint::get_mod();\n  public:\n \
-    \ inline void shrink(){while((int)(*this).size()>1&&(*this).back()==mint())(*this).pop_back();}\n\
+    \ inline void shrink(){while(!(*this).empty()>1&&(*this).back()==mint())(*this).pop_back();}\n\
     \  FPS& dot(const FPS&r){\n    rep(i,min((*this).size(),r.size()))(*this)[i]*=r[i];\n\
     \    return *this;\n  }\n  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res(d);\n    res[0]=(*this)[0].inv();\n    for(int\
@@ -527,8 +527,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/polynomial_interpolation.test.cpp
   requiredBy: []
-  timestamp: '2024-04-22 13:54:28+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-04-22 14:18:23+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/polynomial_interpolation.test.cpp
 layout: document
