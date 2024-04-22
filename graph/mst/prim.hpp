@@ -17,7 +17,7 @@ pair<T,Edges<T>>prim(const Graph<T>&g){
     used[p.to]=true;
     sum+=p.cost;
     es.emplace_back(p);
-    for(auto &e:g[p.second])if(!used[e.to]){
+    for(auto &e:g[p.to])if(!used[e.to]){
       q.emplace(e);
     }
   }
