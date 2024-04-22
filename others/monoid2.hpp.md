@@ -30,12 +30,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
     title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
     title: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
@@ -264,7 +264,7 @@ data:
   path: others/monoid2.hpp
   requiredBy: []
   timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
   - test/yosupo/data_strucuture/point_set_range_composite.test.cpp

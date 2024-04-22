@@ -33,12 +33,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
     title: test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
     title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Binary Indexed Tree(Fenwick Tree, BIT)
     links: []
@@ -266,7 +266,7 @@ data:
   path: ds/segment/binary-indexed-tree.hpp
   requiredBy: []
   timestamp: '2024-04-21 13:53:32+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/point_add_range_sum2.test.cpp
   - test/yosupo/data_strucuture/static_range_inversions_query.test.cpp

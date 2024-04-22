@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: ds/segment/binary-indexed-tree.hpp
     title: Binary Indexed Tree(Fenwick Tree, BIT)
   - icon: ':question:'

@@ -53,12 +53,12 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/polynomial/multipoint_evaluation.test.cpp
     title: test/yosupo/polynomial/multipoint_evaluation.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "Multipoint Evaluation(\u591A\u70B9\u8A55\u4FA1)"
     links: []
@@ -404,7 +404,7 @@ data:
     #line 4 \"math/fps/fps.hpp\"\n\ntemplate<typename mint=ModInt<998244353>>\nstruct\
     \ FormalPowerSeries:vector<mint>{\n  using vector<mint>::vector;\n  using FPS=FormalPowerSeries<mint>;\n\
     \  private:\n  static constexpr unsigned int p=mint::get_mod();\n  public:\n \
-    \ inline void shrink(){while(!(*this).size()==1&&(*this).back()==mint())(*this).pop_back();}\n\
+    \ inline void shrink(){while(!(*this).empty()&&(*this).back()==mint())(*this).pop_back();}\n\
     \  FPS& dot(const FPS&r){\n    rep(i,min((*this).size(),r.size()))(*this)[i]*=r[i];\n\
     \    return *this;\n  }\n  FPS inv(int d=-1)const{\n    const int n=(*this).size();\n\
     \    if(d==-1)d=n;\n    FPS res(d);\n    res[0]=(*this)[0].inv();\n    for(int\
@@ -522,8 +522,8 @@ data:
   isVerificationFile: false
   path: math/fps/multipoint-evaluation.hpp
   requiredBy: []
-  timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-04-22 12:05:14+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/polynomial/multipoint_evaluation.test.cpp
 documentation_of: math/fps/multipoint-evaluation.hpp

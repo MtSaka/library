@@ -27,12 +27,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/math/sqrt_mod.test.cpp
     title: test/yosupo/math/sqrt_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
     title: test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: "Mod Square Root(\u5E73\u65B9\u5270\u4F59)"
     links: []
@@ -190,7 +190,7 @@ data:
   path: math/modular/mod-sqrt.hpp
   requiredBy: []
   timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/math/sqrt_mod.test.cpp
   - test/yosupo/polynomial/sqrt_of_formal_power_series.test.cpp

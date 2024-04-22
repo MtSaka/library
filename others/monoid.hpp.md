@@ -23,16 +23,16 @@ data:
     path: template/util.hpp
     title: template/util.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: ds/segment/binary-indexed-tree.hpp
     title: Binary Indexed Tree(Fenwick Tree, BIT)
   - icon: ':heavy_check_mark:'
     path: ds/segment/disjoint-sparse-table.hpp
     title: ds/segment/disjoint-sparse-table.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: ds/segment/dual-segment-tree.hpp
     title: "Dual Segment Tree(\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: ds/segment/lazy-segment-tree.hpp
     title: "Lazy Segment Tree(\u9045\u5EF6\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - icon: ':heavy_check_mark:'
@@ -44,7 +44,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/tree/RMQ_lowest_common_ancestor.hpp
     title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: others/monoid2.hpp
     title: others/monoid2.hpp
   _extendedVerifiedWith:
@@ -60,10 +60,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_D.test.cpp
     title: test/aoj/DSL/DSL_2_D.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_E.test.cpp
     title: test/aoj/DSL/DSL_2_E.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/DSL/DSL_2_F.test.cpp
     title: test/aoj/DSL/DSL_2_F.test.cpp
   - icon: ':heavy_check_mark:'
@@ -87,10 +87,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
     title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
     title: test/yosupo/data_strucuture/range_affine_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
     title: test/yosupo/data_strucuture/static_range_inversions_query.test.cpp
   - icon: ':heavy_check_mark:'

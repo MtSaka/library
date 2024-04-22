@@ -10,7 +10,7 @@ data:
   - icon: ':question:'
     path: others/monoid.hpp
     title: others/monoid.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: others/monoid2.hpp
     title: others/monoid2.hpp
   - icon: ':question:'
