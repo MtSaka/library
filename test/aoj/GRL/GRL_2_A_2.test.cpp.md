@@ -187,9 +187,9 @@ data:
     \  priority_queue<Edge<T>,vector<Edge<T>>,greater<>>q;\n  used[0]=true;\n  for(auto\
     \ e:g[0])q.emplace(e);\n  while(!q.empty()){\n    const auto p=q.top();q.pop();\n\
     \    if(used[p.to])continue;\n    used[p.to]=true;\n    sum+=p.cost;\n    es.emplace_back(p);\n\
-    \    for(auto &e:g[p.second])if(!used[e.to]){\n      q.emplace(e);\n    }\n  }\n\
-    \  return {sum,es};\n}\n/**\n * @brief Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n\
-    */\n#line 4 \"test/aoj/GRL/GRL_2_A_2.test.cpp\"\nint main(){\n  INT(v,e);\n  Graph<ll>g(v);\n\
+    \    for(auto &e:g[p.to])if(!used[e.to]){\n      q.emplace(e);\n    }\n  }\n \
+    \ return {sum,es};\n}\n/**\n * @brief Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n*/\n\
+    #line 4 \"test/aoj/GRL/GRL_2_A_2.test.cpp\"\nint main(){\n  INT(v,e);\n  Graph<ll>g(v);\n\
     \  g.read(e,0,true,false);\n  print(prim(g).first);\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/mst/prim.hpp\"\
@@ -208,7 +208,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_2_A_2.test.cpp
   requiredBy: []
-  timestamp: '2024-04-23 08:35:51+09:00'
+  timestamp: '2024-04-23 08:37:06+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_2_A_2.test.cpp

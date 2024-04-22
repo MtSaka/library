@@ -184,18 +184,16 @@ data:
     \  priority_queue<Edge<T>,vector<Edge<T>>,greater<>>q;\n  used[0]=true;\n  for(auto\
     \ e:g[0])q.emplace(e);\n  while(!q.empty()){\n    const auto p=q.top();q.pop();\n\
     \    if(used[p.to])continue;\n    used[p.to]=true;\n    sum+=p.cost;\n    es.emplace_back(p);\n\
-    \    for(auto &e:g[p.second])if(!used[e.to]){\n      q.emplace(e);\n    }\n  }\n\
-    \  return {sum,es};\n}\n/**\n * @brief Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n\
-    */\n"
+    \    for(auto &e:g[p.to])if(!used[e.to]){\n      q.emplace(e);\n    }\n  }\n \
+    \ return {sum,es};\n}\n/**\n * @brief Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n*/\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"../graph-template.hpp\"\
     \n\ntemplate<typename T>\npair<T,Edges<T>>prim(const Graph<T>&g){\n  T sum=T();\n\
     \  Edges<T>es;\n  if(g.size()==0)return {sum,es};\n  vector<bool>used(g.size(),false);\n\
     \  priority_queue<Edge<T>,vector<Edge<T>>,greater<>>q;\n  used[0]=true;\n  for(auto\
     \ e:g[0])q.emplace(e);\n  while(!q.empty()){\n    const auto p=q.top();q.pop();\n\
     \    if(used[p.to])continue;\n    used[p.to]=true;\n    sum+=p.cost;\n    es.emplace_back(p);\n\
-    \    for(auto &e:g[p.second])if(!used[e.to]){\n      q.emplace(e);\n    }\n  }\n\
-    \  return {sum,es};\n}\n/**\n * @brief Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n\
-    */"
+    \    for(auto &e:g[p.to])if(!used[e.to]){\n      q.emplace(e);\n    }\n  }\n \
+    \ return {sum,es};\n}\n/**\n * @brief Prim(\u6700\u5C0F\u5168\u57DF\u6728)\n*/"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -208,7 +206,7 @@ data:
   isVerificationFile: false
   path: graph/mst/prim.hpp
   requiredBy: []
-  timestamp: '2024-04-23 08:35:51+09:00'
+  timestamp: '2024-04-23 08:37:06+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/aoj/GRL/GRL_2_A_2.test.cpp
