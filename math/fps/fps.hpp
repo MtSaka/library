@@ -194,7 +194,7 @@ struct FormalPowerSeries:vector<mint>{
   FPS exp(int d=-1)const{
     const int n=(*this).size();
     if(d==-1)d=n;
-    if(n==1){
+    if(n<=1){
       FPS res(d,mint());
       res[0]=1;
       return res;
