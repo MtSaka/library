@@ -6,7 +6,7 @@ template<typename T>
 pair<T,Edges<T>>prim(const Graph<T>&g){
   T sum=T();
   vector<bool>used(g.size(),false);
-  vector<Edge<T>>dist(g.size());
+  vector<Edge<T>>dist(g.size(),Edge<T>());
   priority_queue<pair<T,int>,vector<pair<T,int>>,greater<>>q;
   q.emplace(T(),0);
   Edges<T>es;

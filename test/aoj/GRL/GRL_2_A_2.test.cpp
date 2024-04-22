@@ -3,7 +3,7 @@
 #include"../../../graph/mst/prim.hpp"
 int main(){
   INT(v,e);
-  Graph g(v);
+  Graph<ll>g(v);
   g.read(e,0,true,false);
   print(prim(g).first);
 }
