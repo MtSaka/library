@@ -2,6 +2,12 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
+    path: graph/graph-template.hpp
+    title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+  - icon: ':heavy_check_mark:'
+    path: graph/tree/catersian-tree.hpp
+    title: graph/tree/catersian-tree.hpp
+  - icon: ':question:'
     path: template/alias.hpp
     title: template/alias.hpp
   - icon: ':question:'
@@ -22,124 +28,25 @@ data:
   - icon: ':question:'
     path: template/util.hpp
     title: template/util.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: graph/mst/kruskal.hpp
-    title: "Kruskal(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':x:'
-    path: graph/mst/prim.hpp
-    title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
-  - icon: ':heavy_check_mark:'
-    path: graph/others/detect-cycle.hpp
-    title: "Cycle Detection(\u9589\u8DEF\u691C\u51FA)"
-  - icon: ':heavy_check_mark:'
-    path: graph/others/scc.hpp
-    title: "Strongly Connected Components(\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3\
-      )"
-  - icon: ':heavy_check_mark:'
-    path: graph/others/topological-sort.hpp
-    title: "Topological Sort(\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\
-      )"
-  - icon: ':heavy_check_mark:'
-    path: graph/others/two-sat.hpp
-    title: Tow Satisfiability(2-SAT)
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/bellman-ford.hpp
-    title: "Bellman-Ford(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/dijkstra-path.hpp
-    title: "Dijkstra With Path(\u7D4C\u8DEF\u4ED8\u304D\u5358\u4E00\u59CB\u70B9\u6700\
-      \u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/dijkstra.hpp
-    title: "Dijkstra(\u5358\u4E00\u59CB\u70B9\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
-    path: graph/shortest-path/warshall-floyd.hpp
-    title: "Warshall Floyd(\u5168\u70B9\u5BFE\u9593\u6700\u77ED\u8DEF)"
-  - icon: ':heavy_check_mark:'
-    path: graph/tree/RMQ_lowest_common_ancestor.hpp
-    title: "RMQ Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
-    path: graph/tree/catersian-tree.hpp
-    title: graph/tree/catersian-tree.hpp
-  - icon: ':warning:'
-    path: graph/tree/centroid.hpp
-    title: "Centroid(\u6728\u306E\u91CD\u5FC3)"
-  - icon: ':heavy_check_mark:'
-    path: graph/tree/doubling-lowest-common-ancestor.hpp
-    title: "Doubling Lowest Common Ancestor(\u6700\u5C0F\u5171\u901A\u7956\u5148)"
-  - icon: ':heavy_check_mark:'
-    path: graph/tree/tree-diameter.hpp
-    title: "Tree Diameter(\u6728\u306E\u76F4\u5F84)"
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_1_A.test.cpp
-    title: test/aoj/GRL/GRL_1_A.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_1_B.test.cpp
-    title: test/aoj/GRL/GRL_1_B.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_1_C.test.cpp
-    title: test/aoj/GRL/GRL_1_C.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_2_A.test.cpp
-    title: test/aoj/GRL/GRL_2_A.test.cpp
-  - icon: ':x:'
-    path: test/aoj/GRL/GRL_2_A_2.test.cpp
-    title: test/aoj/GRL/GRL_2_A_2.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_3_C.test.cpp
-    title: test/aoj/GRL/GRL_3_C.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_4_A.test.cpp
-    title: test/aoj/GRL/GRL_4_A.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_4_B.test.cpp
-    title: test/aoj/GRL/GRL_4_B.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_5_A.test.cpp
-    title: test/aoj/GRL/GRL_5_A.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_5_C_1.test.cpp
-    title: test/aoj/GRL/GRL_5_C_1.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/GRL/GRL_5_C_2.test.cpp
-    title: test/aoj/GRL/GRL_5_C_2.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/graph/scc.test.cpp
-    title: test/yosupo/graph/scc.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/graph/shortest_path.test.cpp
-    title: test/yosupo/graph/shortest_path.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/math/two_sat.test.cpp
-    title: test/yosupo/math/two_sat.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/tree/catersian_tree.test.cpp
-    title: test/yosupo/tree/catersian_tree.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/tree/lca1.test.cpp
-    title: test/yosupo/tree/lca1.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/tree/lca2.test.cpp
-    title: test/yosupo/tree/lca2.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yosupo/tree/tree_diameter.test.cpp
-    title: test/yosupo/tree/tree_diameter.test.cpp
-  _isVerificationFailed: true
-  _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
+  _pathExtension: cpp
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    document_title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\
-      \u30C8)"
-    links: []
-  bundledCode: "#line 2 \"template/template.hpp\"\n#include<bits/stdc++.h>\n#line\
-    \ 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...) e\n#define SELECT3(a,b,c,d,...)\
-    \ d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n#define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n\
-    #define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n#define REP4(i,a,b,c) for(ll\
-    \ i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...) SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n\
-    #define RREP1(a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n\
-    #define RREP3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);--i)\n#define rrep(...) SELECT3(__VA_ARGS__,RREP3,RREP2,RREP1)(__VA_ARGS__)\n\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/cartesian_tree
+    links:
+    - https://judge.yosupo.jp/problem/cartesian_tree
+  bundledCode: "#line 1 \"test/yosupo/tree/catersian_tree.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.yosupo.jp/problem/cartesian_tree\"\n#line 2 \"template/template.hpp\"\
+    \n#include<bits/stdc++.h>\n#line 3 \"template/macro.hpp\"\n\n#define SELECT4(a,b,c,d,e,...)\
+    \ e\n#define SELECT3(a,b,c,d,...) d\n#define REP1(a) for(ll i=0;i<(ll)(a);++i)\n\
+    #define REP2(i,a) for(ll i=0;i<(ll)(a);++i)\n#define REP3(i,a,b) for(ll i=(ll)(a);i<(ll)(b);++i)\n\
+    #define REP4(i,a,b,c) for(ll i=(ll)(a);i<(ll)(b);i+=(ll)(c))\n#define rep(...)\
+    \ SELECT4(__VA_ARGS__,REP4,REP3,REP2,REP1)(__VA_ARGS__)\n#define RREP1(a) for(ll\
+    \ i=(ll)(a)-1;i>=0;--i)\n#define RREP2(i,a) for(ll i=(ll)(a)-1;i>=0;--i)\n#define\
+    \ RREP3(i,a,b) for(ll i=(ll)(b)-1;i>=(ll)(a);--i)\n#define rrep(...) SELECT3(__VA_ARGS__,RREP3,RREP2,RREP1)(__VA_ARGS__)\n\
     #define all(v) std::begin(v),std::end(v)\n#define rall(v) std::rbegin(v),std::rend(v)\n\
     #define INT(...) int __VA_ARGS__;scan(__VA_ARGS__)\n#define LL(...) ll __VA_ARGS__;scan(__VA_ARGS__)\n\
     #define STR(...) string __VA_ARGS__;scan(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__;scan(__VA_ARGS__)\n\
@@ -275,26 +182,22 @@ data:
     \    }\n  }\n};\nstruct UnweightedEdge{\n  template<class... Args>UnweightedEdge(const\
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
     \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n"
-  code: "#pragma once\n#include\"../template/template.hpp\"\n\ntemplate<typename T=int>\n\
-    struct Edge{\n  int from,to;\n  T cost;\n  int idx;\n  Edge(){}\n  Edge(int from,int\
-    \ to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n  operator\
-    \ int()const{return to;}\n  bool operator<(const Edge&e)const{return cost<e.cost;}\n\
-    };\ntemplate<typename T=int>\nusing Edges=vector<Edge<T>>;\ntemplate<typename\
-    \ T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n  int es;\n  Graph(){}\n\
-    \  explicit Graph(int n):g(n),es(0){}\n  size_t size()const{return g.size();}\n\
-    \  size_t edge_size()const{return es;}\n  void add_edge(int from,int to,T cost=1,bool\
-    \ direct=false){\n    g[from].emplace_back(from,to,cost,es);\n    if(!direct)g[to].emplace_back(to,from,cost,es);\n\
-    \    es++;\n  }\n  void add_edge(int from,int to,bool direct=false){\n    g[from].emplace_back(from,to,1,es);\n\
-    \    if(!direct)g[to].emplace_back(to,from,1,es);\n  }\n  inline vector<Edge<T>>&operator[](int\
-    \ idx){return g[idx];}\n  inline const vector<Edge<T>>&operator[](int idx)const{return\
-    \ g[idx];}\n  void read(int m,int padding=-1,bool weighted=false,bool direct=false){\n\
-    \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
-    \    a+=padding;\n      b+=padding;\n      if(weighted)cin>>c;\n      add_edge(a,b,c,direct);\n\
-    \    }\n  }\n};\nstruct UnweightedEdge{\n  template<class... Args>UnweightedEdge(const\
-    \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
-    \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
-    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/"
+    \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 4 \"graph/tree/catersian-tree.hpp\"\
+    \n\ntemplate<typename T,typename Cmp=less<T>>\nstruct CatersianTree{\n    private:\n\
+    \    int n;\n    const vector<T>&v;\n    vector<int>par;\n    Cmp cmp;\n    void\
+    \ init(){\n        n=v.size();\n        par.assign(n,-1);\n        rep(i,1,n){\n\
+    \            int p=i-1,lst=-1;\n            while(p!=-1&&cmp(v[i],v[p])){\n  \
+    \              lst=p;\n                p=par[p];\n            }\n            if(lst!=-1)par[lst]=i;\n\
+    \            par[i]=p;\n        }\n    }\n    public:\n    CatersianTree(const\
+    \ vector<T>&v):v(v),cmp(Cmp()){init();}\n    CatersianTree(const vector<T>&v,const\
+    \ Cmp&cmp):v(v),cmp(cmp){init();}\n    vector<int>get()const{return par;}\n};\n\
+    #line 4 \"test/yosupo/tree/catersian_tree.test.cpp\"\n\nint main(){\n    int n;cin>>n;\n\
+    \    vector<int>a(n);cin>>a;\n    auto v=CatersianTree(a).get();\n    rep(i,n)if(v[i]==-1)v[i]=i;\n\
+    \    print(v);\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/cartesian_tree\"\n#include\"\
+    ../../../template/template.hpp\"\n#include\"../../../graph/tree/catersian-tree.hpp\"\
+    \n\nint main(){\n    int n;cin>>n;\n    vector<int>a(n);cin>>a;\n    auto v=CatersianTree(a).get();\n\
+    \    rep(i,n)if(v[i]==-1)v[i]=i;\n    print(v);\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -303,49 +206,18 @@ data:
   - template/util.hpp
   - template/debug.hpp
   - template/type-traits.hpp
-  isVerificationFile: false
-  path: graph/graph-template.hpp
-  requiredBy:
-  - graph/others/detect-cycle.hpp
-  - graph/others/two-sat.hpp
-  - graph/others/scc.hpp
-  - graph/others/topological-sort.hpp
-  - graph/shortest-path/bellman-ford.hpp
-  - graph/shortest-path/dijkstra.hpp
-  - graph/shortest-path/dijkstra-path.hpp
-  - graph/shortest-path/warshall-floyd.hpp
-  - graph/mst/kruskal.hpp
-  - graph/mst/prim.hpp
-  - graph/tree/centroid.hpp
-  - graph/tree/tree-diameter.hpp
-  - graph/tree/doubling-lowest-common-ancestor.hpp
   - graph/tree/catersian-tree.hpp
-  - graph/tree/RMQ_lowest_common_ancestor.hpp
-  timestamp: '2024-02-04 11:21:20+09:00'
-  verificationStatus: LIBRARY_SOME_WA
-  verifiedWith:
-  - test/yosupo/graph/shortest_path.test.cpp
-  - test/yosupo/graph/scc.test.cpp
-  - test/yosupo/math/two_sat.test.cpp
-  - test/yosupo/tree/lca2.test.cpp
-  - test/yosupo/tree/lca1.test.cpp
-  - test/yosupo/tree/catersian_tree.test.cpp
-  - test/yosupo/tree/tree_diameter.test.cpp
-  - test/aoj/GRL/GRL_3_C.test.cpp
-  - test/aoj/GRL/GRL_5_C_2.test.cpp
-  - test/aoj/GRL/GRL_1_C.test.cpp
-  - test/aoj/GRL/GRL_1_A.test.cpp
-  - test/aoj/GRL/GRL_5_A.test.cpp
-  - test/aoj/GRL/GRL_2_A_2.test.cpp
-  - test/aoj/GRL/GRL_4_A.test.cpp
-  - test/aoj/GRL/GRL_2_A.test.cpp
-  - test/aoj/GRL/GRL_5_C_1.test.cpp
-  - test/aoj/GRL/GRL_4_B.test.cpp
-  - test/aoj/GRL/GRL_1_B.test.cpp
-documentation_of: graph/graph-template.hpp
+  - graph/graph-template.hpp
+  isVerificationFile: true
+  path: test/yosupo/tree/catersian_tree.test.cpp
+  requiredBy: []
+  timestamp: '2024-04-22 10:17:54+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/yosupo/tree/catersian_tree.test.cpp
 layout: document
 redirect_from:
-- /library/graph/graph-template.hpp
-- /library/graph/graph-template.hpp.html
-title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
+- /verify/test/yosupo/tree/catersian_tree.test.cpp
+- /verify/test/yosupo/tree/catersian_tree.test.cpp.html
+title: test/yosupo/tree/catersian_tree.test.cpp
 ---
