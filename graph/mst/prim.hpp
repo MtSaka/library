@@ -7,8 +7,7 @@ pair<T,Edges<T>>prim(const Graph<T>&g){
   T sum=T();
   vector<bool>used(g.size(),false);
   vector<Edge<T>>dist(g.size());
-  using pi=pair<T,int>;
-  priority_queue<pi,vector<pi>,greater<>>q;
+  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<>>q;
   q.emplace(T(),0);
   Edges<T>es;
   while(!q.empty()){
