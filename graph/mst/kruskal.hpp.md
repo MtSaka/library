@@ -191,15 +191,13 @@ data:
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
     \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
     \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 5 \"graph/mst/kruskal.hpp\"\
-    \n\ntemplate<typename T>\nstruct mst{\n  T cost;\n  Edges<T>es;\n};\ntemplate<typename\
-    \ T>\nmst<T>kruskal(Edges<T>&ed,int v){\n  sort(ed.begin(),ed.end());\n  UnionFind\
-    \ d(v);\n  T total=0;\n  Edges<T>es;\n  for(auto &e:ed){\n    if(!d.same(e.to,e.from)){\n\
+    \n\ntemplate<typename T>\npair<T,Edges<T>>kruskal(Edges<T>&ed,int v){\n  sort(ed.begin(),ed.end());\n\
+    \  UnionFind d(v);\n  T total=0;\n  Edges<T>es;\n  for(auto &e:ed){\n    if(!d.same(e.to,e.from)){\n\
     \      d.merge(e.to,e.from);\n      es.emplace_back(e);\n      total+=e.cost;\n\
     \    }\n  }\n  return {total,es};\n}\n/**\n * @brief Kruskal(\u6700\u5C0F\u5168\
     \u57DF\u6728)\n*/\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n#include\"../../ds/union-find/union-find.hpp\"\
-    \n#include\"../graph-template.hpp\"\n\ntemplate<typename T>\nstruct mst{\n  T\
-    \ cost;\n  Edges<T>es;\n};\ntemplate<typename T>\nmst<T>kruskal(Edges<T>&ed,int\
+    \n#include\"../graph-template.hpp\"\n\ntemplate<typename T>\npair<T,Edges<T>>kruskal(Edges<T>&ed,int\
     \ v){\n  sort(ed.begin(),ed.end());\n  UnionFind d(v);\n  T total=0;\n  Edges<T>es;\n\
     \  for(auto &e:ed){\n    if(!d.same(e.to,e.from)){\n      d.merge(e.to,e.from);\n\
     \      es.emplace_back(e);\n      total+=e.cost;\n    }\n  }\n  return {total,es};\n\
@@ -217,7 +215,7 @@ data:
   isVerificationFile: false
   path: graph/mst/kruskal.hpp
   requiredBy: []
-  timestamp: '2024-04-21 13:53:32+09:00'
+  timestamp: '2024-04-23 08:21:20+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL/GRL_2_A.test.cpp

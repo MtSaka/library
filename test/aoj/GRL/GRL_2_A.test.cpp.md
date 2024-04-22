@@ -194,18 +194,17 @@ data:
     \ Args&...){}\n  operator int()const{return 1;}\n};\nistream &operator>>(istream&is,UnweightedEdge&c){c=UnweightedEdge();return\
     \ is;}\nusing UnweightedGraph=Graph<UnweightedEdge>;\n/**\n * @brief Graph Template(\u30B0\
     \u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)\n*/\n#line 5 \"graph/mst/kruskal.hpp\"\
-    \n\ntemplate<typename T>\nstruct mst{\n  T cost;\n  Edges<T>es;\n};\ntemplate<typename\
-    \ T>\nmst<T>kruskal(Edges<T>&ed,int v){\n  sort(ed.begin(),ed.end());\n  UnionFind\
-    \ d(v);\n  T total=0;\n  Edges<T>es;\n  for(auto &e:ed){\n    if(!d.same(e.to,e.from)){\n\
+    \n\ntemplate<typename T>\npair<T,Edges<T>>kruskal(Edges<T>&ed,int v){\n  sort(ed.begin(),ed.end());\n\
+    \  UnionFind d(v);\n  T total=0;\n  Edges<T>es;\n  for(auto &e:ed){\n    if(!d.same(e.to,e.from)){\n\
     \      d.merge(e.to,e.from);\n      es.emplace_back(e);\n      total+=e.cost;\n\
     \    }\n  }\n  return {total,es};\n}\n/**\n * @brief Kruskal(\u6700\u5C0F\u5168\
     \u57DF\u6728)\n*/\n#line 4 \"test/aoj/GRL/GRL_2_A.test.cpp\"\nint main(){\n  INT(v,e);\n\
-    \  Edges<ll>ed(e);\n  for(auto &i:ed)cin>>i.from>>i.to>>i.cost;\n  print(kruskal(ed,v).cost);\n\
+    \  Edges<ll>ed(e);\n  for(auto &i:ed)cin>>i.from>>i.to>>i.cost;\n  print(kruskal(ed,v).first);\n\
     }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\
     \n#include\"../../../template/template.hpp\"\n#include\"../../../graph/mst/kruskal.hpp\"\
     \nint main(){\n  INT(v,e);\n  Edges<ll>ed(e);\n  for(auto &i:ed)cin>>i.from>>i.to>>i.cost;\n\
-    \  print(kruskal(ed,v).cost);\n}"
+    \  print(kruskal(ed,v).first);\n}"
   dependsOn:
   - template/template.hpp
   - template/macro.hpp
@@ -220,7 +219,7 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2024-04-21 13:53:32+09:00'
+  timestamp: '2024-04-23 08:21:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_2_A.test.cpp
