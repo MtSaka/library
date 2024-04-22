@@ -5,20 +5,20 @@
 template<typename T>
 pair<T,Edges<T>>prim(const Graph<T>&g){
   T sum=T();
-  vector<bool>used(g.size(),false);
-  vector<Edge<T>>dist(g.size(),Edge<T>());
-  priority_queue<pair<T,int>,vector<pair<T,int>>,greater<>>q;
-  q.emplace(T(),0);
   Edges<T>es;
+  if(g.size()==0)return {sum,es};
+  vector<bool>used(g.size(),false);
+  priority_queue<Edge<T>,vector<Edge<T>>,greater<>>q;
+  used[0]=true;
+  for(auto e:g[0])q.emplace(e);
   while(!q.empty()){
-    auto p=q.top();q.pop();
-    if(used[p.second])continue;
-    used[p.second]=true;
-    sum+=p.first;
-    if(dist[p.second])es.emplace_back(dist[p.second]);
-    for(auto &e:g[p.second]){
-      if(used[e]||(dist[e]&&dist[e].cost<=e.cost))continue;
-      q.emplace(e.cost,e.to);
+    const auto p=q.top();q.pop();
+    if(used[p.to])continue;
+    used[p.to]=true;
+    sum+=p.cost;
+    es.emplace_back(p);
+    for(auto &e:g[p.second])if(!used[e.to]){
+      q.emplace(e);
     }
   }
   return {sum,es};
