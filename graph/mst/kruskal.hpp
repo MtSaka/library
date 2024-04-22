@@ -4,12 +4,7 @@
 #include"../graph-template.hpp"
 
 template<typename T>
-struct mst{
-  T cost;
-  Edges<T>es;
-};
-template<typename T>
-mst<T>kruskal(Edges<T>&ed,int v){
+pair<T,Edges<T>>kruskal(Edges<T>&ed,int v){
   sort(ed.begin(),ed.end());
   UnionFind d(v);
   T total=0;

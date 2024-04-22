@@ -4,6 +4,6 @@
 int main(){
   INT(v,e);
   Graph g(v);
-  g.read(e,0,true);
-  print(prim(g).cost);
+  g.read(e,0,true,false);
+  print(prim(g).first);
 }

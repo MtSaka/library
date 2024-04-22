@@ -3,12 +3,7 @@
 #include"../graph-template.hpp"
 
 template<typename T>
-struct mst{
-  T cost;
-  Edges<T>es;
-};
-template<typename T>
-mst<T>prim(const Graph<T>&g){
+pair<T,Edges<T>>prim(const Graph<T>&g){
   T sum=T();
   vector<bool>used(g.size(),false);
   vector<Edge<T>>dist(g.size());
