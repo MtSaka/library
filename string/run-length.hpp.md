@@ -254,7 +254,7 @@ data:
   - math/fps/fps.hpp
   - math/number/pollard-rho.hpp
   - math/number/primitive-root.hpp
-  timestamp: '2024-02-04 11:21:20+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/convolution/convolution_mod.test.cpp

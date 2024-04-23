@@ -275,7 +275,7 @@ data:
   isVerificationFile: false
   path: ds/others/binary-trie.hpp
   requiredBy: []
-  timestamp: '2024-04-21 13:53:32+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/set_xor_min.test.cpp

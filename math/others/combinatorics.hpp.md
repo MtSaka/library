@@ -263,7 +263,7 @@ data:
   requiredBy:
   - math/others/lagrange.hpp
   - math/fps/taylor-shift.hpp
-  timestamp: '2024-03-12 15:32:53+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/polynomial/polynomial_taylor_shift.test.cpp

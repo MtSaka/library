@@ -369,7 +369,7 @@ data:
   - ds/segment/segment-tree.hpp
   - ds/segment/sparse-table.hpp
   - ds/segment/disjoint-sparse-table.hpp
-  timestamp: '2024-02-04 11:21:20+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/static_range_sum.test.cpp

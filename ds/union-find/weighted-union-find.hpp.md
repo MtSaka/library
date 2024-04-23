@@ -190,7 +190,7 @@ data:
   isVerificationFile: false
   path: ds/union-find/weighted-union-find.hpp
   requiredBy: []
-  timestamp: '2024-04-21 13:53:32+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/DSL/DSL_1_B.test.cpp

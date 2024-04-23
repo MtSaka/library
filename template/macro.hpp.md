@@ -730,7 +730,7 @@ data:
   - ds/segment/sparse-table.hpp
   - ds/segment/disjoint-sparse-table.hpp
   - ds/segment/dynamic-segment-tree.hpp
-  timestamp: '2022-12-18 04:50:26+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/convolution/lcm_convolution.test.cpp

@@ -249,7 +249,7 @@ data:
   isVerificationFile: false
   path: math/others/lagrange.hpp
   requiredBy: []
-  timestamp: '2024-03-12 15:32:53+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/others/lagrange.hpp

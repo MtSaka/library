@@ -187,7 +187,7 @@ data:
   path: ds/wavelet/bit-vector.hpp
   requiredBy:
   - ds/wavelet/wavelet-matrix.hpp
-  timestamp: '2024-04-21 13:53:32+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/range_kth_smallest.test.cpp

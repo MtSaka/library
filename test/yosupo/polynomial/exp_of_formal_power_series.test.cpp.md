@@ -514,7 +514,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/polynomial/exp_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2024-04-22 22:31:28+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/polynomial/exp_of_formal_power_series.test.cpp

@@ -221,7 +221,7 @@ data:
   isVerificationFile: false
   path: ds/cht/li-chao-tree.hpp
   requiredBy: []
-  timestamp: '2024-04-21 14:37:17+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/segment_add_get_min.test.cpp

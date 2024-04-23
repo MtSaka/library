@@ -199,7 +199,7 @@ data:
   isVerificationFile: false
   path: math/number/prime-sieve.hpp
   requiredBy: []
-  timestamp: '2024-02-04 11:21:20+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1/ALDS1_1_C_2.test.cpp

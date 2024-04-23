@@ -206,7 +206,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/data_strucuture/predecessor_problem.test.cpp
   requiredBy: []
-  timestamp: '2024-04-23 10:33:33+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/predecessor_problem.test.cpp

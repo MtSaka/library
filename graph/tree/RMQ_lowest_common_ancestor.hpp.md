@@ -300,7 +300,7 @@ data:
   isVerificationFile: false
   path: graph/tree/RMQ_lowest_common_ancestor.hpp
   requiredBy: []
-  timestamp: '2024-04-23 08:51:28+09:00'
+  timestamp: '2024-04-23 10:40:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/tree/lca2.test.cpp
