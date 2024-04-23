@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/unionfind
 #include"../../../template/template.hpp"
 #include"../../../ds/union-find/union-find.hpp"
 int main(){

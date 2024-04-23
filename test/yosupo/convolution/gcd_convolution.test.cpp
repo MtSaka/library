@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/gcd_convolution"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/gcd_convolution
 #include"../../../template/template.hpp"
 #include"../../../math/modular/modint.hpp"
 #include"../../../math/convolution/gcd-convolution.hpp"

@@ -1,5 +1,5 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_1_B"
-#define ERROR 1e-6
+// competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/all/CGL_1_B
+// competitive-verifier: ERROR 1e-6
 #include"../../../template/template.hpp"
 #include"../../../geometry/geometry.hpp"
 int main(){

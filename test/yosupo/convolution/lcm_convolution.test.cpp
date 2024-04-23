@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/lcm_convolution"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/lcm_convolution
 #include"../../../template/template.hpp"
 #include"../../../math/modular/modint.hpp"
 #include"../../../math/convolution/lcm-convolution.hpp"

@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/staticrmq
 #include"../../../template/template.hpp"
 #include"../../../others/monoid.hpp"
 #include"../../../ds/segment/disjoint-sparse-table.hpp"

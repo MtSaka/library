@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/3030"
+// competitive-verifier: PROBLEM https://yukicoder.me/problems/no/3030
 #include"../../template/template.hpp"
 #include"../../math/number/miller-rabin.hpp"
 int main(){

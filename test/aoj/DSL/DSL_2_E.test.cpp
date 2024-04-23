@@ -1,4 +1,4 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_E"
+// competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_E
 #include"../../../template/template.hpp"
 #include"../../../ds/segment/dual-segment-tree.hpp"
 int main(){

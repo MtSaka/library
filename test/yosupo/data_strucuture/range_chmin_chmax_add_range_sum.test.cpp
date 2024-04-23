@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
 #include"../../../template/template.hpp"
 #include"../../../ds/segment/segment-tree-beats.hpp"
 int main(){
