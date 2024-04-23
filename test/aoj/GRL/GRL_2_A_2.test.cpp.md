@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
     title: "Graph Template(\u30B0\u30E9\u30D5\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/mst/prim.hpp
     title: "Prim(\u6700\u5C0F\u5168\u57DF\u6728)"
   - icon: ':question:'
@@ -30,9 +30,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
@@ -165,15 +165,16 @@ data:
     \ 9 \"template/template.hpp\"\nusing namespace std;\n#line 3 \"graph/graph-template.hpp\"\
     \n\ntemplate<typename T=int>\nstruct Edge{\n  int from,to;\n  T cost;\n  int idx;\n\
     \  Edge(){}\n  Edge(int from,int to,T cost=1,int idx=-1):from(from),to(to),cost(cost),idx(idx){}\n\
-    \  operator int()const{return to;}\n  bool operator<(const Edge&e)const{return\
-    \ cost<e.cost;}\n};\ntemplate<typename T=int>\nusing Edges=vector<Edge<T>>;\n\
+    \  operator int()const{return to;}\n  friend bool operator<(const Edge&lhs,const\
+    \ Edge&rhs){return lhs.cost<rhs.cost;}\n  friend bool operator>(const Edge&lhs,const\
+    \ Edge&rhs){return lhs.cost>rhs.cost;}\n};\ntemplate<typename T=int>\nusing Edges=vector<Edge<T>>;\n\
     template<typename T=int>\nstruct Graph{\n  vector<vector<Edge<T>>>g;\n  int es;\n\
     \  Graph(){}\n  explicit Graph(int n):g(n),es(0){}\n  size_t size()const{return\
     \ g.size();}\n  size_t edge_size()const{return es;}\n  void add_edge(int from,int\
     \ to,T cost=1,bool direct=false){\n    g[from].emplace_back(from,to,cost,es);\n\
     \    if(!direct)g[to].emplace_back(to,from,cost,es);\n    es++;\n  }\n  void add_edge(int\
     \ from,int to,bool direct=false){\n    g[from].emplace_back(from,to,1,es);\n \
-    \   if(!direct)g[to].emplace_back(to,from,1,es);\n  }\n  inline vector<Edge<T>>&operator[](int\
+    \   if(!direct)g[to].emplace_back(to,from,1,es);\n    es++;\n  }\n  inline vector<Edge<T>>&operator[](int\
     \ idx){return g[idx];}\n  inline const vector<Edge<T>>&operator[](int idx)const{return\
     \ g[idx];}\n  void read(int m,int padding=-1,bool weighted=false,bool direct=false){\n\
     \    int a,b;\n    T c=T(1);\n    for(int i=0;i<m;i++){\n      cin>>a>>b;\n  \
@@ -208,8 +209,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL/GRL_2_A_2.test.cpp
   requiredBy: []
-  timestamp: '2024-04-23 08:37:06+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-04-23 08:51:28+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL/GRL_2_A_2.test.cpp
 layout: document
