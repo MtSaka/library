@@ -11,7 +11,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: ds/others/binary-trie.hpp
     title: Binary Trie
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: ds/others/fast-set.hpp
     title: Fast Set
   - icon: ':heavy_check_mark:'
@@ -425,7 +425,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
     title: test/yosupo/data_strucuture/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/predecessor_problem.test.cpp
     title: test/yosupo/data_strucuture/predecessor_problem.test.cpp
   - icon: ':heavy_check_mark:'
@@ -730,7 +730,7 @@ data:
   - ds/segment/sparse-table.hpp
   - ds/segment/disjoint-sparse-table.hpp
   - ds/segment/dynamic-segment-tree.hpp
-  timestamp: '2024-04-23 10:40:07+09:00'
+  timestamp: '2024-04-23 11:30:51+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/convolution/lcm_convolution.test.cpp

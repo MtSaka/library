@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: ds/others/fast-set.hpp
     title: Fast Set
   - icon: ':question:'
@@ -27,9 +27,9 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/predecessor_problem
@@ -175,7 +175,7 @@ data:
     \                return k;\n            }\n            k/=B;\n        }\n    \
     \    return n;\n    }\n    int prev(int k){\n        rep(h,st.size()){\n     \
     \       k--;\n            if(k<0)break;\n            u64 d=st[h][k/B]<<(~k % B);\n\
-    \            if(d){\n                k-=countl_zero(d);\n                while(h--)k=k*B+B-countl_zero(st[h][k]);\n\
+    \            if(d){\n                k-=countl_zero(d);\n                while(h--)k=k*B+__lg(st[h][k]);\n\
     \                return k;\n            }\n            k/=B;\n        }\n    \
     \    return -1;\n    }\n};\n/**\n * @brief Fast Set\n*/\n#line 4 \"test/yosupo/data_strucuture/predecessor_problem.test.cpp\"\
     \n\nint main(){\n    INT(n,q);\n    FastSet st(n);\n    STR(s);\n    rep(i,n)if(s[i]=='1')st.insert(i);\n\
@@ -206,8 +206,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/data_strucuture/predecessor_problem.test.cpp
   requiredBy: []
-  timestamp: '2024-04-23 10:40:07+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-04-23 11:30:51+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/predecessor_problem.test.cpp
 layout: document

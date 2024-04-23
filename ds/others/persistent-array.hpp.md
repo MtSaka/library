@@ -199,7 +199,7 @@ data:
   path: ds/others/persistent-array.hpp
   requiredBy:
   - ds/union-find/persistent-union-find.hpp
-  timestamp: '2024-04-23 10:40:07+09:00'
+  timestamp: '2024-04-23 11:30:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/persistent_unionfind.test.cpp

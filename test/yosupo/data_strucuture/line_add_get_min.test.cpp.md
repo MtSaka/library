@@ -207,7 +207,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/data_strucuture/line_add_get_min.test.cpp
   requiredBy: []
-  timestamp: '2024-04-23 10:40:07+09:00'
+  timestamp: '2024-04-23 11:30:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/data_strucuture/line_add_get_min.test.cpp

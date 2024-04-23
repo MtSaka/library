@@ -24,12 +24,12 @@ data:
     title: template/util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/data_strucuture/predecessor_problem.test.cpp
     title: test/yosupo/data_strucuture/predecessor_problem.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Fast Set
     links: []
@@ -171,7 +171,7 @@ data:
     \                return k;\n            }\n            k/=B;\n        }\n    \
     \    return n;\n    }\n    int prev(int k){\n        rep(h,st.size()){\n     \
     \       k--;\n            if(k<0)break;\n            u64 d=st[h][k/B]<<(~k % B);\n\
-    \            if(d){\n                k-=countl_zero(d);\n                while(h--)k=k*B+B-countl_zero(st[h][k]);\n\
+    \            if(d){\n                k-=countl_zero(d);\n                while(h--)k=k*B+__lg(st[h][k]);\n\
     \                return k;\n            }\n            k/=B;\n        }\n    \
     \    return -1;\n    }\n};\n/**\n * @brief Fast Set\n*/\n"
   code: "#pragma once\n#include\"../../template/template.hpp\"\n\ntemplate<int B=64>\n\
@@ -188,7 +188,7 @@ data:
     \                return k;\n            }\n            k/=B;\n        }\n    \
     \    return n;\n    }\n    int prev(int k){\n        rep(h,st.size()){\n     \
     \       k--;\n            if(k<0)break;\n            u64 d=st[h][k/B]<<(~k % B);\n\
-    \            if(d){\n                k-=countl_zero(d);\n                while(h--)k=k*B+B-countl_zero(st[h][k]);\n\
+    \            if(d){\n                k-=countl_zero(d);\n                while(h--)k=k*B+__lg(st[h][k]);\n\
     \                return k;\n            }\n            k/=B;\n        }\n    \
     \    return -1;\n    }\n};\n/**\n * @brief Fast Set\n*/"
   dependsOn:
@@ -202,8 +202,8 @@ data:
   isVerificationFile: false
   path: ds/others/fast-set.hpp
   requiredBy: []
-  timestamp: '2024-04-23 10:40:07+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-04-23 11:30:51+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/data_strucuture/predecessor_problem.test.cpp
 documentation_of: ds/others/fast-set.hpp
