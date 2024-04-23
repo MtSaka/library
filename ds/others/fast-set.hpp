@@ -51,7 +51,7 @@ struct FastSet{
             u64 d=st[h][k/B]<<(~k % B);
             if(d){
                 k-=countl_zero(d);
-                while(h--)k=k*B+B-countl_zero(st[h][k]);
+                while(h--)k=k*B+__lg(st[h][k]);
                 return k;
             }
             k/=B;
