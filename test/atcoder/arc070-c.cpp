@@ -1,4 +1,3 @@
-// competitive-verifier: PROBLEM https://atcoder.jp/contests/arc070/tasks/arc070_e
 #include"../../template/template.hpp"
 #include"../../ds/others/slope-trick.hpp"
 
