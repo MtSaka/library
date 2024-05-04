@@ -27,11 +27,6 @@ struct Graph{
     if(!direct)g[to].emplace_back(to,from,cost,es);
     es++;
   }
-  void add_edge(int from,int to,bool direct=false){
-    g[from].emplace_back(from,to,1,es);
-    if(!direct)g[to].emplace_back(to,from,1,es);
-    es++;
-  }
   inline vector<Edge<T>>&operator[](int idx){return g[idx];}
   inline const vector<Edge<T>>&operator[](int idx)const{return g[idx];}
   void read(int m,int padding=-1,bool weighted=false,bool direct=false){
