@@ -8,7 +8,7 @@ int main(){
     INT(k);
     while(k--){
       INT(j);
-      g.add_edge(i,j,false);
+      g.add_edge(i,j);
     }
   }
   g.build();

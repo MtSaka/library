@@ -22,7 +22,7 @@ struct Graph{
   explicit Graph(int n):g(n),es(0){}
   size_t size()const{return g.size();}
   size_t edge_size()const{return es;}
-  void add_edge(int from,int to,T cost=1,bool direct=false){
+  void add_edge(int from,int to,bool direct=false,T cost=1){
     g[from].emplace_back(from,to,cost,es);
     if(!direct)g[to].emplace_back(to,from,cost,es);
     es++;
@@ -37,7 +37,7 @@ struct Graph{
       a+=padding;
       b+=padding;
       if(weighted)cin>>c;
-      add_edge(a,b,c,direct);
+      add_edge(a,b,direct,c);
     }
   }
 };

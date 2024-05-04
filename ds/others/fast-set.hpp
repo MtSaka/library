@@ -36,8 +36,8 @@ struct FastSet{
             if(k/B>=(int)st[h].size())break;
             u64 d=st[h][k/B]>>(k%B);
             if(d){
-                k+=countr_zero(d);
-                while(h--)k=k*B+countr_zero(st[h][k]);
+                k+=__builtin_ctzll(d);
+                while(h--)k=k*B+__builtin_ctzll(st[h][k]);
                 return k;
             }
             k/=B;
@@ -50,7 +50,7 @@ struct FastSet{
             if(k<0)break;
             u64 d=st[h][k/B]<<(~k % B);
             if(d){
-                k-=countl_zero(d);
+                k-=__builtin_clzll(d);
                 while(h--)k=k*B+__lg(st[h][k]);
                 return k;
             }

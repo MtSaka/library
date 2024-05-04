@@ -6,7 +6,7 @@ int main(){
   RMQ_LCA g(n);
   for(int i=1;i<n;i++){
     INT(u);
-    g.add_edge(u,i,false);
+    g.add_edge(u,i);
   }
   g.build();
   while(q--){

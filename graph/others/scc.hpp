@@ -12,7 +12,7 @@ struct SCC:UnweightedGraph{
     rg=UnweightedGraph(g.size());
     for(size_t i=0;i<g.size();i++){
       for(auto&e:g[i]){
-        rg.add_edge(e.to,i,e.cost,true);
+        rg.add_edge(e.to,i,true);
       }
     }
     comp.assign(g.size(),-1);

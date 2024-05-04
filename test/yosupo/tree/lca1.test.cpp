@@ -6,7 +6,7 @@ int main(){
   DoublingLCA g(n);
   rep(i,1,n){
     INT(u);
-    g.add_edge(u,i,false);
+    g.add_edge(u,i);
   }
   g.build();
   while(q--){
