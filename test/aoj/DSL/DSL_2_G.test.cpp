@@ -1,18 +1,17 @@
 // competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_G
-#include"../../../template/template.hpp"
-#include"../../../ds/segment/lazy-segment-tree.hpp"
-int main(){
-  INT(n,q);
-  RangeAddQueryRangeSumQuery<ll>RAQRSQ(n);
-  while(q--){
-    INT(t);
-    if(t==0){
-      INT(l,r,x);
-      RAQRSQ.apply(l-1,r,x);
+#include "../../../ds/segment/lazy-segment-tree.hpp"
+#include "../../../template/template.hpp"
+int main() {
+    INT(n, q);
+    RangeAddQueryRangeSumQuery<ll> RAQRSQ(n);
+    while (q--) {
+        INT(t);
+        if (t == 0) {
+            INT(l, r, x);
+            RAQRSQ.apply(l - 1, r, x);
+        } else {
+            INT(l, r);
+            print(RAQRSQ.prod(l - 1, r));
+        }
     }
-    else{
-      INT(l,r);
-      print(RAQRSQ.prod(l-1,r));
-    }
-  }
 }

@@ -1,7 +1,7 @@
 // competitive-verifier: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A
-#include"../../../template/template.hpp"
-#include"../../../math/number/prime-factor.hpp"
-int main(){
-  INT(n);
-  cout<<n<<": "<<prime_factor(n)<<endl;
+#include "../../../math/number/prime-factor.hpp"
+#include "../../../template/template.hpp"
+int main() {
+    INT(n);
+    cout << n << ": " << prime_factor(n) << endl;
 }

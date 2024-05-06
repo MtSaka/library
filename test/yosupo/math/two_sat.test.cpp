@@ -1,20 +1,20 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/two_sat
-#include"../../../template/template.hpp"
-#include"../../../graph/others/two-sat.hpp"
-int main(){
-  string s;
-  int n,m;
-  cin>>s>>s>>n>>m;
-  TwoSat ts(n);
-  while(m--){
-    int a,b;
-    cin>>a>>b>>s;
-    ts.add_clause(abs(a)-1,a>0,abs(b)-1,b>0);
-  }
-  auto ans=ts.calc();
-  if(ans.empty())fin("s UNSATISFIABLE");
-  print("s SATISFIABLE");
-  cout<<"v ";
-  rep(i,n)cout<<(ans[i]?i+1:-i-1)<<" ";
-  print(0);
+#include "../../../graph/others/two-sat.hpp"
+#include "../../../template/template.hpp"
+int main() {
+    string s;
+    int n, m;
+    cin >> s >> s >> n >> m;
+    TwoSat ts(n);
+    while (m--) {
+        int a, b;
+        cin >> a >> b >> s;
+        ts.add_clause(abs(a) - 1, a > 0, abs(b) - 1, b > 0);
+    }
+    auto ans = ts.calc();
+    if (ans.empty()) fin("s UNSATISFIABLE");
+    print("s SATISFIABLE");
+    cout << "v ";
+    rep(i, n) cout << (ans[i] ? i + 1 : -i - 1) << " ";
+    print(0);
 }
