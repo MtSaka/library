@@ -1,4 +1,6 @@
 #pragma once
+#include"../../template/template.hpp"
+
 template <typename T>
 struct FordFulkerson {
     struct Edge {

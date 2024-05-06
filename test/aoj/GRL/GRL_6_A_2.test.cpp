@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
-#include "../../../graph/flow/ford-fulkerson.hpp"
 #include "../../../template/template.hpp"
+#include "../../../graph/flow/ford-fulkerson.hpp"
 int main() {
     INT(v, e);
     FordFulkerson<int> g(v);
