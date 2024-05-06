@@ -1,9 +1,9 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/lca
 #include"../../../template/template.hpp"
-#include"../../../graph/tree/doubling-lowest-common-ancestor.hpp"
+#include"../../../graph/tree/fast-lowest-common-ancestor.hpp"
 int main(){
   INT(n,q);
-  DoublingLCA g(n);
+  LCA g(n);
   rep(i,1,n){
     INT(u);
     g.add_edge(u,i);
