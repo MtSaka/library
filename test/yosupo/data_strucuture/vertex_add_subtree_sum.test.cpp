@@ -1,4 +1,4 @@
-//competitive-verifier: PROBLEM "https://judge.yosupo.jp/problem/vertex_add_subtree_sum"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/vertex_add_subtree_sum
 #include"../../../template/template.hpp"
 #include"../../../ds/segment/binary-indexed-tree.hpp"
 #include"../../../graph/graph-template.hpp"

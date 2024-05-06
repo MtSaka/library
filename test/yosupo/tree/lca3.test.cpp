@@ -1,4 +1,4 @@
-//competitive-verifier: PROBLEM "https://judge.yosupo.jp/problem/lca"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/lca
 #include"../../../template/template.hpp"
 #include"../../../graph/graph-template.hpp"
 #include"../../../graph/tree/heavy-light-decomposition.hpp"
