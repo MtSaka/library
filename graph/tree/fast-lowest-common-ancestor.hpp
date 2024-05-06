@@ -70,5 +70,5 @@ struct LCA:Graph<T>{
   }
 };
 /**
- * @brief Doubling Lowest Common Ancestor(最小共通祖先)
+ * @brief Lowest Common Ancestor(最小共通祖先)
 */
