@@ -3,7 +3,7 @@
 
 template <typename Comp>
 vector<int> smawk_comp(int row_sz, int col_sz, const Comp& cmp) {
-    auto solve = REC([&](auto&& sol, const vi& row, const vi& col) -> vi {
+    auto rec = REC([&](auto&& rec, const vector<int>& row, const vector<int>& col) -> vector<int> {
         const int n = row.size();
         if (n == 0) return {};
         vector<int> col2;
@@ -13,7 +13,7 @@ vector<int> smawk_comp(int row_sz, int col_sz, const Comp& cmp) {
         }
         vector<int> row2;
         for (int i = 1; i < n; i += 2) row2.emplace_back(row[i]);
-        const auto ret_tmp = sol(row2, col2);
+        const auto ret_tmp = rec(row2, col2);
         vector<int> ans(n);
         for (int i = 0; i < (int)ret_tmp.size(); i++) ans[2 * i + 1] = ret_tmp[i];
         int j = 0;
@@ -31,7 +31,7 @@ vector<int> smawk_comp(int row_sz, int col_sz, const Comp& cmp) {
     vector<int> col(col_sz);
     iota(all(row), 0);
     iota(all(col), 0);
-    return solve(row, col);
+    return rec(row, col);
 }
 template <typename F>
 vector<int> smawk(int row_sz, int col_sz, const F& f) {

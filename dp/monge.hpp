@@ -1,7 +1,7 @@
 #pragma once
-#include "../concave/smawk.hpp"
 #include "../others/fibonacci-search.hpp"
 #include "../template/template.hpp"
+#include "smawk.hpp"
 
 template <typename F>
 bool is_monge(int n, F&& f) {
