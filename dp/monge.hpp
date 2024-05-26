@@ -1,6 +1,7 @@
 #pragma once
 #include "../others/fibonacci-search.hpp"
 #include "../template/template.hpp"
+#include "alien-dp.hpp"
 #include "smawk.hpp"
 
 template <typename F>
@@ -53,20 +54,7 @@ vector<function_return_type<F>> monge_shortest_path(int n, F&& f) {
     return dp;
 }
 
-// 下に凸な関数fについて g(p)=min_x(f(x)+px)
-template <typename F, typename T>
-function_return_type<F> alien_dp_convex(function_return_type<F> low, function_return_type<F> high, T x, F&& g) {
-    using U = function_return_type<F>;
-    return FibonacciSearch<U>::maximize(low, high, [&](U p) -> U { return g(p) - p * x; }).second;
-}
-
-// 上に凸な関数fについて g(p)=max_x(f(x)+px)
-template <typename F, typename T>
-function_return_type<F> alien_dp_concave(function_return_type<F> low, function_return_type<F> high, T x, F&& g) {
-    using U = function_return_type<F>;
-    return FibonacciSearch<U>::minimize(low, high, [&](U p) -> U { return g(p) - p * x; }).second;
-}
-
+// 0からNまでのd-edge shortest pathを求める
 template <typename F>
 function_return_type<F> monge_sortest_d_edge_path(int n, int d, function_return_type<F> lim, F&& f) {
     using T = function_return_type<F>;
@@ -78,4 +66,4 @@ function_return_type<F> monge_sortest_d_edge_path(int n, int d, function_return_
 }
 /**
  * @brief Monge DP
-*/
+ */
