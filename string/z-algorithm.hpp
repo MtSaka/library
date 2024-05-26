@@ -1,8 +1,8 @@
 #pragma once
 #include "../template/template.hpp"
 
-template <typename Cont, typename Cmp>
-vector<int> ZAlgorithm(const Cont& s, const Cmp& cmp) {
+template <typename Cont, typename Comp>
+vector<int> ZAlgorithm(const Cont& s, const Comp& cmp) {
     int n = s.size();
     vector<int> z(n);
     z[0] = n;

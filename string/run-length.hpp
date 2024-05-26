@@ -1,8 +1,8 @@
 #pragma once
 #include "../template/template.hpp"
 
-template <typename Cont, typename Cmp>
-vector<pair<typename Cont::value_type, int>> run_length(const Cont& c, const Cmp& cmp) {
+template <typename Cont, typename Comp>
+vector<pair<typename Cont::value_type, int>> run_length(const Cont& c, const Comp& cmp) {
     vector<pair<typename Cont::value_type, int>> ret;
     if (c.empty()) return ret;
     ret.emplace_back(c.front(), 1);

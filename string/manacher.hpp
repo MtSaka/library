@@ -1,8 +1,8 @@
 #pragma once
 #include "../template/template.hpp"
 
-template <typename Cont, typename Cmp>
-vector<int> manacher(Cont s, const Cmp& cmp, bool calc_even = true) {
+template <typename Cont, typename Comp>
+vector<int> manacher(Cont s, const Comp& cmp, bool calc_even = true) {
     if (calc_even) {
         int n = (int)s.size();
         s.resize(2 * n - 1);

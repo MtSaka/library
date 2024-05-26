@@ -2,13 +2,13 @@
 #include "../../template/template.hpp"
 #include "../graph-template.hpp"
 
-template <typename T, typename Cmp = less<T>>
+template <typename T, typename Comp = less<T>>
 struct CatersianTree {
    private:
     int n;
     const vector<T>& v;
     vector<int> par;
-    Cmp cmp;
+    Comp cmp;
     void init() {
         n = v.size();
         par.assign(n, -1);
@@ -24,7 +24,7 @@ struct CatersianTree {
     }
 
    public:
-    CatersianTree(const vector<T>& v) : v(v), cmp(Cmp()) { init(); }
-    CatersianTree(const vector<T>& v, const Cmp& cmp) : v(v), cmp(cmp) { init(); }
+    CatersianTree(const vector<T>& v) : v(v), cmp(Comp()) { init(); }
+    CatersianTree(const vector<T>& v, const Comp& cmp) : v(v), cmp(cmp) { init(); }
     vector<int> get() const { return par; }
 };
