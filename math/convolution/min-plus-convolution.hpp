@@ -16,3 +16,7 @@ vector<T> min_plus_convolution(const vector<T>& a, const vector<T>& b) {
     }
     return res;
 }
+
+/**
+ * @brief Min-Plus Convolution (Convex and Arbitrary)
+ */

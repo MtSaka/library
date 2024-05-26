@@ -2,7 +2,7 @@
 #include "../template/template.hpp"
 
 template <typename F>
-vector<function_return_type<F>> larsch_easy(int n, const F&& f) {
+vector<function_return_type<F>> simple_larsch(int n, const F&& f) {
     vector<function_return_type<F>> res(n, infinity<function_return_type<F>>::max());
     vector<int> min_index(n, 0);
     auto check = [&](int i, int j) {
@@ -23,3 +23,6 @@ vector<function_return_type<F>> larsch_easy(int n, const F&& f) {
     })(0, n - 1);
     return res;
 }
+/**
+ * @brief Simple LARSCH 
+*/

@@ -76,3 +76,6 @@ function_return_type<F> monge_sortest_d_edge_path(int n, int d, function_return_
         return dp[n];
     });
 }
+/**
+ * @brief Monge DP
+*/

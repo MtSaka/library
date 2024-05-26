@@ -42,3 +42,6 @@ vector<int> smawk(int row_sz, int col_sz, const F& f) {
     };
     return smawk_comp(row_sz, col_sz, cmp);
 }
+/**
+ * @brief Smawk's Algorithm
+ */
