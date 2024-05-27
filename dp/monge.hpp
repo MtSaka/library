@@ -19,7 +19,7 @@ bool is_monge(int n, F&& f) {
 
 template <typename F>
 vector<function_return_type<F>> monge_dp_update(int n, vector<function_return_type<F>> dp, F&& f) {
-    auto g = [&](int j, int i) { return dp[j] + f(j, i); };
+    auto g = [&](int i, int j) { return dp[j] + f(j, i); };
     vector<int> idx = smawk(n + 1, n + 1, g);
     vector<function_return_type<F>> res(n + 1, infinity<function_return_type<F>>::max);
     for (int j = 0; j < n + 1; ++j) {
