@@ -15,3 +15,7 @@ function_return_type<F> alien_dp_concave(function_return_type<F> low, function_r
     using U = function_return_type<F>;
     return FibonacciSearch<U>::minimize(low, high, [&](U p) -> U { return g(p) - p * x; }).second;
 }
+
+/**
+ * @brief Alien DP
+*/
