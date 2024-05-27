@@ -1,5 +1,4 @@
 #pragma once
-#include "../others/fibonacci-search.hpp"
 #include "../template/template.hpp"
 #include "alien-dp.hpp"
 #include "smawk.hpp"
