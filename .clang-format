@@ -5,3 +5,4 @@ Language: Cpp
 DerivePointerAlignment: false
 PointerAlignment: Left
 ColumnLimit: 0
+SortIncludes: false
