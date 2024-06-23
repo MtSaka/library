@@ -245,7 +245,7 @@ long double area(polygon& pol) {
     for (int i = 0; i < pol.n; i++) ret += cross(pol[i], pol[(i + 1) % pol.n]);
     return ret / 2.0;
 }
-long double is_convex(polygon& pol) {
+bool is_convex(polygon& pol) {
     int neg = 0, pos = 0;
     for (int i = 0; i < pol.n; i++) {
         int dir = ccw(pol[i], pol[(i + 1) % pol.n], pol[(i + 2) % pol.n]);
