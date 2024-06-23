@@ -45,8 +45,8 @@ struct UnweightedEdge {
     template <class... Args>
     UnweightedEdge(const Args&...) {}
     operator int() const { return 1; }
-    template<typename Sc>
-    void scan(Sc& sc) {this=UnweightedEdge();}
+    template <typename Sc>
+    void scan(Sc& a) { return; }
 };
 using UnweightedGraph = Graph<UnweightedEdge>;
 /**

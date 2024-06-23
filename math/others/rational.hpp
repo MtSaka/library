@@ -56,9 +56,9 @@ struct Rational {
         return os;
     }
     template<typename Sc>
-    void scan(Sc& sc) {
-        sc.scan(this->num);
-        sc.scan(this->den);
+    void scan(Sc& a) {
+        a.scan(this->num);
+        a.scan(this->den);
     }
 };
 /**

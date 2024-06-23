@@ -80,9 +80,9 @@ struct Matrix {
         return ret;
     }
     template<typename Sc>
-    void scan(Sc& sc) {
+    void scan(Sc& a) {
         for (int i = 0; i < height(); i++)
-            for (int j = 0; j < width(); j++) sc.scan((*this)[i][j]);
+            for (int j = 0; j < width(); j++) a.scan((*this)[i][j]);
     }
     friend ostream& operator<<(ostream& os, const Matrix& x) {
         os << x.data;

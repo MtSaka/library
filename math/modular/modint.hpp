@@ -96,9 +96,9 @@ struct StaticModInt : internal::modint_base {
         return os << x.val;
     }
     template<typename Sc>
-    void scan(Sc& sc) {
+    void scan(Sc& a) {
         ll x;
-        sc.scan(x);
+        a.scan(x);
         *this = x;
     }
 };

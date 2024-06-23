@@ -121,9 +121,9 @@ struct MontgomeryModInt {
         return os << x.get();
     }
     template<typename Sc>
-    void scan(Sc& sc) {
+    void scan(Sc& a) {
         ll x;
-        sc.scan(x);
+        a.scan(x);
         *this = x;
     }
 };

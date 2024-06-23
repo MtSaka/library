@@ -2,9 +2,6 @@
 #include "../template/template.hpp"
 
 struct RollingHash {
-    using ull = unsigned long long;
-    using i128 = __uint128_t;
-
    private:
     static constexpr ull MOD = (1ull << 61) - 1;
     static constexpr ull MASK31 = (1ull << 31) - 1;

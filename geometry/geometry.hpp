@@ -42,6 +42,11 @@ struct point {
     long double abs() const { return sqrt(norm()); }
     long double norm() const { return x * x + y * y; }
     static point polar(long double r, long double theta) { return point(r * cos(theta), r * sin(theta)); }
+    template <typename Sc>
+    void scan(Sc& a) {
+        a.scan(this->x);
+        a.scan(this->y);
+    }
 };
 struct segment {
     point s, t;
@@ -64,10 +69,6 @@ struct polygon {
     point& operator[](int i) { return ps[i]; }
 };
 ostream& operator<<(ostream& os, const point& p) { return os << p.x << " " << p.y; }
-template<typename Sc>void scan(Sc&a){
-    a.scan(this->x);
-    a.scan(this->y);
-}
 long double cross(point a, point b) { return a.x * b.y - a.y * b.x; }
 long double dot(point a, point b) { return a.x * b.x + a.y * b.y; }
 point rotate(point p, long double theta, point o = point(0, 0)) {
