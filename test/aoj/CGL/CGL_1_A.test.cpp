@@ -3,7 +3,6 @@
 #include "../../../geometry/geometry.hpp"
 #include "../../../template/template.hpp"
 int main() {
-    IOSetup();
     geometry::point p1, p2;
     sc >> p1 >> p2;
     INT(q);

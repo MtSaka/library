@@ -3,5 +3,5 @@
 #include "../../../template/template.hpp"
 int main() {
     INT(n);
-    cout << n << ": " << prime_factor(n) << endl;
+    wt << n << ": " << prime_factor(n) << "\n";
 }

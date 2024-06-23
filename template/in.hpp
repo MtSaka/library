@@ -2,7 +2,7 @@
 #include "alias.hpp"
 #include "type-traits.hpp"
 namespace fastio {
-template <int BUFF_SIZE = 1 << 17, int decimal_precision = 16>
+template <std::size_t BUFF_SIZE = 1 << 17, int decimal_precision = 16>
 struct Scanner {
    private:
     template <typename, typename = void>
@@ -74,7 +74,7 @@ struct Scanner {
         if (idx + len > sz) load();
         rrep(i, len) a[i] = (buffer[idx++] != '0');
     }
-    template <typename T, typename std::enable_if<std::is_integral<T>::value && !has_scan<T>::value>::type* = nullptr>
+    template <typename T, typename std::enable_if<is_int<T>::value && !has_scan<T>::value>::type* = nullptr>
     void scan(T& a) {
         skip_space();
         bool neg = false;
@@ -146,10 +146,10 @@ struct Scanner {
         a.scan(*this);
     }
     void operator()() {}
-    template <typename Head, typename... Args>
-    void operator()(Head& head, Args&... args) {
+    template <typename Head, typename... Tail>
+    void operator()(Head& head, Tail&... tail) {
         scan(head);
-        operator()(args...);
+        operator()(std::forward<Tail&>(tail)...);
     }
     template <typename T>
     Scanner& operator>>(T& a) {

@@ -13,5 +13,5 @@ int main() {
         }
     }
     for (auto k : d)
-        for (int i = 0; i < k.size(); i++) cout << (k[i] == numeric_limits<long long>::max() / 2 ? "INF" : to_string(k[i])) << (i == k.size() - 1 ? "\n" : " ");
+        for (int i = 0; i < k.size(); i++) wt << (k[i] == numeric_limits<long long>::max() / 2 ? "INF" : to_string(k[i])) << (i == k.size() - 1 ? "\n" : " ");
 }

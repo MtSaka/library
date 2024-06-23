@@ -31,6 +31,12 @@ template <typename F, std::size_t idx>
 using function_argument_type = typename function_traits<F>::template argument_type<idx>;
 template <typename F>
 using function_argument_types = typename function_traits<F>::argument_types;
+template <class T>
+using is_signed_int = std::integral_constant<bool, (std::is_integral<T>::value && std::is_signed<T>::value) || std::is_same<T, __int128_t>::value>;
+template <class T>
+using is_unsigned_int = std::integral_constant<bool, (std::is_integral<T>::value && std::is_unsigned<T>::value) || std::is_same<T, __uint128_t>::value>;
+template <class T>
+using is_int = std::integral_constant<bool, is_signed_int<T>::value || is_unsigned_int<T>::value>;
 template <typename T, typename = void>
 struct is_range : std::false_type {};
 template <typename T>

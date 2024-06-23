@@ -11,5 +11,5 @@ int main() {
         cnt[s] += 1;
     }
     auto ans = subset_sum(cnt);
-    for (int i = 1; i <= t; i++) cout << ans[i] << " \n"[i == t];
+    for (int i = 1; i <= t; i++) wt << ans[i] << " \n"[i == t];
 }

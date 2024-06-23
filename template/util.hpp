@@ -3,15 +3,6 @@
 
 #include "alias.hpp"
 #include "macro.hpp"
-
-struct IOSetup {
-    IOSetup() {
-        std::ios::sync_with_stdio(false);
-        std::cout.tie(0);
-        std::cout << std::fixed << std::setprecision(12);
-        std::cerr << std::fixed << std::setprecision(12);
-    }
-};
 template <typename F>
 struct REC {
    private:
