@@ -7,6 +7,6 @@ int main() {
     geometry::polygon pol(n);
     for (int i = 0; i < n; i++) sc >> pol[i];
     long double ans = geometry::area(pol);
-    wt.set_decimal_precision(1);
-    wt << ans << '\n';
+    pr.set_decimal_precision(1);
+    pr << ans << '\n';
 }

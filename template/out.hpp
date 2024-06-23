@@ -231,10 +231,10 @@ Printer<BUFF_SIZE, debug>& flush(Printer<BUFF_SIZE, debug>& out) {
     out.flush();
     return out;
 }
-Printer<> wt;
-Printer<1 << 17, true> wtd;
+Printer<> pr;
+Printer<1 << 17, true> prd;
 }  // namespace fastio
 using fastio::endl;
 using fastio::flush;
-using fastio::wt;
-using fastio::wtd;
+using fastio::pr;
+using fastio::prd;

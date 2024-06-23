@@ -3,6 +3,6 @@
 #include "../../template/template.hpp"
 int main() {
     STR(s);
-    for (auto&& p : run_length(s)) wt << p.first;
-    wt << endl;
+    for (auto&& p : run_length(s)) pr << p.first;
+    pr << endl;
 }

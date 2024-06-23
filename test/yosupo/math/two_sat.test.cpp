@@ -14,7 +14,7 @@ int main() {
     auto ans = ts.calc();
     if (ans.empty()) fin("s UNSATISFIABLE");
     print("s SATISFIABLE");
-    wt << "v ";
-    rep(i, n) wt << (ans[i] ? i + 1 : -i - 1) << " ";
+    pr << "v ";
+    rep(i, n) pr << (ans[i] ? i + 1 : -i - 1) << " ";
     print(0);
 }

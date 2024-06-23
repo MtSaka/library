@@ -119,10 +119,10 @@ inline void scan(Head& head, Tail&... tail) {
     scan(tail...);
 }
 template <class T>
-inline void print(const T& t) { wt << t << '\n'; }
+inline void print(const T& t) { pr << t << '\n'; }
 template <class Head, class... Tail>
 inline void print(const Head& head, const Tail&... tail) {
-    wt << head << ' ';
+    pr << head << ' ';
     print(tail...);
 }
 template <class... T>
@@ -131,20 +131,20 @@ inline void fin(const T&... a) {
     exit(0);
 }
 template <typename T>
-inline void dump(const T&& a) { wtd << a; }
-inline void trace() { wtd << endl; }
+inline void dump(const T&& a) { prd << a; }
+inline void trace() { prd << endl; }
 template <typename Head, typename... Tail>
 inline void trace(const Head&& head, const Tail&&... tail) {
     dump(head);
-    if (sizeof...(tail)) wtd << ", ";
+    if (sizeof...(tail)) prd << ", ";
     trace(std::forward<Tail>(tail)...);
 }
 #ifdef ONLINE_JUDGE
 #define dbg(...) (void(0))
 #else
-#define dbg(...)                    \
+#define dbg(...)                      \
     do {                              \
-        wtd << #__VA_ARGS__ << " = "; \
+        prd << #__VA_ARGS__ << " = "; \
         trace(__VA_ARGS__);           \
     } while (0)
 #endif
