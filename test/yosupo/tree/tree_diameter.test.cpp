@@ -9,4 +9,5 @@ int main() {
     print(ans, g.path.size() + 1);
     wt << g.path[0];
     for (const auto& e : g.path) wt << " " << e.to;
+    wt << endl;
 }

@@ -5,5 +5,5 @@ int main() {
     INT(n);
     geometry::polygon p(n);
     rep(i, n) sc >> p[i];
-    print(geometry::isconvex(p));
+    print(geometry::is_convex(p));
 }
