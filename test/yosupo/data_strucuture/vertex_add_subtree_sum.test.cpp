@@ -6,13 +6,13 @@
 
 int main() {
     int n, q;
-    cin >> n >> q;
+    sc >> n >> q;
     vector<ll> a(n);
-    cin >> a;
+    sc >> a;
     Graph<int> g(n);
     rep(i, 1, n) {
         int p;
-        cin >> p;
+        sc >> p;
         g.add_edge(i, p);
     }
     HeavyLightDecomposition<int> hld(g);
@@ -23,16 +23,16 @@ int main() {
     }
     rep(i, q) {
         int t;
-        cin >> t;
+        sc >> t;
         if (t == 0) {
             int p;
             ll x;
-            cin >> p >> x;
+            sc >> p >> x;
             auto [l, r] = hld.get_id(p);
             bit.add(l, x);
         } else {
             int u;
-            cin >> u;
+            sc >> u;
             ll ans = 0;
             hld.subtree_query(u, [&](int l, int r) { ans += bit.sum(l, r); });
             print(ans);

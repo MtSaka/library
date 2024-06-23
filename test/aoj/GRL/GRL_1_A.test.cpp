@@ -3,7 +3,7 @@
 #include "../../../template/template.hpp"
 int main() {
     int v, e, r;
-    cin >> v >> e >> r;
+    sc >> v >> e >> r;
     Graph<long long> g(v);
     g.read(e, 0, true, true);
     auto d = dijkstra(g, r);

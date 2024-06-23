@@ -3,9 +3,9 @@
 #include "../../../template/template.hpp"
 int main() {
     int n;
-    cin >> n;
+    sc >> n;
     geometry::polygon pol(n);
-    for (int i = 0; i < n; i++) cin >> pol[i];
+    for (int i = 0; i < n; i++) sc >> pol[i];
     long double ans = geometry::area(pol);
     cout << fixed << setprecision(1) << ans << endl;
 }

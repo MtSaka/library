@@ -3,11 +3,11 @@
 #include "../../../template/template.hpp"
 int main() {
     geometry::point p1, p2;
-    cin >> p1 >> p2;
+    sc >> p1 >> p2;
     INT(q);
     while (q--) {
         geometry::point p;
-        cin >> p;
+        sc >> p;
         int dir = geometry::ccw(p, p1, p2);
         if (dir == 1)
             print("COUNTER_CLOCKWISE");

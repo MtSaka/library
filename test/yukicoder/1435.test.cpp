@@ -18,7 +18,7 @@ struct Mmm {
 int main() {
     INT(n);
     vi a(n);
-    cin >> a;
+    sc >> a;
     vector<typename Mmm::T> v(n);
     rep(i, n) v[i] = {a[i], infinity<int>::value, a[i]};
     SegmentTree<Mmm> seg(v);

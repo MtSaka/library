@@ -3,6 +3,6 @@
 #include "../../../template/template.hpp"
 int main() {
     string s;
-    cin >> s;
+    sc >> s;
     print(ZAlgorithm(s));
 }

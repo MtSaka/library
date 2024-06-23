@@ -5,7 +5,7 @@ int main() {
     INT(q);
     while (q--) {
         geometry::point p1, p2, q1, q2;
-        cin >> p1 >> p2 >> q1 >> q2;
+        sc >> p1 >> p2 >> q1 >> q2;
         geometry::segment a(p1, p2), b(q1, q2);
         print(geometry::intersect(a, b));
     }

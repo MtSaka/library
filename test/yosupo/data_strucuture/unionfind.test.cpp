@@ -3,11 +3,11 @@
 #include "../../../template/template.hpp"
 int main() {
     int n, q;
-    cin >> n >> q;
+    sc >> n >> q;
     UnionFind d(n);
     while (q--) {
         int t, u, v;
-        cin >> t >> u >> v;
+        sc >> t >> u >> v;
         if (t)
             print(d.same(u, v));
         else

@@ -4,6 +4,6 @@
 
 int main() {
     string s;
-    cin >> s;
+    sc >> s;
     print(manacher(s));
 }

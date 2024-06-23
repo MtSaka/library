@@ -3,12 +3,12 @@
 #include "../../../template/template.hpp"
 int main() {
     int n;
-    cin >> n;
+    sc >> n;
     IsPrime<ll> ip(100000000);
     int ans = 0;
     while (n--) {
         int a;
-        cin >> a;
+        sc >> a;
         ans += ip.is_prime(a);
     }
     print(ans);

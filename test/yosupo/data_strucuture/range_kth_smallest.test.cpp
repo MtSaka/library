@@ -3,13 +3,13 @@
 #include "../../../template/template.hpp"
 int main() {
     int n, q;
-    cin >> n >> q;
+    sc >> n >> q;
     vi a(n);
-    cin >> a;
+    sc >> a;
     CompressedWaveletMatrix<int, 18> w(a);
     while (q--) {
         int l, r, k;
-        cin >> l >> r >> k;
+        sc >> l >> r >> k;
         print(w.kth_smallest(l, r, k));
     }
 }

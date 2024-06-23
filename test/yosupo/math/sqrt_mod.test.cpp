@@ -3,7 +3,7 @@
 #include "../../../template/template.hpp"
 int main() {
     int t;
-    cin >> t;
+    sc >> t;
     while (t--) {
         LL(y, p);
         print(mod_sqrt(y, p));

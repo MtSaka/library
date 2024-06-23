@@ -5,11 +5,11 @@
 int main() {
     IOSetup();
     geometry::point p1, p2;
-    cin >> p1 >> p2;
+    sc >> p1 >> p2;
     INT(q);
     while (q--) {
         geometry::point q;
-        cin >> q;
+        sc >> q;
         auto ans = geometry::project(geometry::line(p1, p2), q);
         print(ans.x, ans.y);
     }

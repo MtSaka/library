@@ -3,10 +3,10 @@
 #include "../../../template/template.hpp"
 int main() {
     int q;
-    cin >> q;
+    sc >> q;
     while (q--) {
         long long x;
-        cin >> x;
+        sc >> x;
         auto ret = factorize(x);
         print(ret.size(), ret);
     }

@@ -5,6 +5,6 @@
 int main() {
     INT(n, m);
     vi a(n), b(m);
-    cin >> a >> b;
+    sc >> a >> b;
     print(min_plus_convolution(b, a));
 }

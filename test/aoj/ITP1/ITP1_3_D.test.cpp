@@ -3,7 +3,7 @@
 #include "../../../template/template.hpp"
 int main() {
     int a, b, c;
-    cin >> a >> b >> c;
+    sc >> a >> b >> c;
     int ans = 0;
     for (auto& x : factor(c)) {
         ans += (a <= x && x <= b);

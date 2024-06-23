@@ -6,6 +6,6 @@ int main() {
     INT(n);
     LL(m);
     FormalPowerSeries<mint> f(n);
-    cin >> f;
+    sc >> f;
     print(f.pow(m));
 }

@@ -5,6 +5,6 @@ using mint = ModInt<998244353>;
 int main() {
     INT(n);
     FormalPowerSeries<mint> f(n);
-    cin >> f;
+    sc >> f;
     print(f.exp());
 }

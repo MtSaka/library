@@ -5,7 +5,7 @@ using mint = ModInt<998244353>;
 int main() {
     INT(n, m);
     FormalPowerSeries<mint> f(n), g(m);
-    cin >> f >> g;
+    sc >> f >> g;
     auto [q, r] = f.div_mod(g);
     print(q.size(), r.size());
     print(q);

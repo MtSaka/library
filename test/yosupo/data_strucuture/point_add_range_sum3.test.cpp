@@ -7,7 +7,7 @@ int main() {
     INT(n, q);
     DynamicSegmentTree<long long, op, e> seg(n);
     vi a(n);
-    cin >> a;
+    sc >> a;
     rep(i, n) seg.set(i, a[i]);
     while (q--) {
         INT(t, l, r);

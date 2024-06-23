@@ -5,17 +5,17 @@
 
 int main() {
     int n, q;
-    cin >> n >> q;
+    sc >> n >> q;
     UnweightedGraph g(n);
     rep(i, 1, n) {
         int p;
-        cin >> p;
+        sc >> p;
         g.add_edge(i, p);
     }
     HeavyLightDecomposition<UnweightedEdge> hld(g);
     rep(i, q) {
         int u, v;
-        cin >> u >> v;
+        sc >> u >> v;
         print(hld.lca(u, v));
     }
 }

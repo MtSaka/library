@@ -8,7 +8,7 @@ using T = pair<mint, mint>;
 int main() {
     INT(n, q);
     vector<mint> a(n);
-    cin >> a;
+    sc >> a;
     LazySegmentTree<Monoid::AffineSum<mint>> seg(a);
     while (q--) {
         INT(t);

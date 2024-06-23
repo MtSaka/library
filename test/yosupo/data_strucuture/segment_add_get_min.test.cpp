@@ -4,14 +4,14 @@
 int main() {
     INT(n, q);
     vector<array<ll, 4>> A(n);
-    for (auto& [l, r, a, b] : A) cin >> l >> r >> a >> b;
+    for (auto& [l, r, a, b] : A) sc >> l >> r >> a >> b;
     vector<array<ll, 5>> B(q);
     for (auto& [t, l, r, a, b] : B) {
-        cin >> t;
+        sc >> t;
         if (t == 0)
-            cin >> l >> r >> a >> b;
+            sc >> l >> r >> a >> b;
         else
-            cin >> l;
+            sc >> l;
     }
     compressor<ll> press;
     for (auto& [a, b, c, d, e] : B) {

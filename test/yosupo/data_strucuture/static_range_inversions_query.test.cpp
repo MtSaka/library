@@ -5,7 +5,7 @@
 int main() {
     INT(n, q);
     vector<int> a(n);
-    cin >> a;
+    sc >> a;
     Mo mo(n);
     rep(i, q) {
         INT(l, r);

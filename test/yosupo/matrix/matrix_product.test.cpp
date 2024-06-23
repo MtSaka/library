@@ -6,7 +6,7 @@ using mint = ModInt<998244353>;
 int main() {
     INT(n, m, k);
     Matrix<mint> a(n, m), b(m, k);
-    cin >> a >> b;
+    sc >> a >> b;
     a *= b;
     rep(i, n) print(a[i]);
 }

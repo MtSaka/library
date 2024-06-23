@@ -5,6 +5,6 @@ using mint = ModInt<998244353>;
 int main() {
     INT(n);
     FormalPowerSeries<mint> fps(n);
-    cin >> fps;
+    sc >> fps;
     print(fps.log());
 }

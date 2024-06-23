@@ -79,7 +79,8 @@ struct Matrix {
         }
         return ret;
     }
-    friend istream& operator>>(istream& is, Matrix& x) {
+    template<int BUFF_SIZE, int decimal_precision>
+    friend fastio::Scanner<BUFF_SIZE, decimal_precision>& operator>>(fastio::Scanner<BUFF_SIZE, decimal_precision>& is, Matrix& x) {
         for (int i = 0; i < x.height(); i++)
             for (int j = 0; j < x.width(); j++) is >> x[i][j];
         return is;

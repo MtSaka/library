@@ -7,6 +7,6 @@ int main() {
     INT(n, m);
     FormalPowerSeries<mint> f(n);
     vector<mint> xs(m);
-    cin >> f >> xs;
+    sc >> f >> xs;
     print(multipoint_evaluation(f, xs));
 }

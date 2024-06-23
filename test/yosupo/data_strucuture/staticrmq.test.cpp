@@ -5,7 +5,7 @@
 int main() {
     INT(n, q);
     vi a(n);
-    cin >> a;
+    sc >> a;
     SparseTable<Monoid::Min<int>> st(a);
     while (q--) {
         INT(l, r);

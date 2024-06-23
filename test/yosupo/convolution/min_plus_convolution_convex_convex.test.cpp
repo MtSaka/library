@@ -5,6 +5,6 @@
 int main() {
     INT(n, m);
     vector<int> a(n), b(m);
-    cin >> a >> b;
+    sc >> a >> b;
     print(min_plus_convolution_convex(a, b));
 }

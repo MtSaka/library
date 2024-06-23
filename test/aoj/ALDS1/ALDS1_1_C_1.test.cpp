@@ -2,11 +2,11 @@
 #include "../../../template/template.hpp"
 int main() {
     int q;
-    cin >> q;
+    sc >> q;
     int ans = 0;
     while (q--) {
         int x;
-        cin >> x;
+        sc >> x;
         ans += is_prime(x);
     }
     print(ans);

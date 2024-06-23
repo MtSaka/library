@@ -55,7 +55,8 @@ struct Rational {
         os << f.num << "/" << f.den;
         return os;
     }
-    friend istream& operator>>(istream& is, Rational& f) {
+    template<int BUFF_SIZE,int decimal_precision>
+    friend fastio::Scanner<BUFF_SIZE, decimal_precision>& operator>>(fastio::Scanner<BUFF_SIZE, decimal_precision>& is, Rational& f) {
         is >> f.num >> f.den;
         return is;
     }

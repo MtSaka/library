@@ -3,11 +3,11 @@
 #include "../../../template/template.hpp"
 int main() {
     int n, t;
-    cin >> n >> t;
+    sc >> n >> t;
     vector<ModInt<998244353>> cnt(t + 1);
     while (n--) {
         int s;
-        cin >> s;
+        sc >> s;
         cnt[s] += 1;
     }
     auto ans = subset_sum(cnt);

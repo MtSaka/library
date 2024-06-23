@@ -3,18 +3,18 @@
 #include "../../../template/template.hpp"
 int main() {
     int q;
-    cin >> q;
+    sc >> q;
     HashMap<ll, ll> mp;
     while (q--) {
         int t;
-        cin >> t;
+        sc >> t;
         if (t) {
             ll k;
-            cin >> k;
+            sc >> k;
             print(mp[k]);
         } else {
             ll k, v;
-            cin >> k >> v;
+            sc >> k >> v;
             mp[k] = v;
         }
     }

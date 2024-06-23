@@ -5,7 +5,7 @@
 int main() {
     INT(n, q);
     vi a(n);
-    cin >> a;
+    sc >> a;
     DisjointSparseTable<Monoid::Min<int>> st(a);
     while (q--) {
         INT(l, r);

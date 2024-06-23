@@ -3,12 +3,12 @@
 #include "../../../template/template.hpp"
 int main() {
     int n, q;
-    cin >> n >> q;
+    sc >> n >> q;
     vector<vector<array<int, 3>>> g(q + 1);
     vector<vector<array<int, 3>>> a(q + 1);
     rep(i, q) {
         int t, k, u, v;
-        cin >> t >> k >> u >> v;
+        sc >> t >> k >> u >> v;
         if (t == 0)
             g[k + 1].eb(array<int, 3>{(int)i + 1, u, v});
         else

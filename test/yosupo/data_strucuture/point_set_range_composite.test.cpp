@@ -8,7 +8,7 @@ using T = pair<mint, mint>;
 int main() {
     INT(n, q);
     vector<T> a(n);
-    cin >> a;
+    sc >> a;
     SegmentTree<Monoid::Composite<mint>> seg(a);
     while (q--) {
         INT(t, a, b, c);

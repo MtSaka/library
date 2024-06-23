@@ -2,6 +2,6 @@
 #include "../../../template/template.hpp"
 int main() {
     long long m, n;
-    cin >> m >> n;
+    sc >> m >> n;
     print(mod_pow(m, n, 1000000007));
 }

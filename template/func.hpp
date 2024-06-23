@@ -3,6 +3,7 @@
 
 #include "alias.hpp"
 #include "macro.hpp"
+#include "in.hpp"
 
 inline constexpr int msb(ull x) {
     int res = x ? 0 : -1;
@@ -114,7 +115,7 @@ std::istream& operator>>(std::istream& is, std::vector<T>& v) {
 inline void scan() {}
 template <class Head, class... Tail>
 inline void scan(Head& head, Tail&... tail) {
-    std::cin >> head;
+    sc >> head;
     scan(tail...);
 }
 template <class T>

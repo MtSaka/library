@@ -64,7 +64,8 @@ struct polygon {
     point& operator[](int i) { return ps[i]; }
 };
 ostream& operator<<(ostream& os, const point& p) { return os << p.x << " " << p.y; }
-istream& operator>>(istream& is, point& p) { return is >> p.x >> p.y; }
+template <int BUFF_SIZE, int decimal_precision>
+fastio::Scanner<BUFF_SIZE, decimal_precision>& operator>>(fastio::Scanner<BUFF_SIZE, decimal_precision>& is, point& p) { return is >> p.x >> p.y; }
 long double cross(point a, point b) { return a.x * b.y - a.y * b.x; }
 long double dot(point a, point b) { return a.x * b.x + a.y * b.y; }
 point rotate(point p, long double theta, point o = point(0, 0)) {

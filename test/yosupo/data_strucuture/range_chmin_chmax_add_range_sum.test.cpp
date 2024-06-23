@@ -3,31 +3,31 @@
 #include "../../../template/template.hpp"
 int main() {
     int n, q;
-    cin >> n >> q;
+    sc >> n >> q;
     vl a(n);
-    cin >> a;
+    sc >> a;
     SegmentTreeBeats<ll> seg(a);
     while (q--) {
         int t;
-        cin >> t;
+        sc >> t;
         if (t == 0) {
             int l, r;
             ll x;
-            cin >> l >> r >> x;
+            sc >> l >> r >> x;
             seg.range_chmin(l, r, x);
         } else if (t == 1) {
             int l, r;
             ll x;
-            cin >> l >> r >> x;
+            sc >> l >> r >> x;
             seg.range_chmax(l, r, x);
         } else if (t == 2) {
             int l, r;
             ll x;
-            cin >> l >> r >> x;
+            sc >> l >> r >> x;
             seg.range_add(l, r, x);
         } else {
             int l, r;
-            cin >> l >> r;
+            sc >> l >> r;
             print(seg.range_sum(l, r));
         }
     }

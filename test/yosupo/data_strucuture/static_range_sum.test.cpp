@@ -5,7 +5,7 @@
 int main() {
     INT(n, q);
     vl a(n);
-    cin >> a;
+    sc >> a;
     DisjointSparseTable<Monoid::Sum<ll>> st(a);
     while (q--) {
         INT(l, r);

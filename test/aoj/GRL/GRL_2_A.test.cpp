@@ -4,6 +4,6 @@
 int main() {
     INT(v, e);
     Edges<ll> ed(e);
-    for (auto& i : ed) cin >> i.from >> i.to >> i.cost;
+    for (auto& i : ed) sc >> i.from >> i.to >> i.cost;
     print(kruskal(ed, v).first);
 }

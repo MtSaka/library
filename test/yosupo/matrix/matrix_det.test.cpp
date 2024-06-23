@@ -6,6 +6,6 @@ using mint = ModInt<998244353>;
 int main() {
     INT(n);
     Matrix<mint> mat(n);
-    cin >> mat;
+    sc >> mat;
     print(mat.determinant());
 }

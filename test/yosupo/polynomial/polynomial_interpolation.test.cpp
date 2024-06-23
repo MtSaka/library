@@ -6,6 +6,6 @@ using mint = ModInt<998244353>;
 int main() {
     INT(n);
     vector<mint> xs(n), ys(n);
-    cin >> xs >> ys;
+    sc >> xs >> ys;
     print(polynomial_interpolation(xs, ys));
 }

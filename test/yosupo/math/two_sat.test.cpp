@@ -4,11 +4,11 @@
 int main() {
     string s;
     int n, m;
-    cin >> s >> s >> n >> m;
+    sc >> s >> s >> n >> m;
     TwoSat ts(n);
     while (m--) {
         int a, b;
-        cin >> a >> b >> s;
+        sc >> a >> b >> s;
         ts.add_clause(abs(a) - 1, a > 0, abs(b) - 1, b > 0);
     }
     auto ans = ts.calc();

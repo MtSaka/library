@@ -4,11 +4,11 @@
 int main() {
     INT(n);
     geometry::polygon pol(n);
-    rep(i, n) cin >> pol[i];
+    rep(i, n) sc >> pol[i];
     INT(q);
     while (q--) {
         geometry::point p;
-        cin >> p;
+        sc >> p;
         int ans = geometry::in_polygon(p, pol);
         if (ans == 1)
             ans = 2;

@@ -13,13 +13,13 @@ int main() {
         LL(t);
         if (t == 0) {
             mint a, b;
-            cin >> a >> b;
+            sc >> a >> b;
             swag.push(S{a, b});
         } else if (t == 1) {
             swag.pop();
         } else if (t == 2) {
             mint x;
-            cin >> x;
+            sc >> x;
             auto [a, b] = swag.get();
             print(a * x + b);
         }

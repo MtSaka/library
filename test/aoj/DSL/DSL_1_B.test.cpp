@@ -3,13 +3,13 @@
 #include "../../../template/template.hpp"
 int main() {
     int n, m;
-    cin >> n >> m;
+    sc >> n >> m;
     WeightedUnionFind<int> tree(n);
     while (m--) {
         int a, b, c, d;
-        cin >> a >> b >> c;
+        sc >> a >> b >> c;
         if (a == 0) {
-            cin >> d;
+            sc >> d;
             tree.merge(b, c, d);
         } else {
             if (tree.same(b, c)) {

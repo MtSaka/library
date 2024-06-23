@@ -3,10 +3,10 @@
 #include "../../../template/template.hpp"
 int main() {
     int t;
-    cin >> t;
+    sc >> t;
     while (t--) {
         ll x, y, m;
-        cin >> x >> y >> m;
+        sc >> x >> y >> m;
         print(discrete_logarithm(x, y, m));
     }
 }

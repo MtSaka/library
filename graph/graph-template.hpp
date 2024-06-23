@@ -33,10 +33,10 @@ struct Graph {
         int a, b;
         T c = T(1);
         for (int i = 0; i < m; i++) {
-            cin >> a >> b;
+            sc >> a >> b;
             a += padding;
             b += padding;
-            if (weighted) cin >> c;
+            if (weighted) sc >> c;
             add_edge(a, b, direct, c);
         }
     }
@@ -46,7 +46,8 @@ struct UnweightedEdge {
     UnweightedEdge(const Args&...) {}
     operator int() const { return 1; }
 };
-istream& operator>>(istream& is, UnweightedEdge& c) {
+template <int BUFF_SIZE, int decimal_precision>
+fastio::Scanner<BUFF_SIZE, decimal_precision>& operator>>(fastio::Scanner<BUFF_SIZE, decimal_precision>& is, UnweightedEdge& c) {
     c = UnweightedEdge();
     return is;
 }

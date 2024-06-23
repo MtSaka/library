@@ -4,10 +4,10 @@
 int main() {
     BinaryTrie<int> bt;
     int q;
-    cin >> q;
+    sc >> q;
     while (q--) {
         int t, x;
-        cin >> t >> x;
+        sc >> t >> x;
         if (t == 0) {
             if (!bt.count(x)) bt.insert(x);
         } else if (t == 1) {

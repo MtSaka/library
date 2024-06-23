@@ -4,6 +4,6 @@
 int main() {
     INT(n);
     geometry::polygon p(n);
-    rep(i, n) cin >> p[i];
+    rep(i, n) sc >> p[i];
     print(geometry::isconvex(p));
 }

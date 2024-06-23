@@ -3,33 +3,40 @@
 
 #include "macro.hpp"
 
-template<typename T,typename ...Args>
+template <typename T, typename... Args>
 struct function_traits_impl {
     using return_type = T;
     static constexpr std::size_t arg_size = sizeof...(Args);
-    template<std::size_t idx>
+    template <std::size_t idx>
     using argument_type = typename std::tuple_element<idx, std::tuple<Args...>>::type;
     using argument_types = std::tuple<Args...>;
 };
 
-template<typename>struct function_traits_helper;
-template<typename T,typename Tp,typename ...Args>
-struct function_traits_helper<T(Tp::*)(Args...)> : function_traits_impl<T,Args...> {};
-template<typename T,typename Tp,typename ...Args>
-struct function_traits_helper<T(Tp::*)(Args...) const> : function_traits_impl<T,Args...> {};
-template<typename T,typename Tp,typename ...Args>
-struct function_traits_helper<T(Tp::*)(Args...) &> : function_traits_impl<T,Args...> {};
-template<typename T,typename Tp,typename ...Args>
-struct function_traits_helper<T(Tp::*)(Args...) const &> : function_traits_impl<T,Args...> {};
+template <typename>
+struct function_traits_helper;
+template <typename T, typename Tp, typename... Args>
+struct function_traits_helper<T (Tp::*)(Args...)> : function_traits_impl<T, Args...> {};
+template <typename T, typename Tp, typename... Args>
+struct function_traits_helper<T (Tp::*)(Args...) const> : function_traits_impl<T, Args...> {};
+template <typename T, typename Tp, typename... Args>
+struct function_traits_helper<T (Tp::*)(Args...)&> : function_traits_impl<T, Args...> {};
+template <typename T, typename Tp, typename... Args>
+struct function_traits_helper<T (Tp::*)(Args...) const&> : function_traits_impl<T, Args...> {};
 
-template<typename F>
-using function_traits= function_traits_helper<decltype(&std::remove_reference<F>::type::operator())>;
-template<typename F>
+template <typename F>
+using function_traits = function_traits_helper<decltype(&std::remove_reference<F>::type::operator())>;
+template <typename F>
 using function_return_type = typename function_traits<F>::return_type;
-template<typename F,std::size_t idx>
+template <typename F, std::size_t idx>
 using function_argument_type = typename function_traits<F>::template argument_type<idx>;
-template<typename F>
+template <typename F>
 using function_argument_types = typename function_traits<F>::argument_types;
+template <typename T, typename = void>
+struct is_range : std::false_type {};
+template <typename T>
+struct is_range<
+    T,
+    decltype(all(std::declval<typename std::add_lvalue_reference<T>::type>()), (void)0)> : std::true_type {};
 template <std::size_t size>
 struct int_least {
     static_assert(size <= 128, "size must be less than or equal to 128");
