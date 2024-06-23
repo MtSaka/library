@@ -53,6 +53,11 @@ struct Printer {
         print_char(a);
         if constexpr (debug) print_char('\'');
     }
+    void print(bool a) {
+        if constexpr (debug) print_char('\'');
+        print_char('0' + a);
+        if constexpr (debug) print_char('\'');
+    }
     void print(const char* a) {
         if constexpr (debug) print_char('"');
         for (; *a != '\0'; ++a) print_char(*a);
@@ -215,19 +220,21 @@ struct Printer {
     }
 };
 
-Printer<> wt;
-Printer<1 << 17, true> wtd;
-}  // namespace fastio
-using fastio::wt;
-using fastio::wtd;
 template <std::size_t BUFF_SIZE, bool debug>
-fastio::Printer<BUFF_SIZE, debug>& endl(fastio::Printer<BUFF_SIZE, debug>& out) {
+Printer<BUFF_SIZE, debug>& endl(Printer<BUFF_SIZE, debug>& out) {
     out.print_char('\n');
     out.flush();
     return out;
 }
 template <std::size_t BUFF_SIZE, bool debug>
-fastio::Printer<BUFF_SIZE, debug>& flush(fastio::Printer<BUFF_SIZE, debug>& out) {
+Printer<BUFF_SIZE, debug>& flush(Printer<BUFF_SIZE, debug>& out) {
     out.flush();
     return out;
 }
+Printer<> wt;
+Printer<1 << 17, true> wtd;
+}  // namespace fastio
+using fastio::endl;
+using fastio::flush;
+using fastio::wt;
+using fastio::wtd;

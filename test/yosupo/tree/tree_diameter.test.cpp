@@ -7,5 +7,6 @@ int main() {
     g.read(n - 1, 0, true);
     auto ans = g.build();
     print(ans, g.path.size() + 1);
-    print(g.path[0].from, g.path);
+    wt << g.path[0];
+    for (const auto& e : g.path) wt << " " << e.to;
 }
