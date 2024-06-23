@@ -45,12 +45,9 @@ struct UnweightedEdge {
     template <class... Args>
     UnweightedEdge(const Args&...) {}
     operator int() const { return 1; }
+    template<typename Sc>
+    void scan(Sc& sc) {this=UnweightedEdge();}
 };
-template <int BUFF_SIZE, int decimal_precision>
-fastio::Scanner<BUFF_SIZE, decimal_precision>& operator>>(fastio::Scanner<BUFF_SIZE, decimal_precision>& is, UnweightedEdge& c) {
-    c = UnweightedEdge();
-    return is;
-}
 using UnweightedGraph = Graph<UnweightedEdge>;
 /**
  * @brief Graph Template(グラフテンプレート)

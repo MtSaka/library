@@ -95,12 +95,11 @@ struct StaticModInt : internal::modint_base {
     friend ostream& operator<<(ostream& os, const StaticModInt& x) {
         return os << x.val;
     }
-    template <int BUFF_SIZE, int decimal_precision>
-    friend fastio::Scanner<BUFF_SIZE, decimal_precision>& operator>>(fastio::Scanner<BUFF_SIZE, decimal_precision>& is, StaticModInt& x) {
-        ll tmp;
-        is >> tmp;
-        x = StaticModInt(tmp);
-        return is;
+    template<typename Sc>
+    void scan(Sc& sc) {
+        ll x;
+        sc.scan(x);
+        *this = x;
     }
 };
 template <unsigned int p>

@@ -120,12 +120,11 @@ struct MontgomeryModInt {
     friend ostream& operator<<(ostream& os, const MontgomeryModInt& x) {
         return os << x.get();
     }
-    template<int BUFF_SIZE, int decimal_precision>
-    friend fastio::Scanner<BUFF_SIZE, decimal_precision>& operator>>(fastio::Scanner<BUFF_SIZE, decimal_precision>& is, MontgomeryModInt& x) {
-        ll tmp;
-        is >> tmp;
-        x = MontgomeryModInt(tmp);
-        return is;
+    template<typename Sc>
+    void scan(Sc& sc) {
+        ll x;
+        sc.scan(x);
+        *this = x;
     }
 };
 template <typename T, int id>

@@ -55,10 +55,10 @@ struct Rational {
         os << f.num << "/" << f.den;
         return os;
     }
-    template<int BUFF_SIZE,int decimal_precision>
-    friend fastio::Scanner<BUFF_SIZE, decimal_precision>& operator>>(fastio::Scanner<BUFF_SIZE, decimal_precision>& is, Rational& f) {
-        is >> f.num >> f.den;
-        return is;
+    template<typename Sc>
+    void scan(Sc& sc) {
+        sc.scan(this->num);
+        sc.scan(this->den);
     }
 };
 /**

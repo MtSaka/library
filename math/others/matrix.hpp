@@ -79,11 +79,10 @@ struct Matrix {
         }
         return ret;
     }
-    template<int BUFF_SIZE, int decimal_precision>
-    friend fastio::Scanner<BUFF_SIZE, decimal_precision>& operator>>(fastio::Scanner<BUFF_SIZE, decimal_precision>& is, Matrix& x) {
-        for (int i = 0; i < x.height(); i++)
-            for (int j = 0; j < x.width(); j++) is >> x[i][j];
-        return is;
+    template<typename Sc>
+    void scan(Sc& sc) {
+        for (int i = 0; i < height(); i++)
+            for (int j = 0; j < width(); j++) sc.scan((*this)[i][j]);
     }
     friend ostream& operator<<(ostream& os, const Matrix& x) {
         os << x.data;
