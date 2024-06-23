@@ -64,7 +64,7 @@ struct Scanner {
     void scan(std::string& a) {
         skip_space();
         a.clear();
-        while (cur() != '\0' && (buffer[idx] < '\t' || 'r' < buffer[idx]) && buffer[idx] != ' ') {
+        while (cur() != '\0' && (buffer[idx] < '\t' || '\r' < buffer[idx]) && buffer[idx] != ' ') {
             a += scan_char();
         }
     }
