@@ -7,8 +7,8 @@ struct Scanner {
    private:
     template <typename, typename = void>
     struct has_scan : std::false_type {};
-    template <typename T>
-    struct has_scan<T, std::void_t<decltype(std::declval<Scanner&>().scan(std::declval<T&>()))>> : std::true_type {};
+    template <class T>
+    struct has_scan<T, decltype(std::declval<T>().scan(std::declval<Scanner&>()), (void)0)> : std::true_type {};
     FILE* file;
     char buffer[BUFF_SIZE + 1];
     int idx, sz;
