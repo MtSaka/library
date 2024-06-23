@@ -111,11 +111,11 @@ struct Printer {
     }
     template <typename T, typename std::enable_if<std::is_floating_point<T>::value && !has_print<T>::value>::type* = nullptr>
     void print(T a) {
-        if (a == infinity<T>::max() || a == infinity<T>::value()) {
+        if (a == infinity<T>::max || a == infinity<T>::value) {
             print("inf");
             return;
         }
-        if (a == infinity<T>::min() || a == infinity<T>::mvalue()) {
+        if (a == infinity<T>::min || a == infinity<T>::mvalue) {
             print("-inf");
             return;
         }

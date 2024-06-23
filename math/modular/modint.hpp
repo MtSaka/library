@@ -99,11 +99,11 @@ struct StaticModInt : internal::modint_base {
         *this = x;
     }
     template <typename Pr>
-    void print(Pr& a) {
+    void print(Pr& a) const {
         a.print(val);
     }
     template <typename Pr>
-    void debug(Pr& a) {
+    void debug(Pr& a) const {
         a.print(val);
     }
 };
