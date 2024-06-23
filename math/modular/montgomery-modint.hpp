@@ -117,14 +117,19 @@ struct MontgomeryModInt {
     friend MontgomeryModInt operator/(const MontgomeryModInt& l, const MontgomeryModInt& r) { return MontgomeryModInt(l) /= r; }
     friend bool operator==(const MontgomeryModInt& l, const MontgomeryModInt& r) { return l.val == r.val; }
     friend bool operator!=(const MontgomeryModInt& l, const MontgomeryModInt& r) { return l.val != r.val; }
-    friend ostream& operator<<(ostream& os, const MontgomeryModInt& x) {
-        return os << x.get();
-    }
-    template<typename Sc>
+    template <typename Sc>
     void scan(Sc& a) {
         ll x;
         a.scan(x);
         *this = x;
+    }
+    template <typename Pr>
+    void print(Pr& a) const {
+        a.print(get());
+    }
+    template <typename Pr>
+    void debug(Pr& a) const {
+        a.print(get());
     }
 };
 template <typename T, int id>

@@ -92,14 +92,19 @@ struct StaticModInt : internal::modint_base {
         }
         return res;
     }
-    friend ostream& operator<<(ostream& os, const StaticModInt& x) {
-        return os << x.val;
-    }
-    template<typename Sc>
+    template <typename Sc>
     void scan(Sc& a) {
         ll x;
         a.scan(x);
         *this = x;
+    }
+    template <typename Pr>
+    void print(Pr& a) {
+        a.print(val);
+    }
+    template <typename Pr>
+    void debug(Pr& a) {
+        a.print(val);
     }
 };
 template <unsigned int p>

@@ -47,6 +47,18 @@ struct point {
         a.scan(this->x);
         a.scan(this->y);
     }
+    template <typename Pr>
+    void print(Pr& out) const {
+        out.print(this->x);
+        out.print(" ");
+        out.print(this->y);
+    }
+    template <typename Pr>
+    void debug(Pr& out) const {
+        out.print(this->x);
+        out.print(" ");
+        out.print(this->y);
+    }
 };
 struct segment {
     point s, t;
@@ -68,7 +80,6 @@ struct polygon {
     polygon(vector<point> ps) : n(ps.size()), ps(ps) {}
     point& operator[](int i) { return ps[i]; }
 };
-ostream& operator<<(ostream& os, const point& p) { return os << p.x << " " << p.y; }
 long double cross(point a, point b) { return a.x * b.y - a.y * b.x; }
 long double dot(point a, point b) { return a.x * b.x + a.y * b.y; }
 point rotate(point p, long double theta, point o = point(0, 0)) {

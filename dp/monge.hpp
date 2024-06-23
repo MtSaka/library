@@ -9,7 +9,7 @@ bool is_monge(int n, F&& f) {
         auto lhs = f(i, l) + f(j, k);
         auto rhs = f(i, k) + f(j, l);
         if (lhs < rhs) {
-            debug(i, j, k, l, f(i, k), f(i, l), f(j, k), f(j, l));
+            dbg(i, j, k, l, f(i, k), f(i, l), f(j, k), f(j, l));
             return false;
         }
     }

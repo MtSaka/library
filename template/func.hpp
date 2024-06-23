@@ -140,9 +140,9 @@ inline void trace(const Head&& head, const Tail&&... tail) {
     trace(std::forward<Tail>(tail)...);
 }
 #ifdef ONLINE_JUDGE
-#define debug(...) (void(0))
+#define dbg(...) (void(0))
 #else
-#define debug(...)                    \
+#define dbg(...)                    \
     do {                              \
         wtd << #__VA_ARGS__ << " = "; \
         trace(__VA_ARGS__);           \

@@ -51,14 +51,22 @@ struct Rational {
     friend Rational operator-(const Rational& lhs, const Rational& rhs) { return Rational(lhs) -= rhs; }
     friend Rational operator*(const Rational& lhs, const Rational& rhs) { return Rational(lhs) *= rhs; }
     friend Rational operator/(const Rational& lhs, const Rational& rhs) { return Rational(lhs) /= rhs; }
-    friend ostream& operator<<(ostream& os, const Rational& f) {
-        os << f.num << "/" << f.den;
-        return os;
-    }
     template<typename Sc>
     void scan(Sc& a) {
         a.scan(this->num);
         a.scan(this->den);
+    }
+    template<typename Pr>
+    void print(Pr& a) const {
+        a.print(this->num);
+        a.print("/");
+        a.print(this->den);
+    }
+    template<typename Pr>
+    void debug(Pr& a) const {
+        a.print(this->num);
+        a.print("/");
+        a.print(this->den);
     }
 };
 /**
