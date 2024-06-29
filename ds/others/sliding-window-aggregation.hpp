@@ -4,11 +4,10 @@
 template <typename T, typename F>
 struct SlidingWindowAggregation {
    private:
-    vector<T> front_stack, front_stack_sum, back_stack;
+    vector<T> front_stack_sum, back_stack;
     F f;
     T id, front_sum, back_sum;
     void push_front(const T& x) {
-        front_stack.push_back(x);
         front_stack_sum.push_back(front_sum = f(x, front_sum));
     }
     void push_back(const T& x) {
@@ -26,7 +25,7 @@ struct SlidingWindowAggregation {
    public:
     SlidingWindowAggregation(F f, T id) : f(f), id(id), front_sum(id), back_sum(id) {}
     void push(const T& x) {
-        if (front_stack.empty()) {
+        if (front_stack_sum.empty()) {
             push_front(x);
             transfer();
         } else {
@@ -34,8 +33,7 @@ struct SlidingWindowAggregation {
         }
     }
     void pop() {
-        if (front_stack.empty()) transfer();
-        front_stack.pop_back();
+        if (front_stack_sum.empty()) transfer();
         front_stack_sum.pop_back();
         front_sum = front_stack_sum.empty() ? id : front_stack_sum.back();
     }
