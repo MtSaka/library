@@ -39,10 +39,8 @@ struct Printer {
     }
     void set_decimal_precision(std::size_t n) { decimal_precision = n; }
     inline void print_char(char c) {
-        if constexpr (!debug) {
             buffer[idx++] = c;
             if (idx == BUFF_SIZE) flush();
-        }
     }
     inline void flush() {
         idx = fwrite(buffer, 1, idx, file);
@@ -59,20 +57,20 @@ struct Printer {
         if constexpr (debug) print_char('\'');
     }
     void print(const char* a) {
-        if constexpr (debug) print_char('"');
+        if constexpr (debug) print_char('\"');
         for (; *a != '\0'; ++a) print_char(*a);
-        if constexpr (debug) print_char('"');
+        if constexpr (debug) print_char('\"');
     }
     template <std::size_t N>
     void print(const char (&a)[N]) {
-        if constexpr (debug) print_char('"');
+        if constexpr (debug) print_char('\"');
         for (auto i : a) print_char(i);
-        if constexpr (debug) print_char('"');
+        if constexpr (debug) print_char('\"');
     }
     void print(const std::string& a) {
-        if constexpr (debug) print_char('"');
+        if constexpr (debug) print_char('\"');
         for (auto i : a) print_char(i);
-        if constexpr (debug) print_char('"');
+        if constexpr (debug) print_char('\"');
     }
     template <std::size_t len>
     void print(const std::bitset<len>& a) {

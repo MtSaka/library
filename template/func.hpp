@@ -131,10 +131,10 @@ inline void fin(const T&... a) {
     exit(0);
 }
 template <typename T>
-inline void dump(const T&& a) { prd << a; }
+inline void dump(const T& a) { prd << a; }
 inline void trace() { prd << endl; }
 template <typename Head, typename... Tail>
-inline void trace(const Head&& head, const Tail&&... tail) {
+inline void trace(const Head& head, const Tail&... tail) {
     dump(head);
     if (sizeof...(tail)) prd << ", ";
     trace(std::forward<Tail>(tail)...);
@@ -142,9 +142,10 @@ inline void trace(const Head&& head, const Tail&&... tail) {
 #ifdef ONLINE_JUDGE
 #define dbg(...) (void(0))
 #else
-#define dbg(...)                      \
-    do {                              \
-        prd << #__VA_ARGS__ << " = "; \
-        trace(__VA_ARGS__);           \
+#define dbg(...)                                                       \
+    do {                                                               \
+        prd << #__VA_ARGS__;                                           \
+        prd.print_char(' '), prd.print_char('='), prd.print_char(' '); \
+        trace(__VA_ARGS__);                                            \
     } while (0)
 #endif
