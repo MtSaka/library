@@ -88,7 +88,7 @@ struct Printer {
                 a = -a;
             }
         }
-        if (idx + 40 >= BUFF_SIZE) flush();
+        if (static_cast<size_t>(idx + 40) >= BUFF_SIZE) flush();
         static char stk[40];
         int top = 40;
         while (a >= 10000) {

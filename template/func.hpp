@@ -136,8 +136,8 @@ inline void trace() { prd << endl; }
 template <typename Head, typename... Tail>
 inline void trace(const Head& head, const Tail&... tail) {
     dump(head);
-    if (sizeof...(tail)) prd << ", ";
-    trace(std::forward<Tail>(tail)...);
+    if (sizeof...(tail)) prd.print_char(','), prd.print_char(' ');
+    trace(tail...);
 }
 #ifdef ONLINE_JUDGE
 #define dbg(...) (void(0))
