@@ -55,6 +55,9 @@ struct LazySegmentTree {
         rep(i, n) data[size + i] = v[i];
         rrep(i, 1, size) update(i);
     }
+    void eval_all() {
+        rep(i, lg) rep(j, 1 << i) eval((1 << i) + j, 1 << (lg - i));
+    }
     T prod(int l, int r) {
         if (l == r) return M::id();
         l += size, r += size;
