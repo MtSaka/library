@@ -1,8 +1,8 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/range_set_range_composite
-#include "library/template/template.hpp"
-#include "library/ds/segment/range-assign-segmnet-tree.hpp"
-#include "library/others/monoid2.hpp"
-#include "library/math/modular/modint.hpp"
+#include "../../../template/template.hpp"
+#include "../../../ds/segment/range-assign-segmnet-tree.hpp"
+#include "../../../others/monoid2.hpp"
+#include "../../../math/modular/modint.hpp"
 using mint = ModInt<998244353>;
 int main() {
     LL(n, q);

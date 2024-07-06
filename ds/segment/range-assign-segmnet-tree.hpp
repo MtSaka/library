@@ -46,3 +46,6 @@ struct RangeAssignSegmnetTree {
     T operator[](int k) { return seg[k]; }
     T all_prod() { return seg.all_prod(); }
 };
+/**
+ * @brief Range Assign Segmnet Tree
+ */
