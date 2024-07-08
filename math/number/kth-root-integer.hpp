@@ -19,7 +19,7 @@ ull kth_root_integer(ull a, int k) {
         return mul <= a;
     };
     ull ret = 0;
-    for (int i = 21; i >= 0; i--) {
+    for (int i = 64 / k; i >= 0; i--) {
         if (check(ret | (1u << i))) ret |= 1u << i;
     }
     return ret;
