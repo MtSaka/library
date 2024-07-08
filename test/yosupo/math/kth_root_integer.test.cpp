@@ -4,7 +4,7 @@
 int main() {
     INT(t);
     while (t--) {
-        uint64_t a;
+        ull a;
         sc >> a;
         INT(k);
         print(kth_root_integer(a, k));
