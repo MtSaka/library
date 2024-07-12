@@ -1,5 +1,6 @@
 #pragma once
 #include "../../template/template.hpp"
+#include "modint.hpp"
 
 template <typename T>
 struct MontgomeryReduction {
@@ -46,7 +47,7 @@ struct MontgomeryReduction {
     T transform(large_t x) const { return reduce(x * r2); }
 };
 template <typename T, int id>
-struct MontgomeryModInt {
+struct MontgomeryModInt : internal::modint_base {
     static_assert(is_integral<T>::value, "template argument must be integral");
     static_assert(is_unsigned<T>::value, "template argument must be unsigned");
 
