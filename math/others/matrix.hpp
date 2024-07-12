@@ -70,7 +70,7 @@ struct Matrix {
                 swap(b[i], b[idx]);
             }
             ret *= b[i][i];
-            T tmp = b[i][i];
+            const T tmp = b[i][i];
             for (int j = 0; j < width(); j++) b[i][j] /= tmp;
             for (int j = i + 1; j < width(); j++) {
                 T now = b[j][i];
