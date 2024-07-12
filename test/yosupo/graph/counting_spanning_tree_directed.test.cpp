@@ -7,6 +7,9 @@ using mint = ModInt<998244353>;
 int main() {
     INT(n, m, r);
     Graph<mint> g(n);
-    g.read(m, 0, false, true);
+    rep(m) {
+        INT(a, b);
+        g.add_edge(b, a, true, 1);
+    }
     print(count_spanning_tree<mint>(g, r));
 }

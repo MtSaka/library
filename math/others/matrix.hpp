@@ -56,28 +56,33 @@ struct Matrix {
     friend Matrix operator*(const Matrix& l, const Matrix& r) { return Matrix(l) *= r; }
     T determinant() const {
         Matrix b(*this);
-        T ret = 1;
-        for (int i = 0; i < width(); i++) {
-            int idx = -1;
-            for (int j = i; j < width(); j++)
-                if (b[j][i] != 0) {
-                    idx = j;
-                    break;
+        const int n = height();
+        if (n == 0) return 1;
+        T res = 1;
+        rep(i, n) {
+            if (b.data[i][i] == T(0)) {
+                rep(j, i + 1, n) {
+                    if (b.data[j][i] != 0) {
+                        swap(b.data[i], b.data[j]);
+                        res = -res;
+                        break;
+                    }
                 }
-            if (idx == -1) return T(0);
-            if (i != idx) {
-                ret *= T(-1);
-                swap(b[i], b[idx]);
             }
-            ret *= b[i][i];
-            const T tmp = b[i][i];
-            for (int j = 0; j < width(); j++) b[i][j] /= tmp;
-            for (int j = i + 1; j < width(); j++) {
-                T now = b[j][i];
-                for (int k = 0; k < width(); k++) b[j][k] -= b[i][k] * now;
+            if (b.data[i][i] == T(0)) return T(0);
+            {
+                const T s = b.data[i][i];
+                res *= s;
+                const T invs = T(1) / s;
+                rep(j, n) b.data[i][j] *= invs;
+            }
+            rep(j, i + 1, n) {
+                const T s = b.data[j][i];
+                rep(k, n) b.data[j][k] -= b.data[i][k] * s;
             }
         }
-        return ret;
+        rep(i, n) res *= b.data[i][i];
+        return res;
     }
     template <typename Sc>
     void scan(Sc& a) {
