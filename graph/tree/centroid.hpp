@@ -4,7 +4,7 @@
 
 template <typename T = UnweightedEdge>
 vector<int> centroid(const Graph<T>& g) {
-    cont int n = g.size();
+    const int n = g.size();
     stack<pair<int, int>> s;
     s.emplace(0, -1);
     vector<int> sz(n), par(n);
@@ -27,7 +27,7 @@ vector<int> centroid(const Graph<T>& g) {
         int val = n - sz[i];
         for (auto& to : g[i])
             if (to != par[i]) val = max(val, sz[to]);
-        if (val < siz) size = val, res.clear();
+        if (val < siz) siz = val, res.clear();
         if (val == siz) res.emplace_back(i);
     }
     return res;
