@@ -3,11 +3,11 @@
 
 // c[i]= sum_j b[j]*a[i+j]
 template <typename T>
-FormalPowerSeries<T> middle_product(const FormalPowerSeries<T>& a, const FormalPowerSeries<T>& b) {
+vector<T> middle_product(const vector<T>& a, const vector<T>& b) {
     const int n = a.size(), m = b.size();
-    if (b.empty()) return FormalPowerSeries<T>(n - m + 1);
+    if (b.empty()) return vector<T>(n - m + 1);
     if (min(m, n - m + 1) <= 64) {
-        FormalPowerSeries<T> c(n - m + 1);
+        vector<T> c(n - m + 1);
         rep(i, n - m + 1) rep(j, m) c[i] += a[i + j] * b[j];
         return c;
     }
