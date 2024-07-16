@@ -1,8 +1,9 @@
 #pragma once
 #include "fps.hpp"
+#include "middle-product.hpp"
 
 template <typename T>
-vector<T> multipoint_evaluation_geometric(FormalPowerSeries<T> f, const T& a, const T& r, int m) {
+vector<T> multipoint_evaluation_geometric(FormalPowerSeries<T> f, T a, T r, int m) {
     if (m == 0) return {};
     const int n = f.size();
     if (r == T(0)) {
@@ -26,15 +27,8 @@ vector<T> multipoint_evaluation_geometric(FormalPowerSeries<T> f, const T& a, co
     };
     auto r_memo = calc(r, n + m - 1), r_inv_memo = calc(r.inv(), max(n, m));
     f.dot(r_inv_memo);
-    reverse(f.begin(), f.end());
-    const int l = 1 << ceil_log2(n + m - 1);
-    f.resize(l);
-    r_memo.resize(l);
-    ntt(f), ntt(r_memo);
-    rep(i, l) f[i] *= r_memo[i];
-    intt(f);
-    vector<T> res(m);
-    rep(i, m) res[i] = f[n - 1 + i] * r_inv_memo[i];
+    auto res = middle_product(r_memo, f);
+    rep(i, m) res[i] *= r_inv_memo[i];
     return res;
 }
 /**
