@@ -1,4 +1,3 @@
-/*
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/polynomial_interpolation_on_geometric_sequence
 #include "../../../template/template.hpp"
 #include "../../../math/fps/polynomial-interpolation-gemoetric.hpp"
@@ -11,4 +10,4 @@ int main() {
     vector<mint> y(n);
     sc >> y;
     print(polynomial_interpolation_gemoetric(y, a, r));
-}*/
+}

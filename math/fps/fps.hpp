@@ -1,16 +1,21 @@
 #pragma once
 #include "../../template/template.hpp"
 #include "../convolution/convolution.hpp"
+#include "../others/combinatorics.hpp"
 
 template <typename mint = ModInt<998244353>>
 struct FormalPowerSeries : vector<mint> {
     using vector<mint>::vector;
     using FPS = FormalPowerSeries<mint>;
+    using Comb = Combinatorics<mint>;
 
    private:
     static constexpr unsigned int p = mint::get_mod();
 
    public:
+    FormalPowerSeries() : vector<mint>() {}
+    FormalPowerSeries(const vector<mint>& v) : vector<mint>(v) {}
+    FormalPowerSeries(vector<mint>&& v) : vector<mint>(move(v)) {}
     inline void shrink() {
         while (!(*this).empty() && (*this).back() == mint()) (*this).pop_back();
     }
@@ -167,10 +172,9 @@ struct FormalPowerSeries : vector<mint> {
     }
     FPS integral() const {
         const int n = (*this).size();
-        vector<mint> iv(n + 1, 1);
-        rep(i, 2, n + 1) iv[i] = -iv[p % i] * (p / i);
         FPS res(n + 1);
-        rep(i, n) res[i + 1] = (*this)[i] * iv[i + 1];
+        Comb::extend(n);
+        rep(i, n) res[i + 1] = (*this)[i] * Comb::inv(i + 1);
         return res;
     }
     FPS& inplace_integral() {

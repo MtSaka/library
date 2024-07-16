@@ -2,7 +2,7 @@
 #include "fps.hpp"
 
 template <typename T>
-vector<T> multipoint_evaluation_geometric(FormalPowerSeries<T> f, T a, T r, int m) {
+vector<T> multipoint_evaluation_geometric(FormalPowerSeries<T> f, const T& a, const T& r, int m) {
     if (m == 0) return {};
     const int n = f.size();
     if (r == T(0)) {
