@@ -2,13 +2,13 @@
 #include "../../../template/template.hpp"
 #include "../../../math/modular/modint.hpp"
 #include "../../../math/others/combinatorics.hpp"
-Combinatorics<modint> comb;
+using Comb = Combinatorics<modint>;
 int main() {
     INT(t, m);
     modint::set_mod(m);
-    comb.fac(min(m, 10000000) - 1);
+    Comb::extend(min(m, 10000000) - 1);
     while (t--) {
         INT(n, k);
-        print(comb.com(n, k));
+        print(Comb::com(n, k));
     }
 }
