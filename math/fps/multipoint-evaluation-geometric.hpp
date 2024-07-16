@@ -25,7 +25,7 @@ vector<T> multipoint_evaluation_geometric(FormalPowerSeries<T> f, T a, T r, int 
         rep(i, m - 1) res[i + 1] = res[i] * pow_r, pow_r *= r;
         return res;
     };
-    auto r_memo = calc(r, n + m - 1), r_inv_memo = calc(r.inv(), max(n, m));
+    auto r_memo = calc(r, n + m - 1), r_inv_memo = calc(T(1) / r, max(n, m));
     f.dot(r_inv_memo);
     auto res = middle_product(r_memo, f);
     rep(i, m) res[i] *= r_inv_memo[i];

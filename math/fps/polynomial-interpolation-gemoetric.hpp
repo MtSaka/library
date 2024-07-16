@@ -10,16 +10,18 @@ FormalPowerSeries<T> polynomial_interpolation_gemoetric(vector<T> y, const T& a,
     if (r == 0) {
         return {y[1], (y[0] - y[1]) / a};
     }
-    vector<T> pow_r(n + 1), pow_invr(n + 1), inv_s(n);
+    vector<T> pow_r(n + n - 1), pow_invr(n + n - 1), inv_s(n), pow_r_t(n + n - 1), pow_invr_t(n + n - 1);
     T s = 1;
     const T inv_r = T(1) / r;
     {
-        pow_r[0] = pow_invr[0] = inv_s[0] = 1;
-        rep(i, n) {
-            if (i) s *= (1 - pow_r[i]);
+        pow_r[0] = pow_invr[0] = inv_s[0] = pow_r_t[0] = pow_invr_t[0] = 1;
+        rep(i, n + n - 2) {
             pow_r[i + 1] = pow_r[i] * r;
+            pow_r_t[i + 1] = pow_r_t[i] * pow_r[i];
             pow_invr[i + 1] = pow_invr[i] * inv_r;
+            pow_invr_t[i + 1] = pow_invr_t[i] * pow_invr[i];
         }
+        rep(i, 1, n) s *= 1 - pow_r[i];
         inv_s[n - 1] = T(1) / s;
         s *= (1 - pow_r[n]);
         rrep(i, n - 1) inv_s[i] = inv_s[i + 1] * (1 - pow_r[i + 1]);
@@ -40,7 +42,9 @@ FormalPowerSeries<T> polynomial_interpolation_gemoetric(vector<T> y, const T& a,
         if (i & 1) f1[i] = -f1[i];
         v *= pow_r[i];
     }
-    FormalPowerSeries<T> f2 = multipoint_evaluation_geometric(FormalPowerSeries<T>(y), T(1), r, n);
+    rep(i, n) y[i] *= pow_invr_t[i];
+    FormalPowerSeries<T> f2 = middle_product(FormalPowerSeries<T>(pow_r_t), FormalPowerSeries<T>(y));
+    rep(i, n) f2[i] *= pow_invr_t[i];
     auto res = (f1 * f2);
     res.resize(n);
     reverse(res.begin(), res.end());
