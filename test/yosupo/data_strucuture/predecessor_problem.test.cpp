@@ -7,7 +7,7 @@ int main() {
     FastSet st(n);
     STR(s);
     rep(i, n) if (s[i] == '1') st.insert(i);
-    while (q--) {
+    rep(q) {
         INT(t, k);
         if (t == 0) {
             if (!st.contains(k)) st.insert(k);

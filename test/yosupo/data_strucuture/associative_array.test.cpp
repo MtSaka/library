@@ -5,7 +5,7 @@ int main() {
     int q;
     sc >> q;
     HashMap<ll, ll> mp;
-    while (q--) {
+    rep(q) {
         int t;
         sc >> t;
         if (t) {

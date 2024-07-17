@@ -13,7 +13,7 @@ int main() {
     }
     g.build();
     INT(q);
-    while (q--) {
+    rep(q) {
         INT(a, b);
         print(g.lca(a, b));
     }

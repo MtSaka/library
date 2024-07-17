@@ -4,7 +4,7 @@
 int main() {
     INT(n, q);
     RangeSumQuery<int> RSQ(n);
-    while (q--) {
+    rep(q) {
         INT(t, a, b);
         if (t == 0)
             RSQ.apply(a - 1, b);

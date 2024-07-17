@@ -6,7 +6,7 @@ int main() {
     vl a(n);
     sc >> a;
     RangeSumQuery<ll> RSQ(a);
-    while (q--) {
+    rep(q) {
         int t, l, r;
         sc >> t >> l >> r;
         if (t == 0)

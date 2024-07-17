@@ -9,7 +9,7 @@ int main() {
     vi a(n);
     sc >> a;
     rep(i, n) seg.set(i, a[i]);
-    while (q--) {
+    rep(q) {
         INT(t, l, r);
         if (t)
             print(seg.query(l, r));

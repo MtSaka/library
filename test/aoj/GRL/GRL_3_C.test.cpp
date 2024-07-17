@@ -7,7 +7,7 @@ int main() {
     scc.read(e, 0, false, true);
     scc.build();
     INT(q);
-    while (q--) {
+    rep(q) {
         INT(a, b);
         print(scc[a] == scc[b]);
     }

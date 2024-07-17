@@ -1,10 +1,13 @@
 #pragma once
 #include "../../template/template.hpp"
 template <typename T>
-struct prime_sieve {
+struct PrimeSieve {
+   private:
     vector<T> mpf;
     vector<T> primes;
-    prime_sieve(T n = 1e5) {
+
+   public:
+    PrimeSieve(T n = 200000) {
         mpf.resize(n + 1, 0);
         iota(mpf.begin(), mpf.end(), 0);
         mpf[0] = mpf[1] = -1;
@@ -18,7 +21,7 @@ struct prime_sieve {
         for (T i = 2; i <= n; i++)
             if (mpf[i] == i) primes.push_back(i);
     }
-    vector<pair<T, int>> factorize(T n) {
+    vector<pair<T, int>> factorize(T n) const {
         vector<pair<T, int>> res;
         T now = n;
         while (now != 1) {
@@ -30,8 +33,9 @@ struct prime_sieve {
         }
         return res;
     }
+    vector<T> get_primes() const { return primes; }
 };
-template <typename T>
+template <typename T = ll>
 struct IsPrime {
     T MAX;
     vector<bool> isprime;
@@ -42,8 +46,8 @@ struct IsPrime {
             for (T j = i * i; j < MAX + 1; j += i) isprime[j] = false;
         }
     }
-    bool is_prime(T x) { return isprime[x]; }
-    vector<T> primes(T m = -1) {
+    bool is_prime(T x) const { return isprime[x]; }
+    vector<T> get_primes(T m = -1) const {
         if (m == -1) m = MAX;
         vector<T> res;
         for (T i = 2; i < m + 1; i++)

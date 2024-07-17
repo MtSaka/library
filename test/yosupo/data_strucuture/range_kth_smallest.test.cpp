@@ -7,7 +7,7 @@ int main() {
     vi a(n);
     sc >> a;
     CompressedWaveletMatrix<int, 18> w(a);
-    while (q--) {
+    rep(q) {
         int l, r, k;
         sc >> l >> r >> k;
         print(w.kth_smallest(l, r, k));

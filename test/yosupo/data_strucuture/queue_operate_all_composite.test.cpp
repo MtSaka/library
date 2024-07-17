@@ -9,7 +9,7 @@ int main() {
     auto f = [](S a, S b) { return S(a.first * b.first, a.second * b.first + b.second); };
     SlidingWindowAggregation swag(f, S(1, 0));
     INT(q);
-    while (q--) {
+    rep(q) {
         LL(t);
         if (t == 0) {
             mint a, b;

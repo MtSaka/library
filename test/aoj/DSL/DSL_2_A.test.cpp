@@ -4,7 +4,7 @@
 int main() {
     INT(n, q);
     RangeMinimumQuery<int, (1ull << 31) - 1> RMQ(n);
-    while (q--) {
+    rep(q) {
         INT(t, x, y);
         if (t == 0)
             RMQ.set(x, y);

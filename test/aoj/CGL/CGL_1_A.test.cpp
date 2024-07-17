@@ -6,7 +6,7 @@ int main() {
     geometry::point p1, p2;
     sc >> p1 >> p2;
     INT(q);
-    while (q--) {
+    rep(q) {
         geometry::point q;
         sc >> q;
         auto ans = geometry::project(geometry::line(p1, p2), q);

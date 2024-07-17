@@ -5,7 +5,7 @@ int main() {
     geometry::point p1, p2;
     sc >> p1 >> p2;
     INT(q);
-    while (q--) {
+    rep(q) {
         geometry::point p;
         sc >> p;
         int dir = geometry::ccw(p, p1, p2);

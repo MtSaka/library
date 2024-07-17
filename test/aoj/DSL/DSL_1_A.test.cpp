@@ -5,7 +5,7 @@ int main() {
     int n, q;
     sc >> n >> q;
     UnionFind d(n);
-    while (q--) {
+    rep(q) {
         int t, x, y;
         sc >> t >> x >> y;
         if (t == 0)

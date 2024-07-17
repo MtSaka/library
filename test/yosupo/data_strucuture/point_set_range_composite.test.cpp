@@ -10,7 +10,7 @@ int main() {
     vector<T> a(n);
     sc >> a;
     SegmentTree<Monoid::Composite<mint>> seg(a);
-    while (q--) {
+    rep(q) {
         INT(t, a, b, c);
         if (t == 0)
             seg.set(a, T{b, c});

@@ -9,7 +9,7 @@ int main() {
         g.add_edge(u, i);
     }
     g.build();
-    while (q--) {
+    rep(q) {
         INT(u, v);
         print(g.lca(u, v));
     }

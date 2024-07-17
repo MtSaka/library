@@ -8,7 +8,7 @@ int main() {
         INT(a);
         bit.add(i, a);
     }
-    while (q--) {
+    rep(q) {
         INT(t, l, r);
         if (t)
             print(bit.sum(l, r));

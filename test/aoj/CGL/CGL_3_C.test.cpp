@@ -6,7 +6,7 @@ int main() {
     geometry::polygon pol(n);
     rep(i, n) sc >> pol[i];
     INT(q);
-    while (q--) {
+    rep(q) {
         geometry::point p;
         sc >> p;
         int ans = geometry::in_polygon(p, pol);

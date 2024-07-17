@@ -4,7 +4,7 @@
 int main() {
     INT(n, q);
     BinaryIndexedTree<int> bit(n);
-    while (q--) {
+    rep(q) {
         INT(t, x, y);
         if (t)
             print(bit.sum(x - 1, y));

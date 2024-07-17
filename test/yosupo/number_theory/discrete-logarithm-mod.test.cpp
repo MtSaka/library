@@ -4,7 +4,7 @@
 int main() {
     int t;
     sc >> t;
-    while (t--) {
+    rep(t) {
         ll x, y, m;
         sc >> x >> y >> m;
         print(discrete_logarithm(x, y, m));

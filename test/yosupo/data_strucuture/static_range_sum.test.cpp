@@ -7,7 +7,7 @@ int main() {
     vl a(n);
     sc >> a;
     DisjointSparseTable<Monoid::Sum<ll>> st(a);
-    while (q--) {
+    rep(q) {
         INT(l, r);
         print(st.prod(l, r));
     }

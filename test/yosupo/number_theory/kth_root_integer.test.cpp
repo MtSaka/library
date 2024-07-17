@@ -3,7 +3,7 @@
 #include "../../../template/template.hpp"
 int main() {
     INT(t);
-    while (t--) {
+    rep(t) {
         ull a;
         sc >> a;
         INT(k);

@@ -5,7 +5,7 @@ int main() {
     BinaryTrie<int> bt;
     int q;
     sc >> q;
-    while (q--) {
+    rep(q) {
         int t, x;
         sc >> t >> x;
         if (t == 0) {

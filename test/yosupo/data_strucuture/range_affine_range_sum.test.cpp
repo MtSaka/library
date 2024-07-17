@@ -10,7 +10,7 @@ int main() {
     vector<mint> a(n);
     sc >> a;
     LazySegmentTree<Monoid::AffineSum<mint>> seg(a);
-    while (q--) {
+    rep(q) {
         INT(t);
         if (t == 0) {
             INT(l, r, b, c);

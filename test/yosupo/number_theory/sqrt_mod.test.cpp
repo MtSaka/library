@@ -2,9 +2,8 @@
 #include "../../../math/modular/mod-sqrt.hpp"
 #include "../../../template/template.hpp"
 int main() {
-    int t;
-    sc >> t;
-    while (t--) {
+    INT(t);
+    rep(t) {
         LL(y, p);
         print(mod_sqrt(y, p));
     }

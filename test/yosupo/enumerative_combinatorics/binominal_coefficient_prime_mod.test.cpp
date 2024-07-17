@@ -7,7 +7,7 @@ int main() {
     INT(t, m);
     modint::set_mod(m);
     Comb::extend(min(m, 10000000) - 1);
-    while (t--) {
+    rep(t) {
         INT(n, k);
         print(Comb::com(n, k));
     }

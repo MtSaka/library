@@ -4,7 +4,7 @@
 int main() {
     INT(n, q);
     RangeAddQueryRangeMinimumQuery<int> RAQRMQ(n, 0);
-    while (q--) {
+    rep(q) {
         INT(t);
         if (t == 0) {
             INT(l, r, x);

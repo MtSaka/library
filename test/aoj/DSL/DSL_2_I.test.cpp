@@ -4,7 +4,7 @@
 int main() {
     INT(n, q);
     RangeUpdateQueryRangeSumQuery<int> RUQRSQ(n);
-    while (q--) {
+    rep(q) {
         INT(t);
         if (t == 0) {
             INT(l, r, x);

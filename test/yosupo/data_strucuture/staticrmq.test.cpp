@@ -7,7 +7,7 @@ int main() {
     vi a(n);
     sc >> a;
     SparseTable<Monoid::Min<int>> st(a);
-    while (q--) {
+    rep(q) {
         INT(l, r);
         print(st.prod(l, r));
     }

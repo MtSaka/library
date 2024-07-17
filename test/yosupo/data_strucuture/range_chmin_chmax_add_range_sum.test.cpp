@@ -7,7 +7,7 @@ int main() {
     vl a(n);
     sc >> a;
     SegmentTreeBeats<ll> seg(a);
-    while (q--) {
+    rep(q) {
         int t;
         sc >> t;
         if (t == 0) {

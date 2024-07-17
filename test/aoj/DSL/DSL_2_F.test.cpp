@@ -4,7 +4,7 @@
 int main() {
     INT(n, q);
     RangeUpdateQueryRangeMinimumQuery<int, (1u << 31) - 1> RUQRMQ(n);
-    while (q--) {
+    rep(q) {
         INT(t);
         if (t == 0) {
             INT(l, r, x);

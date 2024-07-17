@@ -4,7 +4,7 @@
 int main() {
     INT(n, q);
     RangeUpdateQuery<int> RUQ(n, (1u << 31) - 1);
-    while (q--) {
+    rep(q) {
         INT(t);
         if (t == 0) {
             INT(l, r, x);

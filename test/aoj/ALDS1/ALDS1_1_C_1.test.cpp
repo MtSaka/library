@@ -4,7 +4,7 @@ int main() {
     int q;
     sc >> q;
     int ans = 0;
-    while (q--) {
+    rep(q) {
         int x;
         sc >> x;
         ans += is_prime(x);
