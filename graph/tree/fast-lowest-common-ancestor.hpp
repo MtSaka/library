@@ -46,6 +46,7 @@ struct LCA : Graph<T> {
         return u;
     }
     int dist(int u, int v) const { return dep[u] + dep[v] - 2 * dep[lca(u, v)]; }
+    T weight(int u, int v) const { return sum[u] + sum[v] - 2 * sum[lca(u, v)]; }
     int jump(int from, int to, int k) const {
         int l = lca(from, to);
         int d1 = dep[from] - dep[l];

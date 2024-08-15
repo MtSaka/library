@@ -32,21 +32,51 @@ void ntt(vector<T>& a) {
     assert((unsigned int)sz <= ((1 - p) & (p - 1)));
     assert((sz & (sz - 1)) == 0);
     const int lg = msb(sz);
-    rep(i, sz) {
-        const int j = reverse(i, lg);
-        if (i < j) swap(a[i], a[j]);
-    }
-    rep(i, lg) {
-        const T w = nth_root<p>.get(i + 1);
-        rep(j, 0, sz, 1 << (i + 1)) {
-            T z = 1;
-            rep(k, 1 << i) {
-                T x = a[j + k], y = a[j + k + (1 << i)] * z;
-                a[j + k] = x + y, a[j + k + (1 << i)] = x - y;
-                z *= w;
+    static constexpr T im = nth_root<p>.get(2);
+    for (int i = lg; i >= 1; i -= 2) {
+        if (i == 1) {
+            const T w = nth_root<p>.get(i);
+            for (int j = 0; j < sz; j += (1u << 1)) {
+                T z = 1;
+                for (int k = j; k < j + (1u << (i - 1)); ++k) {
+                    const T x = a[k], y = a[k + (1u << (i - 1))];
+                    a[k] = x + y, a[k + (1u << (i - 1))] = (x - y) * z;
+                    z *= w;
+                }
+            }
+        } else {
+            const T w = nth_root<p>.get(i);
+            const int offset = 1 << (i - 2);
+            for (int j = 0; j < sz; j += (1 << i)) {
+                T z = 1;
+                for (int k = j; k < j + (1 << (i - 2)); ++k) {
+                    const T z2 = z * z, z3 = z2 * z;
+                    const T c0 = a[k], c1 = a[k + offset], c2 = a[k + offset * 2], c3 = a[k + offset * 3];
+                    const T c0c2 = c0 + c2, c0mc2 = c0 - c2, c1c3 = c1 + c3, c1mc3im = (c1 - c3) * im;
+                    a[k] = c0c2 + c1c3;
+                    a[k + offset] = (c0c2 - c1c3) * z2;
+                    a[k + offset * 2] = (c0mc2 + c1mc3im) * z;
+                    a[k + offset * 3] = (c0mc2 - c1mc3im) * z3;
+                    z *= w;
+                }
             }
         }
-    }
+    } /*
+     rep(i, sz) {
+         const int j = reverse(i, lg);
+         if (i < j) swap(a[i], a[j]);
+     }
+     rep(i, lg) {
+         const T w = nth_root<p>.get(i + 1);
+         rep(j, 0, sz, 1 << (i + 1)) {
+             T z = 1;
+             rep(k, 1 << i) {
+                 T x = a[j + k], y = a[j + k + (1 << i)] * z;
+                 a[j + k] = x + y, a[j + k + (1 << i)] = x - y;
+                 z *= w;
+             }
+         }
+     }*/
 }
 template <typename T, enable_if_t<is_modint<T>::value>* = nullptr>
 void intt(vector<T>& a, const bool& f = true) {
@@ -55,6 +85,37 @@ void intt(vector<T>& a, const bool& f = true) {
     assert((unsigned int)sz <= ((1 - p) & (p - 1)));
     assert((sz & (sz - 1)) == 0);
     const int lg = msb(sz);
+    static constexpr T im = nth_root<p>.inv(2);
+    for (int i = 2 - (lg & 1); i <= lg; i += 2) {
+        if (i == 1) {
+            const T w = nth_root<p>.inv(i);
+            for (int j = 0; j < sz; j += (1u << i)) {
+                T z = 1;
+                for (int k = j; k < j + (1u << (i - 1)); ++k) {
+                    const T x = a[k], y = a[k + (1u << (i - 1))] * z;
+                    a[k] = x + y, a[k + (1u << (i - 1))] = x - y;
+                    z *= w;
+                }
+            }
+        } else {
+            const T w = nth_root<p>.inv(i);
+            const int offset = 1 << (i - 2);
+            for (int j = 0; j < sz; j += (1u << i)) {
+                T z = 1;
+                for (int k = j; k < j + (1u << (i - 2)); ++k) {
+                    const T z2 = z * z, z3 = z2 * z;
+                    const T c0 = a[k], c1 = a[k + offset] * z2, c2 = a[k + offset * 2] * z, c3 = a[k + offset * 3] * z3;
+                    const T c0c1 = c0 + c1, c0mc1 = c0 - c1, c2c3 = c2 + c3, c2mc3im = (c2 - c3) * im;
+                    a[k] = c0c1 + c2c3;
+                    a[k + offset] = c0mc1 + c2mc3im;
+                    a[k + offset * 2] = c0c1 - c2c3;
+                    a[k + offset * 3] = c0mc1 - c2mc3im;
+                    z *= w;
+                }
+            }
+        }
+    }
+    /*
     rep(i, sz) {
         const int j = reverse(i, lg);
         if (i < j) swap(a[i], a[j]);
@@ -69,7 +130,7 @@ void intt(vector<T>& a, const bool& f = true) {
                 z *= w;
             }
         }
-    }
+    }*/
     if (f) {
         const T inv_sz = T(1) / sz;
         for (auto& x : a) x *= inv_sz;
@@ -91,45 +152,10 @@ vector<T> convole(vector<T> a, vector<T> b) {
     const int lg = ceil_log2(n);
     const int sz = 1 << lg;
     a.resize(sz), b.resize(sz);
-    rep(i, sz) {
-        const int j = reverse(i, lg);
-        if (i < j) {
-            swap(a[i], a[j]);
-            swap(b[i], b[j]);
-        }
-    }
-    rep(i, lg) {
-        const T w = nth_root<p>.get(i + 1);
-        rep(j, 0, sz, 1 << (i + 1)) {
-            T z = 1;
-            rep(k, 1 << i) {
-                T x = a[j + k], y = a[j + k + (1 << i)] * z;
-                a[j + k] = x + y, a[j + k + (1 << i)] = x - y;
-                x = b[j + k], y = b[j + k + (1 << i)] * z;
-                b[j + k] = x + y, b[j + k + (1 << i)] = x - y;
-                z *= w;
-            }
-        }
-    }
+    ntt(a), ntt(b);
     rep(i, sz) a[i] *= b[i];
-    rep(i, sz) {
-        const int j = reverse(i, lg);
-        if (i < j) swap(a[i], a[j]);
-    }
-    rep(i, lg) {
-        const T w = nth_root<p>.inv(i + 1);
-        rep(j, 0, sz, 1 << (i + 1)) {
-            T z = 1;
-            rep(k, 1 << i) {
-                T x = a[j + k], y = a[j + k + (1 << i)] * z;
-                a[j + k] = x + y, a[j + k + (1 << i)] = x - y;
-                z *= w;
-            }
-        }
-    }
+    intt(a);
     a.resize(n);
-    const T inv_sz = T(1) / sz;
-    for (auto& x : a) x *= inv_sz;
     return a;
 }
 template <typename T, enable_if_t<is_modint<T>::value>* = nullptr>
