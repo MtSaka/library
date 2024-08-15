@@ -164,8 +164,10 @@ vector<T> convolution(const vector<T>& a, const vector<T>& b) {
     const unsigned int sz1 = a.size(), sz2 = b.size();
     if (sz1 == 0 || sz2 == 0) return {};
     if (sz1 <= 64 || sz2 <= 64) return convolution_naive(a, b);
-    if (sz1 + sz2 - 1 > ((p - 1) & (1 - p))) return convolution_for_any_mod(a, b);
-    return convole(a, b);
+    if constexpr (((p - 1) & (1 - p)) >= 128) {
+        if (sz1 + sz2 - 1 <= ((p - 1) & (1 - p))) return convole(a, b);
+    }
+    return convolution_for_any_mod(a, b);
 }
 
 template <unsigned int p = 998244353>
