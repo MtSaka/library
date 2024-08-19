@@ -28,62 +28,62 @@ struct StaticModInt : internal::modint_base {
         if (x < 0) x += static_cast<signed_t>(mod);
         val = static_cast<T>(x);
     }
-    T get() const { return val; }
+    constexpr T get() const { return val; }
     static constexpr T get_mod() { return mod; }
-    static StaticModInt raw(T v) {
+    static constexpr StaticModInt raw(T v) {
         StaticModInt res;
         res.val = v;
         return res;
     }
-    StaticModInt inv() const {
+    constexpr StaticModInt inv() const {
         return mod_inv(val, mod);
     }
-    StaticModInt& operator++() {
+    constexpr StaticModInt& operator++() {
         ++val;
         if (val == mod) val = 0;
         return *this;
     }
-    StaticModInt operator++(int) {
+    constexpr StaticModInt operator++(int) {
         StaticModInt res = *this;
         ++*this;
         return res;
     }
-    StaticModInt& operator--() {
+    constexpr StaticModInt& operator--() {
         if (val == 0) val = mod;
         --val;
         return *this;
     }
-    StaticModInt operator--(int) {
+    constexpr StaticModInt operator--(int) {
         StaticModInt res = *this;
         --*this;
         return res;
     }
-    StaticModInt& operator+=(const StaticModInt& x) {
+    constexpr StaticModInt& operator+=(const StaticModInt& x) {
         val += x.val;
         if (val >= mod) val -= mod;
         return *this;
     }
-    StaticModInt& operator-=(const StaticModInt& x) {
+    constexpr StaticModInt& operator-=(const StaticModInt& x) {
         if (val < x.val) val += mod;
         val -= x.val;
         return *this;
     }
-    StaticModInt& operator*=(const StaticModInt& x) {
+    constexpr StaticModInt& operator*=(const StaticModInt& x) {
         val = static_cast<T>((static_cast<large_t>(val) * x.val) % mod);
         return *this;
     }
-    StaticModInt& operator/=(const StaticModInt& x) {
+    constexpr StaticModInt& operator/=(const StaticModInt& x) {
         return *this *= x.inv();
     }
-    friend StaticModInt operator+(const StaticModInt& l, const StaticModInt& r) { return StaticModInt(l) += r; }
-    friend StaticModInt operator-(const StaticModInt& l, const StaticModInt& r) { return StaticModInt(l) -= r; }
-    friend StaticModInt operator*(const StaticModInt& l, const StaticModInt& r) { return StaticModInt(l) *= r; }
-    friend StaticModInt operator/(const StaticModInt& l, const StaticModInt& r) { return StaticModInt(l) /= r; }
-    StaticModInt operator+() const { return StaticModInt(*this); }
-    StaticModInt operator-() const { return StaticModInt() - *this; }
-    friend bool operator==(const StaticModInt& l, const StaticModInt& r) { return l.val == r.val; }
-    friend bool operator!=(const StaticModInt& l, const StaticModInt& r) { return l.val != r.val; }
-    StaticModInt pow(ll a) const {
+    friend constexpr StaticModInt operator+(const StaticModInt& l, const StaticModInt& r) { return StaticModInt(l) += r; }
+    friend constexpr StaticModInt operator-(const StaticModInt& l, const StaticModInt& r) { return StaticModInt(l) -= r; }
+    friend constexpr StaticModInt operator*(const StaticModInt& l, const StaticModInt& r) { return StaticModInt(l) *= r; }
+    friend constexpr StaticModInt operator/(const StaticModInt& l, const StaticModInt& r) { return StaticModInt(l) /= r; }
+    constexpr StaticModInt operator+() const { return StaticModInt(*this); }
+    constexpr StaticModInt operator-() const { return StaticModInt() - *this; }
+    friend constexpr bool operator==(const StaticModInt& l, const StaticModInt& r) { return l.val == r.val; }
+    friend constexpr bool operator!=(const StaticModInt& l, const StaticModInt& r) { return l.val != r.val; }
+    constexpr StaticModInt pow(ll a) const {
         StaticModInt v = *this, res = 1;
         while (a) {
             if (a & 1) res *= v;
