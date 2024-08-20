@@ -17,7 +17,7 @@ struct Scanner {
         int len = sz - idx;
         if (idx < len) return;
         memcpy(buffer, buffer + idx, len);
-        sz = len + fread(buffer + len, 1, BUFF_SIZE - len, file);
+        sz = len + read(buffer + len, 1, BUFF_SIZE - len, file);
         idx = 0;
         if (static_cast<size_t>(sz) < BUFF_SIZE) buffer[sz++] = '\n';
     }
@@ -37,7 +37,7 @@ struct Scanner {
 
    public:
     Scanner() : Scanner(stdin) {}
-    explicit Scanner(FILE* file) : file(file), idx(0), sz(0), state(true) { load(); }
+    explicit Scanner(FILE* file) : file(file), idx(0), sz(0), state(true) {}
     ~Scanner() {
         if (file != stdin) fclose(file);
     }

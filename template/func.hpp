@@ -4,6 +4,7 @@
 #include "alias.hpp"
 #include "macro.hpp"
 #include "in.hpp"
+#include "out.hpp"
 
 inline constexpr int msb(ull x) {
     int res = x ? 0 : -1;
