@@ -17,7 +17,7 @@ struct Scanner {
         int len = sz - idx;
         if (idx < len) return;
         memcpy(buffer, buffer + idx, len);
-        sz = len + read(buffer + len, 1, BUFF_SIZE - len, file);
+        sz = len + fread(buffer + len, 1, BUFF_SIZE - len, file);
         idx = 0;
         if (static_cast<size_t>(sz) < BUFF_SIZE) buffer[sz++] = '\n';
     }
