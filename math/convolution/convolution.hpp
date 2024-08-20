@@ -60,7 +60,7 @@ void ntt(vector<T>& a) {
                     const T x = a[k], y = a[k + (1u << (i - 1))] * z;
                     a[k] = x + y, a[k + (1u << (i - 1))] = x - y;
                 }
-                if (j + (1 << i) != sz) z *= nth_root<p>.rate2[countr_zero(~(unsigned int)(j >> i))];
+                if (j + (1 << i) != sz) z *= nth_root<p>.rate2[__builtin_ctz(~(unsigned int)(j >> i))];
             }
         } else {
             const int offset = 1 << (i - 2);
@@ -75,7 +75,7 @@ void ntt(vector<T>& a) {
                     a[k + offset * 2] = c0mc2 + c1mc3im;
                     a[k + offset * 3] = c0mc2 - c1mc3im;
                 }
-                if (j + (1 << i) != sz) z *= nth_root<p>.rate3[countr_zero(~(unsigned int)(j >> i))];
+                if (j + (1 << i) != sz) z *= nth_root<p>.rate3[__builtin_ctz(~(unsigned int)(j >> i))];
             }
         }
     }
@@ -97,7 +97,7 @@ void intt(vector<T>& a, const bool& f = true) {
                     const T x = a[k], y = a[k + (1u << (i - 1))];
                     a[k] = x + y, a[k + (1u << (i - 1))] = (x - y) * z;
                 }
-                if (j + (1 << i) != sz) z *= nth_root<p>.irate2[countr_zero(~(unsigned int)(j >> i))];
+                if (j + (1 << i) != sz) z *= nth_root<p>.irate2[__builtin_ctz(~(unsigned int)(j >> i))];
             }
         } else {
             const int offset = 1 << (i - 2);
@@ -112,7 +112,7 @@ void intt(vector<T>& a, const bool& f = true) {
                     a[k + offset * 2] = (c0c1 - c2c3) * z2;
                     a[k + offset * 3] = (c0mc1 - c2mc3im) * z3;
                 }
-                if (j + (1 << i) != sz) z *= nth_root<p>.irate3[countr_zero(~(unsigned int)(j >> i))];
+                if (j + (1 << i) != sz) z *= nth_root<p>.irate3[__builtin_ctz(~(unsigned int)(j >> i))];
             }
         }
     }
