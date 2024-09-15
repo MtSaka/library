@@ -18,3 +18,6 @@ vector<T> multiplicative_convolution_mod_p(int p, const vector<T>& a, const vect
     c[0] = suma * b[0] + sumb * a[0] - a[0] * b[0];
     return c;
 }
+/**
+ * @brief Convolution on the Multiplicative Monoid of Z/pZ
+ */

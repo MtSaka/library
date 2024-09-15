@@ -10,7 +10,6 @@ ll prime_count(const ll n) {
     int cnt = 1;
     for (ll p = 3; p <= sq; p += 2) {
         if (small[p] == small[p - 1]) continue;
-        // cerr << p << endl;
         const ll w = sq / p, q = p * p;
         rep(i, 1, w + 1) large[i] -= large[i * p] - cnt;
         const ll t = min(sq, n / q), m = n / p;

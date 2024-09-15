@@ -55,10 +55,10 @@ void ntt(vector<T>& a) {
     for (int i = lg; i >= 1; i -= 2) {
         if (i == 1) {
             T z = 1;
-            for (int j = 0; j < sz; j += (1u << i)) {
-                for (int k = j; k < j + (1u << (i - 1)); ++k) {
-                    const T x = a[k], y = a[k + (1u << (i - 1))] * z;
-                    a[k] = x + y, a[k + (1u << (i - 1))] = x - y;
+            for (int j = 0; j < sz; j += (1 << i)) {
+                for (int k = j; k < j + (1 << (i - 1)); ++k) {
+                    const T x = a[k], y = a[k + (1 << (i - 1))] * z;
+                    a[k] = x + y, a[k + (1 << (i - 1))] = x - y;
                 }
                 if (j + (1 << i) != sz) z *= nth_root<p>.rate2[__builtin_ctz(~(unsigned int)(j >> i))];
             }
@@ -90,10 +90,9 @@ void intt(vector<T>& a, const bool& f = true) {
     static constexpr T im = nth_root<p>.inv_root[2];
     for (int i = 2 - (lg & 1); i <= lg; i += 2) {
         if (i == 1) {
-            const T w = nth_root<p>.inv_root[i];
             T z = 1;
-            for (int j = 0; j < sz; j += (1u << i)) {
-                for (int k = j; k < j + (1u << (i - 1)); ++k) {
+            for (int j = 0; j < sz; j += (1 << i)) {
+                for (int k = j; k < j + (1 << (i - 1)); ++k) {
                     const T x = a[k], y = a[k + (1u << (i - 1))];
                     a[k] = x + y, a[k + (1u << (i - 1))] = (x - y) * z;
                 }
@@ -102,8 +101,8 @@ void intt(vector<T>& a, const bool& f = true) {
         } else {
             const int offset = 1 << (i - 2);
             T z = 1;
-            for (int j = 0; j < sz; j += (1u << i)) {
-                for (int k = j; k < j + (1u << (i - 2)); ++k) {
+            for (int j = 0; j < sz; j += (1 << i)) {
+                for (int k = j; k < j + (1 << (i - 2)); ++k) {
                     const T z2 = z * z, z3 = z2 * z;
                     const T c0 = a[k], c1 = a[k + offset], c2 = a[k + offset * 2], c3 = a[k + offset * 3];
                     const T c0c1 = c0 + c1, c0mc1 = c0 - c1, c2c3 = c2 + c3, c2mc3im = (c2 - c3) * im;
@@ -132,7 +131,6 @@ template <unsigned int p>
 vector<ModInt<p>> convolution_for_any_mod(const vector<ModInt<p>>& a, const vector<ModInt<p>>& b);
 template <typename T, enable_if_t<is_modint<T>::value>* = nullptr>
 vector<T> convole(vector<T> a, vector<T> b) {
-    constexpr unsigned int p = T::get_mod();
     const int n = a.size() + b.size() - 1;
     const int lg = ceil_log2(n);
     const int sz = 1 << lg;
