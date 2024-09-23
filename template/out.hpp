@@ -25,25 +25,25 @@ struct Printer {
     struct has_print<T, false, decltype(std::declval<T>().print(std::declval<Printer&>()), (void)0)> : std::true_type {};
     template <typename T>
     struct has_print<T, true, decltype(std::declval<T>().debug(std::declval<Printer&>()), (void)0)> : std::true_type {};
-    FILE* file;
+    int fd;
     char buffer[BUFF_SIZE];
     int idx;
     std::size_t decimal_precision;
 
    public:
-    Printer() : Printer((debug ? stderr : stdout)) {}
-    explicit Printer(FILE* file) : file(file), idx(0), decimal_precision(16) {}
+    Printer() : Printer((debug ? 2 : 1)) {}
+    explicit Printer(int fd) : fd(fd), idx(0), decimal_precision(16) {}
+    explicit Printer(FILE* file) : fd(fileno(file)), idx(0), decimal_precision(16) {}
     ~Printer() {
         flush();
-        if (file != stdout && file != stderr) fclose(file);
     }
     void set_decimal_precision(std::size_t n) { decimal_precision = n; }
     inline void print_char(char c) {
-            buffer[idx++] = c;
-            if (idx == BUFF_SIZE) flush();
+        buffer[idx++] = c;
+        if (idx == BUFF_SIZE) flush();
     }
     inline void flush() {
-        idx = fwrite(buffer, 1, idx, file);
+        idx = write(fd, buffer, idx);
         idx = 0;
     }
     void print(char a) {
@@ -95,21 +95,21 @@ struct Printer {
             int i = a % 10000;
             a /= 10000;
             top -= 4;
-            std::memcpy(stk + top, pre.buffer[i], 4);
+            memcpy(stk + top, pre.buffer[i], 4);
         }
         if (a >= 1000) {
-            std::memcpy(buffer + idx, pre.buffer[a], 4);
+            memcpy(buffer + idx, pre.buffer[a], 4);
             idx += 4;
         } else if (a >= 100) {
-            std::memcpy(buffer + idx, pre.buffer[a] + 1, 3);
+            memcpy(buffer + idx, pre.buffer[a] + 1, 3);
             idx += 3;
         } else if (a >= 10) {
-            std::memcpy(buffer + idx, pre.buffer[a] + 2, 2);
+            memcpy(buffer + idx, pre.buffer[a] + 2, 2);
             idx += 2;
         } else {
             buffer[idx++] = '0' | a;
         }
-        std::memcpy(buffer + idx, stk + top, 40 - top);
+        memcpy(buffer + idx, stk + top, 40 - top);
         idx += 40 - top;
     }
     template <typename T, typename std::enable_if<std::is_floating_point<T>::value && !has_print<T>::value>::type* = nullptr>

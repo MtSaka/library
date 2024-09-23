@@ -9,7 +9,7 @@ struct Scanner {
     struct has_scan : std::false_type {};
     template <class T>
     struct has_scan<T, decltype(std::declval<T>().scan(std::declval<Scanner&>()), (void)0)> : std::true_type {};
-    FILE* file;
+    int fd;
     char buffer[BUFF_SIZE + 1];
     int idx, sz;
     bool state;
@@ -17,9 +17,9 @@ struct Scanner {
         int len = sz - idx;
         if (idx < len) return;
         memcpy(buffer, buffer + idx, len);
-        sz = len + fread(buffer + len, 1, BUFF_SIZE - len, file);
+        sz = len + read(fd, buffer + len, BUFF_SIZE - len);
         idx = 0;
-        if (static_cast<size_t>(sz) < BUFF_SIZE) buffer[sz++] = '\n';
+        buffer[sz] = 0;
     }
     inline char cur() {
         if (idx == sz) load();
@@ -36,11 +36,9 @@ struct Scanner {
     }
 
    public:
-    Scanner() : Scanner(stdin) {}
-    explicit Scanner(FILE* file) : file(file), idx(0), sz(0), state(true) {}
-    ~Scanner() {
-        if (file != stdin) fclose(file);
-    }
+    Scanner() : Scanner(0) {}
+    explicit Scanner(int fd) : fd(fd), idx(0), sz(0), state(true) {}
+    explicit Scanner(FILE* file) : fd(fileno(file)), idx(0), sz(0), state(true) {}
 
     inline char scan_char() {
         if (idx == sz) load();
@@ -52,9 +50,10 @@ struct Scanner {
         return (*this);
     }
     inline void skip_space() {
+       
         if (idx == sz) load();
         while (('\t' <= cur() && cur() <= '\r') || cur() == ' ') {
-            next();
+            if (++idx == sz) load();
         }
     }
     void scan(char& a) {
