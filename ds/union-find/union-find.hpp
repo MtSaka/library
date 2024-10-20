@@ -13,11 +13,19 @@ struct UnionFind {
     bool same(int x, int y) { return root(x) == root(y); }
     int size(int x) { return -p[root(x)]; }
     int merge(int x, int y) {
-        x = root(x), y = root(y);
-        if (x == y) return x;
+        if ((x = root(x)) == (y = root(y))) return x;
         if (p[x] > p[y]) swap(x, y);
         p[x] += p[y];
         p[y] = x;
+        return x;
+    }
+    template <typename F>
+    int merge(int x, int y, F f) {
+        if ((x = root(x)) == (y = root(y))) return x;
+        if (p[x] > p[y]) swap(x, y);
+        p[x] += p[y];
+        p[y] = x;
+        f(x, y);
         return x;
     }
     vector<vector<int>> groups() {
