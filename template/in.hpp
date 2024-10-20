@@ -1,4 +1,5 @@
 #pragma once
+#include <unistd.h>
 #include "alias.hpp"
 #include "type-traits.hpp"
 namespace fastio {
@@ -16,7 +17,7 @@ struct Scanner {
     inline void load() {
         int len = sz - idx;
         if (idx < len) return;
-        memcpy(buffer, buffer + idx, len);
+        std::memcpy(buffer, buffer + idx, len);
         sz = len + read(fd, buffer + len, BUFF_SIZE - len);
         idx = 0;
         buffer[sz] = 0;

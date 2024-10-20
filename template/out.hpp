@@ -1,4 +1,5 @@
 #pragma once
+#include <unistd.h>
 #include "macro.hpp"
 #include "alias.hpp"
 #include "type-traits.hpp"
@@ -95,21 +96,21 @@ struct Printer {
             int i = a % 10000;
             a /= 10000;
             top -= 4;
-            memcpy(stk + top, pre.buffer[i], 4);
+            std::memcpy(stk + top, pre.buffer[i], 4);
         }
         if (a >= 1000) {
-            memcpy(buffer + idx, pre.buffer[a], 4);
+            std::memcpy(buffer + idx, pre.buffer[a], 4);
             idx += 4;
         } else if (a >= 100) {
-            memcpy(buffer + idx, pre.buffer[a] + 1, 3);
+            std::memcpy(buffer + idx, pre.buffer[a] + 1, 3);
             idx += 3;
         } else if (a >= 10) {
-            memcpy(buffer + idx, pre.buffer[a] + 2, 2);
+            std::memcpy(buffer + idx, pre.buffer[a] + 2, 2);
             idx += 2;
         } else {
             buffer[idx++] = '0' | a;
         }
-        memcpy(buffer + idx, stk + top, 40 - top);
+        std::memcpy(buffer + idx, stk + top, 40 - top);
         idx += 40 - top;
     }
     template <typename T, typename std::enable_if<std::is_floating_point<T>::value && !has_print<T>::value>::type* = nullptr>
