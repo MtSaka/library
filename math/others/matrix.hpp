@@ -9,7 +9,7 @@ struct Matrix {
    public:
     Matrix() {}
     Matrix(int n, int m) : data(n, vector<T>(m, T())) {}
-    Matrix(int n) : data(n, vector<T>(n, T())){};
+    Matrix(int n) : data(n, vector<T>(n, T())) {};
     Matrix(const vector<vector<T>>& a) : data(a) {}
     size_t height() const { return data.size(); }
     size_t width() const { return (data.size() ? data[0].size() : 0); }
@@ -39,6 +39,17 @@ struct Matrix {
             for (int j = 0; j < m; j++)
                 for (int k = 0; k < p; k++) res[i][j] += (*this)[i][k] * r[k][j];
         data.swap(res);
+        return *this;
+    }
+    Matrix& operator^=(long long k) {
+        Matrix res = Matrix::I(height());
+        Matrix tmp = *this;
+        while (k > 0) {
+            if (k & 1) res *= tmp;
+            tmp *= tmp;
+            k >>= 1LL;
+        }
+        data.swap(res.data);
         return *this;
     }
     Matrix pow(long long k) const {
