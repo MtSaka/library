@@ -66,6 +66,9 @@ struct ConvexHullTrick {
         const line& l = get_min_line(x);
         return l.a * x + l.b;
     }
+    bool empty() const {
+        return st.empty();
+    }
 };
 /**
  * @brief Convex Hull Trick
