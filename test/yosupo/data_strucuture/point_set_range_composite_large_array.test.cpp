@@ -1,4 +1,4 @@
-// cp-verifier: PROBLEM https://judge.yosupo.jp/problem/point_set_range_composite_large_array
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/point_set_range_composite_large_array
 #include "../../../template/template.hpp"
 #include "../../../ds/segment/segment-tree.hpp"
 #include "../../../math/modular/modint.hpp"
