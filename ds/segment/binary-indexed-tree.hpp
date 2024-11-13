@@ -12,6 +12,15 @@ struct BinaryIndexedTree {
    public:
     BinaryIndexedTree() : BinaryIndexedTree(0) {}
     BinaryIndexedTree(int n_) { init(n_); }
+    BinaryIndexedTree(const vector<T>& v) {
+        data.clear();
+        data.emplace_back(M::id());
+        data.insert(data.end(), v.begin(), v.end());
+        rep(i, 1, n + 1) {
+            int j = i + (i & -i);
+            if (j <= n) data[j] = M::op(data[i], data[j]);
+        }
+    }
     void init(int n_) {
         n = n_;
         data.assign(n + 1, M::id());
