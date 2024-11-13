@@ -4,7 +4,7 @@
 int main() {
     int n, m;
     sc >> n >> m;
-    WeightedUnionFind<int> tree(n);
+    WeightedUnionFind<Monoid::Sum<int>> tree(n);
     while (m--) {
         int a, b, c, d;
         sc >> a >> b >> c;
@@ -13,7 +13,7 @@ int main() {
             tree.merge(b, c, d);
         } else {
             if (tree.same(b, c)) {
-                print(tree.dist(b, c));
+                print(tree.diff(b, c));
             } else {
                 print('?');
             }

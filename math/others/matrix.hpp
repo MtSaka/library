@@ -74,28 +74,28 @@ struct Matrix : vector<vector<T>> {
         if (n == 0) return 1;
         T res = 1;
         rep(i, n) {
-            if (b.data[i][i] == T(0)) {
+            if (b[i][i] == T(0)) {
                 rep(j, i + 1, n) {
-                    if (b.data[j][i] != 0) {
-                        swap(b.data[i], b.data[j]);
+                    if (b[j][i] != 0) {
+                        swap(b[i], b[j]);
                         res = -res;
                         break;
                     }
                 }
             }
-            if (b.data[i][i] == T(0)) return T(0);
+            if (b[i][i] == T(0)) return T(0);
             {
-                const T s = b.data[i][i];
+                const T s = b[i][i];
                 res *= s;
                 const T invs = T(1) / s;
-                rep(j, n) b.data[i][j] *= invs;
+                rep(j, n) b[i][j] *= invs;
             }
             rep(j, i + 1, n) {
-                const T s = b.data[j][i];
-                rep(k, n) b.data[j][k] -= b.data[i][k] * s;
+                const T s = b[j][i];
+                rep(k, n) b[j][k] -= b[i][k] * s;
             }
         }
-        rep(i, n) res *= b.data[i][i];
+        rep(i, n) res *= b[i][i];
         return res;
     }
 };
