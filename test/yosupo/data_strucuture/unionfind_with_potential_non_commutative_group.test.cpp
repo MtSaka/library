@@ -1,3 +1,4 @@
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/unionfind_with_potential_non_commutative_group
 #include "../../../template/template.hpp"
 #include "../../../ds/union-find/weighted-union-find.hpp"
 #include "../../../math/modular/modint.hpp"
