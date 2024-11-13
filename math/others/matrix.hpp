@@ -2,19 +2,17 @@
 #include "../../template/template.hpp"
 
 template <typename T>
-struct Matrix {
+struct Matrix : vector<vector<T>> {
    private:
-    vector<vector<T>> data;
+    using Base = vector<vector<T>>;
 
    public:
     Matrix() {}
-    Matrix(int n, int m) : data(n, vector<T>(m, T())) {}
-    Matrix(int n) : data(n, vector<T>(n, T())) {};
-    Matrix(const vector<vector<T>>& a) : data(a) {}
-    size_t height() const { return data.size(); }
-    size_t width() const { return (data.size() ? data[0].size() : 0); }
-    inline const vector<T>& operator[](int k) const { return data[k]; }
-    inline vector<T>& operator[](int k) { return data[k]; }
+    Matrix(int n, int m) : Base(n, vector<T>(m, T())) {}
+    Matrix(int n) : Base(n, vector<T>(n, T())) {};
+    Matrix(const vector<vector<T>>& a) : Base(a) {}
+    size_t height() const { return this->size(); }
+    size_t width() const { return (this->size() ? (*this)[0].size() : 0); }
     static Matrix I(int n) {
         Matrix mat(n);
         for (int i = 0; i < n; i++) mat[i][i] = 1;
@@ -38,7 +36,12 @@ struct Matrix {
         for (int i = 0; i < n; i++)
             for (int j = 0; j < m; j++)
                 for (int k = 0; k < p; k++) res[i][j] += (*this)[i][k] * r[k][j];
-        data.swap(res);
+        return *this = move(res);
+    }
+    Matrix& operator*=(const T& r) {
+        const int n = height(), m = width();
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < m; j++) (*this)[i][j] *= r;
         return *this;
     }
     Matrix& operator^=(long long k) {
@@ -49,8 +52,7 @@ struct Matrix {
             tmp *= tmp;
             k >>= 1LL;
         }
-        data.swap(res.data);
-        return *this;
+        return *this = move(res);
     }
     Matrix pow(long long k) const {
         Matrix res = Matrix::I(height());
@@ -65,6 +67,7 @@ struct Matrix {
     friend Matrix operator+(const Matrix& l, const Matrix& r) { return Matrix(l) += r; }
     friend Matrix operator-(const Matrix& l, const Matrix& r) { return Matrix(l) -= r; }
     friend Matrix operator*(const Matrix& l, const Matrix& r) { return Matrix(l) *= r; }
+    friend Matrix operator*(const Matrix& l, const T& r) { return Matrix(l) *= r; }
     T determinant() const {
         Matrix b(*this);
         const int n = height();
@@ -94,19 +97,6 @@ struct Matrix {
         }
         rep(i, n) res *= b.data[i][i];
         return res;
-    }
-    template <typename Sc>
-    void scan(Sc& a) {
-        for (int i = 0; i < height(); i++)
-            for (int j = 0; j < width(); j++) a.scan((*this)[i][j]);
-    }
-    template <typename Pr>
-    void print(Pr& pr) const {
-        pr.print(data);
-    }
-    template <typename Pr>
-    void debug(Pr& pr) const {
-        pr.print(data);
     }
 };
 /**

@@ -1,39 +1,40 @@
 #pragma once
 #include "../../template/template.hpp"
+#include "../../others/monoid.hpp"
 
-template <typename T>
+template <typename M, bool = Monoid::is_monoid<M>::value>
 struct WeightedUnionFind {
-    vector<int> p;
-    vector<T> diff;
+   private:
+    using T = typename M::value_type;
+    vector<int> par;
+    vector<T> val;  // a_r^{-1} a_i
+   public:
     WeightedUnionFind() {}
-    WeightedUnionFind(int n, T s = 0) : p(n, -1), diff(n, s) {}
+    WeightedUnionFind(int n) : par(n, -1), val(n, M::id()) {}
     int root(int x) {
-        if (p[x] < 0) return x;
-        int r = root(p[x]);
-        diff[x] += diff[p[x]];
-        return p[x] = r;
+        if (par[x] < 0) return x;
+        const int r = root(par[x]);
+        val[x] = M::op(val[par[x]], val[x]);
+        return par[x] = r;
     }
-    T weight(int x) {
-        root(x);
-        return diff[x];
-    }
+    T weight(int x) { return root(x), val[x]; }
     bool same(int x, int y) { return root(x) == root(y); }
-    int size(int x) { return -p[root(x)]; }
-    bool merge(int x, int y, T w) {
-        int xx = x, yy = y;
-        T ww = w;
-        w += weight(x), w -= weight(y);
+    int size(int x) { return -par[root(x)]; }
+    pair<bool, bool> merge(int x, int y, T w) {
+        w = M::op(weight(x), M::get_inv(M::op(weight(y), w)));
         x = root(x), y = root(y);
-        if (x == y) return dist(xx, yy) == ww;
-        if (p[x] > p[y]) swap(x, y), w = -w;
-        p[x] += p[y];
-        p[y] = x;
-        diff[y] = w;
-        return true;
+        if (x == y) {
+            if (w == M::id()) return {false, true};
+            return {false, false};
+        }
+        if (par[x] > par[y]) swap(x, y), w = M::get_inv(w);
+        par[x] += par[y];
+        par[y] = x;
+        val[y] = w;
+        return {true, true};
     }
-    T dist(int x, int y) {
-        return weight(y) - weight(x);
-    }
+    // a_y^{-1} a_x
+    T diff(int x, int y) { return M::op(M::get_inv(weight(y)), weight(x)); }
 };
 /**
  * @brief Weighted Disjoint Set Union(重み付きUnion Find)
