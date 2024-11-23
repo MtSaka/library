@@ -1,5 +1,6 @@
 #pragma once
 
+// \sum_{i=0}^{n-1} floor((a*i+b)/m)
 template <typename T>
 T floor_sum(T n, T m, T a, T b) {
     T ans = 0;
