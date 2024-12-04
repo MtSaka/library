@@ -8,6 +8,10 @@ struct Rational {
     Rational(long long n) : num(n), den(1) {}
     Rational(long long n, long long d) : num(n), den(d) { normalize(); }
     void normalize() {
+        if (num == 0) {
+            den = 1;
+            return;
+        }
         long long g = gcd(num, den);
         num /= g;
         den /= g;
