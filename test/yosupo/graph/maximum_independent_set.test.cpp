@@ -10,7 +10,7 @@ int main() {
         g[v].eb(u);
     }
     auto ans = MaximumIndependentSet(g);
-    print(popcount(ans));
+    print(popcnt(ans));
     rep(i, n) if ((ans >> i) & 1) pr << i << " ";
     pr << endl;
 }

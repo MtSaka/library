@@ -11,7 +11,7 @@ ull MaximumIndependentSet(const vector<vi>& g) {
         while (true) {
             bool f = false;
             rep(v, n) if ((rest >> v) & 1) {
-                int deg = popcount(adj[v] & rest);
+                int deg = popcnt(adj[v] & rest);
                 chmax(p, pair<int, int>{deg, v});
                 if (deg <= 1) {
                     rest ^= 1ull << v, rest &= ~adj[v], now |= 1ull << v;
@@ -21,7 +21,7 @@ ull MaximumIndependentSet(const vector<vi>& g) {
             if (!f) break;
             p = {-1, -1};
         }
-        const int sz1 = popcount(now), sz2 = popcount(rest);
+        const int sz1 = popcnt(now), sz2 = popcnt(rest);
         if (chmax(ans, sz1)) res = now;
         if (sz2 == 0 || sz1 + sz2 <= ans) return;
         const int v = p.second;
