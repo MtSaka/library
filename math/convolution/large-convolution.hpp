@@ -3,9 +3,9 @@
 #include "convolution.hpp"
 template <typename T, enable_if_t<is_modint<T>::value>* = nullptr>
 vector<T> convolution_large(const vector<T>& a, const vector<T>& b) {
-    const int n = a.size(), m = b.size();
+    const size_t n = a.size(), m = b.size();
     constexpr unsigned int p = T::get_mod();
-    if (n + m - 1 <= ((p - 1) & (1 - p))) return convolution(a, b);
+    if (n + m <= 1 + ((p - 1) & (1 - p))) return convolution(a, b);
     constexpr int lg = ceil_log2((p - 1) & (1 - p)) - 1;
     constexpr int mask = (1 << lg) - 1;
     const int d1 = (n + mask) >> lg, d2 = (m + mask) >> lg;
