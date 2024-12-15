@@ -25,6 +25,10 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
+      # df -h
+      - name: Check disk space
+        run: df -h
+        
       - uses: actions/checkout@v4
 
       - name: Set up competitive-verifier
