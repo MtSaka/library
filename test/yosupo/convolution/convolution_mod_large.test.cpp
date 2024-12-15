@@ -1,4 +1,4 @@
-// DON'T VERIFY(Testcases Too Large) competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/convolution_mod_large
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/convolution_mod_large
 #include "../../../template/template.hpp"
 #include "../../../math/convolution/large-convolution.hpp"
 using mint = ModInt<998244353>;
