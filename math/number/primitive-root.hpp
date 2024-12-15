@@ -27,14 +27,14 @@ ull primitive_root(ull n, Rand rand = rand64) {
 }
 template <ull p, enable_if_t<is_prime_v<p>>* = nullptr>
 constexpr ull constexpr_primitive_root() {
-    if (p == 2) return 1;
-    if (p == 167772161) return 3;
-    if (p == 469762049) return 3;
-    if (p == 754974721) return 11;
-    if (p == 998244353) return 3;
-    if (p == 1224736769) return 3;
-    if (p == 1811939329) return 11;
-    if (p == 2013265921) return 11;
+    if constexpr (p == 2) return 1;
+    if constexpr (p == 167772161) return 3;
+    if constexpr (p == 469762049) return 3;
+    if constexpr (p == 754974721) return 11;
+    if constexpr (p == 998244353) return 3;
+    if constexpr (p == 1224736769) return 3;
+    if constexpr (p == 1811939329) return 11;
+    if constexpr (p == 2013265921) return 11;
     rep(g, 2, p) {
         if (mod_pow(g, (p - 1) >> 1, p) != 1) return g;
     }
