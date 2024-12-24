@@ -85,6 +85,10 @@ struct StaticModInt : internal::modint_base {
     friend constexpr bool operator!=(const StaticModInt& l, const StaticModInt& r) { return l.val != r.val; }
     constexpr StaticModInt pow(ll a) const {
         StaticModInt v = *this, res = 1;
+        if (a < 0) {
+            a = -a;
+            v = v.inv();
+        }
         while (a) {
             if (a & 1) res *= v;
             v *= v;
@@ -193,6 +197,10 @@ struct DynamicModInt {
     friend bool operator!=(const DynamicModInt& l, const DynamicModInt& r) { return l.val != r.val; }
     DynamicModInt pow(ll a) const {
         DynamicModInt v = *this, res = 1;
+        if (a < 0) {
+            a = -a;
+            v = v.inv();
+        }
         while (a) {
             if (a & 1) res *= v;
             v *= v;
