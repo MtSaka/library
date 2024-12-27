@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/min_of_mod_of_linear
-#include "../../../library/template/template.hpp"
-#include "../../../library/math/number/min-of-mod-linear.hpp"
+#include "../../../template/template.hpp"
+#include "../../../math/number/min-of-mod-linear.hpp"
 int main() {
     INT(t);
     rep(t) {
