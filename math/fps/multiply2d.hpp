@@ -16,7 +16,7 @@ vector<FormalPowerSeries<mint>> multiply2d(const vector<FormalPowerSeries<mint>>
     if (h < w) {
         auto ft = transpose(f);
         auto gt = transpose(g);
-        return transpose(multiply(ft, gt));
+        return transpose(multiply2d(ft, gt));
     }
     FormalPowerSeries<mint> a(f.size() * w), b(g.size() * w);
     rep(i, f.size()) rep(j, f[0].size()) a[i * w + j] = f[i][j];
