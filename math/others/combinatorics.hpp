@@ -33,7 +33,7 @@ struct Combinatorics {
         return dat[n - 1] * idat[n];
     }
     static T com(ll n, ll k) {
-        if (k < 0 || n < k) return T();
+        if (k < 0 || n < k || n < 0) return T();
         extend(n);
         return dat[n] * idat[k] * idat[n - k];
     }

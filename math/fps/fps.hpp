@@ -19,6 +19,16 @@ struct FormalPowerSeries : vector<mint> {
     inline void shrink() {
         while (!(*this).empty() && (*this).back() == mint()) (*this).pop_back();
     }
+    FPS rev() const {
+        FPS res(*this);
+        reverse(res.begin(), res.end());
+        return res;
+    }
+    FPS pre(int sz) const {
+        FPS res((*this).begin(), (*this).begin() + min(sz, (int)(*this).size()));
+        if ((int)res.size() < sz) res.resize(sz);
+        return res;
+    }
     FPS& dot(const FPS& r) {
         rep(i, min((*this).size(), r.size()))(*this)[i] *= r[i];
         return *this;
@@ -50,46 +60,39 @@ struct FormalPowerSeries : vector<mint> {
         return res;
     }
     FPS& operator+=(const mint& r) {
-        shrink();
         if ((*this).empty()) (*this).resize(1);
         (*this)[0] += r;
         return *this;
     }
     FPS& operator-=(const mint& r) {
-        shrink();
         if ((*this).empty()) (*this).resize(1);
         (*this)[0] -= r;
         return *this;
     }
     FPS& operator*=(const mint& r) {
-        shrink();
         for (auto& x : *this) x *= r;
         return *this;
     }
     FPS& operator/=(const mint& r) {
-        shrink()(*this) *= r.inv();
+        (*this) *= r.inv();
         return *this;
     }
     FPS& operator+=(const FPS& r) {
-        shrink();
         if ((*this).size() < r.size()) (*this).resize(r.size());
         rep(i, r.size())(*this)[i] += r[i];
         return *this;
     }
     FPS& operator-=(const FPS& r) {
-        shrink();
         if ((*this).size() < r.size()) (*this).resize(r.size());
         rep(i, r.size())(*this)[i] -= r[i];
         return *this;
     }
     FPS& operator*=(const FPS& r) {
-        shrink();
         auto ret = convolution(*this, r);
         (*this) = {ret.begin(), ret.end()};
         return *this;
     }
     FPS& operator/=(FPS r) {
-        shrink();
         const int n = (*this).size(), m = r.size();
         if (n < m) {
             (*this).clear();
@@ -105,7 +108,6 @@ struct FormalPowerSeries : vector<mint> {
         return *this;
     }
     FPS& operator%=(const FPS& r) {
-        shrink();
         const int n = (*this).size(), m = r.size();
         if (n < m) return *this;
         (*this) -= (*this) / r * r;
@@ -113,12 +115,10 @@ struct FormalPowerSeries : vector<mint> {
         return *this;
     }
     FPS& operator<<=(ll k) {
-        shrink();
         (*this).insert((*this).begin(), k, mint(0));
         return *this;
     }
     FPS& operator>>=(ll k) {
-        shrink();
         if (k > (ll)(*this).size())
             (*this).clear();
         else
@@ -146,7 +146,7 @@ struct FormalPowerSeries : vector<mint> {
             m = (*this) - q * r;
         else
             m = *this;
-        q.shrink(), m.shrink();
+        m.shrink();
         return {q, m};
     }
     mint operator()(const mint& x) const {
@@ -161,7 +161,6 @@ struct FormalPowerSeries : vector<mint> {
         return res;
     }
     FPS& inplace_diff() {
-        shrink();
         (*this).erase((*this).begin());
         mint coeff = 1;
         for (int i = 0; i < (int)(*this).size(); i++) {
@@ -178,7 +177,6 @@ struct FormalPowerSeries : vector<mint> {
         return res;
     }
     FPS& inplace_integral() {
-        shrink();
         const int n = (*this).size();
         vector<mint> iv(n + 1, 1);
         rep(i, 2, n + 1) iv[i] = -iv[p % i] * (p / i);
@@ -194,7 +192,6 @@ struct FormalPowerSeries : vector<mint> {
         return res.integral();
     }
     FPS& inplace_log(int d = -1) {
-        shrink();
         const int n = (*this).size();
         if (d == -1) d = n;
         FPS tmp = inv(d);
