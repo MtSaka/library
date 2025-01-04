@@ -15,8 +15,8 @@ FormalPowerSeries<mint> power_projection(FormalPowerSeries<mint> f, FormalPowerS
         auto r = q;
         for (int i = 1; i <= n; i += 2)
             r[i] = -r[i];
-        auto s = multiply(p, r);
-        auto t = multiply(q, r);
+        auto s = multiply2d(p, r);
+        auto t = multiply2d(q, r);
         vector<fps> u(n / 2 + 1, fps(2 * k + 1)), v(n / 2 + 1, fps(2 * k + 1));
         rep(i, n / 2 + 1) u[i] = s[i * 2 + n % 2], v[i] = t[i * 2];
         p = u, q = v;

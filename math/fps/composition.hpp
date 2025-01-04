@@ -19,7 +19,7 @@ FormalPowerSeries<mint> composite(FormalPowerSeries<mint> f, FormalPowerSeries<m
         auto r = q;
         for (int i = 1; i <= n; i += 2)
             r[i] = -r[i];
-        auto t = multiply(q, r);
+        auto t = multiply2d(q, r);
         rep(i, n / 2 + 1) t[i] = t[i * 2];
         t.resize(n / 2 + 1);
         auto u = dfs(t, n / 2, k * 2);
@@ -30,7 +30,7 @@ FormalPowerSeries<mint> composite(FormalPowerSeries<mint> f, FormalPowerSeries<m
         reverse(revr.begin(), revr.end());
         for (auto& e : revr)
             e = e.rev();
-        vector<fps> p = multiply(s, revr);
+        vector<fps> p = multiply2d(s, revr);
         p.resize(2 * n + 1);
         p.erase(p.begin(), p.begin() + n);
         rep(i, n + 1) p[i].erase(p[i].begin(), p[i].begin() + k), p[i].resize(k + 1);
