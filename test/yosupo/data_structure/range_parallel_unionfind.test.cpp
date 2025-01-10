@@ -1,4 +1,4 @@
-// competitive-verifier PROBLEM https://judge.yosupo.jp/problem/range_parallel_unionfind
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/range_parallel_unionfind
 #include "../../../template/template.hpp"
 #include "../../../ds/union-find/range-parallel-union-find.hpp"
 #include "../../../math/modular/modint.hpp"
