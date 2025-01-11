@@ -27,8 +27,8 @@ struct RangeParallelUnionFind : UnionFind {
             k--;
             if (uf[k].same(i, j)) return;
             uf[k].merge(i, j);
-            inner_merge(i, j, k);
-            inner_merge(i + (1 << k), j + (1 << k), k);
+            inner_merge(i, j, k, F);
+            inner_merge(i + (1 << k), j + (1 << k), k, f);
         }
     }
 
