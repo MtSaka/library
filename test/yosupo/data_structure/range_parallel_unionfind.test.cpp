@@ -16,7 +16,7 @@ int main() {
     };
     rep(q) {
         INT(k, a, b);
-        uf.range_merge(a, b, k);
+        uf.range_merge(a, b, k, f);
         print(ans);
     }
 }
