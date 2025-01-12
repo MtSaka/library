@@ -59,7 +59,7 @@ struct LazySegmentTree {
         rep(i, lg) rep(j, 1 << i) eval((1 << i) + j, 1 << (lg - i));
     }
     T prod(int l, int r) {
-        if (l == r) return M::id();
+        if (l >= r) return M::id();
         l += size, r += size;
         rrep(i, 1, lg + 1) {
             bool f = false;
@@ -95,7 +95,7 @@ struct LazySegmentTree {
         update(k, [&](const T& y) -> T { return Aop(x, y, 1); });
     }
     void apply(int l, int r, const U& x) {
-        if (l == r) return;
+        if (l >= r) return;
         l += size, r += size;
         int lst = lg + 1;
         rrep(i, 1, lg + 1) {

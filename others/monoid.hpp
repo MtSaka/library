@@ -67,6 +67,12 @@ struct Assign {
     using value_type = T;
     static constexpr T op(const T&, const T& x) { return x; }
 };
+template<typename T>
+struct Gcd{
+    using value_type = T;
+    static constexpr T op(const T& x, const T& y) { return binary_gcd(x, y); }
+    static constexpr T id() { return T(0); }
+};
 template <typename T, T max_value = infinity<T>::value>
 struct AssignMin {
     using M = Min<T, max_value>;

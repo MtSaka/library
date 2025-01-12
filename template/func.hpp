@@ -89,6 +89,21 @@ inline ll mod_inv(ll a, const ll& mod) {
     if (x < 0) x += mod;
     return x;
 }
+template <typename T>
+T binary_gcd(T x_, T y_) {
+    T x = x_ < 0 ? -x_ : x_, y = y_ < 0 ? -y_ : y_;
+    if (!x || !y) return x + y;
+    int n = __builtin_ctzll(x), m = __builtin_ctzll(y);
+    x >>= n, y >>= m;
+    while (x != y) {
+        if (x > y) {
+            x = (x - y) >> __builtin_ctzll(x - y);
+        } else {
+            y = (y - x) >> __builtin_ctzll(y - x);
+        }
+    }
+    return x << std::min(n, m);
+}
 template <typename T, typename U>
 std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p) {
     os << p.first << " " << p.second;
