@@ -19,7 +19,7 @@ struct LCA : Graph<T> {
         dfs(root, root, 0);
     }
     int la(int v, int k) const {
-        while (k > 0 && v != root) {
+        while (k > 0) {
             if (dep[v] - k <= dep[leap[v]]) {
                 k -= dep[v] - dep[leap[v]];
                 v = leap[v];
