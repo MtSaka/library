@@ -26,17 +26,14 @@ struct BinaryIndexedTree {
         data.assign(n + 1, M::id());
     }
     void apply(int k, T x) {
-        k++;
-        while (k <= n) {
+        for (k++; k <= n; k += k & -k) {
             data[k] = M::op(data[k], x);
-            k += k & -k;
         }
     }
     T prod(int k) const {
         T res = M::id();
-        while (k) {
+        for (; k > 0; k -= k & -k) {
             res = M::op(res, data[k]);
-            k -= k & -k;
         }
         return res;
     }
