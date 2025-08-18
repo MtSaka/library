@@ -155,7 +155,7 @@ inline void trace(const Head& head, const Tail&... tail) {
     if (sizeof...(tail)) prd.print_char(','), prd.print_char(' ');
     trace(tail...);
 }
-#ifdef ONLINE_JUDGE
+#ifndef LOCAL
 #define dbg(...) (void(0))
 #else
 #define dbg(...)                                                       \
