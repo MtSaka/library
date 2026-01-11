@@ -84,5 +84,5 @@ struct COMB {
 template <long long p>
 vector<vector<ModInt<p>>> COMB<p>::comb = vector<vector<ModInt<p>>>();
 /**
- * @brief Combinatorics(組み合わせ)
+ * @brief Combinatorics(組合せ)
  */
