@@ -1,6 +1,17 @@
 #pragma once
 #include "../../template/template.hpp"
 
+/**
+ * struct Path {
+  mint a, b;
+};
+using Point = mint;
+Path vertex(int i) { return {1, A[i]}; }
+Path compress(Path p, Path c) { return {p.a * c.a, p.a * c.b + p.b}; };
+Point rake(Point l, Point r) { return l * r; };
+Point add_edge(Path d) { return d.b; };
+Path add_vertex(Point d, int i) { return {d, A[i]}; };
+ */
 namespace StaticTopTreeimpl {
 enum Type { Vertex,
             Compress,
