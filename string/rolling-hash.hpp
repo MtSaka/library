@@ -48,6 +48,7 @@ struct RollingHash {
             return inner_hash[n];
         }
         size_t size() const { return n; }
+        ull get_power(int k) const { return power[k]; }
     };
     RollingHash() { init(); }
     template <typename T>
