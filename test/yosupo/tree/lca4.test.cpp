@@ -1,7 +1,7 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/lca
 #include "../../../graph/graph-template.hpp"
-#include "../../../graph/tree/heavy-light-decomposition.hpp"
 #include "../../../template/template.hpp"
+#include "../../../graph/tree/PMORMQ-lowest-common-ancestor.hpp"
 
 int main() {
     int n, q;
@@ -12,10 +12,11 @@ int main() {
         sc >> p;
         g.add_edge(i, p);
     }
-    HeavyLightDecomposition hld(g);
+    PMORMQLCA lca(g);
+    lca.build();
     rep(i, q) {
         int u, v;
         sc >> u >> v;
-        print(hld.lca(u, v));
+        print(lca.lca(u, v));
     }
 }

@@ -2,7 +2,7 @@
 #include "../../template/template.hpp"
 #include "../graph-template.hpp"
 
-template <typename T>
+template <typename T = UnweightedEdge>
 struct HeavyLightDecomposition {
    private:
     int n, time, r;

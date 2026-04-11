@@ -7,15 +7,16 @@ struct PlusMinusOneRMQ {
    private:
     int bucket;
     vector<T> v;
-    vector<int> bidx, bbit;
-    SparseTable<Monoid::Min<T>> st;
+    vector<int> bbit;
+    SparseTable<Monoid::MinIdx<T>> st;
     vector<vector<vector<int>>> lookup_table;
     void init(const vector<T>& vs) {
-        int n = vs.size();
-        bucket = max(1, (int)__lg(n) / 2);
-        int sz = (n + bucket - 1) / bucket;
-        bidx.assign(sz, -1);
-        vector<int> bmin(sz);
+        const int n = vs.size();
+        v = vs;
+        bucket = max(1, (int)ceil_log2(n) / 2);
+        const int sz = (n + bucket - 1) / bucket;
+        vector<int> bidx(sz, -1);
+        vector<T> bmin(sz);
         bbit.assign(sz, 0);
         for (int i = 0; i < sz; ++i) {
             int l = i * bucket, r = min(n, (i + 1) * bucket);
@@ -26,7 +27,11 @@ struct PlusMinusOneRMQ {
                 if (vs[j] > vs[j - 1]) bbit[i] |= 1 << (j - l - 1);
             }
         }
-        st = SparseTable<Monoid::MinIdx<T>>(bmin);
+        st = SparseTable<Monoid::MinIdx<T>>([&]() {
+            vector<pair<T, int>> ret(sz);
+            for (int i = 0; i < sz; ++i) ret[i] = pair<T, int>{bmin[i], bidx[i]};
+            return ret;
+        }());
         lookup_table.assign(1 << (bucket - 1), vector<vector<int>>(bucket, vector<int>(bucket)));
         vector<int> a(bucket);
         for (int bit = 0; bit < 1 << (bucket - 1); ++bit) {
@@ -41,21 +46,24 @@ struct PlusMinusOneRMQ {
             }
         }
     }
+
+   public:
+    PlusMinusOneRMQ() {}
+    PlusMinusOneRMQ(const vector<T>& vs) { init(vs); }
     pair<T, int> prod(int l, int r) const {
-        if (l == r) return {infinity<T>::max(), -1};
-        int lb = l / bucket, rb = r / bucket;
+        if (l == r) return pair<T, int>{infinity<T>::max, -1};
+        r--;
+        const int lb = l / bucket, rb = r / bucket;
         if (lb == rb) {
-            int pos = lb * bucket + lookup_table[bbit[lb]][l % bucket][r % bucket - 1];
+            int pos = lb * bucket + lookup_table[bbit[lb]][l % bucket][r % bucket];
             return {v[pos], pos};
         }
         int pos = lb * bucket + lookup_table[bbit[lb]][l % bucket][bucket - 1];
-        if (r % bucket > 0) {
-            int rpos = rb * bucket + lookup_table[bbit[rb]][0][r % bucket - 1];
-            if (v[rpos] < v[pos]) pos = rpos;
-        }
+        int rpos = rb * bucket + lookup_table[bbit[rb]][0][r % bucket];
+        if (v[rpos] < v[pos]) pos = rpos;
         if (lb + 1 == rb) return {v[pos], pos};
         auto [bst, bpos] = st.prod(lb + 1, rb);
-        if (bst < v[pos]) pos = bidx[bpos];
+        if (bst < v[pos]) pos = bpos;
         return {v[pos], pos};
     }
 };
