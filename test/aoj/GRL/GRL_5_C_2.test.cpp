@@ -1,9 +1,9 @@
 // competitive-verifier: PROBLEM https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
-#include "../../../graph/tree/RMQ_lowest_common_ancestor.hpp"
+#include "../../../graph/tree/RMQ-lowest-common-ancestor.hpp"
 #include "../../../template/template.hpp"
 int main() {
     INT(n);
-    RMQ_LCA g(n);
+    RMQLCA g(n);
     rep(i, n) {
         INT(k);
         while (k--) {

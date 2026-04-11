@@ -1,7 +1,7 @@
 #pragma once
 #include "../../template/template.hpp"
 
-template <class T>
+template <typename T>
 struct SegmentTreeBeats {
    private:
     static constexpr T INF = numeric_limits<T>::max();

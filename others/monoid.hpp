@@ -62,13 +62,31 @@ struct Max {
     static constexpr T op(const T& x, const T& y) { return x < y ? y : x; }
     static constexpr T id() { return min_value; }
 };
+template <typename T, T max_value = infinity<T>::value>
+struct MinIdx {
+    using value_type = pair<T, int>;
+    static constexpr value_type op(const value_type& x, const value_type& y) {
+        if (x.first != y.first) return x.first < y.first ? x : y;
+        return x.second < y.second ? x : y;
+    }
+    static constexpr value_type id() { return {max_value, INT_MAX}; }
+};
+template <typename T, T min_value = infinity<T>::mvalue>
+struct MaxIdx {
+    using value_type = pair<T, int>;
+    static constexpr value_type op(const value_type& x, const value_type& y) {
+        if (x.first != y.first) return x.first < y.first ? y : x;
+        return x.second < y.second ? x : y;
+    }
+    static constexpr value_type id() { return {min_value, INT_MAX}; }
+};
 template <typename T>
 struct Assign {
     using value_type = T;
     static constexpr T op(const T&, const T& x) { return x; }
 };
-template<typename T>
-struct Gcd{
+template <typename T>
+struct Gcd {
     using value_type = T;
     static constexpr T op(const T& x, const T& y) { return binary_gcd(x, y); }
     static constexpr T id() { return T(0); }

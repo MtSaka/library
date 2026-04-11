@@ -8,9 +8,8 @@ struct SparseTable {
     using T = typename M::value_type;
     int lg, n;
     vector<vector<T>> table;
-    vector<int> log_table;
     T internal_prod(int l, int r) const {
-        int d = log_table[r - l];
+        int d = __lg(r - l);
         return M::op(table[d][l], table[d][r - (1 << d)]);
     }
 
@@ -23,9 +22,6 @@ struct SparseTable {
         table.assign(lg, vector<T>(n));
         table[0] = v;
         rep(i, 1, lg) rep(j, n - (1 << i) + 1) table[i][j] = M::op(table[i - 1][j], table[i - 1][j + (1 << (i - 1))]);
-        log_table.assign(n + 1, 0);
-        log_table[1] = 0;
-        rep(i, 2, n + 1) log_table[i] = log_table[i >> 1] + 1;
     }
     template <bool dummy = true, typename enable_if<Monoid::has_id<M>::value && dummy>::type* = nullptr>
     T prod(int l, int r) const {

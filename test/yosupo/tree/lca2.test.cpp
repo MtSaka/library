@@ -1,9 +1,9 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/lca
-#include "../../../graph/tree/RMQ_lowest_common_ancestor.hpp"
+#include "../../../graph/tree/RMQ-lowest-common-ancestor.hpp"
 #include "../../../template/template.hpp"
 int main() {
     INT(n, q);
-    RMQ_LCA g(n);
+    RMQLCA g(n);
     for (int i = 1; i < n; i++) {
         INT(u);
         g.add_edge(u, i);

@@ -12,11 +12,11 @@ struct PairMinForLCA {
 };
 }  // namespace Monoid
 template <typename T = UnweightedEdge>
-struct RMQ_LCA : Graph<T> {
+struct RMQLCA : Graph<T> {
     using Graph<T>::g;
     vector<int> in;
-    RMQ_LCA(int n) : Graph<T>(n) {}
-    RMQ_LCA(const Graph<T>& g) : Graph<T>(g) {}
+    RMQLCA(int n) : Graph<T>(n) {}
+    RMQLCA(const Graph<T>& g) : Graph<T>(g) {}
     void build(int root = 0) {
         in.resize(g.size());
         dfs(root, -1, 0);
