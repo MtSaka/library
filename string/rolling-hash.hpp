@@ -5,6 +5,7 @@ struct RollingHash {
    private:
     static constexpr ull MOD = (1ull << 61) - 1;
     static constexpr ull MASK31 = (1ull << 31) - 1;
+    mutable vector<ull> power{1};
     static ull calc_mod(ull a) {
         ull ret = (a & MOD) + (a >> 61);
         if (ret >= MOD) ret -= MOD;
@@ -28,31 +29,36 @@ struct RollingHash {
     struct Hash {
        private:
         int n;
-        ull BASE;
-        vector<ull> inner_hash, power;
+        vector<ull> inner_hash;
+        const vector<ull>* power;
 
        public:
+        Hash() : n(0), power(nullptr) {}
         template <typename T>
-        Hash(ull base, const T& s) : BASE(base) {
+        Hash(ull base, const T& s, const vector<ull>& power) : power(&power) {
             n = s.size();
             inner_hash.resize(n + 1);
-            for (int i = 0; i < n; i++) inner_hash[i + 1] = calc_add(s[i], calc_mul(BASE, inner_hash[i]));
-            power.resize(n + 1);
-            power[0] = 1;
-            for (int i = 0; i < n; i++) power[i + 1] = calc_mul(power[i], BASE);
+            for (int i = 0; i < n; i++) inner_hash[i + 1] = calc_add(s[i], calc_mul(base, inner_hash[i]));
         }
         ull get_hash(int l, int r) const {
-            return calc_add(inner_hash[r], MOD - calc_mul(inner_hash[l], power[r - l]));
+            return calc_add(inner_hash[r], MOD - calc_mul(inner_hash[l], (*power)[r - l]));
         }
         ull get_all() const {
             return inner_hash[n];
         }
         size_t size() const { return n; }
-        ull get_power(int k) const { return power[k]; }
+        ull get_power(int k) const { return (*power)[k]; }
     };
     RollingHash() { init(); }
+    void ensure_power(int n) const {
+        while ((int)power.size() <= n) power.push_back(calc_mul(power.back(), BASE));
+    }
     template <typename T>
-    Hash get_hash(const T& s) const { return Hash(BASE, s); }
+    Hash get_hash(const T& s) const {
+        ensure_power(s.size());
+        return Hash(BASE, s, power);
+    }
+    ull get_power(int k) const { return power[k]; }
     ull get_base() const { return BASE; }
     int lcp(const Hash& h1, const Hash& h2, int l1 = 0, int r1 = -1, int l2 = 0, int r2 = -1) {
         if (r1 == -1) r1 = h1.size();
