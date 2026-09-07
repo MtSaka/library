@@ -104,6 +104,16 @@ T binary_gcd(T x_, T y_) {
     }
     return x << std::min(n, m);
 }
+template<typename T>
+T floor_div(const T n, const T d) {
+    assert(d != 0);
+    return n / d - static_cast<T>((n ^ d) < 0 && n % d != 0);
+}
+template<typename T>
+T ceil_div(const T n, const T d) {
+    assert(d != 0);
+    return n / d + static_cast<T>((n ^ d) >= 0 && n % d != 0);
+}
 template <typename T, typename U>
 std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p) {
     os << p.first << " " << p.second;
